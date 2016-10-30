@@ -1,0 +1,108 @@
+---
+title: "Conditional branching and looping in R answers"
+author: "MRC CSC"
+date: "01/01/2015"
+output: html_document
+---
+
+These exercises cover the sections of Statistics in R [Introduction to R]("introToR_Day1.html").
+
+-- Calculate the factorial (factorial of 3 = 3+2+1) of 10 using a loop.
+
+```{r,message=T}
+
+for(x in 1:10){
+  if(x == 1){
+    factorialAnswer <- 1
+  }else{
+    factorialAnswer <- factorialAnswer * x 
+  }
+}
+factorialAnswer
+```
+-- Adjusting your answer from before, what is the first number that has a factorial greater than 1000.
+```{r,message=T}
+
+factorialAnswer <- 0
+count <- 0
+
+while(factorialAnswer <= 1000){
+  count <- count+1
+  if(count == 1){
+    factorialAnswer <- 1
+  }else{
+    factorialAnswer <- factorialAnswer * count 
+  }
+}
+count
+```
+
+-- Using an ifelse() expression, create a factor from a vector of 1 to 40 where all numbers less than 10 are "small",10 to 30 are "mid",31 to 40 are "big"
+
+```{r,message=T}
+condExercise <- 1:40
+condExercise
+vectorResult <- ifelse(condExercise<10,"small",ifelse(condExercise < 31,"mid","big"))
+temp <- factor(vectorResult,levels=c("small","mid","big"),order=T)
+temp
+```
+
+-- Read in all files from expression directory with .txt extension and create a table of gene expression results.
+
+```{r,message=T}
+
+filesToRead <- dir("ExpressionResults/",pattern = "*\\.txt",full.names=T)
+fileRead <- vector("list",length=length(filesToRead))
+for(i in 1:length(filesToRead)){
+  fileRead[[i]] <- read.delim(filesToRead[i],header=F,sep="\t")
+  colnames(fileRead[[i]]) <- c("GeneNames",basename(filesToRead[i]))
+}
+mergedTable <- NULL
+for(i in fileRead){
+  if(is.null(mergedTable)){
+    mergedTable <- i
+  }else{
+    mergedTable <- merge(mergedTable,i,by=1,all=T)
+  }
+  
+  print(nrow(mergedTable))
+}
+
+mergedTable[1:3,] 
+
+```
+ Add annotation from Annotation.txt. How do the pathway information for genes compare between expression table and annotation table.
+ 
+```{r,message=T}
+Annotation <- read.table("ExpressionResults/Annotation.ann",sep="\t",h=T)
+annotatedExpression <- merge(Annotation,mergedTable,by=1,all.x=F,all.y=T)
+annotatedExpression[1:2,]
+
+table(Annotation$Pathway)
+summary(Annotation$Pathway)
+```
+
+-- Look at the correlation between samples. Do any samples show a higher degree of correlation.
+
+```{r,message=T}
+cor(annotatedExpression[,grep("ExpressionResults",colnames(annotatedExpression))])
+
+```
+-- For every gene, perform a t-test and write out the t-statistic (assuming equal variance), log2 fold change, pvalue and gene annotation to a file.
+```{r,message=T}
+indexGroupOne <- grep("[1-5].txt",colnames(annotatedExpression))
+indexGroupTwo <- grep("[6-9,0].txt",colnames(annotatedExpression))
+ttestResults <- apply(annotatedExpression,1,function(x)
+  t.test(as.numeric(x[indexGroupOne]),as.numeric(x[indexGroupTwo])))
+
+str(ttestResults[[1]])
+
+testResult <- sapply(ttestResults,function(x) c(log2(x$estimate[2]) - log2(x$estimate[1]), x$statistic,x$p.value))
+testResult <- t(testResult)
+colnames(testResult) <- c("logFC","tStatistic","pValue")
+annotatedResult <- cbind(annotatedExpression[,1:3],testResult)
+annotatedResult <- annotatedResult[order(annotatedResult$tStatistic),]
+annotatedResult[1:2,]
+write.table(annotatedResult,file="annotatedResults.csv",sep=",",row.names=F,col.names=F)
+```
+

@@ -1,0 +1,25 @@
+---
+title: "Statistics in R exercises"
+author: "MRC CSC"
+date: "01/01/2015"
+output: html_document
+---
+
+These exercises cover the sections of Statistics in R [Introduction to R]("introToR_Day1.html").
+
+**Exercise 1**
+
+- Read in the file categoriesAndExpression.txt.
+- How many genes are ofInterest and how many in pathways.
+- What are quantiles of expression overall, in Glycolysis genes and in TGFb genes.
+- How many genes were selected and in glycolysis pathway.
+- Given a normal distibution for the data, what is the probablity of selecting a gene with at least the expression level of "Gene18"
+- Perform a t-test to evaluate the difference between Selected and NotSelected genes and Glycolysis and TGFb pathway.
+
+**Exercise 2**
+
+- Read in the file lmExercise.txt.
+- What is the formula for the best fit lines for X vs Y and X vs Z
+- What are the Rsquared for X vs Y and X vs Z.
+- Predict values for X when Y is 100 and Z is 100.
+

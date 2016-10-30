@@ -1,0 +1,23 @@
+---
+title: "Reading and writing data in R exercises"
+author: "MRC CSC"
+date: "01/01/2015"
+output: html_document
+---
+
+These exercises cover the  sections of [Introduction to R]("introToR_Day1.html"). All files can be found in the "data" directory.
+
+**Exercise 1**
+
+Have a look at all files in notepad or excel before attempting to read. The files will all be found under the **data/** directory.
+
+- Read in the tab delimited file "GeneExpression.txt"
+
+- Find the mean expression of all samples.
+
+- Read in the tab delimited file "GeneExpressionWithMethods.txt". This file contains information on analysis steps used to produce file.
+
+- Read in the tab delimited file "GeneExpressionWithNotes.txt". This file contains notes about particular genes.
+
+- Read in tab delimited file "GeneExpression.txt". Order genes by their average expression. Write out a new comma separated file with column titles.
+

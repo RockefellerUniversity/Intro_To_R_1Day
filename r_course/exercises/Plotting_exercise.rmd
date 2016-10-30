@@ -1,0 +1,43 @@
+---
+title: "Plotting Excercise"
+author: "MRC CSC"
+date: "Monday, February 02, 2015"
+output: html_document
+---
+
+**Exercise 1**
+Produce a data frame with two columns: x, which ranges from -2&pi; to 2&pi; 
+and has a small interval between values (for plotting), and cosine(x). 
+Plot cosine(x) vs. x as a line. 
+Repeat, but try some different line types or colours. 
+(Hint. you could use seq function)
+
+**Exercise 2**
+Produce a plot like the one shown below. 
+(Hint: you can use the matplot function to make the plots.) 
+
+```{r,echo=FALSE}
+x<-seq(-10,10,0.1) 
+y<-sin(x) 
+z<-cos(x) 
+matplot(x,cbind(y,z),col=c("red","blue"),las=1,xlab="x",ylab="Sine(x) or Cosine(x)",lty=1:2,type="l")
+```
+
+
+**Exercise 3**
+Check out the data in the data frame Loblolly (in the datasets package), on the growth of loblolly pine trees from different stocks. 
+Create the following plot, or something similar 
+(note that you will need to convert height from ft to m).
+
+```{r,echo=FALSE}
+ll.dat<-Loblolly 
+ll.dat$height<-ll.dat$height*0.3048 
+ 
+plot(height~age,type="n",xlab="Age (yr)",ylab="Height (m)",las=1,xlim=c(0,25),data=ll.dat) 
+points(ll.dat$age[ll.dat$Seed==307],ll.dat$height[ll.dat$Seed==329],pch=1,col="red",type="o") 
+points(ll.dat$age[ll.dat$Seed==311],ll.dat$height[ll.dat$Seed==307],pch=6,col="blue",type="o") 
+points(ll.dat$age[ll.dat$Seed==311],ll.dat$height[ll.dat$Seed==311],pch=22,col="black",type="o") 
+legend("topleft",legend=c(311,307,329),pch=c(1,6,22),col=c("red","blue","black"))
+```
+
+
