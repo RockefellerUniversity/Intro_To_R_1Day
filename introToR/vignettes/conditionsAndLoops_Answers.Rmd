@@ -57,7 +57,7 @@ temp
 -- Read in all files from expression directory with .txt extension and create a table of gene expression results.
 
 ```{r,message=T}
-exprDirectory <- system.file("extdata", "ExpressionResults/", package = "reproducibleR")
+exprDirectory <- system.file("extdata", "ExpressionResults/", package = "introToR")
 
 filesToRead <- dir(exprDirectory,pattern = "*\\.txt",full.names=T)
 fileRead <- vector("list",length=length(filesToRead))
@@ -83,7 +83,7 @@ mergedTable[1:3,]
  
 ```{r,message=T}
 #Annotation <- read.table("../ExpressionResults/Annotation.ann",sep="\t",h=T)
-annFile <- system.file("extdata", "ExpressionResults/Annotation.ann", package = "reproducibleR")
+annFile <- system.file("extdata", "ExpressionResults/Annotation.ann", package = "introToR")
 
 Annotation <- read.table(annFile,sep="\t",h=T)
 

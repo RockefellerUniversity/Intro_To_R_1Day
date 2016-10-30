@@ -1,4 +1,4 @@
 library(testthat)
-library(reproducibleR)
+library(introToR)
 
 test_check("reproducibleR")

@@ -21,11 +21,11 @@ Have a look at all files in notepad or excel before attempting to read. All file
 - Read in the tab delimited file "GeneExpression.txt".
 ```{r,message=T}
 
-geneExpr <- system.file("extdata", "/data/GeneExpression.txt", package = "reproducibleR")
+geneExpr <- system.file("extdata", "/data/GeneExpression.txt", package = "introToR")
 
-geneExprMeth <- system.file("extdata", "data/GeneExpressionWithMethods.txt", package = "reproducibleR")
+geneExprMeth <- system.file("extdata", "data/GeneExpressionWithMethods.txt", package = "introToR")
 
-geneExprNotes <- system.file("extdata", "data/GeneExpressionWithNotes.txt", package = "reproducibleR")
+geneExprNotes <- system.file("extdata", "data/GeneExpressionWithNotes.txt", package = "introToR")
 
 #geneExpression <- read.table("../data/GeneExpression.txt",h=T,sep="\t",row.names=1)
 geneExpression <- read.table(geneExpr,h=T,sep="\t",row.names=1)
