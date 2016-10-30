@@ -5,14 +5,6 @@ Table[1:3,]
 ## ----echo=T,eval=F-------------------------------------------------------
 ## write.table(Table,file="data/writeThisTable.csv", sep=",", row.names =F,col.names=T)
 
-## ----echo=T,eval=T-------------------------------------------------------
-1- pnorm(8,mean=8,sd=3)
-
-## ----echo=T,eval=T-------------------------------------------------------
-tTestExample <- read.table("data/tTestData.csv",sep=",",header=T)
-Result <- t.test(tTestExample$A,tTestExample$B,alternative ="two.sided", var.equal = T)
-Result
-
 ## ------------------------------------------------------------------------
 x <- 1:10
 x[x < 4]
@@ -204,80 +196,6 @@ sapply(exampleList,quantile)
 ## ------------------------------------------------------------------------
 exampleList <- list(df=data.frame(sample=paste0("patient",1:2), data=c(1,12)), vec=c(1,3,4,5))
 sapply(exampleList,summary)
-
-## ----message=T-----------------------------------------------------------
-x=rnorm(100,70,10)
-y <- jitter(x,amount=1)+20
-mean(x)
-
-lmExample <- data.frame(X=x,Y=y)
-lmResult <- lm(Y~X,data=lmExample)
-
-## ----message=T-----------------------------------------------------------
-plot(Y~X,data=lmExample,main="Line of best fit with lm()",
-     xlim=c(0,150),ylim=c(0,150))
-abline(lmResult,col="red",lty=3,lwd=3)
-
-## ----message=T-----------------------------------------------------------
-myFirstFunction <- function(myArgument1,myArgument2){
-  myResult <- (myArgument1*myArgument2)
-  return(myResult)
-}
-myFirstFunction(4,5)
-
-## ----message=T-----------------------------------------------------------
-
-mySecondFunction <- function(myArgument1,myArgument2=10){
-  myResult <- (myArgument1*myArgument2)
-  return(myResult)
-}
-mySecondFunction(4,5)
-mySecondFunction(4)
-
-## ----message=T-----------------------------------------------------------
-
-mySecondFunction <- function(myArgument1,myArgument2){
-  if(missing(myArgument2)){
-    message("Value for myArgument2 not provided so will square myArgument1")
-    myResult <- myArgument1*myArgument1
-  }else{
-    myResult <- (myArgument1*myArgument2)   
-  }
-  return(myResult)
-}
-mySecondFunction(4)
-
-## ----message=T-----------------------------------------------------------
-myforthFunction <- function(myArgument1,myArgument2=10){
-  myResult <- (myArgument1*myArgument2)
-  return(myResult)
-  print("I returned the result")
-}
-myfifthFunction <- function(myArgument1,myArgument2=10){
-(myArgument1*myArgument2)
-}
-
-myforthFunction(4,5)
-myfifthFunction(4,5)
-
-
-## ----message=T-----------------------------------------------------------
-mySixthFunction <- function(arg1,arg2){
-  result1 <- arg1*arg2
-  result2 <- date()
-  return(list(Calculation=result1,DateRun=result2))
-}
-result <- mySixthFunction(10,10)
-result
-
-## ----message=T,error=TRUE------------------------------------------------
-mySeventhFunction <- function(arg1,arg2){
-  internalValue <- arg1*arg2
-  return(internalValue)
-}
-result <- mySeventhFunction(10,10)
-internalValue
-arg1
 
 ## ------------------------------------------------------------------------
 source("scripts/dayOfWeek.R")
