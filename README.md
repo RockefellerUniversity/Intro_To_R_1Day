@@ -1,4 +1,4 @@
-# Reproducible Research in R  
+# Intro To R (1 Day) 
 
 [![Join the chat at https://gitter.im/mrccsc/Reproducible-R](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/mrccsc/Reproducible-R?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
@@ -7,12 +7,12 @@
 
 ##The Course
 
-This course introduces R and statistical programming as well as best practices for reproducible research using R's dynamic reporting and version capture tools.
+This course introduces R and statistical programming.
 
-The course consists of 3 sections, 2 on basic R and 1 on reproducibility in R.  
+The course consists of 1 sections, 1 on basic R data types and data I/O and a second on conditionals and looping.  
 Each section is presented as both HTMl and Rpres markdown ( to allow for intergration of the presentation in the RStudion enviroment itself).  Exercises and answer sheets are included after all subsections to practice techniques and provide future reference examples. 
 
-Course material and exercises are available to view as rendered HTML at http://mrccsc.github.io/Reproducible-R/.  
+Course material and exercises are available to view as rendered HTML at http://mrccsc.github.io/Intro_To_R_1Day/.  
 All material is available to download under GPL v2 license.
 
 For  information on other courses run by our team see our [github IO page](http://mrccsc.github.io/training/).
@@ -53,9 +53,9 @@ install.packages("rmarkdown",dependencies=TRUE)
 </pre>
 
 #### Download the material
-The material can either be downloaded as a [zip](https://github.com/mrccsc/Reproducible-R/archive/master.zip)
+The material can either be downloaded as a [zip](https://github.com/mrccsc/Intro_To_R_1Day/archive/master.zip)
 <pre>
-wget https://github.com/mrccsc/Reproducible-R/archive/master.zip ./
+wget https://github.com/mrccsc/Intro_To_R_1Day/archive/master.zip ./
 </pre>
 or checked out from our Github repository
-https://github.com/mrccsc/Reproducible-R/
+https://github.com/mrccsc/Intro_To_R_1Day/
