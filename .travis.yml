@@ -1,0 +1,10 @@
+language: r
+os:
+  - linux
+  - osx
+cache: packages
+warnings_are_errors: true
+sudo: required
+r: bioc-release
+before_install:
+  - cd introToR
