@@ -19,7 +19,7 @@
 
     <section class="main-content">
       <h1>
-<a id="Intro_To_R_1Day" class="anchor" href="#Intro_To_R_1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Intro To R (1 Day)</h1>
+<a id="Intro_To_R" class="anchor" href="#Intro_To_R" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Intro To R (1 Day)</h1>
 
 <p><a href="https://gitter.im/mrccsc/Intro_To_R_1Day?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge"><img src="https://badges.gitter.im/Join%20Chat.svg" alt="Join the chat at https://gitter.im/mrccsc/Intro_To_R_1Day"></a>
 <a href="https://travis-ci.org/mrccsc/Intro_To_R_1Day"><img src="https://travis-ci.org/mrccsc/Intro_To_R_1Day.svg?branch=master" alt="https://travis-ci.org/mrccsc/Intro_To_R_1Day.svg?branch=master"></a>
@@ -36,18 +36,8 @@
 <p>The course consists of 2 sections, 1 on basic R data types and data I/O and a second on condtionals and looping.<br>
 Each section is presented as both HTMl and Rpres markdown ( to allow for intergration of the presentation in the RStudion enviroment itself).  Exercises and answer sheets are included after all subsections to practice techniques and provide future reference examples. </p>
 
-<p>Course material and exercises are available to view as rendered HTML at <a href="http://mrccsc.github.io/Intro_To_R_1Day">http://mrccsc.github.io/Intro_To_R_1Day</a>.<br>
+<p>Course material and exercises are available to view as rendered HTML at <a href="https://rockefelleruniversity.github.io/Intro_To_R_1Day/">https://rockefelleruniversity.github.io/Intro_To_R_1Day/</a>.<br>
 All material is available to download under GPL v2 license.</p>
-
-<p>For  information on other courses run by our team see our <a href="http://mrccsc.github.io/training/">github IO page</a>.</p>
-
-<h2>
-<a id="the-team" class="anchor" href="#the-team" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The Team</h2>
-
-<p>This course was created and conducted by the MRC Clinical Sciences Centre Bioinformatics Team at Imperial College London, Hammersmith Hospital.<br>
-For more information on the team see our <a href="http://mrccsc.github.io/">github IO page</a>.</p>
-
-<p>This course is free for MRC CSC and Imperial staff and students. If you would like to attend a future course contact <a href="mailto:thomas.carroll@imperial.ac.uk">thomas.carroll@imperial.ac.uk</a>.</p>
 
 <h2>
 <a id="setting-up" class="anchor" href="#setting-up" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Setting up.</h2>
@@ -80,22 +70,7 @@ To install these,</p>
 <li>Install the packages in the R console using devtools
 <pre>
 install.packages("devtools",dependencies=TRUE)
-devtools::install_github("mrccsc/Intro_To_R_1Day",subdir="introToR",build_vignettes=TRUE)
-</pre>
-</li>
-</ul>
-
-
-<h5><b>Option 2 - (From the binary - Windows example)</b></h5> 
-
-<p>Having downloaded R and RStudio, some additional packages are required (rmarkdown and ggplot2).<br>
-To install these,</p>
-
-<ul>
-<li>First launch RStudio</li>
-<li>Install the packages in the R console using install.packages 
-<pre>
-install.packages("https://github.com/mrccsc/Intro_To_R_1Day/raw/master/binaries/win_version/reproducibleR_0.1.0.zip",repos = NULL,dependencies=TRUE)
+devtools::install_github("/rockefelleruniversity/Intro_To_R_1Day",subdir="introToR",build_vignettes=TRUE)
 </pre>
 </li>
 </ul>
@@ -119,10 +94,10 @@ install.packages("yaml",dependencies=TRUE)
 <h4>
 <a id="download-the-material" class="anchor" href="#download-the-material" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Download the material</h4>
 
-<p>The material can either be downloaded as a <a href="https://github.com/mrccsc/Intro_To_R_1Day/archive/master.zip">zip</a></p>
+<p>The material can either be downloaded as a <a href="https://github.com/rockefelleruniversity/Intro_To_R_1Day/archive/master.zip">zip</a></p>
 
 <pre>
-wget https://github.com/mrccsc/Intro_To_R_1Day/archive/master.zip ./
+wget https://github.com/rockefelleruniversity/Intro_To_R_1Day/archive/master.zip ./
 </pre>
 
 
@@ -142,12 +117,12 @@ Session sections:
   </ul>
 </p>
 
-Link to HTML presentation - <a href="./r_course/presentations/slides/introToR_Session1.html">Session 1</a><br>
-Link to single page, printable HTML - <a href="./r_course/presentations/singlepage/introToR_Session1.html">Session 1</a><br>
-Link to R code included in presentation- - <a href="./r_course/presentations/rcode/introToR_Session1.R">Session 1</a><br>
+Link to HTML presentation - <a href="../r_course/presentations/slides/introToR_Session1.html">Session 1</a><br>
+Link to single page, printable HTML - <a href="../r_course/presentations/singlepage/introToR_Session1.html">Session 1</a><br>
+Link to R code included in presentation- - <a href="../r_course/presentations/rcode/introToR_Session1.R">Session 1</a><br>
 
 
-<iframe src="./r_course/presentations/slides/introToR_Session1.html" width="100%" height="400"></iframe>
+<iframe src="../r_course/presentations/slides/introToR_Session1.html" width="100%" height="400"></iframe>
 
 
 </span>
@@ -165,12 +140,12 @@ Session sections:
   </ul>
 </p>
 
-Link to HTML presentation - <a href="./r_course/presentations/slides/introToR_Session2.html">Session 2</a><br>
-Link to single page, printable HTML - <a href="./r_course/presentations/singlepage/introToR_Session2.html">Session 2</a><br>
-Link to R code included in presentation- - <a href="./r_course/presentations/rcode/introToR_Session2.R">Session 2</a><br>
+Link to HTML presentation - <a href="../r_course/presentations/slides/introToR_Session2.html">Session 2</a><br>
+Link to single page, printable HTML - <a href="../r_course/presentations/singlepage/introToR_Session2.html">Session 2</a><br>
+Link to R code included in presentation- - <a href="../r_course/presentations/rcode/introToR_Session2.R">Session 2</a><br>
 
 
-<iframe src="./r_course/presentations/slides/introToR_Session2.html" width="100%" height="400"></iframe>
+<iframe src="../r_course/presentations/slides/introToR_Session2.html" width="100%" height="400"></iframe>
 </span>
 
 <p>
@@ -180,7 +155,7 @@ Link to R code included in presentation- - <a href="./r_course/presentations/rco
 
 </span>
       <footer class="site-footer">
-        <span class="site-footer-owner"><a href="https://github.com/mrccsc/Intro_To_R_1Day">Intro_To_R_1Day</a> is maintained by <a href="https://github.com/mrccsc">mrccsc</a>.</span>
+        <span class="site-footer-owner"><a href="https://github.com/rockefelleruniversity/Intro_To_R_1Day">Intro_To_R_1Day</a> is maintained by <a href="https://github.com/rockefelleruniversity">rockefelleruniversity</a>.</span>
 
         <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
       </footer>
