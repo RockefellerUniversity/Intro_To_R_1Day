@@ -1,7 +1,7 @@
 Introduction to R, Session 1
 ========================================================
 author: Rockefeller University, Bioinformatics Resource Centre
-date:http://mrccsc.github.io/Intro_To_R_1Day/
+date:http://rockefelleruniversity.github.io/Intro_To_R/
 width: 1440
 height: 1100
 autosize: true
@@ -21,10 +21,10 @@ Materials.
 id: materials
 
 All prerequisites, links to material and slides for this course can be found on github.
-* [Intro_To_R_1Day](http://mrccsc.github.io/Intro_To_R_1Day/)
+* [Intro_To_R_1](https://rockefelleruniversity.github.io/Intro_To_R_1Day/)
 
 Or can be downloaded as a zip archive from here. 
-* [Download zip](https://github.com/mrccsc/Intro_To_R_1Day/zipball/master)
+* [Download zip](https://github.com/rockefelleruniversity/Intro_To_R_1Day/zipball/master)
 
 Materials. - Presentations, source code and practicals.
 ========================================================
@@ -842,14 +842,14 @@ x[x > 4 & !x < 7]
 Time for an exercise!
 ========================================================
 
-Exercise on vectors can be found [here](http://mrccsc.github.io/Intro_To_R_1Day/r_course/exercises/vector_exercise.html)
+Exercise on vectors can be found [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/exercises/vector_exercise.html)
 
 Answers to exercise.
 ========================================================
 
-Answers can be found here  [here](http://mrccsc.github.io/Intro_To_R_1Day/r_course/answers/vector_answers.html)
+Answers can be found here  [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/answers/vector_answers.html)
 
-R code for solutions can be found here  [here](http://mrccsc.github.io/Intro_To_R_1Day/r_course/answers/vector_answers.R)
+R code for solutions can be found here  [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/answers/vector_answers.R)
 
 Matrices (1/13) - Creating matrices
 ========================================================
@@ -1341,14 +1341,14 @@ Error in narrowMatrix[, 2] * 2: non-numeric argument to binary operator
 Time for an exercise!
 ========================================================
 
-Exercise on matrices can be found [here](http://mrccsc.github.io/Intro_To_R_1Day/r_course/exercises/matrices_exercise.html)
+Exercise on matrices can be found [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/exercises/matrices_exercise.html)
 
 Answers to exercise.
 ========================================================
 
-Answers can be found here  [here](http://mrccsc.github.io/Intro_To_R_1Day/r_course/answers/matrices_answers.html)
+Answers can be found here  [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/answers/matrices_answers.html)
 
-R code for solutions can be found [here](http://mrccsc.github.io/Intro_To_R_1Day/r_course/answers/matrices_answers.R)
+R code for solutions can be found [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/answers/matrices_answers.R)
 
 
 Factors (1/6) - Creating factors
@@ -1874,14 +1874,14 @@ mergedDF
 Time for an exercise!
 ========================================================
 
-Exercise on data frames can be found [here](http://mrccsc.github.io/Intro_To_R_1Day/r_course/exercises/Dataframes_Exercise.html)
+Exercise on data frames can be found [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/exercises/Dataframes_Exercise.html)
 
 Answers to exercise.
 ========================================================
 
-Answers can be found here  [here](http://mrccsc.github.io/Intro_To_R_1Day/r_course/answers/Dataframes_Answers.html)
+Answers can be found here  [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/answers/Dataframes_Answers.html)
 
-R code solutions can be found [here](http://mrccsc.github.io/Intro_To_R_1Day/r_course/answers/Dataframes_Answers.R)
+R code solutions can be found [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/answers/Dataframes_Answers.R)
 
 Lists (1/7) - Creating lists
 =========================================================
@@ -2107,14 +2107,14 @@ A standard format for this data is a table
 
 |Gene_Name | Sample_1.hi| Sample_2.hi| Sample_3.hi| Sample_4.low| Sample_5.low| Sample_1.low|
 |:---------|-----------:|-----------:|-----------:|------------:|------------:|------------:|
-|Gene_a    |    2.746123|    3.413019|    5.321270|     5.561911|     4.501633|     4.252857|
-|Gene_b    |    4.006798|    3.446812|    3.757137|     5.231332|     2.154374|     3.225566|
-|Gene_c    |    4.559162|    3.815294|    4.380351|     4.220596|     4.892499|     3.610452|
-|Gene_d    |    5.065685|    4.642080|    3.991473|     7.322607|     7.312837|     8.314418|
-|Gene_e    |    9.836865|   10.267987|    7.963111|     3.085334|     1.951182|     4.803880|
-|Gene_f    |   10.178806|    9.017979|    9.884611|     2.756882|     3.746336|     3.976630|
-|Gene_g    |    7.687527|    8.264826|    9.436321|     8.037135|    10.198508|    10.897956|
-|Gene_h    |   10.850042|    9.783305|    9.200248|     9.305997|     9.304248|     9.341057|
+|Gene_a    |    4.882505|    4.303312|    4.781106|     4.005447|     3.734266|     4.884406|
+|Gene_b    |    2.957005|    5.077188|    4.981297|     3.184228|     3.286294|     4.821067|
+|Gene_c    |    2.535089|    4.031501|    4.048835|     5.012259|     2.785874|     3.393155|
+|Gene_d    |    3.752723|    3.606591|    3.000031|     7.113267|     8.181713|     8.659772|
+|Gene_e    |    9.318902|   11.345117|   10.371591|     3.228785|     3.569413|     2.973221|
+|Gene_f    |   10.688654|   12.488760|    9.289044|     4.030405|     3.128477|     4.046019|
+|Gene_g    |    9.646200|   10.719251|   11.238302|    11.817545|     9.651858|    10.826276|
+|Gene_h    |   10.703724|   10.583426|    9.125182|     7.941359|    10.899673|    11.001065|
 
 Data IO (2/7) - Data from text file with read.table()
 =========================================================
@@ -2182,78 +2182,17 @@ Data IO (5/7) - Data from other sources
 The read.table function can also read data from http.
 
 
-```r
-URL <- "http://mrccsc.github.io/readThisTable.csv"
-Table <- read.table(URL,sep=",",header=T)
-Table[1:2,1:3]
-```
-
-```
-  Gene_Name Sample_1.hi Sample_2.hi
-1    Gene_a    4.111851    3.837018
-2    Gene_b    6.047822    5.683518
-```
-And the clipboard.(This is Windows version)
-
-
-```r
-Table <- read.table(file="clipboard",sep=",",header=T)
-```
-
-Data IO (6/7) - Data from file columns
-=========================================================
-
-read.table() function will by default read every row and column of a file.
-
-The **scan()** function allows for the selection of particular columns to be read into R and so can save memory when files are large. 
 
 
 
-```r
-x <- scan("data/readThisTable.csv",sep=",",
-what = c(list(""),rep(list(NULL), 6)),skip=1)
-x[1:3]
-```
+
+
+
+
+
+
 
 ```
-[[1]]
-[1] "Gene_a" "Gene_b" "Gene_c" "Gene_d" "Gene_e" "Gene_f" "Gene_g" "Gene_h"
-
-[[2]]
-NULL
-
-[[3]]
-NULL
+Error in file(file, "rt") : 
+  cannot open the connection to 'http://rockefelleruniversity.github.io/readThisTable.csv'
 ```
-
-Data IO (7/7) - Writing data to file
-=========================================================
-
-Once we have our data analysed in R, we will want to export it to a file. 
-
-The most common method is to use the write.table() function
-
-
-```r
-write.table(Table,file="data/writeThisTable.csv",sep=",")
-```
-
-Since our data has column names but no row names, I will provide the arguments col.names and row.names to write.table()
-
-
-```r
-write.table(Table,file="data/writeThisTable.csv", sep=",", row.names =F,col.names=T)
-```
-
-Time for an exercise!
-========================================================
-
-Exercise on reading and writing data can be found [here](http://mrccsc.github.io/Intro_To_R_1Day/r_course/exercises/DataInputOutput_Exercises.html)
-
-Answers to exercise.
-========================================================
-
-Answers can be found [here](http://mrccsc.github.io/Intro_To_R_1Day/r_course/answers/DataInputOutput_answers.html)
-
-R code for solutions can be found [here](http://mrccsc.github.io/Intro_To_R_1Day/r_course/answers/DataInputOutput_answers.R)
-
