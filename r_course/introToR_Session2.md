@@ -1,7 +1,7 @@
 Introduction to R, Session 2
 ========================================================
-author: MRC Clinical Sciences Centre
-date:http://mrccsc.github.io/Intro_To_R_1Day/
+author: Rockefeller University, Bioinformatics Resource Centre
+date:http://rockefelleruniversity.github.io/Intro_To_R/
 width: 1440
 height: 1100
 autosize: true
@@ -302,23 +302,7 @@ for(i in x){
 ```
 
 ```
-Loop1
-```
-
-```
-Loop2
-```
-
-```
-Loop3
-```
-
-```
-Loop4
-```
-
-```
-Loop5
+Loop1 Loop2 Loop3 Loop4 Loop5
 ```
 ***
 Similarly we can cycle through other vector types (or lists)
@@ -331,23 +315,7 @@ for(i in x){
 ```
 
 ```
-LoopA
-```
-
-```
-LoopB
-```
-
-```
-LoopC
-```
-
-```
-LoopD
-```
-
-```
-LoopE
+LoopA LoopB LoopC LoopD LoopE
 ```
 
 
@@ -748,14 +716,14 @@ $vec
 Time for an exercise!
 ========================================================
 
-Exercise on loops and conditional branching can be found [here](http://mrccsc.github.io/Reproducible-R/r_course/exercises//conditionsAndLoops_Exercises.html)
+Exercise on loops and conditional branching can be found [here](http://rockefelleruniversity.github.io/Reproducible-R/r_course/exercises//conditionsAndLoops_Exercises.html)
 
 Answers to exercise.
 ========================================================
 
-Answers can be found here  [here](http://mrccsc.github.io/Reproducible-R/r_course/answers/conditionsAndLoops_Answers.html)
+Answers can be found here  [here](http://rockefelleruniversity.github.io/Reproducible-R/r_course/answers/conditionsAndLoops_Answers.html)
 
-Rcode for answers can be found here  [here](http://mrccsc.github.io/Reproducible-R/r_course/answers/conditionsAndLoops_Answers.R)
+Rcode for answers can be found here  [here](http://rockefelleruniversity.github.io/Reproducible-R/r_course/answers/conditionsAndLoops_Answers.R)
 
 
 Scripts
@@ -802,7 +770,7 @@ dayOfWeek()
 ```
 
 ```
-[1] "Sun"
+[1] "Thu"
 ```
 
 Rscript
