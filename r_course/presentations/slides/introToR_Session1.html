@@ -2935,75 +2935,75 @@ Third     1    4    7
 </thead><tbody>
 <tr>
 <td align="left">Gene_a</td>
-<td align="right">3.804360</td>
-<td align="right">3.744050</td>
-<td align="right">3.999133</td>
-<td align="right">1.934950</td>
-<td align="right">5.302160</td>
-<td align="right">3.597901</td>
+<td align="right">3.570065</td>
+<td align="right">3.883961</td>
+<td align="right">3.871831</td>
+<td align="right">6.072445</td>
+<td align="right">3.827297</td>
+<td align="right">3.434345</td>
 </tr>
 <tr>
 <td align="left">Gene_b</td>
-<td align="right">4.202471</td>
-<td align="right">3.790951</td>
-<td align="right">4.325116</td>
-<td align="right">2.880623</td>
-<td align="right">5.324952</td>
-<td align="right">4.057201</td>
+<td align="right">4.386320</td>
+<td align="right">2.182162</td>
+<td align="right">3.602271</td>
+<td align="right">3.187772</td>
+<td align="right">4.701819</td>
+<td align="right">3.789898</td>
 </tr>
 <tr>
 <td align="left">Gene_c</td>
-<td align="right">6.141502</td>
-<td align="right">2.988088</td>
-<td align="right">3.827961</td>
-<td align="right">2.767391</td>
-<td align="right">3.344353</td>
-<td align="right">3.145021</td>
+<td align="right">3.786349</td>
+<td align="right">3.201524</td>
+<td align="right">5.110009</td>
+<td align="right">3.946653</td>
+<td align="right">4.011061</td>
+<td align="right">4.794392</td>
 </tr>
 <tr>
 <td align="left">Gene_d</td>
-<td align="right">2.113869</td>
-<td align="right">3.652866</td>
-<td align="right">4.939412</td>
-<td align="right">8.175716</td>
-<td align="right">8.140648</td>
-<td align="right">9.234338</td>
+<td align="right">2.877723</td>
+<td align="right">3.966674</td>
+<td align="right">3.776981</td>
+<td align="right">8.805987</td>
+<td align="right">8.468663</td>
+<td align="right">7.892270</td>
 </tr>
 <tr>
 <td align="left">Gene_e</td>
-<td align="right">10.711386</td>
-<td align="right">8.538809</td>
-<td align="right">12.921224</td>
-<td align="right">2.719252</td>
-<td align="right">3.051456</td>
-<td align="right">3.482643</td>
+<td align="right">8.579126</td>
+<td align="right">10.916930</td>
+<td align="right">11.280564</td>
+<td align="right">3.304008</td>
+<td align="right">2.160086</td>
+<td align="right">4.063254</td>
 </tr>
 <tr>
 <td align="left">Gene_f</td>
-<td align="right">9.634000</td>
-<td align="right">10.649387</td>
-<td align="right">10.530735</td>
-<td align="right">4.057489</td>
-<td align="right">3.320568</td>
-<td align="right">1.549229</td>
+<td align="right">10.490593</td>
+<td align="right">8.249770</td>
+<td align="right">10.829810</td>
+<td align="right">2.079034</td>
+<td align="right">2.045453</td>
+<td align="right">3.100183</td>
 </tr>
 <tr>
 <td align="left">Gene_g</td>
-<td align="right">9.658814</td>
-<td align="right">10.712627</td>
-<td align="right">9.292209</td>
-<td align="right">10.210091</td>
-<td align="right">9.904968</td>
-<td align="right">9.376094</td>
+<td align="right">10.279018</td>
+<td align="right">9.714379</td>
+<td align="right">10.768374</td>
+<td align="right">7.913840</td>
+<td align="right">10.896274</td>
+<td align="right">10.055258</td>
 </tr>
 <tr>
 <td align="left">Gene_h</td>
-<td align="right">8.072181</td>
-<td align="right">9.693751</td>
-<td align="right">9.302389</td>
-<td align="right">8.801628</td>
-<td align="right">7.525346</td>
-<td align="right">11.183310</td>
+<td align="right">9.066242</td>
+<td align="right">10.909077</td>
+<td align="right">10.324705</td>
+<td align="right">9.238643</td>
+<td align="right">8.333994</td>
+<td align="right">9.925885</td>
 </tr>
 </tbody></table>
 
@@ -3082,9 +3082,81 @@ Gene_d    3.398242    4.415202    4.893561
 <div class="slideContent" >
 <p>The read.table function can also read data from http.</p>
 
-<pre><code>Error in file(file, &quot;rt&quot;) : 
-  cannot open the connection to &#39;http://rockefelleruniversity.github.io/readThisTable.csv&#39;
+<pre><code class="r">URL &lt;- &quot;http://rockefelleruniversity.github.io/readThisTable.csv&quot;
+Table &lt;- read.table(URL,sep=&quot;,&quot;,header=T)
+Table[1:2,1:3]
 </code></pre>
+
+<pre><code>  Gene_Name Sample_1.hi Sample_2.hi
+1    Gene_a    4.111851    3.837018
+2    Gene_b    6.047822    5.683518
+</code></pre>
+
+<p>And the clipboard.(This is Windows version)</p>
+
+<pre><code class="r">Table &lt;- read.table(file=&quot;clipboard&quot;,sep=&quot;,&quot;,header=T)
+</code></pre>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>Data IO (6&#x2F;7) - Data from file columns</h3>
+<div class="slideContent" >
+<p>read.table() function will by default read every row and column of a file.</p>
+
+<p>The <strong>scan()</strong> function allows for the selection of particular columns to be read into R and so can save memory when files are large. </p>
+
+<pre><code class="r">x &lt;- scan(&quot;data/readThisTable.csv&quot;,sep=&quot;,&quot;,
+what = c(list(&quot;&quot;),rep(list(NULL), 6)),skip=1)
+x[1:3]
+</code></pre>
+
+<pre><code>[[1]]
+[1] &quot;Gene_a&quot; &quot;Gene_b&quot; &quot;Gene_c&quot; &quot;Gene_d&quot; &quot;Gene_e&quot; &quot;Gene_f&quot; &quot;Gene_g&quot; &quot;Gene_h&quot;
+
+[[2]]
+NULL
+
+[[3]]
+NULL
+</code></pre>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>Data IO (7&#x2F;7) - Writing data to file</h3>
+<div class="slideContent" >
+<p>Once we have our data analysed in R, we will want to export it to a file. </p>
+
+<p>The most common method is to use the write.table() function</p>
+
+<pre><code class="r">write.table(Table,file=&quot;data/writeThisTable.csv&quot;,sep=&quot;,&quot;)
+</code></pre>
+
+<p>Since our data has column names but no row names, I will provide the arguments col.names and row.names to write.table()</p>
+
+<pre><code class="r">write.table(Table,file=&quot;data/writeThisTable.csv&quot;, sep=&quot;,&quot;, row.names =F,col.names=T)
+</code></pre>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>Time for an exercise!</h3>
+<div class="slideContent" >
+<p>Exercise on reading and writing data can be found <a href="http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/exercises/DataInputOutput_Exercises.html">here</a></p>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>Answers to exercise.</h3>
+<div class="slideContent" >
+<p>Answers can be found <a href="http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/answers/DataInputOutput_answers.html">here</a></p>
+
+<p>R code for solutions can be found <a href="http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/answers/DataInputOutput_answers.R">here</a></p>
 
 </div>
 

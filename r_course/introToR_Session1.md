@@ -2107,14 +2107,14 @@ A standard format for this data is a table
 
 |Gene_Name | Sample_1.hi| Sample_2.hi| Sample_3.hi| Sample_4.low| Sample_5.low| Sample_1.low|
 |:---------|-----------:|-----------:|-----------:|------------:|------------:|------------:|
-|Gene_a    |    4.702687|    2.482264|    5.501721|     4.166119|     4.809678|     4.263129|
-|Gene_b    |    3.804745|    5.048078|    3.878264|     4.174853|     3.470919|     3.537970|
-|Gene_c    |    3.942229|    3.854194|    4.961038|     4.547836|     4.308161|     2.259573|
-|Gene_d    |    4.518013|    4.949668|    4.779426|     9.269334|     7.824643|     8.501617|
-|Gene_e    |   10.494310|    9.920521|   10.060219|     3.021660|     3.486893|     2.723959|
-|Gene_f    |   10.858148|   10.138824|   10.287425|     2.139861|     3.479750|     3.455465|
-|Gene_g    |   11.101595|   11.335007|    9.796644|    10.245708|     9.763716|     9.727792|
-|Gene_h    |    9.180047|    9.225900|    9.243156|     9.218448|    10.308502|     8.851588|
+|Gene_a    |    3.570065|    3.883961|    3.871831|     6.072445|     3.827297|     3.434345|
+|Gene_b    |    4.386320|    2.182162|    3.602271|     3.187772|     4.701819|     3.789898|
+|Gene_c    |    3.786349|    3.201524|    5.110009|     3.946653|     4.011061|     4.794392|
+|Gene_d    |    2.877723|    3.966674|    3.776981|     8.805987|     8.468663|     7.892270|
+|Gene_e    |    8.579126|   10.916930|   11.280564|     3.304008|     2.160086|     4.063254|
+|Gene_f    |   10.490593|    8.249770|   10.829810|     2.079034|     2.045453|     3.100183|
+|Gene_g    |   10.279018|    9.714379|   10.768374|     7.913840|    10.896274|    10.055258|
+|Gene_h    |    9.066242|   10.909077|   10.324705|     9.238643|     8.333994|     9.925885|
 
 Data IO (2/7) - Data from text file with read.table()
 =========================================================
@@ -2182,17 +2182,78 @@ Data IO (5/7) - Data from other sources
 The read.table function can also read data from http.
 
 
-
-
-
-
-
-
-
-
-
+```r
+URL <- "http://rockefelleruniversity.github.io/readThisTable.csv"
+Table <- read.table(URL,sep=",",header=T)
+Table[1:2,1:3]
+```
 
 ```
-Error in file(file, "rt") : 
-  cannot open the connection to 'http://rockefelleruniversity.github.io/readThisTable.csv'
+  Gene_Name Sample_1.hi Sample_2.hi
+1    Gene_a    4.111851    3.837018
+2    Gene_b    6.047822    5.683518
 ```
+And the clipboard.(This is Windows version)
+
+
+```r
+Table <- read.table(file="clipboard",sep=",",header=T)
+```
+
+Data IO (6/7) - Data from file columns
+=========================================================
+
+read.table() function will by default read every row and column of a file.
+
+The **scan()** function allows for the selection of particular columns to be read into R and so can save memory when files are large. 
+
+
+
+```r
+x <- scan("data/readThisTable.csv",sep=",",
+what = c(list(""),rep(list(NULL), 6)),skip=1)
+x[1:3]
+```
+
+```
+[[1]]
+[1] "Gene_a" "Gene_b" "Gene_c" "Gene_d" "Gene_e" "Gene_f" "Gene_g" "Gene_h"
+
+[[2]]
+NULL
+
+[[3]]
+NULL
+```
+
+Data IO (7/7) - Writing data to file
+=========================================================
+
+Once we have our data analysed in R, we will want to export it to a file. 
+
+The most common method is to use the write.table() function
+
+
+```r
+write.table(Table,file="data/writeThisTable.csv",sep=",")
+```
+
+Since our data has column names but no row names, I will provide the arguments col.names and row.names to write.table()
+
+
+```r
+write.table(Table,file="data/writeThisTable.csv", sep=",", row.names =F,col.names=T)
+```
+
+Time for an exercise!
+========================================================
+
+Exercise on reading and writing data can be found [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/exercises/DataInputOutput_Exercises.html)
+
+Answers to exercise.
+========================================================
+
+Answers can be found [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/answers/DataInputOutput_answers.html)
+
+R code for solutions can be found [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/answers/DataInputOutput_answers.R)
+
