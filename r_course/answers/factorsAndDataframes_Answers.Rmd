@@ -65,7 +65,7 @@ AnnoSample1And2
 
 ```{r,message=T}
 rownames(AnnoSample1And2) <- AnnoSample1And2$ensembl
-mean(AnnoSample1And2["Ens006","Sample1_lne"],AnnoSample1And2["Ens006","Sample2_lne"])
+mean(c(AnnoSample1And2["Ens006","Sample1_lne"],AnnoSample1And2["Ens006","Sample2_lne"]))
 ```
 
 - For all genes, identify the log2 fold change in length normalised expression from Sample 1 to Sample 2.
