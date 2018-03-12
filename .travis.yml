@@ -3,7 +3,7 @@ os:
   - linux
   - osx
 cache: packages
-warnings_are_errors: true
+warnings_are_errors: false
 sudo: required
 r: bioc-release
 before_install:
