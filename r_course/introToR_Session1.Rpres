@@ -1015,14 +1015,14 @@ mergedDF
 Time for an exercise!
 ========================================================
 
-Exercise on data frames can be found [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/exercises/Dataframes_Exercise.html)
+Exercise on data frames can be found [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/exercises/factorsAndDataframes_Exercise.html)
 
 Answers to exercise.
 ========================================================
 
-Answers can be found here  [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/answers/Dataframes_Answers.html)
+Answers can be found here  [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/answers/factorsAndDataframes_Answers.html)
 
-R code solutions can be found [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/answers/Dataframes_Answers.R)
+R code solutions can be found [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/answers/factorsAndDataframes_Answers.R)
 
 Lists (1/7) - Creating lists
 =========================================================

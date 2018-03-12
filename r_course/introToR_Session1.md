@@ -1874,14 +1874,14 @@ mergedDF
 Time for an exercise!
 ========================================================
 
-Exercise on data frames can be found [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/exercises/Dataframes_Exercise.html)
+Exercise on data frames can be found [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/exercises/factorsAndDataframes_Exercise.html)
 
 Answers to exercise.
 ========================================================
 
-Answers can be found here  [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/answers/Dataframes_Answers.html)
+Answers can be found here  [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/answers/factorsAndDataframes_Answers.html)
 
-R code solutions can be found [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/answers/Dataframes_Answers.R)
+R code solutions can be found [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/answers/factorsAndDataframes_Answers.R)
 
 Lists (1/7) - Creating lists
 =========================================================
@@ -2107,14 +2107,14 @@ A standard format for this data is a table
 
 |Gene_Name | Sample_1.hi| Sample_2.hi| Sample_3.hi| Sample_4.low| Sample_5.low| Sample_1.low|
 |:---------|-----------:|-----------:|-----------:|------------:|------------:|------------:|
-|Gene_a    |    3.570065|    3.883961|    3.871831|     6.072445|     3.827297|     3.434345|
-|Gene_b    |    4.386320|    2.182162|    3.602271|     3.187772|     4.701819|     3.789898|
-|Gene_c    |    3.786349|    3.201524|    5.110009|     3.946653|     4.011061|     4.794392|
-|Gene_d    |    2.877723|    3.966674|    3.776981|     8.805987|     8.468663|     7.892270|
-|Gene_e    |    8.579126|   10.916930|   11.280564|     3.304008|     2.160086|     4.063254|
-|Gene_f    |   10.490593|    8.249770|   10.829810|     2.079034|     2.045453|     3.100183|
-|Gene_g    |   10.279018|    9.714379|   10.768374|     7.913840|    10.896274|    10.055258|
-|Gene_h    |    9.066242|   10.909077|   10.324705|     9.238643|     8.333994|     9.925885|
+|Gene_a    |    3.856845|    3.571304|    5.304328|     3.170256|     3.298279|     4.824720|
+|Gene_b    |    3.839238|    4.269137|    4.185479|     4.837112|     4.865849|     4.670996|
+|Gene_c    |    3.521937|    3.449420|    4.555045|     3.959177|     4.435949|     4.409046|
+|Gene_d    |    4.641813|    4.919247|    4.901713|     7.382659|     9.020772|     8.990284|
+|Gene_e    |   10.806830|   10.801208|   10.790345|     2.709443|     4.379109|     4.555324|
+|Gene_f    |   10.791673|    9.697632|    8.813981|     5.418724|     1.935353|     2.940961|
+|Gene_g    |   10.104601|   10.876001|   10.663535|     9.630636|    10.920608|     9.213341|
+|Gene_h    |    8.857663|    9.291604|    9.966531|    10.688098|    11.003542|    10.572436|
 
 Data IO (2/7) - Data from text file with read.table()
 =========================================================
