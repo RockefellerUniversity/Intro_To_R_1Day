@@ -22,7 +22,7 @@ Reproducible Research
 Reproducible Research in R
 ========================================================
   
-Sometime in the future, I, or my successor, will need to understand what analysis i did here.
+Sometime in the future, I, or my reviewer, will need to understand what analysis i did here.
 
 Using RStudio to make reproducible documents is very easy, so why not?
 

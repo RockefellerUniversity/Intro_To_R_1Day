@@ -54,7 +54,7 @@ You may navigate to the unarchived Intro_To_R_1Day folder in the Rstudio menu
 or in the console.
 
 ```{r,eval=F} 
-setwd("/PathToMyDownload/Intro_To_R_1Day")
+setwd("/PathToMyDownload/Intro_To_R_1Day/r_course")
 # e.g. setwd("~/Downloads/Intro_To_R_1Day")
 ```
 
