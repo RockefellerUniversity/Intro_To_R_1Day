@@ -7,6 +7,8 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/9pwvbfmilu8nq3bq?svg=true)](https://ci.appveyor.com/project/ThomasCarroll/intro-to-r-1day-tq3fi)
 
 
+
+
 ##The Course
 
 This course introduces R and statistical programming.
