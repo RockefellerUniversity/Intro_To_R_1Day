@@ -1,7 +1,7 @@
 Reproducible R
 =========================================================
-author: MRC Clinical Sciences Centre
-date:http://mrccsc.github.io/r_course/reproducibleR.html
+author: Rockefeller University, Bioinformatics Resource Centre
+date:http://rockefelleruniversity.github.io/Intro_To_R/
 width: 1440
 height: 1100
 autosize: true
