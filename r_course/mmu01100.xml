@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+
+
+
+
+
+<html>
+<head id='FS_TAG_HEAD_WRAPPER'>
+<title id='fs_orig_title'>
+	
+
+
+</title>
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta HTTP-EQUIV="Expires" CONTENT="Tue, 04 Dec 1993 21:29:02 GMT">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/jquery-timers.js"></script>
+<script type="text/javascript" src="/js/jqueryprogressbar.js"></script>
+<script type="text/javascript" src="/js/portal.js"></script>
+<link rel="stylesheet" type="text/css" href="/customize/Cu_1490895882995/customizeStylesheet.css">
+<link rel="stylesheet" type="text/css" href="/customize/Cu_1490895882995/fsgen.css">
+<link rel="shortcut icon" href="about:blank">
+
+
+
+</head>
+<body style="background-color:#e1e8ec;" id="FS_TAG_BODY_WRAPPER" class="simple"><div id='header' class='fs_editor_header' style='text-align:CENTER;' ><img id='fs_simple_image' class='fs_center' src ='/customize/Cu_1490895882995/headerRU.jpg' /></div><div style='width: 100%; height: 80%; text-align: center;' id='fs_tag_wrraper'>
+     <div style='padding-top:5%'>
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div style='width: 100%; height: 100%'>
+<div id='fs_tsg' class='FSTagArea'>
+<div class='FSTagAreaHeader' id='fs_tsg_title'>Rockefeller University Secure Connector Installation</div>
+<div class='FSTagAreaBody' id='fs_tsg_body'>
+
+	
+	
+		<div class='fsNOHSCDiv'> 
+    <p> <font size="3"><br><center> <img src= https://forescout-wpengine.netdna-ssl.com/wp-content/themes/forescout/images/favicon.ico  width="64" height="64" > </center><br><br>To Visitors and Personnel:<br><br>Access to the Rockefeller University Network requires  that you run Secure Connector software on your computer. <br><font color="red">  You may get this message if you have simultaneously an ethernet connection and a wireless network connection. Please disconnect one of the network connections. This page  will clear in a few minutes  <font color="black"><br><br>Click on the box below  to start the permanent installation of the 'Secure Connector'.<br><br> <p> Attention visitors, if the computer you are using is only temporarily on the University's network and you don't wish to install the 'Secure Connector' permamently, please click <a href="http://counteract.rockefeller.edu/osx-sc.jsp">  here </a> <br> and choose the dissolveable installer. After installation  you will be able to connect to the RU network and internet within 2 minutes. When you reboot your computer, the secure connector will be removed.<br><br> Thank you for your efforts. We appreciate  your cooperation.<br><br><I> (Secure Connector software ensures that computer on the campus network meet the University's minimum security guidelines) </i><br><a href="http://it.rockefeller.edu/assets/file/Network%20Access%20Control%20Transparency.pdf"> NAC Description and Privacy Statement </a><br>IP Address= 129.85.137.226  (SCC 3.4 MAC 171024)</p>
+    <div id='sc1buttonDivID' style='white-space:nowrap;text-align:right;display:block;'>
+
+    <FORM action="/agent_install2.jsp;jsessionid=65A17A543BB634D09BB727B8366627E7" style='display:inline;white-space;' class='sc1Form'>    
+      <input type="hidden" name="agent_url" value="win32/SC-gVUBdycTKFYVxoI7JT3hgOYelPtSXWv4URgyz7B6P_XtgrZdqvIEAAEB.exe" />
+      <input type="hidden" name="agent_title" value="Rockefeller University Secure Connector Installation" />
+	  <input type="hidden" name="deploy_type" value="permanent_service" />
+	  <input type="hidden" name="visible_mode" value="ON" />
+      
+      <input type="hidden" name="c" value="http://rest.kegg.jp/get/mmu01100/kgml" />
+      
+ 	   
+
+	
+	
+
+
+    <button type='submit' id='returnCus' name='returnCus'  onClick="null"
+    value='<font size=3 color="red">Click here to download, then install </font>'    class='button'   title=''   >
+
+     
+        <img style='text-align: left' src='/img/confirm.gif' alt='' />
+     
+     <font size=3 color="red">Click here to download, then install </font> 
+    </button>
+   
+
+
+      </FORM>
+   
+    
+    &nbsp;
+
+ </div>
+</div>
+	
+</div>
+</div>
+</div>
+
+
+	</div>		
+	</div><div id='footer' class='fs_editor_footer' style='text-align:CENTER;' ><span id='fs_simple_text' class='fs_center'>Need help? Call Information  Technology  at x8940 or email helpdesk@rockefeller.edu</span></div></body>
+
+</html>
+
+
