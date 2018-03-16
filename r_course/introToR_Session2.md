@@ -716,14 +716,14 @@ $vec
 Time for an exercise!
 ========================================================
 
-Exercise on loops and conditional branching can be found [here](http://rockefelleruniversity.github.io/Reproducible-R/r_course/exercises//conditionsAndLoops_Exercises.html)
+Exercise on loops and conditional branching can be found [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/exercises//conditionsAndLoops_Exercises.html)
 
 Answers to exercise.
 ========================================================
 
-Answers can be found here  [here](http://rockefelleruniversity.github.io/Reproducible-R/r_course/answers/conditionsAndLoops_Answers.html)
+Answers can be found here  [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/answers/conditionsAndLoops_Answers.html)
 
-Rcode for answers can be found here  [here](http://rockefelleruniversity.github.io/Reproducible-R/r_course/answers/conditionsAndLoops_Answers.R)
+Rcode for answers can be found here  [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/answers/conditionsAndLoops_Answers.R)
 
 
 Scripts
@@ -770,7 +770,7 @@ dayOfWeek()
 ```
 
 ```
-[1] "Thu"
+[1] "Fri"
 ```
 
 Rscript
