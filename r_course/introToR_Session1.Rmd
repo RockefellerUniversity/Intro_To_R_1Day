@@ -4,6 +4,7 @@ author: "Rockefeller University, Bioinformatics Resource Centre"
 date: "http://rockefelleruniversity.github.io/Intro_To_R/"
 output: 
   xaringan::moon_reader:
+    css: ["default", "metropolisCustom.css", "metropolis-fontsCustom.css"]
     lib_dir: libs
     nature:
       highlightStyle: github
@@ -34,7 +35,9 @@ suppressPackageStartupMessages(require(knitr))
 ---
 class: inverse, center, middle
 
+
 # Set up
+
 
 <html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
 
