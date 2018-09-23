@@ -24,7 +24,7 @@ output:
 suppressPackageStartupMessages(require(knitr))
 ```
 
-#  Overview 
+##  Overview 
 
 - [Set up](#Set-up)
 - [Background to R](#Background-to-R)
@@ -33,6 +33,7 @@ suppressPackageStartupMessages(require(knitr))
 
 ---
 class: inverse, center, middle
+
 # Set up
 
 <html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
@@ -88,6 +89,7 @@ setwd("/PathToMyDownload/Intro_To_R_1Day/r_course")
 
 ---
 class: inverse, center, middle
+
 # Background to R
 
 <html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
@@ -904,14 +906,14 @@ narrowMatrix[,2] *2
 
 
 ---
-# Time for an exercise!
+## Time for an exercise!
 
 
 Exercise on matrices can be found [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/exercises/matrices_exercise.html)
 
 
 ---
-# Answers to exercise.
+## Answers to exercise.
 
 
 Answers can be found here  [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/answers/matrices_answers.html)
