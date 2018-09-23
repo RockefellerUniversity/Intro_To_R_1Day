@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Introduction to R, Session 1</title>
+    <title></title>
     <meta charset="utf-8">
     <meta name="author" content="Rockefeller University, Bioinformatics Resource Centre" />
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
@@ -12,6 +12,12 @@
 class: center, middle, inverse, title-slide
 
 # Introduction to R, Session 1
+<html>
+<div style="float:left">
+
+</div>
+<hr color='#EB811B' size=1px width=796px>
+</html>
 ### Rockefeller University, Bioinformatics Resource Centre
 ### <a href="http://rockefelleruniversity.github.io/Intro_To_R/" class="uri">http://rockefelleruniversity.github.io/Intro_To_R/</a>
 
@@ -22,15 +28,19 @@ class: center, middle, inverse, title-slide
 
 #  Overview 
 
-
+- [Set up](#Set-up)
 - [Background to R](#Background-to-R)
 - [Data types in R](#datatypes)
-- [Reading and writing data in R](#reading)
-
 
 
 ---
-# Materials.
+class: inverse, center, middle
+# Set up
+
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px width=720px&gt;&lt;/html&gt; 
+
+---
+## Materials.
 
 All prerequisites, links to material and slides for this course can be found on github.
 * [Intro_To_R_1](https://rockefelleruniversity.github.io/Intro_To_R_1Day/)
@@ -42,7 +52,7 @@ Or can be downloaded as a zip archive from here.
 
 
 ---
-# Materials. - Presentations, source code and practicals.
+## Materials. - Presentations, source code and practicals.
 
 
 Once the zip file in unarchived. All presentations as HTML slides and pages, their R code and HTML practical sheets will be available in the directories underneath.
@@ -60,7 +70,7 @@ Practicals with answers as HTML pages and R code solutions.
 
 
 ---
-# Set the Working directory
+## Set the Working directory
 
 
 Before running any of the code in the practicals or slides we need to set the working directory to the folder we unarchived. 
@@ -74,13 +84,18 @@ or in the console.
 
 ```r
 setwd("/PathToMyDownload/Intro_To_R_1Day/r_course")
-# e.g. setwd("~/Downloads/Intro_To_R_1Day")
+# e.g. setwd("~/Downloads/Intro_To_R_1Day/r_course")
 ```
 
 
 
 ---
+class: inverse, center, middle
 # Background to R
+
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px width=720px&gt;&lt;/html&gt; 
+
+---
 ## What is R?
 
 
@@ -101,7 +116,7 @@ Inheriting much from **S** (Bell labs).
 
 
 ---
-# What is R to you?
+## What is R to you?
 
 .pull-left[
 
@@ -117,7 +132,7 @@ In particular, [Robert Gentleman](http://www.gene.com/scientists/our-scientists/
 ]
 
 ---
-# How to get R?
+## How to get R?
 
 .pull-left[
 
@@ -134,7 +149,7 @@ RStudio provides an integrated development environment (IDE) which is freely ava
 ]
 
 ---
-# A quick tour of RStudio
+## A quick tour of RStudio
 
 .pull-left[
 Four main panels
@@ -153,8 +168,16 @@ Four main panels
 
 
 ]
+
 ---
+class: inverse, center, middle
 # Data types in R
+
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px width=720px&gt;&lt;/html&gt; 
+
+---
+
+## Different Data types in R
 
 
 - Simple calculations
@@ -168,7 +191,7 @@ Four main panels
 
 
 ---
-# Simple Calculations 
+## Simple Calculations 
 
 At its most basic, **R** can be used as a simple calculator.
 
@@ -198,8 +221,7 @@ At its most basic, **R** can be used as a simple calculator.
 
 
 ---
-# Using functions.
-
+## Using functions.
 
 The **sqrt(25)** demonstrates the use of functions in R. A function performs a complex operation on it's arguments and returns the result.
 
@@ -236,7 +258,7 @@ max(2,4,6)
 
 
 ---
-# Using functions.
+## Using functions.
 
 
 R has many useful functions "built in" and ready to use as soon as R is loaded.
@@ -256,7 +278,7 @@ Lets run [**?sqrt**](https://stat.ethz.ch/R-manual/R-devel/library/base/html/Mat
 
 
 ---
-# Using functions (Arguments have names and order)
+## Using functions (Arguments have names and order)
 
 
 With functions such as min() and sqrt(), the arguments to be provided are obvious and the order of these arguments doesnt matter.
@@ -286,7 +308,7 @@ Try and look at the arguments for the dir() function using [?dir](https://stat.e
 ```
 
 ---
-# Using functions (Setting names for arguments)
+## Using functions (Setting names for arguments)
 
 
 Often we know the names of arguments but not necessarily their order.
@@ -310,7 +332,7 @@ dir(".",NULL,FALSE,T)
 
 
 ---
-# Variables (1/3)
+## Variables 
 
 
 As with other programming languages and even graphical calculators, **R** makes use of **variables**.
@@ -334,7 +356,7 @@ x
 
 
 ---
-# Variables.(2/3)
+## Variables.
 
 
 
@@ -358,7 +380,7 @@ x
 
 ---
 
-# Variables.(3/3)
+## Variables.
 
 Variables can be used just as the values they contain.
 
@@ -391,7 +413,7 @@ y
 
 
 ---
-# Vectors.(1/17)
+## Vectors
 
 In **R** the most basic variable or data type is a **vector**. A vector is an ordered collection of values. The x and y variables we have previously assigned are examples of a vector of length 1.
 
@@ -413,7 +435,7 @@ length(x)
 ```
 
 ---
-# Vectors.(2/17)
+## Vectors
 
 To create a multiple value vector we use the function **c()** to *combine* the supplied arguments into one vector.
 
@@ -437,7 +459,7 @@ length(x)
 
 
 ---
-# Vectors (3/17) - Creating vectors
+## Vectors
 
 Vectors of continuous stretches of values can be created by the shortcut - **:**
 
@@ -474,7 +496,7 @@ rep(c(1,5,10),3)
 
 
 ---
-# Vectors(4/17) - Indexing 
+## Vectors - Indexing 
 
 Square brackets **[]** identify the position within a vector (the **index**).
 These indices can be used to extract relevant values from vectors.
@@ -506,7 +528,7 @@ x[8]
 ```
 
 ---
-# Vectors(5/17) - Indexing 
+## Vectors - Indexing 
 
 
 Indices can be used to extract values from multiple positions within a vector.
@@ -533,7 +555,7 @@ x[-5]
 
 
 ---
-# Vectors(6/17) - Indexing and replacement
+## Vectors - Indexing and replacement
 
 
 We can use indices to modify a specific position in a vector
@@ -558,7 +580,7 @@ x
 
 
 ---
-# Vectors(7/17) - Indexing and replacement
+## Vectors - Indexing and replacement
 
 Indices can be specified using other vectors.
 
@@ -582,7 +604,7 @@ x
 
 
 ---
-# Remember!
+## Remember!
 
 
 Square brackets **[]**  for indexing
@@ -607,7 +629,7 @@ sqrt(4)
 
 
 ---
-# Vectors(8/17) - Arithmetic operations 
+## Vectors - Arithmetic operations 
 
 
 Vectors in R can be used in arithmetic operations as seen with [variables earlier](#/simplecalc).
@@ -643,7 +665,7 @@ x+y
 ```
 
 ---
-# Vectors (9/17) - Arithmetic operations  
+## Vectors - Arithmetic operations  
 
 
 When applying an arithmetic operation between two vectors of unequal length, the shorter will be recycled.
@@ -682,9 +704,8 @@ x+c(1,2,3)
 
 
 ---
-# Vectors (10/17) - Character vectors.
+## Vectors - Character vectors.
 
-id:namingvectors
 
 So far we have only looked at numeric vectors or variables.
 
@@ -715,7 +736,7 @@ x
 ```
 
 ---
-# Vectors (11/17) - Character vectors as names.
+## Vectors - Character vectors as names.
 
 
 These named vectors maybe indexed by a position's "name".
@@ -741,7 +762,7 @@ x[c("Strand")]
 
 
 ---
-# A note on NA values
+## A note on NA values
 
 
 In R, like many languages, when a value in a variable is missing, the value is assigned a **NA** value.
@@ -755,7 +776,7 @@ Similarly, when a calculation can not be perfomed, R will input a **NaN** value.
 
 
 ---
-# Vectors (12/17) - The unique() function
+## Vectors - The unique() function
 
 
 The unique() function can be used to retrieve all unique  values from a vector.
@@ -773,7 +794,7 @@ unique(geneList)
 
 
 ---
-# Vectors (13/17). Logical vectors
+## Vectors - Logical vectors
 
 
 Logical vectors are a class of vector made up of TRUE/T or FALSE/F boolean values.
@@ -803,7 +824,7 @@ x[z]
 
 
 ---
-# Vectors (14/17) - The %in% operator
+## Vectors - The %in% operator
 
 
 A common task in R is to subset one vector by the values in another vector.
@@ -834,7 +855,7 @@ geneList[logical_index]
 
 
 ---
-# Vectors (15/17). Logical vectors from operators
+## Vectors . Logical vectors from operators
 
 
 Vectors may be evaluated to produce logical vectors. This can be very useful when using a logical to index.
@@ -865,7 +886,7 @@ x[x &gt; 5]
 
 
 ---
-# Vectors (16/17). Combining logical vectors.
+## Vectors - Combining logical vectors.
 
 
 Logical vectors can be used in combination in order to index vectors. To combine logical vectors we can use some common R operators.
@@ -902,7 +923,7 @@ x &gt; 4 | x &lt; 7
 
 
 ---
-# Vectors (18/19). Logical vectors continued.
+## Vectors . Logical vectors continued.
 
 
 Such combinations can allow for complex selection of a vector's values.
@@ -935,14 +956,14 @@ x[x &gt; 4 &amp; !x &lt; 7]
 
 
 ---
-# Time for an exercise!
+## Time for an exercise!
 
 
 Exercise on vectors can be found [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/exercises/vector_exercise.html)
 
 
 ---
-# Answers to exercise.
+## Answers to exercise.
 
 
 Answers can be found here  [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/answers/vector_answers.html)
@@ -951,7 +972,7 @@ R code for solutions can be found here  [here](http://rockefelleruniversity.gith
 
 
 ---
-# Matrices (1/19) - Creating matrices
+## Matrices  - Creating matrices
 
 
 In programs such as Excel, we are used to tables.
@@ -961,7 +982,7 @@ In programs such as Excel, we are used to tables.
 &lt;/div&gt;
 
 ---
-## Matrices (2/19) - Creating matrices
+## Matrices - Creating matrices
 
 All progamming languages have a concept of a table. In **R**, the most basic table type is a **matrix**.
 
@@ -994,7 +1015,7 @@ wideMatrix
 
 
 ---
-## Matrices (3/19) - Creating matrices
+## Matrices - Creating matrices
 
 
 By default when creating a matrix using the **matrix** function, the values fill the matrix by columns. To fill a matrix by rows the **byrow** argument must be set to TRUE.
@@ -1024,7 +1045,7 @@ wideMatrixByRow
 
 
 ---
-# Matrices (4/19) - Finding dimensions
+## Matrices - Finding dimensions
 
 
 To find dimensions of a matrix, the **dim()** function will provide dimensions as the row then column number while **nrow()** and **ncol()** will return just row number and column number respectively.
@@ -1055,7 +1076,7 @@ ncol(narrowMatrix)
 
 
 ---
-# Matrices (5/19) (Joining vectors and matrices)
+## Matrices (Joining vectors and matrices)
 
 
 A matrix can be created from multiple vectors or other matrices.
@@ -1080,7 +1101,7 @@ newMatrix
 ```
 
 ---
-# Matrices (6/19) (Joining vectors and matrices)
+## Matrices - (Joining vectors and matrices)
 
 **rbind()** functions to bind to a matrix as rows.
 
@@ -1101,7 +1122,7 @@ newerMatrix
 
 
 ---
-# Matrices (7/19) - Joining incompatable vectors and matrices
+## Matrices - Joining incompatable vectors and matrices
 
 
 When creating a matrix using **cbind()** or **matrix()** from incompatable vectors then the shorter vector is recycled. 
@@ -1130,7 +1151,7 @@ recycledMatrix2
 ```
 
 ---
-# Matrices (8/19) - Joining incompatable vectors and matrices
+## Matrices - Joining incompatable vectors and matrices
 
 
 For **rbind()** function, the longer vector is clipped.
@@ -1158,7 +1179,7 @@ recycledMatrix3
 
 
 ---
-# Matrices (9/19) - Column and row names
+## Matrices  - Column and row names
 
 
 [As we have seen with vectors](#/namingvectors), matrices can be named. For matrices the naming is done by columns and rows using **colnames()** and **rownames()** functions.
@@ -1178,7 +1199,7 @@ namedMatrix
 ```
 
 ---
-# Matrices (10/19) - Column and row names
+## Matrices - Column and row names
 
 Information on matrix names can also be retreived using the same functions.
 
@@ -1201,7 +1222,7 @@ rownames(namedMatrix)
 
 
 ---
-# Matrices (11/19) - Indexing
+## Matrices  - Indexing
 
 
 Selecting and replacing portions of a matrix can be done by **indexing** using square brackets **[]** much [like for vectors](#indexingvectors).
@@ -1227,7 +1248,7 @@ narrowMatrix
 
 
 ---
-# Matrices (12/14) - Indexing
+## Matrices - Indexing
 
 
 ```r
@@ -1254,7 +1275,7 @@ narrowMatrix[2,1]
 
 
 ---
-# Matrices (13/19) - Indexing 
+## Matrices - Indexing 
 
 
 Similarly, whole rows or columns can be extracted. Single rows and columns will return a vector.  
@@ -1281,7 +1302,7 @@ narrowMatrix[3,]
 ```
 
 ---
-# Matrices (14/19) - Indexing 
+## Matrices - Indexing 
 
 When multiple columns or row indices are specified, a matrix is returned.
 
@@ -1299,7 +1320,7 @@ narrowMatrix[c(2,3),]
 
 
 ---
-# Matrices (15/19) - Indexing by name
+## Matrices - Indexing by name
 
 
 As with vectors, names can be used for indexing when present
@@ -1335,7 +1356,7 @@ narrowMatrix["Row_1","Column_1"]
 
 
 ---
-# Matrices (16/19) Advanced indexing
+## Matrices - Advanced indexing
 
 
 As with vectors, matrices can be subset by logical vectors
@@ -1386,7 +1407,7 @@ narrowMatrix[narrowMatrix[,1] &lt; 5,]
 
 
 ---
-# Matrices (17/19) - Arithmetic operations.
+## Matrices  - Arithmetic operations.
 
 
 As with vectors, matrices can have arithmetic operations applied to cells,rows, columns or the whole matrix
@@ -1431,7 +1452,7 @@ mean(narrowMatrix)
 
 
 ---
-# Matrices (18/19) - Replacement
+## Matrices - Replacement
 
 
 As with vectors, matrices can have their elements replaced
@@ -1466,7 +1487,7 @@ narrowMatrix
 
 
 ---
-# Matrices (19/19) -Matrices can contain only one data type
+## Matrices -Matrices can contain only one data type
 
 Matrices must be all one type (i.e. numeric or character).
 
@@ -1524,7 +1545,7 @@ R code for solutions can be found [here](http://rockefelleruniversity.github.io/
 
 
 ---
-# Factors (1/6) - Creating factors
+## Factors - Creating factors
 
 
 A special case of a vector is a **factor**.
@@ -1556,7 +1577,7 @@ levels(factorExample)
 
 
 ---
-# Factors (2/6) - Summary() function
+## Factors - Summary() function
 
 
 An example of the use of levels can be seen from applying the **summary()** function to the vector and factor examples
@@ -1584,7 +1605,7 @@ summary(factorExample)
 
 
 ---
-# Factors (3/6) - Display order of levels
+## Factors - Display order of levels
 
 In our factor example, the levels have been displayed in an alphabetical order. To adjust the display order of levels in a factor, we can supply the desired display order to **levels** argument in the **factor()** function call.
 
@@ -1611,7 +1632,7 @@ summary(factorExample)
 
 
 ---
-# Factors (4/6) - Nominal factors
+## Factors - Nominal factors
 
 In some cases there is no natural order to the categories such that one category is greater than the other (nominal data).
 In this case we can see that R is gender neutral.
@@ -1633,7 +1654,7 @@ factorExample[1] &lt; factorExample[2]
 
 
 ---
-# Factors (5/6) - Ordinal factors
+## Factors  - Ordinal factors
 
 
 In other cases there will be a natural ordering to the categories (ordinal data). A factor can be specified to be ordered using the **ordered** argument in combination with specified levels argument.
@@ -1660,7 +1681,7 @@ factorExample[1] &lt; factorExample[2]
 
 
 ---
-# Factors (6/6) - Replacement
+## Factors - Replacement
 
 
 Unlike vectors, replacing elements within a factor isn't so easy. While replacing one element with an established level is possible, replacing with a novel element will result in a warning.
@@ -1711,7 +1732,7 @@ factorExample
 
 
 ---
-# Data frames (1/16) - Creating data frames 
+## Data frames - Creating data frames 
 
 
 [We saw that with matrices you can only have one type of data](#/onedatatype). We tried to create a matrix with a character element and the entire matrix became a character.
@@ -1722,7 +1743,7 @@ In practice, we would want to have a table which is a mixture of types (e.g a ta
 &lt;img src="imgs/ExcelMat.jpg" alt="igv" height="300" width="600"&gt;
 &lt;/div&gt;
 ---
-# Data frames (2/16) - Creating data frames 
+## Data frames - Creating data frames 
 
 
 In R, we make use of the **data frame** object which allows us to store tables with columns of different data types. To create a data frame we can simply use the **data.frame()** function.
@@ -1748,7 +1769,7 @@ dfExample
 
 
 ---
-# Data frames (3/16) - Indexing and replacement
+## Data frames - Indexing and replacement
 
 
 Data frames may be indexed just [as matrices](#/indexingmatrices).
@@ -1777,7 +1798,7 @@ dfExample[dfExample[,"Survival_Time"] &gt; 10,]
 ```
 
 ---
-# Data frames (4/16) - Using $ to specify columns
+## Data frames - Using $ to specify columns
 
 Unlike matrices, it is possible to index a column by using the **$** symbol.
 
@@ -1802,7 +1823,7 @@ dfExample[dfExample$Survival_Time &lt; 10,]
 ```
 
 ---
-# Data frames (5/16) - Creating data frames 
+## Data frames - Creating data frames 
 
 Using the **$** allows for R to autocomplete your selection and so can speed up coding.
 
@@ -1822,7 +1843,7 @@ dfExample[,"Surv"]
 
 
 ---
-### Data frames (6/16) - Creating new columns with $
+## Data frames - Creating new columns with $
 
 
 The **$** operator also allows for the creation of new columns for a data frame on the fly.
@@ -1855,7 +1876,7 @@ dfExample
 
 
 ---
-### Data frames (7/16) - Indexing and replacement
+## Data frames - Indexing and replacement
 
 
 Certain columns can not be replaced in data frames. Numeric columns may have their values replaced but columns with character values may not by default. 
@@ -1876,7 +1897,7 @@ dfExample
 ```
 
 ---
-### Data frames (8/16) - Indexing and replacement
+## Data frames - Indexing and replacement
 
 This occurs because character vectors are treated as factors by default.
 
@@ -1905,7 +1926,7 @@ dfExample
 
 
 ---
-# Data frames (9/16) - Factors in data frames
+## Data frames - Factors in data frames
 
 It is possible to update factors in data frames just as with standard factors.
 
@@ -1931,7 +1952,7 @@ dfExample
 
 
 ---
-# Data frames (10/16) - Creating data frames without factors
+## Data frames - Creating data frames without factors
 
 If you wish to avoid using factors in data frames then the **stringsAsFactors** argument to **data.frame()** function should be set to **FALSE**
 
@@ -1957,7 +1978,7 @@ dfExample
 
 
 ---
-# Data frames (11/16) - Ordering with order() function
+## Data frames - Ordering with order() function
 
 A useful function in R is **order()**
 
@@ -1990,7 +2011,7 @@ testOrder[order(testOrder,decreasing=T)]
 ```
 
 ---
-# Data frames (12/16) - Ordering with NA values
+## Data frames  - Ordering with NA values
 
 When a vector contains NA values, these NA values will, by default, be placed last in ordering indices. This can be controlled by **na.last** argument.
 
@@ -2014,7 +2035,7 @@ testOrder[order(testOrder,decreasing=T,na.last=F)]
 
 
 ---
-# Data frames (13/16) - Ordering data frames 
+## Data frames  - Ordering data frames 
 
 Since the order argument returns an index of intended order for a vector, we can use the order() function to order data frames by certain columns
 
@@ -2043,7 +2064,7 @@ dfExample[order(dfExample$Surv, decreasing=T),]
 ```
 
 ---
-# Data frames (14/16) - Ordering data frames 
+## Data frames - Ordering data frames 
 
 
 We can also use order to arrange multiple columns in a data frame by providing multiple vectors to order() function. Ordering will be performed in order of arguments.
@@ -2066,7 +2087,7 @@ dfExample[order(dfExample$Type,
 
 
 ---
-# Data frames (15/16) - Merging data frames
+## Data frames - Merging data frames
 
 A common operation is to join two data frames by a column of common values.
 
@@ -2102,7 +2123,7 @@ dfExample2
 ```
 
 ---
-# Data frames (16/16) - Merging data frames with merge()
+## Data frames - Merging data frames with merge()
 
 
 To do this we can use the **merge()** function with the data frames as the first two arguments. We can then specify the columns to merge by with the **by** argument. To keep only data pertaining to values common to both data frames the **all** argument is set to TRUE.
@@ -2122,14 +2143,14 @@ mergedDF
 
 
 ---
-# Time for an exercise!
+## Time for an exercise!
 
 
 Exercise on data frames can be found [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/exercises/factorsAndDataframes_Exercise.html)
 
 
 ---
-# Answers to exercise.
+## Answers to exercise.
 
 
 Answers can be found here  [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/answers/factorsAndDataframes_Answers.html)
@@ -2138,7 +2159,7 @@ R code solutions can be found [here](http://rockefelleruniversity.github.io/Intr
 
 
 ---
-# Lists (1/7) - Creating lists
+## Lists - Creating lists
 
 
 Lists are the final data-type we will look at. 
@@ -2152,7 +2173,7 @@ secondElement &lt;- matrix(1:10,nrow=2,ncol=5)
 thirdElement &lt;- data.frame(colOne=c(1,2,4,5),colTwo=c("One","Two","Three","Four"))
 ```
 ---
-# Lists (2/7) -  lists
+## Lists -  lists
 To create a list we can simply use the **list()** function with arguments specifying the data we wish to include in the list.
 
 
@@ -2180,7 +2201,7 @@ myList
 
 
 ---
-# Lists (3/7) -  Named lists
+## Lists -  Named lists
 
 
 [Just as with vectors](#/namingvectors), list elements can be assigned names.
@@ -2210,7 +2231,7 @@ myNamedList
 ```
 
 ---
-# Lists (4/7) - Indexing
+## Lists - Indexing
 
 
 List, as [with other data types in R](#/indexingvectors) can be indexed. In contrast to other types, using **[]** on a list will subset the list to another list of selected indices. To retrieve an element from a list in R , two square brackets **[[]]** must be used. 
@@ -2247,7 +2268,7 @@ myNamedList$First
 
 
 ---
-# Lists (5/7) - Joining lists
+## Lists - Joining lists
 
 
 Again, [similar to vectors](#/combine), lists can be joined together in R using the c() function 
@@ -2270,7 +2291,7 @@ myNamedList[c(1,4)]
 
 
 ---
-### Lists (5/7) - Joining vectors to lists
+## Lists  - Joining vectors to lists
 
 
 Note that on last slide we are joining two lists. If we joined a vector to a list, all elements of the vector would become list elements.
@@ -2298,7 +2319,7 @@ myList[3:5]
 
 
 ---
-# Lists (6/7) - Flattening lists
+## Lists - Flattening lists
 
 
 Sometimes you will wish to "flatten" out a list. When a list contains compatable objects, i.e. list of all one type, the **unlist()** function can be used. Note the maintenance of names with their additional sufficies.
@@ -2334,7 +2355,7 @@ flatList[1:7]
 
 
 ---
-# Lists (7/7) Flattening lists to matrices
+## Lists - Flattening lists to matrices
 
 A common step is to turn a list of standard results into matrix. This can be done in a few steps in R.
 
