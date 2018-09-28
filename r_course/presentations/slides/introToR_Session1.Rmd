@@ -30,6 +30,7 @@ suppressPackageStartupMessages(require(knitr))
 - [Set up](#Set-up)
 - [Background to R](#Background-to-R)
 - [Data types in R](#datatypes)
+- [Reading and writing in R](#datatypes)
 
 
 ---
