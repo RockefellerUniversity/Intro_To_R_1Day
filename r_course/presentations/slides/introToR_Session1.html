@@ -2135,7 +2135,7 @@ dfExample2
 ## Data frames - Merging data frames with merge()
 
 
-To do this we can use the **merge()** function with the data frames as the first two arguments. We can then specify the columns to merge by with the **by** argument. To keep only data pertaining to values common to both data frames the **all** argument is set to TRUE.
+To do this we can use the **merge()** function with the data frames as the first two arguments. We can then specify the columns to merge by with the **by** argument. To keep only data pertaining to values common to both data frames the **all** argument is set to FALSE.
 
 
 ```r
@@ -2421,51 +2421,51 @@ A standard format for this data is a table
 &lt;tbody&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_a &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.245001 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.215189 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.868413 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.243432 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.836184 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.395791 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_b &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.812372 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.077108 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.656618 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 7.085230 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.616717 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.472434 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_c &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.031019 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.081290 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.652115 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.599733 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.074152 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 6.030113 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_d &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.495636 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.606743 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 2.152395 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.566091 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.357639 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.175626 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_e &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.123215 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.357947 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.511970 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 11.018858 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.919044 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.431533 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_f &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.519889 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.481834 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.807721 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8.723125 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.247919 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.200776 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_g &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.926697 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 11.125248 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.866365 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.016139 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 11.632214 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 11.214147 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_h &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.540448 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 11.501300 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.012579 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.284989 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.313058 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8.965967 &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;

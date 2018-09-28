@@ -1235,7 +1235,7 @@ dfExample2
 ## Data frames - Merging data frames with merge()
 
 
-To do this we can use the **merge()** function with the data frames as the first two arguments. We can then specify the columns to merge by with the **by** argument. To keep only data pertaining to values common to both data frames the **all** argument is set to TRUE.
+To do this we can use the **merge()** function with the data frames as the first two arguments. We can then specify the columns to merge by with the **by** argument. To keep only data pertaining to values common to both data frames the **all** argument is set to FALSE.
 
 ```{r dataframesMerge_introtoR}
 mergedDF <- merge(dfExample,dfExample2,by=1,all=F)
