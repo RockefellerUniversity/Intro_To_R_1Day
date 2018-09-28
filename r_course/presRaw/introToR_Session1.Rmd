@@ -1,7 +1,7 @@
 ---
 title: "Introduction to R, Session 1 <html><div style='float:left'></div><hr color='#EB811B' size=1px width=796px></html>"
 author: "Rockefeller University, Bioinformatics Resource Centre"
-date: "http://rockefelleruniversity.github.io/Intro_To_R/"
+date: "http://rockefelleruniversity.github.io/Intro_To_R_1Day/"
 output: 
   xaringan::moon_reader:
     css: ["default", "metropolisCustom.css", "metropolis-fontsCustom.css"]
@@ -1013,6 +1013,9 @@ factorExample
 
 ```
 
+---
+## Factors - Replacement
+
 To add a new level we can use the levels argument.
 
 ```{r factorsAddNew_introtoR}
@@ -1367,5 +1370,264 @@ listAsMat <- matrix(flatList,
                     dimnames=list(names(myNamedList)))
 listAsMat
 ```
+
+
+---
+class: inverse, center, middle
+
+#Reading and writing data in R
+
+<html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
+
+---
+
+
+
+
+---
+## Data IO - Data from External sources
+
+
+
+Most of the time, you will not be generating data in R but will be importing data from external files.
+
+A standard format for this data is a table
+
+```{r,echo=F}
+minRep <- rbind(cbind(matrix(rnorm(12,4),ncol=3,byrow = T),matrix(c(rnorm(9,4),rnorm(3,8)),ncol=3,byrow = T)),
+cbind(matrix(rnorm(12,10),ncol=3,byrow = T),matrix(c(rnorm(6,3),rnorm(6,10)),ncol=3,byrow = T)))
+colnames(minRep) <- paste0(c("Sample_"),
+                      1:5,".",sort(rep(c("hi","low"),3)))
+minRepdf <- data.frame(Gene_Name=paste("Gene",letters[1:8],sep="_"),minRep)
+#minRepdf$Gene_Name <- paste("Gene",letters[1:8],sep="_")
+#write.table(minRepdf,file="readThisTable.csv",sep=",",row.names=F)
+kable(minRepdf[,1:4], format='html')
+
+```
+
+---
+## Data IO - Data from text file with read.table()
+
+
+Tables from text files can be read with **read.table()** function
+
+```{r,echo=T}
+Table <- read.table("data/readThisTable.csv",sep=",",header=T)
+Table[1:4,1:3]
+```
+
+Here we have provided two arguments. 
+- **sep** argument specifies how columns are separated in our text file. ("," for .csv, "\t" for .tsv)
+- **header** argument specifies whether columns have headers.
+
+---
+## Data IO - Row names in read.table()
+
+
+read.table() allows for significant control over reading files through its many arguments. Have a look at options by using **?read.table**
+
+The **row.names** argument can be used to specify a column to use as row names for the resulting data frame. Here we use the first column as row names.
+
+```{r,echo=T}
+Table <- read.table("data/readThisTable.csv",sep=",",header=T,row.names=1)
+Table[1:4,1:3]
+```
+
+---
+## Data IO - Setting factors from read.table()
+
+As mentioned, data which is read into R through read.table() will be of data frame class.
+
+To avoid character columns being converted into factors, we can specify the **stringsAsFactors** argument here.
+
+```{r,echo=T}
+Table <- read.table("data/readThisTable.csv",sep=",",header=T,stringsAsFactors=F)
+```
+
+Other very useful functions for read table include:
+- **skip** - To set number of lines to skip when reading.
+- **comment.char** - To set the start identifier for lines not to be read.
+
+---
+## Data IO - Data from other sources
+
+
+The read.table function can also read data from http.
+
+```{r,echo=T}
+URL <- "http://rockefelleruniversity.github.io/readThisTable.csv"
+Table <- read.table(URL,sep=",",header=T)
+Table[1:2,1:3]
+```
+And the clipboard.(This is Windows version)
+
+```{r,eval=F}
+Table <- read.table(file="clipboard",sep=",",header=T)
+```
+
+---
+## Data IO - Data from file columns
+
+
+read.table() function will by default read every row and column of a file.
+
+The **scan()** function allows for the selection of particular columns to be read into R and so can save memory when files are large. 
+
+
+```{r,echo=T}
+x <- scan("data/readThisTable.csv",sep=",",
+what = c("character",rep("numeric", 6)),skip=1)
+x[1:3]
+```
+
+---
+## Data IO - Writing data to file
+
+
+Once we have our data analysed in R, we will want to export it to a file. 
+
+The most common method is to use the write.table() function
+
+```{r,echo=T}
+write.table(Table,file="data/writeThisTable.csv",sep=",")
+```
+
+Since our data has column names but no row names, I will provide the arguments col.names and row.names to write.table()
+
+```{r,echo=T}
+write.table(Table,file="data/writeThisTable.csv", sep=",", row.names =F,col.names=T)
+```
+
+
+---
+## The rio (R io) package.
+
+We may want to import from formats other than plain text.
+
+We can make use of an R package (the rio package) which allows us to import and export data to mulitple formats.
+
+Formats include:-
+
+* XML
+* Matlab, SAS, SPSS and minitab output formats.
+* Excel and OpenOffice formats.
+
+
+---
+## The rio package.
+
+To make use of the rio package functionality we will need to install this package to our version of R.
+
+We can do this by using the **install.packages()** function with the package we wish to install.
+
+**install.packages(_PACKAGENAME_)**
+
+```{r,echo=T,eval=FALSE}
+install.packages("rio")
+```
+
+
+
+---
+## The rio package.
+
+Once we have installed a package, we will need to load it to make the functions available to us.
+
+We can load a library by using the **library()** function with package we wish to install
+
+**library(_PACKAGENAME_)**
+
+```{r,echo=T,eval=TRUE}
+library("rio")
+```
+
+---
+## The rio package.
+
+The main two functions in the rio package are the **import** and **export** functions.
+
+We can use the **import()** function to read in our csv file. We simple specify our file as an argument to the **import()** function..
+
+**import(_Filename_)**
+
+```{r,echo=T,eval=TRUE}
+Table <- import("data/readThisTable.csv")
+Table[1:2,]
+```
+
+---
+## The rio package.
+
+By default we will only retrieve the first sheet.
+
+We can specify the sheet by name or number using the **which** argument.
+
+```{r,echo=T,eval=TRUE}
+Table <- import("data/readThisXLS.xls", 
+                which=2)
+Table <- import("data/readThisXLS.xls", 
+                which="Metadata")
+Table[1:2,]
+```
+
+---
+## The rio package.
+
+If we want to import all sheets, we can use the **import_list**.
+
+This returns a *list* containing our two spreadsheets. The list has two elements named after the corresponding XLS sheet.
+
+```{r,echo=T,eval=TRUE}
+Table <- import_list("data/readThisXLS.xls")
+names(Table)
+```
+
+---
+## The rio package.
+
+Since this is a list of data.frames, we can access our sheets using standard list accessors, **$** and **[[]]**.
+
+```{r,echo=T,eval=TRUE}
+## Table[["ExpressionScores"]][1:2,]
+Table$ExpressionScores[1:2,]
+Table$Metadata[1:2,]
+```
+
+---
+## The rio package.
+
+We can export our data back to file using the **export()** function and specifying the name of the output file to the **file** argument. The **export()** function will guess the format required from the extension.
+
+```{r,echo=T,eval=TRUE}
+ExpressionScores <- Table$ExpressionScores
+export(ExpressionScores,file = "data/writeThisXLSX.xlsx")
+
+```
+
+---
+## The rio package.
+
+We can export a list of data.frames to Excel's xlsx format using the **export()** function. The names of list elements will be used to name sheets in xlsx file.
+
+```{r,echo=T,eval=TRUE}
+names(Table) <- c("expr","meta")
+export(Table,file = "data/writeThisMultipleXLSX.xlsx")
+
+```
+
+
+---
+## Time for an exercise!
+
+
+Exercise on reading and writing data can be found [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/exercises/DataInputOutput_Exercises.html)
+
+---
+## Answers to exercise.
+
+
+Answers can be found [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/answers/DataInputOutput_answers.html)
+
+R code for solutions can be found [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/answers/DataInputOutput_answers.R)
 
 
