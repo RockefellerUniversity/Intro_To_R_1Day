@@ -590,25 +590,28 @@ exampleList &lt;-<span class="st"> </span><span class="kw">list</span>(<span cla
 <p>To save all the objects (workspace) with extension <strong>.RData</strong></p>
 <p><strong>-&gt;Session -&gt; Save workspace as</strong></p>
 </div>
+<div id="the-end" class="section level2">
+<h2>The end</h2>
+</div>
 <div id="rscript" class="section level2">
 <h2>Rscript</h2>
 <p>R scripts can be run non-interactively from the command line with the <strong>Rscript</strong> command, usually with the option <strong>–vanilla</strong> to avoid saving or restoring workspaces. All messages/warnings/errors will be output to the console.</p>
 <pre><code>Rscript --vanilla myscript.r</code></pre>
 <p>An alternative to Rscript is <strong>R CMD BATCH</strong>. Here all messages/warnings/errors are directed to a file and the processing time appended.</p>
 <pre><code>R CMD BATCH myscript.r</code></pre>
-</div>
-<div id="getting-help" class="section level2">
-<h2>Getting help</h2>
-<ul>
-<li>Google</li>
-<li>Local friendly bioinformaticians and computational biologists.</li>
-<li><a href="http://stackoverflow.com/">Stackoverflow</a></li>
-<li><a href="https://stat.ethz.ch/mailman/listinfo/r-help">R-help</a></li>
-</ul>
 <hr />
 </div>
-<div id="the-end" class="section level2">
-<h2>The end</h2>
+<div id="sending-arguments-to-rscript" class="section level2">
+<h2>Sending arguments to Rscript</h2>
+<p>To provide arguments to an R script at the command line we must add <strong>commandArgs()</strong> function to parse command line arguments.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">args &lt;-<span class="st"> </span><span class="kw">commandArgs</span>(<span class="ot">TRUE</span>)
+myFirstArgument &lt;-<span class="st"> </span>args[<span class="dv">1</span>]
+myFirstArgument
+<span class="kw">as.numeric</span>(myFirstArgument</code></pre></div>
+<pre><code>'10'</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.numeric</span>(myFirstArgument)</code></pre></div>
+<pre><code>10</code></pre>
+<p>Since vectors can only be one type, all command line arguments are strings and must be converted to numeric if needed with <strong>as.numeric()</strong></p>
 </div>
 </div>
 
