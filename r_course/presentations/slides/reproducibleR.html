@@ -82,6 +82,10 @@ Several packages offer methods to create notes from R scripts.
 One of the simplest way to create a note in R is to use the **render()** function in **rmarkdown** package.
 
 
+```r
+library(rmarkdown)
+render("scripts/script.r")
+```
 
 ---
 
@@ -101,6 +105,9 @@ scripts directory.
 The render()  function takes the argument **output_format**
 
 
+```r
+render("scripts/script.r", output_format="html_document")
+```
 
 ---
 
@@ -112,6 +119,10 @@ The arguments **output_file** and **output_dir** can be used to control where ou
 Note that file extension must be supplied.
 
 
+```r
+render("scripts/script.r", output_format="html_document",
+       output_file="myRenderedDoc.html",output_dir="scripts")
+```
 
 ---
 ## Adding comments and text.
@@ -120,6 +131,10 @@ Note that file extension must be supplied.
 In R we can use **#** as comments in the code. This is the most basic type of documentation for your code.
 
 
+```r
+# Generate some random numbers
+myRandNumbers &lt;- rnorm(100,10,2)
+```
 
 ---
 ## Adding comments and text.
@@ -128,6 +143,11 @@ In R we can use **#** as comments in the code. This is the most basic type of do
 If we want to include comments as text then we can use a new comment type **#'**  
 
 
+```r
+#' this would be placed as code
+# Generate some random numbers
+myRandNumbers &lt;- rnorm(100,10,2)
+```
 
 ---
 
@@ -138,6 +158,16 @@ If we wish to control author, title and date, we can insert metadata into the sc
 
 
 
+```r
+#' ---
+#' title: "CWB making notes example"
+#' author: "Tom Carroll"
+#' date: "Day 3 of CWB"
+#' ---
+#' this would be placed as text in html
+# Generate some random numbers (This is a comment with code)
+myRandNumbers &lt;- rnorm(100,10,2)
+```
 
 We will come back to YAML later.
 
@@ -149,6 +179,12 @@ We can control how the output from R looks in our rendered documents.
 Options are passed to R code by adding a line preceeding R code with the special comment **#+**. We will look at some options later but a useful example is fig.height and fig.width to control figure height and width in the document.
 
 
+```r
+#' Some comments for text.
+#+ fig.width=3, fig.height=3
+myRandNumbers &lt;- rnorm(100,10,2)
+hist(myRandNumbers)
+```
 
 ---
 ## Exercise
@@ -221,6 +257,10 @@ This is my second paragraph
 Emphasis can be added to text in markdown documents using either the **_** or __*__
 
 
+```r
+Italics = _Italics_ or *Italics*
+Bold  =  __Bold__ or **Bold**
+```
 _Italics_  
 __Bold__
 ---
@@ -369,6 +409,11 @@ hist(rnorm(1000))
 '''
 ```
 My Markdown **syntax** here
+
+```r
+hist(rnorm(1000))
+```
+
 ![](reproducibleR_files/figure-html/unnamed-chunk-10-1.png)&lt;!-- --&gt;
 ---
 ## rMarkdown. Controlling R code output - eval
@@ -386,6 +431,9 @@ hist(rnorm(1000))
 ```
 
 
+```r
+hist(rnorm(1000))
+```
 
 ---
 ## rMarkdown. Controlling R code output - Displaying code.
@@ -446,6 +494,11 @@ rnorm(100  )
 '''
 
 ```
+
+```r
+hist(rnorm(100))
+```
+
 ![](reproducibleR_files/figure-html/unnamed-chunk-13-1.png)&lt;!-- --&gt;
 
 ---
@@ -462,9 +515,11 @@ temp
 
 ```
 
-```
-##  [1]  1.0433086  0.9450496  0.5244869 -1.0914123  0.6653839  0.8575794
-##  [7]  0.3480718 -0.2639354  0.4229351  1.6060673
+```r
+temp &lt;- rnorm(10)
+temp
+##  [1] -1.503133648  1.123736510  0.592022672  1.557923631 -0.003281798
+##  [6]  1.170572291 -0.853762951 -1.832743092 -0.680641294 -1.135988265
 ```
 
 ---
@@ -499,7 +554,7 @@ more free form text.
 
 ```
 Here is some freeform _markdown_ and the first result
-from an rnorm call is -0.4566454, followed by some more free form text.
+from an rnorm call is -0.5113312, followed by some more free form text.
 
 ---
 ## rMarkdown: cache
