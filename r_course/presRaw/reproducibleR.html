@@ -120,7 +120,8 @@ Note that file extension must be supplied.
 
 
 ```r
-render("scripts/script.r", output_format="html_document", output_file="myRenderedDoc.html",output_dir="scripts")
+render("scripts/script.r", output_format="html_document",
+       output_file="myRenderedDoc.html",output_dir="scripts")
 ```
 
 ---
@@ -286,9 +287,9 @@ Headers follow the same conventions as used in HTML markup and can implemented a
 ## Middle level section
 ### Bottom level section
 ```
-# Top level section
-## Middle level section
+
 ### Bottom level section
+
 ---
 ## Markdown syntax- Lists
 
@@ -517,8 +518,8 @@ temp
 ```r
 temp &lt;- rnorm(10)
 temp
-##  [1]  0.65727423  2.02966314 -0.51403099 -0.64264531 -0.31169442
-##  [6] -0.03485686  2.00707994 -1.12506812 -0.05598397  1.86467952
+##  [1] -0.08360580  0.76377102  0.18449278  0.26113199  0.59811334
+##  [6]  0.49986066  0.15237484 -0.64140019 -0.04841596 -0.38351327
 ```
 
 ---
@@ -553,7 +554,7 @@ more free form text.
 
 ```
 Here is some freeform _markdown_ and the first result
-from an rnorm call is -0.518872, followed by some more free form text.
+from an rnorm call is -0.0644349, followed by some more free form text.
 
 ---
 ## rMarkdown: cache
