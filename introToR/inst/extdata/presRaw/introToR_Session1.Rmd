@@ -25,6 +25,9 @@ output:
 suppressPackageStartupMessages(require(knitr))
 ```
 
+# Introduction to R
+---
+
 ##  Overview 
 
 - [Set up](#Set-up)
