@@ -40,6 +40,23 @@ suppressPackageStartupMessages(require(knitr))
 - [Reading and writing in R](#datatypes)
 
 
+```{r,results='asis'}
+if(params@isSlides){
+  cat("---
+class: inverse, center, middle
+
+# Set-Up
+
+<html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
+
+---
+"    
+  )
+}
+```
+
+
+
 ---
 class: inverse, center, middle
 
