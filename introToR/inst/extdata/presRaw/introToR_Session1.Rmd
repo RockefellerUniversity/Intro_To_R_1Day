@@ -34,10 +34,10 @@ suppressPackageStartupMessages(require(knitr))
 
 ##  Overview 
 
-- [Set up](#Set-up)
-- [Background to R](#Background-to-R)
-- [Data types in R](#datatypes)
-- [Reading and writing in R](#datatypes)
+- Set up
+- Background to R
+- Data types in R
+- Reading and writing in R
 
 
 ```{r,results='asis',include=TRUE,echo=FALSE}
