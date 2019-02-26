@@ -205,7 +205,11 @@ class: inverse, center, middle
 - Data frames
 
 
+---
 
+```{r tre}
+rmarkdown::all_output_formats(knitr::current_input())
+```
 
 ---
 ## Simple Calculations 
