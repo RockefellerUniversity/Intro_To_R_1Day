@@ -215,15 +215,12 @@ If we want to know how a function works or get an example on its use we can use 
 ---
 class: inverse, center, middle
 
-
 # Conditions and Loops
-
 
 <html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
 
-
-
 ---
+
 ## Conditions and Loops
 
 
