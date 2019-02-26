@@ -31,7 +31,7 @@ suppressPackageStartupMessages(require(knitr))
 
 ---
 
-###  Overview 
+##  Overview 
 
 - [Set up](#Set-up)
 - [Background to R](#Background-to-R)
@@ -42,13 +42,12 @@ suppressPackageStartupMessages(require(knitr))
 ---
 class: inverse, center, middle
 
-
-## Set up
-
+# Set-Up
 
 <html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
 
 ---
+
 ## Materials.
 
 All prerequisites, links to material and slides for this course can be found on github.
