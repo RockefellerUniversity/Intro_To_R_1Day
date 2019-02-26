@@ -114,7 +114,10 @@ setwd("/PathToMyDownload/Intro_To_R_1Day/r_course")
 
 
 
----
+
+```{r,results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+  cat("---
 class: inverse, center, middle
 
 # Background to R
@@ -122,6 +125,21 @@ class: inverse, center, middle
 <html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
 
 ---
+"    
+  )
+}else{
+  cat("---
+
+# Background to R
+
+---
+"    
+  )
+  
+}
+```
+
+
 ## What is R?
 
 
@@ -195,13 +213,31 @@ Four main panels
 
 ]
 
----
+
+```{r,results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+  cat("---
 class: inverse, center, middle
+
 # Data types in R
 
 <html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
 
 ---
+"    
+  )
+}else{
+  cat("---
+
+# Data types in R
+
+---
+"    
+  )
+  
+}
+```
+
 
 ## Different Data types in R
 
@@ -1395,7 +1431,11 @@ listAsMat
 ```
 
 
----
+
+
+```{r,results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+  cat("---
 class: inverse, center, middle
 
 # Reading and writing data in R
@@ -1403,6 +1443,22 @@ class: inverse, center, middle
 <html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
 
 ---
+"    
+  )
+}else{
+  cat("---
+
+# Reading and writing data in R
+
+---
+"    
+  )
+  
+}
+```
+
+
+
 ## Data IO - Data from External sources
 
 
