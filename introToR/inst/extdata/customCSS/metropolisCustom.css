@@ -49,8 +49,8 @@ position: absolute;
 }
 
 
-.remark-slide-content > h3, .remark-slide-content > h4,
-.pull-left > h3, .pull-left > h4, .pull-right > h3, .pull-right > h4 {
+.remark-slide-content > h4,
+.pull-left > h4, .pull-right > h4 {
   font-size: 30px;
 }
 
@@ -79,14 +79,14 @@ position: absolute;
   margin-left: 15px;
 }
 .title-slide > h3  {
-  margin-top: -50px;
+  margin-top: -1px;
   color: #1A292C;
   text-shadow: none;
   font-weight: 300;
   font-size: 25px;
   text-align: left;
   margin-left: 15px;
-  margin-bottom: -30px;
+  margin-bottom: -10px;
 }
 
 .remark-slide-number {
