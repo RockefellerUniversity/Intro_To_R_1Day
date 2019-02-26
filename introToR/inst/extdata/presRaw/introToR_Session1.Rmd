@@ -31,7 +31,7 @@ suppressPackageStartupMessages(require(knitr))
 
 ---
 
-##  Overview 
+###  Overview 
 
 - [Set up](#Set-up)
 - [Background to R](#Background-to-R)
