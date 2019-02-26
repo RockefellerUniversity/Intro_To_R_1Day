@@ -61,15 +61,6 @@ Or can be downloaded as a zip archive from here.
 
 
 ---
-class: inverse, center, middle
-
-
-## Set up 2
-
-
-<html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
-
----
 ## Materials. - Presentations, source code and practicals.
 
 
@@ -206,11 +197,6 @@ class: inverse, center, middle
 - Data frames
 
 
----
-
-```{r tre}
-rmarkdown::all_output_formats(knitr::current_input())
-```
 
 ---
 ## Simple Calculations 
