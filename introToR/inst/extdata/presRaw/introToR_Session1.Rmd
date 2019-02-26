@@ -43,7 +43,7 @@ suppressPackageStartupMessages(require(knitr))
 class: inverse, center, middle
 
 
-# Set up
+## Set up
 
 
 <html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
