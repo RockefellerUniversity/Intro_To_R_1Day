@@ -41,7 +41,7 @@ suppressPackageStartupMessages(require(knitr))
 
 
 ```{r,results='asis'}
-if(params@isSlides){
+if(params$isSlides){
   cat("---
 class: inverse, center, middle
 
