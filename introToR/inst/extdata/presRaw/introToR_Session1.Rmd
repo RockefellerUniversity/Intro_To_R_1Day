@@ -18,7 +18,7 @@ output:
     theme: united  # many options for theme, this one is my favorite.
     highlight: tango  # specifies the syntax highlighting style
 params:
-  isSlides: yes
+  isSlides: true
 
 ---
 
@@ -41,7 +41,7 @@ suppressPackageStartupMessages(require(knitr))
 
 
 ```{r,results='asis',include=FALSE}
-if(params$isSlides == "yes"){
+if(params$isSlides){
   cat("---
 class: inverse, center, middle
 
@@ -52,19 +52,19 @@ class: inverse, center, middle
 ---
 "    
   )
-}else{
-  cat("---
-
-# Set-Up
-
-
----
-"    
-  )
-  
 }
 ```
 
+
+
+---
+class: inverse, center, middle
+
+# Set-Up
+
+<html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
+
+---
 
 ## Materials.
 
