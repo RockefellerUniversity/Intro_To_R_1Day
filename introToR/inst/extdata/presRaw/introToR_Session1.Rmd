@@ -1382,7 +1382,7 @@ listAsMat
 ---
 class: inverse, center, middle
 
-# Reading and writing data in R
+# Background to R
 
 <html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
 
