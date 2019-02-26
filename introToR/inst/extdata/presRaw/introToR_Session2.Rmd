@@ -212,7 +212,11 @@ If we want to know how a function works or get an example on its use we can use 
 ?merge
 ```
 
----
+
+
+```{r,results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+  cat("---
 class: inverse, center, middle
 
 # Conditions and Loops
@@ -220,6 +224,20 @@ class: inverse, center, middle
 <html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
 
 ---
+"    
+  )
+}else{
+  cat("---
+
+# Conditions and Loops
+
+---
+"    
+  )
+  
+}
+```
+
 
 ## Conditions and Loops
 
@@ -642,18 +660,33 @@ Answers can be found here  [here](http://rockefelleruniversity.github.io/Intro_T
 
 Rcode for answers can be found here  [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/answers/conditionsAndLoops_Answers.R)
 
----
-class: inverse, center, middle
 
+
+```{r,results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+  cat("---
+class: inverse, center, middle
 
 # Getting additional libraries
 
-
 <html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
 
+---
+"    
+  )
+}else{
+  cat("---
 
+# Getting additional libraries
 
 ---
+"    
+  )
+  
+}
+```
+
+
 ## Loading libraries
 
 
