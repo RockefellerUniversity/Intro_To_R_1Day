@@ -40,7 +40,7 @@ suppressPackageStartupMessages(require(knitr))
 - [Reading and writing in R](#datatypes)
 
 
-```{r,results='asis'}
+```{r,results='asis',include=FALSE}
 if(params$isSlides){
   cat("---
 class: inverse, center, middle
