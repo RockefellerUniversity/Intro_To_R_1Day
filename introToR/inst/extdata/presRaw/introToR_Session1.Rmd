@@ -1387,11 +1387,6 @@ class: inverse, center, middle
 <html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
 
 ---
-
-
-
-
----
 ## Data IO - Data from External sources
 
 
@@ -1610,6 +1605,7 @@ ExpressionScores <- Table$ExpressionScores
 export(ExpressionScores,file = "data/writeThisXLSX.xlsx")
 
 ```
+
 
 ---
 ## The rio package.
