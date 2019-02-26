@@ -66,16 +66,6 @@ class: inverse, center, middle
 ```
 
 
-
----
-class: inverse, center, middle
-
-# Set-Up
-
-<html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
-
----
-
 ## Materials.
 
 All prerequisites, links to material and slides for this course can be found on github.
