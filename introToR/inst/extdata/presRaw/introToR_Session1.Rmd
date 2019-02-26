@@ -18,7 +18,7 @@ output:
     theme: united  # many options for theme, this one is my favorite.
     highlight: tango  # specifies the syntax highlighting style
 params:
-  isSlides: true
+  isSlides: "yes"
 
 ---
 
@@ -41,7 +41,7 @@ suppressPackageStartupMessages(require(knitr))
 
 
 ```{r,results='asis',include=TRUE,echo=FALSE}
-if(params$isSlides){
+if(params$isSlides == "yes"){
   cat("---
 class: inverse, center, middle
 
