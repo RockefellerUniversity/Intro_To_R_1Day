@@ -42,7 +42,7 @@ class: inverse, center, middle
 }else{
   cat("---
 
-## Reproducible Research
+# Reproducible Research
 
 ---
 "    
