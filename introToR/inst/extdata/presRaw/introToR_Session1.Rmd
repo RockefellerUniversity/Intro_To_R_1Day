@@ -26,7 +26,7 @@ params:
 suppressPackageStartupMessages(require(knitr))
 ```
 
-# (PART) Introduction to Rs {-}
+# (PART) Introduction to R {-}
 
 # Introduction to R 
 
