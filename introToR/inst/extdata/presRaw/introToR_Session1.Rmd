@@ -1685,9 +1685,15 @@ Table$Metadata[1:2,]
 
 We can export our data back to file using the **export()** function and specifying the name of the output file to the **file** argument. The **export()** function will guess the format required from the extension.
 
-```{r,echo=T,eval=TRUE}
+```{r,echo=TRUE,eval=FALSE}
 ExpressionScores <- Table$ExpressionScores
 export(ExpressionScores,file = "data/writeThisXLSX.xlsx")
+
+```
+
+```{r,echo=FALSE,eval=TRUE}
+ExpressionScores <- Table$ExpressionScores
+rio::export(ExpressionScores,file = "data/writeThisXLSX.xlsx")
 
 ```
 
