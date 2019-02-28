@@ -1624,8 +1624,14 @@ We can use the **import()** function to read in our csv file. We simple specify 
 
 **import(_Filename_)**
 
-```{r,echo=T,eval=TRUE}
+
+```{r,echo=TRUE,eval=FALSE}
 Table <- import("data/readThisTable.csv")
+Table[1:2,]
+```
+
+```{r,echo=FALSE,eval=TRUE}
+Table <- rio::import("data/readThisTable.csv")
 Table[1:2,]
 ```
 
@@ -1636,7 +1642,7 @@ By default we will only retrieve the first sheet.
 
 We can specify the sheet by name or number using the **which** argument.
 
-```{r,echo=T,eval=TRUE}
+```{r,echo=TRUE,eval=FALSE}
 Table <- import("data/readThisXLS.xls", 
                 which=2)
 Table <- import("data/readThisXLS.xls", 
@@ -1644,6 +1650,13 @@ Table <- import("data/readThisXLS.xls",
 Table[1:2,]
 ```
 
+```{r,echo=FALSE,eval=TRUE}
+Table <- rio::import("data/readThisXLS.xls", 
+                which=2)
+Table <- rio::import("data/readThisXLS.xls", 
+                which="Metadata")
+Table[1:2,]
+```
 ---
 ### The rio package.
 
@@ -1684,9 +1697,16 @@ export(ExpressionScores,file = "data/writeThisXLSX.xlsx")
 
 We can export a list of data.frames to Excel's xlsx format using the **export()** function. The names of list elements will be used to name sheets in xlsx file.
 
-```{r,echo=T,eval=TRUE}
+```{r, echo=TRUE, eval=FALSE}
 names(Table) <- c("expr","meta")
 export(Table,file = "data/writeThisMultipleXLSX.xlsx")
+
+```
+
+
+```{r,echo=FALSE,eval=TRUE}
+names(Table) <- c("expr","meta")
+rio::export(Table,file = "data/writeThisMultipleXLSX.xlsx")
 
 ```
 
