@@ -421,6 +421,16 @@ HTML links can be included in Markdown documents either by simply including addr
 http://mrccsc.github.io
 [Github site](http://mrccsc.github.io)
 ```
+---
+### Markdown syntax- Page breaks.
+
+Markdown allows for the specification of page breaks in your document.  
+To specify a page break use 3 or more asterisks or dashes.
+
+```
+Before the page break
+---
+```
 
 ```{r,results='asis',include=TRUE,echo=FALSE}
 if(params$isSlides == "yes"){
