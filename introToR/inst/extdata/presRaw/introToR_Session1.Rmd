@@ -181,7 +181,13 @@ In particular, [Robert Gentleman](http://www.gene.com/scientists/our-scientists/
 ```{r,results='asis',include=TRUE,echo=FALSE}
 if(params$isSlides == "yes"){
 cat("]
-.pull-right[
+")
+}
+```
+
+```{r,results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+cat(".pull-right[
 "
 )
 }
