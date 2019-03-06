@@ -83,7 +83,13 @@ aVector
 ### Recap
 For matricies and data.frames we use two indexs, specifying columns and rows. **matrix[_rowIndex_,_columnIndex_]**
 
-.pull-left[
+```{r,results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+cat(".pull-left[
+    ")
+}
+```
+
 ```{r,echo=T,eval=T,tidy=FALSE}
 aMatrix <- matrix(aVector,ncol=2,
                   nrow=5,byrow = TRUE)
@@ -91,34 +97,84 @@ aMatrix
 aMatrix[1,]
 aMatrix[,1]
 ```
-]
-.pull-right[
+
+```{r,results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+cat("]
+")
+}
+```
+
+
+```{r,results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+cat(".pull-right[
+"
+)
+}
+```
+
 ```{r,echo=T,eval=T,tidy=FALSE}
 aMatrix[1,1] <- 0
 aMatrix[,2] <- 100
 aMatrix
 ```
-]
+
+```{r,results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+cat("]
+")
+}
+```
+
 ---
 ### Recap
 
 
 Remember a matrix can only contain one data type (numeric, character etc). For mixed data types we use data.frames.
 
-.pull-left[
+```{r,results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+cat(".pull-left[
+    ")
+}
+```
+
 ```{r,echo=T,eval=T,tidy=FALSE}
 aMatrix <- matrix(aVector,ncol=2,
                   nrow=5,byrow = TRUE)
 aMatrix
 
 ```
-]
-.pull-right[
+
+```{r,results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+cat("]
+")
+}
+```
+
+
+```{r,results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+cat(".pull-right[
+"
+)
+}
+```
+
 ```{r,echo=T,eval=T,tidy=FALSE}
 aMatrix[1,2] <- "Word"
 aMatrix
 ```
-]
+
+```{r,results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+cat("]
+")
+}
+```
+
 
 ---
 ### Recap
@@ -311,7 +367,13 @@ We really still want a message telling us what was the result of the condition.
 ---
 ### Conditions - else following an if.
 
-.pull-left[
+```{r,results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+cat(".pull-left[
+    ")
+}
+```
+
 If we want to perform an operation when the condition is false we can follow the if() statement with an else statement.
 
 ```{r,message=T}
@@ -322,8 +384,23 @@ if(x < 5){
      message(x," is greater than or equal to 5")
 }
 ```
-]
-.pull-right[
+
+```{r,results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+cat("]
+")
+}
+```
+
+
+```{r,results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+cat(".pull-right[
+"
+)
+}
+```
+
 With the addition of the else statement, when x is not less than 5 the code following the else statement is executed.
 
 ```{r,message=T}
@@ -336,7 +413,14 @@ if(x < 5){
 
 ```
 
-]
+
+```{r,results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+cat("]
+")
+}
+```
+
 
 ---
 ### Conditions - else if
@@ -448,7 +532,13 @@ for(i in 1:length(geneName)){
 ### Loops -Loops and conditionals
 
 Loops can be combined with conditional statements to allow for complex control of their execution over R objects. 
-.pull-left[
+```{r,results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+cat(".pull-left[
+    ")
+}
+```
+
 ```{r,echo=T,eval=F}
 x <- 1:13
 
@@ -462,8 +552,23 @@ for(i in 1:13){
   }
 }
 ```
-]
-.pull-right[
+
+```{r,results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+cat("]
+")
+}
+```
+
+
+```{r,results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+cat(".pull-right[
+"
+)
+}
+```
+
 ```{r,message=T,echo=F}
 x <- 1:13
 
@@ -477,13 +582,26 @@ for(i in 1:13){
   }
 }
 ```
-]
+
+```{r,results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+cat("]
+")
+}
+```
+
 ---
 ### Conditions and Loops - Breaking loops
 
 We can use conditionals to exit a loop if a condition is satisfied, just a like while loop.
 
-.pull-left[
+```{r,results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+cat(".pull-left[
+    ")
+}
+```
+
 ```{r,message=T,eval=F}
 x <- 1:13
 
@@ -498,8 +616,22 @@ for(i in 1:13){
   }
 }
 ```
-]
-.pull-right[
+
+```{r,results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+cat("]
+")
+}
+```
+
+```{r,results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+cat(".pull-right[
+"
+)
+}
+```
+
 ```{r,message=T,eval=T,echo=F}
 x <- 1:13
 
@@ -517,7 +649,14 @@ for(i in 1:13){
   }
 }
 ```
-]
+
+```{r,results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+cat("]
+")
+}
+```
+
 ---
 ### Loops - Functions to loop over data types
 
@@ -574,7 +713,13 @@ apply(matExample,1,paste,collapse=";")
 ---
 ### Looping - lapply()
 
-.pull-left[
+```{r,results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+cat(".pull-left[
+    ")
+}
+```
+
 Similar to apply, **lapply** applies a function to every element of a vector or list. 
 
 **lapply** returns a list object containing the results of evaluating the function.
@@ -582,14 +727,36 @@ Similar to apply, **lapply** applies a function to every element of a vector or 
 ```{r}
 lapply(c(1,2),mean)
 ```
-]
-.pull-right[
+
+```{r,results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+cat("]
+")
+}
+```
+
+
+```{r,results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+cat(".pull-right[
+"
+)
+}
+```
+
 As with apply() additional arguments can be supplied after the function name argument.
 
 ```{r}
 lapply(list(1,c(NA,1),2),mean, na.rm=T)
 ```
-]
+
+```{r,results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+cat("]
+")
+}
+```
+
 ---
 ### Looping -sapply()
 
@@ -607,7 +774,13 @@ sapply(exampleList,mean,na.rm=T)
 ---
 ### Looping - sapply() example
 
-.pull-left[
+```{r,results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+cat(".pull-left[
+    ")
+}
+```
+
 In this example lapply returns a list of vectors from the quantile function.
 
 ```{r,tidy=FALSE}
@@ -616,12 +789,34 @@ exampleList <- list(row1=1:5,
                     row3=11:15)
 exampleList
 ```
-]
-.pull-right[
+
+```{r,results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+cat("]
+")
+}
+```
+
+
+```{r,results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+cat(".pull-right[
+"
+)
+}
+```
+
 ```{r}
 lapply(exampleList,quantile)
 ```
-]
+
+```{r,results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+cat("]
+")
+}
+```
+
 ---
 ### Looping - sapply() example 2
 
