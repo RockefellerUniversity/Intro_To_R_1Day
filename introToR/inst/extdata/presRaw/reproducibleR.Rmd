@@ -427,7 +427,7 @@ http://mrccsc.github.io
 Markdown allows for the specification of page breaks in your document.  
 To specify a page break use 3 or more asterisks or dashes.
 
-```
+```{}
 Before the page break
 ---
 ```
