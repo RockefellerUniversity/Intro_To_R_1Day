@@ -205,7 +205,12 @@ cat("]
 ---
 ### How to get R?
 
-.pull-left[
+```{r,results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+cat(".pull-left[
+    ")
+}
+```
 
 Freely available from [R-project website](http://cran.ma.imperial.ac.uk/).
 
@@ -213,16 +218,41 @@ RStudio provides an integrated development environment (IDE) which is freely ava
 
 
 ***We will be using RStudio and R already installed on your machines.***
-]
-.pull-right[
+```{r,results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+cat("]
+")
+}
+```
+
+```{r,results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+cat(".pull-right[
+"
+)
+}
+```
+
 ![alt text](imgs/cran.jpeg)
 ![alt text](imgs/rstudio.jpeg)
-]
+```{r,results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+cat("]
+")
+}
+```
+
 
 ---
 ### A quick tour of RStudio
 
-.pull-left[
+```{r,results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+cat(".pull-left[
+    ")
+}
+```
+
 Four main panels
 - Scripting panel
 - R interface
@@ -231,14 +261,32 @@ Four main panels
 
 
 **Let's load RStudio and take a look**
-]
+```{r,results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+cat("]
+")
+}
+```
 
-.pull-right[
+
+```{r,results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+cat(".pull-right[
+"
+)
+}
+```
+
 
 ![alt text](imgs/rstudioBlank.jpeg)
 
 
-]
+```{r,results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+cat("]
+")
+}
+```
 
 
 ```{r,results='asis',include=TRUE,echo=FALSE}
