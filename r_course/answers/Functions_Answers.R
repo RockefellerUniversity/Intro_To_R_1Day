@@ -1,15 +1,4 @@
----
-title: "Functions in R answers"
-author: "MRC CSC"
-date: "01/01/2015"
-output: html_document
----
-
-These exercises cover the sections of functions in R [Introduction to R]("introToR_Day1.html").
-
--- Create a function which takes one argument and finds the smallest number whose factorial is greater than that argument.
-
-```{r,message=T}
+## ----message=T-----------------------------------------------------------------------------------------------------------
 findSmallestFactorial <- function(x){
   if(!is.numeric(x)){
     message("Please provide a numeric argument!")
@@ -30,11 +19,9 @@ findSmallestFactorial <- function(x){
 
 findSmallestFactorial(3000)
 findSmallestFactorial(10^100)
-```
 
--- Create a function which takes a vector argument and returns both the number of even perfect squares and a vector of  perfect squares. 
 
-```{r,message=T}
+## ----message=T-----------------------------------------------------------------------------------------------------------
 findPerfectSquares <- function(x){
   vecOfSquares <- c()
   evenSquares <- 0
@@ -64,11 +51,9 @@ altFindPerfectSquares(1:100)
 
 #Res <- findPerfectSquares(1:10^8)
 #altRes <- altFindPerfectSquares(1:10^8)
-```
 
--- Create a function which takes an argument of the directory containing expression files and the name of the annotation file and writes a the table with all samples' expression results and all annotation to file. 
 
-```{r,message=T}
+## ----message=T-----------------------------------------------------------------------------------------------------------
 summariseResults <- function(dirName=getwd(),annotation){
   if(missing(annotation)){
     message("Annotation file must be provided")
@@ -108,32 +93,24 @@ summariseResults <- function(dirName=getwd(),annotation){
 }
 
 summariseResults("ExpressionResults/","ExpressionResults/Annotation.ann")
-```
-
--- Adapt the above function to also write a  t-test result table filtered by the p-value cut-off. An additional argument specifying the allocation a samples into groups must be specified.
 
 
-To retrieve the indicies of the **first** occurence of every element in one vector in a second vector you can use the **match()** function.
-
-```{r,message=T}
+## ----message=T-----------------------------------------------------------------------------------------------------------
 allSamples <- c("sample1.txt","sample2.txt","sample3.txt","sample4.txt","sample5.txt","sample5.txt")
 testSamples <- c("sample1.txt","sample5.txt")
 match(testSamples,allSamples)
 allSamples[match(testSamples,allSamples)]
-```
 
-To find **all** occurences of vector in another you can use the **%in%** operator
 
-```{r,message=T}
+## ----message=T-----------------------------------------------------------------------------------------------------------
 
 allSamples <- c("sample1.txt","sample2.txt","sample3.txt","sample4.txt","sample5.txt")
 testSamples <- c("sample1.txt","sample5.txt")
 allSamples %in% testSamples
 allSamples[allSamples %in% testSamples]
-```
 
-  
-```{r,message=T}
+
+## ----message=T-----------------------------------------------------------------------------------------------------------
 summariseResults2 <- function(dirName=getwd(),annotation,sampleGroups=NULL){
   if(missing(annotation)){
     message("Annotation file must be provided")
@@ -205,8 +182,5 @@ groupA <- expressionFiles[grep("[1-5].txt",expressionFiles)]
 groupB <- expressionFiles[grep("[6-9,0].txt",expressionFiles)]
 myGroups <- list(groupA,groupB)
 summariseResults2("ExpressionResults/","ExpressionResults/Annotation.ann",myGroups)
-
-```
-
 
 

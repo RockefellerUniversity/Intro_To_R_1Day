@@ -1,4 +1,20 @@
 ## ----message=T-----------------------------------------------------------------------------------------------------------
+ordinalFactor <- factor(c("high", "low", "mid", "low", "mid", "low", "mid", "high", "mid", "high"),ordered=T,levels=c("low", "mid", "high"))
+ordinalFactor
+
+
+## ----message=T-----------------------------------------------------------------------------------------------------------
+filteredFactor <- ordinalFactor[ordinalFactor > "low"]
+filteredFactor
+
+
+## ----message=T-----------------------------------------------------------------------------------------------------------
+newFactor <- factor(ordinalFactor,ordered=T,levels=c("low", "mid", "high","veryHigh"))
+newFactor[length(newFactor)] <- "veryHigh"
+newFactor[newFactor > "mid"]
+
+
+## ----message=T-----------------------------------------------------------------------------------------------------------
 Annotation <- data.frame(geneNames=c("Gene_1", "Gene_2", "Gene_3","Gene_4","Gene_5"), ensembl=c("Ens001", "Ens003", "Ens006", "Ens007", "Ens010"),pathway=c("Glycolysis", "TGFb", "Glycolysis", "TGFb", "Glycolysis"),geneLengths=c(100, 3000, 200, 1000,1200))
 
 
@@ -24,7 +40,7 @@ AnnoSample1And2
 
 ## ----message=T-----------------------------------------------------------------------------------------------------------
 rownames(AnnoSample1And2) <- AnnoSample1And2$ensembl
-mean(AnnoSample1And2["Ens006","Sample1_lne"],AnnoSample1And2["Ens006","Sample2_lne"])
+mean(c(AnnoSample1And2["Ens006","Sample1_lne"],AnnoSample1And2["Ens006","Sample2_lne"]))
 
 
 ## ----message=T-----------------------------------------------------------------------------------------------------------

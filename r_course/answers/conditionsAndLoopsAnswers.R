@@ -62,6 +62,28 @@ Annotation <- read.table("ExpressionResults/Annotation.ann",sep="\t",h=T)
 annotatedExpression <- merge(Annotation,mergedTable,by=1,all.x=F,all.y=T)
 annotatedExpression[1:2,]
 
-summary(annotatedExpression$Pathway)
+table(Annotation$Pathway)
 summary(Annotation$Pathway)
+
+
+## ----message=T-----------------------------------------------------------------------------------------------------------
+cor(annotatedExpression[,grep("ExpressionResults",colnames(annotatedExpression))])
+
+
+
+## ----message=T-----------------------------------------------------------------------------------------------------------
+indexGroupOne <- grep("[1-5].txt",colnames(annotatedExpression))
+indexGroupTwo <- grep("[6-9,0].txt",colnames(annotatedExpression))
+ttestResults <- apply(annotatedExpression,1,function(x)
+  t.test(as.numeric(x[indexGroupOne]),as.numeric(x[indexGroupTwo])))
+
+str(ttestResults[[1]])
+
+testResult <- sapply(ttestResults,function(x) c(log2(x$estimate[2]) - log2(x$estimate[1]), x$statistic,x$p.value))
+testResult <- t(testResult)
+colnames(testResult) <- c("logFC","tStatistic","pValue")
+annotatedResult <- cbind(annotatedExpression[,1:3],testResult)
+annotatedResult <- annotatedResult[order(annotatedResult$tStatistic),]
+annotatedResult[1:2,]
+write.table(annotatedResult,file="annotatedResults.csv",sep=",",row.names=F,col.names=F)
 

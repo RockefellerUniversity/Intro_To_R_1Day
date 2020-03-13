@@ -51,7 +51,7 @@ temp
 
 ```{r,message=T}
 
-filesToRead <- dir("../ExpressionResults/",pattern = "*\\.txt",full.names=T)
+filesToRead <- dir("ExpressionResults/",pattern = "*\\.txt",full.names=T)
 fileRead <- vector("list",length=length(filesToRead))
 for(i in 1:length(filesToRead)){
   fileRead[[i]] <- read.delim(filesToRead[i],header=F,sep="\t")
@@ -74,7 +74,7 @@ mergedTable[1:3,]
 -- Add annotation from Annotation.txt. How do the pathway information for genes compare between expression table and annotation table.
  
 ```{r,message=T}
-Annotation <- read.table("../ExpressionResults/Annotation.ann",sep="\t",h=T)
+Annotation <- read.table("ExpressionResults/Annotation.ann",sep="\t",h=T)
 annotatedExpression <- merge(Annotation,mergedTable,by=1,all.x=F,all.y=T)
 annotatedExpression[1:2,]
 
