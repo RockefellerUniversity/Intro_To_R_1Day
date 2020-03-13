@@ -1,8 +1,0 @@
-title: Intro to r 1day
-description: One day version of Reproducible R course
-google_analytics: 
-show_downloads: true
-theme: jekyll-theme-architect
-
-gems:
-  - jekyll-mentions
