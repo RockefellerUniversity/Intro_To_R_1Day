@@ -1,10 +1,16 @@
 ---
-title: "Vectors Exercises"
-author: "MRC CSC"
-output: html_document
+title: "Vector Answers"
+author: "Rockefeller University, Bioinformatics Resource Centre"
+date: "https://rockefelleruniversity.github.io/RU_tidyverse/"
+output: 
+  html_document:
+    number_sections: false  ## if you want number sections at each table header
+    theme: united  # many options for theme, this one is my favorite.
+    highlight: tango  # specifies the syntax highlighting style
 ---
 
-These exercises cover the vectors sections of Introduction to R.
+<p>&nbsp;</p>
+These answers are from the exercises about the vector sections of [Introduction to R](https://rockefelleruniversity.github.io/introToR_Day1.html). 
 
 **Exercise 1**
 

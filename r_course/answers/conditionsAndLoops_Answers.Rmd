@@ -1,11 +1,16 @@
 ---
 title: "Conditional branching and looping in R answers"
-author: "MRC CSC"
-date: "01/01/2015"
-output: html_document
+author: "Rockefeller University, Bioinformatics Resource Centre"
+date: "https://rockefelleruniversity.github.io/RU_tidyverse/"
+output: 
+  html_document:
+    number_sections: false  ## if you want number sections at each table header
+    theme: united  # many options for theme, this one is my favorite.
+    highlight: tango  # specifies the syntax highlighting style
 ---
 
-These exercises cover the sections of Conditions and Loops in R [Introduction to R]("introToR_Day1.html").
+<p>&nbsp;</p>
+These answers are from the exercises about the conditions and loops sections of [Introduction to R](https://rockefelleruniversity.github.io/introToR_Day1.html). 
 
 -- Calculate the factorial (factorial of 3 = 3 * 2 * 1) of 10 using a loop.
 
