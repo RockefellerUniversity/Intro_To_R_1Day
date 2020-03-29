@@ -24,8 +24,9 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+# Introduction to R (part 2)
 
-## Overview
+## Overview of what we've covered
 
 
 - [Recap](#/recap)
@@ -35,10 +36,10 @@ knitr::opts_chunk$set(echo = TRUE)
 
 
 ---
-##  Recap on what we have covered. 
+##  Recap
 
 
-Session 1 covered introduction to R data types and importing/export data
+Session 1 covered introduction to R data types and import/export of data
 
 - [Background to R](#/background)
 - [Data types in R](#/datatypes)
@@ -47,14 +48,13 @@ Session 1 covered introduction to R data types and importing/export data
 ---
 ## Recap
 
-
 R stores data in five main data types.
 
 - **Vector** - Ordered collection of single data type (numeric/character/logical).
 - **Matrix** - Table (ordered 2D collection) of single data type (numeric/character/logical).
-- **Factors** -Ordered collection of ordinal or nominal catagories.
+- **Factors** - Ordered collection of ordinal or nominal catagories.
 - **Data frame** - Table (ordered 2D array) of multiple data types of same length.
-- **List** - Ordered collection of multiple data types of differing length
+- **List** - Ordered collection of multiple data types of differing length.
 
 ```{r,echo=T,eval=T}
 aVector <- c(1,2,3,4,5,6,7,8,9,10)
@@ -66,9 +66,7 @@ aDataFrame <- data.frame(Number=c(1,2,3,4,5),Factor=aFactor)
 ---
 ## Recap
 
-
 We can access and change information in our data.types using **indexing** with **[]**  (or **[[]]** for lists).
-
 
 ```{r,echo=T,eval=T}
 aVector <- c(1,2,3,4,5,6,7,8,9,10)
@@ -80,7 +78,7 @@ aVector
 
 ---
 ## Recap
-For matricies and data.frames we use two indexs, specifying columns and rows. **matrix[_rowIndex_,_columnIndex_]**
+For matricies and data frames we use two indexes, specifying columns and rows. **matrix[_rowIndex_,_columnIndex_]**
 
 .pull-left[
 ```{r,echo=T,eval=T,tidy=FALSE}
@@ -98,11 +96,11 @@ aMatrix[,2] <- 100
 aMatrix
 ```
 ]
+
 ---
 ## Recap
 
-
-Remember a matrix can only contain one data type (numeric, character etc). For mixed data types we use data.frames.
+Remember a matrix can only contain one data type (numeric, character etc). For mixed data types we use data frames.
 
 .pull-left[
 ```{r,echo=T,eval=T,tidy=FALSE}
@@ -122,9 +120,7 @@ aMatrix
 ---
 ## Recap
 
-
-We can use logical operations to evaluate information our data.types.
-
+We can use logical operations to evaluate information our data types.
 
 ```{r,echo=T,eval=T}
 aVector <- c(1,2,3,4,5,6,7,8,9,10)
@@ -138,8 +134,7 @@ aDataFrame$Factor == "R"
 ---
 ## Recap
 
-
-We can use logical operations with indexing to subset or alter information held in our data.types.
+We can use logical operations with indexing to subset or alter information held in our data types.
 
 
 ```{r,echo=T,eval=T}
@@ -152,10 +147,7 @@ aVector
 ---
 ## Recap
 
-
-When replacing factor columns in data.frames we have to remember the **levels**.
-
-
+When replacing factor columns in data frames we have to remember the **levels**.
 
 ```{r,echo=T,eval=T,tidy=T}
 
@@ -171,8 +163,7 @@ aDataFrame
 ---
 ## Recap
 
-
-We can update levels in a data.frame column as we would a factor. Now we can replace our elements in data.frame.
+We can update levels in a data frame column as we would a factor. Now we can replace our elements in data frame.
 
 ```{r,echo=T,eval=T,tidy=FALSE}
 
@@ -227,7 +218,7 @@ class: inverse, center, middle
 ## Conditions and Loops
 
 
-We have looked at using logical vectors as a way to index other data types
+We have looked at using logical vectors as a way to index other data types.
 ```{r}
 x <- 1:10
 x[x < 4]
@@ -245,10 +236,10 @@ Logicals are also used in controlling how scripted procedures execute.
 <span style="color:green">While</span> I'm analysing data, <span style="color:red">if</span> I need to execute complex statistical procedures on the data I will use R <span style="color:red">else</span> I will use a calculator.
 
 ---
-## Conditions- Conditional Branching.
+## Conditions - Conditional branching
 
 
-Conditional Branching is the evaluation of a logical to determine whether a chunk of code is executed.
+Conditional branching is the evaluation of a logical to determine whether a chunk of code is executed.
 
 In R, we use the **if** statement with the logical to be evaluated in **()** and dependent code to be executed in **{}**.
 
@@ -263,9 +254,9 @@ if(x){
 }
 
 ```
+
 ---
 ## Conditions  - Evaluating with if()
-
 
 More often, we construct the logical value within **()** itself. This can be termed the **condition**. 
 
@@ -277,7 +268,7 @@ if(x > y){
 }
 ```
 
-Here the message is printed because x is greater than y. 
+The message is printed above because x is greater than y. 
 
 ```{r,message=T}
 y <- 20
@@ -285,15 +276,13 @@ if(x > y){
   message("The value of x is ",x," which is greater than ", y)
 }
 
-
-
 ```
-Here, x is not longer greater than y, so no message is printed.
+x is now no longer greater than y, so no message is printed.
 
 We really still want a message telling us what was the result of the condition.
 
 ---
-## Conditions - else following an if.
+## Conditions - else following an if
 
 .pull-left[
 If we want to perform an operation when the condition is false we can follow the if() statement with an else statement.
@@ -325,7 +314,6 @@ if(x < 5){
 ---
 ## Conditions - else if
 
-
 We may wish to execute different procedures under multiple conditions. This can be controlled in R using the else if() following an initial if() statement.
 ```{r, message=TRUE}
 x <- 5
@@ -339,7 +327,7 @@ if(x > 5){
 ```
 
 ---
-## Conditions -ifelse()
+## Conditions - ifelse()
 
 A useful function to evaluate conditional statements over vectors is the **ifelse()** function.
 
@@ -355,7 +343,7 @@ ifelse(x <= 3,"lessOrEqual","more")
 ```
 
 ---
-## Conditions -ifelse()
+## Conditions - ifelse()
 
 We can use multiple nested **ifelse** functions to be apply more complex logical to vectors.
 
@@ -364,9 +352,9 @@ ifelse(x == 3,"same",
        ifelse(x < 3,"less","more")
       ) 
 ```
----
-## Conditions and Loops  - Loops
 
+---
+## Conditions and Loops - Loops
 
 The two main generic methods of looping in R are **while** and **for**
 
@@ -377,8 +365,7 @@ The two main generic methods of looping in R are **while** and **for**
 ---
 ## Loops - While loops
 
-
-While loops are most useful if you know the condition will be satisified but are not sure when. (i.e. Looking for a point when a number first occurs in a list).
+While loops are most useful if you know the condition will be satisified but are not sure when (i.e. Looking for a point when a number first occurs in a list).
 ```{r, message=TRUE}
 x <- 1
 while(x < 3){
@@ -391,7 +378,6 @@ message("Finally x is not less than 3")
 ---
 ## Loops - For loops
 
-
 For loops allow the user to cycle through a range of values applying an operation for every value.
 
 Here we cycle through a numeric vector and print out its value.
@@ -402,7 +388,7 @@ for(i in x){
 }
 ```
 
-Similarly we can cycle through other vector types (or lists)
+Similarly we can cycle through other vector types (or lists).
 ```{r, message=TRUE}
 x <- toupper(letters[1:5])
 for(i in x){
@@ -410,12 +396,8 @@ for(i in x){
 }
 ```
 
-
-
-
 ---
 ## Loops - Looping through indices
-
 
 We may wish to keep track of the position in x we are evaluating to retrieve the same index in other variables. A common practice is to loop though all possible index positions of x using the expression **1:length(x)**.
 
@@ -429,7 +411,7 @@ for(i in 1:length(geneName)){
 ```
 
 ---
-## Loops -Loops and conditionals
+## Loops - Loops and conditionals
 
 Loops can be combined with conditional statements to allow for complex control of their execution over R objects. 
 .pull-left[
@@ -446,6 +428,7 @@ for(i in 1:13){
   }
 }
 ```
+
 ]
 .pull-right[
 ```{r,message=T,echo=F}
@@ -462,6 +445,7 @@ for(i in 1:13){
 }
 ```
 ]
+
 ---
 ## Conditions and Loops - Breaking loops
 
@@ -483,6 +467,7 @@ for(i in 1:13){
 }
 ```
 ]
+
 .pull-right[
 ```{r,message=T,eval=T,echo=F}
 x <- 1:13
@@ -502,9 +487,9 @@ for(i in 1:13){
 }
 ```
 ]
+
 ---
 ## Loops - Functions to loop over data types
-
 
 There are functions which allow you to loop over a data type and apply a function to the subsection of that data.
 
@@ -516,7 +501,6 @@ There are functions which allow you to loop over a data type and apply a functio
 
 ---
 ## Looping - apply()
-
 
 The **apply()** function applys a function to the rows or columns of a matrix. The arguments **FUN** specifies the function to apply and **MARGIN** whether to apply the functions by rows/columns or both.
 
@@ -575,7 +559,7 @@ lapply(list(1,c(NA,1),2),mean, na.rm=T)
 ```
 ]
 ---
-## Looping -sapply()
+## Looping - sapply()
 
 
 **sapply** (*smart apply*) acts as lapply but attempts to return the results as the most appropriate data type.
@@ -584,8 +568,8 @@ Here sapply returns a vector where lapply would return lists.
 ```{r}
 exampleVector <- c(1,2,3,4,5)
 exampleList <- list(1,2,3,4,5)
-sapply(exampleVector,mean,na.rm=T)
-sapply(exampleList,mean,na.rm=T)
+sapply(exampleVector, mean, na.rm=T)
+sapply(exampleList, mean, na.rm=T)
 ```
 
 ---
@@ -601,22 +585,22 @@ exampleList <- list(row1=1:5,
 exampleList
 ```
 ]
+
 .pull-right[
 ```{r}
-lapply(exampleList,quantile)
+lapply(exampleList, quantile)
 ```
 ]
+
 ---
 ## Looping - sapply() example 2
-
 
 Here is an example of sapply parsing a result from the quantile function in a *smart* way.
 
 When a function always returns a vector of the same length, sapply will create a matrix with elements by column.
 
 ```{r}
-
-sapply(exampleList,quantile)
+sapply(exampleList, quantile)
 ```
 
 ---
@@ -628,7 +612,7 @@ When sapply cannot parse the result to a vector or matrix, a list will be return
 ```{r,tidy=FALSE}
 exampleList <- list(df=data.frame(sample=paste0("patient",1:2), data=c(1,12)),
                     vec=c(1,3,4,5))
-sapply(exampleList,summary)
+sapply(exampleList, summary)
 ```
 
 ---
@@ -648,25 +632,20 @@ Rcode for answers can be found here  [here](http://rockefelleruniversity.github.
 ---
 class: inverse, center, middle
 
-
 # Getting additional libraries
 
-
 <html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
-
-
 
 ---
 ## Loading libraries
 
-
-Libraries can be loaded using the library() function with an argument of the name of the library
+Libraries can be loaded using the library() function with an argument of the name of the library.
 
 ```{r,eval=F}
 library(ggplot2)
 ```
 
-You can see what libraries are available in the Packages panel or by the  library() function with no arguments supplied
+You can see what libraries are available in the Packages panel or by the library() function with no arguments supplied.
 
 ```{r,eval=F}
 library()
@@ -676,17 +655,15 @@ library()
 ## Installing libraries
 
 
-Libraries can be installed through the R studio menu
+Libraries can be installed through the R studio menu.
 
 **-> Tools -> Install packages ..**
 
-Or by using the install.packages() command
+Or by using the install.packages() command.
 
 ```{r,eval=F}
 install.packages("Hmisc")
 ```
-
-
 
 ---
 class: inverse, center, middle
@@ -700,7 +677,6 @@ class: inverse, center, middle
 
 ---
 ## Saving scripts
-
 
 Once we have got our functions together and know how we want to analyse our data, we can save our analysis as a **script**. By convention R scripts typically end in **.r** or **.R**
 
@@ -732,7 +708,7 @@ To save all the objects (workspace) with extension **.RData**
 
 
 ---
-## Sourcing scripts.
+## Sourcing scripts
 
 
 R scripts allow us to save and reuse custom functions we have written.  To run the code from an R script we can use the **source()** function with the name of the R script as the argument. 
@@ -776,7 +752,6 @@ To provide arguments to an R script at the command line we must add **commandArg
 args <- commandArgs(TRUE)
 myFirstArgument <- args[1]
 myFirstArgument
-as.numeric(myFirstArgument
 ```
 
 ```
@@ -788,7 +763,7 @@ as.numeric(myFirstArgument)
 ```
 10
 ```
-Since vectors can only be one type, all command line arguments are strings and must be converted to numeric if needed with **as.numeric()**
+Since vectors can only be one type, all command line arguments are strings and must be converted to numeric if needed with **as.numeric()**.
 
 
 
