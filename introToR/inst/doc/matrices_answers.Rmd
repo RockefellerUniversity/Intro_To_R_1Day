@@ -1,17 +1,16 @@
 ---
 title: "Matrices answers"
-author: "MRC CSC"
-date: "01/01/2015"
-vignette: >
-  %\VignetteIndexEntry{Vignette Title}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+author: "Rockefeller University, Bioinformatics Resource Centre"
+date: "https://rockefelleruniversity.github.io/RU_tidyverse/"
+output: 
+  html_document:
+    number_sections: false  ## if you want number sections at each table header
+    theme: united  # many options for theme, this one is my favorite.
+    highlight: tango  # specifies the syntax highlighting style
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = T,eval = T)
-```
-
+<p>&nbsp;</p>
+These answers are from the exercises about the matrices sections of [Introduction to R](https://rockefelleruniversity.github.io/introToR_Day1.html). 
 
 These exercises cover the matrices sections of [Introduction to R]("introToR_Day1.html").
 

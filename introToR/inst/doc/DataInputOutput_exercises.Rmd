@@ -1,65 +1,28 @@
 ---
 title: "Reading and writing data in R exercises"
-author: "MRC CSC"
-date: "01/01/2015"
-vignette: >
-  %\VignetteIndexEntry{Vignette Title}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+author: "Rockefeller University, Bioinformatics Resource Centre"
+date: "https://rockefelleruniversity.github.io/RU_tidyverse/"
+output: 
+  html_document:
+    number_sections: false  ## if you want number sections at each table header
+    theme: united  # many options for theme, this one is my favorite.
+    highlight: tango  # specifies the syntax highlighting style
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = F,eval = F)
-```
-
-These exercises cover the  sections of [Introduction to R]("introToR_Day1.html").
+<p>&nbsp;</p>
+These exercises cover the vectors sections of [Introduction to R](https://rockefelleruniversity.github.io/introToR_Day1.html). 
 
 **Exercise 1**
 
-Have a look at all files in notepad or excel before attempting to read. All files can be found in the "data" directory.
+Have a look at all files in notepad or excel before attempting to read. The files will all be found under the **data/** directory.
 
-- Read in the tab delimited file "GeneExpression.txt".
-```{r,message=T}
-
-geneExpr <- system.file("extdata", "/data/GeneExpression.txt", package = "reproducibleR")
-
-geneExprMeth <- system.file("extdata", "data/GeneExpressionWithMethods.txt", package = "reproducibleR")
-
-geneExprNotes <- system.file("extdata", "data/GeneExpressionWithNotes.txt", package = "reproducibleR")
-GeneExpressionWithNotes.txt
-
-#geneExpression <- read.table("../data/GeneExpression.txt",h=T,sep="\t",row.names=1)
-geneExpression <- read.table(geneExpr,h=T,sep="\t",row.names=1)
-```
+- Read in the tab delimited file "GeneExpression.txt"
 
 - Find the mean expression of all samples.
-```{r,message=T}
-sampleMeans <- c(mean(geneExpression[,1]),mean(geneExpression[,2]),mean(geneExpression[,3]),mean(geneExpression[,4]),mean(geneExpression[,5]),mean(geneExpression[,5]))
-names(sampleMeans) <- colnames(geneExpression)
-sampleMeans
-# Alternatively we could use the colMeans() function.
-colMeans(geneExpression)
-```
 
 - Read in the tab delimited file "GeneExpressionWithMethods.txt". This file contains information on analysis steps used to produce file.
-```{r,message=T}
-#geneExpression <- read.table("../data/GeneExpressionWithMethods.txt",h=T,sep="\t",row.names=1,skip=3)
-geneExpression <- read.table(geneExprMeth,h=T,sep="\t",row.names=1,skip=3)
-geneExpression
-```
+
 - Read in the tab delimited file "GeneExpressionWithNotes.txt". This file contains notes about particular genes.
-```{r,message=T}
-#geneExpression <- read.table("../data/GeneExpressionWithNotes.txt",h=T,sep="\t",row.names=1,comment.char = ">")
-geneExpression <- read.table(geneExprNotes,h=T,sep="\t",row.names=1,comment.char = ">")
-geneExpression
-```
-- Read in tab delimited file "GeneExpression.txt". Order genes by decreasing expression in Sample_1.hi. Write out a new comma separated file with column titles.
-```{r,message=T}
-#geneExpression <- read.table("../data/GeneExpression.txt",h=T,sep="\t",row.names=1)
-geneExpression <- read.table(geneExpr,h=T,sep="\t",row.names=1)
-orderedExpression <- geneExpression[order(geneExpression$Sample_1.hi,decreasing=T),]
-expressionDF <- cbind(rownames(orderedExpression),orderedExpression)
-colnames(expressionDF)[1] <- "geneNames"
-write.table(expressionDF,"orderedExpression.txt",sep=",",col.names = T,row.names=F)
-```
+
+- Read in tab delimited file "GeneExpression.txt". Order genes by their average expression. Write out a new comma separated file with column titles.
 
