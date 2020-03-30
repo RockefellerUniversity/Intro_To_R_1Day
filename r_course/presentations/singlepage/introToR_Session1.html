@@ -1584,6 +1584,8 @@ div.tocify {
 </div>
 
 
+<div id="introduction-to-r-part-1" class="section level1">
+<h1>Introduction to R (part 1)</h1>
 <div id="overview" class="section level2">
 <h2>Overview</h2>
 <ul>
@@ -1594,6 +1596,7 @@ div.tocify {
 </ul>
 <p>class: inverse, center, middle</p>
 </div>
+</div>
 <div id="set-up" class="section level1">
 <h1>Set up</h1>
 <html>
@@ -1602,13 +1605,13 @@ div.tocify {
 </div>
 <hr color="#EB811B" size="1px" width="720px">
 </html>
-<div id="materials." class="section level2">
-<h2>Materials.</h2>
+<div id="materials" class="section level2">
+<h2>Materials</h2>
 <p>All prerequisites, links to material and slides for this course can be found on github. * <a href="https://rockefelleruniversity.github.io/Intro_To_R_1Day/">Intro_To_R_1</a></p>
 <p>Or can be downloaded as a zip archive from here. * <a href="https://github.com/rockefelleruniversity/Intro_To_R_1Day/zipball/master">Download zip</a></p>
 </div>
-<div id="materials.---presentations-source-code-and-practicals." class="section level2">
-<h2>Materials. - Presentations, source code and practicals.</h2>
+<div id="presentations-source-code-and-practicals" class="section level2">
+<h2>Presentations, source code and practicals</h2>
 <p>Once the zip file in unarchived. All presentations as HTML slides and pages, their R code and HTML practical sheets will be available in the directories underneath.</p>
 <ul>
 <li><strong>presentations/slides/</strong> Presentations as an HTML slide show.</li>
@@ -1621,7 +1624,7 @@ div.tocify {
 <div id="set-the-working-directory" class="section level2">
 <h2>Set the Working directory</h2>
 <p>Before running any of the code in the practicals or slides we need to set the working directory to the folder we unarchived.</p>
-<p>You may navigate to the unarchived Intro_To_R_1Day folder in the Rstudio menu</p>
+<p>You may navigate to the unarchived Intro_To_R_1Day folder in the Rstudio menu.</p>
 <p><strong>Session -&gt; Set Working Directory -&gt; Choose Directory</strong></p>
 <p>or in the console.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">setwd</span>(<span class="st">&quot;/PathToMyDownload/Intro_To_R_1Day/r_course&quot;</span>)</a>
@@ -1704,8 +1707,8 @@ div.tocify {
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">25</span>)<span class="op">-</span><span class="dv">1</span></a></code></pre></div>
 <pre><code>## [1] 4</code></pre>
 </div>
-<div id="using-functions." class="section level2">
-<h2>Using functions.</h2>
+<div id="using-functions" class="section level2">
+<h2>Using functions</h2>
 <p>The <strong>sqrt(25)</strong> demonstrates the use of functions in R. A function performs a complex operation on it’s arguments and returns the result.</p>
 <p>In R, arguments are provided to a function within the parenthesis – <strong>( )</strong> – that follows the function name. So <strong>sqrt(<em>ARGUMENT</em>)</strong> will provide the square root of the value of <strong><em>ARGUMENT</em></strong>.</p>
 <p>Other examples of functions include <strong>min()</strong>, <strong>sum()</strong>, <strong>max()</strong>.</p>
@@ -1717,8 +1720,8 @@ div.tocify {
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="kw">max</span>(<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">6</span>)</a></code></pre></div>
 <pre><code>## [1] 6</code></pre>
 </div>
-<div id="using-functions.-1" class="section level2">
-<h2>Using functions.</h2>
+<div id="using-functions-1" class="section level2">
+<h2>Using functions</h2>
 <p>R has many useful functions “built in” and ready to use as soon as R is loaded.</p>
 <p>An incomplete, illustrative list can be seen <a href="http://www.statmethods.net/management/functions.html">here</a></p>
 <p>In addition to R standard functions, additional functionality can be loaded into R using libraries. These include specialised tools for areas such as sequence alignment, read counting etc.</p>
@@ -1726,8 +1729,9 @@ div.tocify {
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1">?sqrt</a></code></pre></div>
 <p>Lets run <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/MathFun.html"><strong>?sqrt</strong></a> in RStudio and look at the help.</p>
 </div>
-<div id="using-functions-arguments-have-names-and-order" class="section level2">
-<h2>Using functions (Arguments have names and order)</h2>
+<div id="using-functions-2" class="section level2">
+<h2>Using functions</h2>
+<p><strong>Arguments have names and order</strong></p>
 <p>With functions such as min() and sqrt(), the arguments to be provided are obvious and the order of these arguments doesnt matter.</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="kw">min</span>(<span class="dv">5</span>,<span class="dv">4</span>,<span class="dv">6</span>)</a></code></pre></div>
 <pre><code>## [1] 4</code></pre>
@@ -1736,8 +1740,9 @@ div.tocify {
 <p>Many functions however have an order to their arguments. Try and look at the arguments for the dir() function using <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/list.files.html">?dir</a>.</p>
 <pre><code>?dir</code></pre>
 </div>
-<div id="using-functions-setting-names-for-arguments" class="section level2">
-<h2>Using functions (Setting names for arguments)</h2>
+<div id="using-functions-3" class="section level2">
+<h2>Using functions</h2>
+<p><strong>Setting names for arguments</strong></p>
 <p>Often we know the names of arguments but not necessarily their order. In cases where we want to be sure we specify the right argument, we provide names for the arguments used.</p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="kw">dir</span>()</a>
 <a class="sourceLine" id="cb20-2" data-line-number="2"><span class="kw">dir</span>(<span class="dt">full.names=</span>T)</a></code></pre></div>
@@ -1756,8 +1761,8 @@ div.tocify {
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" data-line-number="1">x</a></code></pre></div>
 <pre><code>## [1] 10</code></pre>
 </div>
-<div id="variables." class="section level2">
-<h2>Variables.</h2>
+<div id="variables-1" class="section level2">
+<h2>Variables</h2>
 <div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" data-line-number="1">x</a></code></pre></div>
 <pre><code>## [1] 10</code></pre>
 <p>Variables can be altered in place</p>
@@ -1765,8 +1770,8 @@ div.tocify {
 <a class="sourceLine" id="cb27-2" data-line-number="2">x</a></code></pre></div>
 <pre><code>## [1] 20</code></pre>
 </div>
-<div id="variables.-1" class="section level2">
-<h2>Variables.</h2>
+<div id="variables-2" class="section level2">
+<h2>Variables</h2>
 <p>Variables can be used just as the values they contain.</p>
 <div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" data-line-number="1">x</a></code></pre></div>
 <pre><code>## [1] 20</code></pre>
@@ -1821,13 +1826,13 @@ div.tocify {
 <p>Indices can be used to extract values from multiple positions within a vector.</p>
 <div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb55-1" data-line-number="1">x[<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">6</span>)]</a></code></pre></div>
 <pre><code>## [1] 1 6</code></pre>
-<p>Negative indices can be used to extract all positions except that specified</p>
+<p>Negative indices can be used to extract all positions except that specified.</p>
 <div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb57-1" data-line-number="1">x[<span class="op">-</span><span class="dv">5</span>]</a></code></pre></div>
 <pre><code>## [1]  1  2  3  4  6  7  8  9 10</code></pre>
 </div>
 <div id="vectors---indexing-and-replacement" class="section level2">
 <h2>Vectors - Indexing and replacement</h2>
-<p>We can use indices to modify a specific position in a vector</p>
+<p>We can use indices to modify a specific position in a vector.</p>
 <div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb59-1" data-line-number="1">x</a></code></pre></div>
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
 <div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb61-1" data-line-number="1">x[<span class="dv">5</span>] &lt;-<span class="st"> </span><span class="dv">-5</span></a>
@@ -1845,7 +1850,7 @@ div.tocify {
 </div>
 <div id="remember" class="section level2">
 <h2>Remember!</h2>
-<p>Square brackets <strong>[]</strong> for indexing</p>
+<p>Square brackets <strong>[]</strong> for indexing.</p>
 <div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb67-1" data-line-number="1">x[<span class="dv">1</span>]</a></code></pre></div>
 <pre><code>## [1] 1</code></pre>
 <p>Parentheses <strong>()</strong> for function argments.</p>
@@ -1874,11 +1879,12 @@ div.tocify {
 <div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb79-1" data-line-number="1">x<span class="op">+</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)</a></code></pre></div>
 <pre><code>##  [1]  2  4  4  6  6  8  8 10 10 12</code></pre>
 <div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb81-1" data-line-number="1">x<span class="op">+</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)</a></code></pre></div>
-<pre><code>## Warning in x + c(1, 2, 3): longer object length is not a multiple of shorter object length</code></pre>
+<pre><code>## Warning in x + c(1, 2, 3): longer object length is not a multiple of shorter object
+## length</code></pre>
 <pre><code>##  [1]  2  4  6  5  7  9  8 10 12 11</code></pre>
 </div>
-<div id="vectors---character-vectors." class="section level2">
-<h2>Vectors - Character vectors.</h2>
+<div id="vectors---character-vectors" class="section level2">
+<h2>Vectors - Character vectors</h2>
 <p>So far we have only looked at numeric vectors or variables.</p>
 <p>In R we can also create character vectors <a href="#/combine">again using <strong>c()</strong> function</a>. These vectors can be indexed just the same.</p>
 <div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb84-1" data-line-number="1">y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;ICTEM&quot;</span>,<span class="st">&quot;CommonWealth&quot;</span>,<span class="st">&quot;Wolfson&quot;</span>)</a>
@@ -1891,13 +1897,13 @@ div.tocify {
 <pre><code>##        ICTEM CommonWealth      Wolfson 
 ##            1            2            3</code></pre>
 </div>
-<div id="vectors---character-vectors-as-names." class="section level2">
-<h2>Vectors - Character vectors as names.</h2>
+<div id="vectors---character-vectors-as-names" class="section level2">
+<h2>Vectors - Character vectors as names</h2>
 <p>These named vectors maybe indexed by a position’s “name”.</p>
 <div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb88-1" data-line-number="1">x[<span class="kw">c</span>(<span class="st">&quot;ICTEM&quot;</span>,<span class="st">&quot;Wolfson&quot;</span>)]</a></code></pre></div>
 <pre><code>##   ICTEM Wolfson 
 ##       1       3</code></pre>
-<p>Index names missing from vectors will return special value “NA”</p>
+<p>Index names missing from vectors will return special value “NA”.</p>
 <div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb90-1" data-line-number="1">x[<span class="kw">c</span>(<span class="st">&quot;Strand&quot;</span>)]</a></code></pre></div>
 <pre><code>## &lt;NA&gt; 
 ##   NA</code></pre>
@@ -1921,10 +1927,12 @@ div.tocify {
 </div>
 <div id="vectors---logical-vectors" class="section level2">
 <h2>Vectors - Logical vectors</h2>
-<p>Logical vectors are a class of vector made up of TRUE/T or FALSE/F boolean values.</p>
-<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb94-1" data-line-number="1">z &lt;-<span class="st"> </span><span class="kw">c</span>(T,F,T,F,T,F,T,F,T,F) </a>
-<a class="sourceLine" id="cb94-2" data-line-number="2"><span class="co"># z &lt;-  c(TRUE,FALSE,TRUE,FALSE,TRUE,FALSE,TRUE,FALSE,TRUE,FALSE) </span></a>
-<a class="sourceLine" id="cb94-3" data-line-number="3">z</a></code></pre></div>
+<p>Logical vectors are a class of vector made up of TRUE or FALSE boolean values (single letter T/F can also be used).</p>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb94-1" data-line-number="1">z &lt;-<span class="st">  </span><span class="kw">c</span>(<span class="ot">TRUE</span>,<span class="ot">FALSE</span>,<span class="ot">TRUE</span>,<span class="ot">FALSE</span>,<span class="ot">TRUE</span>,<span class="ot">FALSE</span>,<span class="ot">TRUE</span>,<span class="ot">FALSE</span>,<span class="ot">TRUE</span>,<span class="ot">FALSE</span>) </a>
+<a class="sourceLine" id="cb94-2" data-line-number="2"><span class="co"># or</span></a>
+<a class="sourceLine" id="cb94-3" data-line-number="3">z &lt;-<span class="st"> </span><span class="kw">c</span>(T,F,T,F,T,F,T,F,T,F) </a>
+<a class="sourceLine" id="cb94-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb94-5" data-line-number="5">z</a></code></pre></div>
 <pre><code>##  [1]  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE</code></pre>
 <p>Logical vectors can be used like an index to specify postions in a vector. TRUE values will return the corresponding position in the vector being indexed.</p>
 <div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb96-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span></a>
@@ -1944,8 +1952,8 @@ div.tocify {
 <div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb100-1" data-line-number="1">geneList[logical_index]</a></code></pre></div>
 <pre><code>## [1] &quot;Gene3&quot; &quot;Gene5&quot; &quot;Gene3&quot;</code></pre>
 </div>
-<div id="vectors-.-logical-vectors-from-operators" class="section level2">
-<h2>Vectors . Logical vectors from operators</h2>
+<div id="vectors---logical-vectors-from-operators" class="section level2">
+<h2>Vectors - Logical vectors from operators</h2>
 <p>Vectors may be evaluated to produce logical vectors. This can be very useful when using a logical to index.</p>
 <p>Common examples are:</p>
 <ul>
@@ -1959,8 +1967,8 @@ div.tocify {
 <div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb104-1" data-line-number="1">x[x <span class="op">&gt;</span><span class="st"> </span><span class="dv">5</span>]</a></code></pre></div>
 <pre><code>## [1]  6  7  8  9 10</code></pre>
 </div>
-<div id="vectors---combining-logical-vectors." class="section level2">
-<h2>Vectors - Combining logical vectors.</h2>
+<div id="vectors---combining-logical-vectors" class="section level2">
+<h2>Vectors - Combining logical vectors</h2>
 <p>Logical vectors can be used in combination in order to index vectors. To combine logical vectors we can use some common R operators.</p>
 <ul>
 <li><strong>&amp;</strong> - Requires both logical operators to be TRUE</li>
@@ -1975,8 +1983,8 @@ div.tocify {
 <div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb110-1" data-line-number="1">x <span class="op">&gt;</span><span class="st"> </span><span class="dv">4</span> <span class="op">|</span><span class="st"> </span>x <span class="op">&lt;</span><span class="st"> </span><span class="dv">7</span></a></code></pre></div>
 <pre><code>##  [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE</code></pre>
 </div>
-<div id="vectors-.-logical-vectors-continued." class="section level2">
-<h2>Vectors . Logical vectors continued.</h2>
+<div id="vectors---combining-logical-vectors-1" class="section level2">
+<h2>Vectors - Combining logical vectors</h2>
 <p>Such combinations can allow for complex selection of a vector’s values.</p>
 <div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb112-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span></a>
 <a class="sourceLine" id="cb112-2" data-line-number="2">x</a></code></pre></div>
@@ -2044,8 +2052,8 @@ div.tocify {
 <div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb130-1" data-line-number="1"><span class="kw">ncol</span>(narrowMatrix)</a></code></pre></div>
 <pre><code>## [1] 2</code></pre>
 </div>
-<div id="matrices-joining-vectors-and-matrices" class="section level2">
-<h2>Matrices (Joining vectors and matrices)</h2>
+<div id="matrices---joining-vectors-and-matrices" class="section level2">
+<h2>Matrices - Joining vectors and matrices</h2>
 <p>A matrix can be created from multiple vectors or other matrices.</p>
 <p><strong>cbind()</strong> can be used to attach data to a matrix as columns.</p>
 <div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb132-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">5</span></a>
@@ -2060,8 +2068,8 @@ div.tocify {
 ## [4,] 4 14
 ## [5,] 5 15</code></pre>
 </div>
-<div id="matrices---joining-vectors-and-matrices" class="section level2">
-<h2>Matrices - (Joining vectors and matrices)</h2>
+<div id="matrices---joining-vectors-and-matrices-1" class="section level2">
+<h2>Matrices - Joining vectors and matrices</h2>
 <p><strong>rbind()</strong> functions to bind to a matrix as rows.</p>
 <div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb134-1" data-line-number="1">newerMatrix &lt;-<span class="st"> </span><span class="kw">rbind</span>(newMatrix,z)</a>
 <a class="sourceLine" id="cb134-2" data-line-number="2">newerMatrix</a></code></pre></div>
@@ -2073,28 +2081,36 @@ div.tocify {
 ##    5 15
 ## z 21 22</code></pre>
 </div>
-<div id="matrices---joining-incompatable-vectors-and-matrices" class="section level2">
-<h2>Matrices - Joining incompatable vectors and matrices</h2>
-<p>When creating a matrix using <strong>cbind()</strong> or <strong>matrix()</strong> from incompatable vectors then the shorter vector is recycled.</p>
+<div id="matrices---joining-vectors-and-matrices-2" class="section level2">
+<h2>Matrices - Joining vectors and matrices</h2>
+<div id="incompatible-vectors-and-matrices" class="section level3">
+<h3>Incompatible vectors and matrices</h3>
+<p>When creating a matrix using <strong>cbind()</strong> or <strong>matrix()</strong> from incompatible vectors then the shorter vector is recycled.</p>
 <div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb136-1" data-line-number="1">recycledMatrix2 &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>,<span class="dt">ncol=</span><span class="dv">2</span>,<span class="dt">nrow=</span><span class="dv">3</span>)</a></code></pre></div>
-<pre><code>## Warning in matrix(1:5, ncol = 2, nrow = 3): data length [5] is not a sub-multiple or multiple of the number of rows [3]</code></pre>
+<pre><code>## Warning in matrix(1:5, ncol = 2, nrow = 3): data length [5] is not a sub-multiple or
+## multiple of the number of rows [3]</code></pre>
 <div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb138-1" data-line-number="1">recycledMatrix2</a></code></pre></div>
 <pre><code>##      [,1] [,2]
 ## [1,]    1    4
 ## [2,]    2    5
 ## [3,]    3    1</code></pre>
 </div>
-<div id="matrices---joining-incompatable-vectors-and-matrices-1" class="section level2">
-<h2>Matrices - Joining incompatable vectors and matrices</h2>
+</div>
+<div id="matrices---joining-vectors-and-matrices-3" class="section level2">
+<h2>Matrices - Joining vectors and matrices</h2>
+<div id="incompatible-vectors-and-matrices-1" class="section level3">
+<h3>Incompatible vectors and matrices</h3>
 <p>For <strong>rbind()</strong> function, the longer vector is clipped.</p>
 <div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb140-1" data-line-number="1">recycledMatrix3 &lt;-<span class="st"> </span><span class="kw">rbind</span>(recycledMatrix2,<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>))</a></code></pre></div>
-<pre><code>## Warning in rbind(recycledMatrix2, c(1:5)): number of columns of result is not a multiple of vector length (arg 2)</code></pre>
+<pre><code>## Warning in rbind(recycledMatrix2, c(1:5)): number of columns of result is not a
+## multiple of vector length (arg 2)</code></pre>
 <div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb142-1" data-line-number="1">recycledMatrix3</a></code></pre></div>
 <pre><code>##      [,1] [,2]
 ## [1,]    1    4
 ## [2,]    2    5
 ## [3,]    3    1
 ## [4,]    1    2</code></pre>
+</div>
 </div>
 <div id="matrices---column-and-row-names" class="section level2">
 <h2>Matrices - Column and row names</h2>
@@ -2123,6 +2139,9 @@ div.tocify {
 <ul>
 <li><strong><em>myMatrix[rowOfInterest,columnOfInterest]</em></strong></li>
 </ul>
+</div>
+<div id="matrices---indexing-1" class="section level2">
+<h2>Matrices - Indexing</h2>
 <div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb150-1" data-line-number="1">narrowMatrix</a></code></pre></div>
 <pre><code>##      [,1] [,2]
 ## [1,]    1    6
@@ -2130,35 +2149,25 @@ div.tocify {
 ## [3,]    3    8
 ## [4,]    4    9
 ## [5,]    5   10</code></pre>
-</div>
-<div id="matrices---indexing-1" class="section level2">
-<h2>Matrices - Indexing</h2>
-<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb152-1" data-line-number="1">narrowMatrix</a></code></pre></div>
-<pre><code>##      [,1] [,2]
-## [1,]    1    6
-## [2,]    2    7
-## [3,]    3    8
-## [4,]    4    9
-## [5,]    5   10</code></pre>
 <p>Value of first column, second row</p>
-<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb154-1" data-line-number="1">narrowMatrix[<span class="dv">2</span>,<span class="dv">1</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb152-1" data-line-number="1">narrowMatrix[<span class="dv">2</span>,<span class="dv">1</span>]</a></code></pre></div>
 <pre><code>## [1] 2</code></pre>
 </div>
 <div id="matrices---indexing-2" class="section level2">
 <h2>Matrices - Indexing</h2>
 <p>Similarly, whole rows or columns can be extracted. Single rows and columns will return a vector.</p>
 <p>Values of second column (row index is empty!)</p>
-<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb156-1" data-line-number="1">narrowMatrix[,<span class="dv">2</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb154-1" data-line-number="1">narrowMatrix[,<span class="dv">2</span>]</a></code></pre></div>
 <pre><code>## [1]  6  7  8  9 10</code></pre>
 <p>Values of third row (column index is empty!)</p>
-<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb158-1" data-line-number="1">narrowMatrix[<span class="dv">3</span>,]</a></code></pre></div>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb156-1" data-line-number="1">narrowMatrix[<span class="dv">3</span>,]</a></code></pre></div>
 <pre><code>## [1] 3 8</code></pre>
 </div>
 <div id="matrices---indexing-3" class="section level2">
 <h2>Matrices - Indexing</h2>
 <p>When multiple columns or row indices are specified, a matrix is returned.</p>
 <p>Values of second and third row (column index is empty!)</p>
-<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb160-1" data-line-number="1">narrowMatrix[<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>),]</a></code></pre></div>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb158-1" data-line-number="1">narrowMatrix[<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>),]</a></code></pre></div>
 <pre><code>##      [,1] [,2]
 ## [1,]    2    7
 ## [2,]    3    8</code></pre>
@@ -2166,34 +2175,37 @@ div.tocify {
 <div id="matrices---indexing-by-name" class="section level2">
 <h2>Matrices - Indexing by name</h2>
 <p>As with vectors, names can be used for indexing when present</p>
-<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb162-1" data-line-number="1"><span class="kw">colnames</span>(narrowMatrix) &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;Column&quot;</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>,<span class="dt">sep=</span><span class="st">&quot;_&quot;</span>)</a>
-<a class="sourceLine" id="cb162-2" data-line-number="2"><span class="kw">rownames</span>(narrowMatrix) &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;Row&quot;</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>,<span class="dt">sep=</span><span class="st">&quot;_&quot;</span>)</a>
-<a class="sourceLine" id="cb162-3" data-line-number="3">narrowMatrix[,<span class="st">&quot;Column_1&quot;</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb160-1" data-line-number="1"><span class="kw">colnames</span>(narrowMatrix) &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;Column&quot;</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>,<span class="dt">sep=</span><span class="st">&quot;_&quot;</span>)</a>
+<a class="sourceLine" id="cb160-2" data-line-number="2"><span class="kw">rownames</span>(narrowMatrix) &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;Row&quot;</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>,<span class="dt">sep=</span><span class="st">&quot;_&quot;</span>)</a>
+<a class="sourceLine" id="cb160-3" data-line-number="3">narrowMatrix[,<span class="st">&quot;Column_1&quot;</span>]</a></code></pre></div>
 <pre><code>## Row_1 Row_2 Row_3 Row_4 Row_5 
 ##     1     2     3     4     5</code></pre>
-<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb164-1" data-line-number="1">narrowMatrix[<span class="st">&quot;Row_1&quot;</span>,]</a></code></pre></div>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb162-1" data-line-number="1">narrowMatrix[<span class="st">&quot;Row_1&quot;</span>,]</a></code></pre></div>
 <pre><code>## Column_1 Column_2 
 ##        1        6</code></pre>
-<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb166-1" data-line-number="1">narrowMatrix[<span class="st">&quot;Row_1&quot;</span>,<span class="st">&quot;Column_1&quot;</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb164-1" data-line-number="1">narrowMatrix[<span class="st">&quot;Row_1&quot;</span>,<span class="st">&quot;Column_1&quot;</span>]</a></code></pre></div>
 <pre><code>## [1] 1</code></pre>
 </div>
 <div id="matrices---advanced-indexing" class="section level2">
 <h2>Matrices - Advanced indexing</h2>
 <p>As with vectors, matrices can be subset by logical vectors</p>
-<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb168-1" data-line-number="1">narrowMatrix</a></code></pre></div>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb166-1" data-line-number="1">narrowMatrix</a></code></pre></div>
 <pre><code>##       Column_1 Column_2
 ## Row_1        1        6
 ## Row_2        2        7
 ## Row_3        3        8
 ## Row_4        4        9
 ## Row_5        5       10</code></pre>
-<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb170-1" data-line-number="1">narrowMatrix[,<span class="dv">1</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb168-1" data-line-number="1">narrowMatrix[,<span class="dv">1</span>]</a></code></pre></div>
 <pre><code>## Row_1 Row_2 Row_3 Row_4 Row_5 
 ##     1     2     3     4     5</code></pre>
-<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb172-1" data-line-number="1">narrowMatrix[,<span class="dv">1</span>] <span class="op">&lt;</span><span class="st"> </span><span class="dv">5</span></a></code></pre></div>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb170-1" data-line-number="1">narrowMatrix[,<span class="dv">1</span>] <span class="op">&lt;</span><span class="st"> </span><span class="dv">5</span></a></code></pre></div>
 <pre><code>## Row_1 Row_2 Row_3 Row_4 Row_5 
 ##  TRUE  TRUE  TRUE  TRUE FALSE</code></pre>
-<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb174-1" data-line-number="1">narrowMatrix[narrowMatrix[,<span class="dv">1</span>] <span class="op">&lt;</span><span class="st"> </span><span class="dv">5</span>,]</a></code></pre></div>
+</div>
+<div id="matrices---advanced-indexing-1" class="section level2">
+<h2>Matrices - Advanced indexing</h2>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb172-1" data-line-number="1">narrowMatrix[narrowMatrix[,<span class="dv">1</span>] <span class="op">&lt;</span><span class="st"> </span><span class="dv">5</span>,]</a></code></pre></div>
 <pre><code>##       Column_1 Column_2
 ## Row_1        1        6
 ## Row_2        2        7
@@ -2203,34 +2215,34 @@ div.tocify {
 <div id="matrices---arithmetic-operations." class="section level2">
 <h2>Matrices - Arithmetic operations.</h2>
 <p>As with vectors, matrices can have arithmetic operations applied to cells,rows, columns or the whole matrix</p>
-<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb176-1" data-line-number="1">narrowMatrix</a></code></pre></div>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb174-1" data-line-number="1">narrowMatrix</a></code></pre></div>
 <pre><code>##       Column_1 Column_2
 ## Row_1        1        6
 ## Row_2        2        7
 ## Row_3        3        8
 ## Row_4        4        9
 ## Row_5        5       10</code></pre>
-<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb178-1" data-line-number="1">narrowMatrix[<span class="dv">1</span>,<span class="dv">1</span>]<span class="op">+</span><span class="dv">2</span></a></code></pre></div>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb176-1" data-line-number="1">narrowMatrix[<span class="dv">1</span>,<span class="dv">1</span>]<span class="op">+</span><span class="dv">2</span></a></code></pre></div>
 <pre><code>## [1] 3</code></pre>
-<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb180-1" data-line-number="1">narrowMatrix[<span class="dv">1</span>,]<span class="op">+</span><span class="dv">2</span></a></code></pre></div>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb178-1" data-line-number="1">narrowMatrix[<span class="dv">1</span>,]<span class="op">+</span><span class="dv">2</span></a></code></pre></div>
 <pre><code>## Column_1 Column_2 
 ##        3        8</code></pre>
-<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb182-1" data-line-number="1"><span class="kw">mean</span>(narrowMatrix)</a></code></pre></div>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb180-1" data-line-number="1"><span class="kw">mean</span>(narrowMatrix)</a></code></pre></div>
 <pre><code>## [1] 5.5</code></pre>
 </div>
 <div id="matrices---replacement" class="section level2">
 <h2>Matrices - Replacement</h2>
 <p>As with vectors, matrices can have their elements replaced</p>
-<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb184-1" data-line-number="1">narrowMatrix</a></code></pre></div>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb182-1" data-line-number="1">narrowMatrix</a></code></pre></div>
 <pre><code>##       Column_1 Column_2
 ## Row_1        1        6
 ## Row_2        2        7
 ## Row_3        3        8
 ## Row_4        4        9
 ## Row_5        5       10</code></pre>
-<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb186-1" data-line-number="1">narrowMatrix[<span class="dv">1</span>,<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="dv">10</span></a>
-<a class="sourceLine" id="cb186-2" data-line-number="2">narrowMatrix[,<span class="dv">2</span>] &lt;-<span class="st"> </span><span class="dv">1</span></a>
-<a class="sourceLine" id="cb186-3" data-line-number="3">narrowMatrix</a></code></pre></div>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb184-1" data-line-number="1">narrowMatrix[<span class="dv">1</span>,<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="dv">10</span></a>
+<a class="sourceLine" id="cb184-2" data-line-number="2">narrowMatrix[,<span class="dv">2</span>] &lt;-<span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb184-3" data-line-number="3">narrowMatrix</a></code></pre></div>
 <pre><code>##       Column_1 Column_2
 ## Row_1       10        1
 ## Row_2        2        1
@@ -2238,22 +2250,25 @@ div.tocify {
 ## Row_4        4        1
 ## Row_5        5        1</code></pre>
 </div>
-<div id="matrices--matrices-can-contain-only-one-data-type" class="section level2">
-<h2>Matrices -Matrices can contain only one data type</h2>
+<div id="matrices---data-types" class="section level2">
+<h2>Matrices - Data types</h2>
 <p>Matrices must be all one type (i.e. numeric or character).</p>
 <p>Here replacing one value with character will turn numeric matrix to character matrix.</p>
-<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb188-1" data-line-number="1">narrowMatrix[,<span class="dv">2</span>] <span class="op">*</span><span class="dv">2</span></a></code></pre></div>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb186-1" data-line-number="1">narrowMatrix[,<span class="dv">2</span>] <span class="op">*</span><span class="dv">2</span></a></code></pre></div>
 <pre><code>## Row_1 Row_2 Row_3 Row_4 Row_5 
 ##     2     2     2     2     2</code></pre>
-<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb190-1" data-line-number="1">narrowMatrix[<span class="dv">1</span>,<span class="dv">1</span>] &lt;-<span class="st"> &quot;Not_A_Number&quot;</span></a>
-<a class="sourceLine" id="cb190-2" data-line-number="2">narrowMatrix</a></code></pre></div>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb188-1" data-line-number="1">narrowMatrix[<span class="dv">1</span>,<span class="dv">1</span>] &lt;-<span class="st"> &quot;Not_A_Number&quot;</span></a>
+<a class="sourceLine" id="cb188-2" data-line-number="2">narrowMatrix</a></code></pre></div>
 <pre><code>##       Column_1       Column_2
 ## Row_1 &quot;Not_A_Number&quot; &quot;1&quot;     
 ## Row_2 &quot;2&quot;            &quot;1&quot;     
 ## Row_3 &quot;3&quot;            &quot;1&quot;     
 ## Row_4 &quot;4&quot;            &quot;1&quot;     
 ## Row_5 &quot;5&quot;            &quot;1&quot;</code></pre>
-<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb192-1" data-line-number="1">narrowMatrix[,<span class="dv">2</span>] <span class="op">*</span><span class="dv">2</span></a></code></pre></div>
+</div>
+<div id="matrices---data-types-1" class="section level2">
+<h2>Matrices - Data types</h2>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb190-1" data-line-number="1">narrowMatrix[,<span class="dv">2</span>] <span class="op">*</span><span class="dv">2</span></a></code></pre></div>
 <pre><code>## Error in narrowMatrix[, 2] * 2: non-numeric argument to binary operator</code></pre>
 </div>
 <div id="time-for-an-exercise-1" class="section level2">
@@ -2270,74 +2285,75 @@ div.tocify {
 <p>A special case of a vector is a <strong>factor</strong>.</p>
 <p>Factors are used to store data which may be grouped in categories (categorical data). Specifying data as categorical allows R to properly handle the data and make use of functions specific to categorical data.</p>
 <p>To create a factor from a vector we use the <strong>factor()</strong> function. Note that the factor now has an additional component called <strong>“levels”</strong> which identifies all categories within the vector.</p>
-<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb194-1" data-line-number="1">vectorExample &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;male&quot;</span>,<span class="st">&quot;female&quot;</span>,<span class="st">&quot;female&quot;</span>,<span class="st">&quot;female&quot;</span>)</a>
-<a class="sourceLine" id="cb194-2" data-line-number="2">factorExample &lt;-<span class="st"> </span><span class="kw">factor</span>(vectorExample)</a>
-<a class="sourceLine" id="cb194-3" data-line-number="3">factorExample</a></code></pre></div>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb192-1" data-line-number="1">vectorExample &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;male&quot;</span>,<span class="st">&quot;female&quot;</span>,<span class="st">&quot;female&quot;</span>,<span class="st">&quot;female&quot;</span>)</a>
+<a class="sourceLine" id="cb192-2" data-line-number="2">factorExample &lt;-<span class="st"> </span><span class="kw">factor</span>(vectorExample)</a>
+<a class="sourceLine" id="cb192-3" data-line-number="3">factorExample</a></code></pre></div>
 <pre><code>## [1] male   female female female
 ## Levels: female male</code></pre>
-<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb196-1" data-line-number="1"><span class="kw">levels</span>(factorExample)</a></code></pre></div>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb194-1" data-line-number="1"><span class="kw">levels</span>(factorExample)</a></code></pre></div>
 <pre><code>## [1] &quot;female&quot; &quot;male&quot;</code></pre>
 </div>
 <div id="factors---summary-function" class="section level2">
 <h2>Factors - Summary() function</h2>
 <p>An example of the use of levels can be seen from applying the <strong>summary()</strong> function to the vector and factor examples</p>
-<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb198-1" data-line-number="1"><span class="kw">summary</span>(vectorExample)</a></code></pre></div>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb196-1" data-line-number="1"><span class="kw">summary</span>(vectorExample)</a></code></pre></div>
 <pre><code>##    Length     Class      Mode 
 ##         4 character character</code></pre>
-<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb200-1" data-line-number="1"><span class="kw">summary</span>(factorExample)</a></code></pre></div>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb198-1" data-line-number="1"><span class="kw">summary</span>(factorExample)</a></code></pre></div>
 <pre><code>## female   male 
 ##      3      1</code></pre>
 </div>
 <div id="factors---display-order-of-levels" class="section level2">
 <h2>Factors - Display order of levels</h2>
 <p>In our factor example, the levels have been displayed in an alphabetical order. To adjust the display order of levels in a factor, we can supply the desired display order to <strong>levels</strong> argument in the <strong>factor()</strong> function call.</p>
-<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb202-1" data-line-number="1">factorExample &lt;-<span class="st"> </span><span class="kw">factor</span>(vectorExample,<span class="dt">levels=</span><span class="kw">c</span>(<span class="st">&quot;male&quot;</span>,<span class="st">&quot;female&quot;</span>))</a>
-<a class="sourceLine" id="cb202-2" data-line-number="2">factorExample</a></code></pre></div>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb200-1" data-line-number="1">factorExample &lt;-<span class="st"> </span><span class="kw">factor</span>(vectorExample,<span class="dt">levels=</span><span class="kw">c</span>(<span class="st">&quot;male&quot;</span>,<span class="st">&quot;female&quot;</span>))</a>
+<a class="sourceLine" id="cb200-2" data-line-number="2">factorExample</a></code></pre></div>
 <pre><code>## [1] male   female female female
 ## Levels: male female</code></pre>
-<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb204-1" data-line-number="1"><span class="kw">summary</span>(factorExample)</a></code></pre></div>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb202-1" data-line-number="1"><span class="kw">summary</span>(factorExample)</a></code></pre></div>
 <pre><code>##   male female 
 ##      1      3</code></pre>
 </div>
 <div id="factors---nominal-factors" class="section level2">
 <h2>Factors - Nominal factors</h2>
 <p>In some cases there is no natural order to the categories such that one category is greater than the other (nominal data). In this case we can see that R is gender neutral.</p>
-<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb206-1" data-line-number="1">factorExample &lt;-<span class="st"> </span><span class="kw">factor</span>(vectorExample,<span class="dt">levels=</span><span class="kw">c</span>(<span class="st">&quot;male&quot;</span>,<span class="st">&quot;female&quot;</span>))</a>
-<a class="sourceLine" id="cb206-2" data-line-number="2">factorExample[<span class="dv">1</span>] <span class="op">&lt;</span><span class="st"> </span>factorExample[<span class="dv">2</span>]</a></code></pre></div>
-<pre><code>## Warning in Ops.factor(factorExample[1], factorExample[2]): '&lt;' not meaningful for factors</code></pre>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb204-1" data-line-number="1">factorExample &lt;-<span class="st"> </span><span class="kw">factor</span>(vectorExample,<span class="dt">levels=</span><span class="kw">c</span>(<span class="st">&quot;male&quot;</span>,<span class="st">&quot;female&quot;</span>))</a>
+<a class="sourceLine" id="cb204-2" data-line-number="2">factorExample[<span class="dv">1</span>] <span class="op">&lt;</span><span class="st"> </span>factorExample[<span class="dv">2</span>]</a></code></pre></div>
+<pre><code>## Warning in Ops.factor(factorExample[1], factorExample[2]): '&lt;' not meaningful for
+## factors</code></pre>
 <pre><code>## [1] NA</code></pre>
 </div>
 <div id="factors---ordinal-factors" class="section level2">
 <h2>Factors - Ordinal factors</h2>
 <p>In other cases there will be a natural ordering to the categories (ordinal data). A factor can be specified to be ordered using the <strong>ordered</strong> argument in combination with specified levels argument.</p>
-<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb209-1" data-line-number="1">factorExample &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;small&quot;</span>,<span class="st">&quot;big&quot;</span>,<span class="st">&quot;big&quot;</span>,<span class="st">&quot;small&quot;</span>),</a>
-<a class="sourceLine" id="cb209-2" data-line-number="2">                        <span class="dt">ordered=</span><span class="ot">TRUE</span>,<span class="dt">levels=</span><span class="kw">c</span>(<span class="st">&quot;small&quot;</span>,<span class="st">&quot;big&quot;</span>))</a>
-<a class="sourceLine" id="cb209-3" data-line-number="3">factorExample</a></code></pre></div>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb207-1" data-line-number="1">factorExample &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;small&quot;</span>,<span class="st">&quot;big&quot;</span>,<span class="st">&quot;big&quot;</span>,<span class="st">&quot;small&quot;</span>),</a>
+<a class="sourceLine" id="cb207-2" data-line-number="2">                        <span class="dt">ordered=</span><span class="ot">TRUE</span>,<span class="dt">levels=</span><span class="kw">c</span>(<span class="st">&quot;small&quot;</span>,<span class="st">&quot;big&quot;</span>))</a>
+<a class="sourceLine" id="cb207-3" data-line-number="3">factorExample</a></code></pre></div>
 <pre><code>## [1] small big   big   small
 ## Levels: small &lt; big</code></pre>
-<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb211-1" data-line-number="1">factorExample[<span class="dv">1</span>] <span class="op">&lt;</span><span class="st"> </span>factorExample[<span class="dv">2</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb209-1" data-line-number="1">factorExample[<span class="dv">1</span>] <span class="op">&lt;</span><span class="st"> </span>factorExample[<span class="dv">2</span>]</a></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 </div>
 <div id="factors---replacement" class="section level2">
 <h2>Factors - Replacement</h2>
 <p>Unlike vectors, replacing elements within a factor isn’t so easy. While replacing one element with an established level is possible, replacing with a novel element will result in a warning.</p>
-<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb213-1" data-line-number="1">factorExample &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;small&quot;</span>,<span class="st">&quot;big&quot;</span>,<span class="st">&quot;big&quot;</span>,<span class="st">&quot;small&quot;</span>))</a>
-<a class="sourceLine" id="cb213-2" data-line-number="2">factorExample[<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;big&quot;</span>)</a>
-<a class="sourceLine" id="cb213-3" data-line-number="3">factorExample</a></code></pre></div>
+<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb211-1" data-line-number="1">factorExample &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;small&quot;</span>,<span class="st">&quot;big&quot;</span>,<span class="st">&quot;big&quot;</span>,<span class="st">&quot;small&quot;</span>))</a>
+<a class="sourceLine" id="cb211-2" data-line-number="2">factorExample[<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;big&quot;</span>)</a>
+<a class="sourceLine" id="cb211-3" data-line-number="3">factorExample</a></code></pre></div>
 <pre><code>## [1] big   big   big   small
 ## Levels: big small</code></pre>
-<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb215-1" data-line-number="1">factorExample[<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;huge&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb213-1" data-line-number="1">factorExample[<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;huge&quot;</span>)</a></code></pre></div>
 <pre><code>## Warning in `[&lt;-.factor`(`*tmp*`, 1, value = &quot;huge&quot;): invalid factor level, NA generated</code></pre>
-<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb217-1" data-line-number="1">factorExample</a></code></pre></div>
+<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb215-1" data-line-number="1">factorExample</a></code></pre></div>
 <pre><code>## [1] &lt;NA&gt;  big   big   small
 ## Levels: big small</code></pre>
 </div>
 <div id="factors---replacement-1" class="section level2">
 <h2>Factors - Replacement</h2>
 <p>To add a new level we can use the levels argument.</p>
-<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb219-1" data-line-number="1"><span class="kw">levels</span>(factorExample) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;big&quot;</span>,<span class="st">&quot;small&quot;</span>,<span class="st">&quot;huge&quot;</span>)</a>
-<a class="sourceLine" id="cb219-2" data-line-number="2">factorExample[<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;huge&quot;</span>)</a>
-<a class="sourceLine" id="cb219-3" data-line-number="3">factorExample</a></code></pre></div>
+<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb217-1" data-line-number="1"><span class="kw">levels</span>(factorExample) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;big&quot;</span>,<span class="st">&quot;small&quot;</span>,<span class="st">&quot;huge&quot;</span>)</a>
+<a class="sourceLine" id="cb217-2" data-line-number="2">factorExample[<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;huge&quot;</span>)</a>
+<a class="sourceLine" id="cb217-3" data-line-number="3">factorExample</a></code></pre></div>
 <pre><code>## [1] huge  big   big   small
 ## Levels: big small huge</code></pre>
 </div>
@@ -2352,11 +2368,11 @@ div.tocify {
 <div id="data-frames---creating-data-frames-1" class="section level2">
 <h2>Data frames - Creating data frames</h2>
 <p>In R, we make use of the <strong>data frame</strong> object which allows us to store tables with columns of different data types. To create a data frame we can simply use the <strong>data.frame()</strong> function.</p>
-<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb221-1" data-line-number="1">patientName &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;patient1&quot;</span>,<span class="st">&quot;patient2&quot;</span>,<span class="st">&quot;patient3&quot;</span>,<span class="st">&quot;patient4&quot;</span>)</a>
-<a class="sourceLine" id="cb221-2" data-line-number="2">patientType &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;male&quot;</span>,<span class="st">&quot;female&quot;</span>),<span class="dv">2</span>))</a>
-<a class="sourceLine" id="cb221-3" data-line-number="3">survivalTime &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">30</span>,<span class="dv">2</span>,<span class="dv">20</span>)</a>
-<a class="sourceLine" id="cb221-4" data-line-number="4">dfExample &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Name=</span>patientName, <span class="dt">Type=</span>patientType,<span class="dt">Survival_Time=</span>survivalTime)</a>
-<a class="sourceLine" id="cb221-5" data-line-number="5">dfExample</a></code></pre></div>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb219-1" data-line-number="1">patientName &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;patient1&quot;</span>,<span class="st">&quot;patient2&quot;</span>,<span class="st">&quot;patient3&quot;</span>,<span class="st">&quot;patient4&quot;</span>)</a>
+<a class="sourceLine" id="cb219-2" data-line-number="2">patientType &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;male&quot;</span>,<span class="st">&quot;female&quot;</span>),<span class="dv">2</span>))</a>
+<a class="sourceLine" id="cb219-3" data-line-number="3">survivalTime &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">30</span>,<span class="dv">2</span>,<span class="dv">20</span>)</a>
+<a class="sourceLine" id="cb219-4" data-line-number="4">dfExample &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Name=</span>patientName, <span class="dt">Type=</span>patientType, <span class="dt">Survival_Time=</span>survivalTime)</a>
+<a class="sourceLine" id="cb219-5" data-line-number="5">dfExample</a></code></pre></div>
 <pre><code>##       Name   Type Survival_Time
 ## 1 patient1   male             1
 ## 2 patient2 female            30
@@ -2366,47 +2382,47 @@ div.tocify {
 <div id="data-frames---indexing-and-replacement" class="section level2">
 <h2>Data frames - Indexing and replacement</h2>
 <p>Data frames may be indexed just <a href="#/indexingmatrices">as matrices</a>.</p>
-<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb223-1" data-line-number="1">dfExample</a></code></pre></div>
+<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb221-1" data-line-number="1">dfExample</a></code></pre></div>
 <pre><code>##       Name   Type Survival_Time
 ## 1 patient1   male             1
 ## 2 patient2 female            30
 ## 3 patient3   male             2
 ## 4 patient4 female            20</code></pre>
-<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb225-1" data-line-number="1">dfExample[dfExample[,<span class="st">&quot;Survival_Time&quot;</span>] <span class="op">&gt;</span><span class="st"> </span><span class="dv">10</span>,]</a></code></pre></div>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb223-1" data-line-number="1">dfExample[dfExample[,<span class="st">&quot;Survival_Time&quot;</span>] <span class="op">&gt;</span><span class="st"> </span><span class="dv">10</span>,]</a></code></pre></div>
 <pre><code>##       Name   Type Survival_Time
 ## 2 patient2 female            30
 ## 4 patient4 female            20</code></pre>
 </div>
-<div id="data-frames---using-to-specify-columns" class="section level2">
-<h2>Data frames - Using $ to specify columns</h2>
+<div id="data-frames---specify-columns-with" class="section level2">
+<h2>Data frames - Specify columns with $</h2>
 <p>Unlike matrices, it is possible to index a column by using the <strong>$</strong> symbol.</p>
-<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb227-1" data-line-number="1">dfExample &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Name=</span>patientName,<span class="dt">Type=</span>patientType,<span class="dt">Survival_Time=</span>survivalTime)</a>
-<a class="sourceLine" id="cb227-2" data-line-number="2">dfExample<span class="op">$</span>Survival_Time</a></code></pre></div>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb225-1" data-line-number="1">dfExample &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Name=</span>patientName,<span class="dt">Type=</span>patientType,<span class="dt">Survival_Time=</span>survivalTime)</a>
+<a class="sourceLine" id="cb225-2" data-line-number="2">dfExample<span class="op">$</span>Survival_Time</a></code></pre></div>
 <pre><code>## [1]  1 30  2 20</code></pre>
-<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb229-1" data-line-number="1">dfExample[dfExample<span class="op">$</span>Survival_Time <span class="op">&lt;</span><span class="st"> </span><span class="dv">10</span>,]</a></code></pre></div>
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb227-1" data-line-number="1">dfExample[dfExample<span class="op">$</span>Survival_Time <span class="op">&lt;</span><span class="st"> </span><span class="dv">10</span>,]</a></code></pre></div>
 <pre><code>##       Name Type Survival_Time
 ## 1 patient1 male             1
 ## 3 patient3 male             2</code></pre>
 </div>
-<div id="data-frames---creating-data-frames-2" class="section level2">
-<h2>Data frames - Creating data frames</h2>
+<div id="data-frames---specify-columns-with-1" class="section level2">
+<h2>Data frames - Specify columns with $</h2>
 <p>Using the <strong>$</strong> allows for R to autocomplete your selection and so can speed up coding.</p>
-<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb231-1" data-line-number="1">dfExample<span class="op">$</span>Surv</a></code></pre></div>
+<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb229-1" data-line-number="1">dfExample<span class="op">$</span>Surv</a></code></pre></div>
 <pre><code>## [1]  1 30  2 20</code></pre>
 <p>But this will not work..</p>
-<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb233-1" data-line-number="1">dfExample[,<span class="st">&quot;Surv&quot;</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb231-1" data-line-number="1">dfExample[,<span class="st">&quot;Surv&quot;</span>]</a></code></pre></div>
 </div>
-<div id="data-frames---creating-new-columns-with" class="section level2">
-<h2>Data frames - Creating new columns with $</h2>
+<div id="data-frames---create-columns-with" class="section level2">
+<h2>Data frames - Create columns with $</h2>
 <p>The <strong>$</strong> operator also allows for the creation of new columns for a data frame on the fly.</p>
-<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb234-1" data-line-number="1">dfExample</a></code></pre></div>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb232-1" data-line-number="1">dfExample</a></code></pre></div>
 <pre><code>##       Name   Type Survival_Time
 ## 1 patient1   male             1
 ## 2 patient2 female            30
 ## 3 patient3   male             2
 ## 4 patient4 female            20</code></pre>
-<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb236-1" data-line-number="1">dfExample<span class="op">$</span>newColumn &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="st">&quot;newData&quot;</span>,<span class="kw">nrow</span>(dfExample))</a>
-<a class="sourceLine" id="cb236-2" data-line-number="2">dfExample</a></code></pre></div>
+<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb234-1" data-line-number="1">dfExample<span class="op">$</span>newColumn &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="st">&quot;newData&quot;</span>,<span class="kw">nrow</span>(dfExample))</a>
+<a class="sourceLine" id="cb234-2" data-line-number="2">dfExample</a></code></pre></div>
 <pre><code>##       Name   Type Survival_Time newColumn
 ## 1 patient1   male             1   newData
 ## 2 patient2 female            30   newData
@@ -2416,8 +2432,8 @@ div.tocify {
 <div id="data-frames---indexing-and-replacement-1" class="section level2">
 <h2>Data frames - Indexing and replacement</h2>
 <p>Certain columns can not be replaced in data frames. Numeric columns may have their values replaced but columns with character values may not by default.</p>
-<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb238-1" data-line-number="1">dfExample[dfExample[,<span class="st">&quot;Survival_Time&quot;</span>] <span class="op">&lt;</span><span class="st"> </span><span class="dv">10</span>,<span class="st">&quot;Survival_Time&quot;</span>] &lt;-<span class="st"> </span><span class="dv">0</span></a>
-<a class="sourceLine" id="cb238-2" data-line-number="2">dfExample</a></code></pre></div>
+<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb236-1" data-line-number="1">dfExample[dfExample[,<span class="st">&quot;Survival_Time&quot;</span>] <span class="op">&lt;</span><span class="st"> </span><span class="dv">10</span>,<span class="st">&quot;Survival_Time&quot;</span>] &lt;-<span class="st"> </span><span class="dv">0</span></a>
+<a class="sourceLine" id="cb236-2" data-line-number="2">dfExample</a></code></pre></div>
 <pre><code>##       Name   Type Survival_Time newColumn
 ## 1 patient1   male             0   newData
 ## 2 patient2 female            30   newData
@@ -2427,9 +2443,10 @@ div.tocify {
 <div id="data-frames---indexing-and-replacement-2" class="section level2">
 <h2>Data frames - Indexing and replacement</h2>
 <p>This occurs because character vectors are treated as factors by default.</p>
-<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb240-1" data-line-number="1">dfExample[dfExample[,<span class="st">&quot;Survival_Time&quot;</span>] <span class="op">&lt;</span><span class="st"> </span><span class="dv">10</span>,<span class="st">&quot;Name&quot;</span>] &lt;-<span class="st"> &quot;patientX&quot;</span></a></code></pre></div>
-<pre><code>## Warning in `[&lt;-.factor`(`*tmp*`, iseq, value = c(&quot;patientX&quot;, &quot;patientX&quot;)): invalid factor level, NA generated</code></pre>
-<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb242-1" data-line-number="1">dfExample</a></code></pre></div>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb238-1" data-line-number="1">dfExample[dfExample[,<span class="st">&quot;Survival_Time&quot;</span>] <span class="op">&lt;</span><span class="st"> </span><span class="dv">10</span>,<span class="st">&quot;Name&quot;</span>] &lt;-<span class="st"> &quot;patientX&quot;</span></a></code></pre></div>
+<pre><code>## Warning in `[&lt;-.factor`(`*tmp*`, iseq, value = c(&quot;patientX&quot;, &quot;patientX&quot;)): invalid
+## factor level, NA generated</code></pre>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb240-1" data-line-number="1">dfExample</a></code></pre></div>
 <pre><code>##       Name   Type Survival_Time newColumn
 ## 1     &lt;NA&gt;   male             0   newData
 ## 2 patient2 female            30   newData
@@ -2439,11 +2456,28 @@ div.tocify {
 <div id="data-frames---factors-in-data-frames" class="section level2">
 <h2>Data frames - Factors in data frames</h2>
 <p>It is possible to update factors in data frames just as with standard factors.</p>
-<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb244-1" data-line-number="1">dfExample &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Name=</span>patientName,<span class="dt">Type=</span>patientType,</a>
-<a class="sourceLine" id="cb244-2" data-line-number="2">                        <span class="dt">Survival_Time=</span>survivalTime)</a>
-<a class="sourceLine" id="cb244-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb244-4" data-line-number="4"><span class="kw">levels</span>(dfExample[,<span class="st">&quot;Name&quot;</span>]) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">levels</span>(dfExample[,<span class="st">&quot;Name&quot;</span>]) ,</a>
-<a class="sourceLine" id="cb244-5" data-line-number="5">                                <span class="st">&quot;patientX&quot;</span>)</a>
+<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb242-1" data-line-number="1">dfExample &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Name=</span>patientName,<span class="dt">Type=</span>patientType,</a>
+<a class="sourceLine" id="cb242-2" data-line-number="2">                        <span class="dt">Survival_Time=</span>survivalTime)</a>
+<a class="sourceLine" id="cb242-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb242-4" data-line-number="4"><span class="kw">levels</span>(dfExample[,<span class="st">&quot;Name&quot;</span>]) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">levels</span>(dfExample[,<span class="st">&quot;Name&quot;</span>]) ,</a>
+<a class="sourceLine" id="cb242-5" data-line-number="5">                                <span class="st">&quot;patientX&quot;</span>)</a>
+<a class="sourceLine" id="cb242-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb242-7" data-line-number="7">dfExample[dfExample[,<span class="st">&quot;Survival_Time&quot;</span>] <span class="op">&lt;</span><span class="st"> </span><span class="dv">10</span>,<span class="st">&quot;Name&quot;</span>] &lt;-<span class="st"> &quot;patientX&quot;</span></a>
+<a class="sourceLine" id="cb242-8" data-line-number="8">dfExample</a></code></pre></div>
+<pre><code>##       Name   Type Survival_Time
+## 1 patientX   male             1
+## 2 patient2 female            30
+## 3 patientX   male             2
+## 4 patient4 female            20</code></pre>
+</div>
+<div id="data-frames---data-frames-without-factors" class="section level2">
+<h2>Data frames - Data frames without factors</h2>
+<p>If you wish to avoid using factors in data frames then the <strong>stringsAsFactors</strong> argument to <strong>data.frame()</strong> function should be set to <strong>FALSE</strong></p>
+<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb244-1" data-line-number="1">dfExample &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Name=</span>patientName,</a>
+<a class="sourceLine" id="cb244-2" data-line-number="2">                        <span class="dt">Type=</span>patientType,</a>
+<a class="sourceLine" id="cb244-3" data-line-number="3">                        <span class="dt">Survival_Time=</span>survivalTime,</a>
+<a class="sourceLine" id="cb244-4" data-line-number="4">                        <span class="dt">stringsAsFactors =</span> F)</a>
+<a class="sourceLine" id="cb244-5" data-line-number="5"></a>
 <a class="sourceLine" id="cb244-6" data-line-number="6"></a>
 <a class="sourceLine" id="cb244-7" data-line-number="7">dfExample[dfExample[,<span class="st">&quot;Survival_Time&quot;</span>] <span class="op">&lt;</span><span class="st"> </span><span class="dv">10</span>,<span class="st">&quot;Name&quot;</span>] &lt;-<span class="st"> &quot;patientX&quot;</span></a>
 <a class="sourceLine" id="cb244-8" data-line-number="8">dfExample</a></code></pre></div>
@@ -2453,54 +2487,37 @@ div.tocify {
 ## 3 patientX   male             2
 ## 4 patient4 female            20</code></pre>
 </div>
-<div id="data-frames---creating-data-frames-without-factors" class="section level2">
-<h2>Data frames - Creating data frames without factors</h2>
-<p>If you wish to avoid using factors in data frames then the <strong>stringsAsFactors</strong> argument to <strong>data.frame()</strong> function should be set to <strong>FALSE</strong></p>
-<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb246-1" data-line-number="1">dfExample &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Name=</span>patientName,</a>
-<a class="sourceLine" id="cb246-2" data-line-number="2">                        <span class="dt">Type=</span>patientType,</a>
-<a class="sourceLine" id="cb246-3" data-line-number="3">                        <span class="dt">Survival_Time=</span>survivalTime,</a>
-<a class="sourceLine" id="cb246-4" data-line-number="4">                        <span class="dt">stringsAsFactors =</span> F)</a>
-<a class="sourceLine" id="cb246-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb246-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb246-7" data-line-number="7">dfExample[dfExample[,<span class="st">&quot;Survival_Time&quot;</span>] <span class="op">&lt;</span><span class="st"> </span><span class="dv">10</span>,<span class="st">&quot;Name&quot;</span>] &lt;-<span class="st"> &quot;patientX&quot;</span></a>
-<a class="sourceLine" id="cb246-8" data-line-number="8">dfExample</a></code></pre></div>
-<pre><code>##       Name   Type Survival_Time
-## 1 patientX   male             1
-## 2 patient2 female            30
-## 3 patientX   male             2
-## 4 patient4 female            20</code></pre>
-</div>
-<div id="data-frames---ordering-with-order-function" class="section level2">
-<h2>Data frames - Ordering with order() function</h2>
+<div id="data-frames---ordering-with-order" class="section level2">
+<h2>Data frames - Ordering with order()</h2>
 <p>A useful function in R is <strong>order()</strong></p>
 <p>For numeric vectors, <strong>order()</strong> by default returns the indices of a vector in that vector’s increasing order. This behaviour can be altered by using the “decreasing” argument passed to order.</p>
-<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb248-1" data-line-number="1">testOrder &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb248-2" data-line-number="2">testOrder</a></code></pre></div>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb246-1" data-line-number="1">testOrder &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb246-2" data-line-number="2">testOrder</a></code></pre></div>
 <pre><code>## [1] 2 1 3</code></pre>
-<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb250-1" data-line-number="1">testOrder[<span class="kw">order</span>(testOrder)]</a></code></pre></div>
+<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb248-1" data-line-number="1">testOrder[<span class="kw">order</span>(testOrder)]</a></code></pre></div>
 <pre><code>## [1] 1 2 3</code></pre>
-<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb252-1" data-line-number="1">testOrder[<span class="kw">order</span>(testOrder,<span class="dt">decreasing=</span>T)]</a></code></pre></div>
+<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb250-1" data-line-number="1">testOrder[<span class="kw">order</span>(testOrder,<span class="dt">decreasing=</span>T)]</a></code></pre></div>
 <pre><code>## [1] 3 2 1</code></pre>
 </div>
 <div id="data-frames---ordering-with-na-values" class="section level2">
 <h2>Data frames - Ordering with NA values</h2>
 <p>When a vector contains NA values, these NA values will, by default, be placed last in ordering indices. This can be controlled by <strong>na.last</strong> argument.</p>
-<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb254-1" data-line-number="1">testOrder &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">1</span>,<span class="ot">NA</span>,<span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb254-2" data-line-number="2">testOrder[<span class="kw">order</span>(testOrder,<span class="dt">decreasing=</span>T,<span class="dt">na.last=</span>T)]</a></code></pre></div>
+<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb252-1" data-line-number="1">testOrder &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">1</span>,<span class="ot">NA</span>,<span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb252-2" data-line-number="2">testOrder[<span class="kw">order</span>(testOrder,<span class="dt">decreasing=</span>T,<span class="dt">na.last=</span>T)]</a></code></pre></div>
 <pre><code>## [1]  3  2  1 NA</code></pre>
-<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb256-1" data-line-number="1">testOrder[<span class="kw">order</span>(testOrder,<span class="dt">decreasing=</span>T,<span class="dt">na.last=</span>F)]</a></code></pre></div>
+<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb254-1" data-line-number="1">testOrder[<span class="kw">order</span>(testOrder,<span class="dt">decreasing=</span>T,<span class="dt">na.last=</span>F)]</a></code></pre></div>
 <pre><code>## [1] NA  3  2  1</code></pre>
 </div>
 <div id="data-frames---ordering-data-frames" class="section level2">
 <h2>Data frames - Ordering data frames</h2>
 <p>Since the order argument returns an index of intended order for a vector, we can use the order() function to order data frames by certain columns</p>
-<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb258-1" data-line-number="1">dfExample</a></code></pre></div>
+<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb256-1" data-line-number="1">dfExample</a></code></pre></div>
 <pre><code>##       Name   Type Survival_Time
 ## 1 patientX   male             1
 ## 2 patient2 female            30
 ## 3 patientX   male             2
 ## 4 patient4 female            20</code></pre>
-<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb260-1" data-line-number="1">dfExample[<span class="kw">order</span>(dfExample<span class="op">$</span>Surv, <span class="dt">decreasing=</span>T),]</a></code></pre></div>
+<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb258-1" data-line-number="1">dfExample[<span class="kw">order</span>(dfExample<span class="op">$</span>Surv, <span class="dt">decreasing=</span>T),]</a></code></pre></div>
 <pre><code>##       Name   Type Survival_Time
 ## 2 patient2 female            30
 ## 4 patient4 female            20
@@ -2510,9 +2527,9 @@ div.tocify {
 <div id="data-frames---ordering-data-frames-1" class="section level2">
 <h2>Data frames - Ordering data frames</h2>
 <p>We can also use order to arrange multiple columns in a data frame by providing multiple vectors to order() function. Ordering will be performed in order of arguments.</p>
-<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb262-1" data-line-number="1">dfExample[<span class="kw">order</span>(dfExample<span class="op">$</span>Type,</a>
-<a class="sourceLine" id="cb262-2" data-line-number="2">                dfExample<span class="op">$</span>Survival,</a>
-<a class="sourceLine" id="cb262-3" data-line-number="3">                <span class="dt">decreasing=</span>T),]</a></code></pre></div>
+<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb260-1" data-line-number="1">dfExample[<span class="kw">order</span>(dfExample<span class="op">$</span>Type,</a>
+<a class="sourceLine" id="cb260-2" data-line-number="2">                dfExample<span class="op">$</span>Survival,</a>
+<a class="sourceLine" id="cb260-3" data-line-number="3">                <span class="dt">decreasing=</span>T),]</a></code></pre></div>
 <pre><code>##       Name   Type Survival_Time
 ## 3 patientX   male             2
 ## 1 patientX   male             1
@@ -2522,27 +2539,27 @@ div.tocify {
 <div id="data-frames---merging-data-frames" class="section level2">
 <h2>Data frames - Merging data frames</h2>
 <p>A common operation is to join two data frames by a column of common values.</p>
-<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb264-1" data-line-number="1">dfExample &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Name=</span>patientName,<span class="dt">Type=</span>patientType,</a>
-<a class="sourceLine" id="cb264-2" data-line-number="2">                        <span class="dt">Survival_Time=</span>survivalTime)</a>
-<a class="sourceLine" id="cb264-3" data-line-number="3">dfExample </a></code></pre></div>
+<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb262-1" data-line-number="1">dfExample &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Name=</span>patientName,<span class="dt">Type=</span>patientType,</a>
+<a class="sourceLine" id="cb262-2" data-line-number="2">                        <span class="dt">Survival_Time=</span>survivalTime)</a>
+<a class="sourceLine" id="cb262-3" data-line-number="3">dfExample </a></code></pre></div>
 <pre><code>##       Name   Type Survival_Time
 ## 1 patient1   male             1
 ## 2 patient2 female            30
 ## 3 patient3   male             2
 ## 4 patient4 female            20</code></pre>
-<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb266-1" data-line-number="1">dfExample2 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Name=</span>patientName[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>],</a>
-<a class="sourceLine" id="cb266-2" data-line-number="2">                        <span class="dt">height=</span><span class="kw">c</span>(<span class="fl">6.1</span>,<span class="fl">5.1</span>,<span class="fl">5.5</span>))</a>
-<a class="sourceLine" id="cb266-3" data-line-number="3">dfExample2</a></code></pre></div>
+<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb264-1" data-line-number="1">dfExample2 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Name=</span>patientName[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>],</a>
+<a class="sourceLine" id="cb264-2" data-line-number="2">                        <span class="dt">height=</span><span class="kw">c</span>(<span class="fl">6.1</span>,<span class="fl">5.1</span>,<span class="fl">5.5</span>))</a>
+<a class="sourceLine" id="cb264-3" data-line-number="3">dfExample2</a></code></pre></div>
 <pre><code>##       Name height
 ## 1 patient1    6.1
 ## 2 patient2    5.1
 ## 3 patient3    5.5</code></pre>
 </div>
-<div id="data-frames---merging-data-frames-with-merge" class="section level2">
-<h2>Data frames - Merging data frames with merge()</h2>
+<div id="data-frames---merging-data-frames-1" class="section level2">
+<h2>Data frames - Merging data frames</h2>
 <p>To do this we can use the <strong>merge()</strong> function with the data frames as the first two arguments. We can then specify the columns to merge by with the <strong>by</strong> argument. To keep only data pertaining to values common to both data frames the <strong>all</strong> argument is set to FALSE.</p>
-<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb268-1" data-line-number="1">mergedDF &lt;-<span class="st"> </span><span class="kw">merge</span>(dfExample,dfExample2,<span class="dt">by=</span><span class="dv">1</span>,<span class="dt">all=</span>F)</a>
-<a class="sourceLine" id="cb268-2" data-line-number="2">mergedDF</a></code></pre></div>
+<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb266-1" data-line-number="1">mergedDF &lt;-<span class="st"> </span><span class="kw">merge</span>(dfExample,dfExample2,<span class="dt">by=</span><span class="dv">1</span>,<span class="dt">all=</span>F)</a>
+<a class="sourceLine" id="cb266-2" data-line-number="2">mergedDF</a></code></pre></div>
 <pre><code>##       Name   Type Survival_Time height
 ## 1 patient1   male             1    6.1
 ## 2 patient2 female            30    5.1
@@ -2559,17 +2576,17 @@ div.tocify {
 </div>
 <div id="lists---creating-lists" class="section level2">
 <h2>Lists - Creating lists</h2>
-<p>Lists are the final data-type we will look at.</p>
+<p>Lists are the final data type we will look at.</p>
 <p>In R, lists provide a general container which may hold any data types of unequal lengths as part of its elements.</p>
-<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb270-1" data-line-number="1">firstElement &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)</a>
-<a class="sourceLine" id="cb270-2" data-line-number="2">secondElement &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>,<span class="dt">nrow=</span><span class="dv">2</span>,<span class="dt">ncol=</span><span class="dv">5</span>)</a>
-<a class="sourceLine" id="cb270-3" data-line-number="3">thirdElement &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">colOne=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">5</span>),<span class="dt">colTwo=</span><span class="kw">c</span>(<span class="st">&quot;One&quot;</span>,<span class="st">&quot;Two&quot;</span>,<span class="st">&quot;Three&quot;</span>,<span class="st">&quot;Four&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb268-1" data-line-number="1">firstElement &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)</a>
+<a class="sourceLine" id="cb268-2" data-line-number="2">secondElement &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>,<span class="dt">nrow=</span><span class="dv">2</span>,<span class="dt">ncol=</span><span class="dv">5</span>)</a>
+<a class="sourceLine" id="cb268-3" data-line-number="3">thirdElement &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">colOne=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">5</span>),<span class="dt">colTwo=</span><span class="kw">c</span>(<span class="st">&quot;One&quot;</span>,<span class="st">&quot;Two&quot;</span>,<span class="st">&quot;Three&quot;</span>,<span class="st">&quot;Four&quot;</span>))</a></code></pre></div>
 </div>
 <div id="lists---lists" class="section level2">
 <h2>Lists - lists</h2>
 <p>To create a list we can simply use the <strong>list()</strong> function with arguments specifying the data we wish to include in the list.</p>
-<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb271-1" data-line-number="1">myList &lt;-<span class="st"> </span><span class="kw">list</span>(firstElement,secondElement,thirdElement)</a>
-<a class="sourceLine" id="cb271-2" data-line-number="2">myList</a></code></pre></div>
+<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb269-1" data-line-number="1">myList &lt;-<span class="st"> </span><span class="kw">list</span>(firstElement,secondElement,thirdElement)</a>
+<a class="sourceLine" id="cb269-2" data-line-number="2">myList</a></code></pre></div>
 <pre><code>## [[1]]
 ## [1] 1 2 3 4
 ## 
@@ -2588,9 +2605,9 @@ div.tocify {
 <div id="lists---named-lists" class="section level2">
 <h2>Lists - Named lists</h2>
 <p><a href="#/namingvectors">Just as with vectors</a>, list elements can be assigned names.</p>
-<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb273-1" data-line-number="1">myNamedList &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">First=</span>firstElement,<span class="dt">Second=</span>secondElement,</a>
-<a class="sourceLine" id="cb273-2" data-line-number="2">                    <span class="dt">Third=</span>thirdElement)</a>
-<a class="sourceLine" id="cb273-3" data-line-number="3">myNamedList</a></code></pre></div>
+<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb271-1" data-line-number="1">myNamedList &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">First=</span>firstElement,<span class="dt">Second=</span>secondElement,</a>
+<a class="sourceLine" id="cb271-2" data-line-number="2">                    <span class="dt">Third=</span>thirdElement)</a>
+<a class="sourceLine" id="cb271-3" data-line-number="3">myNamedList</a></code></pre></div>
 <pre><code>## $First
 ## [1] 1 2 3 4
 ## 
@@ -2609,23 +2626,23 @@ div.tocify {
 <div id="lists---indexing" class="section level2">
 <h2>Lists - Indexing</h2>
 <p>List, as <a href="#/indexingvectors">with other data types in R</a> can be indexed. In contrast to other types, using <strong>[]</strong> on a list will subset the list to another list of selected indices. To retrieve an element from a list in R , two square brackets <strong>[[]]</strong> must be used.</p>
-<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb275-1" data-line-number="1">myList &lt;-<span class="st"> </span><span class="kw">list</span>(firstElement,secondElement,thirdElement)</a>
-<a class="sourceLine" id="cb275-2" data-line-number="2">myList[<span class="dv">1</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb273-1" data-line-number="1">myList &lt;-<span class="st"> </span><span class="kw">list</span>(firstElement,secondElement,thirdElement)</a>
+<a class="sourceLine" id="cb273-2" data-line-number="2">myList[<span class="dv">1</span>]</a></code></pre></div>
 <pre><code>## [[1]]
 ## [1] 1 2 3 4</code></pre>
-<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb277-1" data-line-number="1">myList[[<span class="dv">1</span>]]</a></code></pre></div>
+<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb275-1" data-line-number="1">myList[[<span class="dv">1</span>]]</a></code></pre></div>
 <pre><code>## [1] 1 2 3 4</code></pre>
 <p>As with data.frames, the $ sign may be used to extract named elements from a list</p>
-<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb279-1" data-line-number="1">myNamedList<span class="op">$</span>First</a></code></pre></div>
+<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb277-1" data-line-number="1">myNamedList<span class="op">$</span>First</a></code></pre></div>
 <pre><code>## [1] 1 2 3 4</code></pre>
 </div>
 <div id="lists---joining-lists" class="section level2">
 <h2>Lists - Joining lists</h2>
 <p>Again, <a href="#/combine">similar to vectors</a>, lists can be joined together in R using the c() function</p>
-<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb281-1" data-line-number="1">myNamedList &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">First=</span>firstElement,<span class="dt">Second=</span>secondElement,</a>
-<a class="sourceLine" id="cb281-2" data-line-number="2">                    <span class="dt">Third=</span>thirdElement)</a>
-<a class="sourceLine" id="cb281-3" data-line-number="3">myNamedList &lt;-<span class="st"> </span><span class="kw">c</span>(myNamedList,<span class="kw">list</span>(<span class="dt">fourth=</span><span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">4</span>)))</a>
-<a class="sourceLine" id="cb281-4" data-line-number="4">myNamedList[<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">4</span>)]</a></code></pre></div>
+<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb279-1" data-line-number="1">myNamedList &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">First=</span>firstElement,<span class="dt">Second=</span>secondElement,</a>
+<a class="sourceLine" id="cb279-2" data-line-number="2">                    <span class="dt">Third=</span>thirdElement)</a>
+<a class="sourceLine" id="cb279-3" data-line-number="3">myNamedList &lt;-<span class="st"> </span><span class="kw">c</span>(myNamedList,<span class="kw">list</span>(<span class="dt">fourth=</span><span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">4</span>)))</a>
+<a class="sourceLine" id="cb279-4" data-line-number="4">myNamedList[<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">4</span>)]</a></code></pre></div>
 <pre><code>## $First
 ## [1] 1 2 3 4
 ## 
@@ -2635,8 +2652,8 @@ div.tocify {
 <div id="lists---joining-vectors-to-lists" class="section level2">
 <h2>Lists - Joining vectors to lists</h2>
 <p>Note that on last slide we are joining two lists. If we joined a vector to a list, all elements of the vector would become list elements.</p>
-<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb283-1" data-line-number="1">myList &lt;-<span class="st"> </span><span class="kw">c</span>(myList,<span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">4</span>))</a>
-<a class="sourceLine" id="cb283-2" data-line-number="2">myList[<span class="dv">3</span><span class="op">:</span><span class="dv">5</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb281-1" data-line-number="1">myList &lt;-<span class="st"> </span><span class="kw">c</span>(myList,<span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">4</span>))</a>
+<a class="sourceLine" id="cb281-2" data-line-number="2">myList[<span class="dv">3</span><span class="op">:</span><span class="dv">5</span>]</a></code></pre></div>
 <pre><code>## [[1]]
 ##   colOne colTwo
 ## 1      1    One
@@ -2653,8 +2670,8 @@ div.tocify {
 <div id="lists---flattening-lists" class="section level2">
 <h2>Lists - Flattening lists</h2>
 <p>Sometimes you will wish to “flatten” out a list. When a list contains compatable objects, i.e. list of all one type, the <strong>unlist()</strong> function can be used. Note the maintenance of names with their additional sufficies.</p>
-<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb285-1" data-line-number="1">myNamedList &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">First=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),<span class="dt">Second=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">6</span>,<span class="dv">7</span>),<span class="dt">Third=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">7</span>))</a>
-<a class="sourceLine" id="cb285-2" data-line-number="2">myNamedList</a></code></pre></div>
+<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb283-1" data-line-number="1">myNamedList &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">First=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),<span class="dt">Second=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">6</span>,<span class="dv">7</span>),<span class="dt">Third=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">7</span>))</a>
+<a class="sourceLine" id="cb283-2" data-line-number="2">myNamedList</a></code></pre></div>
 <pre><code>## $First
 ## [1] 1 2 3
 ## 
@@ -2663,22 +2680,22 @@ div.tocify {
 ## 
 ## $Third
 ## [1] 1 4 7</code></pre>
-<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb287-1" data-line-number="1">flatList &lt;-<span class="st"> </span><span class="kw">unlist</span>(myNamedList)</a>
-<a class="sourceLine" id="cb287-2" data-line-number="2">flatList[<span class="dv">1</span><span class="op">:</span><span class="dv">7</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb285-1" data-line-number="1">flatList &lt;-<span class="st"> </span><span class="kw">unlist</span>(myNamedList)</a>
+<a class="sourceLine" id="cb285-2" data-line-number="2">flatList[<span class="dv">1</span><span class="op">:</span><span class="dv">7</span>]</a></code></pre></div>
 <pre><code>##  First1  First2  First3 Second1 Second2 Second3  Third1 
 ##       1       2       3       2       6       7       1</code></pre>
 </div>
 <div id="lists---flattening-lists-to-matrices" class="section level2">
 <h2>Lists - Flattening lists to matrices</h2>
-<p>A common step is to turn a list of standard results into matrix. This can be done in a few steps in R.</p>
-<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb289-1" data-line-number="1">myNamedList &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">First=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),<span class="dt">Second=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">6</span>,<span class="dv">7</span>),<span class="dt">Third=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">7</span>))</a>
-<a class="sourceLine" id="cb289-2" data-line-number="2">flatList &lt;-<span class="st"> </span><span class="kw">unlist</span>(myNamedList)</a>
-<a class="sourceLine" id="cb289-3" data-line-number="3">listAsMat &lt;-<span class="st"> </span><span class="kw">matrix</span>(flatList,</a>
-<a class="sourceLine" id="cb289-4" data-line-number="4">                    <span class="dt">nrow=</span><span class="kw">length</span>(myNamedList),</a>
-<a class="sourceLine" id="cb289-5" data-line-number="5">                    <span class="dt">ncol=</span><span class="dv">3</span>,</a>
-<a class="sourceLine" id="cb289-6" data-line-number="6">                    <span class="dt">byrow=</span>T,</a>
-<a class="sourceLine" id="cb289-7" data-line-number="7">                    <span class="dt">dimnames=</span><span class="kw">list</span>(<span class="kw">names</span>(myNamedList)))</a>
-<a class="sourceLine" id="cb289-8" data-line-number="8">listAsMat</a></code></pre></div>
+<p>A common step is to turn a list of standard results into matrix. This can be done in a few steps in R, using functions you are now familair with.</p>
+<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb287-1" data-line-number="1">myNamedList &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">First=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),<span class="dt">Second=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">6</span>,<span class="dv">7</span>),<span class="dt">Third=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">7</span>))</a>
+<a class="sourceLine" id="cb287-2" data-line-number="2">flatList &lt;-<span class="st"> </span><span class="kw">unlist</span>(myNamedList)</a>
+<a class="sourceLine" id="cb287-3" data-line-number="3">listAsMat &lt;-<span class="st"> </span><span class="kw">matrix</span>(flatList,</a>
+<a class="sourceLine" id="cb287-4" data-line-number="4">                    <span class="dt">nrow=</span><span class="kw">length</span>(myNamedList),</a>
+<a class="sourceLine" id="cb287-5" data-line-number="5">                    <span class="dt">ncol=</span><span class="dv">3</span>,</a>
+<a class="sourceLine" id="cb287-6" data-line-number="6">                    <span class="dt">byrow=</span>T,</a>
+<a class="sourceLine" id="cb287-7" data-line-number="7">                    <span class="dt">dimnames=</span><span class="kw">list</span>(<span class="kw">names</span>(myNamedList)))</a>
+<a class="sourceLine" id="cb287-8" data-line-number="8">listAsMat</a></code></pre></div>
 <pre><code>##        [,1] [,2] [,3]
 ## First     1    2    3
 ## Second    2    6    7
@@ -2692,10 +2709,10 @@ div.tocify {
 <hr color="#EB811B" size="1px" width="720px">
 </html>
 </div>
-<div id="data-io---data-from-external-sources" class="section level2">
-<h2>Data IO - Data from External sources</h2>
+<div id="data-from-external-sources" class="section level2">
+<h2>Data from external sources</h2>
 <p>Most of the time, you will not be generating data in R but will be importing data from external files.</p>
-<p>A standard format for this data is a table</p>
+<p>A standard format for this data is a table:</p>
 <table>
 <thead>
 <tr>
@@ -2719,13 +2736,13 @@ Sample_3.hi
 Gene_a
 </td>
 <td style="text-align:right;">
-5.260222
+5.876718
 </td>
 <td style="text-align:right;">
-4.503469
+3.196373
 </td>
 <td style="text-align:right;">
-3.214782
+4.060180
 </td>
 </tr>
 <tr>
@@ -2733,13 +2750,13 @@ Gene_a
 Gene_b
 </td>
 <td style="text-align:right;">
-4.161909
+4.070353
 </td>
 <td style="text-align:right;">
-4.086270
+1.451840
 </td>
 <td style="text-align:right;">
-3.673122
+5.519570
 </td>
 </tr>
 <tr>
@@ -2747,13 +2764,13 @@ Gene_b
 Gene_c
 </td>
 <td style="text-align:right;">
-4.420448
+2.997269
 </td>
 <td style="text-align:right;">
-2.579243
+5.514475
 </td>
 <td style="text-align:right;">
-4.479495
+4.321498
 </td>
 </tr>
 <tr>
@@ -2761,13 +2778,13 @@ Gene_c
 Gene_d
 </td>
 <td style="text-align:right;">
-5.707678
+4.595215
 </td>
 <td style="text-align:right;">
-4.176690
+2.906684
 </td>
 <td style="text-align:right;">
-5.617256
+3.678539
 </td>
 </tr>
 <tr>
@@ -2775,13 +2792,13 @@ Gene_d
 Gene_e
 </td>
 <td style="text-align:right;">
-10.316815
+10.075194
 </td>
 <td style="text-align:right;">
-10.606488
+10.290082
 </td>
 <td style="text-align:right;">
-7.987699
+10.052461
 </td>
 </tr>
 <tr>
@@ -2789,13 +2806,13 @@ Gene_e
 Gene_f
 </td>
 <td style="text-align:right;">
-8.400316
+8.364668
 </td>
 <td style="text-align:right;">
-11.072959
+10.722879
 </td>
 <td style="text-align:right;">
-8.960271
+11.783612
 </td>
 </tr>
 <tr>
@@ -2803,13 +2820,13 @@ Gene_f
 Gene_g
 </td>
 <td style="text-align:right;">
-10.358651
+8.678319
 </td>
 <td style="text-align:right;">
-10.515649
+9.286982
 </td>
 <td style="text-align:right;">
-10.749990
+10.417148
 </td>
 </tr>
 <tr>
@@ -2817,23 +2834,23 @@ Gene_g
 Gene_h
 </td>
 <td style="text-align:right;">
-9.321113
+11.357776
 </td>
 <td style="text-align:right;">
-10.665503
+11.089382
 </td>
 <td style="text-align:right;">
-10.183048
+8.637580
 </td>
 </tr>
 </tbody>
 </table>
 </div>
-<div id="data-io---data-from-text-file-with-read.table" class="section level2">
-<h2>Data IO - Data from text file with read.table()</h2>
+<div id="data-from-text-file-with-read.table" class="section level2">
+<h2>Data from text file with read.table()</h2>
 <p>Tables from text files can be read with <strong>read.table()</strong> function</p>
-<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb291-1" data-line-number="1">Table &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;data/readThisTable.csv&quot;</span>,<span class="dt">sep=</span><span class="st">&quot;,&quot;</span>,<span class="dt">header=</span>T)</a>
-<a class="sourceLine" id="cb291-2" data-line-number="2">Table[<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb289-1" data-line-number="1">Table &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;data/readThisTable.csv&quot;</span>,<span class="dt">sep=</span><span class="st">&quot;,&quot;</span>,<span class="dt">header=</span>T)</a>
+<a class="sourceLine" id="cb289-2" data-line-number="2">Table[<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]</a></code></pre></div>
 <pre><code>##   Gene_Name Sample_1.hi Sample_2.hi
 ## 1    Gene_a    4.570237    3.230467
 ## 2    Gene_b    3.561733    3.632285
@@ -2841,56 +2858,56 @@ Gene_h
 ## 4    Gene_d    3.398242    4.415202</code></pre>
 <p>Here we have provided two arguments. - <strong>sep</strong> argument specifies how columns are separated in our text file. (“,” for .csv, &quot; for .tsv) - <strong>header</strong> argument specifies whether columns have headers.</p>
 </div>
-<div id="data-io---row-names-in-read.table" class="section level2">
-<h2>Data IO - Row names in read.table()</h2>
+<div id="row-names-in-read.table" class="section level2">
+<h2>Row names in read.table()</h2>
 <p>read.table() allows for significant control over reading files through its many arguments. Have a look at options by using <strong>?read.table</strong></p>
 <p>The <strong>row.names</strong> argument can be used to specify a column to use as row names for the resulting data frame. Here we use the first column as row names.</p>
-<div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb293-1" data-line-number="1">Table &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;data/readThisTable.csv&quot;</span>,<span class="dt">sep=</span><span class="st">&quot;,&quot;</span>,<span class="dt">header=</span>T,<span class="dt">row.names=</span><span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb293-2" data-line-number="2">Table[<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb291-1" data-line-number="1">Table &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;data/readThisTable.csv&quot;</span>,<span class="dt">sep=</span><span class="st">&quot;,&quot;</span>,<span class="dt">header=</span>T,<span class="dt">row.names=</span><span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb291-2" data-line-number="2">Table[<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]</a></code></pre></div>
 <pre><code>##        Sample_1.hi Sample_2.hi Sample_3.hi
 ## Gene_a    4.570237    3.230467    3.351827
 ## Gene_b    3.561733    3.632285    3.587523
 ## Gene_c    3.797274    2.874462    4.016916
 ## Gene_d    3.398242    4.415202    4.893561</code></pre>
 </div>
-<div id="data-io---setting-factors-from-read.table" class="section level2">
-<h2>Data IO - Setting factors from read.table()</h2>
+<div id="setting-factors-from-read.table" class="section level2">
+<h2>Setting factors from read.table()</h2>
 <p>As mentioned, data which is read into R through read.table() will be of data frame class.</p>
 <p>To avoid character columns being converted into factors, we can specify the <strong>stringsAsFactors</strong> argument here.</p>
-<div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb295-1" data-line-number="1">Table &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;data/readThisTable.csv&quot;</span>,<span class="dt">sep=</span><span class="st">&quot;,&quot;</span>,<span class="dt">header=</span>T,<span class="dt">stringsAsFactors=</span>F)</a></code></pre></div>
+<div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb293-1" data-line-number="1">Table &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;data/readThisTable.csv&quot;</span>,<span class="dt">sep=</span><span class="st">&quot;,&quot;</span>,<span class="dt">header=</span>T,<span class="dt">stringsAsFactors=</span>F)</a></code></pre></div>
 <p>Other very useful functions for read table include: - <strong>skip</strong> - To set number of lines to skip when reading. - <strong>comment.char</strong> - To set the start identifier for lines not to be read.</p>
 </div>
-<div id="data-io---data-from-other-sources" class="section level2">
-<h2>Data IO - Data from other sources</h2>
+<div id="data-from-other-sources" class="section level2">
+<h2>Data from other sources</h2>
 <p>The read.table function can also read data from http.</p>
-<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb296-1" data-line-number="1">URL &lt;-<span class="st"> &quot;http://rockefelleruniversity.github.io/readThisTable.csv&quot;</span></a>
-<a class="sourceLine" id="cb296-2" data-line-number="2">Table &lt;-<span class="st"> </span><span class="kw">read.table</span>(URL,<span class="dt">sep=</span><span class="st">&quot;,&quot;</span>,<span class="dt">header=</span>T)</a>
-<a class="sourceLine" id="cb296-3" data-line-number="3">Table[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb294-1" data-line-number="1">URL &lt;-<span class="st"> &quot;http://rockefelleruniversity.github.io/readThisTable.csv&quot;</span></a>
+<a class="sourceLine" id="cb294-2" data-line-number="2">Table &lt;-<span class="st"> </span><span class="kw">read.table</span>(URL,<span class="dt">sep=</span><span class="st">&quot;,&quot;</span>,<span class="dt">header=</span>T)</a>
+<a class="sourceLine" id="cb294-3" data-line-number="3">Table[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]</a></code></pre></div>
 <pre><code>##   Gene_Name Sample_1.hi Sample_2.hi
 ## 1    Gene_a    4.111851    3.837018
 ## 2    Gene_b    6.047822    5.683518</code></pre>
-<p>And the clipboard.(This is Windows version)</p>
-<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb298-1" data-line-number="1">Table &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file=</span><span class="st">&quot;clipboard&quot;</span>,<span class="dt">sep=</span><span class="st">&quot;,&quot;</span>,<span class="dt">header=</span>T)</a></code></pre></div>
+<p>And the clipboard (this is Windows version).</p>
+<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb296-1" data-line-number="1">Table &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file=</span><span class="st">&quot;clipboard&quot;</span>,<span class="dt">sep=</span><span class="st">&quot;,&quot;</span>,<span class="dt">header=</span>T)</a></code></pre></div>
 </div>
-<div id="data-io---data-from-file-columns" class="section level2">
-<h2>Data IO - Data from file columns</h2>
+<div id="data-from-file-columns" class="section level2">
+<h2>Data from file columns</h2>
 <p>read.table() function will by default read every row and column of a file.</p>
 <p>The <strong>scan()</strong> function allows for the selection of particular columns to be read into R and so can save memory when files are large.</p>
-<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb299-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="kw">scan</span>(<span class="st">&quot;data/readThisTable.csv&quot;</span>,<span class="dt">sep=</span><span class="st">&quot;,&quot;</span>,</a>
-<a class="sourceLine" id="cb299-2" data-line-number="2"><span class="dt">what =</span> <span class="kw">c</span>(<span class="st">&quot;character&quot;</span>,<span class="kw">rep</span>(<span class="st">&quot;numeric&quot;</span>, <span class="dv">6</span>)),<span class="dt">skip=</span><span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb299-3" data-line-number="3">x[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb297"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb297-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="kw">scan</span>(<span class="st">&quot;data/readThisTable.csv&quot;</span>,<span class="dt">sep=</span><span class="st">&quot;,&quot;</span>,</a>
+<a class="sourceLine" id="cb297-2" data-line-number="2"><span class="dt">what =</span> <span class="kw">c</span>(<span class="st">&quot;character&quot;</span>,<span class="kw">rep</span>(<span class="st">&quot;numeric&quot;</span>, <span class="dv">6</span>)),<span class="dt">skip=</span><span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb297-3" data-line-number="3">x[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]</a></code></pre></div>
 <pre><code>## [1] &quot;Gene_a&quot;           &quot;4.57023720364456&quot; &quot;3.23046698308814&quot;</code></pre>
 </div>
-<div id="data-io---writing-data-to-file" class="section level2">
-<h2>Data IO - Writing data to file</h2>
+<div id="writing-data-to-file" class="section level2">
+<h2>Writing data to file</h2>
 <p>Once we have our data analysed in R, we will want to export it to a file.</p>
 <p>The most common method is to use the write.table() function</p>
-<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb301-1" data-line-number="1"><span class="kw">write.table</span>(Table,<span class="dt">file=</span><span class="st">&quot;data/writeThisTable.csv&quot;</span>,<span class="dt">sep=</span><span class="st">&quot;,&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb299-1" data-line-number="1"><span class="kw">write.table</span>(Table, <span class="dt">file=</span><span class="st">&quot;data/writeThisTable.csv&quot;</span>, <span class="dt">sep=</span><span class="st">&quot;,&quot;</span>)</a></code></pre></div>
 <p>Since our data has column names but no row names, I will provide the arguments col.names and row.names to write.table()</p>
-<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb302-1" data-line-number="1"><span class="kw">write.table</span>(Table,<span class="dt">file=</span><span class="st">&quot;data/writeThisTable.csv&quot;</span>, <span class="dt">sep=</span><span class="st">&quot;,&quot;</span>, <span class="dt">row.names =</span>F,<span class="dt">col.names=</span>T)</a></code></pre></div>
+<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb300-1" data-line-number="1"><span class="kw">write.table</span>(Table, <span class="dt">file=</span><span class="st">&quot;data/writeThisTable.csv&quot;</span>, <span class="dt">sep=</span><span class="st">&quot;,&quot;</span>, <span class="dt">row.names =</span>F, <span class="dt">col.names=</span>T)</a></code></pre></div>
 </div>
-<div id="the-rio-r-io-package." class="section level2">
-<h2>The rio (R io) package.</h2>
+<div id="the-rio-r-io-package" class="section level2">
+<h2>The rio (R io) package</h2>
 <p>We may want to import from formats other than plain text.</p>
 <p>We can make use of an R package (the rio package) which allows us to import and export data to mulitple formats.</p>
 <p>Formats include:-</p>
@@ -2900,76 +2917,76 @@ Gene_h
 <li>Excel and OpenOffice formats.</li>
 </ul>
 </div>
-<div id="the-rio-package." class="section level2">
-<h2>The rio package.</h2>
+<div id="the-rio-package" class="section level2">
+<h2>The rio package</h2>
 <p>To make use of the rio package functionality we will need to install this package to our version of R.</p>
 <p>We can do this by using the <strong>install.packages()</strong> function with the package we wish to install.</p>
 <p><strong>install.packages(<em>PACKAGENAME</em>)</strong></p>
-<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb303-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;rio&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb301-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;rio&quot;</span>)</a></code></pre></div>
 </div>
-<div id="the-rio-package.-1" class="section level2">
-<h2>The rio package.</h2>
+<div id="the-rio-package-1" class="section level2">
+<h2>The rio package</h2>
 <p>Once we have installed a package, we will need to load it to make the functions available to us.</p>
 <p>We can load a library by using the <strong>library()</strong> function with package we wish to install</p>
 <p><strong>library(<em>PACKAGENAME</em>)</strong></p>
-<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb304-1" data-line-number="1"><span class="kw">library</span>(<span class="st">&quot;rio&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb302-1" data-line-number="1"><span class="kw">library</span>(<span class="st">&quot;rio&quot;</span>)</a></code></pre></div>
 </div>
-<div id="the-rio-package.-2" class="section level2">
-<h2>The rio package.</h2>
+<div id="the-rio-package-2" class="section level2">
+<h2>The rio package</h2>
 <p>The main two functions in the rio package are the <strong>import</strong> and <strong>export</strong> functions.</p>
-<p>We can use the <strong>import()</strong> function to read in our csv file. We simple specify our file as an argument to the <strong>import()</strong> function..</p>
+<p>We can use the <strong>import()</strong> function to read in our csv file. We simple specify our file as an argument to the <strong>import()</strong> function.</p>
 <p><strong>import(<em>Filename</em>)</strong></p>
-<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb305-1" data-line-number="1">Table &lt;-<span class="st"> </span><span class="kw">import</span>(<span class="st">&quot;data/readThisTable.csv&quot;</span>)</a>
-<a class="sourceLine" id="cb305-2" data-line-number="2">Table[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>,]</a></code></pre></div>
+<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb303-1" data-line-number="1">Table &lt;-<span class="st"> </span><span class="kw">import</span>(<span class="st">&quot;data/readThisTable.csv&quot;</span>)</a>
+<a class="sourceLine" id="cb303-2" data-line-number="2">Table[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>,]</a></code></pre></div>
 <pre><code>##   Gene_Name Sample_1.hi Sample_2.hi Sample_3.hi Sample_4.low Sample_5.low Sample_1.low
 ## 1    Gene_a    4.570237    3.230467    3.351827     3.930877     4.098247     4.418726
 ## 2    Gene_b    3.561733    3.632285    3.587523     4.185287     1.380976     5.936990</code></pre>
 </div>
-<div id="the-rio-package.-3" class="section level2">
-<h2>The rio package.</h2>
+<div id="the-rio-package-3" class="section level2">
+<h2>The rio package</h2>
 <p>By default we will only retrieve the first sheet.</p>
 <p>We can specify the sheet by name or number using the <strong>which</strong> argument.</p>
-<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb307-1" data-line-number="1">Table &lt;-<span class="st"> </span><span class="kw">import</span>(<span class="st">&quot;data/readThisXLS.xls&quot;</span>, </a>
-<a class="sourceLine" id="cb307-2" data-line-number="2">                <span class="dt">which=</span><span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb307-3" data-line-number="3">Table &lt;-<span class="st"> </span><span class="kw">import</span>(<span class="st">&quot;data/readThisXLS.xls&quot;</span>, </a>
-<a class="sourceLine" id="cb307-4" data-line-number="4">                <span class="dt">which=</span><span class="st">&quot;Metadata&quot;</span>)</a>
-<a class="sourceLine" id="cb307-5" data-line-number="5">Table[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>,]</a></code></pre></div>
+<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb305-1" data-line-number="1">Table &lt;-<span class="st"> </span><span class="kw">import</span>(<span class="st">&quot;data/readThisXLS.xls&quot;</span>, </a>
+<a class="sourceLine" id="cb305-2" data-line-number="2">                <span class="dt">which=</span><span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb305-3" data-line-number="3">Table &lt;-<span class="st"> </span><span class="kw">import</span>(<span class="st">&quot;data/readThisXLS.xls&quot;</span>, </a>
+<a class="sourceLine" id="cb305-4" data-line-number="4">                <span class="dt">which=</span><span class="st">&quot;Metadata&quot;</span>)</a>
+<a class="sourceLine" id="cb305-5" data-line-number="5">Table[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>,]</a></code></pre></div>
 <pre><code>##       Patient Condition   Treatment
 ## 1 Sample_1.hi         A           X
 ## 2 Sample_2.hi         A NoTreatment</code></pre>
 </div>
-<div id="the-rio-package.-4" class="section level2">
-<h2>The rio package.</h2>
+<div id="the-rio-package-4" class="section level2">
+<h2>The rio package</h2>
 <p>If we want to import all sheets, we can use the <strong>import_list</strong>.</p>
 <p>This returns a <em>list</em> containing our two spreadsheets. The list has two elements named after the corresponding XLS sheet.</p>
-<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb309-1" data-line-number="1">Table &lt;-<span class="st"> </span><span class="kw">import_list</span>(<span class="st">&quot;data/readThisXLS.xls&quot;</span>)</a>
-<a class="sourceLine" id="cb309-2" data-line-number="2"><span class="kw">names</span>(Table)</a></code></pre></div>
+<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb307-1" data-line-number="1">Table &lt;-<span class="st"> </span><span class="kw">import_list</span>(<span class="st">&quot;data/readThisXLS.xls&quot;</span>)</a>
+<a class="sourceLine" id="cb307-2" data-line-number="2"><span class="kw">names</span>(Table)</a></code></pre></div>
 <pre><code>## [1] &quot;ExpressionScores&quot; &quot;Metadata&quot;</code></pre>
 </div>
-<div id="the-rio-package.-5" class="section level2">
-<h2>The rio package.</h2>
+<div id="the-rio-package-5" class="section level2">
+<h2>The rio package</h2>
 <p>Since this is a list of data.frames, we can access our sheets using standard list accessors, <strong>$</strong> and <strong>[[]]</strong>.</p>
-<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb311-1" data-line-number="1"><span class="co">## Table[[&quot;ExpressionScores&quot;]][1:2,]</span></a>
-<a class="sourceLine" id="cb311-2" data-line-number="2">Table<span class="op">$</span>ExpressionScores[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>,]</a></code></pre></div>
+<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb309-1" data-line-number="1"><span class="co">## Table[[&quot;ExpressionScores&quot;]][1:2,]</span></a>
+<a class="sourceLine" id="cb309-2" data-line-number="2">Table<span class="op">$</span>ExpressionScores[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>,]</a></code></pre></div>
 <pre><code>##   Gene_Name Sample_1.hi Sample_2.hi Sample_3.hi Sample_4.low Sample_5.low Sample_1.low
 ## 1    Gene_a    4.570237    3.230467    3.351827     3.930877     4.098247     4.418726
 ## 2    Gene_b    3.561733    3.632285    3.587523     4.185287     1.380976     5.936990</code></pre>
-<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb313-1" data-line-number="1">Table<span class="op">$</span>Metadata[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>,]</a></code></pre></div>
+<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb311-1" data-line-number="1">Table<span class="op">$</span>Metadata[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>,]</a></code></pre></div>
 <pre><code>##       Patient Condition   Treatment
 ## 1 Sample_1.hi         A           X
 ## 2 Sample_2.hi         A NoTreatment</code></pre>
 </div>
-<div id="the-rio-package.-6" class="section level2">
-<h2>The rio package.</h2>
+<div id="the-rio-package-6" class="section level2">
+<h2>The rio package</h2>
 <p>We can export our data back to file using the <strong>export()</strong> function and specifying the name of the output file to the <strong>file</strong> argument. The <strong>export()</strong> function will guess the format required from the extension.</p>
-<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb315-1" data-line-number="1">ExpressionScores &lt;-<span class="st"> </span>Table<span class="op">$</span>ExpressionScores</a>
-<a class="sourceLine" id="cb315-2" data-line-number="2"><span class="kw">export</span>(ExpressionScores,<span class="dt">file =</span> <span class="st">&quot;data/writeThisXLSX.xlsx&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb313-1" data-line-number="1">ExpressionScores &lt;-<span class="st"> </span>Table<span class="op">$</span>ExpressionScores</a>
+<a class="sourceLine" id="cb313-2" data-line-number="2"><span class="kw">export</span>(ExpressionScores,<span class="dt">file =</span> <span class="st">&quot;data/writeThisXLSX.xlsx&quot;</span>)</a></code></pre></div>
 </div>
-<div id="the-rio-package.-7" class="section level2">
-<h2>The rio package.</h2>
+<div id="the-rio-package-7" class="section level2">
+<h2>The rio package</h2>
 <p>We can export a list of data.frames to Excel’s xlsx format using the <strong>export()</strong> function. The names of list elements will be used to name sheets in xlsx file.</p>
-<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb316-1" data-line-number="1"><span class="kw">names</span>(Table) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;expr&quot;</span>,<span class="st">&quot;meta&quot;</span>)</a>
-<a class="sourceLine" id="cb316-2" data-line-number="2"><span class="kw">export</span>(Table,<span class="dt">file =</span> <span class="st">&quot;data/writeThisMultipleXLSX.xlsx&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb314-1" data-line-number="1"><span class="kw">names</span>(Table) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;expr&quot;</span>,<span class="st">&quot;meta&quot;</span>)</a>
+<a class="sourceLine" id="cb314-2" data-line-number="2"><span class="kw">export</span>(Table,<span class="dt">file =</span> <span class="st">&quot;data/writeThisMultipleXLSX.xlsx&quot;</span>)</a></code></pre></div>
 </div>
 <div id="time-for-an-exercise-3" class="section level2">
 <h2>Time for an exercise!</h2>
