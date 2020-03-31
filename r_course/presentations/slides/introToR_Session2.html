@@ -26,8 +26,6 @@ class: center, middle, inverse, title-slide
 
 
 
-# Introduction to R (part 2)
-
 ## Overview of what we've covered
 
 
@@ -260,8 +258,8 @@ aDataFrame[aDataFrame$Factor == "R", 2] &lt;- "NotPython"
 ```
 
 ```
-## Warning in `[&lt;-.factor`(`*tmp*`, iseq, value = c("NotPython", "NotPython", : invalid
-## factor level, NA generated
+## Warning in `[&lt;-.factor`(`*tmp*`, iseq, value = c("NotPython", "NotPython", : invalid factor level, NA
+## generated
 ```
 
 ```r
@@ -517,8 +515,8 @@ ifelse(x &lt;= 3,"lessOrEqual","more")
 ```
 
 ```
-##  [1] "lessOrEqual" "lessOrEqual" "lessOrEqual" "more"        "more"       
-##  [6] "more"        "more"        "more"        "more"        "more"
+##  [1] "lessOrEqual" "lessOrEqual" "lessOrEqual" "more"        "more"        "more"        "more"       
+##  [8] "more"        "more"        "more"
 ```
 
 ---
@@ -1017,6 +1015,71 @@ sapply(exampleList, summary)
 ##    1.00    2.50    3.50    3.25    4.25    5.00
 ```
 
+
+---
+## Custom functions
+You can create your own functions easily in R using the &lt;- assignment. We use the **function** statement with all input variables in **()** and all code to be executed in **{}**. Anything to be received back from the function is indicated by the **return** statement.  
+
+In this case we can recapitulate the square function. 
+
+```r
+square_my_number  &lt;- function(my_number){
+  my_square &lt;- my_number*my_number
+  return(my_square)
+}
+
+square_my_number(my_number=3)
+```
+
+```
+## [1] 9
+```
+
+---
+## Custom functions
+User defined functions can be as long and complicated as you want, taking in many variables, printing out messages and utilizing other functions within them.
+
+Lets make z-scores
+
+```r
+my_zscore  &lt;- function(my_number, my_vector){
+  my_mean &lt;- mean(my_vector)
+  message("Mean is ", my_mean)
+  diff_from_mean &lt;- my_number-my_mean
+  stdev &lt;- sd(my_vector)
+  my_z &lt;- diff_from_mean/stdev
+  return(my_z)
+}
+
+A &lt;- rnorm(20)
+
+my_zscore(my_number=A[1], my_vector=A)
+```
+
+```
+## Mean is 0.288617582386077
+```
+
+```
+## [1] -0.4803875
+```
+
+---
+## Custom functions and apply
+
+These custom functions can also be utilised with apply. 
+
+
+```r
+sapply(A, my_zscore, my_vector=A)
+```
+
+```
+##  [1] -0.48038751 -0.77048539 -1.88870683  0.55427170  1.28866628 -0.08228039  0.31378474 -0.65757669
+##  [9] -1.25294451 -0.38788818  0.67921661  1.03968862 -0.73328397  0.68220276  0.01242566 -0.32362453
+## [17] -0.70442602 -0.29370319  0.35478858  2.65026227
+```
+
 ---
 ## Time for an exercise!
 
@@ -1133,7 +1196,7 @@ dayOfWeek()
 ```
 
 ```
-## [1] "Mon"
+## [1] "Tue"
 ```
 
 ---

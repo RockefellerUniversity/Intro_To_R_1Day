@@ -1584,8 +1584,6 @@ div.tocify {
 </div>
 
 
-<div id="introduction-to-r-part-2" class="section level1">
-<h1>Introduction to R (part 2)</h1>
 <div id="overview-of-what-weve-covered" class="section level2">
 <h2>Overview of what we’ve covered</h2>
 <ul>
@@ -1716,8 +1714,8 @@ div.tocify {
 <div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" data-line-number="1">aFactor &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;R&quot;</span>, <span class="st">&quot;Python&quot;</span>, <span class="st">&quot;R&quot;</span>, <span class="st">&quot;R&quot;</span>, <span class="st">&quot;Python&quot;</span>), <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;R&quot;</span>, <span class="st">&quot;Python&quot;</span>))</a>
 <a class="sourceLine" id="cb28-2" data-line-number="2">aDataFrame &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Number =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>), <span class="dt">Factor =</span> aFactor)</a>
 <a class="sourceLine" id="cb28-3" data-line-number="3">aDataFrame[aDataFrame<span class="op">$</span>Factor <span class="op">==</span><span class="st"> &quot;R&quot;</span>, <span class="dv">2</span>] &lt;-<span class="st"> &quot;NotPython&quot;</span></a></code></pre></div>
-<pre><code>## Warning in `[&lt;-.factor`(`*tmp*`, iseq, value = c(&quot;NotPython&quot;, &quot;NotPython&quot;, : invalid
-## factor level, NA generated</code></pre>
+<pre><code>## Warning in `[&lt;-.factor`(`*tmp*`, iseq, value = c(&quot;NotPython&quot;, &quot;NotPython&quot;, : invalid factor level, NA
+## generated</code></pre>
 <div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" data-line-number="1">aDataFrame</a></code></pre></div>
 <pre><code>##   Number Factor
 ## 1      1   &lt;NA&gt;
@@ -1759,7 +1757,6 @@ div.tocify {
 <p><strong>?<em>FunctionName</em></strong></p>
 <div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" data-line-number="1">?merge</a></code></pre></div>
 <p>class: inverse, center, middle</p>
-</div>
 </div>
 <div id="conditions-and-loops" class="section level1">
 <h1>Conditions and Loops</h1>
@@ -1857,8 +1854,8 @@ div.tocify {
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
 <p>The ifelse() functions take the arguments of the condition to evaluate, the action if the condition is true and the action when condition is false.</p>
 <div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb54-1" data-line-number="1"><span class="kw">ifelse</span>(x <span class="op">&lt;=</span><span class="st"> </span><span class="dv">3</span>,<span class="st">&quot;lessOrEqual&quot;</span>,<span class="st">&quot;more&quot;</span>) </a></code></pre></div>
-<pre><code>##  [1] &quot;lessOrEqual&quot; &quot;lessOrEqual&quot; &quot;lessOrEqual&quot; &quot;more&quot;        &quot;more&quot;       
-##  [6] &quot;more&quot;        &quot;more&quot;        &quot;more&quot;        &quot;more&quot;        &quot;more&quot;</code></pre>
+<pre><code>##  [1] &quot;lessOrEqual&quot; &quot;lessOrEqual&quot; &quot;lessOrEqual&quot; &quot;more&quot;        &quot;more&quot;        &quot;more&quot;        &quot;more&quot;       
+##  [8] &quot;more&quot;        &quot;more&quot;        &quot;more&quot;</code></pre>
 </div>
 <div id="conditions---ifelse-1" class="section level2">
 <h2>Conditions - ifelse()</h2>
@@ -2113,6 +2110,45 @@ div.tocify {
 ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##    1.00    2.50    3.50    3.25    4.25    5.00</code></pre>
 </div>
+<div id="custom-functions" class="section level2">
+<h2>Custom functions</h2>
+<p>You can create your own functions easily in R using the &lt;- assignment. We use the <strong>function</strong> statement with all input variables in <strong>()</strong> and all code to be executed in <strong>{}</strong>. Anything to be received back from the function is indicated by the <strong>return</strong> statement.</p>
+<p>In this case we can recapitulate the square function.</p>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb123-1" data-line-number="1">square_my_number  &lt;-<span class="st"> </span><span class="cf">function</span>(my_number){</a>
+<a class="sourceLine" id="cb123-2" data-line-number="2">  my_square &lt;-<span class="st"> </span>my_number<span class="op">*</span>my_number</a>
+<a class="sourceLine" id="cb123-3" data-line-number="3">  <span class="kw">return</span>(my_square)</a>
+<a class="sourceLine" id="cb123-4" data-line-number="4">}</a>
+<a class="sourceLine" id="cb123-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb123-6" data-line-number="6"><span class="kw">square_my_number</span>(<span class="dt">my_number=</span><span class="dv">3</span>)</a></code></pre></div>
+<pre><code>## [1] 9</code></pre>
+</div>
+<div id="custom-functions-1" class="section level2">
+<h2>Custom functions</h2>
+<p>User defined functions can be as long and complicated as you want, taking in many variables, printing out messages and utilizing other functions within them.</p>
+<p>Lets make z-scores</p>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb125-1" data-line-number="1">my_zscore  &lt;-<span class="st"> </span><span class="cf">function</span>(my_number, my_vector){</a>
+<a class="sourceLine" id="cb125-2" data-line-number="2">  my_mean &lt;-<span class="st"> </span><span class="kw">mean</span>(my_vector)</a>
+<a class="sourceLine" id="cb125-3" data-line-number="3">  <span class="kw">message</span>(<span class="st">&quot;Mean is &quot;</span>, my_mean)</a>
+<a class="sourceLine" id="cb125-4" data-line-number="4">  diff_from_mean &lt;-<span class="st"> </span>my_number<span class="op">-</span>my_mean</a>
+<a class="sourceLine" id="cb125-5" data-line-number="5">  stdev &lt;-<span class="st"> </span><span class="kw">sd</span>(my_vector)</a>
+<a class="sourceLine" id="cb125-6" data-line-number="6">  my_z &lt;-<span class="st"> </span>diff_from_mean<span class="op">/</span>stdev</a>
+<a class="sourceLine" id="cb125-7" data-line-number="7">  <span class="kw">return</span>(my_z)</a>
+<a class="sourceLine" id="cb125-8" data-line-number="8">}</a>
+<a class="sourceLine" id="cb125-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb125-10" data-line-number="10">A &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">20</span>)</a>
+<a class="sourceLine" id="cb125-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb125-12" data-line-number="12"><span class="kw">my_zscore</span>(<span class="dt">my_number=</span>A[<span class="dv">1</span>], <span class="dt">my_vector=</span>A)</a></code></pre></div>
+<pre><code>## Mean is 0.17124689902413</code></pre>
+<pre><code>## [1] 0.7462316</code></pre>
+</div>
+<div id="custom-functions-and-apply" class="section level2">
+<h2>Custom functions and apply</h2>
+<p>These custom functions can also be utilised with apply.</p>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb128-1" data-line-number="1"><span class="kw">sapply</span>(A, my_zscore, <span class="dt">my_vector=</span>A)</a></code></pre></div>
+<pre><code>##  [1]  0.7462316 -0.6623937  1.1583539  1.7179854 -0.3629043 -0.9923811 -0.5447473 -0.6875478  0.4235008
+## [10]  0.1077387 -0.9595796  0.1543735 -0.5314163 -2.2324143  1.7160013 -0.8165128 -0.1312180  0.5367215
+## [19]  0.1407821  1.2194264</code></pre>
+</div>
 <div id="time-for-an-exercise" class="section level2">
 <h2>Time for an exercise!</h2>
 <p>Exercise on loops and conditional branching can be found <a href="http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/exercises//conditionsAndLoops_Exercises.html">here</a></p>
@@ -2135,16 +2171,16 @@ div.tocify {
 <div id="loading-libraries" class="section level2">
 <h2>Loading libraries</h2>
 <p>Libraries can be loaded using the library() function with an argument of the name of the library.</p>
-<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb123-1" data-line-number="1"><span class="kw">library</span>(ggplot2)</a></code></pre></div>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb130-1" data-line-number="1"><span class="kw">library</span>(ggplot2)</a></code></pre></div>
 <p>You can see what libraries are available in the Packages panel or by the library() function with no arguments supplied.</p>
-<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb124-1" data-line-number="1"><span class="kw">library</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb131-1" data-line-number="1"><span class="kw">library</span>()</a></code></pre></div>
 </div>
 <div id="installing-libraries" class="section level2">
 <h2>Installing libraries</h2>
 <p>Libraries can be installed through the R studio menu.</p>
 <p><strong>-&gt; Tools -&gt; Install packages ..</strong></p>
 <p>Or by using the install.packages() command.</p>
-<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb125-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;Hmisc&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb132-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;Hmisc&quot;</span>)</a></code></pre></div>
 <p>class: inverse, center, middle</p>
 </div>
 </div>
@@ -2186,9 +2222,9 @@ div.tocify {
 dayOfWeek &lt;- function(){
   return(gsub(&quot; .*&quot;,&quot;&quot;,date()))  
 }</code></pre>
-<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb127-1" data-line-number="1"><span class="kw">source</span>(<span class="st">&quot;scripts/dayOfWeek.R&quot;</span>)</a>
-<a class="sourceLine" id="cb127-2" data-line-number="2"><span class="kw">dayOfWeek</span>()</a></code></pre></div>
-<pre><code>## [1] &quot;Mon&quot;</code></pre>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb134-1" data-line-number="1"><span class="kw">source</span>(<span class="st">&quot;scripts/dayOfWeek.R&quot;</span>)</a>
+<a class="sourceLine" id="cb134-2" data-line-number="2"><span class="kw">dayOfWeek</span>()</a></code></pre></div>
+<pre><code>## [1] &quot;Tue&quot;</code></pre>
 </div>
 <div id="rscript" class="section level2">
 <h2>Rscript</h2>
@@ -2200,11 +2236,11 @@ dayOfWeek &lt;- function(){
 <div id="sending-arguments-to-rscript" class="section level2">
 <h2>Sending arguments to Rscript</h2>
 <p>To provide arguments to an R script at the command line we must add <strong>commandArgs()</strong> function to parse command line arguments.</p>
-<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb131-1" data-line-number="1">args &lt;-<span class="st"> </span><span class="kw">commandArgs</span>(<span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb131-2" data-line-number="2">myFirstArgument &lt;-<span class="st"> </span>args[<span class="dv">1</span>]</a>
-<a class="sourceLine" id="cb131-3" data-line-number="3">myFirstArgument</a></code></pre></div>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb138-1" data-line-number="1">args &lt;-<span class="st"> </span><span class="kw">commandArgs</span>(<span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb138-2" data-line-number="2">myFirstArgument &lt;-<span class="st"> </span>args[<span class="dv">1</span>]</a>
+<a class="sourceLine" id="cb138-3" data-line-number="3">myFirstArgument</a></code></pre></div>
 <pre><code>'10'</code></pre>
-<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb133-1" data-line-number="1"><span class="kw">as.numeric</span>(myFirstArgument)</a></code></pre></div>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb140-1" data-line-number="1"><span class="kw">as.numeric</span>(myFirstArgument)</a></code></pre></div>
 <pre><code>10</code></pre>
 <p>Since vectors can only be one type, all command line arguments are strings and must be converted to numeric if needed with <strong>as.numeric()</strong>.</p>
 </div>

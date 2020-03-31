@@ -1584,8 +1584,6 @@ div.tocify {
 </div>
 
 
-<div id="introduction-to-r-part-1" class="section level1">
-<h1>Introduction to R (part 1)</h1>
 <div id="overview" class="section level2">
 <h2>Overview</h2>
 <ul>
@@ -1595,7 +1593,6 @@ div.tocify {
 <li><a href="#datatypes">Reading and writing in R</a></li>
 </ul>
 <p>class: inverse, center, middle</p>
-</div>
 </div>
 <div id="set-up" class="section level1">
 <h1>Set up</h1>
@@ -1879,8 +1876,7 @@ div.tocify {
 <div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb79-1" data-line-number="1">x<span class="op">+</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)</a></code></pre></div>
 <pre><code>##  [1]  2  4  4  6  6  8  8 10 10 12</code></pre>
 <div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb81-1" data-line-number="1">x<span class="op">+</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)</a></code></pre></div>
-<pre><code>## Warning in x + c(1, 2, 3): longer object length is not a multiple of shorter object
-## length</code></pre>
+<pre><code>## Warning in x + c(1, 2, 3): longer object length is not a multiple of shorter object length</code></pre>
 <pre><code>##  [1]  2  4  6  5  7  9  8 10 12 11</code></pre>
 </div>
 <div id="vectors---character-vectors" class="section level2">
@@ -2087,8 +2083,8 @@ div.tocify {
 <h3>Incompatible vectors and matrices</h3>
 <p>When creating a matrix using <strong>cbind()</strong> or <strong>matrix()</strong> from incompatible vectors then the shorter vector is recycled.</p>
 <div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb136-1" data-line-number="1">recycledMatrix2 &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>,<span class="dt">ncol=</span><span class="dv">2</span>,<span class="dt">nrow=</span><span class="dv">3</span>)</a></code></pre></div>
-<pre><code>## Warning in matrix(1:5, ncol = 2, nrow = 3): data length [5] is not a sub-multiple or
-## multiple of the number of rows [3]</code></pre>
+<pre><code>## Warning in matrix(1:5, ncol = 2, nrow = 3): data length [5] is not a sub-multiple or multiple of the
+## number of rows [3]</code></pre>
 <div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb138-1" data-line-number="1">recycledMatrix2</a></code></pre></div>
 <pre><code>##      [,1] [,2]
 ## [1,]    1    4
@@ -2102,8 +2098,8 @@ div.tocify {
 <h3>Incompatible vectors and matrices</h3>
 <p>For <strong>rbind()</strong> function, the longer vector is clipped.</p>
 <div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb140-1" data-line-number="1">recycledMatrix3 &lt;-<span class="st"> </span><span class="kw">rbind</span>(recycledMatrix2,<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>))</a></code></pre></div>
-<pre><code>## Warning in rbind(recycledMatrix2, c(1:5)): number of columns of result is not a
-## multiple of vector length (arg 2)</code></pre>
+<pre><code>## Warning in rbind(recycledMatrix2, c(1:5)): number of columns of result is not a multiple of vector length
+## (arg 2)</code></pre>
 <div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb142-1" data-line-number="1">recycledMatrix3</a></code></pre></div>
 <pre><code>##      [,1] [,2]
 ## [1,]    1    4
@@ -2319,8 +2315,7 @@ div.tocify {
 <p>In some cases there is no natural order to the categories such that one category is greater than the other (nominal data). In this case we can see that R is gender neutral.</p>
 <div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb204-1" data-line-number="1">factorExample &lt;-<span class="st"> </span><span class="kw">factor</span>(vectorExample,<span class="dt">levels=</span><span class="kw">c</span>(<span class="st">&quot;male&quot;</span>,<span class="st">&quot;female&quot;</span>))</a>
 <a class="sourceLine" id="cb204-2" data-line-number="2">factorExample[<span class="dv">1</span>] <span class="op">&lt;</span><span class="st"> </span>factorExample[<span class="dv">2</span>]</a></code></pre></div>
-<pre><code>## Warning in Ops.factor(factorExample[1], factorExample[2]): '&lt;' not meaningful for
-## factors</code></pre>
+<pre><code>## Warning in Ops.factor(factorExample[1], factorExample[2]): '&lt;' not meaningful for factors</code></pre>
 <pre><code>## [1] NA</code></pre>
 </div>
 <div id="factors---ordinal-factors" class="section level2">
@@ -2444,8 +2439,8 @@ div.tocify {
 <h2>Data frames - Indexing and replacement</h2>
 <p>This occurs because character vectors are treated as factors by default.</p>
 <div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb238-1" data-line-number="1">dfExample[dfExample[,<span class="st">&quot;Survival_Time&quot;</span>] <span class="op">&lt;</span><span class="st"> </span><span class="dv">10</span>,<span class="st">&quot;Name&quot;</span>] &lt;-<span class="st"> &quot;patientX&quot;</span></a></code></pre></div>
-<pre><code>## Warning in `[&lt;-.factor`(`*tmp*`, iseq, value = c(&quot;patientX&quot;, &quot;patientX&quot;)): invalid
-## factor level, NA generated</code></pre>
+<pre><code>## Warning in `[&lt;-.factor`(`*tmp*`, iseq, value = c(&quot;patientX&quot;, &quot;patientX&quot;)): invalid factor level, NA
+## generated</code></pre>
 <div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb240-1" data-line-number="1">dfExample</a></code></pre></div>
 <pre><code>##       Name   Type Survival_Time newColumn
 ## 1     &lt;NA&gt;   male             0   newData
@@ -2736,13 +2731,13 @@ Sample_3.hi
 Gene_a
 </td>
 <td style="text-align:right;">
-5.876718
+1.574502
 </td>
 <td style="text-align:right;">
-3.196373
+2.947447
 </td>
 <td style="text-align:right;">
-4.060180
+3.796434
 </td>
 </tr>
 <tr>
@@ -2750,13 +2745,13 @@ Gene_a
 Gene_b
 </td>
 <td style="text-align:right;">
-4.070353
+4.875595
 </td>
 <td style="text-align:right;">
-1.451840
+2.771449
 </td>
 <td style="text-align:right;">
-5.519570
+2.886811
 </td>
 </tr>
 <tr>
@@ -2764,13 +2759,13 @@ Gene_b
 Gene_c
 </td>
 <td style="text-align:right;">
-2.997269
+3.893139
 </td>
 <td style="text-align:right;">
-5.514475
+2.137774
 </td>
 <td style="text-align:right;">
-4.321498
+4.311591
 </td>
 </tr>
 <tr>
@@ -2778,13 +2773,13 @@ Gene_c
 Gene_d
 </td>
 <td style="text-align:right;">
-4.595215
+7.200521
 </td>
 <td style="text-align:right;">
-2.906684
+3.157483
 </td>
 <td style="text-align:right;">
-3.678539
+4.234114
 </td>
 </tr>
 <tr>
@@ -2792,13 +2787,13 @@ Gene_d
 Gene_e
 </td>
 <td style="text-align:right;">
-10.075194
+10.673462
 </td>
 <td style="text-align:right;">
-10.290082
+10.690765
 </td>
 <td style="text-align:right;">
-10.052461
+11.811665
 </td>
 </tr>
 <tr>
@@ -2806,13 +2801,13 @@ Gene_e
 Gene_f
 </td>
 <td style="text-align:right;">
-8.364668
+9.940304
 </td>
 <td style="text-align:right;">
-10.722879
+10.039956
 </td>
 <td style="text-align:right;">
-11.783612
+9.914626
 </td>
 </tr>
 <tr>
@@ -2820,13 +2815,13 @@ Gene_f
 Gene_g
 </td>
 <td style="text-align:right;">
-8.678319
+10.135892
 </td>
 <td style="text-align:right;">
-9.286982
+9.594578
 </td>
 <td style="text-align:right;">
-10.417148
+9.295097
 </td>
 </tr>
 <tr>
@@ -2834,13 +2829,13 @@ Gene_g
 Gene_h
 </td>
 <td style="text-align:right;">
-11.357776
+11.942272
 </td>
 <td style="text-align:right;">
-11.089382
+10.892377
 </td>
 <td style="text-align:right;">
-8.637580
+9.181568
 </td>
 </tr>
 </tbody>

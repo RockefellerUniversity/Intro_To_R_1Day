@@ -25,15 +25,12 @@ output:
 suppressPackageStartupMessages(require(knitr))
 ```
 
-# Introduction to R (part 1)
-
-##  Overview 
+## Overview
 
 - [Set up](#Set-up)
 - [Background to R](#Background-to-R)
 - [Data types in R](#datatypes)
 - [Reading and writing in R](#datatypes)
-
 
 ---
 class: inverse, center, middle
@@ -52,9 +49,6 @@ All prerequisites, links to material and slides for this course can be found on 
 
 Or can be downloaded as a zip archive from here. 
 * [Download zip](https://github.com/rockefelleruniversity/Intro_To_R_1Day/zipball/master)
-
-
-
 
 ---
 ## Presentations, source code and practicals
@@ -280,8 +274,6 @@ dir(full.names=T)
 dir(".",NULL,FALSE,T)
 ```
 
-
-
 ---
 ## Variables 
 
@@ -331,7 +323,6 @@ Variables can be used to create new variables
 y <- x + sqrt(25)
 y
 ```
-
 
 ---
 ## Vectors

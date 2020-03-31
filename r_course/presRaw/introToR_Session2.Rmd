@@ -24,8 +24,6 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Introduction to R (part 2)
-
 ## Overview of what we've covered
 
 
@@ -613,6 +611,53 @@ When sapply cannot parse the result to a vector or matrix, a list will be return
 exampleList <- list(df=data.frame(sample=paste0("patient",1:2), data=c(1,12)),
                     vec=c(1,3,4,5))
 sapply(exampleList, summary)
+```
+
+
+---
+## Custom functions
+You can create your own functions easily in R using the <- assignment. We use the **function** statement with all input variables in **()** and all code to be executed in **{}**. Anything to be received back from the function is indicated by the **return** statement.  
+
+In this case we can recapitulate the square function. 
+```{r makingfunctions}
+square_my_number  <- function(my_number){
+  my_square <- my_number*my_number
+  return(my_square)
+}
+
+square_my_number(my_number=3)
+
+```
+
+---
+## Custom functions
+User defined functions can be as long and complicated as you want, taking in many variables, printing out messages and utilizing other functions within them.
+
+Lets make z-scores
+```{r makingfunctions_zscores}
+my_zscore  <- function(my_number, my_vector){
+  my_mean <- mean(my_vector)
+  message("Mean is ", my_mean)
+  diff_from_mean <- my_number-my_mean
+  stdev <- sd(my_vector)
+  my_z <- diff_from_mean/stdev
+  return(my_z)
+}
+
+A <- rnorm(20)
+
+my_zscore(my_number=A[1], my_vector=A)
+
+```
+
+---
+## Custom functions and apply
+
+These custom functions can also be utilised with apply. 
+
+```{r, message=F}
+sapply(A, my_zscore, my_vector=A)
+
 ```
 
 ---

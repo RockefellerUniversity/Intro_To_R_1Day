@@ -27,15 +27,12 @@ class: center, middle, inverse, title-slide
 
 
 
-# Introduction to R (part 1)
-
-##  Overview 
+## Overview
 
 - [Set up](#Set-up)
 - [Background to R](#Background-to-R)
 - [Data types in R](#datatypes)
 - [Reading and writing in R](#datatypes)
-
 
 ---
 class: inverse, center, middle
@@ -54,9 +51,6 @@ All prerequisites, links to material and slides for this course can be found on 
 
 Or can be downloaded as a zip archive from here. 
 * [Download zip](https://github.com/rockefelleruniversity/Intro_To_R_1Day/zipball/master)
-
-
-
 
 ---
 ## Presentations, source code and practicals
@@ -334,8 +328,6 @@ dir(full.names=T)
 dir(".",NULL,FALSE,T)
 ```
 
-
-
 ---
 ## Variables 
 
@@ -416,7 +408,6 @@ y
 ```
 ## [1] 25
 ```
-
 
 ---
 ## Vectors
@@ -699,8 +690,7 @@ x+c(1,2,3)
 ```
 
 ```
-## Warning in x + c(1, 2, 3): longer object length is not a multiple of shorter object
-## length
+## Warning in x + c(1, 2, 3): longer object length is not a multiple of shorter object length
 ```
 
 ```
@@ -1132,8 +1122,8 @@ recycledMatrix2 &lt;- matrix(1:5,ncol=2,nrow=3)
 ```
 
 ```
-## Warning in matrix(1:5, ncol = 2, nrow = 3): data length [5] is not a sub-multiple or
-## multiple of the number of rows [3]
+## Warning in matrix(1:5, ncol = 2, nrow = 3): data length [5] is not a sub-multiple or multiple of the
+## number of rows [3]
 ```
 
 ```r
@@ -1159,8 +1149,8 @@ recycledMatrix3 &lt;- rbind(recycledMatrix2,c(1:5))
 ```
 
 ```
-## Warning in rbind(recycledMatrix2, c(1:5)): number of columns of result is not a
-## multiple of vector length (arg 2)
+## Warning in rbind(recycledMatrix2, c(1:5)): number of columns of result is not a multiple of vector length
+## (arg 2)
 ```
 
 ```r
@@ -1626,8 +1616,7 @@ factorExample[1] &lt; factorExample[2]
 ```
 
 ```
-## Warning in Ops.factor(factorExample[1], factorExample[2]): '&lt;' not meaningful for
-## factors
+## Warning in Ops.factor(factorExample[1], factorExample[2]): '&lt;' not meaningful for factors
 ```
 
 ```
@@ -1878,8 +1867,8 @@ dfExample[dfExample[,"Survival_Time"] &lt; 10,"Name"] &lt;- "patientX"
 ```
 
 ```
-## Warning in `[&lt;-.factor`(`*tmp*`, iseq, value = c("patientX", "patientX")): invalid
-## factor level, NA generated
+## Warning in `[&lt;-.factor`(`*tmp*`, iseq, value = c("patientX", "patientX")): invalid factor level, NA
+## generated
 ```
 
 ```r
@@ -2360,51 +2349,51 @@ A standard format for this data is a table:
 &lt;tbody&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_a &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.573942 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 5.270289 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.682547 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5.367080 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.550316 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.543040 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_b &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.138965 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 1.986986 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 5.403092 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.241623 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.102226 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.531281 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_c &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.168588 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.076597 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 2.745743 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5.155089 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.938205 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.975129 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_d &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.685116 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.697249 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.064677 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5.191736 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.169662 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.235704 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_e &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.016438 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 8.555613 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.756836 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.804165 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8.913501 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 11.111910 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_f &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.306969 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 8.970852 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 8.828260 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.143659 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.052148 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 12.312276 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_g &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 7.904105 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 8.390194 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.383976 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 11.851893 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.905993 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.574482 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_h &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 11.588992 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.789014 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 8.423281 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.839887 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.984131 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.545987 &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
