@@ -25,13 +25,12 @@ output:
 suppressPackageStartupMessages(require(knitr))
 ```
 
-##  Overview 
+## Overview
 
 - [Set up](#Set-up)
 - [Background to R](#Background-to-R)
 - [Data types in R](#datatypes)
 - [Reading and writing in R](#datatypes)
-
 
 ---
 class: inverse, center, middle
@@ -43,7 +42,7 @@ class: inverse, center, middle
 <html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
 
 ---
-## Materials.
+## Materials
 
 All prerequisites, links to material and slides for this course can be found on github.
 * [Intro_To_R_1](https://rockefelleruniversity.github.io/Intro_To_R_1Day/)
@@ -51,12 +50,8 @@ All prerequisites, links to material and slides for this course can be found on 
 Or can be downloaded as a zip archive from here. 
 * [Download zip](https://github.com/rockefelleruniversity/Intro_To_R_1Day/zipball/master)
 
-
-
-
 ---
-## Materials. - Presentations, source code and practicals.
-
+## Presentations, source code and practicals
 
 Once the zip file in unarchived. All presentations as HTML slides and pages, their R code and HTML practical sheets will be available in the directories underneath.
 
@@ -78,7 +73,7 @@ Practicals with answers as HTML pages and R code solutions.
 
 Before running any of the code in the practicals or slides we need to set the working directory to the folder we unarchived. 
 
-You may navigate to the unarchived Intro_To_R_1Day folder in the Rstudio menu
+You may navigate to the unarchived Intro_To_R_1Day folder in the Rstudio menu.
 
 **Session -> Set Working Directory -> Choose Directory**
 
@@ -191,8 +186,6 @@ class: inverse, center, middle
 - Data frames
 
 
-
-
 ---
 ## Simple Calculations 
 
@@ -207,7 +200,7 @@ sqrt(25)-1
 
 
 ---
-## Using functions.
+## Using functions
 
 The **sqrt(25)** demonstrates the use of functions in R. A function performs a complex operation on it's arguments and returns the result.
 
@@ -225,7 +218,7 @@ max(2,4,6)
 
 
 ---
-## Using functions.
+## Using functions
 
 
 R has many useful functions "built in" and ready to use as soon as R is loaded.
@@ -244,8 +237,8 @@ Lets run [**?sqrt**](https://stat.ethz.ch/R-manual/R-devel/library/base/html/Mat
 
 
 ---
-## Using functions (Arguments have names and order)
-
+## Using functions
+**Arguments have names and order**
 
 With functions such as min() and sqrt(), the arguments to be provided are obvious and the order of these arguments doesnt matter.
 
@@ -262,8 +255,8 @@ Try and look at the arguments for the dir() function using [?dir](https://stat.e
 ```
 
 ---
-## Using functions (Setting names for arguments)
-
+## Using functions
+**Setting names for arguments**
 
 Often we know the names of arguments but not necessarily their order.
 In cases where we want to be sure we specify the right argument, we provide names for the arguments used.
@@ -280,8 +273,6 @@ dir(full.names=T)
 # Is equivalent to...
 dir(".",NULL,FALSE,T)
 ```
-
-
 
 ---
 ## Variables 
@@ -302,12 +293,13 @@ x
 
 
 ---
-## Variables.
+## Variables
 
 
 ```{r variableShowForAlterInPlace_introtoR}
 x
 ```
+
 Variables can be altered in place
 ```{r variableAlterInPlace_introtoR}
 x <- 20
@@ -316,7 +308,7 @@ x
 
 ---
 
-## Variables.
+## Variables                                                                                        
 
 Variables can be used just as the values they contain.
 ```{r variableAsValueTheyContain_introtoR}
@@ -331,7 +323,6 @@ Variables can be used to create new variables
 y <- x + sqrt(25)
 y
 ```
-
 
 ---
 ## Vectors
@@ -397,7 +388,7 @@ Indices can be used to extract values from multiple positions within a vector.
 ```{r vectorIndexingBy2_introtoR}
 x[c(1,6)]
 ```
-Negative indices can be used to extract all positions except that specified
+Negative indices can be used to extract all positions except that specified.
 
 ```{r vectorIndexingByNeg_introtoR}
 x[-5]
@@ -409,7 +400,7 @@ x[-5]
 ## Vectors - Indexing and replacement
 
 
-We can use indices to modify a specific position in a vector
+We can use indices to modify a specific position in a vector.
 
 ```{r vectorIndexingAndReplace_introtoR}
 x
@@ -434,7 +425,7 @@ x
 ## Remember!
 
 
-Square brackets **[]**  for indexing
+Square brackets **[]**  for indexing.
 ```{r RememberSquareForIndex_introtoR}
 x[1]
 ```
@@ -449,8 +440,7 @@ sqrt(4)
 ## Vectors - Arithmetic operations 
 
 
-Vectors in R can be used in arithmetic operations as seen with [variables earlier](#/simplecalc).
-When a standard arithmetic operation is applied to vector, the operation is applied to each position in a vector.
+Vectors in R can be used in arithmetic operations as seen with [variables earlier](#/simplecalc). When a standard arithmetic operation is applied to vector, the operation is applied to each position in a vector.
 
 ```{r vectorArithmetricOperations_introtoR}
 x <- c(1,2,3,4,5,6,7,8,9,10)
@@ -482,8 +472,7 @@ x+c(1,2,3)
 
 
 ---
-## Vectors - Character vectors.
-
+## Vectors - Character vectors
 
 So far we have only looked at numeric vectors or variables.
 
@@ -503,14 +492,15 @@ x
 ```
 
 ---
-## Vectors - Character vectors as names.
+## Vectors - Character vectors as names
 
 
 These named vectors maybe indexed by a position's "name".
 ```{r vectorCharacterNamesIndex_introtoR}
 x[c("ICTEM","Wolfson")]
 ```
-Index names missing from vectors will return special value "NA"
+  
+Index names missing from vectors will return special value "NA".
 ```{r vectorCharacterNamesIndexMissing_introtoR}
 x[c("Strand")]
 ```
@@ -518,7 +508,6 @@ x[c("Strand")]
 
 ---
 ## A note on NA values
-
 
 In R, like many languages, when a value in a variable is missing, the value is assigned a **NA** value.
 
@@ -542,16 +531,17 @@ unique(geneList)
 ```
 
 
-
 ---
 ## Vectors - Logical vectors
 
 
-Logical vectors are a class of vector made up of TRUE/T or FALSE/F boolean values.
+Logical vectors are a class of vector made up of TRUE or FALSE boolean values (single letter T/F can also be used).
 
 ```{r vectorLogical_introtoR}
+z <-  c(TRUE,FALSE,TRUE,FALSE,TRUE,FALSE,TRUE,FALSE,TRUE,FALSE) 
+# or
 z <- c(T,F,T,F,T,F,T,F,T,F) 
-# z <-  c(TRUE,FALSE,TRUE,FALSE,TRUE,FALSE,TRUE,FALSE,TRUE,FALSE) 
+
 z
 ```
 Logical vectors can be used like an index to specify postions in a vector. TRUE values will return the corresponding position in the vector being indexed.
@@ -561,11 +551,8 @@ x <- 1:10
 x[z]
 ```
 
-
-
 ---
 ## Vectors - The %in% operator
-
 
 A common task in R is to subset one vector by the values in another vector.
 
@@ -584,8 +571,7 @@ geneList[logical_index]
 
 
 ---
-## Vectors . Logical vectors from operators
-
+## Vectors - Logical vectors from operators
 
 Vectors may be evaluated to produce logical vectors. This can be very useful when using a logical to index.
 
@@ -603,8 +589,7 @@ x[x > 5]
 
 
 ---
-## Vectors - Combining logical vectors.
-
+## Vectors - Combining logical vectors
 
 Logical vectors can be used in combination in order to index vectors. To combine logical vectors we can use some common R operators.
 
@@ -621,8 +606,7 @@ x > 4 | x < 7
 
 
 ---
-## Vectors . Logical vectors continued.
-
+## Vectors - Combining logical vectors
 
 Such combinations can allow for complex selection of a vector's values.
 ```{r vectorLogicalCombineIndex_introtoR}
@@ -631,8 +615,6 @@ x
 x[x > 4 & x < 7]
 x[x > 4 & !x < 7]
 ```
-
-
 
 ---
 ## Time for an exercise!
@@ -651,7 +633,7 @@ R code for solutions can be found here  [here](http://rockefelleruniversity.gith
 
 
 ---
-## Matrices  - Creating matrices
+## Matrices - Creating matrices
 
 
 In programs such as Excel, we are used to tables.
@@ -703,7 +685,7 @@ ncol(narrowMatrix)
 
 
 ---
-## Matrices (Joining vectors and matrices)
+## Matrices - Joining vectors and matrices
 
 
 A matrix can be created from multiple vectors or other matrices.
@@ -718,7 +700,7 @@ newMatrix
 ```
 
 ---
-## Matrices - (Joining vectors and matrices)
+## Matrices - Joining vectors and matrices
 
 **rbind()** functions to bind to a matrix as rows.
 ```{r matricesRbind_introtoR}
@@ -728,11 +710,11 @@ newerMatrix
 
 
 ---
-## Matrices - Joining incompatable vectors and matrices
+## Matrices - Joining vectors and matrices
 
+### Incompatible vectors and matrices
 
-When creating a matrix using **cbind()** or **matrix()** from incompatable vectors then the shorter vector is recycled. 
-
+When creating a matrix using **cbind()** or **matrix()** from incompatible vectors then the shorter vector is recycled. 
 
 
 ```{r matricesJoinIncompatable_introtoR}
@@ -741,8 +723,9 @@ recycledMatrix2
 ```
 
 ---
-## Matrices - Joining incompatable vectors and matrices
+## Matrices - Joining vectors and matrices
 
+### Incompatible vectors and matrices
 
 For **rbind()** function, the longer vector is clipped.
 ```{r matricesJoinIncompatableClip_introtoR}
@@ -752,8 +735,7 @@ recycledMatrix3
 
 
 ---
-## Matrices  - Column and row names
-
+## Matrices - Column and row names
 
 [As we have seen with vectors](#/namingvectors), matrices can be named. For matrices the naming is done by columns and rows using **colnames()** and **rownames()** functions.
 
@@ -776,8 +758,7 @@ rownames(namedMatrix)
 
 
 ---
-## Matrices  - Indexing
-
+## Matrices - Indexing
 
 Selecting and replacing portions of a matrix can be done by **indexing** using square brackets **[]** much [like for vectors](#indexingvectors).
 
@@ -786,10 +767,6 @@ When indexing matrices, two values may be provided within the square brackets se
 The first value(s) corresponds to row(s) and the second to column(s).
 
 - ***myMatrix[rowOfInterest,columnOfInterest]***
-```{r matricesIndexing_introtoR}
-narrowMatrix
-```
-
 
 ---
 ## Matrices - Indexing
@@ -808,7 +785,6 @@ narrowMatrix[2,1]
 
 
 Similarly, whole rows or columns can be extracted. Single rows and columns will return a vector.  
-
 
 Values of second column (row index is empty!)
 ```{r matricesIndexingExampleByCol_introtoR}
@@ -830,10 +806,8 @@ Values of second and third row (column index is empty!)
 narrowMatrix[c(2,3),]
 ```
 
-
 ---
 ## Matrices - Indexing by name
-
 
 As with vectors, names can be used for indexing when present
 
@@ -849,7 +823,6 @@ narrowMatrix["Row_1","Column_1"]
 ---
 ## Matrices - Advanced indexing
 
-
 As with vectors, matrices can be subset by logical vectors
 ```{r matricesIndexingExampleByLogic_introtoR}
 narrowMatrix
@@ -857,13 +830,16 @@ narrowMatrix[,1]
 narrowMatrix[,1] < 5
 ```
 
+---
+## Matrices - Advanced indexing
+
 ```{r matricesIndexingExampleByLogicRow_introtoR}
 narrowMatrix[narrowMatrix[,1] < 5,]
 ```
 
 
 ---
-## Matrices  - Arithmetic operations.
+## Matrices - Arithmetic operations.
 
 
 As with vectors, matrices can have arithmetic operations applied to cells,rows, columns or the whole matrix
@@ -890,7 +866,7 @@ narrowMatrix
 
 
 ---
-## Matrices -Matrices can contain only one data type
+## Matrices - Data types
 
 Matrices must be all one type (i.e. numeric or character).
 
@@ -903,6 +879,9 @@ narrowMatrix[,2] *2
 narrowMatrix[1,1] <- "Not_A_Number"
 narrowMatrix
 ```
+
+---
+## Matrices - Data types
 
 ```{r matricesOneTypeOnlyWithError_introtoR,error=T}
 narrowMatrix[,2] *2
@@ -970,8 +949,6 @@ factorExample
 summary(factorExample)
 ```
 
-
-
 ---
 ## Factors - Nominal factors
 
@@ -983,10 +960,8 @@ factorExample <- factor(vectorExample,levels=c("male","female"))
 factorExample[1] < factorExample[2]
 ```
 
-
 ---
-## Factors  - Ordinal factors
-
+## Factors - Ordinal factors
 
 In other cases there will be a natural ordering to the categories (ordinal data). A factor can be specified to be ordered using the **ordered** argument in combination with specified levels argument.
 
@@ -997,10 +972,8 @@ factorExample
 factorExample[1] < factorExample[2]
 ```
 
-
 ---
 ## Factors - Replacement
-
 
 Unlike vectors, replacing elements within a factor isn't so easy. While replacing one element with an established level is possible, replacing with a novel element will result in a warning.
 
@@ -1029,7 +1002,6 @@ factorExample
 ---
 ## Data frames - Creating data frames 
 
-
 [We saw that with matrices you can only have one type of data](#/onedatatype). We tried to create a matrix with a character element and the entire matrix became a character.
 
 In practice, we would want to have a table which is a mixture of types (e.g a table with sample names (character), sample type (factor) and survival time (numeric))
@@ -1037,9 +1009,9 @@ In practice, we would want to have a table which is a mixture of types (e.g a ta
 <div align="center">
 <img src="imgs/ExcelMat.jpg" alt="igv" height="300" width="600">
 </div>
+
 ---
 ## Data frames - Creating data frames 
-
 
 In R, we make use of the **data frame** object which allows us to store tables with columns of different data types. To create a data frame we can simply use the **data.frame()** function.
 
@@ -1047,16 +1019,12 @@ In R, we make use of the **data frame** object which allows us to store tables w
 patientName <- c("patient1","patient2","patient3","patient4")
 patientType <- factor(rep(c("male","female"),2))
 survivalTime <- c(1,30,2,20)
-dfExample <- data.frame(Name=patientName, Type=patientType,Survival_Time=survivalTime)
+dfExample <- data.frame(Name=patientName, Type=patientType, Survival_Time=survivalTime)
 dfExample
 ```
 
-
-
-
 ---
 ## Data frames - Indexing and replacement
-
 
 Data frames may be indexed just [as matrices](#/indexingmatrices).
 
@@ -1066,7 +1034,7 @@ dfExample[dfExample[,"Survival_Time"] > 10,]
 ```
 
 ---
-## Data frames - Using $ to specify columns
+## Data frames - Specify columns with $
 
 Unlike matrices, it is possible to index a column by using the **$** symbol.
 
@@ -1077,7 +1045,7 @@ dfExample[dfExample$Survival_Time < 10,]
 ```
 
 ---
-## Data frames - Creating data frames 
+## Data frames - Specify columns with $
 
 Using the **$** allows for R to autocomplete your selection and so can speed up coding.
 
@@ -1089,10 +1057,8 @@ But this will not work..
 dfExample[,"Surv"]
 ```
 
-
 ---
-## Data frames - Creating new columns with $
-
+## Data frames - Create columns with $
 
 The **$** operator also allows for the creation of new columns for a data frame on the fly.
 
@@ -1106,9 +1072,7 @@ dfExample
 ---
 ## Data frames - Indexing and replacement
 
-
 Certain columns can not be replaced in data frames. Numeric columns may have their values replaced but columns with character values may not by default. 
-
 
 ```{r dataframesNoReplace_introtoR}
 dfExample[dfExample[,"Survival_Time"] < 10,"Survival_Time"] <- 0
@@ -1124,8 +1088,6 @@ This occurs because character vectors are treated as factors by default.
 dfExample[dfExample[,"Survival_Time"] < 10,"Name"] <- "patientX"
 dfExample
 ```
-
-
 
 ---
 ## Data frames - Factors in data frames
@@ -1146,7 +1108,7 @@ dfExample
 
 
 ---
-## Data frames - Creating data frames without factors
+## Data frames - Data frames without factors
 
 If you wish to avoid using factors in data frames then the **stringsAsFactors** argument to **data.frame()** function should be set to **FALSE**
 
@@ -1164,7 +1126,7 @@ dfExample
 
 
 ---
-## Data frames - Ordering with order() function
+## Data frames - Ordering with order()
 
 A useful function in R is **order()**
 
@@ -1178,7 +1140,7 @@ testOrder[order(testOrder,decreasing=T)]
 ```
 
 ---
-## Data frames  - Ordering with NA values
+## Data frames - Ordering with NA values
 
 When a vector contains NA values, these NA values will, by default, be placed last in ordering indices. This can be controlled by **na.last** argument.
 
@@ -1188,9 +1150,8 @@ testOrder[order(testOrder,decreasing=T,na.last=T)]
 testOrder[order(testOrder,decreasing=T,na.last=F)]
 ```
 
-
 ---
-## Data frames  - Ordering data frames 
+## Data frames - Ordering data frames 
 
 Since the order argument returns an index of intended order for a vector, we can use the order() function to order data frames by certain columns
 ```{r dataframesOrderDecreasing_introtoR}
@@ -1209,7 +1170,6 @@ dfExample[order(dfExample$Type,
                 dfExample$Survival,
                 decreasing=T),]
 ```
-
 
 
 ---
@@ -1232,8 +1192,7 @@ dfExample2
 ```
 
 ---
-## Data frames - Merging data frames with merge()
-
+## Data frames - Merging data frames
 
 To do this we can use the **merge()** function with the data frames as the first two arguments. We can then specify the columns to merge by with the **by** argument. To keep only data pertaining to values common to both data frames the **all** argument is set to FALSE.
 
@@ -1242,17 +1201,14 @@ mergedDF <- merge(dfExample,dfExample2,by=1,all=F)
 mergedDF
 ```
 
-
 ---
 ## Time for an exercise!
-
 
 Exercise on data frames can be found [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/exercises/factorsAndDataframes_Exercise.html)
 
 
 ---
 ## Answers to exercise.
-
 
 Answers can be found here  [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/answers/factorsAndDataframes_Answers.html)
 
@@ -1262,8 +1218,7 @@ R code solutions can be found [here](http://rockefelleruniversity.github.io/Intr
 ---
 ## Lists - Creating lists
 
-
-Lists are the final data-type we will look at. 
+Lists are the final data type we will look at. 
 
 In R, lists provide a general container which may hold any data types of unequal lengths as part of its elements.
 
@@ -1281,11 +1236,9 @@ myList <- list(firstElement,secondElement,thirdElement)
 myList
 ```
 
-
 ---
 ## Lists -  Named lists
-
-
+ 
 [Just as with vectors](#/namingvectors), list elements can be assigned names.
 
 ```{r listsCreateNnames_introtoR}
@@ -1296,7 +1249,6 @@ myNamedList
 
 ---
 ## Lists - Indexing
-
 
 List, as [with other data types in R](#/indexingvectors) can be indexed. In contrast to other types, using **[]** on a list will subset the list to another list of selected indices. To retrieve an element from a list in R , two square brackets **[[]]** must be used. 
 
@@ -1329,8 +1281,7 @@ myNamedList[c(1,4)]
 
 
 ---
-## Lists  - Joining vectors to lists
-
+## Lists - Joining vectors to lists
 
 Note that on last slide we are joining two lists. If we joined a vector to a list, all elements of the vector would become list elements.
 
@@ -1339,10 +1290,8 @@ myList <- c(myList,c(4,4))
 myList[3:5]
 ```
 
-
 ---
 ## Lists - Flattening lists
-
 
 Sometimes you will wish to "flatten" out a list. When a list contains compatable objects, i.e. list of all one type, the **unlist()** function can be used. Note the maintenance of names with their additional sufficies.
 
@@ -1355,11 +1304,10 @@ flatList[1:7]
 
 
 
-
 ---
 ## Lists - Flattening lists to matrices
 
-A common step is to turn a list of standard results into matrix. This can be done in a few steps in R.
+A common step is to turn a list of standard results into matrix. This can be done in a few steps in R, using functions you are now familair with.
 
 ```{r listsFlattenToMatrix_introtoR}
 myNamedList <- list(First=c(1,2,3),Second=c(2,6,7),Third=c(1,4,7))
@@ -1381,18 +1329,11 @@ class: inverse, center, middle
 <html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
 
 ---
-
-
-
-
----
-## Data IO - Data from External sources
-
-
+## Data from external sources
 
 Most of the time, you will not be generating data in R but will be importing data from external files.
 
-A standard format for this data is a table
+A standard format for this data is a table:
 
 ```{r,echo=F}
 minRep <- rbind(cbind(matrix(rnorm(12,4),ncol=3,byrow = T),matrix(c(rnorm(9,4),rnorm(3,8)),ncol=3,byrow = T)),
@@ -1407,7 +1348,7 @@ kable(minRepdf[,1:4], format='html')
 ```
 
 ---
-## Data IO - Data from text file with read.table()
+## Data from text file with read.table()
 
 
 Tables from text files can be read with **read.table()** function
@@ -1422,8 +1363,7 @@ Here we have provided two arguments.
 - **header** argument specifies whether columns have headers.
 
 ---
-## Data IO - Row names in read.table()
-
+## Row names in read.table()
 
 read.table() allows for significant control over reading files through its many arguments. Have a look at options by using **?read.table**
 
@@ -1435,7 +1375,7 @@ Table[1:4,1:3]
 ```
 
 ---
-## Data IO - Setting factors from read.table()
+## Setting factors from read.table()
 
 As mentioned, data which is read into R through read.table() will be of data frame class.
 
@@ -1450,8 +1390,7 @@ Other very useful functions for read table include:
 - **comment.char** - To set the start identifier for lines not to be read.
 
 ---
-## Data IO - Data from other sources
-
+## Data from other sources
 
 The read.table function can also read data from http.
 
@@ -1460,14 +1399,14 @@ URL <- "http://rockefelleruniversity.github.io/readThisTable.csv"
 Table <- read.table(URL,sep=",",header=T)
 Table[1:2,1:3]
 ```
-And the clipboard.(This is Windows version)
+And the clipboard (this is Windows version).
 
 ```{r,eval=F}
 Table <- read.table(file="clipboard",sep=",",header=T)
 ```
 
 ---
-## Data IO - Data from file columns
+## Data from file columns
 
 
 read.table() function will by default read every row and column of a file.
@@ -1482,26 +1421,25 @@ x[1:3]
 ```
 
 ---
-## Data IO - Writing data to file
-
+## Writing data to file
 
 Once we have our data analysed in R, we will want to export it to a file. 
 
 The most common method is to use the write.table() function
 
 ```{r,echo=T}
-write.table(Table,file="data/writeThisTable.csv",sep=",")
+write.table(Table, file="data/writeThisTable.csv", sep=",")
 ```
 
 Since our data has column names but no row names, I will provide the arguments col.names and row.names to write.table()
 
 ```{r,echo=T}
-write.table(Table,file="data/writeThisTable.csv", sep=",", row.names =F,col.names=T)
+write.table(Table, file="data/writeThisTable.csv", sep=",", row.names =F, col.names=T)
 ```
 
 
 ---
-## The rio (R io) package.
+## The rio (R io) package
 
 We may want to import from formats other than plain text.
 
@@ -1515,7 +1453,7 @@ Formats include:-
 
 
 ---
-## The rio package.
+## The rio package
 
 To make use of the rio package functionality we will need to install this package to our version of R.
 
@@ -1527,10 +1465,8 @@ We can do this by using the **install.packages()** function with the package we 
 install.packages("rio")
 ```
 
-
-
 ---
-## The rio package.
+## The rio package
 
 Once we have installed a package, we will need to load it to make the functions available to us.
 
@@ -1543,13 +1479,13 @@ library("rio")
 ```
 
 ---
-## The rio package.
+## The rio package
 
 The main two functions in the rio package are the **import** and **export** functions.
 
-We can use the **import()** function to read in our csv file. We simple specify our file as an argument to the **import()** function..
+We can use the **import()** function to read in our csv file. We simple specify our file as an argument to the **import()** function.
 
-**import(_Filename_)**
+**import(_Filename_)**          
 
 ```{r,echo=T,eval=TRUE}
 Table <- import("data/readThisTable.csv")
@@ -1557,7 +1493,7 @@ Table[1:2,]
 ```
 
 ---
-## The rio package.
+## The rio package
 
 By default we will only retrieve the first sheet.
 
@@ -1572,7 +1508,7 @@ Table[1:2,]
 ```
 
 ---
-## The rio package.
+## The rio package
 
 If we want to import all sheets, we can use the **import_list**.
 
@@ -1584,7 +1520,7 @@ names(Table)
 ```
 
 ---
-## The rio package.
+## The rio package
 
 Since this is a list of data.frames, we can access our sheets using standard list accessors, **$** and **[[]]**.
 
@@ -1595,7 +1531,7 @@ Table$Metadata[1:2,]
 ```
 
 ---
-## The rio package.
+## The rio package
 
 We can export our data back to file using the **export()** function and specifying the name of the output file to the **file** argument. The **export()** function will guess the format required from the extension.
 
@@ -1606,7 +1542,7 @@ export(ExpressionScores,file = "data/writeThisXLSX.xlsx")
 ```
 
 ---
-## The rio package.
+## The rio package
 
 We can export a list of data.frames to Excel's xlsx format using the **export()** function. The names of list elements will be used to name sheets in xlsx file.
 
@@ -1620,12 +1556,10 @@ export(Table,file = "data/writeThisMultipleXLSX.xlsx")
 ---
 ## Time for an exercise!
 
-
 Exercise on reading and writing data can be found [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/exercises/DataInputOutput_Exercises.html)
 
 ---
 ## Answers to exercise.
-
 
 Answers can be found [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/answers/DataInputOutput_answers.html)
 

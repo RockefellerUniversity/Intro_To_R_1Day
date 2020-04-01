@@ -17,16 +17,14 @@ output:
     number_sections: false  ## if you want number sections at each table header
     theme: united  # many options for theme, this one is my favorite.
     highlight: tango  # specifies the syntax highlighting style
-params:
-  isSlides: "no"
+
 
 ---
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-
-### Overview
+## Overview of what we've covered
 
 
 - [Recap](#/recap)
@@ -36,26 +34,25 @@ knitr::opts_chunk$set(echo = TRUE)
 
 
 ---
-###  Recap on what we have covered. 
+##  Recap
 
 
-Session 1 covered introduction to R data types and importing/export data
+Session 1 covered introduction to R data types and import/export of data
 
 - [Background to R](#/background)
 - [Data types in R](#/datatypes)
 - [Reading and writing data in R](#/reading)
 
 ---
-### Recap
-
+## Recap
 
 R stores data in five main data types.
 
 - **Vector** - Ordered collection of single data type (numeric/character/logical).
 - **Matrix** - Table (ordered 2D collection) of single data type (numeric/character/logical).
-- **Factors** -Ordered collection of ordinal or nominal catagories.
+- **Factors** - Ordered collection of ordinal or nominal catagories.
 - **Data frame** - Table (ordered 2D array) of multiple data types of same length.
-- **List** - Ordered collection of multiple data types of differing length
+- **List** - Ordered collection of multiple data types of differing length.
 
 ```{r,echo=T,eval=T}
 aVector <- c(1,2,3,4,5,6,7,8,9,10)
@@ -65,11 +62,9 @@ aDataFrame <- data.frame(Number=c(1,2,3,4,5),Factor=aFactor)
 ```
 
 ---
-### Recap
-
+## Recap
 
 We can access and change information in our data.types using **indexing** with **[]**  (or **[[]]** for lists).
-
 
 ```{r,echo=T,eval=T}
 aVector <- c(1,2,3,4,5,6,7,8,9,10)
@@ -80,16 +75,10 @@ aVector
 ```
 
 ---
-### Recap
-For matricies and data.frames we use two indexs, specifying columns and rows. **matrix[_rowIndex_,_columnIndex_]**
+## Recap
+For matricies and data frames we use two indexes, specifying columns and rows. **matrix[_rowIndex_,_columnIndex_]**
 
-```{r,results='asis',include=TRUE,echo=FALSE}
-if(params$isSlides == "yes"){
-cat(".pull-left[
-    ")
-}
-```
-
+.pull-left[
 ```{r,echo=T,eval=T,tidy=FALSE}
 aMatrix <- matrix(aVector,ncol=2,
                   nrow=5,byrow = TRUE)
@@ -97,91 +86,39 @@ aMatrix
 aMatrix[1,]
 aMatrix[,1]
 ```
-
-```{r,results='asis',include=TRUE,echo=FALSE}
-if(params$isSlides == "yes"){
-cat("]
-")
-}
-```
-
-
-```{r,results='asis',include=TRUE,echo=FALSE}
-if(params$isSlides == "yes"){
-cat(".pull-right[
-"
-)
-}
-```
-
+]
+.pull-right[
 ```{r,echo=T,eval=T,tidy=FALSE}
 aMatrix[1,1] <- 0
 aMatrix[,2] <- 100
 aMatrix
 ```
-
-```{r,results='asis',include=TRUE,echo=FALSE}
-if(params$isSlides == "yes"){
-cat("]
-")
-}
-```
+]
 
 ---
-### Recap
+## Recap
 
+Remember a matrix can only contain one data type (numeric, character etc). For mixed data types we use data frames.
 
-Remember a matrix can only contain one data type (numeric, character etc). For mixed data types we use data.frames.
-
-```{r,results='asis',include=TRUE,echo=FALSE}
-if(params$isSlides == "yes"){
-cat(".pull-left[
-    ")
-}
-```
-
+.pull-left[
 ```{r,echo=T,eval=T,tidy=FALSE}
 aMatrix <- matrix(aVector,ncol=2,
                   nrow=5,byrow = TRUE)
 aMatrix
 
 ```
-
-```{r,results='asis',include=TRUE,echo=FALSE}
-if(params$isSlides == "yes"){
-cat("]
-")
-}
-```
-
-
-```{r,results='asis',include=TRUE,echo=FALSE}
-if(params$isSlides == "yes"){
-cat(".pull-right[
-"
-)
-}
-```
-
+]
+.pull-right[
 ```{r,echo=T,eval=T,tidy=FALSE}
 aMatrix[1,2] <- "Word"
 aMatrix
 ```
-
-```{r,results='asis',include=TRUE,echo=FALSE}
-if(params$isSlides == "yes"){
-cat("]
-")
-}
-```
-
+]
 
 ---
-### Recap
+## Recap
 
-
-We can use logical operations to evaluate information our data.types.
-
+We can use logical operations to evaluate information our data types.
 
 ```{r,echo=T,eval=T}
 aVector <- c(1,2,3,4,5,6,7,8,9,10)
@@ -193,10 +130,9 @@ aDataFrame$Factor == "R"
 ```
 
 ---
-### Recap
+## Recap
 
-
-We can use logical operations with indexing to subset or alter information held in our data.types.
+We can use logical operations with indexing to subset or alter information held in our data types.
 
 
 ```{r,echo=T,eval=T}
@@ -207,12 +143,9 @@ aVector
 ```
 
 ---
-### Recap
+## Recap
 
-
-When replacing factor columns in data.frames we have to remember the **levels**.
-
-
+When replacing factor columns in data frames we have to remember the **levels**.
 
 ```{r,echo=T,eval=T,tidy=T}
 
@@ -226,10 +159,9 @@ aDataFrame
 
 
 ---
-### Recap
+## Recap
 
-
-We can update levels in a data.frame column as we would a factor. Now we can replace our elements in data.frame.
+We can update levels in a data frame column as we would a factor. Now we can replace our elements in data frame.
 
 ```{r,echo=T,eval=T,tidy=FALSE}
 
@@ -243,7 +175,7 @@ aDataFrame
 
 ---
 
-### Recap
+## Recap
 
 
 Data can be read into R as a table with the **read.table()** function and written to file with the **write.table()** function.
@@ -258,7 +190,7 @@ write.table(Table,file="data/writeThisTable.csv", sep=",", row.names =F,col.name
 
 
 ---
-### Recap
+## Recap
 
 
 If we want to know how a function works or get an example on its use we can use **?** infront function name.
@@ -269,37 +201,22 @@ If we want to know how a function works or get an example on its use we can use 
 ?merge
 ```
 
-
-
-```{r,results='asis',include=TRUE,echo=FALSE}
-if(params$isSlides == "yes"){
-  cat("---
+---
 class: inverse, center, middle
+
 
 # Conditions and Loops
 
+
 <html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
 
----
-"    
-  )
-}else{
-  cat("---
 
+
+---
 ## Conditions and Loops
 
----
-"    
-  )
-  
-}
-```
 
-
-### Conditions and Loops
-
-
-We have looked at using logical vectors as a way to index other data types
+We have looked at using logical vectors as a way to index other data types.
 ```{r}
 x <- 1:10
 x[x < 4]
@@ -309,7 +226,7 @@ Logicals are also used in controlling how scripted procedures execute.
 
 
 ---
-### Conditions and Loops
+## Conditions and Loops
 
 * <span style="color:red">Conditional branching (if,else)</span>
 * <span style="color:green">Loops (for, while)</span>
@@ -317,10 +234,10 @@ Logicals are also used in controlling how scripted procedures execute.
 <span style="color:green">While</span> I'm analysing data, <span style="color:red">if</span> I need to execute complex statistical procedures on the data I will use R <span style="color:red">else</span> I will use a calculator.
 
 ---
-### Conditions- Conditional Branching.
+## Conditions - Conditional branching
 
 
-Conditional Branching is the evaluation of a logical to determine whether a chunk of code is executed.
+Conditional branching is the evaluation of a logical to determine whether a chunk of code is executed.
 
 In R, we use the **if** statement with the logical to be evaluated in **()** and dependent code to be executed in **{}**.
 
@@ -335,9 +252,9 @@ if(x){
 }
 
 ```
----
-### Conditions  - Evaluating with if()
 
+---
+## Conditions  - Evaluating with if()
 
 More often, we construct the logical value within **()** itself. This can be termed the **condition**. 
 
@@ -349,7 +266,7 @@ if(x > y){
 }
 ```
 
-Here the message is printed because x is greater than y. 
+The message is printed above because x is greater than y. 
 
 ```{r,message=T}
 y <- 20
@@ -357,23 +274,15 @@ if(x > y){
   message("The value of x is ",x," which is greater than ", y)
 }
 
-
-
 ```
-Here, x is not longer greater than y, so no message is printed.
+x is now no longer greater than y, so no message is printed.
 
 We really still want a message telling us what was the result of the condition.
 
 ---
-### Conditions - else following an if.
+## Conditions - else following an if
 
-```{r,results='asis',include=TRUE,echo=FALSE}
-if(params$isSlides == "yes"){
-cat(".pull-left[
-    ")
-}
-```
-
+.pull-left[
 If we want to perform an operation when the condition is false we can follow the if() statement with an else statement.
 
 ```{r,message=T}
@@ -384,23 +293,8 @@ if(x < 5){
      message(x," is greater than or equal to 5")
 }
 ```
-
-```{r,results='asis',include=TRUE,echo=FALSE}
-if(params$isSlides == "yes"){
-cat("]
-")
-}
-```
-
-
-```{r,results='asis',include=TRUE,echo=FALSE}
-if(params$isSlides == "yes"){
-cat(".pull-right[
-"
-)
-}
-```
-
+]
+.pull-right[
 With the addition of the else statement, when x is not less than 5 the code following the else statement is executed.
 
 ```{r,message=T}
@@ -413,18 +307,10 @@ if(x < 5){
 
 ```
 
-
-```{r,results='asis',include=TRUE,echo=FALSE}
-if(params$isSlides == "yes"){
-cat("]
-")
-}
-```
-
+]
 
 ---
-### Conditions - else if
-
+## Conditions - else if
 
 We may wish to execute different procedures under multiple conditions. This can be controlled in R using the else if() following an initial if() statement.
 ```{r, message=TRUE}
@@ -439,7 +325,7 @@ if(x > 5){
 ```
 
 ---
-### Conditions -ifelse()
+## Conditions - ifelse()
 
 A useful function to evaluate conditional statements over vectors is the **ifelse()** function.
 
@@ -455,7 +341,7 @@ ifelse(x <= 3,"lessOrEqual","more")
 ```
 
 ---
-### Conditions -ifelse()
+## Conditions - ifelse()
 
 We can use multiple nested **ifelse** functions to be apply more complex logical to vectors.
 
@@ -464,9 +350,9 @@ ifelse(x == 3,"same",
        ifelse(x < 3,"less","more")
       ) 
 ```
----
-### Conditions and Loops  - Loops
 
+---
+## Conditions and Loops - Loops
 
 The two main generic methods of looping in R are **while** and **for**
 
@@ -475,10 +361,9 @@ The two main generic methods of looping in R are **while** and **for**
 - **for** - *for* loops repeat the execution of code for a range of specified values.
 
 ---
-### Loops - While loops
+## Loops - While loops
 
-
-While loops are most useful if you know the condition will be satisified but are not sure when. (i.e. Looking for a point when a number first occurs in a list).
+While loops are most useful if you know the condition will be satisified but are not sure when (i.e. Looking for a point when a number first occurs in a list).
 ```{r, message=TRUE}
 x <- 1
 while(x < 3){
@@ -489,8 +374,7 @@ message("Finally x is not less than 3")
 ```
 
 ---
-### Loops - For loops
-
+## Loops - For loops
 
 For loops allow the user to cycle through a range of values applying an operation for every value.
 
@@ -502,7 +386,7 @@ for(i in x){
 }
 ```
 
-Similarly we can cycle through other vector types (or lists)
+Similarly we can cycle through other vector types (or lists).
 ```{r, message=TRUE}
 x <- toupper(letters[1:5])
 for(i in x){
@@ -510,12 +394,8 @@ for(i in x){
 }
 ```
 
-
-
-
 ---
-### Loops - Looping through indices
-
+## Loops - Looping through indices
 
 We may wish to keep track of the position in x we are evaluating to retrieve the same index in other variables. A common practice is to loop though all possible index positions of x using the expression **1:length(x)**.
 
@@ -529,16 +409,10 @@ for(i in 1:length(geneName)){
 ```
 
 ---
-### Loops -Loops and conditionals
+## Loops - Loops and conditionals
 
 Loops can be combined with conditional statements to allow for complex control of their execution over R objects. 
-```{r,results='asis',include=TRUE,echo=FALSE}
-if(params$isSlides == "yes"){
-cat(".pull-left[
-    ")
-}
-```
-
+.pull-left[
 ```{r,echo=T,eval=F}
 x <- 1:13
 
@@ -553,22 +427,8 @@ for(i in 1:13){
 }
 ```
 
-```{r,results='asis',include=TRUE,echo=FALSE}
-if(params$isSlides == "yes"){
-cat("]
-")
-}
-```
-
-
-```{r,results='asis',include=TRUE,echo=FALSE}
-if(params$isSlides == "yes"){
-cat(".pull-right[
-"
-)
-}
-```
-
+]
+.pull-right[
 ```{r,message=T,echo=F}
 x <- 1:13
 
@@ -582,26 +442,14 @@ for(i in 1:13){
   }
 }
 ```
-
-```{r,results='asis',include=TRUE,echo=FALSE}
-if(params$isSlides == "yes"){
-cat("]
-")
-}
-```
+]
 
 ---
-### Conditions and Loops - Breaking loops
+## Conditions and Loops - Breaking loops
 
 We can use conditionals to exit a loop if a condition is satisfied, just a like while loop.
 
-```{r,results='asis',include=TRUE,echo=FALSE}
-if(params$isSlides == "yes"){
-cat(".pull-left[
-    ")
-}
-```
-
+.pull-left[
 ```{r,message=T,eval=F}
 x <- 1:13
 
@@ -616,22 +464,9 @@ for(i in 1:13){
   }
 }
 ```
+]
 
-```{r,results='asis',include=TRUE,echo=FALSE}
-if(params$isSlides == "yes"){
-cat("]
-")
-}
-```
-
-```{r,results='asis',include=TRUE,echo=FALSE}
-if(params$isSlides == "yes"){
-cat(".pull-right[
-"
-)
-}
-```
-
+.pull-right[
 ```{r,message=T,eval=T,echo=F}
 x <- 1:13
 
@@ -649,17 +484,10 @@ for(i in 1:13){
   }
 }
 ```
-
-```{r,results='asis',include=TRUE,echo=FALSE}
-if(params$isSlides == "yes"){
-cat("]
-")
-}
-```
+]
 
 ---
-### Loops - Functions to loop over data types
-
+## Loops - Functions to loop over data types
 
 There are functions which allow you to loop over a data type and apply a function to the subsection of that data.
 
@@ -670,8 +498,7 @@ There are functions which allow you to loop over a data type and apply a functio
 - **sapply** - Apply function to every element of a vector or list and return results as a vector,matrix or list.
 
 ---
-### Looping - apply()
-
+## Looping - apply()
 
 The **apply()** function applys a function to the rows or columns of a matrix. The arguments **FUN** specifies the function to apply and **MARGIN** whether to apply the functions by rows/columns or both.
 
@@ -683,7 +510,7 @@ apply(DATA,MARGIN,FUN,...)
 - **MARGIN** - 1 for rows, 2 for columns, c(1,2) for cells
 
 ---
-### Looping - apply() example
+## Looping - apply() example
 
 ```{r}
 matExample <- matrix(c(1:4),nrow=2,ncol=2,byrow=T)
@@ -699,7 +526,7 @@ apply(matExample,2,mean)
 ```
 
 ---
-### Looping - Additional arguments to apply
+## Looping - Additional arguments to apply
 
 Additional arguments to be used by the function in the apply loop can be specified after the function argument. 
 
@@ -711,15 +538,9 @@ apply(matExample,1,paste,collapse=";")
 ```
 
 ---
-### Looping - lapply()
+## Looping - lapply()
 
-```{r,results='asis',include=TRUE,echo=FALSE}
-if(params$isSlides == "yes"){
-cat(".pull-left[
-    ")
-}
-```
-
+.pull-left[
 Similar to apply, **lapply** applies a function to every element of a vector or list. 
 
 **lapply** returns a list object containing the results of evaluating the function.
@@ -727,38 +548,16 @@ Similar to apply, **lapply** applies a function to every element of a vector or 
 ```{r}
 lapply(c(1,2),mean)
 ```
-
-```{r,results='asis',include=TRUE,echo=FALSE}
-if(params$isSlides == "yes"){
-cat("]
-")
-}
-```
-
-
-```{r,results='asis',include=TRUE,echo=FALSE}
-if(params$isSlides == "yes"){
-cat(".pull-right[
-"
-)
-}
-```
-
+]
+.pull-right[
 As with apply() additional arguments can be supplied after the function name argument.
 
 ```{r}
 lapply(list(1,c(NA,1),2),mean, na.rm=T)
 ```
-
-```{r,results='asis',include=TRUE,echo=FALSE}
-if(params$isSlides == "yes"){
-cat("]
-")
-}
-```
-
+]
 ---
-### Looping -sapply()
+## Looping - sapply()
 
 
 **sapply** (*smart apply*) acts as lapply but attempts to return the results as the most appropriate data type.
@@ -767,20 +566,14 @@ Here sapply returns a vector where lapply would return lists.
 ```{r}
 exampleVector <- c(1,2,3,4,5)
 exampleList <- list(1,2,3,4,5)
-sapply(exampleVector,mean,na.rm=T)
-sapply(exampleList,mean,na.rm=T)
+sapply(exampleVector, mean, na.rm=T)
+sapply(exampleList, mean, na.rm=T)
 ```
 
 ---
-### Looping - sapply() example
+## Looping - sapply() example
 
-```{r,results='asis',include=TRUE,echo=FALSE}
-if(params$isSlides == "yes"){
-cat(".pull-left[
-    ")
-}
-```
-
+.pull-left[
 In this example lapply returns a list of vectors from the quantile function.
 
 ```{r,tidy=FALSE}
@@ -789,49 +582,27 @@ exampleList <- list(row1=1:5,
                     row3=11:15)
 exampleList
 ```
+]
 
-```{r,results='asis',include=TRUE,echo=FALSE}
-if(params$isSlides == "yes"){
-cat("]
-")
-}
-```
-
-
-```{r,results='asis',include=TRUE,echo=FALSE}
-if(params$isSlides == "yes"){
-cat(".pull-right[
-"
-)
-}
-```
-
+.pull-right[
 ```{r}
-lapply(exampleList,quantile)
+lapply(exampleList, quantile)
 ```
-
-```{r,results='asis',include=TRUE,echo=FALSE}
-if(params$isSlides == "yes"){
-cat("]
-")
-}
-```
+]
 
 ---
-### Looping - sapply() example 2
-
+## Looping - sapply() example 2
 
 Here is an example of sapply parsing a result from the quantile function in a *smart* way.
 
 When a function always returns a vector of the same length, sapply will create a matrix with elements by column.
 
 ```{r}
-
-sapply(exampleList,quantile)
+sapply(exampleList, quantile)
 ```
 
 ---
-### Loops - sapply() example 3
+## Loops - sapply() example 3
 
 
 When sapply cannot parse the result to a vector or matrix, a list will be returned.
@@ -839,28 +610,71 @@ When sapply cannot parse the result to a vector or matrix, a list will be return
 ```{r,tidy=FALSE}
 exampleList <- list(df=data.frame(sample=paste0("patient",1:2), data=c(1,12)),
                     vec=c(1,3,4,5))
-sapply(exampleList,summary)
+sapply(exampleList, summary)
+```
+
+
+---
+## Custom functions
+You can create your own functions easily in R using the <- assignment. We use the **function** statement with all input variables in **()** and all code to be executed in **{}**. Anything to be received back from the function is indicated by the **return** statement.  
+
+In this case we can recapitulate the square function. 
+```{r makingfunctions}
+square_my_number  <- function(my_number){
+  my_square <- my_number*my_number
+  return(my_square)
+}
+
+square_my_number(my_number=3)
+
 ```
 
 ---
-### Time for an exercise!
+## Custom functions
+User defined functions can be as long and complicated as you want, taking in many variables, printing out messages and utilizing other functions within them.
+
+Lets make z-scores
+```{r makingfunctions_zscores}
+my_zscore  <- function(my_number, my_vector){
+  my_mean <- mean(my_vector)
+  message("Mean is ", my_mean)
+  diff_from_mean <- my_number-my_mean
+  stdev <- sd(my_vector)
+  my_z <- diff_from_mean/stdev
+  return(my_z)
+}
+
+A <- rnorm(20)
+
+my_zscore(my_number=A[1], my_vector=A)
+
+```
+
+---
+## Custom functions and apply
+
+These custom functions can also be utilised with apply. 
+
+```{r, message=F}
+sapply(A, my_zscore, my_vector=A)
+
+```
+
+---
+## Time for an exercise!
 
 
 Exercise on loops and conditional branching can be found [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/exercises//conditionsAndLoops_Exercises.html)
 
 ---
-### Answers to exercise.
+## Answers to exercise.
 
 
 Answers can be found here  [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/answers/conditionsAndLoops_Answers.html)
 
 Rcode for answers can be found here  [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/answers/conditionsAndLoops_Answers.R)
 
-
-
-```{r,results='asis',include=TRUE,echo=FALSE}
-if(params$isSlides == "yes"){
-  cat("---
+---
 class: inverse, center, middle
 
 # Getting additional libraries
@@ -868,81 +682,46 @@ class: inverse, center, middle
 <html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
 
 ---
-"    
-  )
-}else{
-  cat("---
+## Loading libraries
 
-## Getting additional libraries
-
----
-"    
-  )
-  
-}
-```
-
-
-### Loading libraries
-
-
-Libraries can be loaded using the library() function with an argument of the name of the library
+Libraries can be loaded using the library() function with an argument of the name of the library.
 
 ```{r,eval=F}
 library(ggplot2)
 ```
 
-You can see what libraries are available in the Packages panel or by the  library() function with no arguments supplied
+You can see what libraries are available in the Packages panel or by the library() function with no arguments supplied.
 
 ```{r,eval=F}
 library()
 ```
 
 ---
-### Installing libraries
+## Installing libraries
 
 
-Libraries can be installed through the R studio menu
+Libraries can be installed through the R studio menu.
 
 **-> Tools -> Install packages ..**
 
-Or by using the install.packages() command
+Or by using the install.packages() command.
 
 ```{r,eval=F}
 install.packages("Hmisc")
 ```
 
-
-
-
-
-```{r,results='asis',include=TRUE,echo=FALSE}
-if(params$isSlides == "yes"){
-  cat("---
+---
 class: inverse, center, middle
+
 
 # Scripts
 
+
 <html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
 
----
-"    
-  )
-}else{
-  cat("---
-
-## Scripts
 
 ---
-"    
-  )
-  
-}
-```
-
-
-### Saving scripts
-
+## Saving scripts
 
 Once we have got our functions together and know how we want to analyse our data, we can save our analysis as a **script**. By convention R scripts typically end in **.r** or **.R**
 
@@ -961,7 +740,7 @@ To save all the objects (workspace) with extension **.RData**
 **->Session -> Save workspace as**
 
 ---
-### Getting help
+## Getting help
 
 
 - Google
@@ -970,11 +749,11 @@ To save all the objects (workspace) with extension **.RData**
 - [R-help](https://stat.ethz.ch/mailman/listinfo/r-help)
 
 ---
-### The end
+## The end
 
 
 ---
-### Sourcing scripts.
+## Sourcing scripts
 
 
 R scripts allow us to save and reuse custom functions we have written.  To run the code from an R script we can use the **source()** function with the name of the R script as the argument. 
@@ -993,7 +772,7 @@ dayOfWeek()
 ```
 
 ---
-### Rscript
+## Rscript
 
 
 R scripts can be run non-interactively from the command line with the **Rscript** command, usually with the option **--vanilla** to avoid saving or restoring workspaces. All messages/warnings/errors will be output to the console.
@@ -1009,7 +788,7 @@ R CMD BATCH myscript.r
 ```
 
 ---
-### Sending arguments to Rscript
+## Sending arguments to Rscript
 
 
 To provide arguments to an R script at the command line we must add **commandArgs()** function to parse command line arguments.
@@ -1018,7 +797,6 @@ To provide arguments to an R script at the command line we must add **commandArg
 args <- commandArgs(TRUE)
 myFirstArgument <- args[1]
 myFirstArgument
-as.numeric(myFirstArgument
 ```
 
 ```
@@ -1030,7 +808,7 @@ as.numeric(myFirstArgument)
 ```
 10
 ```
-Since vectors can only be one type, all command line arguments are strings and must be converted to numeric if needed with **as.numeric()**
+Since vectors can only be one type, all command line arguments are strings and must be converted to numeric if needed with **as.numeric()**.
 
 
 

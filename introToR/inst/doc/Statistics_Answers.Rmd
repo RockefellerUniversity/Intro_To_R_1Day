@@ -1,23 +1,22 @@
 ---
-title: "Statistics in R answers"
-author: "MRC CSC"
-vignette: >
-  %\VignetteIndexEntry{Vignette Title}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+title: "Statistics in R Answers"
+author: "Rockefeller University, Bioinformatics Resource Centre"
+date: "https://rockefelleruniversity.github.io/RU_tidyverse/"
+output: 
+  html_document:
+    number_sections: false  ## if you want number sections at each table header
+    theme: united  # many options for theme, this one is my favorite.
+    highlight: tango  # specifies the syntax highlighting style
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = F,eval = F)
-```
-
-These exercises cover the sections of Statistics in R [Introduction to R]("introToR_Day1.html").
+<p>&nbsp;</p>
+These answers are from the exercises about the statistics sections of [Introduction to R](https://rockefelleruniversity.github.io/introToR_Day1.html). 
 
 **Exercise 1**
 
 - Read in the file categoriesAndExpression.txt.
 ```{r,message=T}
- catAndExpr <- read.delim("../data/categoriesAndExpression.txt")
+ catAndExpr <- read.delim("data/categoriesAndExpression.txt")
 ```
 - How many genes are ofInterest and how many in pathways.
 ```{r,message=T}
@@ -59,7 +58,7 @@ t.test(glycolysisExpression,tgfbExpression,var.equal = FALSE)
 
 - Read in the file lmExercise.txt.
 ```{r,message=T}
- lmExercise <- read.delim("../data/lmExercise.txt")
+ lmExercise <- read.delim("data/lmExercise.txt")
 ```
 
 - What is the formula for the best fit lines for X vs Y and X vs Z

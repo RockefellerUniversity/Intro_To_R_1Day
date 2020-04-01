@@ -1,4 +1,4 @@
-## ----message=T-----------------------------------------------------------
+## ----message=T-----------------------------------------------------------------------
 
 for(x in 1:10){
   if(x == 1){
@@ -9,7 +9,8 @@ for(x in 1:10){
 }
 factorialAnswer
 
-## ----message=T-----------------------------------------------------------
+
+## ----message=T-----------------------------------------------------------------------
 
 factorialAnswer <- 0
 count <- 0
@@ -24,16 +25,18 @@ while(factorialAnswer <= 1000){
 }
 count
 
-## ----message=T-----------------------------------------------------------
+
+## ----message=T-----------------------------------------------------------------------
 condExercise <- 1:40
 condExercise
 vectorResult <- ifelse(condExercise<10,"small",ifelse(condExercise < 31,"mid","big"))
 temp <- factor(vectorResult,levels=c("small","mid","big"),order=T)
 temp
 
-## ----message=T-----------------------------------------------------------
 
-filesToRead <- dir("../ExpressionResults/",pattern = "*\\.txt",full.names=T)
+## ----message=T-----------------------------------------------------------------------
+
+filesToRead <- dir("ExpressionResults/",pattern = "*\\.txt",full.names=T)
 fileRead <- vector("list",length=length(filesToRead))
 for(i in 1:length(filesToRead)){
   fileRead[[i]] <- read.delim(filesToRead[i],header=F,sep="\t")
@@ -53,8 +56,9 @@ for(i in fileRead){
 mergedTable[1:3,] 
 
 
-## ----message=T-----------------------------------------------------------
-Annotation <- read.table("../ExpressionResults/Annotation.ann",sep="\t",h=T)
+
+## ----message=T-----------------------------------------------------------------------
+Annotation <- read.table("ExpressionResults/Annotation.ann",sep="\t",h=T)
 annotatedExpression <- merge(Annotation,mergedTable,by=1,all.x=F,all.y=T)
 annotatedExpression[1:2,]
 

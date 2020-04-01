@@ -1,15 +1,20 @@
 ---
-title: "Factors and Data frames answers"
-author: "MRC CSC"
-date: "01/01/2015"
-output: html_document
+title: "Factors and Data frames Answers"
+author: "Rockefeller University, Bioinformatics Resource Centre"
+date: "https://rockefelleruniversity.github.io/RU_tidyverse/"
+output: 
+  html_document:
+    number_sections: false  ## if you want number sections at each table header
+    theme: united  # many options for theme, this one is my favorite.
+    highlight: tango  # specifies the syntax highlighting style
 ---
 
+<p>&nbsp;</p>
+These answers are from the exercises about the factors and data framessections of [Introduction to R](https://rockefelleruniversity.github.io/introToR_Day1.html). 
 
 These exercises cover the factors and data frames sections of [Introduction to R]("introToR_Day1.html").
 
 **Exercise 1** - **Factors**
-
 
 - Create a ordinal factor named "Height" containing -- high, low, mid, low, mid, low, mid, high, mid, high.
 ```{r,message=T}

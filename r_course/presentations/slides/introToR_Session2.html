@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="" xml:lang="">
   <head>
-    <title></title>
-    <meta charset="utf-8">
+    <title>introToR_Session2.utf8</title>
+    <meta charset="utf-8" />
     <meta name="author" content="Rockefeller University, Bioinformatics Resource Centre" />
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link rel="stylesheet" href="metropolisCustom.css" type="text/css" />
@@ -26,8 +26,7 @@ class: center, middle, inverse, title-slide
 
 
 
-
-## Overview
+## Overview of what we've covered
 
 
 - [Recap](#/recap)
@@ -37,10 +36,10 @@ class: center, middle, inverse, title-slide
 
 
 ---
-##  Recap on what we have covered. 
+##  Recap
 
 
-Session 1 covered introduction to R data types and importing/export data
+Session 1 covered introduction to R data types and import/export of data
 
 - [Background to R](#/background)
 - [Data types in R](#/datatypes)
@@ -49,14 +48,13 @@ Session 1 covered introduction to R data types and importing/export data
 ---
 ## Recap
 
-
 R stores data in five main data types.
 
 - **Vector** - Ordered collection of single data type (numeric/character/logical).
 - **Matrix** - Table (ordered 2D collection) of single data type (numeric/character/logical).
-- **Factors** -Ordered collection of ordinal or nominal catagories.
+- **Factors** - Ordered collection of ordinal or nominal catagories.
 - **Data frame** - Table (ordered 2D array) of multiple data types of same length.
-- **List** - Ordered collection of multiple data types of differing length
+- **List** - Ordered collection of multiple data types of differing length.
 
 
 ```r
@@ -69,9 +67,7 @@ aDataFrame &lt;- data.frame(Number=c(1,2,3,4,5),Factor=aFactor)
 ---
 ## Recap
 
-
 We can access and change information in our data.types using **indexing** with **[]**  (or **[[]]** for lists).
-
 
 
 ```r
@@ -94,7 +90,7 @@ aVector
 
 ---
 ## Recap
-For matricies and data.frames we use two indexs, specifying columns and rows. **matrix[_rowIndex_,_columnIndex_]**
+For matricies and data frames we use two indexes, specifying columns and rows. **matrix[_rowIndex_,_columnIndex_]**
 
 .pull-left[
 
@@ -146,11 +142,11 @@ aMatrix
 ## [5,]    9  100
 ```
 ]
+
 ---
 ## Recap
 
-
-Remember a matrix can only contain one data type (numeric, character etc). For mixed data types we use data.frames.
+Remember a matrix can only contain one data type (numeric, character etc). For mixed data types we use data frames.
 
 .pull-left[
 
@@ -189,9 +185,7 @@ aMatrix
 ---
 ## Recap
 
-
-We can use logical operations to evaluate information our data.types.
-
+We can use logical operations to evaluate information our data types.
 
 
 ```r
@@ -229,8 +223,7 @@ aDataFrame$Factor == "R"
 ---
 ## Recap
 
-
-We can use logical operations with indexing to subset or alter information held in our data.types.
+We can use logical operations with indexing to subset or alter information held in our data types.
 
 
 
@@ -255,10 +248,7 @@ aVector
 ---
 ## Recap
 
-
-When replacing factor columns in data.frames we have to remember the **levels**.
-
-
+When replacing factor columns in data frames we have to remember the **levels**.
 
 
 ```r
@@ -268,8 +258,8 @@ aDataFrame[aDataFrame$Factor == "R", 2] &lt;- "NotPython"
 ```
 
 ```
-## Warning in `[&lt;-.factor`(`*tmp*`, iseq, value = c("NotPython",
-## "NotPython", : invalid factor level, NA generated
+## Warning in `[&lt;-.factor`(`*tmp*`, iseq, value = c("NotPython", "NotPython", : invalid factor level, NA
+## generated
 ```
 
 ```r
@@ -289,8 +279,7 @@ aDataFrame
 ---
 ## Recap
 
-
-We can update levels in a data.frame column as we would a factor. Now we can replace our elements in data.frame.
+We can update levels in a data frame column as we would a factor. Now we can replace our elements in data frame.
 
 
 ```r
@@ -325,14 +314,10 @@ Table[1:3,]
 ```
 
 ```
-##        Sample_1.hi Sample_2.hi Sample_3.hi Sample_4.low Sample_5.low
-## Gene_a    4.570237    3.230467    3.351827     3.930877     4.098247
-## Gene_b    3.561733    3.632285    3.587523     4.185287     1.380976
-## Gene_c    3.797274    2.874462    4.016916     4.175772     1.988263
-##        Sample_1.low
-## Gene_a     4.418726
-## Gene_b     5.936990
-## Gene_c     3.780917
+##        Sample_1.hi Sample_2.hi Sample_3.hi Sample_4.low Sample_5.low Sample_1.low
+## Gene_a    4.570237    3.230467    3.351827     3.930877     4.098247     4.418726
+## Gene_b    3.561733    3.632285    3.587523     4.185287     1.380976     5.936990
+## Gene_c    3.797274    2.874462    4.016916     4.175772     1.988263     3.780917
 ```
 
 ```r
@@ -368,7 +353,7 @@ class: inverse, center, middle
 ## Conditions and Loops
 
 
-We have looked at using logical vectors as a way to index other data types
+We have looked at using logical vectors as a way to index other data types.
 
 ```r
 x &lt;- 1:10
@@ -391,10 +376,10 @@ Logicals are also used in controlling how scripted procedures execute.
 &lt;span style="color:green"&gt;While&lt;/span&gt; I'm analysing data, &lt;span style="color:red"&gt;if&lt;/span&gt; I need to execute complex statistical procedures on the data I will use R &lt;span style="color:red"&gt;else&lt;/span&gt; I will use a calculator.
 
 ---
-## Conditions- Conditional Branching.
+## Conditions - Conditional branching
 
 
-Conditional Branching is the evaluation of a logical to determine whether a chunk of code is executed.
+Conditional branching is the evaluation of a logical to determine whether a chunk of code is executed.
 
 In R, we use the **if** statement with the logical to be evaluated in **()** and dependent code to be executed in **{}**.
 
@@ -416,9 +401,9 @@ if(x){
   message("x is true")
 }
 ```
+
 ---
 ## Conditions  - Evaluating with if()
-
 
 More often, we construct the logical value within **()** itself. This can be termed the **condition**. 
 
@@ -435,7 +420,7 @@ if(x &gt; y){
 ## The value of x is 10 which is greater than 4
 ```
 
-Here the message is printed because x is greater than y. 
+The message is printed above because x is greater than y. 
 
 
 ```r
@@ -444,12 +429,12 @@ if(x &gt; y){
   message("The value of x is ",x," which is greater than ", y)
 }
 ```
-Here, x is not longer greater than y, so no message is printed.
+x is now no longer greater than y, so no message is printed.
 
 We really still want a message telling us what was the result of the condition.
 
 ---
-## Conditions - else following an if.
+## Conditions - else following an if
 
 .pull-left[
 If we want to perform an operation when the condition is false we can follow the if() statement with an else statement.
@@ -490,7 +475,6 @@ if(x &lt; 5){
 ---
 ## Conditions - else if
 
-
 We may wish to execute different procedures under multiple conditions. This can be controlled in R using the else if() following an initial if() statement.
 
 ```r
@@ -509,7 +493,7 @@ if(x &gt; 5){
 ```
 
 ---
-## Conditions -ifelse()
+## Conditions - ifelse()
 
 A useful function to evaluate conditional statements over vectors is the **ifelse()** function.
 
@@ -531,12 +515,12 @@ ifelse(x &lt;= 3,"lessOrEqual","more")
 ```
 
 ```
-##  [1] "lessOrEqual" "lessOrEqual" "lessOrEqual" "more"        "more"       
-##  [6] "more"        "more"        "more"        "more"        "more"
+##  [1] "lessOrEqual" "lessOrEqual" "lessOrEqual" "more"        "more"        "more"        "more"       
+##  [8] "more"        "more"        "more"
 ```
 
 ---
-## Conditions -ifelse()
+## Conditions - ifelse()
 
 We can use multiple nested **ifelse** functions to be apply more complex logical to vectors.
 
@@ -550,9 +534,9 @@ ifelse(x == 3,"same",
 ```
 ##  [1] "less" "less" "same" "more" "more" "more" "more" "more" "more" "more"
 ```
----
-## Conditions and Loops  - Loops
 
+---
+## Conditions and Loops - Loops
 
 The two main generic methods of looping in R are **while** and **for**
 
@@ -563,8 +547,7 @@ The two main generic methods of looping in R are **while** and **for**
 ---
 ## Loops - While loops
 
-
-While loops are most useful if you know the condition will be satisified but are not sure when. (i.e. Looking for a point when a number first occurs in a list).
+While loops are most useful if you know the condition will be satisified but are not sure when (i.e. Looking for a point when a number first occurs in a list).
 
 ```r
 x &lt;- 1
@@ -593,7 +576,6 @@ message("Finally x is not less than 3")
 ---
 ## Loops - For loops
 
-
 For loops allow the user to cycle through a range of values applying an operation for every value.
 
 Here we cycle through a numeric vector and print out its value.
@@ -609,7 +591,7 @@ for(i in x){
 ## 1 2 3 4 5
 ```
 
-Similarly we can cycle through other vector types (or lists)
+Similarly we can cycle through other vector types (or lists).
 
 ```r
 x &lt;- toupper(letters[1:5])
@@ -622,12 +604,8 @@ for(i in x){
 ## A B C D E
 ```
 
-
-
-
 ---
 ## Loops - Looping through indices
-
 
 We may wish to keep track of the position in x we are evaluating to retrieve the same index in other variables. A common practice is to loop though all possible index positions of x using the expression **1:length(x)**.
 
@@ -661,7 +639,7 @@ for(i in 1:length(geneName)){
 ```
 
 ---
-## Loops -Loops and conditionals
+## Loops - Loops and conditionals
 
 Loops can be combined with conditional statements to allow for complex control of their execution over R objects. 
 .pull-left[
@@ -679,6 +657,7 @@ for(i in 1:13){
   }
 }
 ```
+
 ]
 .pull-right[
 
@@ -734,6 +713,7 @@ for(i in 1:13){
 ## Number 13 is greater than 10
 ```
 ]
+
 ---
 ## Conditions and Loops - Breaking loops
 
@@ -756,6 +736,7 @@ for(i in 1:13){
 }
 ```
 ]
+
 .pull-right[
 
 ```
@@ -798,9 +779,9 @@ for(i in 1:13){
 ## Number 10 is  10
 ```
 ]
+
 ---
 ## Loops - Functions to loop over data types
-
 
 There are functions which allow you to loop over a data type and apply a function to the subsection of that data.
 
@@ -812,7 +793,6 @@ There are functions which allow you to loop over a data type and apply a functio
 
 ---
 ## Looping - apply()
-
 
 The **apply()** function applys a function to the rows or columns of a matrix. The arguments **FUN** specifies the function to apply and **MARGIN** whether to apply the functions by rows/columns or both.
 
@@ -914,7 +894,7 @@ lapply(list(1,c(NA,1),2),mean, na.rm=T)
 ```
 ]
 ---
-## Looping -sapply()
+## Looping - sapply()
 
 
 **sapply** (*smart apply*) acts as lapply but attempts to return the results as the most appropriate data type.
@@ -924,7 +904,7 @@ Here sapply returns a vector where lapply would return lists.
 ```r
 exampleVector &lt;- c(1,2,3,4,5)
 exampleList &lt;- list(1,2,3,4,5)
-sapply(exampleVector,mean,na.rm=T)
+sapply(exampleVector, mean, na.rm=T)
 ```
 
 ```
@@ -932,7 +912,7 @@ sapply(exampleVector,mean,na.rm=T)
 ```
 
 ```r
-sapply(exampleList,mean,na.rm=T)
+sapply(exampleList, mean, na.rm=T)
 ```
 
 ```
@@ -964,10 +944,11 @@ exampleList
 ## [1] 11 12 13 14 15
 ```
 ]
+
 .pull-right[
 
 ```r
-lapply(exampleList,quantile)
+lapply(exampleList, quantile)
 ```
 
 ```
@@ -984,9 +965,9 @@ lapply(exampleList,quantile)
 ##   11   12   13   14   15
 ```
 ]
+
 ---
 ## Looping - sapply() example 2
-
 
 Here is an example of sapply parsing a result from the quantile function in a *smart* way.
 
@@ -994,7 +975,7 @@ When a function always returns a vector of the same length, sapply will create a
 
 
 ```r
-sapply(exampleList,quantile)
+sapply(exampleList, quantile)
 ```
 
 ```
@@ -1016,7 +997,7 @@ When sapply cannot parse the result to a vector or matrix, a list will be return
 ```r
 exampleList &lt;- list(df=data.frame(sample=paste0("patient",1:2), data=c(1,12)),
                     vec=c(1,3,4,5))
-sapply(exampleList,summary)
+sapply(exampleList, summary)
 ```
 
 ```
@@ -1032,6 +1013,71 @@ sapply(exampleList,summary)
 ## $vec
 ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##    1.00    2.50    3.50    3.25    4.25    5.00
+```
+
+
+---
+## Custom functions
+You can create your own functions easily in R using the &lt;- assignment. We use the **function** statement with all input variables in **()** and all code to be executed in **{}**. Anything to be received back from the function is indicated by the **return** statement.  
+
+In this case we can recapitulate the square function. 
+
+```r
+square_my_number  &lt;- function(my_number){
+  my_square &lt;- my_number*my_number
+  return(my_square)
+}
+
+square_my_number(my_number=3)
+```
+
+```
+## [1] 9
+```
+
+---
+## Custom functions
+User defined functions can be as long and complicated as you want, taking in many variables, printing out messages and utilizing other functions within them.
+
+Lets make z-scores
+
+```r
+my_zscore  &lt;- function(my_number, my_vector){
+  my_mean &lt;- mean(my_vector)
+  message("Mean is ", my_mean)
+  diff_from_mean &lt;- my_number-my_mean
+  stdev &lt;- sd(my_vector)
+  my_z &lt;- diff_from_mean/stdev
+  return(my_z)
+}
+
+A &lt;- rnorm(20)
+
+my_zscore(my_number=A[1], my_vector=A)
+```
+
+```
+## Mean is 0.288617582386077
+```
+
+```
+## [1] -0.4803875
+```
+
+---
+## Custom functions and apply
+
+These custom functions can also be utilised with apply. 
+
+
+```r
+sapply(A, my_zscore, my_vector=A)
+```
+
+```
+##  [1] -0.48038751 -0.77048539 -1.88870683  0.55427170  1.28866628 -0.08228039  0.31378474 -0.65757669
+##  [9] -1.25294451 -0.38788818  0.67921661  1.03968862 -0.73328397  0.68220276  0.01242566 -0.32362453
+## [17] -0.70442602 -0.29370319  0.35478858  2.65026227
 ```
 
 ---
@@ -1051,26 +1097,21 @@ Rcode for answers can be found here  [here](http://rockefelleruniversity.github.
 ---
 class: inverse, center, middle
 
-
 # Getting additional libraries
 
-
 &lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px width=720px&gt;&lt;/html&gt; 
-
-
 
 ---
 ## Loading libraries
 
-
-Libraries can be loaded using the library() function with an argument of the name of the library
+Libraries can be loaded using the library() function with an argument of the name of the library.
 
 
 ```r
 library(ggplot2)
 ```
 
-You can see what libraries are available in the Packages panel or by the  library() function with no arguments supplied
+You can see what libraries are available in the Packages panel or by the library() function with no arguments supplied.
 
 
 ```r
@@ -1081,18 +1122,16 @@ library()
 ## Installing libraries
 
 
-Libraries can be installed through the R studio menu
+Libraries can be installed through the R studio menu.
 
 **-&gt; Tools -&gt; Install packages ..**
 
-Or by using the install.packages() command
+Or by using the install.packages() command.
 
 
 ```r
 install.packages("Hmisc")
 ```
-
-
 
 ---
 class: inverse, center, middle
@@ -1106,7 +1145,6 @@ class: inverse, center, middle
 
 ---
 ## Saving scripts
-
 
 Once we have got our functions together and know how we want to analyse our data, we can save our analysis as a **script**. By convention R scripts typically end in **.r** or **.R**
 
@@ -1138,7 +1176,7 @@ To save all the objects (workspace) with extension **.RData**
 
 
 ---
-## Sourcing scripts.
+## Sourcing scripts
 
 
 R scripts allow us to save and reuse custom functions we have written.  To run the code from an R script we can use the **source()** function with the name of the R script as the argument. 
@@ -1158,7 +1196,7 @@ dayOfWeek()
 ```
 
 ```
-## [1] "Fri"
+## [1] "Tue"
 ```
 
 ---
@@ -1188,7 +1226,6 @@ To provide arguments to an R script at the command line we must add **commandArg
 args &lt;- commandArgs(TRUE)
 myFirstArgument &lt;- args[1]
 myFirstArgument
-as.numeric(myFirstArgument
 ```
 
 ```
@@ -1201,8 +1238,9 @@ as.numeric(myFirstArgument)
 ```
 10
 ```
-Since vectors can only be one type, all command line arguments are strings and must be converted to numeric if needed with **as.numeric()**
+Since vectors can only be one type, all command line arguments are strings and must be converted to numeric if needed with **as.numeric()**.
     </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
 "highlightStyle": "github",
@@ -1212,26 +1250,121 @@ Since vectors can only be one type, all command line arguments are strings and m
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));
 });
-(function() {
-  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
   if (!r) return;
   s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
   d.head.appendChild(s);
-})();</script>
+})(document);
 
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
   }
-});
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  /* Replace <script> tags in slides area to make them executable
+   *
+   * Runs after post-processing of markdown source into slides and replaces only
+   * <script>s on the last slide of continued slides using the .has-continuation
+   * class added by xaringan. Finally, any <script>s in the slides area that
+   * aren't executed are commented out.
+   */
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container:not(.has-continuation) script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+  var scriptsNotExecuted = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container.has-continuation script'
+  );
+  if (!scriptsNotExecuted.length) return;
+  for (var i = 0; i < scriptsNotExecuted.length; i++) {
+    var comment = document.createComment(scriptsNotExecuted[i].outerHTML)
+    scriptsNotExecuted[i].parentElement.replaceChild(comment, scriptsNotExecuted[i])
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
 </script>
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
 (function () {
   var script = document.createElement('script');
   script.type = 'text/javascript';
-  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
   if (location.protocol !== 'file:' && /^https?:/.test(script.src))
     script.src  = script.src.replace(/^https?:/, '');
   document.getElementsByTagName('head')[0].appendChild(script);
