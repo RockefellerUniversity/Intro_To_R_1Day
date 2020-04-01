@@ -255,14 +255,6 @@ When replacing factor columns in data frames we have to remember the **levels**.
 aFactor &lt;- factor(c("R", "Python", "R", "R", "Python"), levels = c("R", "Python"))
 aDataFrame &lt;- data.frame(Number = c(1, 2, 3, 4, 5), Factor = aFactor)
 aDataFrame[aDataFrame$Factor == "R", 2] &lt;- "NotPython"
-```
-
-```
-## Warning in `[&lt;-.factor`(`*tmp*`, iseq, value = c("NotPython", "NotPython", : invalid factor level, NA
-## generated
-```
-
-```r
 aDataFrame
 ```
 
@@ -515,8 +507,8 @@ ifelse(x &lt;= 3,"lessOrEqual","more")
 ```
 
 ```
-##  [1] "lessOrEqual" "lessOrEqual" "lessOrEqual" "more"        "more"        "more"        "more"       
-##  [8] "more"        "more"        "more"
+##  [1] "lessOrEqual" "lessOrEqual" "lessOrEqual" "more"        "more"        "more"       
+##  [7] "more"        "more"        "more"        "more"
 ```
 
 ---
@@ -1057,11 +1049,11 @@ my_zscore(my_number=A[1], my_vector=A)
 ```
 
 ```
-## Mean is 0.288617582386077
+## Mean is 0.0910320695316402
 ```
 
 ```
-## [1] -0.4803875
+## [1] 0.5104889
 ```
 
 ---
@@ -1075,9 +1067,9 @@ sapply(A, my_zscore, my_vector=A)
 ```
 
 ```
-##  [1] -0.48038751 -0.77048539 -1.88870683  0.55427170  1.28866628 -0.08228039  0.31378474 -0.65757669
-##  [9] -1.25294451 -0.38788818  0.67921661  1.03968862 -0.73328397  0.68220276  0.01242566 -0.32362453
-## [17] -0.70442602 -0.29370319  0.35478858  2.65026227
+##  [1]  0.51048889 -1.37502817 -0.43945935  0.26341669  1.63918377  0.66162799  0.01935634
+##  [8]  1.01793665  0.53769843 -1.82720371 -1.34715067  0.53188750  1.31016000 -1.03438907
+## [15] -0.31560017 -1.19389181  0.83834461 -0.97221505  0.42958511  0.74525201
 ```
 
 ---
@@ -1196,7 +1188,7 @@ dayOfWeek()
 ```
 
 ```
-## [1] "Tue"
+## [1] "Wed"
 ```
 
 ---

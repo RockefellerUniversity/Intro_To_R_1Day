@@ -690,10 +690,6 @@ x+c(1,2,3)
 ```
 
 ```
-## Warning in x + c(1, 2, 3): longer object length is not a multiple of shorter object length
-```
-
-```
 ##  [1]  2  4  6  5  7  9  8 10 12 11
 ```
 
@@ -1119,14 +1115,6 @@ When creating a matrix using **cbind()** or **matrix()** from incompatible vecto
 
 ```r
 recycledMatrix2 &lt;- matrix(1:5,ncol=2,nrow=3)
-```
-
-```
-## Warning in matrix(1:5, ncol = 2, nrow = 3): data length [5] is not a sub-multiple or multiple of the
-## number of rows [3]
-```
-
-```r
 recycledMatrix2
 ```
 
@@ -1146,14 +1134,6 @@ For **rbind()** function, the longer vector is clipped.
 
 ```r
 recycledMatrix3 &lt;- rbind(recycledMatrix2,c(1:5))
-```
-
-```
-## Warning in rbind(recycledMatrix2, c(1:5)): number of columns of result is not a multiple of vector length
-## (arg 2)
-```
-
-```r
 recycledMatrix3
 ```
 
@@ -1616,10 +1596,6 @@ factorExample[1] &lt; factorExample[2]
 ```
 
 ```
-## Warning in Ops.factor(factorExample[1], factorExample[2]): '&lt;' not meaningful for factors
-```
-
-```
 ## [1] NA
 ```
 
@@ -1667,13 +1643,6 @@ factorExample
 
 ```r
 factorExample[1] &lt;- c("huge")
-```
-
-```
-## Warning in `[&lt;-.factor`(`*tmp*`, 1, value = "huge"): invalid factor level, NA generated
-```
-
-```r
 factorExample
 ```
 
@@ -1864,14 +1833,6 @@ This occurs because character vectors are treated as factors by default.
 
 ```r
 dfExample[dfExample[,"Survival_Time"] &lt; 10,"Name"] &lt;- "patientX"
-```
-
-```
-## Warning in `[&lt;-.factor`(`*tmp*`, iseq, value = c("patientX", "patientX")): invalid factor level, NA
-## generated
-```
-
-```r
 dfExample
 ```
 
@@ -2349,51 +2310,51 @@ A standard format for this data is a table:
 &lt;tbody&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_a &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 5.367080 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.550316 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.543040 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.353855 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.230260 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.289575 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_b &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 2.241623 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.102226 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 2.531281 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.155595 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5.710622 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.195468 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_c &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 5.155089 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 2.938205 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 2.975129 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5.685003 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.395084 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.345270 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_d &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 5.191736 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.169662 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.235704 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.215727 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5.553018 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5.356103 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_e &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.804165 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 8.913501 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 11.111910 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 11.266728 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.161264 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.469326 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_f &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.143659 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.052148 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 12.312276 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 11.607777 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.554939 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.023899 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_g &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 11.851893 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.905993 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.574482 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 12.159887 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.512652 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.715390 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_h &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.839887 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.984131 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.545987 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.460943 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8.971156 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 11.143799 &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;

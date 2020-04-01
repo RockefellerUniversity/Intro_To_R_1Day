@@ -108,6 +108,17 @@ a {
   margin-top: 0; }
 .main-content img {
   max-width: 100%; }
+.header img {
+  float: left;
+  width: 100px;
+  height: 100px;
+  background: #555;
+}
+.header h1 {
+  position: relative;
+  top: 18px;
+  left: 10px;
+}  
 .main-content h1, .main-content h2, .main-content h3, .main-content h4, .main-content h5, .main-content h6 {
   margin-top: 2rem;
   margin-bottom: 1rem;
