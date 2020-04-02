@@ -29,10 +29,10 @@ class: center, middle, inverse, title-slide
 ## Overview of what we've covered
 
 
-- [Recap](#/recap)
-- [Conditions and Loops](#/control)
-- [Writing scripts](#/scripts)
-- [Libraries](#/libraries)
+- [Recap](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#/recap)
+- [Conditions and Loops](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#/control)
+- [Writing scripts](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#/scripts)
+- [Libraries](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#/libraries)
 
 
 ---
@@ -41,9 +41,9 @@ class: center, middle, inverse, title-slide
 
 Session 1 covered introduction to R data types and import/export of data
 
-- [Background to R](#/background)
-- [Data types in R](#/datatypes)
-- [Reading and writing data in R](#/reading)
+- [Background to R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#/background)
+- [Data types in R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#/datatypes)
+- [Reading and writing data in R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#/reading)
 
 ---
 ## Recap
@@ -124,7 +124,7 @@ aMatrix[,1]
 ```
 ## [1] 1 3 5 7 9
 ```
-]
+  ]
 .pull-right[
 
 ```r
@@ -141,7 +141,7 @@ aMatrix
 ## [4,]    7  100
 ## [5,]    9  100
 ```
-]
+  ]
 
 ---
 ## Recap
@@ -164,7 +164,7 @@ aMatrix
 ## [4,]    7    8
 ## [5,]    9    0
 ```
-]
+  ]
 .pull-right[
 
 ```r
@@ -180,7 +180,7 @@ aMatrix
 ## [4,] "7"  "8"   
 ## [5,] "9"  "0"
 ```
-]
+  ]
 
 ---
 ## Recap
@@ -255,6 +255,14 @@ When replacing factor columns in data frames we have to remember the **levels**.
 aFactor &lt;- factor(c("R", "Python", "R", "R", "Python"), levels = c("R", "Python"))
 aDataFrame &lt;- data.frame(Number = c(1, 2, 3, 4, 5), Factor = aFactor)
 aDataFrame[aDataFrame$Factor == "R", 2] &lt;- "NotPython"
+```
+
+```
+## Warning in `[&lt;-.factor`(`*tmp*`, iseq, value = c("NotPython", "NotPython", : invalid factor
+## level, NA generated
+```
+
+```r
 aDataFrame
 ```
 
@@ -444,7 +452,7 @@ if(x &lt; 5){
 ```
 ## 3 is less than to 5
 ```
-]
+  ]
 .pull-right[
 With the addition of the else statement, when x is not less than 5 the code following the else statement is executed.
 
@@ -462,7 +470,7 @@ if(x &lt; 5){
 ## 10 is greater than or equal to 5
 ```
 
-]
+  ]
 
 ---
 ## Conditions - else if
@@ -650,7 +658,7 @@ for(i in 1:13){
 }
 ```
 
-]
+  ]
 .pull-right[
 
 ```
@@ -704,7 +712,7 @@ for(i in 1:13){
 ```
 ## Number 13 is greater than 10
 ```
-]
+  ]
 
 ---
 ## Conditions and Loops - Breaking loops
@@ -727,7 +735,7 @@ for(i in 1:13){
   }
 }
 ```
-]
+  ]
 
 .pull-right[
 
@@ -770,7 +778,7 @@ for(i in 1:13){
 ```
 ## Number 10 is  10
 ```
-]
+  ]
 
 ---
 ## Loops - Functions to loop over data types
@@ -865,7 +873,7 @@ lapply(c(1,2),mean)
 ## [[2]]
 ## [1] 2
 ```
-]
+  ]
 .pull-right[
 As with apply() additional arguments can be supplied after the function name argument.
 
@@ -884,7 +892,7 @@ lapply(list(1,c(NA,1),2),mean, na.rm=T)
 ## [[3]]
 ## [1] 2
 ```
-]
+  ]
 ---
 ## Looping - sapply()
 
@@ -935,7 +943,7 @@ exampleList
 ## $row3
 ## [1] 11 12 13 14 15
 ```
-]
+  ]
 
 .pull-right[
 
@@ -956,7 +964,7 @@ lapply(exampleList, quantile)
 ##   0%  25%  50%  75% 100% 
 ##   11   12   13   14   15
 ```
-]
+  ]
 
 ---
 ## Looping - sapply() example 2
@@ -1049,11 +1057,11 @@ my_zscore(my_number=A[1], my_vector=A)
 ```
 
 ```
-## Mean is 0.0910320695316402
+## Mean is 0.512527072390772
 ```
 
 ```
-## [1] 0.5104889
+## [1] 0.2742876
 ```
 
 ---
@@ -1067,9 +1075,9 @@ sapply(A, my_zscore, my_vector=A)
 ```
 
 ```
-##  [1]  0.51048889 -1.37502817 -0.43945935  0.26341669  1.63918377  0.66162799  0.01935634
-##  [8]  1.01793665  0.53769843 -1.82720371 -1.34715067  0.53188750  1.31016000 -1.03438907
-## [15] -0.31560017 -1.19389181  0.83834461 -0.97221505  0.42958511  0.74525201
+##  [1]  0.2742876 -0.3582515  0.1669281  0.5281302 -0.9535723  0.7257378  1.2059395  0.1596955
+##  [9] -0.7424135  0.6730405 -0.7280900  0.2655294  0.9994663  1.1451506  0.9507486 -1.9078214
+## [17] -2.3418211 -0.7410088  0.9917628 -0.3134383
 ```
 
 ---
@@ -1188,7 +1196,7 @@ dayOfWeek()
 ```
 
 ```
-## [1] "Wed"
+## [1] "Thu"
 ```
 
 ---
