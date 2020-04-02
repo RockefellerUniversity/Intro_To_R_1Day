@@ -26,24 +26,22 @@ class: center, middle, inverse, title-slide
 
 
 
-## Overview of what we've covered
+# Overview
 
-
-- [Recap](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#/recap)
-- [Conditions and Loops](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#/control)
-- [Writing scripts](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#/scripts)
-- [Libraries](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#/libraries)
+- [Recap](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session2.html#recap)
+- [Conditions and Loops](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session2.html#conditions_and_loops)
+- [Libraries](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session2.html#getting_additional_libraries)
+- [Writing scripts](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session2.html#scripts)
 
 
 ---
-##  Recap
-
+#  Recap
 
 Session 1 covered introduction to R data types and import/export of data
 
-- [Background to R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#/background)
-- [Data types in R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#/datatypes)
-- [Reading and writing data in R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#/reading)
+- [Background to R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#background-to-r)
+- [Data types in R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#data_types_in_r)
+- [Reading and writing in R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#reading-and-writing-data-in-r)
 
 ---
 ## Recap
@@ -258,8 +256,8 @@ aDataFrame[aDataFrame$Factor == "R", 2] &lt;- "NotPython"
 ```
 
 ```
-## Warning in `[&lt;-.factor`(`*tmp*`, iseq, value = c("NotPython", "NotPython", : invalid factor
-## level, NA generated
+## Warning in `[&lt;-.factor`(`*tmp*`, iseq, value = c("NotPython", "NotPython", : invalid
+## factor level, NA generated
 ```
 
 ```r
@@ -1057,11 +1055,11 @@ my_zscore(my_number=A[1], my_vector=A)
 ```
 
 ```
-## Mean is 0.512527072390772
+## Mean is 0.167774411176374
 ```
 
 ```
-## [1] 0.2742876
+## [1] 0.08279658
 ```
 
 ---
@@ -1075,9 +1073,9 @@ sapply(A, my_zscore, my_vector=A)
 ```
 
 ```
-##  [1]  0.2742876 -0.3582515  0.1669281  0.5281302 -0.9535723  0.7257378  1.2059395  0.1596955
-##  [9] -0.7424135  0.6730405 -0.7280900  0.2655294  0.9994663  1.1451506  0.9507486 -1.9078214
-## [17] -2.3418211 -0.7410088  0.9917628 -0.3134383
+##  [1]  0.08279658 -0.67722788 -0.67440523 -0.10637529 -1.04858965  1.70333705  0.34534884
+##  [8]  1.16000801  0.46828476 -0.46114792 -1.36344555  1.50658045  1.13563343  1.27274428
+## [15]  0.08332667  0.35467503 -1.88383600 -0.59937868 -0.29655282 -1.00177609
 ```
 
 ---
@@ -1163,19 +1161,6 @@ To save all the objects (workspace) with extension **.RData**
 **-&gt;Session -&gt; Save workspace as**
 
 ---
-## Getting help
-
-
-- Google
-- Local friendly bioinformaticians and computational biologists.
-- [Stackoverflow](http://stackoverflow.com/)
-- [R-help](https://stat.ethz.ch/mailman/listinfo/r-help)
-
----
-## The end
-
-
----
 ## Sourcing scripts
 
 
@@ -1239,6 +1224,15 @@ as.numeric(myFirstArgument)
 10
 ```
 Since vectors can only be one type, all command line arguments are strings and must be converted to numeric if needed with **as.numeric()**.
+
+---
+## Getting help
+
+
+- Google
+- Local friendly bioinformaticians and computational biologists.
+- [Stackoverflow](http://stackoverflow.com/)
+- [R-help](https://stat.ethz.ch/mailman/listinfo/r-help)
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

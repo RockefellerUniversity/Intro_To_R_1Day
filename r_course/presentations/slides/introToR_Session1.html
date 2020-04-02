@@ -29,17 +29,15 @@ class: center, middle, inverse, title-slide
 
 ## Overview
 
-- [Set up](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#Set-up)
-- [Background to R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#Background-to-R)
-- [Data types in R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#datatypes)
-- [Reading and writing in R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#datatypes)
+- [Set up](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#set-up)
+- [Background to R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#background-to-r)
+- [Data types in R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#data_types_in_r)
+- [Reading and writing in R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#reading-and-writing-data-in-r)
 
 ---
 class: inverse, center, middle
 
-
 # Set up
-
 
 &lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px width=720px&gt;&lt;/html&gt; 
 
@@ -129,7 +127,7 @@ Inheriting much from **S** (Bell labs).
 **R** provides access to 1000s of packages ([CRAN](http://cran.r-project.org/)/[MRAN](http://mran.revolutionanalytics.com/)/[R-forge](https://r-forge.r-project.org/)) which extend the basic functionality of R while maintaining high quality documentation.
 
 
-In particular, [Robert Gentleman](http://www.gene.com/scientists/our-scientists/robert-gentleman) developed the **[Bioconductor](http://bioconductor.org/)** project where 100's of packages are directly related to computational biology and analysis of associated high-throughput experiments.
+In particular, [Robert Gentleman](https://en.wikipedia.org/wiki/Robert_Gentleman_(statistician)) developed the **[Bioconductor](http://bioconductor.org/)** project where 100's of packages are directly related to computational biology and analysis of associated high-throughput experiments.
   ] 
 .pull-right[
 ![R use over time](imgs/RCitations.jpeg)
@@ -633,7 +631,7 @@ sqrt(4)
 ## Vectors - Arithmetic operations 
 
 
-Vectors in R can be used in arithmetic operations as seen with [variables earlier](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#/simplecalc). When a standard arithmetic operation is applied to vector, the operation is applied to each position in a vector.
+Vectors in R can be used in arithmetic operations as seen with [variables earlier](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#simple_calculations). When a standard arithmetic operation is applied to vector, the operation is applied to each position in a vector.
 
 
 ```r
@@ -707,7 +705,7 @@ x+c(1,2,3)
 
 So far we have only looked at numeric vectors or variables.
 
-In R we can also create character vectors [again using **c()** function](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#/combine). These vectors can be indexed just the same.
+In R we can also create character vectors [again using **c()** function](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#vectors22). These vectors can be indexed just the same.
 
 
 ```r
@@ -770,7 +768,7 @@ Similarly, when a calculation can not be perfomed, R will input a **NaN** value.
 - **NA** - Not Available.
 - **NaN** - Not A Number.
 
-**NA** values allow for R to handle missing data correctly but requires different handling than standard numeric or character values. We will illustrate an example handling **NA** values [later](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#/nalast).
+**NA** values allow for R to handle missing data correctly but requires different handling than standard numeric or character values. We will illustrate an example handling **NA** values [later](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#data-frames---ordering-with-na-values).
 
 
 ---
@@ -1126,8 +1124,8 @@ recycledMatrix2 &lt;- matrix(1:5,ncol=2,nrow=3)
 ```
 
 ```
-## Warning in matrix(1:5, ncol = 2, nrow = 3): data length [5] is not a sub-multiple or multiple
-## of the number of rows [3]
+## Warning in matrix(1:5, ncol = 2, nrow = 3): data length [5] is not a sub-multiple or
+## multiple of the number of rows [3]
 ```
 
 ```r
@@ -1153,8 +1151,8 @@ recycledMatrix3 &lt;- rbind(recycledMatrix2,c(1:5))
 ```
 
 ```
-## Warning in rbind(recycledMatrix2, c(1:5)): number of columns of result is not a multiple of
-## vector length (arg 2)
+## Warning in rbind(recycledMatrix2, c(1:5)): number of columns of result is not a multiple
+## of vector length (arg 2)
 ```
 
 ```r
@@ -1173,7 +1171,7 @@ recycledMatrix3
 ---
 ## Matrices - Column and row names
 
-[As we have seen with vectors](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#/namingvectors), matrices can be named. For matrices the naming is done by columns and rows using **colnames()** and **rownames()** functions.
+[As we have seen with vectors](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#vectors---character-vectors), matrices can be named. For matrices the naming is done by columns and rows using **colnames()** and **rownames()** functions.
 
 
 ```r
@@ -1211,11 +1209,10 @@ rownames(namedMatrix)
 ```
 
 
-
 ---
 ## Matrices - Indexing
 
-Selecting and replacing portions of a matrix can be done by **indexing** using square brackets **[]** much [like for vectors](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#indexingvectors).
+Selecting and replacing portions of a matrix can be done by **indexing** using square brackets **[]** much [like for vectors](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#vectors---indexing).
 
 When indexing matrices, two values may be provided within the square brackets separated by a comma to retrieve information on a matrix position.
 
@@ -1707,7 +1704,7 @@ factorExample
 ---
 ## Data frames - Creating data frames 
 
-[We saw that with matrices you can only have one type of data](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#/onedatatype). We tried to create a matrix with a character element and the entire matrix became a character.
+[We saw that with matrices you can only have one type of data](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#matrices_-_data_types). We tried to create a matrix with a character element and the entire matrix became a character.
 
 In practice, we would want to have a table which is a mixture of types (e.g a table with sample names (character), sample type (factor) and survival time (numeric))
 
@@ -1740,7 +1737,7 @@ dfExample
 ---
 ## Data frames - Indexing and replacement
 
-Data frames may be indexed just [as matrices](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#/indexingmatrices).
+Data frames may be indexed just [as matrices](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#matrices_-_indexing).
 
 
 ```r
@@ -2157,7 +2154,7 @@ myList
 ---
 ## Lists -  Named lists
  
-[Just as with vectors](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#/namingvectors), list elements can be assigned names.
+[Just as with vectors](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#vectors_-_character_vectors), list elements can be assigned names.
 
 
 ```r
@@ -2186,7 +2183,7 @@ myNamedList
 ---
 ## Lists - Indexing
 
-List, as [with other data types in R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#/indexingvectors) can be indexed. In contrast to other types, using **[]** on a list will subset the list to another list of selected indices. To retrieve an element from a list in R , two square brackets **[[]]** must be used. 
+List, as [with other data types in R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#vectors_-_indexing) can be indexed. In contrast to other types, using **[]** on a list will subset the list to another list of selected indices. To retrieve an element from a list in R , two square brackets **[[]]** must be used. 
 
 
 ```r
@@ -2223,7 +2220,7 @@ myNamedList$First
 ## Lists - Joining lists
 
 
-Again, [similar to vectors](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#/combine), lists can be joined together in R using the c() function 
+Again, [similar to vectors](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#vectors22), lists can be joined together in R using the c() function 
 
 
 ```r
@@ -2330,7 +2327,7 @@ listAsMat
 ---
 class: inverse, center, middle
 
-#Reading and writing data in R
+# Reading and writing data in R
 
 &lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px width=720px&gt;&lt;/html&gt; 
 
@@ -2353,51 +2350,51 @@ A standard format for this data is a table:
 &lt;tbody&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_a &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 2.848555 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 7.236719 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.450690 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.025220 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.069592 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5.875932 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_b &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.856318 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 6.198921 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.963827 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.718568 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.075838 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.631826 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_c &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 2.404432 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.480747 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 5.075056 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.373021 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.558633 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5.322872 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_d &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.837149 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 5.869630 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.904781 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.498438 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.118683 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.146744 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_e &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.855875 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 8.923983 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.022766 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.605138 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.612076 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.664344 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_f &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.769767 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.102934 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 8.929089 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.935863 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.382504 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 11.240405 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_g &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 11.219760 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.851240 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 8.416511 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.543241 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.903182 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.940791 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_h &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 11.308259 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.702922 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 8.542752 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.961562 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.269178 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.262697 &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;

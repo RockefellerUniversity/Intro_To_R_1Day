@@ -1,7 +1,7 @@
 ---
 title: "Functions in R Answers"
 author: "Rockefeller University, Bioinformatics Resource Centre"
-date: "https://rockefelleruniversity.github.io/RU_tidyverse/"
+date: "https://rockefelleruniversity.github.io/Intro_To_R_1Day/"
 output: 
   html_document:
     number_sections: false  ## if you want number sections at each table header
@@ -10,7 +10,7 @@ output:
 ---
 
 <p>&nbsp;</p>
-These answers are from the exercises about the functions sections of [Introduction to R](https://rockefelleruniversity.github.io/introToR_Day1.html). 
+These answers are from the exercises about the functions sections of [Introduction to R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/). 
 
 -- Create a function which takes one argument and finds the smallest number whose factorial is greater than that argument.
 
