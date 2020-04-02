@@ -1,4 +1,4 @@
-## ----message=T-----------------------------------------------------------------------
+## ----message=T--------------------------------------------------------------------------
 findSmallestFactorial <- function(x){
   if(!is.numeric(x)){
     message("Please provide a numeric argument!")
@@ -21,7 +21,7 @@ findSmallestFactorial(3000)
 findSmallestFactorial(10^100)
 
 
-## ----message=T-----------------------------------------------------------------------
+## ----message=T--------------------------------------------------------------------------
 findPerfectSquares <- function(x){
   vecOfSquares <- c()
   evenSquares <- 0
@@ -53,7 +53,7 @@ altFindPerfectSquares(1:100)
 #altRes <- altFindPerfectSquares(1:10^8)
 
 
-## ----message=T-----------------------------------------------------------------------
+## ----message=T--------------------------------------------------------------------------
 summariseResults <- function(dirName=getwd(),annotation){
   if(missing(annotation)){
     message("Annotation file must be provided")
@@ -95,14 +95,14 @@ summariseResults <- function(dirName=getwd(),annotation){
 summariseResults("ExpressionResults/","ExpressionResults/Annotation.ann")
 
 
-## ----message=T-----------------------------------------------------------------------
+## ----message=T--------------------------------------------------------------------------
 allSamples <- c("sample1.txt","sample2.txt","sample3.txt","sample4.txt","sample5.txt","sample5.txt")
 testSamples <- c("sample1.txt","sample5.txt")
 match(testSamples,allSamples)
 allSamples[match(testSamples,allSamples)]
 
 
-## ----message=T-----------------------------------------------------------------------
+## ----message=T--------------------------------------------------------------------------
 
 allSamples <- c("sample1.txt","sample2.txt","sample3.txt","sample4.txt","sample5.txt")
 testSamples <- c("sample1.txt","sample5.txt")
@@ -110,7 +110,7 @@ allSamples %in% testSamples
 allSamples[allSamples %in% testSamples]
 
 
-## ----message=T-----------------------------------------------------------------------
+## ----message=T--------------------------------------------------------------------------
 summariseResults2 <- function(dirName=getwd(),annotation,sampleGroups=NULL){
   if(missing(annotation)){
     message("Annotation file must be provided")

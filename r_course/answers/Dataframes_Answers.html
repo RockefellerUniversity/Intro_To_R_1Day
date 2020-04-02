@@ -426,7 +426,7 @@ summary {
 
 <h1 class="title toc-ignore">Factors and Data frames answers</h1>
 <h4 class="author">Rockefeller University, Bioinformatics Resource Centre</h4>
-<h4 class="date"><a href="https://rockefelleruniversity.github.io/RU_tidyverse/" class="uri">https://rockefelleruniversity.github.io/RU_tidyverse/</a></h4>
+<h4 class="date"><a href="https://rockefelleruniversity.github.io/Intro_To_R_1Day/" class="uri">https://rockefelleruniversity.github.io/Intro_To_R_1Day/</a></h4>
 
 </div>
 
@@ -434,7 +434,7 @@ summary {
 <p>
  
 </p>
-<p>These answers are from the exercises about the factors and data frames sections of <a href="https://rockefelleruniversity.github.io/introToR_Day1.html">Introduction to R</a>.</p>
+<p>These answers are from the exercises about the factors and data frames sections of <a href="https://rockefelleruniversity.github.io/Intro_To_R_1Day/">Introduction to R</a>.</p>
 <p><strong>Exercise 1</strong> - <strong>Data frames</strong></p>
 <ul>
 <li>Create data frame called Annotation with a column of gene names (“Gene_1”, “Gene_2”, “Gene_3”,“Gene_4”,“Gene_5”), ensembl gene names (“Ens001”, “Ens003”, “Ens006”, “Ens007”, “Ens010”), pathway information (“Glycolysis”, “TGFb”, “Glycolysis”, “TGFb”, “Glycolysis”) and gene lengths (100, 3000, 200, 1000,1200).</li>
@@ -466,11 +466,16 @@ summary {
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">AnnoSample1And2<span class="op">$</span>Sample1_lne &lt;-<span class="st"> </span>AnnoSample1And2<span class="op">$</span>expression.x<span class="op">/</span>AnnoSample1And2<span class="op">$</span>geneLengths</a>
 <a class="sourceLine" id="cb6-2" data-line-number="2">AnnoSample1And2<span class="op">$</span>Sample2_lne &lt;-<span class="st"> </span>AnnoSample1And2<span class="op">$</span>expression.y<span class="op">/</span>AnnoSample1And2<span class="op">$</span>geneLengths</a>
 <a class="sourceLine" id="cb6-3" data-line-number="3">AnnoSample1And2</a></code></pre></div>
-<pre><code>##   ensembl geneNames    pathway geneLengths expression.x expression.y Sample1_lne Sample2_lne
-## 1  Ens001    Gene_1 Glycolysis         100         1000         1500   10.000000   15.000000
-## 2  Ens003    Gene_2       TGFb        3000         3000         1500    1.000000    0.500000
-## 3  Ens006    Gene_3 Glycolysis         200        10000        17000   50.000000   85.000000
-## 4  Ens010    Gene_5 Glycolysis        1200         5000        10000    4.166667    8.333333</code></pre>
+<pre><code>##   ensembl geneNames    pathway geneLengths expression.x expression.y Sample1_lne
+## 1  Ens001    Gene_1 Glycolysis         100         1000         1500   10.000000
+## 2  Ens003    Gene_2       TGFb        3000         3000         1500    1.000000
+## 3  Ens006    Gene_3 Glycolysis         200        10000        17000   50.000000
+## 4  Ens010    Gene_5 Glycolysis        1200         5000        10000    4.166667
+##   Sample2_lne
+## 1   15.000000
+## 2    0.500000
+## 3   85.000000
+## 4    8.333333</code></pre>
 <ul>
 <li>Identify the mean length normalised expression across Sample1 and Sample2 for Ens006 genes</li>
 </ul>
