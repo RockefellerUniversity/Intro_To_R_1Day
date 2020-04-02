@@ -24,24 +24,22 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Overview of what we've covered
+# Overview
 
-
-- [Recap](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#/recap)
-- [Conditions and Loops](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#/control)
-- [Writing scripts](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#/scripts)
-- [Libraries](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#/libraries)
+- [Recap](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session2.html#recap)
+- [Conditions and Loops](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session2.html#conditions_and_loops)
+- [Libraries](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session2.html#getting_additional_libraries)
+- [Writing scripts](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session2.html#scripts)
 
 
 ---
-##  Recap
-
+#  Recap
 
 Session 1 covered introduction to R data types and import/export of data
 
-- [Background to R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#/background)
-- [Data types in R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#/datatypes)
-- [Reading and writing data in R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#/reading)
+- [Background to R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#background-to-r)
+- [Data types in R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#data_types_in_r)
+- [Reading and writing in R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#reading-and-writing-data-in-r)
 
 ---
 ## Recap
@@ -740,19 +738,6 @@ To save all the objects (workspace) with extension **.RData**
 **->Session -> Save workspace as**
 
 ---
-## Getting help
-
-
-- Google
-- Local friendly bioinformaticians and computational biologists.
-- [Stackoverflow](http://stackoverflow.com/)
-- [R-help](https://stat.ethz.ch/mailman/listinfo/r-help)
-
----
-## The end
-
-
----
 ## Sourcing scripts
 
 
@@ -810,5 +795,13 @@ as.numeric(myFirstArgument)
 ```
 Since vectors can only be one type, all command line arguments are strings and must be converted to numeric if needed with **as.numeric()**.
 
+---
+## Getting help
+
+
+- Google
+- Local friendly bioinformaticians and computational biologists.
+- [Stackoverflow](http://stackoverflow.com/)
+- [R-help](https://stat.ethz.ch/mailman/listinfo/r-help)
 
 
