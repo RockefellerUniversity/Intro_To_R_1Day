@@ -27,10 +27,10 @@ suppressPackageStartupMessages(require(knitr))
 
 ## Overview
 
-- [Set up](#Set-up)
-- [Background to R](#Background-to-R)
-- [Data types in R](#datatypes)
-- [Reading and writing in R](#datatypes)
+- [Set up](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#Set-up)
+- [Background to R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#Background-to-R)
+- [Data types in R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#datatypes)
+- [Reading and writing in R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#datatypes)
 
 ---
 class: inverse, center, middle
@@ -45,9 +45,11 @@ class: inverse, center, middle
 ## Materials
 
 All prerequisites, links to material and slides for this course can be found on github.
+
 * [Intro_To_R_1](https://rockefelleruniversity.github.io/Intro_To_R_1Day/)
 
-Or can be downloaded as a zip archive from here. 
+Or can be downloaded as a zip archive from here.
+
 * [Download zip](https://github.com/rockefelleruniversity/Intro_To_R_1Day/zipball/master)
 
 ---
@@ -124,10 +126,12 @@ Inheriting much from **S** (Bell labs).
 **R** provides access to 1000s of packages ([CRAN](http://cran.r-project.org/)/[MRAN](http://mran.revolutionanalytics.com/)/[R-forge](https://r-forge.r-project.org/)) which extend the basic functionality of R while maintaining high quality documentation.
 
 
-In particular, [Robert Gentleman](http://www.gene.com/scientists/our-scientists/robert-gentleman) developed the **[Bioconductor](http://bioconductor.org/)** project where 100's of packages are directly related to computational biology and analysis of associated high-throughput experiments.]
+In particular, [Robert Gentleman](http://www.gene.com/scientists/our-scientists/robert-gentleman) developed the **[Bioconductor](http://bioconductor.org/)** project where 100's of packages are directly related to computational biology and analysis of associated high-throughput experiments.
+  ] 
 .pull-right[
-![alt text](imgs/RCitations.jpeg)
-]
+![R use over time](imgs/RCitations.jpeg)
+
+  ]
 
 ---
 ## How to get R?
@@ -140,11 +144,11 @@ RStudio provides an integrated development environment (IDE) which is freely ava
 
 
 ***We will be using RStudio and R already installed on your machines.***
-]
+  ]
 .pull-right[
-![alt text](imgs/cran.jpeg)
-![alt text](imgs/rstudio.jpeg)
-]
+![R website](imgs/cran.jpeg)
+![RStudio website](imgs/rstudio.jpeg)
+  ]
 
 ---
 ## A quick tour of RStudio
@@ -158,14 +162,14 @@ Four main panels
 
 
 **Let's load RStudio and take a look**
-]
+  ]
 
 .pull-right[
 
-![alt text](imgs/rstudioBlank.jpeg)
+![RStudio appearance](imgs/rstudioBlank.jpeg)
 
 
-]
+  ]
 
 ---
 class: inverse, center, middle
@@ -440,7 +444,7 @@ sqrt(4)
 ## Vectors - Arithmetic operations 
 
 
-Vectors in R can be used in arithmetic operations as seen with [variables earlier](#/simplecalc). When a standard arithmetic operation is applied to vector, the operation is applied to each position in a vector.
+Vectors in R can be used in arithmetic operations as seen with [variables earlier](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#/simplecalc). When a standard arithmetic operation is applied to vector, the operation is applied to each position in a vector.
 
 ```{r vectorArithmetricOperations_introtoR}
 x <- c(1,2,3,4,5,6,7,8,9,10)
@@ -476,7 +480,7 @@ x+c(1,2,3)
 
 So far we have only looked at numeric vectors or variables.
 
-In R we can also create character vectors [again using **c()** function](#/combine). These vectors can be indexed just the same.
+In R we can also create character vectors [again using **c()** function](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#/combine). These vectors can be indexed just the same.
 
 ```{r vectorCharacters_introtoR}
 y <- c("ICTEM","CommonWealth","Wolfson")
@@ -516,7 +520,7 @@ Similarly, when a calculation can not be perfomed, R will input a **NaN** value.
 - **NA** - Not Available.
 - **NaN** - Not A Number.
 
-**NA** values allow for R to handle missing data correctly but requires different handling than standard numeric or character values. We will illustrate an example handling **NA** values [later](#/nalast).
+**NA** values allow for R to handle missing data correctly but requires different handling than standard numeric or character values. We will illustrate an example handling **NA** values [later](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#/nalast).
 
 
 ---
@@ -737,7 +741,7 @@ recycledMatrix3
 ---
 ## Matrices - Column and row names
 
-[As we have seen with vectors](#/namingvectors), matrices can be named. For matrices the naming is done by columns and rows using **colnames()** and **rownames()** functions.
+[As we have seen with vectors](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#/namingvectors), matrices can be named. For matrices the naming is done by columns and rows using **colnames()** and **rownames()** functions.
 
 ```{r matricesNames_introtoR}
 namedMatrix <- matrix(1:10,ncol=5,nrow=2)
@@ -760,7 +764,7 @@ rownames(namedMatrix)
 ---
 ## Matrices - Indexing
 
-Selecting and replacing portions of a matrix can be done by **indexing** using square brackets **[]** much [like for vectors](#indexingvectors).
+Selecting and replacing portions of a matrix can be done by **indexing** using square brackets **[]** much [like for vectors](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#indexingvectors).
 
 When indexing matrices, two values may be provided within the square brackets separated by a comma to retrieve information on a matrix position.
 
@@ -1002,7 +1006,7 @@ factorExample
 ---
 ## Data frames - Creating data frames 
 
-[We saw that with matrices you can only have one type of data](#/onedatatype). We tried to create a matrix with a character element and the entire matrix became a character.
+[We saw that with matrices you can only have one type of data](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#/onedatatype). We tried to create a matrix with a character element and the entire matrix became a character.
 
 In practice, we would want to have a table which is a mixture of types (e.g a table with sample names (character), sample type (factor) and survival time (numeric))
 
@@ -1026,7 +1030,7 @@ dfExample
 ---
 ## Data frames - Indexing and replacement
 
-Data frames may be indexed just [as matrices](#/indexingmatrices).
+Data frames may be indexed just [as matrices](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#/indexingmatrices).
 
 ```{r dataframesReplacement_introtoR}
 dfExample
@@ -1239,7 +1243,7 @@ myList
 ---
 ## Lists -  Named lists
  
-[Just as with vectors](#/namingvectors), list elements can be assigned names.
+[Just as with vectors](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#/namingvectors), list elements can be assigned names.
 
 ```{r listsCreateNnames_introtoR}
 myNamedList <- list(First=firstElement,Second=secondElement,
@@ -1250,7 +1254,7 @@ myNamedList
 ---
 ## Lists - Indexing
 
-List, as [with other data types in R](#/indexingvectors) can be indexed. In contrast to other types, using **[]** on a list will subset the list to another list of selected indices. To retrieve an element from a list in R , two square brackets **[[]]** must be used. 
+List, as [with other data types in R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#/indexingvectors) can be indexed. In contrast to other types, using **[]** on a list will subset the list to another list of selected indices. To retrieve an element from a list in R , two square brackets **[[]]** must be used. 
 
 ```{r listsCreateElements_introtoR}
 myList <- list(firstElement,secondElement,thirdElement)
@@ -1269,7 +1273,7 @@ myNamedList$First
 ## Lists - Joining lists
 
 
-Again, [similar to vectors](#/combine), lists can be joined together in R using the c() function 
+Again, [similar to vectors](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#/combine), lists can be joined together in R using the c() function 
 
 ```{r listsCombine_introtoR}
 myNamedList <- list(First=firstElement,Second=secondElement,

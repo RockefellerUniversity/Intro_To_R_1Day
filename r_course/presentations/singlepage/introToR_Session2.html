@@ -1587,19 +1587,19 @@ div.tocify {
 <div id="overview-of-what-weve-covered" class="section level2">
 <h2>Overview of what we’ve covered</h2>
 <ul>
-<li><a href="#/recap">Recap</a></li>
-<li><a href="#/control">Conditions and Loops</a></li>
-<li><a href="#/scripts">Writing scripts</a></li>
-<li><a href="#/libraries">Libraries</a></li>
+<li><a href="https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#/recap">Recap</a></li>
+<li><a href="https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#/control">Conditions and Loops</a></li>
+<li><a href="https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#/scripts">Writing scripts</a></li>
+<li><a href="https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#/libraries">Libraries</a></li>
 </ul>
 </div>
 <div id="recap" class="section level2">
 <h2>Recap</h2>
 <p>Session 1 covered introduction to R data types and import/export of data</p>
 <ul>
-<li><a href="#/background">Background to R</a></li>
-<li><a href="#/datatypes">Data types in R</a></li>
-<li><a href="#/reading">Reading and writing data in R</a></li>
+<li><a href="https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#/background">Background to R</a></li>
+<li><a href="https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#/datatypes">Data types in R</a></li>
+<li><a href="https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#/reading">Reading and writing data in R</a></li>
 </ul>
 </div>
 <div id="recap-1" class="section level2">
@@ -1630,7 +1630,6 @@ div.tocify {
 <div id="recap-3" class="section level2">
 <h2>Recap</h2>
 <p>For matricies and data frames we use two indexes, specifying columns and rows. <strong>matrix[<em>rowIndex</em>,<em>columnIndex</em>]</strong></p>
-<p>.pull-left[</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">aMatrix &lt;-<span class="st"> </span><span class="kw">matrix</span>(aVector,<span class="dt">ncol=</span><span class="dv">2</span>,</a>
 <a class="sourceLine" id="cb6-2" data-line-number="2">                  <span class="dt">nrow=</span><span class="dv">5</span>,<span class="dt">byrow =</span> <span class="ot">TRUE</span>)</a>
 <a class="sourceLine" id="cb6-3" data-line-number="3">aMatrix</a></code></pre></div>
@@ -1644,7 +1643,6 @@ div.tocify {
 <pre><code>## [1] 1 2</code></pre>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">aMatrix[,<span class="dv">1</span>]</a></code></pre></div>
 <pre><code>## [1] 1 3 5 7 9</code></pre>
-<p>] .pull-right[</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1">aMatrix[<span class="dv">1</span>,<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="dv">0</span></a>
 <a class="sourceLine" id="cb12-2" data-line-number="2">aMatrix[,<span class="dv">2</span>] &lt;-<span class="st"> </span><span class="dv">100</span></a>
 <a class="sourceLine" id="cb12-3" data-line-number="3">aMatrix</a></code></pre></div>
@@ -1654,12 +1652,10 @@ div.tocify {
 ## [3,]    5  100
 ## [4,]    7  100
 ## [5,]    9  100</code></pre>
-<p>]</p>
 </div>
 <div id="recap-4" class="section level2">
 <h2>Recap</h2>
 <p>Remember a matrix can only contain one data type (numeric, character etc). For mixed data types we use data frames.</p>
-<p>.pull-left[</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1">aMatrix &lt;-<span class="st"> </span><span class="kw">matrix</span>(aVector,<span class="dt">ncol=</span><span class="dv">2</span>,</a>
 <a class="sourceLine" id="cb14-2" data-line-number="2">                  <span class="dt">nrow=</span><span class="dv">5</span>,<span class="dt">byrow =</span> <span class="ot">TRUE</span>)</a>
 <a class="sourceLine" id="cb14-3" data-line-number="3">aMatrix</a></code></pre></div>
@@ -1669,7 +1665,6 @@ div.tocify {
 ## [3,]    5    6
 ## [4,]    7    8
 ## [5,]    9    0</code></pre>
-<p>] .pull-right[</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1">aMatrix[<span class="dv">1</span>,<span class="dv">2</span>] &lt;-<span class="st"> &quot;Word&quot;</span></a>
 <a class="sourceLine" id="cb16-2" data-line-number="2">aMatrix</a></code></pre></div>
 <pre><code>##      [,1] [,2]  
@@ -1678,7 +1673,6 @@ div.tocify {
 ## [3,] &quot;5&quot;  &quot;6&quot;   
 ## [4,] &quot;7&quot;  &quot;8&quot;   
 ## [5,] &quot;9&quot;  &quot;0&quot;</code></pre>
-<p>]</p>
 </div>
 <div id="recap-5" class="section level2">
 <h2>Recap</h2>
@@ -1713,8 +1707,10 @@ div.tocify {
 <p>When replacing factor columns in data frames we have to remember the <strong>levels</strong>.</p>
 <div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" data-line-number="1">aFactor &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;R&quot;</span>, <span class="st">&quot;Python&quot;</span>, <span class="st">&quot;R&quot;</span>, <span class="st">&quot;R&quot;</span>, <span class="st">&quot;Python&quot;</span>), <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;R&quot;</span>, <span class="st">&quot;Python&quot;</span>))</a>
 <a class="sourceLine" id="cb28-2" data-line-number="2">aDataFrame &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Number =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>), <span class="dt">Factor =</span> aFactor)</a>
-<a class="sourceLine" id="cb28-3" data-line-number="3">aDataFrame[aDataFrame<span class="op">$</span>Factor <span class="op">==</span><span class="st"> &quot;R&quot;</span>, <span class="dv">2</span>] &lt;-<span class="st"> &quot;NotPython&quot;</span></a>
-<a class="sourceLine" id="cb28-4" data-line-number="4">aDataFrame</a></code></pre></div>
+<a class="sourceLine" id="cb28-3" data-line-number="3">aDataFrame[aDataFrame<span class="op">$</span>Factor <span class="op">==</span><span class="st"> &quot;R&quot;</span>, <span class="dv">2</span>] &lt;-<span class="st"> &quot;NotPython&quot;</span></a></code></pre></div>
+<pre><code>## Warning in `[&lt;-.factor`(`*tmp*`, iseq, value = c(&quot;NotPython&quot;, &quot;NotPython&quot;, : invalid factor
+## level, NA generated</code></pre>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" data-line-number="1">aDataFrame</a></code></pre></div>
 <pre><code>##   Number Factor
 ## 1      1   &lt;NA&gt;
 ## 2      2 Python
@@ -1725,12 +1721,12 @@ div.tocify {
 <div id="recap-8" class="section level2">
 <h2>Recap</h2>
 <p>We can update levels in a data frame column as we would a factor. Now we can replace our elements in data frame.</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" data-line-number="1">aDataFrame &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Number=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>),</a>
-<a class="sourceLine" id="cb30-2" data-line-number="2">                         <span class="dt">Factor=</span>aFactor)</a>
-<a class="sourceLine" id="cb30-3" data-line-number="3">aDataFrame<span class="op">$</span>Factor &lt;-<span class="st"> </span><span class="kw">factor</span>(aDataFrame<span class="op">$</span>Factor,</a>
-<a class="sourceLine" id="cb30-4" data-line-number="4">                            <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;R&quot;</span>,<span class="st">&quot;Python&quot;</span>,<span class="st">&quot;NotPython&quot;</span>))</a>
-<a class="sourceLine" id="cb30-5" data-line-number="5">aDataFrame[aDataFrame<span class="op">$</span>Factor <span class="op">==</span><span class="st"> &quot;R&quot;</span>,<span class="dv">2</span>] &lt;-<span class="st"> &quot;NotPython&quot;</span></a>
-<a class="sourceLine" id="cb30-6" data-line-number="6">aDataFrame</a></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" data-line-number="1">aDataFrame &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Number=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>),</a>
+<a class="sourceLine" id="cb32-2" data-line-number="2">                         <span class="dt">Factor=</span>aFactor)</a>
+<a class="sourceLine" id="cb32-3" data-line-number="3">aDataFrame<span class="op">$</span>Factor &lt;-<span class="st"> </span><span class="kw">factor</span>(aDataFrame<span class="op">$</span>Factor,</a>
+<a class="sourceLine" id="cb32-4" data-line-number="4">                            <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;R&quot;</span>,<span class="st">&quot;Python&quot;</span>,<span class="st">&quot;NotPython&quot;</span>))</a>
+<a class="sourceLine" id="cb32-5" data-line-number="5">aDataFrame[aDataFrame<span class="op">$</span>Factor <span class="op">==</span><span class="st"> &quot;R&quot;</span>,<span class="dv">2</span>] &lt;-<span class="st"> &quot;NotPython&quot;</span></a>
+<a class="sourceLine" id="cb32-6" data-line-number="6">aDataFrame</a></code></pre></div>
 <pre><code>##   Number    Factor
 ## 1      1 NotPython
 ## 2      2    Python
@@ -1741,20 +1737,19 @@ div.tocify {
 <div id="recap-9" class="section level2">
 <h2>Recap</h2>
 <p>Data can be read into R as a table with the <strong>read.table()</strong> function and written to file with the <strong>write.table()</strong> function.</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" data-line-number="1">Table &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;data/readThisTable.csv&quot;</span>,<span class="dt">sep=</span><span class="st">&quot;,&quot;</span>,<span class="dt">header=</span>T,<span class="dt">row.names=</span><span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb32-2" data-line-number="2">Table[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>,]</a></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" data-line-number="1">Table &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;data/readThisTable.csv&quot;</span>,<span class="dt">sep=</span><span class="st">&quot;,&quot;</span>,<span class="dt">header=</span>T,<span class="dt">row.names=</span><span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb34-2" data-line-number="2">Table[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>,]</a></code></pre></div>
 <pre><code>##        Sample_1.hi Sample_2.hi Sample_3.hi Sample_4.low Sample_5.low Sample_1.low
 ## Gene_a    4.570237    3.230467    3.351827     3.930877     4.098247     4.418726
 ## Gene_b    3.561733    3.632285    3.587523     4.185287     1.380976     5.936990
 ## Gene_c    3.797274    2.874462    4.016916     4.175772     1.988263     3.780917</code></pre>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" data-line-number="1"><span class="kw">write.table</span>(Table,<span class="dt">file=</span><span class="st">&quot;data/writeThisTable.csv&quot;</span>, <span class="dt">sep=</span><span class="st">&quot;,&quot;</span>, <span class="dt">row.names =</span>F,<span class="dt">col.names=</span>T)</a></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" data-line-number="1"><span class="kw">write.table</span>(Table,<span class="dt">file=</span><span class="st">&quot;data/writeThisTable.csv&quot;</span>, <span class="dt">sep=</span><span class="st">&quot;,&quot;</span>, <span class="dt">row.names =</span>F,<span class="dt">col.names=</span>T)</a></code></pre></div>
 </div>
 <div id="recap-10" class="section level2">
 <h2>Recap</h2>
 <p>If we want to know how a function works or get an example on its use we can use <strong>?</strong> infront function name.</p>
 <p><strong>?<em>FunctionName</em></strong></p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" data-line-number="1">?merge</a></code></pre></div>
-<p>class: inverse, center, middle</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" data-line-number="1">?merge</a></code></pre></div>
 </div>
 <div id="conditions-and-loops" class="section level1">
 <h1>Conditions and Loops</h1>
@@ -1767,8 +1762,8 @@ div.tocify {
 <div id="conditions-and-loops-1" class="section level2">
 <h2>Conditions and Loops</h2>
 <p>We have looked at using logical vectors as a way to index other data types.</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span></a>
-<a class="sourceLine" id="cb36-2" data-line-number="2">x[x <span class="op">&lt;</span><span class="st"> </span><span class="dv">4</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span></a>
+<a class="sourceLine" id="cb38-2" data-line-number="2">x[x <span class="op">&lt;</span><span class="st"> </span><span class="dv">4</span>]</a></code></pre></div>
 <pre><code>## [1] 1 2 3</code></pre>
 <p>Logicals are also used in controlling how scripted procedures execute.</p>
 </div>
@@ -1784,83 +1779,82 @@ div.tocify {
 <h2>Conditions - Conditional branching</h2>
 <p>Conditional branching is the evaluation of a logical to determine whether a chunk of code is executed.</p>
 <p>In R, we use the <strong>if</strong> statement with the logical to be evaluated in <strong>()</strong> and dependent code to be executed in <strong>{}</strong>.</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="ot">TRUE</span></a>
-<a class="sourceLine" id="cb38-2" data-line-number="2"><span class="cf">if</span>(x){</a>
-<a class="sourceLine" id="cb38-3" data-line-number="3">  <span class="kw">message</span>(<span class="st">&quot;x is true&quot;</span>)</a>
-<a class="sourceLine" id="cb38-4" data-line-number="4">}</a></code></pre></div>
-<pre><code>## x is true</code></pre>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb40-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="ot">FALSE</span></a>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb40-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="ot">TRUE</span></a>
 <a class="sourceLine" id="cb40-2" data-line-number="2"><span class="cf">if</span>(x){</a>
 <a class="sourceLine" id="cb40-3" data-line-number="3">  <span class="kw">message</span>(<span class="st">&quot;x is true&quot;</span>)</a>
 <a class="sourceLine" id="cb40-4" data-line-number="4">}</a></code></pre></div>
+<pre><code>## x is true</code></pre>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb42-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="ot">FALSE</span></a>
+<a class="sourceLine" id="cb42-2" data-line-number="2"><span class="cf">if</span>(x){</a>
+<a class="sourceLine" id="cb42-3" data-line-number="3">  <span class="kw">message</span>(<span class="st">&quot;x is true&quot;</span>)</a>
+<a class="sourceLine" id="cb42-4" data-line-number="4">}</a></code></pre></div>
 </div>
 <div id="conditions---evaluating-with-if" class="section level2">
 <h2>Conditions - Evaluating with if()</h2>
 <p>More often, we construct the logical value within <strong>()</strong> itself. This can be termed the <strong>condition</strong>.</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb41-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="dv">10</span></a>
-<a class="sourceLine" id="cb41-2" data-line-number="2">y &lt;-<span class="st"> </span><span class="dv">4</span></a>
-<a class="sourceLine" id="cb41-3" data-line-number="3"><span class="cf">if</span>(x <span class="op">&gt;</span><span class="st"> </span>y){</a>
-<a class="sourceLine" id="cb41-4" data-line-number="4">  <span class="kw">message</span>(<span class="st">&quot;The value of x is &quot;</span>,x,<span class="st">&quot; which is greater than &quot;</span>, y)</a>
-<a class="sourceLine" id="cb41-5" data-line-number="5">}</a></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb43-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="dv">10</span></a>
+<a class="sourceLine" id="cb43-2" data-line-number="2">y &lt;-<span class="st"> </span><span class="dv">4</span></a>
+<a class="sourceLine" id="cb43-3" data-line-number="3"><span class="cf">if</span>(x <span class="op">&gt;</span><span class="st"> </span>y){</a>
+<a class="sourceLine" id="cb43-4" data-line-number="4">  <span class="kw">message</span>(<span class="st">&quot;The value of x is &quot;</span>,x,<span class="st">&quot; which is greater than &quot;</span>, y)</a>
+<a class="sourceLine" id="cb43-5" data-line-number="5">}</a></code></pre></div>
 <pre><code>## The value of x is 10 which is greater than 4</code></pre>
 <p>The message is printed above because x is greater than y.</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb43-1" data-line-number="1">y &lt;-<span class="st"> </span><span class="dv">20</span></a>
-<a class="sourceLine" id="cb43-2" data-line-number="2"><span class="cf">if</span>(x <span class="op">&gt;</span><span class="st"> </span>y){</a>
-<a class="sourceLine" id="cb43-3" data-line-number="3">  <span class="kw">message</span>(<span class="st">&quot;The value of x is &quot;</span>,x,<span class="st">&quot; which is greater than &quot;</span>, y)</a>
-<a class="sourceLine" id="cb43-4" data-line-number="4">}</a></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb45-1" data-line-number="1">y &lt;-<span class="st"> </span><span class="dv">20</span></a>
+<a class="sourceLine" id="cb45-2" data-line-number="2"><span class="cf">if</span>(x <span class="op">&gt;</span><span class="st"> </span>y){</a>
+<a class="sourceLine" id="cb45-3" data-line-number="3">  <span class="kw">message</span>(<span class="st">&quot;The value of x is &quot;</span>,x,<span class="st">&quot; which is greater than &quot;</span>, y)</a>
+<a class="sourceLine" id="cb45-4" data-line-number="4">}</a></code></pre></div>
 <p>x is now no longer greater than y, so no message is printed.</p>
 <p>We really still want a message telling us what was the result of the condition.</p>
 </div>
 <div id="conditions---else-following-an-if" class="section level2">
 <h2>Conditions - else following an if</h2>
-<p>.pull-left[ If we want to perform an operation when the condition is false we can follow the if() statement with an else statement.</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb44-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="dv">3</span></a>
-<a class="sourceLine" id="cb44-2" data-line-number="2"><span class="cf">if</span>(x <span class="op">&lt;</span><span class="st"> </span><span class="dv">5</span>){</a>
-<a class="sourceLine" id="cb44-3" data-line-number="3">  <span class="kw">message</span>(x, <span class="st">&quot; is less than to 5&quot;</span>)</a>
-<a class="sourceLine" id="cb44-4" data-line-number="4">   }<span class="cf">else</span>{</a>
-<a class="sourceLine" id="cb44-5" data-line-number="5">     <span class="kw">message</span>(x,<span class="st">&quot; is greater than or equal to 5&quot;</span>)</a>
-<a class="sourceLine" id="cb44-6" data-line-number="6">}</a></code></pre></div>
-<pre><code>## 3 is less than to 5</code></pre>
-<p>] .pull-right[ With the addition of the else statement, when x is not less than 5 the code following the else statement is executed.</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb46-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="dv">10</span></a>
+<p>If we want to perform an operation when the condition is false we can follow the if() statement with an else statement.</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb46-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="dv">3</span></a>
 <a class="sourceLine" id="cb46-2" data-line-number="2"><span class="cf">if</span>(x <span class="op">&lt;</span><span class="st"> </span><span class="dv">5</span>){</a>
-<a class="sourceLine" id="cb46-3" data-line-number="3">  <span class="kw">message</span>(x, <span class="st">&quot; is less than 5&quot;</span>)</a>
+<a class="sourceLine" id="cb46-3" data-line-number="3">  <span class="kw">message</span>(x, <span class="st">&quot; is less than to 5&quot;</span>)</a>
 <a class="sourceLine" id="cb46-4" data-line-number="4">   }<span class="cf">else</span>{</a>
 <a class="sourceLine" id="cb46-5" data-line-number="5">     <span class="kw">message</span>(x,<span class="st">&quot; is greater than or equal to 5&quot;</span>)</a>
 <a class="sourceLine" id="cb46-6" data-line-number="6">}</a></code></pre></div>
+<pre><code>## 3 is less than to 5</code></pre>
+<p>With the addition of the else statement, when x is not less than 5 the code following the else statement is executed.</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="dv">10</span></a>
+<a class="sourceLine" id="cb48-2" data-line-number="2"><span class="cf">if</span>(x <span class="op">&lt;</span><span class="st"> </span><span class="dv">5</span>){</a>
+<a class="sourceLine" id="cb48-3" data-line-number="3">  <span class="kw">message</span>(x, <span class="st">&quot; is less than 5&quot;</span>)</a>
+<a class="sourceLine" id="cb48-4" data-line-number="4">   }<span class="cf">else</span>{</a>
+<a class="sourceLine" id="cb48-5" data-line-number="5">     <span class="kw">message</span>(x,<span class="st">&quot; is greater than or equal to 5&quot;</span>)</a>
+<a class="sourceLine" id="cb48-6" data-line-number="6">}</a></code></pre></div>
 <pre><code>## 10 is greater than or equal to 5</code></pre>
-<p>]</p>
 </div>
 <div id="conditions---else-if" class="section level2">
 <h2>Conditions - else if</h2>
 <p>We may wish to execute different procedures under multiple conditions. This can be controlled in R using the else if() following an initial if() statement.</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="dv">5</span></a>
-<a class="sourceLine" id="cb48-2" data-line-number="2"><span class="cf">if</span>(x <span class="op">&gt;</span><span class="st"> </span><span class="dv">5</span>){</a>
-<a class="sourceLine" id="cb48-3" data-line-number="3">  <span class="kw">message</span>(x,<span class="st">&quot; is greater than 5&quot;</span>)</a>
-<a class="sourceLine" id="cb48-4" data-line-number="4">  }<span class="cf">else</span> <span class="cf">if</span>(x <span class="op">==</span><span class="st"> </span><span class="dv">5</span>){</a>
-<a class="sourceLine" id="cb48-5" data-line-number="5">    <span class="kw">message</span>(x,<span class="st">&quot; is 5&quot;</span>)</a>
-<a class="sourceLine" id="cb48-6" data-line-number="6">  }<span class="cf">else</span>{</a>
-<a class="sourceLine" id="cb48-7" data-line-number="7">    <span class="kw">message</span>(x, <span class="st">&quot; is less than 5&quot;</span>)</a>
-<a class="sourceLine" id="cb48-8" data-line-number="8">  }</a></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb50-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="dv">5</span></a>
+<a class="sourceLine" id="cb50-2" data-line-number="2"><span class="cf">if</span>(x <span class="op">&gt;</span><span class="st"> </span><span class="dv">5</span>){</a>
+<a class="sourceLine" id="cb50-3" data-line-number="3">  <span class="kw">message</span>(x,<span class="st">&quot; is greater than 5&quot;</span>)</a>
+<a class="sourceLine" id="cb50-4" data-line-number="4">  }<span class="cf">else</span> <span class="cf">if</span>(x <span class="op">==</span><span class="st"> </span><span class="dv">5</span>){</a>
+<a class="sourceLine" id="cb50-5" data-line-number="5">    <span class="kw">message</span>(x,<span class="st">&quot; is 5&quot;</span>)</a>
+<a class="sourceLine" id="cb50-6" data-line-number="6">  }<span class="cf">else</span>{</a>
+<a class="sourceLine" id="cb50-7" data-line-number="7">    <span class="kw">message</span>(x, <span class="st">&quot; is less than 5&quot;</span>)</a>
+<a class="sourceLine" id="cb50-8" data-line-number="8">  }</a></code></pre></div>
 <pre><code>## 5 is 5</code></pre>
 </div>
 <div id="conditions---ifelse" class="section level2">
 <h2>Conditions - ifelse()</h2>
 <p>A useful function to evaluate conditional statements over vectors is the <strong>ifelse()</strong> function.</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb50-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span></a>
-<a class="sourceLine" id="cb50-2" data-line-number="2">x</a></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb52-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span></a>
+<a class="sourceLine" id="cb52-2" data-line-number="2">x</a></code></pre></div>
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
 <p>The ifelse() functions take the arguments of the condition to evaluate, the action if the condition is true and the action when condition is false.</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb52-1" data-line-number="1"><span class="kw">ifelse</span>(x <span class="op">&lt;=</span><span class="st"> </span><span class="dv">3</span>,<span class="st">&quot;lessOrEqual&quot;</span>,<span class="st">&quot;more&quot;</span>) </a></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb54-1" data-line-number="1"><span class="kw">ifelse</span>(x <span class="op">&lt;=</span><span class="st"> </span><span class="dv">3</span>,<span class="st">&quot;lessOrEqual&quot;</span>,<span class="st">&quot;more&quot;</span>) </a></code></pre></div>
 <pre><code>##  [1] &quot;lessOrEqual&quot; &quot;lessOrEqual&quot; &quot;lessOrEqual&quot; &quot;more&quot;        &quot;more&quot;        &quot;more&quot;       
 ##  [7] &quot;more&quot;        &quot;more&quot;        &quot;more&quot;        &quot;more&quot;</code></pre>
 </div>
 <div id="conditions---ifelse-1" class="section level2">
 <h2>Conditions - ifelse()</h2>
 <p>We can use multiple nested <strong>ifelse</strong> functions to be apply more complex logical to vectors.</p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb54-1" data-line-number="1"><span class="kw">ifelse</span>(x <span class="op">==</span><span class="st"> </span><span class="dv">3</span>,<span class="st">&quot;same&quot;</span>,</a>
-<a class="sourceLine" id="cb54-2" data-line-number="2">       <span class="kw">ifelse</span>(x <span class="op">&lt;</span><span class="st"> </span><span class="dv">3</span>,<span class="st">&quot;less&quot;</span>,<span class="st">&quot;more&quot;</span>)</a>
-<a class="sourceLine" id="cb54-3" data-line-number="3">      ) </a></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb56-1" data-line-number="1"><span class="kw">ifelse</span>(x <span class="op">==</span><span class="st"> </span><span class="dv">3</span>,<span class="st">&quot;same&quot;</span>,</a>
+<a class="sourceLine" id="cb56-2" data-line-number="2">       <span class="kw">ifelse</span>(x <span class="op">&lt;</span><span class="st"> </span><span class="dv">3</span>,<span class="st">&quot;less&quot;</span>,<span class="st">&quot;more&quot;</span>)</a>
+<a class="sourceLine" id="cb56-3" data-line-number="3">      ) </a></code></pre></div>
 <pre><code>##  [1] &quot;less&quot; &quot;less&quot; &quot;same&quot; &quot;more&quot; &quot;more&quot; &quot;more&quot; &quot;more&quot; &quot;more&quot; &quot;more&quot; &quot;more&quot;</code></pre>
 </div>
 <div id="conditions-and-loops---loops" class="section level2">
@@ -1874,61 +1868,60 @@ div.tocify {
 <div id="loops---while-loops" class="section level2">
 <h2>Loops - While loops</h2>
 <p>While loops are most useful if you know the condition will be satisified but are not sure when (i.e. Looking for a point when a number first occurs in a list).</p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb56-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="dv">1</span></a>
-<a class="sourceLine" id="cb56-2" data-line-number="2"><span class="cf">while</span>(x <span class="op">&lt;</span><span class="st"> </span><span class="dv">3</span>){</a>
-<a class="sourceLine" id="cb56-3" data-line-number="3">  <span class="kw">message</span>(<span class="st">&quot;x is &quot;</span>,x,<span class="st">&quot; &quot;</span>)</a>
-<a class="sourceLine" id="cb56-4" data-line-number="4">  x &lt;-<span class="st"> </span>x<span class="op">+</span><span class="dv">1</span></a>
-<a class="sourceLine" id="cb56-5" data-line-number="5">}</a></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb58-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb58-2" data-line-number="2"><span class="cf">while</span>(x <span class="op">&lt;</span><span class="st"> </span><span class="dv">3</span>){</a>
+<a class="sourceLine" id="cb58-3" data-line-number="3">  <span class="kw">message</span>(<span class="st">&quot;x is &quot;</span>,x,<span class="st">&quot; &quot;</span>)</a>
+<a class="sourceLine" id="cb58-4" data-line-number="4">  x &lt;-<span class="st"> </span>x<span class="op">+</span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb58-5" data-line-number="5">}</a></code></pre></div>
 <pre><code>## x is 1</code></pre>
 <pre><code>## x is 2</code></pre>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb59-1" data-line-number="1"><span class="kw">message</span>(<span class="st">&quot;Finally x is not less than 3&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb61-1" data-line-number="1"><span class="kw">message</span>(<span class="st">&quot;Finally x is not less than 3&quot;</span>)</a></code></pre></div>
 <pre><code>## Finally x is not less than 3</code></pre>
 </div>
 <div id="loops---for-loops" class="section level2">
 <h2>Loops - For loops</h2>
 <p>For loops allow the user to cycle through a range of values applying an operation for every value.</p>
 <p>Here we cycle through a numeric vector and print out its value.</p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb61-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">5</span></a>
-<a class="sourceLine" id="cb61-2" data-line-number="2"><span class="cf">for</span>(i <span class="cf">in</span> x){</a>
-<a class="sourceLine" id="cb61-3" data-line-number="3">  <span class="kw">message</span>(i,<span class="st">&quot; &quot;</span>, <span class="dt">appendLF =</span> F)</a>
-<a class="sourceLine" id="cb61-4" data-line-number="4">}</a></code></pre></div>
-<pre><code>## 1 2 3 4 5</code></pre>
-<p>Similarly we can cycle through other vector types (or lists).</p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb63-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="kw">toupper</span>(letters[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>])</a>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb63-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">5</span></a>
 <a class="sourceLine" id="cb63-2" data-line-number="2"><span class="cf">for</span>(i <span class="cf">in</span> x){</a>
 <a class="sourceLine" id="cb63-3" data-line-number="3">  <span class="kw">message</span>(i,<span class="st">&quot; &quot;</span>, <span class="dt">appendLF =</span> F)</a>
 <a class="sourceLine" id="cb63-4" data-line-number="4">}</a></code></pre></div>
+<pre><code>## 1 2 3 4 5</code></pre>
+<p>Similarly we can cycle through other vector types (or lists).</p>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb65-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="kw">toupper</span>(letters[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>])</a>
+<a class="sourceLine" id="cb65-2" data-line-number="2"><span class="cf">for</span>(i <span class="cf">in</span> x){</a>
+<a class="sourceLine" id="cb65-3" data-line-number="3">  <span class="kw">message</span>(i,<span class="st">&quot; &quot;</span>, <span class="dt">appendLF =</span> F)</a>
+<a class="sourceLine" id="cb65-4" data-line-number="4">}</a></code></pre></div>
 <pre><code>## A B C D E</code></pre>
 </div>
 <div id="loops---looping-through-indices" class="section level2">
 <h2>Loops - Looping through indices</h2>
 <p>We may wish to keep track of the position in x we are evaluating to retrieve the same index in other variables. A common practice is to loop though all possible index positions of x using the expression <strong>1:length(x)</strong>.</p>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb65-1" data-line-number="1">geneName &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Ikzf1&quot;</span>,<span class="st">&quot;Myc&quot;</span>,<span class="st">&quot;Igll1&quot;</span>)</a>
-<a class="sourceLine" id="cb65-2" data-line-number="2">expression &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">10.4</span>,<span class="fl">4.3</span>,<span class="fl">6.5</span>)</a>
-<a class="sourceLine" id="cb65-3" data-line-number="3"><span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(geneName)</a></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb67-1" data-line-number="1">geneName &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Ikzf1&quot;</span>,<span class="st">&quot;Myc&quot;</span>,<span class="st">&quot;Igll1&quot;</span>)</a>
+<a class="sourceLine" id="cb67-2" data-line-number="2">expression &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">10.4</span>,<span class="fl">4.3</span>,<span class="fl">6.5</span>)</a>
+<a class="sourceLine" id="cb67-3" data-line-number="3"><span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(geneName)</a></code></pre></div>
 <pre><code>## [1] 1 2 3</code></pre>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb67-1" data-line-number="1"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(geneName)){</a>
-<a class="sourceLine" id="cb67-2" data-line-number="2">  <span class="kw">message</span>(geneName[i],<span class="st">&quot; has an RPKM of &quot;</span>,expression[i])</a>
-<a class="sourceLine" id="cb67-3" data-line-number="3">}</a></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb69-1" data-line-number="1"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(geneName)){</a>
+<a class="sourceLine" id="cb69-2" data-line-number="2">  <span class="kw">message</span>(geneName[i],<span class="st">&quot; has an RPKM of &quot;</span>,expression[i])</a>
+<a class="sourceLine" id="cb69-3" data-line-number="3">}</a></code></pre></div>
 <pre><code>## Ikzf1 has an RPKM of 10.4</code></pre>
 <pre><code>## Myc has an RPKM of 4.3</code></pre>
 <pre><code>## Igll1 has an RPKM of 6.5</code></pre>
 </div>
 <div id="loops---loops-and-conditionals" class="section level2">
 <h2>Loops - Loops and conditionals</h2>
-<p>Loops can be combined with conditional statements to allow for complex control of their execution over R objects. .pull-left[</p>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb71-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">13</span></a>
-<a class="sourceLine" id="cb71-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb71-3" data-line-number="3"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">13</span>){</a>
-<a class="sourceLine" id="cb71-4" data-line-number="4">  <span class="cf">if</span>(i <span class="op">&gt;</span><span class="st"> </span><span class="dv">10</span>){</a>
-<a class="sourceLine" id="cb71-5" data-line-number="5">    <span class="kw">message</span>(<span class="st">&quot;Number &quot;</span>,i,<span class="st">&quot; is &gt; 10&quot;</span>)</a>
-<a class="sourceLine" id="cb71-6" data-line-number="6">  }<span class="cf">else</span> <span class="cf">if</span>(i <span class="op">==</span><span class="st"> </span><span class="dv">10</span>){</a>
-<a class="sourceLine" id="cb71-7" data-line-number="7">    <span class="kw">message</span>(<span class="st">&quot;Number &quot;</span>,i,<span class="st">&quot; is  10&quot;</span>) </a>
-<a class="sourceLine" id="cb71-8" data-line-number="8">  }<span class="cf">else</span>{</a>
-<a class="sourceLine" id="cb71-9" data-line-number="9">    <span class="kw">message</span>(<span class="st">&quot;Number &quot;</span>,i,<span class="st">&quot; is &lt; 10&quot;</span>) </a>
-<a class="sourceLine" id="cb71-10" data-line-number="10">  }</a>
-<a class="sourceLine" id="cb71-11" data-line-number="11">}</a></code></pre></div>
-<p>] .pull-right[</p>
+<p>Loops can be combined with conditional statements to allow for complex control of their execution over R objects.</p>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb73-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">13</span></a>
+<a class="sourceLine" id="cb73-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb73-3" data-line-number="3"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">13</span>){</a>
+<a class="sourceLine" id="cb73-4" data-line-number="4">  <span class="cf">if</span>(i <span class="op">&gt;</span><span class="st"> </span><span class="dv">10</span>){</a>
+<a class="sourceLine" id="cb73-5" data-line-number="5">    <span class="kw">message</span>(<span class="st">&quot;Number &quot;</span>,i,<span class="st">&quot; is &gt; 10&quot;</span>)</a>
+<a class="sourceLine" id="cb73-6" data-line-number="6">  }<span class="cf">else</span> <span class="cf">if</span>(i <span class="op">==</span><span class="st"> </span><span class="dv">10</span>){</a>
+<a class="sourceLine" id="cb73-7" data-line-number="7">    <span class="kw">message</span>(<span class="st">&quot;Number &quot;</span>,i,<span class="st">&quot; is  10&quot;</span>) </a>
+<a class="sourceLine" id="cb73-8" data-line-number="8">  }<span class="cf">else</span>{</a>
+<a class="sourceLine" id="cb73-9" data-line-number="9">    <span class="kw">message</span>(<span class="st">&quot;Number &quot;</span>,i,<span class="st">&quot; is &lt; 10&quot;</span>) </a>
+<a class="sourceLine" id="cb73-10" data-line-number="10">  }</a>
+<a class="sourceLine" id="cb73-11" data-line-number="11">}</a></code></pre></div>
 <pre><code>## Number 1 is less than  10</code></pre>
 <pre><code>## Number 2 is less than  10</code></pre>
 <pre><code>## Number 3 is less than  10</code></pre>
@@ -1942,26 +1935,22 @@ div.tocify {
 <pre><code>## Number 11 is greater than 10</code></pre>
 <pre><code>## Number 12 is greater than 10</code></pre>
 <pre><code>## Number 13 is greater than 10</code></pre>
-<p>]</p>
 </div>
 <div id="conditions-and-loops---breaking-loops" class="section level2">
 <h2>Conditions and Loops - Breaking loops</h2>
 <p>We can use conditionals to exit a loop if a condition is satisfied, just a like while loop.</p>
-<p>.pull-left[</p>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb85-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">13</span></a>
-<a class="sourceLine" id="cb85-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb85-3" data-line-number="3"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">13</span>){</a>
-<a class="sourceLine" id="cb85-4" data-line-number="4">  <span class="cf">if</span>(i <span class="op">&lt;</span><span class="st"> </span><span class="dv">10</span>){</a>
-<a class="sourceLine" id="cb85-5" data-line-number="5">    <span class="kw">message</span>(<span class="st">&quot;Number &quot;</span>,i,<span class="st">&quot; is less than 10&quot;</span>)</a>
-<a class="sourceLine" id="cb85-6" data-line-number="6">  }<span class="cf">else</span> <span class="cf">if</span>(i <span class="op">==</span><span class="st"> </span><span class="dv">10</span>){</a>
-<a class="sourceLine" id="cb85-7" data-line-number="7">    <span class="kw">message</span>(<span class="st">&quot;Number &quot;</span>,i,<span class="st">&quot; is  10&quot;</span>)</a>
-<a class="sourceLine" id="cb85-8" data-line-number="8">    <span class="cf">break</span></a>
-<a class="sourceLine" id="cb85-9" data-line-number="9">  }<span class="cf">else</span>{</a>
-<a class="sourceLine" id="cb85-10" data-line-number="10">    <span class="kw">message</span>(<span class="st">&quot;Number &quot;</span>,i,<span class="st">&quot; is greater than  10&quot;</span>) </a>
-<a class="sourceLine" id="cb85-11" data-line-number="11">  }</a>
-<a class="sourceLine" id="cb85-12" data-line-number="12">}</a></code></pre></div>
-<p>]</p>
-<p>.pull-right[</p>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb87-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">13</span></a>
+<a class="sourceLine" id="cb87-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb87-3" data-line-number="3"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">13</span>){</a>
+<a class="sourceLine" id="cb87-4" data-line-number="4">  <span class="cf">if</span>(i <span class="op">&lt;</span><span class="st"> </span><span class="dv">10</span>){</a>
+<a class="sourceLine" id="cb87-5" data-line-number="5">    <span class="kw">message</span>(<span class="st">&quot;Number &quot;</span>,i,<span class="st">&quot; is less than 10&quot;</span>)</a>
+<a class="sourceLine" id="cb87-6" data-line-number="6">  }<span class="cf">else</span> <span class="cf">if</span>(i <span class="op">==</span><span class="st"> </span><span class="dv">10</span>){</a>
+<a class="sourceLine" id="cb87-7" data-line-number="7">    <span class="kw">message</span>(<span class="st">&quot;Number &quot;</span>,i,<span class="st">&quot; is  10&quot;</span>)</a>
+<a class="sourceLine" id="cb87-8" data-line-number="8">    <span class="cf">break</span></a>
+<a class="sourceLine" id="cb87-9" data-line-number="9">  }<span class="cf">else</span>{</a>
+<a class="sourceLine" id="cb87-10" data-line-number="10">    <span class="kw">message</span>(<span class="st">&quot;Number &quot;</span>,i,<span class="st">&quot; is greater than  10&quot;</span>) </a>
+<a class="sourceLine" id="cb87-11" data-line-number="11">  }</a>
+<a class="sourceLine" id="cb87-12" data-line-number="12">}</a></code></pre></div>
 <pre><code>## Number 1 is less than 10</code></pre>
 <pre><code>## Number 2 is less than 10</code></pre>
 <pre><code>## Number 3 is less than 10</code></pre>
@@ -1972,7 +1961,6 @@ div.tocify {
 <pre><code>## Number 8 is less than 10</code></pre>
 <pre><code>## Number 9 is less than 10</code></pre>
 <pre><code>## Number 10 is  10</code></pre>
-<p>]</p>
 </div>
 <div id="loops---functions-to-loop-over-data-types" class="section level2">
 <h2>Loops - Functions to loop over data types</h2>
@@ -1994,37 +1982,37 @@ div.tocify {
 </div>
 <div id="looping---apply-example" class="section level2">
 <h2>Looping - apply() example</h2>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb97-1" data-line-number="1">matExample &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>),<span class="dt">nrow=</span><span class="dv">2</span>,<span class="dt">ncol=</span><span class="dv">2</span>,<span class="dt">byrow=</span>T)</a>
-<a class="sourceLine" id="cb97-2" data-line-number="2">matExample</a></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb99-1" data-line-number="1">matExample &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>),<span class="dt">nrow=</span><span class="dv">2</span>,<span class="dt">ncol=</span><span class="dv">2</span>,<span class="dt">byrow=</span>T)</a>
+<a class="sourceLine" id="cb99-2" data-line-number="2">matExample</a></code></pre></div>
 <pre><code>##      [,1] [,2]
 ## [1,]    1    2
 ## [2,]    3    4</code></pre>
 <p>Get the mean of rows</p>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb99-1" data-line-number="1"><span class="kw">apply</span>(matExample,<span class="dv">1</span>,mean)</a></code></pre></div>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb101-1" data-line-number="1"><span class="kw">apply</span>(matExample,<span class="dv">1</span>,mean)</a></code></pre></div>
 <pre><code>## [1] 1.5 3.5</code></pre>
 <p>Get the mean of columns</p>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb101-1" data-line-number="1"><span class="kw">apply</span>(matExample,<span class="dv">2</span>,mean)</a></code></pre></div>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb103-1" data-line-number="1"><span class="kw">apply</span>(matExample,<span class="dv">2</span>,mean)</a></code></pre></div>
 <pre><code>## [1] 2 3</code></pre>
 </div>
 <div id="looping---additional-arguments-to-apply" class="section level2">
 <h2>Looping - Additional arguments to apply</h2>
 <p>Additional arguments to be used by the function in the apply loop can be specified after the function argument.</p>
 <p>Arguments may be ordered as if passed to function directly. For <strong>paste()</strong> function however this isn’t possible.</p>
-<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb103-1" data-line-number="1"><span class="kw">apply</span>(matExample,<span class="dv">1</span>,paste,<span class="dt">collapse=</span><span class="st">&quot;;&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb105-1" data-line-number="1"><span class="kw">apply</span>(matExample,<span class="dv">1</span>,paste,<span class="dt">collapse=</span><span class="st">&quot;;&quot;</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;1;2&quot; &quot;3;4&quot;</code></pre>
 </div>
 <div id="looping---lapply" class="section level2">
 <h2>Looping - lapply()</h2>
-<p>.pull-left[ Similar to apply, <strong>lapply</strong> applies a function to every element of a vector or list.</p>
+<p>Similar to apply, <strong>lapply</strong> applies a function to every element of a vector or list.</p>
 <p><strong>lapply</strong> returns a list object containing the results of evaluating the function.</p>
-<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb105-1" data-line-number="1"><span class="kw">lapply</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>),mean)</a></code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb107-1" data-line-number="1"><span class="kw">lapply</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>),mean)</a></code></pre></div>
 <pre><code>## [[1]]
 ## [1] 1
 ## 
 ## [[2]]
 ## [1] 2</code></pre>
-<p>] .pull-right[ As with apply() additional arguments can be supplied after the function name argument.</p>
-<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb107-1" data-line-number="1"><span class="kw">lapply</span>(<span class="kw">list</span>(<span class="dv">1</span>,<span class="kw">c</span>(<span class="ot">NA</span>,<span class="dv">1</span>),<span class="dv">2</span>),mean, <span class="dt">na.rm=</span>T)</a></code></pre></div>
+<p>As with apply() additional arguments can be supplied after the function name argument.</p>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb109-1" data-line-number="1"><span class="kw">lapply</span>(<span class="kw">list</span>(<span class="dv">1</span>,<span class="kw">c</span>(<span class="ot">NA</span>,<span class="dv">1</span>),<span class="dv">2</span>),mean, <span class="dt">na.rm=</span>T)</a></code></pre></div>
 <pre><code>## [[1]]
 ## [1] 1
 ## 
@@ -2033,26 +2021,25 @@ div.tocify {
 ## 
 ## [[3]]
 ## [1] 2</code></pre>
-<p>]</p>
 </div>
 <div id="looping---sapply" class="section level2">
 <h2>Looping - sapply()</h2>
 <p><strong>sapply</strong> (<em>smart apply</em>) acts as lapply but attempts to return the results as the most appropriate data type.</p>
 <p>Here sapply returns a vector where lapply would return lists.</p>
-<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb109-1" data-line-number="1">exampleVector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>)</a>
-<a class="sourceLine" id="cb109-2" data-line-number="2">exampleList &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>)</a>
-<a class="sourceLine" id="cb109-3" data-line-number="3"><span class="kw">sapply</span>(exampleVector, mean, <span class="dt">na.rm=</span>T)</a></code></pre></div>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb111-1" data-line-number="1">exampleVector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>)</a>
+<a class="sourceLine" id="cb111-2" data-line-number="2">exampleList &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>)</a>
+<a class="sourceLine" id="cb111-3" data-line-number="3"><span class="kw">sapply</span>(exampleVector, mean, <span class="dt">na.rm=</span>T)</a></code></pre></div>
 <pre><code>## [1] 1 2 3 4 5</code></pre>
-<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb111-1" data-line-number="1"><span class="kw">sapply</span>(exampleList, mean, <span class="dt">na.rm=</span>T)</a></code></pre></div>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb113-1" data-line-number="1"><span class="kw">sapply</span>(exampleList, mean, <span class="dt">na.rm=</span>T)</a></code></pre></div>
 <pre><code>## [1] 1 2 3 4 5</code></pre>
 </div>
 <div id="looping---sapply-example" class="section level2">
 <h2>Looping - sapply() example</h2>
-<p>.pull-left[ In this example lapply returns a list of vectors from the quantile function.</p>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb113-1" data-line-number="1">exampleList &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">row1=</span><span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, </a>
-<a class="sourceLine" id="cb113-2" data-line-number="2">                    <span class="dt">row2=</span><span class="dv">6</span><span class="op">:</span><span class="dv">10</span>, </a>
-<a class="sourceLine" id="cb113-3" data-line-number="3">                    <span class="dt">row3=</span><span class="dv">11</span><span class="op">:</span><span class="dv">15</span>)</a>
-<a class="sourceLine" id="cb113-4" data-line-number="4">exampleList</a></code></pre></div>
+<p>In this example lapply returns a list of vectors from the quantile function.</p>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb115-1" data-line-number="1">exampleList &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">row1=</span><span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, </a>
+<a class="sourceLine" id="cb115-2" data-line-number="2">                    <span class="dt">row2=</span><span class="dv">6</span><span class="op">:</span><span class="dv">10</span>, </a>
+<a class="sourceLine" id="cb115-3" data-line-number="3">                    <span class="dt">row3=</span><span class="dv">11</span><span class="op">:</span><span class="dv">15</span>)</a>
+<a class="sourceLine" id="cb115-4" data-line-number="4">exampleList</a></code></pre></div>
 <pre><code>## $row1
 ## [1] 1 2 3 4 5
 ## 
@@ -2061,9 +2048,7 @@ div.tocify {
 ## 
 ## $row3
 ## [1] 11 12 13 14 15</code></pre>
-<p>]</p>
-<p>.pull-right[</p>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb115-1" data-line-number="1"><span class="kw">lapply</span>(exampleList, quantile)</a></code></pre></div>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb117-1" data-line-number="1"><span class="kw">lapply</span>(exampleList, quantile)</a></code></pre></div>
 <pre><code>## $row1
 ##   0%  25%  50%  75% 100% 
 ##    1    2    3    4    5 
@@ -2075,13 +2060,12 @@ div.tocify {
 ## $row3
 ##   0%  25%  50%  75% 100% 
 ##   11   12   13   14   15</code></pre>
-<p>]</p>
 </div>
 <div id="looping---sapply-example-2" class="section level2">
 <h2>Looping - sapply() example 2</h2>
 <p>Here is an example of sapply parsing a result from the quantile function in a <em>smart</em> way.</p>
 <p>When a function always returns a vector of the same length, sapply will create a matrix with elements by column.</p>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb117-1" data-line-number="1"><span class="kw">sapply</span>(exampleList, quantile)</a></code></pre></div>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb119-1" data-line-number="1"><span class="kw">sapply</span>(exampleList, quantile)</a></code></pre></div>
 <pre><code>##      row1 row2 row3
 ## 0%      1    6   11
 ## 25%     2    7   12
@@ -2092,9 +2076,9 @@ div.tocify {
 <div id="loops---sapply-example-3" class="section level2">
 <h2>Loops - sapply() example 3</h2>
 <p>When sapply cannot parse the result to a vector or matrix, a list will be returned.</p>
-<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb119-1" data-line-number="1">exampleList &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">df=</span><span class="kw">data.frame</span>(<span class="dt">sample=</span><span class="kw">paste0</span>(<span class="st">&quot;patient&quot;</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>), <span class="dt">data=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">12</span>)),</a>
-<a class="sourceLine" id="cb119-2" data-line-number="2">                    <span class="dt">vec=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>))</a>
-<a class="sourceLine" id="cb119-3" data-line-number="3"><span class="kw">sapply</span>(exampleList, summary)</a></code></pre></div>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb121-1" data-line-number="1">exampleList &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">df=</span><span class="kw">data.frame</span>(<span class="dt">sample=</span><span class="kw">paste0</span>(<span class="st">&quot;patient&quot;</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>), <span class="dt">data=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">12</span>)),</a>
+<a class="sourceLine" id="cb121-2" data-line-number="2">                    <span class="dt">vec=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>))</a>
+<a class="sourceLine" id="cb121-3" data-line-number="3"><span class="kw">sapply</span>(exampleList, summary)</a></code></pre></div>
 <pre><code>## $df
 ##       sample       data      
 ##  patient1:1   Min.   : 1.00  
@@ -2112,40 +2096,40 @@ div.tocify {
 <h2>Custom functions</h2>
 <p>You can create your own functions easily in R using the &lt;- assignment. We use the <strong>function</strong> statement with all input variables in <strong>()</strong> and all code to be executed in <strong>{}</strong>. Anything to be received back from the function is indicated by the <strong>return</strong> statement.</p>
 <p>In this case we can recapitulate the square function.</p>
-<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb121-1" data-line-number="1">square_my_number  &lt;-<span class="st"> </span><span class="cf">function</span>(my_number){</a>
-<a class="sourceLine" id="cb121-2" data-line-number="2">  my_square &lt;-<span class="st"> </span>my_number<span class="op">*</span>my_number</a>
-<a class="sourceLine" id="cb121-3" data-line-number="3">  <span class="kw">return</span>(my_square)</a>
-<a class="sourceLine" id="cb121-4" data-line-number="4">}</a>
-<a class="sourceLine" id="cb121-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb121-6" data-line-number="6"><span class="kw">square_my_number</span>(<span class="dt">my_number=</span><span class="dv">3</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb123-1" data-line-number="1">square_my_number  &lt;-<span class="st"> </span><span class="cf">function</span>(my_number){</a>
+<a class="sourceLine" id="cb123-2" data-line-number="2">  my_square &lt;-<span class="st"> </span>my_number<span class="op">*</span>my_number</a>
+<a class="sourceLine" id="cb123-3" data-line-number="3">  <span class="kw">return</span>(my_square)</a>
+<a class="sourceLine" id="cb123-4" data-line-number="4">}</a>
+<a class="sourceLine" id="cb123-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb123-6" data-line-number="6"><span class="kw">square_my_number</span>(<span class="dt">my_number=</span><span class="dv">3</span>)</a></code></pre></div>
 <pre><code>## [1] 9</code></pre>
 </div>
 <div id="custom-functions-1" class="section level2">
 <h2>Custom functions</h2>
 <p>User defined functions can be as long and complicated as you want, taking in many variables, printing out messages and utilizing other functions within them.</p>
 <p>Lets make z-scores</p>
-<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb123-1" data-line-number="1">my_zscore  &lt;-<span class="st"> </span><span class="cf">function</span>(my_number, my_vector){</a>
-<a class="sourceLine" id="cb123-2" data-line-number="2">  my_mean &lt;-<span class="st"> </span><span class="kw">mean</span>(my_vector)</a>
-<a class="sourceLine" id="cb123-3" data-line-number="3">  <span class="kw">message</span>(<span class="st">&quot;Mean is &quot;</span>, my_mean)</a>
-<a class="sourceLine" id="cb123-4" data-line-number="4">  diff_from_mean &lt;-<span class="st"> </span>my_number<span class="op">-</span>my_mean</a>
-<a class="sourceLine" id="cb123-5" data-line-number="5">  stdev &lt;-<span class="st"> </span><span class="kw">sd</span>(my_vector)</a>
-<a class="sourceLine" id="cb123-6" data-line-number="6">  my_z &lt;-<span class="st"> </span>diff_from_mean<span class="op">/</span>stdev</a>
-<a class="sourceLine" id="cb123-7" data-line-number="7">  <span class="kw">return</span>(my_z)</a>
-<a class="sourceLine" id="cb123-8" data-line-number="8">}</a>
-<a class="sourceLine" id="cb123-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb123-10" data-line-number="10">A &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">20</span>)</a>
-<a class="sourceLine" id="cb123-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb123-12" data-line-number="12"><span class="kw">my_zscore</span>(<span class="dt">my_number=</span>A[<span class="dv">1</span>], <span class="dt">my_vector=</span>A)</a></code></pre></div>
-<pre><code>## Mean is -0.0862463335300711</code></pre>
-<pre><code>## [1] -0.6660681</code></pre>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb125-1" data-line-number="1">my_zscore  &lt;-<span class="st"> </span><span class="cf">function</span>(my_number, my_vector){</a>
+<a class="sourceLine" id="cb125-2" data-line-number="2">  my_mean &lt;-<span class="st"> </span><span class="kw">mean</span>(my_vector)</a>
+<a class="sourceLine" id="cb125-3" data-line-number="3">  <span class="kw">message</span>(<span class="st">&quot;Mean is &quot;</span>, my_mean)</a>
+<a class="sourceLine" id="cb125-4" data-line-number="4">  diff_from_mean &lt;-<span class="st"> </span>my_number<span class="op">-</span>my_mean</a>
+<a class="sourceLine" id="cb125-5" data-line-number="5">  stdev &lt;-<span class="st"> </span><span class="kw">sd</span>(my_vector)</a>
+<a class="sourceLine" id="cb125-6" data-line-number="6">  my_z &lt;-<span class="st"> </span>diff_from_mean<span class="op">/</span>stdev</a>
+<a class="sourceLine" id="cb125-7" data-line-number="7">  <span class="kw">return</span>(my_z)</a>
+<a class="sourceLine" id="cb125-8" data-line-number="8">}</a>
+<a class="sourceLine" id="cb125-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb125-10" data-line-number="10">A &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">20</span>)</a>
+<a class="sourceLine" id="cb125-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb125-12" data-line-number="12"><span class="kw">my_zscore</span>(<span class="dt">my_number=</span>A[<span class="dv">1</span>], <span class="dt">my_vector=</span>A)</a></code></pre></div>
+<pre><code>## Mean is -0.0142922371181697</code></pre>
+<pre><code>## [1] 0.5987936</code></pre>
 </div>
 <div id="custom-functions-and-apply" class="section level2">
 <h2>Custom functions and apply</h2>
 <p>These custom functions can also be utilised with apply.</p>
-<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb126-1" data-line-number="1"><span class="kw">sapply</span>(A, my_zscore, <span class="dt">my_vector=</span>A)</a></code></pre></div>
-<pre><code>##  [1] -0.66606807 -0.15241701 -0.71923791  1.13157562 -0.24728037 -0.69918288 -0.84126199
-##  [8] -0.58269707  0.64766689  0.51654379  0.90988691  2.51241913 -0.82855570  0.83838525
-## [15] -0.24720040 -2.27437622  0.30731101 -0.25026718  0.72452323 -0.07976703</code></pre>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb128-1" data-line-number="1"><span class="kw">sapply</span>(A, my_zscore, <span class="dt">my_vector=</span>A)</a></code></pre></div>
+<pre><code>##  [1]  0.59879357  1.29549206  1.23492762  0.09908639  0.12425144  0.92595738 -1.48326684
+##  [8]  1.32407131  0.20205978  0.63703247  0.08223966 -0.15882184  0.16624642  0.27314770
+## [15] -1.05332212 -1.50218229 -0.57289340  0.97320700 -1.15400938 -2.01201692</code></pre>
 </div>
 <div id="time-for-an-exercise" class="section level2">
 <h2>Time for an exercise!</h2>
@@ -2155,7 +2139,6 @@ div.tocify {
 <h2>Answers to exercise.</h2>
 <p>Answers can be found here <a href="http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/answers/conditionsAndLoops_Answers.html">here</a></p>
 <p>Rcode for answers can be found here <a href="http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/answers/conditionsAndLoops_Answers.R">here</a></p>
-<p>class: inverse, center, middle</p>
 </div>
 </div>
 <div id="getting-additional-libraries" class="section level1">
@@ -2169,17 +2152,16 @@ div.tocify {
 <div id="loading-libraries" class="section level2">
 <h2>Loading libraries</h2>
 <p>Libraries can be loaded using the library() function with an argument of the name of the library.</p>
-<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb128-1" data-line-number="1"><span class="kw">library</span>(ggplot2)</a></code></pre></div>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb130-1" data-line-number="1"><span class="kw">library</span>(ggplot2)</a></code></pre></div>
 <p>You can see what libraries are available in the Packages panel or by the library() function with no arguments supplied.</p>
-<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb129-1" data-line-number="1"><span class="kw">library</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb131-1" data-line-number="1"><span class="kw">library</span>()</a></code></pre></div>
 </div>
 <div id="installing-libraries" class="section level2">
 <h2>Installing libraries</h2>
 <p>Libraries can be installed through the R studio menu.</p>
 <p><strong>-&gt; Tools -&gt; Install packages ..</strong></p>
 <p>Or by using the install.packages() command.</p>
-<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb130-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;Hmisc&quot;</span>)</a></code></pre></div>
-<p>class: inverse, center, middle</p>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb132-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;Hmisc&quot;</span>)</a></code></pre></div>
 </div>
 </div>
 <div id="scripts" class="section level1">
@@ -2220,9 +2202,9 @@ div.tocify {
 dayOfWeek &lt;- function(){
   return(gsub(&quot; .*&quot;,&quot;&quot;,date()))  
 }</code></pre>
-<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb132-1" data-line-number="1"><span class="kw">source</span>(<span class="st">&quot;scripts/dayOfWeek.R&quot;</span>)</a>
-<a class="sourceLine" id="cb132-2" data-line-number="2"><span class="kw">dayOfWeek</span>()</a></code></pre></div>
-<pre><code>## [1] &quot;Wed&quot;</code></pre>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb134-1" data-line-number="1"><span class="kw">source</span>(<span class="st">&quot;scripts/dayOfWeek.R&quot;</span>)</a>
+<a class="sourceLine" id="cb134-2" data-line-number="2"><span class="kw">dayOfWeek</span>()</a></code></pre></div>
+<pre><code>## [1] &quot;Thu&quot;</code></pre>
 </div>
 <div id="rscript" class="section level2">
 <h2>Rscript</h2>
@@ -2234,11 +2216,11 @@ dayOfWeek &lt;- function(){
 <div id="sending-arguments-to-rscript" class="section level2">
 <h2>Sending arguments to Rscript</h2>
 <p>To provide arguments to an R script at the command line we must add <strong>commandArgs()</strong> function to parse command line arguments.</p>
-<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb136-1" data-line-number="1">args &lt;-<span class="st"> </span><span class="kw">commandArgs</span>(<span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb136-2" data-line-number="2">myFirstArgument &lt;-<span class="st"> </span>args[<span class="dv">1</span>]</a>
-<a class="sourceLine" id="cb136-3" data-line-number="3">myFirstArgument</a></code></pre></div>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb138-1" data-line-number="1">args &lt;-<span class="st"> </span><span class="kw">commandArgs</span>(<span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb138-2" data-line-number="2">myFirstArgument &lt;-<span class="st"> </span>args[<span class="dv">1</span>]</a>
+<a class="sourceLine" id="cb138-3" data-line-number="3">myFirstArgument</a></code></pre></div>
 <pre><code>'10'</code></pre>
-<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb138-1" data-line-number="1"><span class="kw">as.numeric</span>(myFirstArgument)</a></code></pre></div>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb140-1" data-line-number="1"><span class="kw">as.numeric</span>(myFirstArgument)</a></code></pre></div>
 <pre><code>10</code></pre>
 <p>Since vectors can only be one type, all command line arguments are strings and must be converted to numeric if needed with <strong>as.numeric()</strong>.</p>
 </div>

@@ -27,10 +27,10 @@ knitr::opts_chunk$set(echo = TRUE)
 ## Overview of what we've covered
 
 
-- [Recap](#/recap)
-- [Conditions and Loops](#/control)
-- [Writing scripts](#/scripts)
-- [Libraries](#/libraries)
+- [Recap](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#/recap)
+- [Conditions and Loops](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#/control)
+- [Writing scripts](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#/scripts)
+- [Libraries](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#/libraries)
 
 
 ---
@@ -39,9 +39,9 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Session 1 covered introduction to R data types and import/export of data
 
-- [Background to R](#/background)
-- [Data types in R](#/datatypes)
-- [Reading and writing data in R](#/reading)
+- [Background to R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#/background)
+- [Data types in R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#/datatypes)
+- [Reading and writing data in R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#/reading)
 
 ---
 ## Recap
@@ -86,14 +86,14 @@ aMatrix
 aMatrix[1,]
 aMatrix[,1]
 ```
-]
+  ]
 .pull-right[
 ```{r,echo=T,eval=T,tidy=FALSE}
 aMatrix[1,1] <- 0
 aMatrix[,2] <- 100
 aMatrix
 ```
-]
+  ]
 
 ---
 ## Recap
@@ -107,13 +107,13 @@ aMatrix <- matrix(aVector,ncol=2,
 aMatrix
 
 ```
-]
+  ]
 .pull-right[
 ```{r,echo=T,eval=T,tidy=FALSE}
 aMatrix[1,2] <- "Word"
 aMatrix
 ```
-]
+  ]
 
 ---
 ## Recap
@@ -293,7 +293,7 @@ if(x < 5){
      message(x," is greater than or equal to 5")
 }
 ```
-]
+  ]
 .pull-right[
 With the addition of the else statement, when x is not less than 5 the code following the else statement is executed.
 
@@ -307,7 +307,7 @@ if(x < 5){
 
 ```
 
-]
+  ]
 
 ---
 ## Conditions - else if
@@ -427,7 +427,7 @@ for(i in 1:13){
 }
 ```
 
-]
+  ]
 .pull-right[
 ```{r,message=T,echo=F}
 x <- 1:13
@@ -442,7 +442,7 @@ for(i in 1:13){
   }
 }
 ```
-]
+  ]
 
 ---
 ## Conditions and Loops - Breaking loops
@@ -464,7 +464,7 @@ for(i in 1:13){
   }
 }
 ```
-]
+  ]
 
 .pull-right[
 ```{r,message=T,eval=T,echo=F}
@@ -484,7 +484,7 @@ for(i in 1:13){
   }
 }
 ```
-]
+  ]
 
 ---
 ## Loops - Functions to loop over data types
@@ -548,14 +548,14 @@ Similar to apply, **lapply** applies a function to every element of a vector or 
 ```{r}
 lapply(c(1,2),mean)
 ```
-]
+  ]
 .pull-right[
 As with apply() additional arguments can be supplied after the function name argument.
 
 ```{r}
 lapply(list(1,c(NA,1),2),mean, na.rm=T)
 ```
-]
+  ]
 ---
 ## Looping - sapply()
 
@@ -582,13 +582,13 @@ exampleList <- list(row1=1:5,
                     row3=11:15)
 exampleList
 ```
-]
+  ]
 
 .pull-right[
 ```{r}
 lapply(exampleList, quantile)
 ```
-]
+  ]
 
 ---
 ## Looping - sapply() example 2
