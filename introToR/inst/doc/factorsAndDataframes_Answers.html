@@ -489,16 +489,11 @@ summary {
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1">AnnoSample1And2<span class="op">$</span>Sample1_lne &lt;-<span class="st"> </span>AnnoSample1And2<span class="op">$</span>expression.x<span class="op">/</span>AnnoSample1And2<span class="op">$</span>geneLengths</a>
 <a class="sourceLine" id="cb12-2" data-line-number="2">AnnoSample1And2<span class="op">$</span>Sample2_lne &lt;-<span class="st"> </span>AnnoSample1And2<span class="op">$</span>expression.y<span class="op">/</span>AnnoSample1And2<span class="op">$</span>geneLengths</a>
 <a class="sourceLine" id="cb12-3" data-line-number="3">AnnoSample1And2</a></code></pre></div>
-<pre><code>##   ensembl geneNames    pathway geneLengths expression.x expression.y Sample1_lne
-## 1  Ens001    Gene_1 Glycolysis         100         1000         1500   10.000000
-## 2  Ens003    Gene_2       TGFb        3000         3000         1500    1.000000
-## 3  Ens006    Gene_3 Glycolysis         200        10000        17000   50.000000
-## 4  Ens010    Gene_5 Glycolysis        1200         5000        10000    4.166667
-##   Sample2_lne
-## 1   15.000000
-## 2    0.500000
-## 3   85.000000
-## 4    8.333333</code></pre>
+<pre><code>##   ensembl geneNames    pathway geneLengths expression.x expression.y Sample1_lne Sample2_lne
+## 1  Ens001    Gene_1 Glycolysis         100         1000         1500   10.000000   15.000000
+## 2  Ens003    Gene_2       TGFb        3000         3000         1500    1.000000    0.500000
+## 3  Ens006    Gene_3 Glycolysis         200        10000        17000   50.000000   85.000000
+## 4  Ens010    Gene_5 Glycolysis        1200         5000        10000    4.166667    8.333333</code></pre>
 <ul>
 <li>Identify the mean length normalised expression across Sample1 and Sample2 for Ens006 genes</li>
 </ul>
