@@ -24,7 +24,9 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Overview
+# Intro to R (part 2)
+
+## Overview
 
 - [Recap](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session2.html#recap)
 - [Conditions and Loops](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session2.html#conditions_and_loops)

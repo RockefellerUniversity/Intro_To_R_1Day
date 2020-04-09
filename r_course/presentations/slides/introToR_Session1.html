@@ -27,6 +27,8 @@ class: center, middle, inverse, title-slide
 
 
 
+# Intro to R (part 1)
+
 ## Overview
 
 - [Set up](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#set-up)
@@ -61,7 +63,7 @@ Once the zip file in unarchived. All presentations as HTML slides and pages, the
 Presentations as an HTML slide show.
 * **presentations/singlepage/** 
 Presentations as an HTML single page.
-* **presentations/rcode/**
+* **presentations/r_code/**
 R code in presentations.
 * **exercises/**
 Practicals as HTML pages. 
@@ -103,7 +105,7 @@ class: inverse, center, middle
 **R** is a scripting language and environment for **statistical computing**.
 
 
-Developed by [Robert Gentleman](http://www.gene.com/scientists/our-scientists/robert-gentleman) and [Ross Ihaka](https://www.stat.auckland.ac.nz/~ihaka/). 
+Developed by [Robert Gentleman](https://en.wikipedia.org/wiki/Robert_Gentleman_(statistician)) and [Ross Ihaka](https://en.wikipedia.org/wiki/Ross_Ihaka). 
 
 
 Inheriting much from **S** (Bell labs).
@@ -127,7 +129,7 @@ Inheriting much from **S** (Bell labs).
 **R** provides access to 1000s of packages ([CRAN](http://cran.r-project.org/)/[MRAN](http://mran.revolutionanalytics.com/)/[R-forge](https://r-forge.r-project.org/)) which extend the basic functionality of R while maintaining high quality documentation.
 
 
-In particular, [Robert Gentleman](https://en.wikipedia.org/wiki/Robert_Gentleman_(statistician)) developed the **[Bioconductor](http://bioconductor.org/)** project where 100's of packages are directly related to computational biology and analysis of associated high-throughput experiments.
+In particular, [Robert Gentleman]("https://en.wikipedia.org/wiki/Robert_Gentleman_(statistician)") developed the **[Bioconductor](http://bioconductor.org/)** project where 100's of packages are directly related to computational biology and analysis of associated high-throughput experiments.
   ] 
 .pull-right[
 ![R use over time](imgs/RCitations.jpeg)
@@ -692,7 +694,8 @@ x+c(1,2,3)
 ```
 
 ```
-## Warning in x + c(1, 2, 3): longer object length is not a multiple of shorter object length
+## Warning in x + c(1, 2, 3): longer object length
+## is not a multiple of shorter object length
 ```
 
 ```
@@ -804,7 +807,8 @@ z
 ```
 
 ```
-##  [1]  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE
+##  [1]  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE
+##  [8] FALSE  TRUE FALSE
 ```
 Logical vectors can be used like an index to specify postions in a vector. TRUE values will return the corresponding position in the vector being indexed.
 
@@ -866,7 +870,8 @@ x &gt; 5
 ```
 
 ```
-##  [1] FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE
+##  [1] FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE
+##  [8]  TRUE  TRUE  TRUE
 ```
 
 ```r
@@ -894,7 +899,8 @@ x &lt;- 1:10
 ```
 
 ```
-##  [1]  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [1]  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE
+##  [8] FALSE FALSE FALSE
 ```
 
 ```r
@@ -902,7 +908,8 @@ x &gt; 4 &amp; x &lt; 7
 ```
 
 ```
-##  [1] FALSE FALSE FALSE FALSE  TRUE  TRUE FALSE FALSE FALSE FALSE
+##  [1] FALSE FALSE FALSE FALSE  TRUE  TRUE FALSE
+##  [8] FALSE FALSE FALSE
 ```
 
 ```r
@@ -910,7 +917,8 @@ x &gt; 4 | x &lt; 7
 ```
 
 ```
-##  [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+##  [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [10] TRUE
 ```
 
 
@@ -1124,8 +1132,9 @@ recycledMatrix2 &lt;- matrix(1:5,ncol=2,nrow=3)
 ```
 
 ```
-## Warning in matrix(1:5, ncol = 2, nrow = 3): data length [5] is not a sub-multiple or
-## multiple of the number of rows [3]
+## Warning in matrix(1:5, ncol = 2, nrow = 3): data
+## length [5] is not a sub-multiple or multiple of
+## the number of rows [3]
 ```
 
 ```r
@@ -1151,8 +1160,9 @@ recycledMatrix3 &lt;- rbind(recycledMatrix2,c(1:5))
 ```
 
 ```
-## Warning in rbind(recycledMatrix2, c(1:5)): number of columns of result is not a multiple
-## of vector length (arg 2)
+## Warning in rbind(recycledMatrix2, c(1:5)): number
+## of columns of result is not a multiple of vector
+## length (arg 2)
 ```
 
 ```r
@@ -1182,9 +1192,12 @@ namedMatrix
 ```
 
 ```
-##       Column_1 Column_2 Column_3 Column_4 Column_5
-## Row_1        1        3        5        7        9
-## Row_2        2        4        6        8       10
+##       Column_1 Column_2 Column_3 Column_4
+## Row_1        1        3        5        7
+## Row_2        2        4        6        8
+##       Column_5
+## Row_1        9
+## Row_2       10
 ```
 
 ---
@@ -1197,7 +1210,8 @@ colnames(namedMatrix)
 ```
 
 ```
-## [1] "Column_1" "Column_2" "Column_3" "Column_4" "Column_5"
+## [1] "Column_1" "Column_2" "Column_3" "Column_4"
+## [5] "Column_5"
 ```
 
 ```r
@@ -1382,7 +1396,7 @@ narrowMatrix[narrowMatrix[,1] &lt; 5,]
 ## Matrices - Arithmetic operations.
 
 
-As with vectors, matrices can have arithmetic operations applied to cells,rows, columns or the whole matrix
+As with vectors, matrices can have arithmetic operations applied to cells, rows, columns or the whole matrix
 
 ```r
 narrowMatrix
@@ -1617,7 +1631,8 @@ factorExample[1] &lt; factorExample[2]
 ```
 
 ```
-## Warning in Ops.factor(factorExample[1], factorExample[2]): '&lt;' not meaningful for factors
+## Warning in Ops.factor(factorExample[1],
+## factorExample[2]): '&lt;' not meaningful for factors
 ```
 
 ```
@@ -1671,7 +1686,8 @@ factorExample[1] &lt;- c("huge")
 ```
 
 ```
-## Warning in `[&lt;-.factor`(`*tmp*`, 1, value = "huge"): invalid factor level, NA generated
+## Warning in `[&lt;-.factor`(`*tmp*`, 1, value =
+## "huge"): invalid factor level, NA generated
 ```
 
 ```r
@@ -1868,8 +1884,9 @@ dfExample[dfExample[,"Survival_Time"] &lt; 10,"Name"] &lt;- "patientX"
 ```
 
 ```
-## Warning in `[&lt;-.factor`(`*tmp*`, iseq, value = c("patientX", "patientX")): invalid factor
-## level, NA generated
+## Warning in `[&lt;-.factor`(`*tmp*`, iseq, value =
+## c("patientX", "patientX")): invalid factor level,
+## NA generated
 ```
 
 ```r
@@ -1911,7 +1928,7 @@ dfExample
 
 
 ---
-## Data frames - Data frames without factors
+## Data frames - Avoiding factors
 
 If you wish to avoid using factors in data frames then the **stringsAsFactors** argument to **data.frame()** function should be set to **FALSE**
 
@@ -2293,8 +2310,10 @@ flatList[1:7]
 ```
 
 ```
-##  First1  First2  First3 Second1 Second2 Second3  Third1 
-##       1       2       3       2       6       7       1
+##  First1  First2  First3 Second1 Second2 Second3 
+##       1       2       3       2       6       7 
+##  Third1 
+##       1
 ```
 
 
@@ -2350,51 +2369,51 @@ A standard format for this data is a table:
 &lt;tbody&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_a &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.025220 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.069592 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 5.875932 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.319480 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.560569 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.162859 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_b &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.718568 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 2.075838 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.631826 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5.074490 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 6.282523 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.684785 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_c &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 2.373021 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.558633 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 5.322872 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5.749238 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.749448 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.324899 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_d &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.498438 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.118683 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.146744 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.417327 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.339642 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5.910932 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_e &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.605138 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.612076 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.664344 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8.894032 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.399974 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 11.258085 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_f &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.935863 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.382504 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 11.240405 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.830069 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 11.411998 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.111977 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_g &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.543241 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.903182 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.940791 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.632119 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8.478521 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.805610 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_h &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.961562 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.269178 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.262697 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 11.697246 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.386030 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8.341602 &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -2531,7 +2550,7 @@ We may want to import from formats other than plain text.
 
 We can make use of an R package (the rio package) which allows us to import and export data to mulitple formats.
 
-Formats include:-
+Formats include:
 
 * XML
 * Matlab, SAS, SPSS and minitab output formats.
@@ -2566,6 +2585,11 @@ We can load a library by using the **library()** function with package we wish t
 library("rio")
 ```
 
+```
+## The following rio suggested packages are not installed: 'csvy', 'feather', 'fst', 'hexView', 'readODS', 'rmatio'
+## Use 'install_formats()' to install them
+```
+
 ---
 ## The rio package
 
@@ -2582,9 +2606,12 @@ Table[1:2,]
 ```
 
 ```
-##   Gene_Name Sample_1.hi Sample_2.hi Sample_3.hi Sample_4.low Sample_5.low Sample_1.low
-## 1    Gene_a    4.570237    3.230467    3.351827     3.930877     4.098247     4.418726
-## 2    Gene_b    3.561733    3.632285    3.587523     4.185287     1.380976     5.936990
+##   Gene_Name Sample_1.hi Sample_2.hi Sample_3.hi Sample_4.low Sample_5.low
+## 1    Gene_a    4.570237    3.230467    3.351827     3.930877     4.098247
+## 2    Gene_b    3.561733    3.632285    3.587523     4.185287     1.380976
+##   Sample_1.low
+## 1     4.418726
+## 2     5.936990
 ```
 
 ---
@@ -2638,9 +2665,12 @@ Table$ExpressionScores[1:2,]
 ```
 
 ```
-##   Gene_Name Sample_1.hi Sample_2.hi Sample_3.hi Sample_4.low Sample_5.low Sample_1.low
-## 1    Gene_a    4.570237    3.230467    3.351827     3.930877     4.098247     4.418726
-## 2    Gene_b    3.561733    3.632285    3.587523     4.185287     1.380976     5.936990
+##   Gene_Name Sample_1.hi Sample_2.hi Sample_3.hi Sample_4.low Sample_5.low
+## 1    Gene_a    4.570237    3.230467    3.351827     3.930877     4.098247
+## 2    Gene_b    3.561733    3.632285    3.587523     4.185287     1.380976
+##   Sample_1.low
+## 1     4.418726
+## 2     5.936990
 ```
 
 ```r
