@@ -2,11 +2,6 @@
 suppressPackageStartupMessages(require(knitr))
 
 
-## ----eval=T,echo=F, message=F, warning=F----------------------------------------------------------------------
-library(rmarkdown)
-render("scripts/script.r")
-
-
 ## ----eval=F,echo=TRUE-----------------------------------------------------------------------------------------
 ## library(rmarkdown)
 ## render("scripts/script.r")
@@ -35,9 +30,9 @@ render("scripts/script.r")
 ## ----eval=F---------------------------------------------------------------------------------------------------
 ## 
 ## #'
-## #' title: "CWB making notes example"
+## #' title: "BRC making notes example"
 ## #' author: "Tom Carroll"
-## #' date: "Day 3 of CWB"
+## #' date: "Reproducible R"
 ## #'
 ## #' this would be placed as text in html
 ## # Generate some random numbers (This is a comment with code)

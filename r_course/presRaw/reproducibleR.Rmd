@@ -74,11 +74,6 @@ Several packages offer methods to create notes from R scripts.
 
 One of the simplest way to create a note in R is to use the **render()** function in **rmarkdown** package.
 
-```{r,eval=T,echo=F, message=F, warning=F}
-library(rmarkdown)
-render("scripts/script.r")
-```
-
 ```{r,eval=F,echo=TRUE}
 library(rmarkdown)
 render("scripts/script.r")
@@ -151,9 +146,9 @@ If we wish to control author, title and date, we can insert metadata into the sc
 ```{r,eval=F}
 
 #' ---
-#' title: "CWB making notes example"
+#' title: "BRC making notes example"
 #' author: "Tom Carroll"
-#' date: "Day 3 of CWB"
+#' date: "Reproducible R"
 #' ---
 #' this would be placed as text in html
 # Generate some random numbers (This is a comment with code)
@@ -319,11 +314,10 @@ My list rendered:
 ---
 ## Markdown syntax - Code chunks
 
-
 In Markdown, text may be highlighted as if code by placing the text between apostrophes in triplicate: '''.
 
 ```
-The code used to produce plot was
+_The code used to produce plot was:_
 '''
 hist(rnorm(100))
 '''
@@ -337,7 +331,7 @@ In Markdown, text may be highlighted as if code by placing the text between apos
 
 
 ```
-*The code used to produce plot was:*
+_The code used to produce plot was:_
 '''
 hist(rnorm(100))
 '''
