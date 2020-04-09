@@ -26,7 +26,9 @@ class: center, middle, inverse, title-slide
 
 
 
-# Overview
+# Intro to R (part 2)
+
+## Overview
 
 - [Recap](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session2.html#recap)
 - [Conditions and Loops](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session2.html#conditions_and_loops)
@@ -256,8 +258,8 @@ aDataFrame[aDataFrame$Factor == "R", 2] &lt;- "NotPython"
 ```
 
 ```
-## Warning in `[&lt;-.factor`(`*tmp*`, iseq, value = c("NotPython", "NotPython", : invalid
-## factor level, NA generated
+## Warning in `[&lt;-.factor`(`*tmp*`, iseq, value = c("NotPython", "NotPython", :
+## invalid factor level, NA generated
 ```
 
 ```r
@@ -513,8 +515,8 @@ ifelse(x &lt;= 3,"lessOrEqual","more")
 ```
 
 ```
-##  [1] "lessOrEqual" "lessOrEqual" "lessOrEqual" "more"        "more"        "more"       
-##  [7] "more"        "more"        "more"        "more"
+##  [1] "lessOrEqual" "lessOrEqual" "lessOrEqual" "more"        "more"       
+##  [6] "more"        "more"        "more"        "more"        "more"
 ```
 
 ---
@@ -1055,11 +1057,11 @@ my_zscore(my_number=A[1], my_vector=A)
 ```
 
 ```
-## Mean is 0.167774411176374
+## Mean is 0.201104352872649
 ```
 
 ```
-## [1] 0.08279658
+## [1] -2.239018
 ```
 
 ---
@@ -1073,9 +1075,10 @@ sapply(A, my_zscore, my_vector=A)
 ```
 
 ```
-##  [1]  0.08279658 -0.67722788 -0.67440523 -0.10637529 -1.04858965  1.70333705  0.34534884
-##  [8]  1.16000801  0.46828476 -0.46114792 -1.36344555  1.50658045  1.13563343  1.27274428
-## [15]  0.08332667  0.35467503 -1.88383600 -0.59937868 -0.29655282 -1.00177609
+##  [1] -2.23901764  0.83266261  1.14313744  0.71292111 -0.14141906  0.65323297
+##  [7] -0.08105110  1.86624724  0.43040748  0.28402760 -0.00719963 -0.92384215
+## [13]  0.27472637  0.83808571 -0.43899279 -0.78900409 -1.71552294 -1.04446239
+## [19]  0.77927490 -0.43421164
 ```
 
 ---

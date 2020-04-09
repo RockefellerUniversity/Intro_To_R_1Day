@@ -25,6 +25,8 @@ output:
 suppressPackageStartupMessages(require(knitr))
 ```
 
+# Intro to R (part 1)
+
 ## Overview
 
 - [Set up](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#set-up)
@@ -59,7 +61,7 @@ Once the zip file in unarchived. All presentations as HTML slides and pages, the
 Presentations as an HTML slide show.
 * **presentations/singlepage/** 
 Presentations as an HTML single page.
-* **presentations/rcode/**
+* **presentations/r_code/**
 R code in presentations.
 * **exercises/**
 Practicals as HTML pages. 
@@ -100,7 +102,7 @@ class: inverse, center, middle
 **R** is a scripting language and environment for **statistical computing**.
 
 
-Developed by [Robert Gentleman](http://www.gene.com/scientists/our-scientists/robert-gentleman) and [Ross Ihaka](https://www.stat.auckland.ac.nz/~ihaka/). 
+Developed by [Robert Gentleman](https://en.wikipedia.org/wiki/Robert_Gentleman_(statistician)) and [Ross Ihaka](https://en.wikipedia.org/wiki/Ross_Ihaka). 
 
 
 Inheriting much from **S** (Bell labs).
@@ -124,7 +126,7 @@ Inheriting much from **S** (Bell labs).
 **R** provides access to 1000s of packages ([CRAN](http://cran.r-project.org/)/[MRAN](http://mran.revolutionanalytics.com/)/[R-forge](https://r-forge.r-project.org/)) which extend the basic functionality of R while maintaining high quality documentation.
 
 
-In particular, [Robert Gentleman](https://en.wikipedia.org/wiki/Robert_Gentleman_(statistician)) developed the **[Bioconductor](http://bioconductor.org/)** project where 100's of packages are directly related to computational biology and analysis of associated high-throughput experiments.
+In particular, [Robert Gentleman]("https://en.wikipedia.org/wiki/Robert_Gentleman_(statistician)") developed the **[Bioconductor](http://bioconductor.org/)** project where 100's of packages are directly related to computational biology and analysis of associated high-throughput experiments.
   ] 
 .pull-right[
 ![R use over time](imgs/RCitations.jpeg)
@@ -843,7 +845,7 @@ narrowMatrix[narrowMatrix[,1] < 5,]
 ## Matrices - Arithmetic operations.
 
 
-As with vectors, matrices can have arithmetic operations applied to cells,rows, columns or the whole matrix
+As with vectors, matrices can have arithmetic operations applied to cells, rows, columns or the whole matrix
 ```{r matricesArithmetric_introtoR}
 narrowMatrix
 narrowMatrix[1,1]+2
@@ -1109,7 +1111,7 @@ dfExample
 
 
 ---
-## Data frames - Data frames without factors
+## Data frames - Avoiding factors
 
 If you wish to avoid using factors in data frames then the **stringsAsFactors** argument to **data.frame()** function should be set to **FALSE**
 
@@ -1446,7 +1448,7 @@ We may want to import from formats other than plain text.
 
 We can make use of an R package (the rio package) which allows us to import and export data to mulitple formats.
 
-Formats include:-
+Formats include:
 
 * XML
 * Matlab, SAS, SPSS and minitab output formats.
