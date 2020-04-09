@@ -258,8 +258,7 @@ aDataFrame[aDataFrame$Factor == "R", 2] &lt;- "NotPython"
 ```
 
 ```
-## Warning in `[&lt;-.factor`(`*tmp*`, iseq, value = c("NotPython", "NotPython", :
-## invalid factor level, NA generated
+## Warning in `[&lt;-.factor`(`*tmp*`, iseq, value = c("NotPython", "NotPython", : invalid factor level, NA generated
 ```
 
 ```r
@@ -515,8 +514,8 @@ ifelse(x &lt;= 3,"lessOrEqual","more")
 ```
 
 ```
-##  [1] "lessOrEqual" "lessOrEqual" "lessOrEqual" "more"        "more"       
-##  [6] "more"        "more"        "more"        "more"        "more"
+##  [1] "lessOrEqual" "lessOrEqual" "lessOrEqual" "more"        "more"        "more"        "more"       
+##  [8] "more"        "more"        "more"
 ```
 
 ---
@@ -1057,11 +1056,11 @@ my_zscore(my_number=A[1], my_vector=A)
 ```
 
 ```
-## Mean is 0.201104352872649
+## Mean is -0.591156116190429
 ```
 
 ```
-## [1] -2.239018
+## [1] -0.1418265
 ```
 
 ---
@@ -1075,10 +1074,9 @@ sapply(A, my_zscore, my_vector=A)
 ```
 
 ```
-##  [1] -2.23901764  0.83266261  1.14313744  0.71292111 -0.14141906  0.65323297
-##  [7] -0.08105110  1.86624724  0.43040748  0.28402760 -0.00719963 -0.92384215
-## [13]  0.27472637  0.83808571 -0.43899279 -0.78900409 -1.71552294 -1.04446239
-## [19]  0.77927490 -0.43421164
+##  [1] -0.14182651 -0.59252735 -2.05404961  1.58811923 -0.73881117 -0.21655648 -0.68586824  0.88938675 -1.03502145
+## [10] -0.47553221  1.60715958  0.49801972 -0.44606961  0.47421021  1.83917384 -0.67016890  0.92079268  0.13608909
+## [19] -0.88484445 -0.01167512
 ```
 
 ---

@@ -1886,8 +1886,7 @@ div.tocify {
 <div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb79-1" data-line-number="1">x<span class="op">+</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)</a></code></pre></div>
 <pre><code>##  [1]  2  4  4  6  6  8  8 10 10 12</code></pre>
 <div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb81-1" data-line-number="1">x<span class="op">+</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)</a></code></pre></div>
-<pre><code>## Warning in x + c(1, 2, 3): longer object length is not a multiple of shorter
-## object length</code></pre>
+<pre><code>## Warning in x + c(1, 2, 3): longer object length is not a multiple of shorter object length</code></pre>
 <pre><code>##  [1]  2  4  6  5  7  9  8 10 12 11</code></pre>
 </div>
 <div id="vectors---character-vectors" class="section level2">
@@ -2094,8 +2093,8 @@ div.tocify {
 <h3>Incompatible vectors and matrices</h3>
 <p>When creating a matrix using <strong>cbind()</strong> or <strong>matrix()</strong> from incompatible vectors then the shorter vector is recycled.</p>
 <div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb136-1" data-line-number="1">recycledMatrix2 &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>,<span class="dt">ncol=</span><span class="dv">2</span>,<span class="dt">nrow=</span><span class="dv">3</span>)</a></code></pre></div>
-<pre><code>## Warning in matrix(1:5, ncol = 2, nrow = 3): data length [5] is not a sub-multiple
-## or multiple of the number of rows [3]</code></pre>
+<pre><code>## Warning in matrix(1:5, ncol = 2, nrow = 3): data length [5] is not a sub-multiple or multiple of the number of
+## rows [3]</code></pre>
 <div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb138-1" data-line-number="1">recycledMatrix2</a></code></pre></div>
 <pre><code>##      [,1] [,2]
 ## [1,]    1    4
@@ -2109,8 +2108,8 @@ div.tocify {
 <h3>Incompatible vectors and matrices</h3>
 <p>For <strong>rbind()</strong> function, the longer vector is clipped.</p>
 <div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb140-1" data-line-number="1">recycledMatrix3 &lt;-<span class="st"> </span><span class="kw">rbind</span>(recycledMatrix2,<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>))</a></code></pre></div>
-<pre><code>## Warning in rbind(recycledMatrix2, c(1:5)): number of columns of result is not a
-## multiple of vector length (arg 2)</code></pre>
+<pre><code>## Warning in rbind(recycledMatrix2, c(1:5)): number of columns of result is not a multiple of vector length (arg
+## 2)</code></pre>
 <div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb142-1" data-line-number="1">recycledMatrix3</a></code></pre></div>
 <pre><code>##      [,1] [,2]
 ## [1,]    1    4
@@ -2326,8 +2325,7 @@ div.tocify {
 <p>In some cases there is no natural order to the categories such that one category is greater than the other (nominal data). In this case we can see that R is gender neutral.</p>
 <div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb204-1" data-line-number="1">factorExample &lt;-<span class="st"> </span><span class="kw">factor</span>(vectorExample,<span class="dt">levels=</span><span class="kw">c</span>(<span class="st">&quot;male&quot;</span>,<span class="st">&quot;female&quot;</span>))</a>
 <a class="sourceLine" id="cb204-2" data-line-number="2">factorExample[<span class="dv">1</span>] <span class="op">&lt;</span><span class="st"> </span>factorExample[<span class="dv">2</span>]</a></code></pre></div>
-<pre><code>## Warning in Ops.factor(factorExample[1], factorExample[2]): '&lt;' not meaningful for
-## factors</code></pre>
+<pre><code>## Warning in Ops.factor(factorExample[1], factorExample[2]): '&lt;' not meaningful for factors</code></pre>
 <pre><code>## [1] NA</code></pre>
 </div>
 <div id="factors---ordinal-factors" class="section level2">
@@ -2350,8 +2348,7 @@ div.tocify {
 <pre><code>## [1] big   big   big   small
 ## Levels: big small</code></pre>
 <div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb213-1" data-line-number="1">factorExample[<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;huge&quot;</span>)</a></code></pre></div>
-<pre><code>## Warning in `[&lt;-.factor`(`*tmp*`, 1, value = &quot;huge&quot;): invalid factor level, NA
-## generated</code></pre>
+<pre><code>## Warning in `[&lt;-.factor`(`*tmp*`, 1, value = &quot;huge&quot;): invalid factor level, NA generated</code></pre>
 <div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb215-1" data-line-number="1">factorExample</a></code></pre></div>
 <pre><code>## [1] &lt;NA&gt;  big   big   small
 ## Levels: big small</code></pre>
@@ -2452,8 +2449,7 @@ div.tocify {
 <h2>Data frames - Indexing and replacement</h2>
 <p>This occurs because character vectors are treated as factors by default.</p>
 <div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb238-1" data-line-number="1">dfExample[dfExample[,<span class="st">&quot;Survival_Time&quot;</span>] <span class="op">&lt;</span><span class="st"> </span><span class="dv">10</span>,<span class="st">&quot;Name&quot;</span>] &lt;-<span class="st"> &quot;patientX&quot;</span></a></code></pre></div>
-<pre><code>## Warning in `[&lt;-.factor`(`*tmp*`, iseq, value = c(&quot;patientX&quot;, &quot;patientX&quot;)): invalid
-## factor level, NA generated</code></pre>
+<pre><code>## Warning in `[&lt;-.factor`(`*tmp*`, iseq, value = c(&quot;patientX&quot;, &quot;patientX&quot;)): invalid factor level, NA generated</code></pre>
 <div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb240-1" data-line-number="1">dfExample</a></code></pre></div>
 <pre><code>##       Name   Type Survival_Time newColumn
 ## 1     &lt;NA&gt;   male             0   newData
@@ -2745,13 +2741,13 @@ Sample_3.hi
 Gene_a
 </td>
 <td style="text-align:right;">
-4.315150
+2.859121
 </td>
 <td style="text-align:right;">
-4.389791
+2.904894
 </td>
 <td style="text-align:right;">
-1.860053
+4.286274
 </td>
 </tr>
 <tr>
@@ -2759,13 +2755,13 @@ Gene_a
 Gene_b
 </td>
 <td style="text-align:right;">
-4.223834
+4.548544
 </td>
 <td style="text-align:right;">
-3.453921
+4.321027
 </td>
 <td style="text-align:right;">
-2.162887
+2.730504
 </td>
 </tr>
 <tr>
@@ -2773,13 +2769,13 @@ Gene_b
 Gene_c
 </td>
 <td style="text-align:right;">
-2.954950
+3.468930
 </td>
 <td style="text-align:right;">
-4.254241
+3.901789
 </td>
 <td style="text-align:right;">
-3.520354
+4.317098
 </td>
 </tr>
 <tr>
@@ -2787,13 +2783,13 @@ Gene_c
 Gene_d
 </td>
 <td style="text-align:right;">
-4.483154
+5.389493
 </td>
 <td style="text-align:right;">
-5.143967
+4.107921
 </td>
 <td style="text-align:right;">
-3.270996
+3.480934
 </td>
 </tr>
 <tr>
@@ -2801,13 +2797,13 @@ Gene_d
 Gene_e
 </td>
 <td style="text-align:right;">
-9.729535
+10.279172
 </td>
 <td style="text-align:right;">
-11.090507
+9.228295
 </td>
 <td style="text-align:right;">
-10.086176
+10.560103
 </td>
 </tr>
 <tr>
@@ -2815,13 +2811,13 @@ Gene_e
 Gene_f
 </td>
 <td style="text-align:right;">
-9.111624
+10.556158
 </td>
 <td style="text-align:right;">
-9.360301
+7.671680
 </td>
 <td style="text-align:right;">
-10.232799
+11.212293
 </td>
 </tr>
 <tr>
@@ -2829,13 +2825,13 @@ Gene_f
 Gene_g
 </td>
 <td style="text-align:right;">
-10.932170
+9.854404
 </td>
 <td style="text-align:right;">
-7.409730
+10.410308
 </td>
 <td style="text-align:right;">
-10.157334
+7.895529
 </td>
 </tr>
 <tr>
@@ -2843,13 +2839,13 @@ Gene_g
 Gene_h
 </td>
 <td style="text-align:right;">
-10.801235
+9.068114
 </td>
 <td style="text-align:right;">
-12.010921
+11.262726
 </td>
 <td style="text-align:right;">
-9.543080
+10.852022
 </td>
 </tr>
 </tbody>
@@ -2947,12 +2943,9 @@ Gene_h
 <p><strong>import(<em>Filename</em>)</strong></p>
 <div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb303-1" data-line-number="1">Table &lt;-<span class="st"> </span><span class="kw">import</span>(<span class="st">&quot;data/readThisTable.csv&quot;</span>)</a>
 <a class="sourceLine" id="cb303-2" data-line-number="2">Table[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>,]</a></code></pre></div>
-<pre><code>##   Gene_Name Sample_1.hi Sample_2.hi Sample_3.hi Sample_4.low Sample_5.low
-## 1    Gene_a    4.570237    3.230467    3.351827     3.930877     4.098247
-## 2    Gene_b    3.561733    3.632285    3.587523     4.185287     1.380976
-##   Sample_1.low
-## 1     4.418726
-## 2     5.936990</code></pre>
+<pre><code>##   Gene_Name Sample_1.hi Sample_2.hi Sample_3.hi Sample_4.low Sample_5.low Sample_1.low
+## 1    Gene_a    4.570237    3.230467    3.351827     3.930877     4.098247     4.418726
+## 2    Gene_b    3.561733    3.632285    3.587523     4.185287     1.380976     5.936990</code></pre>
 </div>
 <div id="the-rio-package-3" class="section level2">
 <h2>The rio package</h2>
@@ -2980,12 +2973,9 @@ Gene_h
 <p>Since this is a list of data.frames, we can access our sheets using standard list accessors, <strong>$</strong> and <strong>[[]]</strong>.</p>
 <div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb309-1" data-line-number="1"><span class="co">## Table[[&quot;ExpressionScores&quot;]][1:2,]</span></a>
 <a class="sourceLine" id="cb309-2" data-line-number="2">Table<span class="op">$</span>ExpressionScores[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>,]</a></code></pre></div>
-<pre><code>##   Gene_Name Sample_1.hi Sample_2.hi Sample_3.hi Sample_4.low Sample_5.low
-## 1    Gene_a    4.570237    3.230467    3.351827     3.930877     4.098247
-## 2    Gene_b    3.561733    3.632285    3.587523     4.185287     1.380976
-##   Sample_1.low
-## 1     4.418726
-## 2     5.936990</code></pre>
+<pre><code>##   Gene_Name Sample_1.hi Sample_2.hi Sample_3.hi Sample_4.low Sample_5.low Sample_1.low
+## 1    Gene_a    4.570237    3.230467    3.351827     3.930877     4.098247     4.418726
+## 2    Gene_b    3.561733    3.632285    3.587523     4.185287     1.380976     5.936990</code></pre>
 <div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb311-1" data-line-number="1">Table<span class="op">$</span>Metadata[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>,]</a></code></pre></div>
 <pre><code>##       Patient Condition   Treatment
 ## 1 Sample_1.hi         A           X

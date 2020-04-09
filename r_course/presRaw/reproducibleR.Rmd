@@ -61,7 +61,7 @@ class: inverse, center, middle
 ---
 ## From Scripts to Notes
 
-So we have just seen the speed at which you can produce a report document from an R script using Rstudio.
+So we have just seen the speed at which you can produce a report document from an R script using Rstudio. 
 
 Rstudio makes things easy but for fine control we need to look at what is going on within Rstudio.
 
@@ -73,6 +73,11 @@ Rstudio makes use of **rmarkdown** and **knitr** packages.
 Several packages offer methods to create notes from R scripts.
 
 One of the simplest way to create a note in R is to use the **render()** function in **rmarkdown** package.
+
+```{r,eval=T,echo=F, message=F, warning=F}
+library(rmarkdown)
+render("scripts/script.r")
+```
 
 ```{r,eval=F,echo=TRUE}
 library(rmarkdown)
@@ -110,6 +115,13 @@ render("scripts/script.r", output_format="html_document",
 ```
 
 ---
+# Comments 
+
+Rendering a report with metadata like author and date of render is the essential first step in reproducibility. 
+
+By itself code is great, but not as useful as it could be. We need to annotate our code.
+
+---
 ## Adding comments and text
 
 In R we can use **#** as comments in the code. This is the most basic type of documentation for your code.
@@ -131,7 +143,6 @@ myRandNumbers <- rnorm(100,10,2)
 ```
 
 ---
-
 ## YAML metadata.
 
 If we wish to control author, title and date, we can insert metadata into the script as YAML.  
@@ -169,9 +180,9 @@ hist(myRandNumbers)
 ---
 ## Exercise
 
-- Have at the example notebook script "scriptWithNotebookExamples.r" in scripts directory.
+- Have at the example notebook script "scriptWithNotebookExamples.r" in scripts directory and the html document rendered from it of the same name.
 - Open scriptToConvertToNote.r in scripts directory and save as new name.
-- Add notes to this script and compile with render() function or through RStudio.
+- Add notes to this script and compile with render() function or through RStudio. Compare changes between the original html and your html. 
 
 ---
 ## Markdown
@@ -188,7 +199,6 @@ Common formats markdown renders to are:
 ---
 ## Markdown
 
-
 Markdown is often used as an intermediate document in conversion from one type to another.  
 
 Github and Sourceforge make use of Markdown syntax in their Readme files and renders these in their webpages.
@@ -197,7 +207,6 @@ https://github.com/github/markup/blob/master/README.md
 
 ---
 ## Markdown syntax
-
 
 Markdown uses simple syntax to control text output.
 
@@ -254,7 +263,6 @@ Files may be local or accessible from http URL.
 ---
 ## Markdown syntax - Creating headers
 
-
 Section headers can be added to Markdown documents.
 
 Headers follow the same conventions as used in HTML markup and can implemented at multiple levels of size. Section headers in Markdown are created by using the **#** symbol
@@ -265,7 +273,7 @@ Headers follow the same conventions as used in HTML markup and can implemented a
 ### Bottom level section
 ```
 
-### Bottom level section
+### Rendered Bottom level section
 
 ---
 ## Markdown syntax - Lists
@@ -279,6 +287,9 @@ Nested lists be specified with **+** symbol.
     + Second item A
     + Second item B
 ```
+
+
+My list rendered:  
 
 - First item
 - Second item
@@ -297,6 +308,9 @@ Lists can also include ordered numbers.
     + Second item A
     + Second item B
 ```
+
+My list rendered:  
+
 1. First item
 2. Second item
     + Second item A
@@ -304,19 +318,6 @@ Lists can also include ordered numbers.
     
 ---
 ## Markdown syntax - Code chunks
-
-
-In Markdown, text may be highlighted as if code by placing the text between '''.
-
-```
-The code used to produce plot was
-'''
-hist(rnorm(100))
-'''
-
-```
----
-## Markdown syntax- Code chunks
 
 
 In Markdown, text may be highlighted as if code by placing the text between apostrophes in triplicate: '''.
@@ -328,10 +329,26 @@ hist(rnorm(100))
 '''
 
 ```
+---
+## Markdown syntax - Code chunks
 
+
+In Markdown, text may be highlighted as if code by placing the text between apostrophes in triplicate: '''.
+
+
+```
+*The code used to produce plot was:*
+'''
+hist(rnorm(100))
+'''
+
+```
+
+*The code used to produce plot was:*
 ```
 hist(rnorm(100))
 ```
+
 ---
 ## Markdown syntax - HTML links
 
@@ -349,6 +366,7 @@ To specify a page break use 3 or more asterisks or dashes.
 ```
 Before the page break
 ---
+After the page break
 ```
 
 ---
@@ -371,7 +389,6 @@ http://yihui.name/knitr/
 
 ---
 ## Markdown to rMarkdown
-
 
 The transition from Markdown to rMarkdown is very simple. All Markdown syntax may be included and code to be evaluated in R placed between a special code chunk.  
 
@@ -424,7 +441,7 @@ hist(rnorm(1000))
 ```
 ---
 
-## rMarkdown. Control messages and warnings
+## rMarkdown - messages and warnings
 
 R can produce a lot of output not related to your results. To control whether messages and warnings are reported in the rendered document we can specify the **message** and **warning** arguments. 
 
@@ -506,6 +523,13 @@ kable(dfExample)
 '''
 
 ```
+
+'''{r,results='asis'} 
+temp <- rnorm(10)
+temp2 <- rnorm(10)
+dfExample <- cbind(temp,temp2)
+kable(dfExample)
+'''
 
 ---
 ## rMarkdown - Evaluating code in the md
@@ -623,7 +647,6 @@ Custom styles can also be applied to rMarkdown documents using CSS style files a
 ---
 ## Using Rstudio
 
-
 Lets see how to do this in RStudio.
 
 **File -> New File -> R Markdown** 
@@ -639,7 +662,6 @@ http://rstudio.github.io/packrat/
 
 ---
 ## Exercises
-
 
 - Open up markdownExampleDefaultStyles.Rmd and markdownExample.Rmd in the scripts directory. Have a look at the rMarkdown examples here and the resulting output html files.
 
