@@ -77,31 +77,6 @@ Several packages offer methods to create notes from R scripts.
 One of the simplest way to create a note in R is to use the **render()** function in **rmarkdown** package.
 
 
-```
-## 
-  |                                                                                                            
-  |                                                                                                      |   0%
-  |                                                                                                            
-  |..................................                                                                    |  33%
-##   ordinary text without R code
-## 
-## 
-  |                                                                                                            
-  |....................................................................                                  |  67%
-## label: unnamed-chunk-16
-```
-
-```
-## 
-  |                                                                                                            
-  |......................................................................................................| 100%
-##   ordinary text without R code
-## 
-## 
-## /Applications/RStudio.app/Contents/MacOS/pandoc/pandoc +RTS -K512m -RTS script.utf8.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash+smart --output script.html --email-obfuscation none --self-contained --standalone --section-divs --template /Library/Frameworks/R.framework/Versions/3.6/Resources/library/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --variable 'theme:bootstrap' --include-in-header /var/folders/zy/x35d37h50sq2_fp3zrjydcl00000gn/T//RtmppCTXf0/rmarkdown-str5d94531c2c0f.html --mathjax --variable 'mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' --lua-filter /Library/Frameworks/R.framework/Versions/3.6/Resources/library/rmarkdown/rmd/lua/pagebreak.lua --lua-filter /Library/Frameworks/R.framework/Versions/3.6/Resources/library/rmarkdown/rmd/lua/latex-div.lua
-```
-
-
 ```r
 library(rmarkdown)
 render("scripts/script.r")
@@ -178,9 +153,9 @@ If we wish to control author, title and date, we can insert metadata into the sc
 
 ```r
 #' ---
-#' title: "CWB making notes example"
+#' title: "BRC making notes example"
 #' author: "Tom Carroll"
-#' date: "Day 3 of CWB"
+#' date: "Reproducible R"
 #' ---
 #' this would be placed as text in html
 # Generate some random numbers (This is a comment with code)
@@ -347,11 +322,10 @@ My list rendered:
 ---
 ## Markdown syntax - Code chunks
 
-
 In Markdown, text may be highlighted as if code by placing the text between apostrophes in triplicate: '''.
 
 ```
-The code used to produce plot was
+_The code used to produce plot was:_
 '''
 hist(rnorm(100))
 '''
@@ -365,7 +339,7 @@ In Markdown, text may be highlighted as if code by placing the text between apos
 
 
 ```
-*The code used to produce plot was:*
+_The code used to produce plot was:_
 '''
 hist(rnorm(100))
 '''
@@ -434,7 +408,7 @@ My Markdown **syntax** here
 hist(rnorm(1000))
 ```
 
-![](reproducibleR_files/figure-html/unnamed-chunk-11-1.png)&lt;!-- --&gt;
+![](reproducibleR_files/figure-html/unnamed-chunk-10-1.png)&lt;!-- --&gt;
 
 ---
 ## rMarkdown - Control code evaluation
@@ -468,7 +442,7 @@ hist(rnorm(1000))
 '''
 
 ```
-![](reproducibleR_files/figure-html/unnamed-chunk-13-1.png)&lt;!-- --&gt;
+![](reproducibleR_files/figure-html/unnamed-chunk-12-1.png)&lt;!-- --&gt;
 ---
 
 ## rMarkdown - messages and warnings
@@ -518,7 +492,7 @@ rnorm(100  )
 hist(rnorm(100))
 ```
 
-![](reproducibleR_files/figure-html/unnamed-chunk-14-1.png)&lt;!-- --&gt;
+![](reproducibleR_files/figure-html/unnamed-chunk-13-1.png)&lt;!-- --&gt;
 
 ---
 ## rMarkdown - Print output with code
@@ -536,8 +510,8 @@ temp
 ```r
 temp &lt;- rnorm(10)
 temp
-##  [1] -0.28193750  0.98228116  0.18883852  0.43463657  1.28501982  2.13312111 -1.70544114 -0.73005724  0.08166875
-## [10]  1.07137694
+##  [1] -0.84678166  0.11254447 -1.14149276 -0.92324015 -0.09115408  0.98031476  1.64626235 -0.56556747 -0.47774660
+## [10] -0.24340009
 ```
 
 ---
@@ -578,7 +552,7 @@ more free form text.
 
 ```
 Here is some freeform _markdown_ and the first result
-from an rnorm call is -0.9174779, followed by some more free form text.
+from an rnorm call is -0.8045485, followed by some more free form text.
 
 ---
 ## rMarkdown - cache
