@@ -1324,7 +1324,6 @@ listAsMat <- matrix(flatList,
 listAsMat
 ```
 
-
 ---
 class: inverse, center, middle
 
@@ -1441,6 +1440,19 @@ Since our data has column names but no row names, I will provide the arguments c
 write.table(Table, file="data/writeThisTable.csv", sep=",", row.names =F, col.names=T)
 ```
 
+---
+# Reviewing your data - head/tail
+It is always important to know what your data is. Especially when you are reading it in for the first time. We have used indexing to get a taste of the data frames so far. But there are two functions to quickly check your data. **head()** and **tail()** return the first or last 6 lines by default. 
+
+```{r}
+head(Table)
+```
+---
+# Reviewing your data - head/tail
+```{r}
+tail(Table)
+head(Table,3)
+```
 
 ---
 ## The rio (R io) package
