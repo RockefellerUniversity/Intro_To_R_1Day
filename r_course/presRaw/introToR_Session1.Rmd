@@ -378,9 +378,10 @@ These indices can be used to extract relevant values from vectors.
 
 
 ```{r vectorIndexing_introtoR}
-x
-x[1]
-x[8]
+z <- seq(from=2,to=20,by=2) 
+z
+z[1]
+z[8]
 ```
 
 ---
@@ -390,12 +391,12 @@ x[8]
 Indices can be used to extract values from multiple positions within a vector.
 
 ```{r vectorIndexingBy2_introtoR}
-x[c(1,6)]
+z[c(1,6)]
 ```
 Negative indices can be used to extract all positions except that specified.
 
 ```{r vectorIndexingByNeg_introtoR}
-x[-5]
+z[-5]
 ```
 
 
@@ -407,9 +408,9 @@ x[-5]
 We can use indices to modify a specific position in a vector.
 
 ```{r vectorIndexingAndReplace_introtoR}
-x
-x[5] <- -5
-x
+z
+z[5] <- 1000
+z
 ```
 
 
@@ -420,8 +421,8 @@ Indices can be specified using other vectors.
 
 ```{r vectorIndexingUsingVectors_introtoR}
 y
-x[y] <- 0
-x
+z[y] <- 0
+z
 ```
 
 
