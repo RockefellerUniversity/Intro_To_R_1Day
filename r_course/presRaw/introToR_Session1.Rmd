@@ -1325,6 +1325,27 @@ listAsMat
 ```
 
 ---
+## Coercing data formats
+Sometime you do not want to have to remake an object if it is in an undesired format. There are a group of functions to coerce your data object to a new format, **as._desiredformat_()**.
+
+```{r}
+namedMatrix
+
+as.character(namedMatrix)
+
+as.vector(namedMatrix)
+```
+---
+## Coercing data formats
+```{r}
+as.data.frame(namedMatrix)
+
+as.list(namedMatrix)
+
+```
+
+
+---
 class: inverse, center, middle
 
 # Reading and writing data in R
