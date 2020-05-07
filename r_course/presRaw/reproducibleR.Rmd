@@ -495,7 +495,7 @@ temp
 '''
 
 ```
-```{r,collapse=T} 
+```{r, collapse=T} 
 temp <- rnorm(10)
 temp
 ```
@@ -554,6 +554,18 @@ length(x)
 '''
 ```
 
+---
+## Saving a plot through rMarkdown 
+
+It is possible to save plots in your HTML reports by just right-clicking on them. It is sometimes easier to directly create seperate files with your plots. When we reviewed plotting we saw how to export plots, but rMarkdown has in-built system for figure output. 
+
+You can control the plot dimensions, the name, file type and path in which they will be saved. If you export multiple plots from a single chunk, they will have the same name, but they will be appended with a number. 
+
+```
+'''{r my_plot_title, fig.width=5, fig.height=5, fig.path='figures/', dev=c('png','pdf')}
+plot(1:10)
+'''
+```
 ---
 ## YAML in rMarkdown
 
