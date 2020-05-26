@@ -17,15 +17,36 @@ output:
     number_sections: false  ## if you want number sections at each table header
     theme: united  # many options for theme, this one is my favorite.
     highlight: tango  # specifies the syntax highlighting style
-
-
+params:
+  isSlides: "no"
 ---
 
 ```{r,include=FALSE}
 suppressPackageStartupMessages(require(knitr))
+knitr::opts_chunk$set(echo = TRUE, tidy = T)
 ```
 
-# Intro to R (part 1)
+```{r, results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+  cat("class: inverse, center, middle
+
+# Introduction to R (part 1)
+
+<html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
+
+---
+"    
+  )
+}else{
+  cat("# Introduction to R (part 1)
+
+---
+"    
+  )
+  
+}
+
+```
 
 ## Overview
 
@@ -35,13 +56,28 @@ suppressPackageStartupMessages(require(knitr))
 - [Reading and writing in R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#reading-and-writing-data-in-r)
 
 ---
-class: inverse, center, middle
+```{r, results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+  cat("class: inverse, center, middle
 
-# Set up
+# Set Up
 
 <html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
 
 ---
+"    
+  )
+}else{
+  cat("# Set Up
+
+---
+"    
+  )
+  
+}
+
+```
+
 ## Materials
 
 All prerequisites, links to material and slides for this course can be found on github.
@@ -87,13 +123,28 @@ setwd("/PathToMyDownload/Intro_To_R_1Day/r_course")
 ```
 
 
-
 ---
-class: inverse, center, middle
+```{r, results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+  cat("class: inverse, center, middle
 
-# Background to R
+# Background of R
 
 <html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
+
+---
+"    
+  )
+}else{
+  cat("# Background of R
+
+---
+"    
+  )
+  
+}
+
+```
 
 ---
 ## What is R?
@@ -172,12 +223,29 @@ Four main panels
   ]
 
 ---
-class: inverse, center, middle
-# Data types in R
+
+```{r, results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+  cat("class: inverse, center, middle
+
+# Data Types in R
 
 <html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
 
 ---
+"    
+  )
+}else{
+  cat("# Data Types in R
+
+---
+"    
+  )
+  
+}
+
+```
+
 
 ## Different Data types in R
 
@@ -279,6 +347,28 @@ dir(".",NULL,FALSE,T)
 ```
 
 ---
+```{r, results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+  cat("class: inverse, center, middle
+
+# Variables
+
+<html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
+
+---
+"    
+  )
+}else{
+  cat("# Variables
+
+---
+"    
+  )
+  
+}
+
+```
+
 ## Variables 
 
 
@@ -297,7 +387,7 @@ x
 
 
 ---
-## Variables
+## Altering variables
 
 
 ```{r variableShowForAlterInPlace_introtoR}
@@ -312,7 +402,7 @@ x
 
 ---
 
-## Variables                                                                                        
+## Using variables                                                                                        
 
 Variables can be used just as the values they contain.
 ```{r variableAsValueTheyContain_introtoR}
@@ -326,6 +416,29 @@ Variables can be used to create new variables
 ```{r variableCreateNewVariable_introtoR}
 y <- x + sqrt(25)
 y
+```
+
+---
+```{r, results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+  cat("class: inverse, center, middle
+
+# Vectors
+
+<html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
+
+---
+"    
+  )
+}else{
+  cat("# Vectors
+
+---
+"    
+  )
+  
+}
+
 ```
 
 ---
@@ -371,57 +484,58 @@ rep(c(1,5,10),3)
 
 
 ---
-## Vectors - Indexing 
+## Indexing 
 
 Square brackets **[]** identify the position within a vector (the **index**).
 These indices can be used to extract relevant values from vectors.
 
 
 ```{r vectorIndexing_introtoR}
-x
-x[1]
-x[8]
+z <- seq(from=2,to=20,by=2) 
+z
+z[1]
+z[8]
 ```
 
 ---
-## Vectors - Indexing 
+## Indexing 
 
 
 Indices can be used to extract values from multiple positions within a vector.
 
 ```{r vectorIndexingBy2_introtoR}
-x[c(1,6)]
+z[c(1,6)]
 ```
 Negative indices can be used to extract all positions except that specified.
 
 ```{r vectorIndexingByNeg_introtoR}
-x[-5]
+z[-5]
 ```
 
 
 
 ---
-## Vectors - Indexing and replacement
+## Indexing and replacement
 
 
 We can use indices to modify a specific position in a vector.
 
 ```{r vectorIndexingAndReplace_introtoR}
-x
-x[5] <- -5
-x
+z
+z[5] <- 1000
+z
 ```
 
 
 ---
-## Vectors - Indexing and replacement
+## Indexing and replacement
 
 Indices can be specified using other vectors.
 
 ```{r vectorIndexingUsingVectors_introtoR}
 y
-x[y] <- 0
-x
+z[y] <- 0
+z
 ```
 
 
@@ -441,8 +555,7 @@ sqrt(4)
 
 
 ---
-## Vectors - Arithmetic operations 
-
+## Arithmetic operations 
 
 Vectors in R can be used in arithmetic operations as seen with [variables earlier](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#simple_calculations). When a standard arithmetic operation is applied to vector, the operation is applied to each position in a vector.
 
@@ -459,8 +572,7 @@ x+y
 ```
 
 ---
-## Vectors - Arithmetic operations  
-
+## Arithmetic operations  
 
 When applying an arithmetic operation between two vectors of unequal length, the shorter will be recycled.
 
@@ -476,7 +588,7 @@ x+c(1,2,3)
 
 
 ---
-## Vectors - Character vectors
+## Character vectors
 
 So far we have only looked at numeric vectors or variables.
 
@@ -496,7 +608,7 @@ x
 ```
 
 ---
-## Vectors - Character vectors as names
+## Character vectors as names
 
 
 These named vectors maybe indexed by a position's "name".
@@ -524,7 +636,7 @@ Similarly, when a calculation can not be perfomed, R will input a **NaN** value.
 
 
 ---
-## Vectors - The unique() function
+## The unique() function
 
 
 The unique() function can be used to retrieve all unique  values from a vector.
@@ -536,7 +648,7 @@ unique(geneList)
 
 
 ---
-## Vectors - Logical vectors
+## Logical vectors
 
 
 Logical vectors are a class of vector made up of TRUE or FALSE boolean values (single letter T/F can also be used).
@@ -556,7 +668,7 @@ x[z]
 ```
 
 ---
-## Vectors - The %in% operator
+## The %in% operator
 
 A common task in R is to subset one vector by the values in another vector.
 
@@ -575,7 +687,7 @@ geneList[logical_index]
 
 
 ---
-## Vectors - Logical vectors from operators
+## Logical vectors from operators
 
 Vectors may be evaluated to produce logical vectors. This can be very useful when using a logical to index.
 
@@ -593,7 +705,7 @@ x[x > 5]
 
 
 ---
-## Vectors - Combining logical vectors
+## Combining logical vectors
 
 Logical vectors can be used in combination in order to index vectors. To combine logical vectors we can use some common R operators.
 
@@ -610,7 +722,7 @@ x > 4 | x < 7
 
 
 ---
-## Vectors - Combining logical vectors
+## Combining logical vectors
 
 Such combinations can allow for complex selection of a vector's values.
 ```{r vectorLogicalCombineIndex_introtoR}
@@ -634,10 +746,32 @@ Exercise on vectors can be found [here](http://rockefelleruniversity.github.io/I
 Answers can be found here  [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/answers/vector_answers.html)
 
 R code for solutions can be found here  [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/answers/vector_answers.R)
+---
 
+```{r, results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+  cat("class: inverse, center, middle
+
+# Matrices
+
+<html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
 
 ---
-## Matrices - Creating matrices
+"    
+  )
+}else{
+  cat("# Matrices
+
+---
+"    
+  )
+  
+}
+
+```
+
+---
+## Creating matrices
 
 
 In programs such as Excel, we are used to tables.
@@ -647,7 +781,7 @@ In programs such as Excel, we are used to tables.
 </div>
 
 ---
-## Matrices - Creating matrices
+## Creating matrices
 
 All progamming languages have a concept of a table. In **R**, the most basic table type is a **matrix**.
 
@@ -662,7 +796,7 @@ wideMatrix
 
 
 ---
-## Matrices - Creating matrices
+## Creating matrices
 
 
 By default when creating a matrix using the **matrix** function, the values fill the matrix by columns. To fill a matrix by rows the **byrow** argument must be set to TRUE.
@@ -677,8 +811,7 @@ wideMatrixByRow
 
 
 ---
-## Matrices - Finding dimensions
-
+## Finding dimensions
 
 To find dimensions of a matrix, the **dim()** function will provide dimensions as the row then column number while **nrow()** and **ncol()** will return just row number and column number respectively.
 ```{r matricesDim_introtoR}
@@ -689,7 +822,7 @@ ncol(narrowMatrix)
 
 
 ---
-## Matrices - Joining vectors and matrices
+## Joining vectors and matrices
 
 
 A matrix can be created from multiple vectors or other matrices.
@@ -704,7 +837,7 @@ newMatrix
 ```
 
 ---
-## Matrices - Joining vectors and matrices
+## Joining vectors and matrices
 
 **rbind()** functions to bind to a matrix as rows.
 ```{r matricesRbind_introtoR}
@@ -714,7 +847,7 @@ newerMatrix
 
 
 ---
-## Matrices - Joining vectors and matrices
+## Joining vectors and matrices
 
 ### Incompatible vectors and matrices
 
@@ -727,7 +860,7 @@ recycledMatrix2
 ```
 
 ---
-## Matrices - Joining vectors and matrices
+## Joining vectors and matrices
 
 ### Incompatible vectors and matrices
 
@@ -739,7 +872,7 @@ recycledMatrix3
 
 
 ---
-## Matrices - Column and row names
+## Column and row names
 
 [As we have seen with vectors](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#vectors---character-vectors), matrices can be named. For matrices the naming is done by columns and rows using **colnames()** and **rownames()** functions.
 
@@ -751,7 +884,7 @@ namedMatrix
 ```
 
 ---
-## Matrices - Column and row names
+## Column and row names
 
 Information on matrix names can also be retreived using the same functions.
 ```{r matricesNamesColRow_introtoR}
@@ -761,7 +894,7 @@ rownames(namedMatrix)
 
 
 ---
-## Matrices - Indexing
+## Indexing
 
 Selecting and replacing portions of a matrix can be done by **indexing** using square brackets **[]** much [like for vectors](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#vectors---indexing).
 
@@ -772,7 +905,7 @@ The first value(s) corresponds to row(s) and the second to column(s).
 - ***myMatrix[rowOfInterest,columnOfInterest]***
 
 ---
-## Matrices - Indexing
+## Indexing
 
 ```{r matricesIndexingShow_introtoR}
 narrowMatrix
@@ -784,7 +917,7 @@ narrowMatrix[2,1]
 
 
 ---
-## Matrices - Indexing 
+## Indexing 
 
 
 Similarly, whole rows or columns can be extracted. Single rows and columns will return a vector.  
@@ -800,7 +933,7 @@ narrowMatrix[3,]
 ```
 
 ---
-## Matrices - Indexing 
+## Indexing 
 
 When multiple columns or row indices are specified, a matrix is returned.
 
@@ -810,7 +943,7 @@ narrowMatrix[c(2,3),]
 ```
 
 ---
-## Matrices - Indexing by name
+## Indexing by name
 
 As with vectors, names can be used for indexing when present
 
@@ -824,7 +957,7 @@ narrowMatrix["Row_1","Column_1"]
 
 
 ---
-## Matrices - Advanced indexing
+## Advanced indexing
 
 As with vectors, matrices can be subset by logical vectors
 ```{r matricesIndexingExampleByLogic_introtoR}
@@ -834,7 +967,7 @@ narrowMatrix[,1] < 5
 ```
 
 ---
-## Matrices - Advanced indexing
+## Advanced indexing
 
 ```{r matricesIndexingExampleByLogicRow_introtoR}
 narrowMatrix[narrowMatrix[,1] < 5,]
@@ -842,7 +975,7 @@ narrowMatrix[narrowMatrix[,1] < 5,]
 
 
 ---
-## Matrices - Arithmetic operations.
+## Arithmetic operations
 
 
 As with vectors, matrices can have arithmetic operations applied to cells, rows, columns or the whole matrix
@@ -856,7 +989,7 @@ mean(narrowMatrix)
 
 
 ---
-## Matrices - Replacement
+## Replacement
 
 
 As with vectors, matrices can have their elements replaced
@@ -869,7 +1002,7 @@ narrowMatrix
 
 
 ---
-## Matrices - Data types
+## Data types
 
 Matrices must be all one type (i.e. numeric or character).
 
@@ -884,7 +1017,7 @@ narrowMatrix
 ```
 
 ---
-## Matrices - Data types
+## Data types
 
 ```{r matricesOneTypeOnlyWithError_introtoR,error=T}
 narrowMatrix[,2] *2
@@ -907,10 +1040,31 @@ Answers can be found here  [here](http://rockefelleruniversity.github.io/Intro_T
 R code for solutions can be found [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/answers/matrices_answers.R)
 
 
+---
+```{r, results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+  cat("class: inverse, center, middle
+
+# Factors
+
+<html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
 
 ---
-## Factors - Creating factors
+"    
+  )
+}else{
+  cat("# Factors
 
+---
+"    
+  )
+  
+}
+
+```
+
+---
+## Creating factors
 
 A special case of a vector is a **factor**.
 
@@ -928,7 +1082,7 @@ levels(factorExample)
 
 
 ---
-## Factors - Summary() function
+## Summary() function
 
 
 An example of the use of levels can be seen from applying the **summary()** function to the vector and factor examples
@@ -942,29 +1096,29 @@ summary(factorExample)
 
 
 ---
-## Factors - Display order of levels
+## Display order of levels
 
 In our factor example, the levels have been displayed in an alphabetical order. To adjust the display order of levels in a factor, we can supply the desired display order to **levels** argument in the **factor()** function call.
 
 ```{r factorsDisplayOrder_introtoR}
-factorExample <- factor(vectorExample,levels=c("male","female"))
+factorExample <- factor(vectorExample, levels=c("male","female"))
 factorExample
 summary(factorExample)
 ```
 
 ---
-## Factors - Nominal factors
+## Nominal factors
 
 In some cases there is no natural order to the categories such that one category is greater than the other (nominal data).
 In this case we can see that R is gender neutral.
 
 ```{r factorsNominal_introtoR}
-factorExample <- factor(vectorExample,levels=c("male","female"))
+factorExample <- factor(vectorExample, levels=c("male","female"))
 factorExample[1] < factorExample[2]
 ```
 
 ---
-## Factors - Ordinal factors
+## Ordinal factors
 
 In other cases there will be a natural ordering to the categories (ordinal data). A factor can be specified to be ordered using the **ordered** argument in combination with specified levels argument.
 
@@ -976,7 +1130,7 @@ factorExample[1] < factorExample[2]
 ```
 
 ---
-## Factors - Replacement
+## Replacement
 
 Unlike vectors, replacing elements within a factor isn't so easy. While replacing one element with an established level is possible, replacing with a novel element will result in a warning.
 
@@ -991,7 +1145,7 @@ factorExample
 ```
 
 ---
-## Factors - Replacement
+## Replacement
 
 To add a new level we can use the levels argument.
 
@@ -1001,9 +1155,31 @@ factorExample[1] <- c("huge")
 factorExample
 ```
 
+---
+```{r, results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+  cat("class: inverse, center, middle
+
+# Data Frames
+
+<html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
 
 ---
-## Data frames - Creating data frames 
+"    
+  )
+}else{
+  cat("# Data Frames
+
+---
+"    
+  )
+  
+}
+
+```
+
+---
+## Creating data frames 
 
 [We saw that with matrices you can only have one type of data](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#matrices_-_data_types). We tried to create a matrix with a character element and the entire matrix became a character.
 
@@ -1014,7 +1190,7 @@ In practice, we would want to have a table which is a mixture of types (e.g a ta
 </div>
 
 ---
-## Data frames - Creating data frames 
+## Creating data frames 
 
 In R, we make use of the **data frame** object which allows us to store tables with columns of different data types. To create a data frame we can simply use the **data.frame()** function.
 
@@ -1027,7 +1203,7 @@ dfExample
 ```
 
 ---
-## Data frames - Indexing and replacement
+## Indexing and replacement
 
 Data frames may be indexed just [as matrices](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#matrices_-_indexing).
 
@@ -1037,7 +1213,7 @@ dfExample[dfExample[,"Survival_Time"] > 10,]
 ```
 
 ---
-## Data frames - Specify columns with $
+## Specify columns with $
 
 Unlike matrices, it is possible to index a column by using the **$** symbol.
 
@@ -1048,7 +1224,7 @@ dfExample[dfExample$Survival_Time < 10,]
 ```
 
 ---
-## Data frames - Specify columns with $
+## Specify columns with $
 
 Using the **$** allows for R to autocomplete your selection and so can speed up coding.
 
@@ -1061,7 +1237,7 @@ dfExample[,"Surv"]
 ```
 
 ---
-## Data frames - Create columns with $
+## Create columns with $
 
 The **$** operator also allows for the creation of new columns for a data frame on the fly.
 
@@ -1073,9 +1249,9 @@ dfExample
 
 
 ---
-## Data frames - Indexing and replacement
+## Indexing and replacement
 
-Certain columns can not be replaced in data frames. Numeric columns may have their values replaced but columns with character values may not by default. 
+Replacement can occur in the same way we have seen for less complex data types: use the assignment operator *<-*
 
 ```{r dataframesNoReplace_introtoR}
 dfExample[dfExample[,"Survival_Time"] < 10,"Survival_Time"] <- 0
@@ -1083,17 +1259,17 @@ dfExample
 ```
 
 ---
-## Data frames - Indexing and replacement
+## Indexing and replacement
 
-This occurs because character vectors are treated as factors by default.
+When we work with factors, for a replacement to be succesful it has to be a possible level.
 
 ```{r dataframesNoReplaceString_introtoR}
-dfExample[dfExample[,"Survival_Time"] < 10,"Name"] <- "patientX"
+dfExample[1,"Type"] <- "other"
 dfExample
 ```
 
 ---
-## Data frames - Factors in data frames
+## Factors in data frames
 
 It is possible to update factors in data frames just as with standard factors.
 
@@ -1101,21 +1277,38 @@ It is possible to update factors in data frames just as with standard factors.
 dfExample <- data.frame(Name=patientName,Type=patientType,
                         Survival_Time=survivalTime)
 
-levels(dfExample[,"Name"]) <- c(levels(dfExample[,"Name"]) ,
-                                "patientX")
+levels(dfExample[,"Type"]) <- c(levels(dfExample[,"Type"]) ,
+                                "other")
 
-dfExample[dfExample[,"Survival_Time"] < 10,"Name"] <- "patientX"
+dfExample[1,"Type"] <- "other"
 dfExample
 
 ```
 
 
 ---
-## Data frames - Avoiding factors
+## Factors in data frames
 
-If you wish to avoid using factors in data frames then the **stringsAsFactors** argument to **data.frame()** function should be set to **FALSE**
+If you are running an older version of R (anything from before 4.0), then by default all columns with characters will be considered to be factors. 
+
+This is controlled when you make the data frame, by the **stringsAsFactors** argument. Up until recently the default parameter for this was **TRUE**. It now defaults to **FALSE**
 
 ```{r dataframesAndNoFactors_introtoR}
+dfExample <- data.frame(Name=patientName,
+                        Type=patientType,
+                        Survival_Time=survivalTime,
+                        stringsAsFactors = T)
+
+
+dfExample[dfExample[,"Survival_Time"] < 10,"Name"] <- "patientX"
+dfExample
+
+```
+
+---
+## Factors in data frames
+
+```{r dataframesAndNoFactors_introtoR2}
 dfExample <- data.frame(Name=patientName,
                         Type=patientType,
                         Survival_Time=survivalTime,
@@ -1129,21 +1322,30 @@ dfExample
 
 
 ---
-## Data frames - Ordering with order()
+## Ordering with order()
 
 A useful function in R is **order()**
 
 For numeric vectors, **order()** by default returns the indices of a vector in that vector's increasing order. This behaviour can be altered by using the "decreasing" argument passed to order.
 
 ```{r dataframesOrder_introtoR}
-testOrder <- c(2,1,3)
+testOrder <- c(20,10,30)
 testOrder
+order(testOrder,decreasing=T)
+```
+
+---
+## Ordering with order()
+
+Once you have a vecor of ordered indices, you can then use this to index your object. 
+
+```{r}
 testOrder[order(testOrder)]
 testOrder[order(testOrder,decreasing=T)]
 ```
 
 ---
-## Data frames - Ordering with NA values
+##  Ordering with NA values
 
 When a vector contains NA values, these NA values will, by default, be placed last in ordering indices. This can be controlled by **na.last** argument.
 
@@ -1154,16 +1356,16 @@ testOrder[order(testOrder,decreasing=T,na.last=F)]
 ```
 
 ---
-## Data frames - Ordering data frames 
+## Ordering data frames 
 
-Since the order argument returns an index of intended order for a vector, we can use the order() function to order data frames by certain columns
+Since the order argument returns an index of intended order for a vector, we can use the order() function to order data frames by certain columns.
 ```{r dataframesOrderDecreasing_introtoR}
 dfExample
 dfExample[order(dfExample$Surv, decreasing=T),]
 ```
 
 ---
-## Data frames - Ordering data frames 
+## Ordering data frames 
 
 
 We can also use order to arrange multiple columns in a data frame by providing multiple vectors to order() function. Ordering will be performed in order of arguments.
@@ -1176,7 +1378,7 @@ dfExample[order(dfExample$Type,
 
 
 ---
-## Data frames - Merging data frames
+## Merging data frames
 
 A common operation is to join two data frames by a column of common values.
 
@@ -1195,7 +1397,7 @@ dfExample2
 ```
 
 ---
-## Data frames - Merging data frames
+## Merging data frames
 
 To do this we can use the **merge()** function with the data frames as the first two arguments. We can then specify the columns to merge by with the **by** argument. To keep only data pertaining to values common to both data frames the **all** argument is set to FALSE.
 
@@ -1217,9 +1419,31 @@ Answers can be found here  [here](http://rockefelleruniversity.github.io/Intro_T
 
 R code solutions can be found [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/answers/factorsAndDataframes_Answers.R)
 
+---
+```{r, results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+  cat("class: inverse, center, middle
+
+# Lists
+
+<html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
 
 ---
-## Lists - Creating lists
+"    
+  )
+}else{
+  cat("# Lists
+
+---
+"    
+  )
+  
+}
+
+```
+
+
+## Creating lists
 
 Lists are the final data type we will look at. 
 
@@ -1230,8 +1454,9 @@ firstElement <- c(1,2,3,4)
 secondElement <- matrix(1:10,nrow=2,ncol=5)
 thirdElement <- data.frame(colOne=c(1,2,4,5),colTwo=c("One","Two","Three","Four"))
 ```
+
 ---
-## Lists -  lists
+## lists
 To create a list we can simply use the **list()** function with arguments specifying the data we wish to include in the list.
 
 ```{r listsCreate_introtoR}
@@ -1240,7 +1465,7 @@ myList
 ```
 
 ---
-## Lists -  Named lists
+## Named lists
  
 [Just as with vectors](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#vectors_-_character_vectors), list elements can be assigned names.
 
@@ -1251,7 +1476,7 @@ myNamedList
 ```
 
 ---
-## Lists - Indexing
+## Indexing
 
 List, as [with other data types in R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#vectors_-_indexing) can be indexed. In contrast to other types, using **[]** on a list will subset the list to another list of selected indices. To retrieve an element from a list in R , two square brackets **[[]]** must be used. 
 
@@ -1269,7 +1494,7 @@ myNamedList$First
 
 
 ---
-## Lists - Joining lists
+## Joining lists
 
 
 Again, [similar to vectors](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#vectors22), lists can be joined together in R using the c() function 
@@ -1284,7 +1509,7 @@ myNamedList[c(1,4)]
 
 
 ---
-## Lists - Joining vectors to lists
+## Joining vectors to lists
 
 Note that on last slide we are joining two lists. If we joined a vector to a list, all elements of the vector would become list elements.
 
@@ -1294,7 +1519,7 @@ myList[3:5]
 ```
 
 ---
-## Lists - Flattening lists
+## Flattening lists
 
 Sometimes you will wish to "flatten" out a list. When a list contains compatable objects, i.e. list of all one type, the **unlist()** function can be used. Note the maintenance of names with their additional sufficies.
 
@@ -1308,7 +1533,7 @@ flatList[1:7]
 
 
 ---
-## Lists - Flattening lists to matrices
+## Flattening lists to matrices
 
 A common step is to turn a list of standard results into matrix. This can be done in a few steps in R, using functions you are now familair with.
 
@@ -1325,13 +1550,71 @@ listAsMat
 
 
 ---
-class: inverse, center, middle
+```{r, results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+  cat("class: inverse, center, middle
 
-# Reading and writing data in R
+# Coercing data formats
 
 <html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
 
 ---
+"    
+  )
+}else{
+  cat("# Coercing data formats
+
+---
+"    
+  )
+  
+}
+
+```
+
+## Coercing data formats
+Sometime you do not want to have to remake an object if it is in an undesired format. There are a group of functions to coerce your data object to a new format, **as._desiredformat_()**.
+
+```{r}
+namedMatrix
+
+as.character(namedMatrix)
+
+as.vector(namedMatrix)
+```
+
+---
+## Coercing data formats
+```{r}
+as.data.frame(namedMatrix)
+
+as.list(namedMatrix)
+
+```
+
+---
+```{r, results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+  cat("class: inverse, center, middle
+
+# Reading and Writing Data
+
+<html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
+
+---
+"    
+  )
+}else{
+  cat("# Reading and Writing Data
+
+---
+"    
+  )
+  
+}
+
+```
+
 ## Data from external sources
 
 Most of the time, you will not be generating data in R but will be importing data from external files.
@@ -1382,10 +1665,10 @@ Table[1:4,1:3]
 
 As mentioned, data which is read into R through read.table() will be of data frame class.
 
-To avoid character columns being converted into factors, we can specify the **stringsAsFactors** argument here.
+Similar to when we create data frames, we can control whether the data is read in as a factor or not with the **stringsAsFactors** argument. The default of this has also changed in R 4.0, from **TRUE** to **FALSE**. 
 
 ```{r,echo=T}
-Table <- read.table("data/readThisTable.csv",sep=",",header=T,stringsAsFactors=F)
+Table <- read.table("data/readThisTable.csv", sep=",", header=T, stringsAsFactors=F)
 ```
 
 Other very useful functions for read table include:
@@ -1410,7 +1693,6 @@ Table <- read.table(file="clipboard",sep=",",header=T)
 
 ---
 ## Data from file columns
-
 
 read.table() function will by default read every row and column of a file.
 
@@ -1440,6 +1722,19 @@ Since our data has column names but no row names, I will provide the arguments c
 write.table(Table, file="data/writeThisTable.csv", sep=",", row.names =F, col.names=T)
 ```
 
+---
+# Reviewing your data
+It is always important to know what your data is. Especially when you are reading it in for the first time. We have used indexing to get a taste of the data frames so far. But there are two functions to quickly check your data. **head()** and **tail()** return the first or last 6 lines by default. 
+
+```{r}
+head(Table)
+```
+---
+# Reviewing your data
+```{r}
+tail(Table)
+head(Table,3)
+```
 
 ---
 ## The rio (R io) package
@@ -1450,7 +1745,7 @@ We can make use of an R package (the rio package) which allows us to import and 
 
 Formats include:
 
-* XML
+* XML.
 * Matlab, SAS, SPSS and minitab output formats.
 * Excel and OpenOffice formats.
 
@@ -1562,7 +1857,7 @@ export(Table,file = "data/writeThisMultipleXLSX.xlsx")
 Exercise on reading and writing data can be found [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/exercises/DataInputOutput_Exercises.html)
 
 ---
-## Answers to exercise.
+## Answers to exercise
 
 Answers can be found [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/answers/DataInputOutput_answers.html)
 
