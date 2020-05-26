@@ -17,14 +17,35 @@ output:
     number_sections: false  ## if you want number sections at each table header
     theme: united  # many options for theme, this one is my favorite.
     highlight: tango  # specifies the syntax highlighting style
-
-
+params:
+  isSlides: "no"
 ---
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+suppressPackageStartupMessages(require(knitr))
+knitr::opts_chunk$set(echo = TRUE, tidy = T)
 ```
 
-# Intro to R (part 2)
+```{r, results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+  cat("class: inverse, center, middle
+
+# Introduction to R (part 2)
+
+<html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
+
+---
+"    
+  )
+}else{
+  cat("# Introduction to R (part 2)
+
+---
+"    
+  )
+  
+}
+
+```
 
 ## Overview
 
@@ -37,7 +58,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ---
 #  Recap
 
-Session 1 covered introduction to R data types and import/export of data
+Session 1 covered introduction to R data types and import/export of data.
 
 - [Background to R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#background-to-r)
 - [Data types in R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#data_types_in_r)
@@ -202,14 +223,26 @@ If we want to know how a function works or get an example on its use we can use 
 ```
 
 ---
-class: inverse, center, middle
-
+```{r, results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+  cat("class: inverse, center, middle
 
 # Conditions and Loops
 
-
 <html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
 
+---
+"    
+  )
+}else{
+  cat("# Conditions and Loops
+
+---
+"    
+  )
+  
+}
+```
 
 
 ---
@@ -234,7 +267,7 @@ Logicals are also used in controlling how scripted procedures execute.
 <span style="color:green">While</span> I'm analysing data, <span style="color:red">if</span> I need to execute complex statistical procedures on the data I will use R <span style="color:red">else</span> I will use a calculator.
 
 ---
-## Conditions - Conditional branching
+## Conditional branching
 
 
 Conditional branching is the evaluation of a logical to determine whether a chunk of code is executed.
@@ -254,7 +287,7 @@ if(x){
 ```
 
 ---
-## Conditions  - Evaluating with if()
+## Evaluating with if()
 
 More often, we construct the logical value within **()** itself. This can be termed the **condition**. 
 
@@ -280,7 +313,7 @@ x is now no longer greater than y, so no message is printed.
 We really still want a message telling us what was the result of the condition.
 
 ---
-## Conditions - else following an if
+## else following an if
 
 .pull-left[
 If we want to perform an operation when the condition is false we can follow the if() statement with an else statement.
@@ -310,7 +343,7 @@ if(x < 5){
   ]
 
 ---
-## Conditions - else if
+## else if
 
 We may wish to execute different procedures under multiple conditions. This can be controlled in R using the else if() following an initial if() statement.
 ```{r, message=TRUE}
@@ -325,7 +358,7 @@ if(x > 5){
 ```
 
 ---
-## Conditions - ifelse()
+## ifelse()
 
 A useful function to evaluate conditional statements over vectors is the **ifelse()** function.
 
@@ -341,7 +374,7 @@ ifelse(x <= 3,"lessOrEqual","more")
 ```
 
 ---
-## Conditions - ifelse()
+## ifelse()
 
 We can use multiple nested **ifelse** functions to be apply more complex logical to vectors.
 
@@ -352,7 +385,7 @@ ifelse(x == 3,"same",
 ```
 
 ---
-## Conditions and Loops - Loops
+## Loops
 
 The two main generic methods of looping in R are **while** and **for**
 
@@ -361,7 +394,7 @@ The two main generic methods of looping in R are **while** and **for**
 - **for** - *for* loops repeat the execution of code for a range of specified values.
 
 ---
-## Loops - While loops
+## While loops
 
 While loops are most useful if you know the condition will be satisified but are not sure when (i.e. Looking for a point when a number first occurs in a list).
 ```{r, message=TRUE}
@@ -374,7 +407,7 @@ message("Finally x is not less than 3")
 ```
 
 ---
-## Loops - For loops
+## For loops
 
 For loops allow the user to cycle through a range of values applying an operation for every value.
 
@@ -395,7 +428,7 @@ for(i in x){
 ```
 
 ---
-## Loops - Looping through indices
+## Looping through indices
 
 We may wish to keep track of the position in x we are evaluating to retrieve the same index in other variables. A common practice is to loop though all possible index positions of x using the expression **1:length(x)**.
 
@@ -409,7 +442,7 @@ for(i in 1:length(geneName)){
 ```
 
 ---
-## Loops - Loops and conditionals
+## Loops and conditionals
 
 Loops can be combined with conditional statements to allow for complex control of their execution over R objects. 
 .pull-left[
@@ -445,9 +478,9 @@ for(i in 1:13){
   ]
 
 ---
-## Conditions and Loops - Breaking loops
+## Breaking loops
 
-We can use conditionals to exit a loop if a condition is satisfied, just a like while loop.
+We can use conditionals to exit a loop if a condition is satisfied, just like a while loop.
 
 .pull-left[
 ```{r,message=T,eval=F}
@@ -487,7 +520,7 @@ for(i in 1:13){
   ]
 
 ---
-## Loops - Functions to loop over data types
+## Functions to loop over data types
 
 There are functions which allow you to loop over a data type and apply a function to the subsection of that data.
 
@@ -510,7 +543,7 @@ apply(DATA,MARGIN,FUN,...)
 - **MARGIN** - 1 for rows, 2 for columns, c(1,2) for cells
 
 ---
-## Looping - apply() example
+## apply() example
 
 ```{r}
 matExample <- matrix(c(1:4),nrow=2,ncol=2,byrow=T)
@@ -526,7 +559,7 @@ apply(matExample,2,mean)
 ```
 
 ---
-## Looping - Additional arguments to apply
+## Additional arguments to apply
 
 Additional arguments to be used by the function in the apply loop can be specified after the function argument. 
 
@@ -538,7 +571,7 @@ apply(matExample,1,paste,collapse=";")
 ```
 
 ---
-## Looping - lapply()
+## lapply()
 
 .pull-left[
 Similar to apply, **lapply** applies a function to every element of a vector or list. 
@@ -557,7 +590,7 @@ lapply(list(1,c(NA,1),2),mean, na.rm=T)
 ```
   ]
 ---
-## Looping - sapply()
+## sapply()
 
 
 **sapply** (*smart apply*) acts as lapply but attempts to return the results as the most appropriate data type.
@@ -571,7 +604,7 @@ sapply(exampleList, mean, na.rm=T)
 ```
 
 ---
-## Looping - sapply() example
+## sapply() example
 
 .pull-left[
 In this example lapply returns a list of vectors from the quantile function.
@@ -591,7 +624,7 @@ lapply(exampleList, quantile)
   ]
 
 ---
-## Looping - sapply() example 2
+## sapply() example 2
 
 Here is an example of sapply parsing a result from the quantile function in a *smart* way.
 
@@ -602,7 +635,7 @@ sapply(exampleList, quantile)
 ```
 
 ---
-## Loops - sapply() example 3
+## sapply() example 3
 
 
 When sapply cannot parse the result to a vector or matrix, a list will be returned.
@@ -616,7 +649,7 @@ sapply(exampleList, summary)
 
 ---
 ## Custom functions
-You can create your own functions easily in R using the <- assignment. We use the **function** statement with all input variables in **()** and all code to be executed in **{}**. Anything to be received back from the function is indicated by the **return** statement.  
+You can create your own functions easily in R using the **<-** assignment. We use the **function** statement with all input variables in **()** and all code to be executed in **{}**. Anything to be received back from the function is indicated by the **return** statement.  
 
 In this case we can recapitulate the square function. 
 ```{r makingfunctions}
@@ -630,10 +663,33 @@ square_my_number(my_number=3)
 ```
 
 ---
+```{r, results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+  cat("class: inverse, center, middle
+
+# Custom functions
+
+<html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
+
+---
+"    
+  )
+}else{
+  cat("# Custom functions
+
+---
+"    
+  )
+  
+}
+```
+
+
+---
 ## Custom functions
 User defined functions can be as long and complicated as you want, taking in many variables, printing out messages and utilizing other functions within them.
 
-Lets make z-scores
+Lets make z-scores:
 ```{r makingfunctions_zscores}
 my_zscore  <- function(my_number, my_vector){
   my_mean <- mean(my_vector)
@@ -675,11 +731,26 @@ Answers can be found here  [here](http://rockefelleruniversity.github.io/Intro_T
 Rcode for answers can be found here  [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/answers/conditionsAndLoops_Answers.R)
 
 ---
-class: inverse, center, middle
+```{r, results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+  cat("class: inverse, center, middle
 
-# Getting additional libraries
+# Getting Additional Libraries
 
 <html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
+
+---
+"    
+  )
+}else{
+  cat("# Getting Additional Libraries
+
+---
+"    
+  )
+  
+}
+```
 
 ---
 ## Loading libraries
@@ -711,13 +782,26 @@ install.packages("Hmisc")
 ```
 
 ---
-class: inverse, center, middle
-
+```{r, results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+  cat("class: inverse, center, middle
 
 # Scripts
 
-
 <html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
+
+---
+"    
+  )
+}else{
+  cat("# Scripts
+
+---
+"    
+  )
+  
+}
+```
 
 
 ---
@@ -800,10 +884,9 @@ Since vectors can only be one type, all command line arguments are strings and m
 ---
 ## Getting help
 
-
+- From us: Raise an issue on our [GitHub](https://github.com/RockefellerUniversity/Intro_To_R_1Day/issues). This can be suggestions, comments, edits or questions (about content or the slides themselves).
 - Google
 - Local friendly bioinformaticians and computational biologists.
 - [Stackoverflow](http://stackoverflow.com/)
 - [R-help](https://stat.ethz.ch/mailman/listinfo/r-help)
-
 
