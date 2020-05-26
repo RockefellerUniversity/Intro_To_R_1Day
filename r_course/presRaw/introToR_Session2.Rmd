@@ -26,17 +26,7 @@ knitr::opts_chunk$set(echo = TRUE, tidy = T)
 ```
 
 ```{r, results='asis',include=TRUE,echo=FALSE}
-if(params$isSlides == "yes"){
-  cat("class: inverse, center, middle
-
-# Introduction to R (part 2)
-
-<html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
-
----
-"    
-  )
-}else{
+if(params$isSlides != "yes"){
   cat("# Introduction to R (part 2)
 
 ---
@@ -244,8 +234,6 @@ if(params$isSlides == "yes"){
 }
 ```
 
-
----
 ## Conditions and Loops
 
 
@@ -685,7 +673,6 @@ if(params$isSlides == "yes"){
 ```
 
 
----
 ## Custom functions
 User defined functions can be as long and complicated as you want, taking in many variables, printing out messages and utilizing other functions within them.
 
@@ -752,7 +739,7 @@ if(params$isSlides == "yes"){
 }
 ```
 
----
+
 ## Loading libraries
 
 Libraries can be loaded using the library() function with an argument of the name of the library.
@@ -804,7 +791,7 @@ if(params$isSlides == "yes"){
 ```
 
 
----
+
 ## Saving scripts
 
 Once we have got our functions together and know how we want to analyse our data, we can save our analysis as a **script**. By convention R scripts typically end in **.r** or **.R**

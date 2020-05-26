@@ -26,13 +26,7 @@ class: center, middle, inverse, title-slide
 
 
 
-class: inverse, center, middle
 
-# Introduction to R (part 2)
-
-&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px width=720px&gt;&lt;/html&gt; 
-
----
 
 ## Overview
 
@@ -264,7 +258,8 @@ aDataFrame[aDataFrame$Factor == "R", 2] &lt;- "NotPython"
 ```
 
 ```
-## Warning in `[&lt;-.factor`(`*tmp*`, iseq, value = c("NotPython", "NotPython", : invalid factor level, NA generated
+## Warning in `[&lt;-.factor`(`*tmp*`, iseq, value = c("NotPython", "NotPython", : invalid factor level, NA
+## generated
 ```
 
 ```r
@@ -352,8 +347,6 @@ class: inverse, center, middle
 
 ---
 
-
----
 ## Conditions and Loops
 
 
@@ -519,7 +512,8 @@ ifelse(x &lt;= 3, "lessOrEqual", "more")
 ```
 
 ```
-##  [1] "lessOrEqual" "lessOrEqual" "lessOrEqual" "more"        "more"        "more"        "more"        "more"        "more"        "more"
+##  [1] "lessOrEqual" "lessOrEqual" "lessOrEqual" "more"        "more"        "more"        "more"       
+##  [8] "more"        "more"        "more"
 ```
 
 ---
@@ -1046,7 +1040,6 @@ class: inverse, center, middle
 ---
 
 
----
 ## Custom functions
 User defined functions can be as long and complicated as you want, taking in many variables, printing out messages and utilizing other functions within them.
 
@@ -1068,11 +1061,11 @@ my_zscore(my_number = A[1], my_vector = A)
 ```
 
 ```
-## Mean is 0.312426339475828
+## Mean is 0.055314626392614
 ```
 
 ```
-## [1] -0.2045816
+## [1] -0.1104281
 ```
 
 ---
@@ -1086,8 +1079,9 @@ sapply(A, my_zscore, my_vector = A)
 ```
 
 ```
-##  [1] -0.204581605 -1.569154783 -0.707716286  0.927346964  0.643113155 -1.127535919  0.405305996 -0.008902288 -0.235828497  0.554324692 -1.359487575
-## [12]  0.037401173  0.386594233 -1.667307396  1.740284637 -0.518576302 -0.521590549  1.592168050  0.223717427  1.410424873
+##  [1] -0.1104281  1.4289650 -1.3582260  0.1777881  0.7852111  0.1020663  1.7092058  0.6734933 -0.7530404
+## [10]  0.3363817 -0.1063513  0.9514866  0.1584974 -1.4890680 -0.3417483  0.4912612 -1.1846521 -1.2461129
+## [19]  1.2820245 -1.5067540
 ```
 
 ---
@@ -1113,7 +1107,7 @@ class: inverse, center, middle
 
 ---
 
----
+
 ## Loading libraries
 
 Libraries can be loaded using the library() function with an argument of the name of the library.
@@ -1155,7 +1149,7 @@ class: inverse, center, middle
 ---
 
 
----
+
 ## Saving scripts
 
 Once we have got our functions together and know how we want to analyse our data, we can save our analysis as a **script**. By convention R scripts typically end in **.r** or **.R**

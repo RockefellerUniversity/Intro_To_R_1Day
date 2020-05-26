@@ -26,17 +26,7 @@ knitr::opts_chunk$set(echo = TRUE, tidy = T)
 ```
 
 ```{r, results='asis',include=TRUE,echo=FALSE}
-if(params$isSlides == "yes"){
-  cat("class: inverse, center, middle
-
-# Reproducible Research
-
-<html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
-
----
-"    
-  )
-}else{
+if(params$isSlides != "yes"){
   cat("# Reproducible Research
 
 ---
@@ -47,7 +37,6 @@ if(params$isSlides == "yes"){
 
 ```
 
----
 ## Set Up
 
 All prerequisites, links to material and slides for this course can be found on github.
@@ -59,7 +48,7 @@ Or can be downloaded as a zip archive from here.
 * [Download zip](https://github.com/rockefelleruniversity/Reproducible_R/zipball/master)
 
 ---
-## Presentations, source code and practicals
+## Course materials
 
 Once the zip file in unarchived. All presentations as HTML slides and pages, their R code and HTML practical sheets will be available in the directories underneath.
 
