@@ -27,17 +27,7 @@ knitr::opts_chunk$set(echo = TRUE, tidy = T)
 ```
 
 ```{r, results='asis',include=TRUE,echo=FALSE}
-if(params$isSlides == "yes"){
-  cat("class: inverse, center, middle
-
-# Introduction to R (part 1)
-
-<html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
-
----
-"    
-  )
-}else{
+if(params$isSlides != "yes"){
   cat("# Introduction to R (part 1)
 
 ---
@@ -89,7 +79,7 @@ Or can be downloaded as a zip archive from here.
 * [Download zip](https://github.com/rockefelleruniversity/Intro_To_R_1Day/zipball/master)
 
 ---
-## Presentations, source code and practicals
+## Course materials
 
 Once the zip file in unarchived. All presentations as HTML slides and pages, their R code and HTML practical sheets will be available in the directories underneath.
 
@@ -146,7 +136,6 @@ if(params$isSlides == "yes"){
 
 ```
 
----
 ## What is R?
 
 
@@ -441,7 +430,6 @@ if(params$isSlides == "yes"){
 
 ```
 
----
 ## Vectors
 
 In **R** the most basic variable or data type is a **vector**. A vector is an ordered collection of values. The x and y variables we have previously assigned are examples of a vector of length 1.
@@ -770,7 +758,6 @@ if(params$isSlides == "yes"){
 
 ```
 
----
 ## Creating matrices
 
 
@@ -1063,7 +1050,6 @@ if(params$isSlides == "yes"){
 
 ```
 
----
 ## Creating factors
 
 A special case of a vector is a **factor**.
@@ -1178,7 +1164,6 @@ if(params$isSlides == "yes"){
 
 ```
 
----
 ## Creating data frames 
 
 [We saw that with matrices you can only have one type of data](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#matrices_-_data_types). We tried to create a matrix with a character element and the entire matrix became a character.
