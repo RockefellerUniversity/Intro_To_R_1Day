@@ -27,13 +27,7 @@ class: center, middle, inverse, title-slide
 
 
 
-class: inverse, center, middle
 
-# Introduction to R (part 1)
-
-&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px width=720px&gt;&lt;/html&gt; 
-
----
 
 ## Overview
 
@@ -62,7 +56,7 @@ Or can be downloaded as a zip archive from here.
 * [Download zip](https://github.com/rockefelleruniversity/Intro_To_R_1Day/zipball/master)
 
 ---
-## Presentations, source code and practicals
+## Course materials
 
 Once the zip file in unarchived. All presentations as HTML slides and pages, their R code and HTML practical sheets will be available in the directories underneath.
 
@@ -106,7 +100,6 @@ class: inverse, center, middle
 
 ---
 
----
 ## What is R?
 
 
@@ -441,7 +434,6 @@ class: inverse, center, middle
 
 ---
 
----
 ## Vectors
 
 In **R** the most basic variable or data type is a **vector**. A vector is an ordered collection of values. The x and y variables we have previously assigned are examples of a vector of length 1.
@@ -997,7 +989,6 @@ class: inverse, center, middle
 
 ---
 
----
 ## Creating matrices
 
 
@@ -1160,7 +1151,8 @@ recycledMatrix2 &lt;- matrix(1:5, ncol = 2, nrow = 3)
 ```
 
 ```
-## Warning in matrix(1:5, ncol = 2, nrow = 3): data length [5] is not a sub-multiple or multiple of the number of rows [3]
+## Warning in matrix(1:5, ncol = 2, nrow = 3): data length [5] is not a sub-multiple or multiple of the
+## number of rows [3]
 ```
 
 ```r
@@ -1186,7 +1178,8 @@ recycledMatrix3 &lt;- rbind(recycledMatrix2, c(1:5))
 ```
 
 ```
-## Warning in rbind(recycledMatrix2, c(1:5)): number of columns of result is not a multiple of vector length (arg 2)
+## Warning in rbind(recycledMatrix2, c(1:5)): number of columns of result is not a multiple of vector length
+## (arg 2)
 ```
 
 ```r
@@ -1561,7 +1554,6 @@ class: inverse, center, middle
 
 ---
 
----
 ## Creating factors
 
 A special case of a vector is a **factor**.
@@ -1749,7 +1741,6 @@ class: inverse, center, middle
 
 ---
 
----
 ## Creating data frames 
 
 [We saw that with matrices you can only have one type of data](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#matrices_-_data_types). We tried to create a matrix with a character element and the entire matrix became a character.
@@ -1971,7 +1962,8 @@ dfExample[dfExample[, "Survival_Time"] &lt; 10, "Name"] &lt;- "patientX"
 ```
 
 ```
-## Warning in `[&lt;-.factor`(`*tmp*`, iseq, value = c("patientX", "patientX")): invalid factor level, NA generated
+## Warning in `[&lt;-.factor`(`*tmp*`, iseq, value = c("patientX", "patientX")): invalid factor level, NA
+## generated
 ```
 
 ```r
@@ -2523,51 +2515,51 @@ A standard format for this data is a table:
 &lt;tbody&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_a &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.162514 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 5.024344 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.294742 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.093050 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.353686 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.702071 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_b &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 5.183475 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.600966 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 5.762104 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.418199 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.248359 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.619994 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_c &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 2.949285 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.664113 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.503614 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.479372 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5.029761 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5.312436 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_d &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.268212 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.742924 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 5.297375 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5.068244 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.681661 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5.265801 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_e &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.174177 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.456257 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.540631 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.669008 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.736164 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.077547 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_f &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.027567 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 11.610784 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.056086 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.912820 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 7.886284 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.516252 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_g &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.178953 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.889071 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 12.779809 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8.687929 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.012543 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8.688617 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_h &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 11.272194 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.084766 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.809550 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.272838 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 11.344839 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.310716 &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
