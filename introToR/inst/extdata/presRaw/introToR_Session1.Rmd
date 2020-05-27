@@ -724,16 +724,16 @@ x[x > 4 & !x < 7]
 ## Time for an exercise!
 
 
-Exercise on vectors can be found [here](../../exercises/vector_exercise.html)
+Exercise on vectors can be found [here](../exercises/exercises/vector_exercise.html)
 
 
 ---
 ## Answers to exercise.
 
 
-Answers can be found here  [here](../../answers/vector_answers.html)
+Answers can be found here  [here](../exercises/answers/vector_answers.html)
 
-R code for solutions can be found here  [here](../../answers/vector_answers.R)
+R code for solutions can be found here  [here](../exercises/answers/vector_answers.R)
 ---
 
 ```{r, results='asis',include=TRUE,echo=FALSE}
@@ -1015,16 +1015,16 @@ narrowMatrix[,2] *2
 ## Time for an exercise!
 
 
-Exercise on matrices can be found [here](../../exercises/matrices_exercise.html)
+Exercise on matrices can be found [here](../exercises/exercises/matrices_exercise.html)
 
 
 ---
 ## Answers to exercise.
 
 
-Answers can be found here  [here](../../answers/matrices_answers.html)
+Answers can be found here  [here](../exercises/answers/matrices_answers.html)
 
-R code for solutions can be found [here](../../answers/matrices_answers.R)
+R code for solutions can be found [here](../exercises/answers/matrices_answers.R)
 
 
 ---
@@ -1394,15 +1394,15 @@ mergedDF
 ---
 ## Time for an exercise!
 
-Exercise on data frames can be found [here](../../exercises/factorsAndDataframes_Exercise.html)
+Exercise on data frames can be found [here](../exercises/exercises/factorsAndDataframes_Exercise.html)
 
 
 ---
 ## Answers to exercise.
 
-Answers can be found here  [here](../../answers/factorsAndDataframes_Answers.html)
+Answers can be found here  [here](../exercises/answers/factorsAndDataframes_Answers.html)
 
-R code solutions can be found [here](../../answers/factorsAndDataframes_Answers.R)
+R code solutions can be found [here](../exercises/answers/factorsAndDataframes_Answers.R)
 
 ---
 ```{r, results='asis',include=TRUE,echo=FALSE}
@@ -1839,13 +1839,13 @@ export(Table,file = "data/writeThisMultipleXLSX.xlsx")
 ---
 ## Time for an exercise!
 
-Exercise on reading and writing data can be found [here](../../exercises/DataInputOutput_Exercises.html)
+Exercise on reading and writing data can be found [here](../exercises/exercises/DataInputOutput_Exercises.html)
 
 ---
 ## Answers to exercise
 
-Answers can be found [here](../../answers/DataInputOutput_answers.html)
+Answers can be found [here](../exercises/answers/DataInputOutput_answers.html)
 
-R code for solutions can be found [here](../../answers/DataInputOutput_answers.R)
+R code for solutions can be found [here](../exercises/answers/DataInputOutput_answers.R)
 
 
