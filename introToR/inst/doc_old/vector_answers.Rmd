@@ -7,6 +7,8 @@ output:
     number_sections: false  ## if you want number sections at each table header
     theme: united  # many options for theme, this one is my favorite.
     highlight: tango  # specifies the syntax highlighting style
+params:
+  toMessage: false    
 ---
 
 <p>&nbsp;</p>
@@ -15,7 +17,7 @@ These answers are from the exercises about the vector sections of [Introduction 
 **Exercise 1**
 
 - Create a vector containing the values 1,2,3,4,5
-```{r,message=T}
+```{r,message=ifelse(!is.null(params$toMessage),params$toMessage,FALSE)}
 x <- c(1,2,3,4,5)
 x
 ```
