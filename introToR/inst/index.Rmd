@@ -9,11 +9,15 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
+## The Course
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+This course introduces R and statistical programming.
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+The course consists of 2 sections, 1 on basic R data types and data input/output and a second on conditionals and looping.
+Each section is presented as HTMl presentations or single page document. Exercises and answer sheets are included after all subsections to practice techniques and provide future reference examples.
+
+Course material and exercises are available to view as rendered HTML at https://rockefelleruniversity.github.io/Intro_To_R_1Day/.
+All material is available to download under GPL v2 license.
 
 ```{r cars,echo=FALSE,eval=TRUE,results="asis"}
 tem <- utils::packageDescription("introToR")
