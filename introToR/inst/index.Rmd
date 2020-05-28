@@ -1,44 +1,48 @@
 ---
-title: "Intro"
-author: "Binformatics Resource Centre"
+title: "Introduction to R"
+author: "Bionformatics Resource Centre"
 date: "5/27/2020"
 output: html_document
+params:
+  pkg: "introToR"
+  subdir: "introToR"
+  repo: "RockefellerUniversity"    
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## The Course
+# The Course
 
-This course introduces R and statistical programming.
+```{r courseDescription,echo=FALSE,eval=TRUE,results="asis"}
 
-The course consists of 2 sections, 1 on basic R data types and data input/output and a second on conditionals and looping.
-Each section is presented as HTMl presentations or single page document. Exercises and answer sheets are included after all subsections to practice techniques and provide future reference examples.
+```
 
-Course material and exercises are available to view as rendered HTML at https://rockefelleruniversity.github.io/Intro_To_R_1Day/.
-All material is available to download under GPL v2 license.
+## Setting up
 
-```{r cars,echo=FALSE,eval=TRUE,results="asis"}
-tem <- utils::packageDescription("introToR")
-pkdDep <- unique(c(pkgload::parse_deps(tem$Depends)$name,pkgload::parse_deps(tem$Suggests)$name,pkgload::parse_deps(tem$Imports)$name))
+### System Requirements
+
+### Install required packages.
+
+```{r installFromGithub,echo=FALSE,eval=TRUE,results="asis"}
+
 cat("```{r}\n")
-cat(sprintf("BiocManager::Install('%s')",pkdDep),sep = "\n")
+cat("install.packages('BiocManager')\n")
+cat("BiocManager::install('')")
 cat("```\n")
 ```
 
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=TRUE,eval=FALSE}
-BiocManager::Install('testthat')
-BiocManager::Install('methods')
-BiocManager::Install('ggplot2')
-BiocManager::Install('rmarkdown')
-BiocManager::Install('knitr')
-BiocManager::Install('lattice')
-BiocManager::Install('yaml')
+```{r installAllSep,echo=FALSE,eval=TRUE,results="asis"}
+tem <- utils::packageDescription("introToR")
+pkdDep <- unique(c(pkgload::parse_deps(tem$Depends)$name,pkgload::parse_deps(tem$Suggests)$name,pkgload::parse_deps(tem$Imports)$name))
+cat("```{r}\n")
+cat(sprintf("BiocManager::install('%s')",pkdDep),sep = "\n")
+cat("```\n")
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+### Download the material
+
+### The presentations 
+
+
