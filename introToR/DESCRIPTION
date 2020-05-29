@@ -8,10 +8,11 @@ Description: More about what it does (maybe more than one line)
 License: What license is it under?
 LazyData: TRUE
 biocViews: Training
-Depends: testthat, methods, ggplot2, rmarkdown, knitr, lattice, yaml
+Depends: methods, ggplot2, rmarkdown,
 Suggests: knitr,
     rmarkdown,
-    testthat
+    testthat,
+    yaml
 SystemRequirements: R, RStudio
 VignetteBuilder: knitr
 RoxygenNote: 6.0.1
