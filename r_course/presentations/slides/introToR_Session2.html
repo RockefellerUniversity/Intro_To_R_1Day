@@ -258,8 +258,7 @@ aDataFrame[aDataFrame$Factor == "R", 2] &lt;- "NotPython"
 ```
 
 ```
-## Warning in `[&lt;-.factor`(`*tmp*`, iseq, value = c("NotPython", "NotPython", : invalid factor level, NA
-## generated
+## Warning in `[&lt;-.factor`(`*tmp*`, iseq, value = c("NotPython", "NotPython", : invalid factor level, NA generated
 ```
 
 ```r
@@ -512,8 +511,8 @@ ifelse(x &lt;= 3, "lessOrEqual", "more")
 ```
 
 ```
-##  [1] "lessOrEqual" "lessOrEqual" "lessOrEqual" "more"        "more"        "more"        "more"       
-##  [8] "more"        "more"        "more"
+##  [1] "lessOrEqual" "lessOrEqual" "lessOrEqual" "more"        "more"        "more"        "more"        "more"        "more"       
+## [10] "more"
 ```
 
 ---
@@ -997,13 +996,13 @@ sapply(exampleList, summary)
 
 ```
 ## $df
-##     sample               data      
-##  Length:2           Min.   : 1.00  
-##  Class :character   1st Qu.: 3.75  
-##  Mode  :character   Median : 6.50  
-##                     Mean   : 6.50  
-##                     3rd Qu.: 9.25  
-##                     Max.   :12.00  
+##       sample       data      
+##  patient1:1   Min.   : 1.00  
+##  patient2:1   1st Qu.: 3.75  
+##               Median : 6.50  
+##               Mean   : 6.50  
+##               3rd Qu.: 9.25  
+##               Max.   :12.00  
 ## 
 ## $vec
 ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -1061,11 +1060,11 @@ my_zscore(my_number = A[1], my_vector = A)
 ```
 
 ```
-## Mean is 0.055314626392614
+## Mean is -0.05043768273268
 ```
 
 ```
-## [1] -0.1104281
+## [1] 1.460217
 ```
 
 ---
@@ -1079,9 +1078,9 @@ sapply(A, my_zscore, my_vector = A)
 ```
 
 ```
-##  [1] -0.1104281  1.4289650 -1.3582260  0.1777881  0.7852111  0.1020663  1.7092058  0.6734933 -0.7530404
-## [10]  0.3363817 -0.1063513  0.9514866  0.1584974 -1.4890680 -0.3417483  0.4912612 -1.1846521 -1.2461129
-## [19]  1.2820245 -1.5067540
+##  [1]  1.460217283  1.083904765 -0.116565883 -0.434823342 -1.324869253  0.344903344 -0.507372393 -0.328582687  0.896964362
+## [10]  0.435403748 -0.243378183  0.540602894 -2.547762330  1.618517242 -0.043220484 -0.433130278  1.130019744 -0.494211553
+## [19] -1.040985751  0.004368757
 ```
 
 ---
@@ -1189,7 +1188,7 @@ dayOfWeek()
 ```
 
 ```
-## [1] "Tue"
+## [1] "Fri"
 ```
 
 ---

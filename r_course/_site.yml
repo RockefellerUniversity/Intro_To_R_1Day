@@ -1,0 +1,11 @@
+output_dir: '.'
+navbar:
+  title: Introduction To R
+  left:
+  - text: Home
+    href: index.html
+output:
+  html_document:
+    toc: true
+    highlight: textmate
+

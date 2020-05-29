@@ -1,0 +1,1366 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>introToR_Session2.utf8</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Rockefeller University, Bioinformatics Resource Centre" />
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link rel="stylesheet" href="metropolisCustom.css" type="text/css" />
+    <link rel="stylesheet" href="metropolis-fontsCustom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Introduction to R, Session 2
+<html>
+<div style="float:left">
+
+</div>
+<hr color='#EB811B' size=1px width=796px>
+</html>
+### Rockefeller University, Bioinformatics Resource Centre
+### <a href="http://rockefelleruniversity.github.io/Intro_To_R_1Day/" class="uri">http://rockefelleruniversity.github.io/Intro_To_R_1Day/</a>
+
+---
+
+
+
+
+
+## Overview
+
+- [Recap](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session2.html#recap)
+- [Conditions and Loops](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session2.html#conditions_and_loops)
+- [Libraries](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session2.html#getting_additional_libraries)
+- [Writing scripts](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session2.html#scripts)
+
+
+---
+#  Recap
+
+Session 1 covered introduction to R data types and import/export of data.
+
+- [Background to R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#background-to-r)
+- [Data types in R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#data_types_in_r)
+- [Reading and writing in R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#reading-and-writing-data-in-r)
+
+---
+## Recap
+
+R stores data in five main data types.
+
+- **Vector** - Ordered collection of single data type (numeric/character/logical).
+- **Matrix** - Table (ordered 2D collection) of single data type (numeric/character/logical).
+- **Factors** - Ordered collection of ordinal or nominal catagories.
+- **Data frame** - Table (ordered 2D array) of multiple data types of same length.
+- **List** - Ordered collection of multiple data types of differing length.
+
+
+```r
+aVector &lt;- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+aMatrix &lt;- matrix(aVector, ncol = 2, nrow = 5, byrow = TRUE)
+aFactor &lt;- factor(c("R", "Python", "R", "R", "Python"), levels = c("R", "Python"))
+aDataFrame &lt;- data.frame(Number = c(1, 2, 3, 4, 5), Factor = aFactor)
+```
+
+---
+## Recap
+
+We can access and change information in our data.types using **indexing** with **[]**  (or **[[]]** for lists).
+
+
+```r
+aVector &lt;- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+aVector[10]
+```
+
+```
+## [1] 10
+```
+
+```r
+aVector[10] &lt;- 0
+aVector
+```
+
+```
+##  [1] 1 2 3 4 5 6 7 8 9 0
+```
+
+---
+## Recap
+For matricies and data frames we use two indexes, specifying columns and rows. **matrix[_rowIndex_,_columnIndex_]**
+
+.pull-left[
+
+```r
+aMatrix &lt;- matrix(aVector,ncol=2,
+                  nrow=5,byrow = TRUE)
+aMatrix
+```
+
+```
+##      [,1] [,2]
+## [1,]    1    2
+## [2,]    3    4
+## [3,]    5    6
+## [4,]    7    8
+## [5,]    9    0
+```
+
+```r
+aMatrix[1,]
+```
+
+```
+## [1] 1 2
+```
+
+```r
+aMatrix[,1]
+```
+
+```
+## [1] 1 3 5 7 9
+```
+  ]
+.pull-right[
+
+```r
+aMatrix[1,1] &lt;- 0
+aMatrix[,2] &lt;- 100
+aMatrix
+```
+
+```
+##      [,1] [,2]
+## [1,]    0  100
+## [2,]    3  100
+## [3,]    5  100
+## [4,]    7  100
+## [5,]    9  100
+```
+  ]
+
+---
+## Recap
+
+Remember a matrix can only contain one data type (numeric, character etc). For mixed data types we use data frames.
+
+.pull-left[
+
+```r
+aMatrix &lt;- matrix(aVector,ncol=2,
+                  nrow=5,byrow = TRUE)
+aMatrix
+```
+
+```
+##      [,1] [,2]
+## [1,]    1    2
+## [2,]    3    4
+## [3,]    5    6
+## [4,]    7    8
+## [5,]    9    0
+```
+  ]
+.pull-right[
+
+```r
+aMatrix[1,2] &lt;- "Word"
+aMatrix
+```
+
+```
+##      [,1] [,2]  
+## [1,] "1"  "Word"
+## [2,] "3"  "4"   
+## [3,] "5"  "6"   
+## [4,] "7"  "8"   
+## [5,] "9"  "0"
+```
+  ]
+
+---
+## Recap
+
+We can use logical operations to evaluate information our data types.
+
+
+```r
+aVector &lt;- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+aVector &gt; 9
+```
+
+```
+##  [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE
+```
+
+```r
+aFactor &lt;- factor(c("R", "Python", "R", "R", "Python"), levels = c("R", "Python"))
+aDataFrame &lt;- data.frame(Number = c(1, 2, 3, 4, 5), Factor = aFactor)
+aDataFrame
+```
+
+```
+##   Number Factor
+## 1      1      R
+## 2      2 Python
+## 3      3      R
+## 4      4      R
+## 5      5 Python
+```
+
+```r
+aDataFrame$Factor == "R"
+```
+
+```
+## [1]  TRUE FALSE  TRUE  TRUE FALSE
+```
+
+---
+## Recap
+
+We can use logical operations with indexing to subset or alter information held in our data types.
+
+
+
+```r
+aVector &lt;- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+aVector &gt; 5
+```
+
+```
+##  [1] FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE
+```
+
+```r
+aVector[aVector &gt; 5] &lt;- 10
+aVector
+```
+
+```
+##  [1]  1  2  3  4  5 10 10 10 10 10
+```
+
+---
+## Recap
+
+When replacing factor columns in data frames we have to remember the **levels**.
+
+
+```r
+aFactor &lt;- factor(c("R", "Python", "R", "R", "Python"), levels = c("R", "Python"))
+aDataFrame &lt;- data.frame(Number = c(1, 2, 3, 4, 5), Factor = aFactor)
+aDataFrame[aDataFrame$Factor == "R", 2] &lt;- "NotPython"
+```
+
+```
+## Warning in `[&lt;-.factor`(`*tmp*`, iseq, value = c("NotPython", "NotPython", : invalid factor level, NA
+## generated
+```
+
+```r
+aDataFrame
+```
+
+```
+##   Number Factor
+## 1      1   &lt;NA&gt;
+## 2      2 Python
+## 3      3   &lt;NA&gt;
+## 4      4   &lt;NA&gt;
+## 5      5 Python
+```
+
+
+---
+## Recap
+
+We can update levels in a data frame column as we would a factor. Now we can replace our elements in data frame.
+
+
+```r
+aDataFrame &lt;- data.frame(Number=c(1,2,3,4,5),
+                         Factor=aFactor)
+aDataFrame$Factor &lt;- factor(aDataFrame$Factor,
+                            levels = c("R","Python","NotPython"))
+aDataFrame[aDataFrame$Factor == "R",2] &lt;- "NotPython"
+aDataFrame
+```
+
+```
+##   Number    Factor
+## 1      1 NotPython
+## 2      2    Python
+## 3      3 NotPython
+## 4      4 NotPython
+## 5      5    Python
+```
+
+---
+
+## Recap
+
+
+Data can be read into R as a table with the **read.table()** function and written to file with the **write.table()** function.
+
+
+```r
+Table &lt;- read.table("data/readThisTable.csv", sep = ",", header = T, row.names = 1)
+Table[1:3, ]
+```
+
+```
+##        Sample_1.hi Sample_2.hi Sample_3.hi Sample_4.low Sample_5.low Sample_1.low
+## Gene_a    4.570237    3.230467    3.351827     3.930877     4.098247     4.418726
+## Gene_b    3.561733    3.632285    3.587523     4.185287     1.380976     5.936990
+## Gene_c    3.797274    2.874462    4.016916     4.175772     1.988263     3.780917
+```
+
+```r
+write.table(Table, file = "data/writeThisTable.csv", sep = ",", row.names = F, col.names = T)
+```
+
+
+---
+## Recap
+
+
+If we want to know how a function works or get an example on its use we can use **?** infront function name.
+
+**?_FunctionName_**
+
+
+```r
+`?`(merge)
+```
+
+---
+class: inverse, center, middle
+
+# Conditions and Loops
+
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px width=720px&gt;&lt;/html&gt; 
+
+---
+
+## Conditions and Loops
+
+
+We have looked at using logical vectors as a way to index other data types.
+
+```r
+x &lt;- 1:10
+x[x &lt; 4]
+```
+
+```
+## [1] 1 2 3
+```
+
+Logicals are also used in controlling how scripted procedures execute.
+
+
+---
+## Conditions and Loops
+
+* &lt;span style="color:red"&gt;Conditional branching (if,else)&lt;/span&gt;
+* &lt;span style="color:green"&gt;Loops (for, while)&lt;/span&gt;
+
+&lt;span style="color:green"&gt;While&lt;/span&gt; I'm analysing data, &lt;span style="color:red"&gt;if&lt;/span&gt; I need to execute complex statistical procedures on the data I will use R &lt;span style="color:red"&gt;else&lt;/span&gt; I will use a calculator.
+
+---
+## Conditional branching
+
+
+Conditional branching is the evaluation of a logical to determine whether a chunk of code is executed.
+
+In R, we use the **if** statement with the logical to be evaluated in **()** and dependent code to be executed in **{}**.
+
+
+```r
+x &lt;- TRUE
+if (x) {
+    message("x is true")
+}
+```
+
+```
+## x is true
+```
+
+```r
+x &lt;- FALSE
+if (x) {
+    message("x is true")
+}
+```
+
+---
+## Evaluating with if()
+
+More often, we construct the logical value within **()** itself. This can be termed the **condition**. 
+
+
+```r
+x &lt;- 10
+y &lt;- 4
+if (x &gt; y) {
+    message("The value of x is ", x, " which is greater than ", y)
+}
+```
+
+```
+## The value of x is 10 which is greater than 4
+```
+
+The message is printed above because x is greater than y. 
+
+
+```r
+y &lt;- 20
+if (x &gt; y) {
+    message("The value of x is ", x, " which is greater than ", y)
+}
+```
+x is now no longer greater than y, so no message is printed.
+
+We really still want a message telling us what was the result of the condition.
+
+---
+## else following an if
+
+.pull-left[
+If we want to perform an operation when the condition is false we can follow the if() statement with an else statement.
+
+
+```r
+x &lt;- 3
+if (x &lt; 5) {
+    message(x, " is less than to 5")
+} else {
+    message(x, " is greater than or equal to 5")
+}
+```
+
+```
+## 3 is less than to 5
+```
+  ]
+.pull-right[
+With the addition of the else statement, when x is not less than 5 the code following the else statement is executed.
+
+
+```r
+x &lt;- 10
+if (x &lt; 5) {
+    message(x, " is less than 5")
+} else {
+    message(x, " is greater than or equal to 5")
+}
+```
+
+```
+## 10 is greater than or equal to 5
+```
+
+  ]
+
+---
+## else if
+
+We may wish to execute different procedures under multiple conditions. This can be controlled in R using the else if() following an initial if() statement.
+
+```r
+x &lt;- 5
+if (x &gt; 5) {
+    message(x, " is greater than 5")
+} else if (x == 5) {
+    message(x, " is 5")
+} else {
+    message(x, " is less than 5")
+}
+```
+
+```
+## 5 is 5
+```
+
+---
+## ifelse()
+
+A useful function to evaluate conditional statements over vectors is the **ifelse()** function.
+
+
+```r
+x &lt;- 1:10
+x
+```
+
+```
+##  [1]  1  2  3  4  5  6  7  8  9 10
+```
+
+The ifelse() functions take the arguments of the condition to evaluate, the action if the condition is true and the action when condition is false.
+
+
+```r
+ifelse(x &lt;= 3, "lessOrEqual", "more")
+```
+
+```
+##  [1] "lessOrEqual" "lessOrEqual" "lessOrEqual" "more"        "more"        "more"        "more"       
+##  [8] "more"        "more"        "more"
+```
+
+---
+## ifelse()
+
+We can use multiple nested **ifelse** functions to be apply more complex logical to vectors.
+
+
+```r
+ifelse(x == 3, "same", ifelse(x &lt; 3, "less", "more"))
+```
+
+```
+##  [1] "less" "less" "same" "more" "more" "more" "more" "more" "more" "more"
+```
+
+---
+## Loops
+
+The two main generic methods of looping in R are **while** and **for**
+
+- **while** - *while* loops repeat the execution of code while a condition evaluates as true.
+
+- **for** - *for* loops repeat the execution of code for a range of specified values.
+
+---
+## While loops
+
+While loops are most useful if you know the condition will be satisified but are not sure when (i.e. Looking for a point when a number first occurs in a list).
+
+```r
+x &lt;- 1
+while (x &lt; 3) {
+    message("x is ", x, " ")
+    x &lt;- x + 1
+}
+```
+
+```
+## x is 1
+```
+
+```
+## x is 2
+```
+
+```r
+message("Finally x is not less than 3")
+```
+
+```
+## Finally x is not less than 3
+```
+
+---
+## For loops
+
+For loops allow the user to cycle through a range of values applying an operation for every value.
+
+Here we cycle through a numeric vector and print out its value.
+
+```r
+x &lt;- 1:5
+for (i in x) {
+    message(i, " ", appendLF = F)
+}
+```
+
+```
+## 1 2 3 4 5
+```
+
+Similarly we can cycle through other vector types (or lists).
+
+```r
+x &lt;- toupper(letters[1:5])
+for (i in x) {
+    message(i, " ", appendLF = F)
+}
+```
+
+```
+## A B C D E
+```
+
+---
+## Looping through indices
+
+We may wish to keep track of the position in x we are evaluating to retrieve the same index in other variables. A common practice is to loop though all possible index positions of x using the expression **1:length(x)**.
+
+
+```r
+geneName &lt;- c("Ikzf1", "Myc", "Igll1")
+expression &lt;- c(10.4, 4.3, 6.5)
+1:length(geneName)
+```
+
+```
+## [1] 1 2 3
+```
+
+```r
+for (i in 1:length(geneName)) {
+    message(geneName[i], " has an RPKM of ", expression[i])
+}
+```
+
+```
+## Ikzf1 has an RPKM of 10.4
+```
+
+```
+## Myc has an RPKM of 4.3
+```
+
+```
+## Igll1 has an RPKM of 6.5
+```
+
+---
+## Loops and conditionals
+
+Loops can be combined with conditional statements to allow for complex control of their execution over R objects. 
+.pull-left[
+
+```r
+x &lt;- 1:13
+
+for (i in 1:13) {
+    if (i &gt; 10) {
+        message("Number ", i, " is &gt; 10")
+    } else if (i == 10) {
+        message("Number ", i, " is  10")
+    } else {
+        message("Number ", i, " is &lt; 10")
+    }
+}
+```
+
+  ]
+.pull-right[
+
+```
+## Number 1 is less than  10
+```
+
+```
+## Number 2 is less than  10
+```
+
+```
+## Number 3 is less than  10
+```
+
+```
+## Number 4 is less than  10
+```
+
+```
+## Number 5 is less than  10
+```
+
+```
+## Number 6 is less than  10
+```
+
+```
+## Number 7 is less than  10
+```
+
+```
+## Number 8 is less than  10
+```
+
+```
+## Number 9 is less than  10
+```
+
+```
+## Number 10 is  10
+```
+
+```
+## Number 11 is greater than 10
+```
+
+```
+## Number 12 is greater than 10
+```
+
+```
+## Number 13 is greater than 10
+```
+  ]
+
+---
+## Breaking loops
+
+We can use conditionals to exit a loop if a condition is satisfied, just like a while loop.
+
+.pull-left[
+
+```r
+x &lt;- 1:13
+
+for (i in 1:13) {
+    if (i &lt; 10) {
+        message("Number ", i, " is less than 10")
+    } else if (i == 10) {
+        message("Number ", i, " is  10")
+        break
+    } else {
+        message("Number ", i, " is greater than  10")
+    }
+}
+```
+  ]
+
+.pull-right[
+
+```
+## Number 1 is less than 10
+```
+
+```
+## Number 2 is less than 10
+```
+
+```
+## Number 3 is less than 10
+```
+
+```
+## Number 4 is less than 10
+```
+
+```
+## Number 5 is less than 10
+```
+
+```
+## Number 6 is less than 10
+```
+
+```
+## Number 7 is less than 10
+```
+
+```
+## Number 8 is less than 10
+```
+
+```
+## Number 9 is less than 10
+```
+
+```
+## Number 10 is  10
+```
+  ]
+
+---
+## Functions to loop over data types
+
+There are functions which allow you to loop over a data type and apply a function to the subsection of that data.
+
+- **apply** - Apply function to rows or columns of a matrix/data frame and return results as a vector,matrix or list.
+
+- **lapply** - Apply function to every element of a vector or list and return results as a list.
+
+- **sapply** - Apply function to every element of a vector or list and return results as a vector,matrix or list.
+
+---
+## Looping - apply()
+
+The **apply()** function applys a function to the rows or columns of a matrix. The arguments **FUN** specifies the function to apply and **MARGIN** whether to apply the functions by rows/columns or both.
+
+```
+apply(DATA,MARGIN,FUN,...)
+```
+
+- **DATA** - A matrix (or something to be coerced into a matrix)
+- **MARGIN** - 1 for rows, 2 for columns, c(1,2) for cells
+
+---
+## apply() example
+
+
+```r
+matExample &lt;- matrix(c(1:4), nrow = 2, ncol = 2, byrow = T)
+matExample
+```
+
+```
+##      [,1] [,2]
+## [1,]    1    2
+## [2,]    3    4
+```
+Get the mean of rows
+
+```r
+apply(matExample, 1, mean)
+```
+
+```
+## [1] 1.5 3.5
+```
+Get the mean of columns
+
+```r
+apply(matExample, 2, mean)
+```
+
+```
+## [1] 2 3
+```
+
+---
+## Additional arguments to apply
+
+Additional arguments to be used by the function in the apply loop can be specified after the function argument. 
+
+Arguments may be ordered as if passed to function directly. For **paste()** function however this isn't possible.
+
+
+
+```r
+apply(matExample, 1, paste, collapse = ";")
+```
+
+```
+## [1] "1;2" "3;4"
+```
+
+---
+## lapply()
+
+.pull-left[
+Similar to apply, **lapply** applies a function to every element of a vector or list. 
+
+**lapply** returns a list object containing the results of evaluating the function.
+
+
+```r
+lapply(c(1, 2), mean)
+```
+
+```
+## [[1]]
+## [1] 1
+## 
+## [[2]]
+## [1] 2
+```
+  ]
+.pull-right[
+As with apply() additional arguments can be supplied after the function name argument.
+
+
+```r
+lapply(list(1, c(NA, 1), 2), mean, na.rm = T)
+```
+
+```
+## [[1]]
+## [1] 1
+## 
+## [[2]]
+## [1] 1
+## 
+## [[3]]
+## [1] 2
+```
+  ]
+---
+## sapply()
+
+
+**sapply** (*smart apply*) acts as lapply but attempts to return the results as the most appropriate data type.
+
+Here sapply returns a vector where lapply would return lists.
+
+```r
+exampleVector &lt;- c(1, 2, 3, 4, 5)
+exampleList &lt;- list(1, 2, 3, 4, 5)
+sapply(exampleVector, mean, na.rm = T)
+```
+
+```
+## [1] 1 2 3 4 5
+```
+
+```r
+sapply(exampleList, mean, na.rm = T)
+```
+
+```
+## [1] 1 2 3 4 5
+```
+
+---
+## sapply() example
+
+.pull-left[
+In this example lapply returns a list of vectors from the quantile function.
+
+
+```r
+exampleList &lt;- list(row1=1:5, 
+                    row2=6:10, 
+                    row3=11:15)
+exampleList
+```
+
+```
+## $row1
+## [1] 1 2 3 4 5
+## 
+## $row2
+## [1]  6  7  8  9 10
+## 
+## $row3
+## [1] 11 12 13 14 15
+```
+  ]
+
+.pull-right[
+
+```r
+lapply(exampleList, quantile)
+```
+
+```
+## $row1
+##   0%  25%  50%  75% 100% 
+##    1    2    3    4    5 
+## 
+## $row2
+##   0%  25%  50%  75% 100% 
+##    6    7    8    9   10 
+## 
+## $row3
+##   0%  25%  50%  75% 100% 
+##   11   12   13   14   15
+```
+  ]
+
+---
+## sapply() example 2
+
+Here is an example of sapply parsing a result from the quantile function in a *smart* way.
+
+When a function always returns a vector of the same length, sapply will create a matrix with elements by column.
+
+
+```r
+sapply(exampleList, quantile)
+```
+
+```
+##      row1 row2 row3
+## 0%      1    6   11
+## 25%     2    7   12
+## 50%     3    8   13
+## 75%     4    9   14
+## 100%    5   10   15
+```
+
+---
+## sapply() example 3
+
+
+When sapply cannot parse the result to a vector or matrix, a list will be returned.
+
+
+```r
+exampleList &lt;- list(df=data.frame(sample=paste0("patient",1:2), data=c(1,12)),
+                    vec=c(1,3,4,5))
+sapply(exampleList, summary)
+```
+
+```
+## $df
+##     sample               data      
+##  Length:2           Min.   : 1.00  
+##  Class :character   1st Qu.: 3.75  
+##  Mode  :character   Median : 6.50  
+##                     Mean   : 6.50  
+##                     3rd Qu.: 9.25  
+##                     Max.   :12.00  
+## 
+## $vec
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##    1.00    2.50    3.50    3.25    4.25    5.00
+```
+
+
+---
+## Custom functions
+You can create your own functions easily in R using the **&lt;-** assignment. We use the **function** statement with all input variables in **()** and all code to be executed in **{}**. Anything to be received back from the function is indicated by the **return** statement.  
+
+In this case we can recapitulate the square function. 
+
+```r
+square_my_number &lt;- function(my_number) {
+    my_square &lt;- my_number * my_number
+    return(my_square)
+}
+
+square_my_number(my_number = 3)
+```
+
+```
+## [1] 9
+```
+
+---
+class: inverse, center, middle
+
+# Custom functions
+
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px width=720px&gt;&lt;/html&gt; 
+
+---
+
+
+## Custom functions
+User defined functions can be as long and complicated as you want, taking in many variables, printing out messages and utilizing other functions within them.
+
+Lets make z-scores:
+
+```r
+my_zscore &lt;- function(my_number, my_vector) {
+    my_mean &lt;- mean(my_vector)
+    message("Mean is ", my_mean)
+    diff_from_mean &lt;- my_number - my_mean
+    stdev &lt;- sd(my_vector)
+    my_z &lt;- diff_from_mean/stdev
+    return(my_z)
+}
+
+A &lt;- rnorm(20)
+
+my_zscore(my_number = A[1], my_vector = A)
+```
+
+```
+## Mean is 0.055314626392614
+```
+
+```
+## [1] -0.1104281
+```
+
+---
+## Custom functions and apply
+
+These custom functions can also be utilised with apply. 
+
+
+```r
+sapply(A, my_zscore, my_vector = A)
+```
+
+```
+##  [1] -0.1104281  1.4289650 -1.3582260  0.1777881  0.7852111  0.1020663  1.7092058  0.6734933 -0.7530404
+## [10]  0.3363817 -0.1063513  0.9514866  0.1584974 -1.4890680 -0.3417483  0.4912612 -1.1846521 -1.2461129
+## [19]  1.2820245 -1.5067540
+```
+
+---
+## Time for an exercise!
+
+
+Exercise on loops and conditional branching can be found [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/exercises//conditionsAndLoops_Exercises.html)
+
+---
+## Answers to exercise.
+
+
+Answers can be found here  [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/answers/conditionsAndLoops_Answers.html)
+
+Rcode for answers can be found here  [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/answers/conditionsAndLoops_Answers.R)
+
+---
+class: inverse, center, middle
+
+# Getting Additional Libraries
+
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px width=720px&gt;&lt;/html&gt; 
+
+---
+
+
+## Loading libraries
+
+Libraries can be loaded using the library() function with an argument of the name of the library.
+
+
+```r
+library(ggplot2)
+```
+
+You can see what libraries are available in the Packages panel or by the library() function with no arguments supplied.
+
+
+```r
+library()
+```
+
+---
+## Installing libraries
+
+
+Libraries can be installed through the R studio menu.
+
+**-&gt; Tools -&gt; Install packages ..**
+
+Or by using the install.packages() command.
+
+
+```r
+install.packages("Hmisc")
+```
+
+---
+class: inverse, center, middle
+
+# Scripts
+
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px width=720px&gt;&lt;/html&gt; 
+
+---
+
+
+
+## Saving scripts
+
+Once we have got our functions together and know how we want to analyse our data, we can save our analysis as a **script**. By convention R scripts typically end in **.r** or **.R**
+
+To save a file in RStudio.
+
+
+**-&gt; File -&gt; Save as**
+
+
+To open a previous R script
+
+**-&gt;File -&gt; Open File..**
+
+To save all the objects (workspace) with extension **.RData**
+
+**-&gt;Session -&gt; Save workspace as**
+
+---
+## Sourcing scripts
+
+
+R scripts allow us to save and reuse custom functions we have written.  To run the code from an R script we can use the **source()** function with the name of the R script as the argument. 
+
+The file **dayOfWeek.r** in the "scripts" directory contains a simple R script to tell you what day it is after your marathon R coding session.
+
+```
+#Contents of dayOfWeek.r
+dayOfWeek &lt;- function(){
+  return(gsub(" .*","",date()))  
+}
+```
+
+```r
+source("scripts/dayOfWeek.R")
+dayOfWeek()
+```
+
+```
+## [1] "Tue"
+```
+
+---
+## Rscript
+
+
+R scripts can be run non-interactively from the command line with the **Rscript** command, usually with the option **--vanilla** to avoid saving or restoring workspaces. All messages/warnings/errors will be output to the console.
+
+```
+Rscript --vanilla myscript.r
+```
+
+An alternative to Rscript is **R CMD BATCH**. Here all messages/warnings/errors are directed to a file and the processing time appended.
+
+```
+R CMD BATCH myscript.r
+```
+
+---
+## Sending arguments to Rscript
+
+
+To provide arguments to an R script at the command line we must add **commandArgs()** function to parse command line arguments.
+
+
+```r
+args &lt;- commandArgs(TRUE)
+myFirstArgument &lt;- args[1]
+myFirstArgument
+```
+
+```
+'10'
+```
+
+```r
+as.numeric(myFirstArgument)
+```
+```
+10
+```
+Since vectors can only be one type, all command line arguments are strings and must be converted to numeric if needed with **as.numeric()**.
+
+---
+## Getting help
+
+- From us: Raise an issue on our [GitHub](https://github.com/RockefellerUniversity/Intro_To_R_1Day/issues). This can be suggestions, comments, edits or questions (about content or the slides themselves).
+- Google
+- Local friendly bioinformaticians and computational biologists.
+- [Stackoverflow](http://stackoverflow.com/)
+- [R-help](https://stat.ethz.ch/mailman/listinfo/r-help)
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

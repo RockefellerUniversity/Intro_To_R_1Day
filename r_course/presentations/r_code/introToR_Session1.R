@@ -1,12 +1,12 @@
 params <-
 list(isSlides = "no")
 
-## ----include=FALSE-------------------------------------------------------------------------------------
+## ----include=FALSE----------------------------------------------------------------------------------------------------------------
 suppressPackageStartupMessages(require(knitr))
 knitr::opts_chunk$set(echo = TRUE, tidy = T)
 
 
-## ---- results='asis',include=TRUE,echo=FALSE-----------------------------------------------------------
+## ---- results='asis',include=TRUE,echo=FALSE--------------------------------------------------------------------------------------
 if(params$isSlides != "yes"){
   cat("# Introduction to R (part 1)
 
@@ -18,7 +18,7 @@ if(params$isSlides != "yes"){
 
 
 
-## ---- results='asis',include=TRUE,echo=FALSE-----------------------------------------------------------
+## ---- results='asis',include=TRUE,echo=FALSE--------------------------------------------------------------------------------------
 if(params$isSlides == "yes"){
   cat("class: inverse, center, middle
 
@@ -40,12 +40,12 @@ if(params$isSlides == "yes"){
 
 
 
-## ----setwd_introtoR,eval=F-----------------------------------------------------------------------------
+## ----setwd_introtoR,eval=F--------------------------------------------------------------------------------------------------------
 ## setwd("/PathToMyDownload/Intro_To_R_1Day/r_course")
 ## # e.g. setwd("~/Downloads/Intro_To_R_1Day/r_course")
 
 
-## ---- results='asis',include=TRUE,echo=FALSE-----------------------------------------------------------
+## ---- results='asis',include=TRUE,echo=FALSE--------------------------------------------------------------------------------------
 if(params$isSlides == "yes"){
   cat("class: inverse, center, middle
 
@@ -67,7 +67,7 @@ if(params$isSlides == "yes"){
 
 
 
-## ---- results='asis',include=TRUE,echo=FALSE-----------------------------------------------------------
+## ---- results='asis',include=TRUE,echo=FALSE--------------------------------------------------------------------------------------
 if(params$isSlides == "yes"){
   cat("class: inverse, center, middle
 
@@ -89,7 +89,7 @@ if(params$isSlides == "yes"){
 
 
 
-## ----simpleCalculations_introtoR,prompt=T--------------------------------------------------------------
+## ----simpleCalculations_introtoR,prompt=T-----------------------------------------------------------------------------------------
 3+1
 
 2*2
@@ -97,33 +97,33 @@ if(params$isSlides == "yes"){
 sqrt(25)-1
 
 
-## ----usingFunctions_introtoR---------------------------------------------------------------------------
+## ----usingFunctions_introtoR------------------------------------------------------------------------------------------------------
 min(2,4,6)
 sum(2,4,6)
 max(2,4,6)
 
 
-## ----usingFunctionsSQRT_introtoR-----------------------------------------------------------------------
+## ----usingFunctionsSQRT_introtoR--------------------------------------------------------------------------------------------------
 ?sqrt
 
 
-## ----usingFunctionsArgOrder_introtoR-------------------------------------------------------------------
+## ----usingFunctionsArgOrder_introtoR----------------------------------------------------------------------------------------------
 min(5,4,6)
 min(6,4,5)
 
 
-## ----usingFunctionsSetNames_introtoR,eval=F------------------------------------------------------------
+## ----usingFunctionsSetNames_introtoR,eval=F---------------------------------------------------------------------------------------
 ## dir()
 ## dir(full.names=T)
 
 
-## ----usingFunctionsDefaultOrder_introtoR,eval=F--------------------------------------------------------
+## ----usingFunctionsDefaultOrder_introtoR,eval=F-----------------------------------------------------------------------------------
 ## dir(full.names=T)
 ## # Is equivalent to...
 ## dir(".",NULL,FALSE,T)
 
 
-## ---- results='asis',include=TRUE,echo=FALSE-----------------------------------------------------------
+## ---- results='asis',include=TRUE,echo=FALSE--------------------------------------------------------------------------------------
 if(params$isSlides == "yes"){
   cat("class: inverse, center, middle
 
@@ -145,37 +145,37 @@ if(params$isSlides == "yes"){
 
 
 
-## ----variablesDefine_introtoR--------------------------------------------------------------------------
+## ----variablesDefine_introtoR-----------------------------------------------------------------------------------------------------
 x <- 10
 
 
-## ----variableHold_introtoR-----------------------------------------------------------------------------
+## ----variableHold_introtoR--------------------------------------------------------------------------------------------------------
 x
 
 
-## ----variableShowForAlterInPlace_introtoR--------------------------------------------------------------
+## ----variableShowForAlterInPlace_introtoR-----------------------------------------------------------------------------------------
 x
 
 
-## ----variableAlterInPlace_introtoR---------------------------------------------------------------------
+## ----variableAlterInPlace_introtoR------------------------------------------------------------------------------------------------
 x <- 20
 x
 
 
-## ----variableAsValueTheyContain_introtoR---------------------------------------------------------------
+## ----variableAsValueTheyContain_introtoR------------------------------------------------------------------------------------------
 x
 
 
-## ----variableAsValueFromFunTheyContain_introtoR--------------------------------------------------------
+## ----variableAsValueFromFunTheyContain_introtoR-----------------------------------------------------------------------------------
 x + sqrt(25)
 
 
-## ----variableCreateNewVariable_introtoR----------------------------------------------------------------
+## ----variableCreateNewVariable_introtoR-------------------------------------------------------------------------------------------
 y <- x + sqrt(25)
 y
 
 
-## ---- results='asis',include=TRUE,echo=FALSE-----------------------------------------------------------
+## ---- results='asis',include=TRUE,echo=FALSE--------------------------------------------------------------------------------------
 if(params$isSlides == "yes"){
   cat("class: inverse, center, middle
 
@@ -197,108 +197,108 @@ if(params$isSlides == "yes"){
 
 
 
-## ----vectorBasic_introtoR------------------------------------------------------------------------------
+## ----vectorBasic_introtoR---------------------------------------------------------------------------------------------------------
 x
 length(x)
 
 
-## ----vectorCreate_introtoR-----------------------------------------------------------------------------
+## ----vectorCreate_introtoR--------------------------------------------------------------------------------------------------------
 x <- c(1,2,3,4,5,6,7,8,9,10)
 x
 length(x)
 
 
-## ----vectorSeqFromColon_introtoR-----------------------------------------------------------------------
+## ----vectorSeqFromColon_introtoR--------------------------------------------------------------------------------------------------
 y <- 6:10
 y
 
 
-## ----vectorSeqFromSeqAndRep_introtoR-------------------------------------------------------------------
+## ----vectorSeqFromSeqAndRep_introtoR----------------------------------------------------------------------------------------------
 seq(from=1,to=5,by=2)
 rep(c(1,5,10),3)
 
 
-## ----vectorIndexing_introtoR---------------------------------------------------------------------------
+## ----vectorIndexing_introtoR------------------------------------------------------------------------------------------------------
 z <- seq(from=2,to=20,by=2) 
 z
 z[1]
 z[8]
 
 
-## ----vectorIndexingBy2_introtoR------------------------------------------------------------------------
+## ----vectorIndexingBy2_introtoR---------------------------------------------------------------------------------------------------
 z[c(1,6)]
 
 
-## ----vectorIndexingByNeg_introtoR----------------------------------------------------------------------
+## ----vectorIndexingByNeg_introtoR-------------------------------------------------------------------------------------------------
 z[-5]
 
 
-## ----vectorIndexingAndReplace_introtoR-----------------------------------------------------------------
+## ----vectorIndexingAndReplace_introtoR--------------------------------------------------------------------------------------------
 z
 z[5] <- 1000
 z
 
 
-## ----vectorIndexingUsingVectors_introtoR---------------------------------------------------------------
+## ----vectorIndexingUsingVectors_introtoR------------------------------------------------------------------------------------------
 y
 z[y] <- 0
 z
 
 
-## ----RememberSquareForIndex_introtoR-------------------------------------------------------------------
+## ----RememberSquareForIndex_introtoR----------------------------------------------------------------------------------------------
 x[1]
 
 
-## ----RememberRoundForFunctions_introtoR----------------------------------------------------------------
+## ----RememberRoundForFunctions_introtoR-------------------------------------------------------------------------------------------
 sqrt(4)
 
 
-## ----vectorArithmetricOperations_introtoR--------------------------------------------------------------
+## ----vectorArithmetricOperations_introtoR-----------------------------------------------------------------------------------------
 x <- c(1,2,3,4,5,6,7,8,9,10)
 x
 y <- x*2
 y
 
 
-## ----vectorArithmetricOperationsMultipleVectors_introtoR-----------------------------------------------
+## ----vectorArithmetricOperationsMultipleVectors_introtoR--------------------------------------------------------------------------
 x+y
 
 
-## ----vectorRecycle_introtoR----------------------------------------------------------------------------
+## ----vectorRecycle_introtoR-------------------------------------------------------------------------------------------------------
 x <- c(1,2,3,4,5,6,7,8,9,10)
 x
 x+c(1,2)
 
 
-## ----vectorShorterRecycle_introtoR---------------------------------------------------------------------
+## ----vectorShorterRecycle_introtoR------------------------------------------------------------------------------------------------
 x+c(1,2,3)
 
 
-## ----vectorCharacters_introtoR-------------------------------------------------------------------------
+## ----vectorCharacters_introtoR----------------------------------------------------------------------------------------------------
 y <- c("ICTEM","CommonWealth","Wolfson")
 y[2]
 
 
-## ----vectorCharacterNames_introtoR---------------------------------------------------------------------
+## ----vectorCharacterNames_introtoR------------------------------------------------------------------------------------------------
 x <- c(1:3)
 names(x) <- y
 x
 
 
-## ----vectorCharacterNamesIndex_introtoR----------------------------------------------------------------
+## ----vectorCharacterNamesIndex_introtoR-------------------------------------------------------------------------------------------
 x[c("ICTEM","Wolfson")]
 
 
-## ----vectorCharacterNamesIndexMissing_introtoR---------------------------------------------------------
+## ----vectorCharacterNamesIndexMissing_introtoR------------------------------------------------------------------------------------
 x[c("Strand")]
 
 
-## ----vectorUnique_introtoR-----------------------------------------------------------------------------
+## ----vectorUnique_introtoR--------------------------------------------------------------------------------------------------------
 geneList <- c("Gene1","Gene2","Gene3","Gene4","Gene5","Gene1","Gene3")
 unique(geneList)
 
 
-## ----vectorLogical_introtoR----------------------------------------------------------------------------
+## ----vectorLogical_introtoR-------------------------------------------------------------------------------------------------------
 z <-  c(TRUE,FALSE,TRUE,FALSE,TRUE,FALSE,TRUE,FALSE,TRUE,FALSE) 
 # or
 z <- c(T,F,T,F,T,F,T,F,T,F) 
@@ -306,12 +306,12 @@ z <- c(T,F,T,F,T,F,T,F,T,F)
 z
 
 
-## ----vectorLogicalOtherVector_introtoR-----------------------------------------------------------------
+## ----vectorLogicalOtherVector_introtoR--------------------------------------------------------------------------------------------
 x <- 1:10
 x[z]
 
 
-## ----vectorInFuncion_introtoR--------------------------------------------------------------------------
+## ----vectorInFuncion_introtoR-----------------------------------------------------------------------------------------------------
 geneList <- c("Gene1","Gene2","Gene3","Gene4","Gene5","Gene1","Gene3")
 secondGeneList <- c("Gene5","Gene3")
 logical_index <- geneList %in% secondGeneList
@@ -320,27 +320,27 @@ logical_index
 geneList[logical_index]
 
 
-## ----vectorLogicalFromOperators_introtoR---------------------------------------------------------------
+## ----vectorLogicalFromOperators_introtoR------------------------------------------------------------------------------------------
 x <- 1:10
 x > 5
 x[x > 5]
 
 
-## ----vectorLogicalCombine_introtoR---------------------------------------------------------------------
+## ----vectorLogicalCombine_introtoR------------------------------------------------------------------------------------------------
 x <- 1:10
 !x > 4
 x > 4 & x < 7
 x > 4 | x < 7
 
 
-## ----vectorLogicalCombineIndex_introtoR----------------------------------------------------------------
+## ----vectorLogicalCombineIndex_introtoR-------------------------------------------------------------------------------------------
 x <- 1:10
 x
 x[x > 4 & x < 7]
 x[x > 4 & !x < 7]
 
 
-## ---- results='asis',include=TRUE,echo=FALSE-----------------------------------------------------------
+## ---- results='asis',include=TRUE,echo=FALSE--------------------------------------------------------------------------------------
 if(params$isSlides == "yes"){
   cat("class: inverse, center, middle
 
@@ -362,7 +362,7 @@ if(params$isSlides == "yes"){
 
 
 
-## ----matricesCreate_introtoR---------------------------------------------------------------------------
+## ----matricesCreate_introtoR------------------------------------------------------------------------------------------------------
 narrowMatrix <- matrix(1:10, nrow=5, ncol=2)
 narrowMatrix
 
@@ -370,7 +370,7 @@ wideMatrix <- matrix(1:10, nrow=2, ncol=5)
 wideMatrix
 
 
-## ----matricesCreateByRow_introtoR----------------------------------------------------------------------
+## ----matricesCreateByRow_introtoR-------------------------------------------------------------------------------------------------
 wideMatrix <- matrix(1:10, nrow=2, ncol=5)
 wideMatrix
 
@@ -378,13 +378,13 @@ wideMatrixByRow <- matrix(1:10, nrow=2, ncol=5, byrow=TRUE)
 wideMatrixByRow
 
 
-## ----matricesDim_introtoR------------------------------------------------------------------------------
+## ----matricesDim_introtoR---------------------------------------------------------------------------------------------------------
 dim(narrowMatrix)
 nrow(narrowMatrix)
 ncol(narrowMatrix)
 
 
-## ----matricesCbind_introtoR----------------------------------------------------------------------------
+## ----matricesCbind_introtoR-------------------------------------------------------------------------------------------------------
 x <- 1:5
 y <- 11:15
 z <- 21:22
@@ -392,54 +392,54 @@ newMatrix <- cbind(x,y)
 newMatrix
 
 
-## ----matricesRbind_introtoR----------------------------------------------------------------------------
+## ----matricesRbind_introtoR-------------------------------------------------------------------------------------------------------
 newerMatrix <- rbind(newMatrix,z)
 newerMatrix
 
 
-## ----matricesJoinIncompatable_introtoR-----------------------------------------------------------------
+## ----matricesJoinIncompatable_introtoR--------------------------------------------------------------------------------------------
 recycledMatrix2 <- matrix(1:5,ncol=2,nrow=3)
 recycledMatrix2
 
 
-## ----matricesJoinIncompatableClip_introtoR-------------------------------------------------------------
+## ----matricesJoinIncompatableClip_introtoR----------------------------------------------------------------------------------------
 recycledMatrix3 <- rbind(recycledMatrix2,c(1:5))
 recycledMatrix3
 
 
-## ----matricesNames_introtoR----------------------------------------------------------------------------
+## ----matricesNames_introtoR-------------------------------------------------------------------------------------------------------
 namedMatrix <- matrix(1:10,ncol=5,nrow=2)
 colnames(namedMatrix) <- paste("Column",1:5,sep="_")
 rownames(namedMatrix) <- paste("Row",1:2,sep="_")
 namedMatrix
 
 
-## ----matricesNamesColRow_introtoR----------------------------------------------------------------------
+## ----matricesNamesColRow_introtoR-------------------------------------------------------------------------------------------------
 colnames(namedMatrix)
 rownames(namedMatrix)
 
 
-## ----matricesIndexingShow_introtoR---------------------------------------------------------------------
+## ----matricesIndexingShow_introtoR------------------------------------------------------------------------------------------------
 narrowMatrix
 
 
-## ----matricesIndexingExample_introtoR------------------------------------------------------------------
+## ----matricesIndexingExample_introtoR---------------------------------------------------------------------------------------------
 narrowMatrix[2,1]
 
 
-## ----matricesIndexingExampleByCol_introtoR-------------------------------------------------------------
+## ----matricesIndexingExampleByCol_introtoR----------------------------------------------------------------------------------------
 narrowMatrix[,2]
 
 
-## ----matricesIndexingExampleByRow_introtoR-------------------------------------------------------------
+## ----matricesIndexingExampleByRow_introtoR----------------------------------------------------------------------------------------
 narrowMatrix[3,]
 
 
-## ----matricesIndexingExampleByMultipleRow_introtoR-----------------------------------------------------
+## ----matricesIndexingExampleByMultipleRow_introtoR--------------------------------------------------------------------------------
 narrowMatrix[c(2,3),]
 
 
-## ----matricesIndexingExampleByName_introtoR------------------------------------------------------------
+## ----matricesIndexingExampleByName_introtoR---------------------------------------------------------------------------------------
 colnames(narrowMatrix) <- paste("Column",1:2,sep="_")
 rownames(narrowMatrix) <- paste("Row",1:5,sep="_")
 narrowMatrix[,"Column_1"]
@@ -447,17 +447,17 @@ narrowMatrix["Row_1",]
 narrowMatrix["Row_1","Column_1"]
 
 
-## ----matricesIndexingExampleByLogic_introtoR-----------------------------------------------------------
+## ----matricesIndexingExampleByLogic_introtoR--------------------------------------------------------------------------------------
 narrowMatrix
 narrowMatrix[,1]
 narrowMatrix[,1] < 5
 
 
-## ----matricesIndexingExampleByLogicRow_introtoR--------------------------------------------------------
+## ----matricesIndexingExampleByLogicRow_introtoR-----------------------------------------------------------------------------------
 narrowMatrix[narrowMatrix[,1] < 5,]
 
 
-## ----matricesArithmetric_introtoR----------------------------------------------------------------------
+## ----matricesArithmetric_introtoR-------------------------------------------------------------------------------------------------
 narrowMatrix
 narrowMatrix[1,1]+2
 narrowMatrix[1,]+2
@@ -465,26 +465,26 @@ mean(narrowMatrix)
 
 
 
-## ----matricesReplace_introtoR--------------------------------------------------------------------------
+## ----matricesReplace_introtoR-----------------------------------------------------------------------------------------------------
 narrowMatrix
 narrowMatrix[1,1] <- 10
 narrowMatrix[,2] <- 1
 narrowMatrix
 
 
-## ----matricesOneTypeOnlyNoError_introtoR,error=T-------------------------------------------------------
+## ----matricesOneTypeOnlyNoError_introtoR,error=T----------------------------------------------------------------------------------
 narrowMatrix[,2] *2
 
-## ----matricesOneTypeOnlyExampleForError_introtoR-------------------------------------------------------
+## ----matricesOneTypeOnlyExampleForError_introtoR----------------------------------------------------------------------------------
 narrowMatrix[1,1] <- "Not_A_Number"
 narrowMatrix
 
 
-## ----matricesOneTypeOnlyWithError_introtoR,error=T-----------------------------------------------------
+## ----matricesOneTypeOnlyWithError_introtoR,error=T--------------------------------------------------------------------------------
 narrowMatrix[,2] *2
 
 
-## ---- results='asis',include=TRUE,echo=FALSE-----------------------------------------------------------
+## ---- results='asis',include=TRUE,echo=FALSE--------------------------------------------------------------------------------------
 if(params$isSlides == "yes"){
   cat("class: inverse, center, middle
 
@@ -506,37 +506,37 @@ if(params$isSlides == "yes"){
 
 
 
-## ----factorsIntro_introtoR-----------------------------------------------------------------------------
+## ----factorsIntro_introtoR--------------------------------------------------------------------------------------------------------
 vectorExample <- c("male","female","female","female")
 factorExample <- factor(vectorExample)
 factorExample
 levels(factorExample)
 
 
-## ----factorsSummaryFunction_introtoR-------------------------------------------------------------------
+## ----factorsSummaryFunction_introtoR----------------------------------------------------------------------------------------------
 summary(vectorExample)
 summary(factorExample)
 
 
-## ----factorsDisplayOrder_introtoR----------------------------------------------------------------------
+## ----factorsDisplayOrder_introtoR-------------------------------------------------------------------------------------------------
 factorExample <- factor(vectorExample, levels=c("male","female"))
 factorExample
 summary(factorExample)
 
 
-## ----factorsNominal_introtoR---------------------------------------------------------------------------
+## ----factorsNominal_introtoR------------------------------------------------------------------------------------------------------
 factorExample <- factor(vectorExample, levels=c("male","female"))
 factorExample[1] < factorExample[2]
 
 
-## ----factorsOrdinal_introtoR---------------------------------------------------------------------------
+## ----factorsOrdinal_introtoR------------------------------------------------------------------------------------------------------
 factorExample <- factor(c("small","big","big","small"),
                         ordered=TRUE,levels=c("small","big"))
 factorExample
 factorExample[1] < factorExample[2]
 
 
-## ----factorsOrder_introtoR-----------------------------------------------------------------------------
+## ----factorsOrder_introtoR--------------------------------------------------------------------------------------------------------
 factorExample <- factor(c("small","big","big","small"))
 factorExample[1] <- c("big")
 factorExample
@@ -546,13 +546,13 @@ factorExample
 
 
 
-## ----factorsAddNew_introtoR----------------------------------------------------------------------------
+## ----factorsAddNew_introtoR-------------------------------------------------------------------------------------------------------
 levels(factorExample) <- c("big","small","huge")
 factorExample[1] <- c("huge")
 factorExample
 
 
-## ---- results='asis',include=TRUE,echo=FALSE-----------------------------------------------------------
+## ---- results='asis',include=TRUE,echo=FALSE--------------------------------------------------------------------------------------
 if(params$isSlides == "yes"){
   cat("class: inverse, center, middle
 
@@ -574,7 +574,7 @@ if(params$isSlides == "yes"){
 
 
 
-## ----dataframesIntro_introtoR--------------------------------------------------------------------------
+## ----dataframesIntro_introtoR-----------------------------------------------------------------------------------------------------
 patientName <- c("patient1","patient2","patient3","patient4")
 patientType <- factor(rep(c("male","female"),2))
 survivalTime <- c(1,30,2,20)
@@ -582,42 +582,42 @@ dfExample <- data.frame(Name=patientName, Type=patientType, Survival_Time=surviv
 dfExample
 
 
-## ----dataframesReplacement_introtoR--------------------------------------------------------------------
+## ----dataframesReplacement_introtoR-----------------------------------------------------------------------------------------------
 dfExample
 dfExample[dfExample[,"Survival_Time"] > 10,]
 
 
-## ----dataframesReplacementbyDollar_introtoR------------------------------------------------------------
+## ----dataframesReplacementbyDollar_introtoR---------------------------------------------------------------------------------------
 dfExample <- data.frame(Name=patientName,Type=patientType,Survival_Time=survivalTime)
 dfExample$Survival_Time
 dfExample[dfExample$Survival_Time < 10,]
 
 
-## ----dataframesIndexbyDollar_introtoR------------------------------------------------------------------
+## ----dataframesIndexbyDollar_introtoR---------------------------------------------------------------------------------------------
 dfExample$Surv
 
 
-## ----dataframesIndexbyName_introtoR, eval=F------------------------------------------------------------
+## ----dataframesIndexbyName_introtoR, eval=F---------------------------------------------------------------------------------------
 ## dfExample[,"Surv"]
 
 
-## ----dataframesNewbyDollar_introtoR--------------------------------------------------------------------
+## ----dataframesNewbyDollar_introtoR-----------------------------------------------------------------------------------------------
 dfExample
 dfExample$newColumn <- rep("newData",nrow(dfExample))
 dfExample
 
 
-## ----dataframesNoReplace_introtoR----------------------------------------------------------------------
+## ----dataframesNoReplace_introtoR-------------------------------------------------------------------------------------------------
 dfExample[dfExample[,"Survival_Time"] < 10,"Survival_Time"] <- 0
 dfExample
 
 
-## ----dataframesNoReplaceString_introtoR----------------------------------------------------------------
+## ----dataframesNoReplaceString_introtoR-------------------------------------------------------------------------------------------
 dfExample[1,"Type"] <- "other"
 dfExample
 
 
-## ----dataframesAndFactors_introtoR---------------------------------------------------------------------
+## ----dataframesAndFactors_introtoR------------------------------------------------------------------------------------------------
 dfExample <- data.frame(Name=patientName,Type=patientType,
                         Survival_Time=survivalTime)
 
@@ -629,7 +629,7 @@ dfExample
 
 
 
-## ----dataframesAndNoFactors_introtoR-------------------------------------------------------------------
+## ----dataframesAndNoFactors_introtoR----------------------------------------------------------------------------------------------
 dfExample <- data.frame(Name=patientName,
                         Type=patientType,
                         Survival_Time=survivalTime,
@@ -641,7 +641,7 @@ dfExample
 
 
 
-## ----dataframesAndNoFactors_introtoR2------------------------------------------------------------------
+## ----dataframesAndNoFactors_introtoR2---------------------------------------------------------------------------------------------
 dfExample <- data.frame(Name=patientName,
                         Type=patientType,
                         Survival_Time=survivalTime,
@@ -653,52 +653,52 @@ dfExample
 
 
 
-## ----dataframesOrder_introtoR--------------------------------------------------------------------------
+## ----dataframesOrder_introtoR-----------------------------------------------------------------------------------------------------
 testOrder <- c(20,10,30)
 testOrder
 order(testOrder,decreasing=T)
 
 
-## ------------------------------------------------------------------------------------------------------
+## ---------------------------------------------------------------------------------------------------------------------------------
 testOrder[order(testOrder)]
 testOrder[order(testOrder,decreasing=T)]
 
 
-## ----dataframesOrderWithNA_introtoR--------------------------------------------------------------------
+## ----dataframesOrderWithNA_introtoR-----------------------------------------------------------------------------------------------
 testOrder <- c(2,1,NA,3)
 testOrder[order(testOrder,decreasing=T,na.last=T)]
 testOrder[order(testOrder,decreasing=T,na.last=F)]
 
 
-## ----dataframesOrderDecreasing_introtoR----------------------------------------------------------------
+## ----dataframesOrderDecreasing_introtoR-------------------------------------------------------------------------------------------
 dfExample
 dfExample[order(dfExample$Surv, decreasing=T),]
 
 
-## ----dataframesOrderMultiple_introtoR------------------------------------------------------------------
+## ----dataframesOrderMultiple_introtoR---------------------------------------------------------------------------------------------
 dfExample[order(dfExample$Type,
                 dfExample$Survival,
                 decreasing=T),]
 
 
-## ----dataframesMergeData1_introtoR---------------------------------------------------------------------
+## ----dataframesMergeData1_introtoR------------------------------------------------------------------------------------------------
 dfExample <- data.frame(Name=patientName,Type=patientType,
                         Survival_Time=survivalTime)
 dfExample 
 
 
-## ----dataframesMergeData2_introtoR---------------------------------------------------------------------
+## ----dataframesMergeData2_introtoR------------------------------------------------------------------------------------------------
 dfExample2 <- data.frame(Name=patientName[1:3],
                         height=c(6.1,5.1,5.5))
 dfExample2
 
 
-## ----dataframesMerge_introtoR--------------------------------------------------------------------------
+## ----dataframesMerge_introtoR-----------------------------------------------------------------------------------------------------
 mergedDF <- merge(dfExample,dfExample2,by=1,all=F)
 mergedDF
 
 
-## ---- results='asis',include=TRUE,echo=FALSE-----------------------------------------------------------
+## ---- results='asis',include=TRUE,echo=FALSE--------------------------------------------------------------------------------------
 if(params$isSlides == "yes"){
   cat("class: inverse, center, middle
 
@@ -720,34 +720,34 @@ if(params$isSlides == "yes"){
 
 
 
-## ----listsExample_introtoR-----------------------------------------------------------------------------
+## ----listsExample_introtoR--------------------------------------------------------------------------------------------------------
 firstElement <- c(1,2,3,4)
 secondElement <- matrix(1:10,nrow=2,ncol=5)
 thirdElement <- data.frame(colOne=c(1,2,4,5),colTwo=c("One","Two","Three","Four"))
 
 
-## ----listsCreate_introtoR------------------------------------------------------------------------------
+## ----listsCreate_introtoR---------------------------------------------------------------------------------------------------------
 myList <- list(firstElement,secondElement,thirdElement)
 myList
 
 
-## ----listsCreateNnames_introtoR------------------------------------------------------------------------
+## ----listsCreateNnames_introtoR---------------------------------------------------------------------------------------------------
 myNamedList <- list(First=firstElement,Second=secondElement,
                     Third=thirdElement)
 myNamedList
 
 
-## ----listsCreateElements_introtoR----------------------------------------------------------------------
+## ----listsCreateElements_introtoR-------------------------------------------------------------------------------------------------
 myList <- list(firstElement,secondElement,thirdElement)
 myList[1]
 myList[[1]]
 
 
-## ----listsIndexElements_introtoR-----------------------------------------------------------------------
+## ----listsIndexElements_introtoR--------------------------------------------------------------------------------------------------
 myNamedList$First
 
 
-## ----listsCombine_introtoR-----------------------------------------------------------------------------
+## ----listsCombine_introtoR--------------------------------------------------------------------------------------------------------
 myNamedList <- list(First=firstElement,Second=secondElement,
                     Third=thirdElement)
 myNamedList <- c(myNamedList,list(fourth=c(4,4)))
@@ -755,19 +755,19 @@ myNamedList[c(1,4)]
 
 
 
-## ---- listsCombineVector_introtoR----------------------------------------------------------------------
+## ---- listsCombineVector_introtoR-------------------------------------------------------------------------------------------------
 myList <- c(myList,c(4,4))
 myList[3:5]
 
 
-## ----listsFlatten_introtoR-----------------------------------------------------------------------------
+## ----listsFlatten_introtoR--------------------------------------------------------------------------------------------------------
 myNamedList <- list(First=c(1,2,3),Second=c(2,6,7),Third=c(1,4,7))
 myNamedList
 flatList <- unlist(myNamedList)
 flatList[1:7]
 
 
-## ----listsFlattenToMatrix_introtoR---------------------------------------------------------------------
+## ----listsFlattenToMatrix_introtoR------------------------------------------------------------------------------------------------
 myNamedList <- list(First=c(1,2,3),Second=c(2,6,7),Third=c(1,4,7))
 flatList <- unlist(myNamedList)
 listAsMat <- matrix(flatList,
@@ -778,7 +778,7 @@ listAsMat <- matrix(flatList,
 listAsMat
 
 
-## ---- results='asis',include=TRUE,echo=FALSE-----------------------------------------------------------
+## ---- results='asis',include=TRUE,echo=FALSE--------------------------------------------------------------------------------------
 if(params$isSlides == "yes"){
   cat("class: inverse, center, middle
 
@@ -800,7 +800,7 @@ if(params$isSlides == "yes"){
 
 
 
-## ------------------------------------------------------------------------------------------------------
+## ---------------------------------------------------------------------------------------------------------------------------------
 namedMatrix
 
 as.character(namedMatrix)
@@ -808,14 +808,14 @@ as.character(namedMatrix)
 as.vector(namedMatrix)
 
 
-## ------------------------------------------------------------------------------------------------------
+## ---------------------------------------------------------------------------------------------------------------------------------
 as.data.frame(namedMatrix)
 
 as.list(namedMatrix)
 
 
 
-## ---- results='asis',include=TRUE,echo=FALSE-----------------------------------------------------------
+## ---- results='asis',include=TRUE,echo=FALSE--------------------------------------------------------------------------------------
 if(params$isSlides == "yes"){
   cat("class: inverse, center, middle
 
@@ -837,7 +837,7 @@ if(params$isSlides == "yes"){
 
 
 
-## ----echo=F--------------------------------------------------------------------------------------------
+## ----echo=F-----------------------------------------------------------------------------------------------------------------------
 minRep <- rbind(cbind(matrix(rnorm(12,4),ncol=3,byrow = T),matrix(c(rnorm(9,4),rnorm(3,8)),ncol=3,byrow = T)),
 cbind(matrix(rnorm(12,10),ncol=3,byrow = T),matrix(c(rnorm(6,3),rnorm(6,10)),ncol=3,byrow = T)))
 colnames(minRep) <- paste0(c("Sample_"),
@@ -849,67 +849,67 @@ kable(minRepdf[,1:4], format='html')
 
 
 
-## ----echo=T--------------------------------------------------------------------------------------------
+## ----echo=T-----------------------------------------------------------------------------------------------------------------------
 Table <- read.table("data/readThisTable.csv",sep=",",header=T)
 Table[1:4,1:3]
 
 
-## ----echo=T--------------------------------------------------------------------------------------------
+## ----echo=T-----------------------------------------------------------------------------------------------------------------------
 Table <- read.table("data/readThisTable.csv",sep=",",header=T,row.names=1)
 Table[1:4,1:3]
 
 
-## ----echo=T--------------------------------------------------------------------------------------------
+## ----echo=T-----------------------------------------------------------------------------------------------------------------------
 Table <- read.table("data/readThisTable.csv", sep=",", header=T, stringsAsFactors=F)
 
 
-## ----echo=T--------------------------------------------------------------------------------------------
+## ----echo=T-----------------------------------------------------------------------------------------------------------------------
 URL <- "http://rockefelleruniversity.github.io/readThisTable.csv"
 Table <- read.table(URL,sep=",",header=T)
 Table[1:2,1:3]
 
 
-## ----eval=F--------------------------------------------------------------------------------------------
+## ----eval=F-----------------------------------------------------------------------------------------------------------------------
 ## Table <- read.table(file="clipboard",sep=",",header=T)
 
 
-## ----echo=T--------------------------------------------------------------------------------------------
+## ----echo=T-----------------------------------------------------------------------------------------------------------------------
 x <- scan("data/readThisTable.csv",sep=",",
 what = c("character",rep("numeric", 6)),skip=1)
 x[1:3]
 
 
-## ----echo=T--------------------------------------------------------------------------------------------
+## ----echo=T-----------------------------------------------------------------------------------------------------------------------
 write.table(Table, file="data/writeThisTable.csv", sep=",")
 
 
-## ----echo=T--------------------------------------------------------------------------------------------
+## ----echo=T-----------------------------------------------------------------------------------------------------------------------
 write.table(Table, file="data/writeThisTable.csv", sep=",", row.names =F, col.names=T)
 
 
-## ------------------------------------------------------------------------------------------------------
+## ---------------------------------------------------------------------------------------------------------------------------------
 head(Table)
 
 
-## ------------------------------------------------------------------------------------------------------
+## ---------------------------------------------------------------------------------------------------------------------------------
 tail(Table)
 head(Table,3)
 
 
-## ----echo=T,eval=FALSE---------------------------------------------------------------------------------
+## ----echo=T,eval=FALSE------------------------------------------------------------------------------------------------------------
 ## install.packages("rio")
 
 
-## ----echo=T,eval=TRUE----------------------------------------------------------------------------------
+## ----echo=T,eval=TRUE-------------------------------------------------------------------------------------------------------------
 library("rio")
 
 
-## ----echo=T,eval=TRUE----------------------------------------------------------------------------------
+## ----echo=T,eval=TRUE-------------------------------------------------------------------------------------------------------------
 Table <- import("data/readThisTable.csv")
 Table[1:2,]
 
 
-## ----echo=T,eval=TRUE----------------------------------------------------------------------------------
+## ----echo=T,eval=TRUE-------------------------------------------------------------------------------------------------------------
 Table <- import("data/readThisXLS.xls", 
                 which=2)
 Table <- import("data/readThisXLS.xls", 
@@ -917,24 +917,24 @@ Table <- import("data/readThisXLS.xls",
 Table[1:2,]
 
 
-## ----echo=T,eval=TRUE----------------------------------------------------------------------------------
+## ----echo=T,eval=TRUE-------------------------------------------------------------------------------------------------------------
 Table <- import_list("data/readThisXLS.xls")
 names(Table)
 
 
-## ----echo=T,eval=TRUE----------------------------------------------------------------------------------
+## ----echo=T,eval=TRUE-------------------------------------------------------------------------------------------------------------
 ## Table[["ExpressionScores"]][1:2,]
 Table$ExpressionScores[1:2,]
 Table$Metadata[1:2,]
 
 
-## ----echo=T,eval=TRUE----------------------------------------------------------------------------------
+## ----echo=T,eval=TRUE-------------------------------------------------------------------------------------------------------------
 ExpressionScores <- Table$ExpressionScores
 export(ExpressionScores,file = "data/writeThisXLSX.xlsx")
 
 
 
-## ----echo=T,eval=TRUE----------------------------------------------------------------------------------
+## ----echo=T,eval=TRUE-------------------------------------------------------------------------------------------------------------
 names(Table) <- c("expr","meta")
 export(Table,file = "data/writeThisMultipleXLSX.xlsx")
 

@@ -1991,12 +1991,12 @@ div.tocify {
 </div>
 <div id="time-for-an-exercise" class="section level2">
 <h2>Time for an exercise!</h2>
-<p>Exercise on vectors can be found <a href="http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/exercises/vector_exercise.html">here</a></p>
+<p>Exercise on vectors can be found <a href="../../exercises/exercises/vector_exercise.html">here</a></p>
 </div>
 <div id="answers-to-exercise." class="section level2">
 <h2>Answers to exercise.</h2>
-<p>Answers can be found here <a href="http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/answers/vector_answers.html">here</a></p>
-<p>R code for solutions can be found here <a href="http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/answers/vector_answers.R">here</a></p>
+<p>Answers can be found here <a href="../../exercises/answers/vector_answers.html">here</a></p>
+<p>R code for solutions can be found here <a href="../../exercises/answers/vector_answers.R">here</a></p>
 </div>
 </div>
 <div id="matrices" class="section level1">
@@ -2085,8 +2085,7 @@ div.tocify {
 <h3>Incompatible vectors and matrices</h3>
 <p>When creating a matrix using <strong>cbind()</strong> or <strong>matrix()</strong> from incompatible vectors then the shorter vector is recycled.</p>
 <div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb136-1" data-line-number="1">recycledMatrix2 &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">nrow =</span> <span class="dv">3</span>)</a></code></pre></div>
-<pre><code>## Warning in matrix(1:5, ncol = 2, nrow = 3): data length [5] is not a sub-multiple or multiple of the
-## number of rows [3]</code></pre>
+<pre><code>## Warning in matrix(1:5, ncol = 2, nrow = 3): data length [5] is not a sub-multiple or multiple of the number of rows [3]</code></pre>
 <div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb138-1" data-line-number="1">recycledMatrix2</a></code></pre></div>
 <pre><code>##      [,1] [,2]
 ## [1,]    1    4
@@ -2100,8 +2099,7 @@ div.tocify {
 <h3>Incompatible vectors and matrices</h3>
 <p>For <strong>rbind()</strong> function, the longer vector is clipped.</p>
 <div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb140-1" data-line-number="1">recycledMatrix3 &lt;-<span class="st"> </span><span class="kw">rbind</span>(recycledMatrix2, <span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>))</a></code></pre></div>
-<pre><code>## Warning in rbind(recycledMatrix2, c(1:5)): number of columns of result is not a multiple of vector length
-## (arg 2)</code></pre>
+<pre><code>## Warning in rbind(recycledMatrix2, c(1:5)): number of columns of result is not a multiple of vector length (arg 2)</code></pre>
 <div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb142-1" data-line-number="1">recycledMatrix3</a></code></pre></div>
 <pre><code>##      [,1] [,2]
 ## [1,]    1    4
@@ -2271,12 +2269,12 @@ div.tocify {
 </div>
 <div id="time-for-an-exercise-1" class="section level2">
 <h2>Time for an exercise!</h2>
-<p>Exercise on matrices can be found <a href="http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/exercises/matrices_exercise.html">here</a></p>
+<p>Exercise on matrices can be found <a href="../../exercises/exercises/matrices_exercise.html">here</a></p>
 </div>
 <div id="answers-to-exercise.-1" class="section level2">
 <h2>Answers to exercise.</h2>
-<p>Answers can be found here <a href="http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/answers/matrices_answers.html">here</a></p>
-<p>R code for solutions can be found <a href="http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/answers/matrices_answers.R">here</a></p>
+<p>Answers can be found here <a href="../../exercises/answers/matrices_answers.html">here</a></p>
+<p>R code for solutions can be found <a href="../../exercises/answers/matrices_answers.R">here</a></p>
 </div>
 </div>
 <div id="factors" class="section level1">
@@ -2477,8 +2475,7 @@ div.tocify {
 <a class="sourceLine" id="cb244-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb244-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb244-4" data-line-number="4">dfExample[dfExample[, <span class="st">&quot;Survival_Time&quot;</span>] <span class="op">&lt;</span><span class="st"> </span><span class="dv">10</span>, <span class="st">&quot;Name&quot;</span>] &lt;-<span class="st"> &quot;patientX&quot;</span></a></code></pre></div>
-<pre><code>## Warning in `[&lt;-.factor`(`*tmp*`, iseq, value = c(&quot;patientX&quot;, &quot;patientX&quot;)): invalid factor level, NA
-## generated</code></pre>
+<pre><code>## Warning in `[&lt;-.factor`(`*tmp*`, iseq, value = c(&quot;patientX&quot;, &quot;patientX&quot;)): invalid factor level, NA generated</code></pre>
 <div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb246-1" data-line-number="1">dfExample</a></code></pre></div>
 <pre><code>##       Name   Type Survival_Time
 ## 1     &lt;NA&gt;   male             1
@@ -2581,12 +2578,12 @@ div.tocify {
 </div>
 <div id="time-for-an-exercise-2" class="section level2">
 <h2>Time for an exercise!</h2>
-<p>Exercise on data frames can be found <a href="http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/exercises/factorsAndDataframes_Exercise.html">here</a></p>
+<p>Exercise on data frames can be found <a href="../../exercises/exercises/factorsAndDataframes_Exercise.html">here</a></p>
 </div>
 <div id="answers-to-exercise.-2" class="section level2">
 <h2>Answers to exercise.</h2>
-<p>Answers can be found here <a href="http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/answers/factorsAndDataframes_Answers.html">here</a></p>
-<p>R code solutions can be found <a href="http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/answers/factorsAndDataframes_Answers.R">here</a></p>
+<p>Answers can be found here <a href="../../exercises/answers/factorsAndDataframes_Answers.html">here</a></p>
+<p>R code solutions can be found <a href="../../exercises/answers/factorsAndDataframes_Answers.R">here</a></p>
 </div>
 </div>
 <div id="lists" class="section level1">
@@ -2794,13 +2791,13 @@ Sample_3.hi
 Gene_a
 </td>
 <td style="text-align:right;">
-4.274571
+3.121282
 </td>
 <td style="text-align:right;">
-5.170695
+3.363790
 </td>
 <td style="text-align:right;">
-2.326333
+3.388391
 </td>
 </tr>
 <tr>
@@ -2808,13 +2805,13 @@ Gene_a
 Gene_b
 </td>
 <td style="text-align:right;">
-4.682555
+2.916575
 </td>
 <td style="text-align:right;">
-3.722421
+4.366092
 </td>
 <td style="text-align:right;">
-4.624020
+4.453390
 </td>
 </tr>
 <tr>
@@ -2822,13 +2819,13 @@ Gene_b
 Gene_c
 </td>
 <td style="text-align:right;">
-2.958036
+4.579591
 </td>
 <td style="text-align:right;">
-4.916629
+4.151072
 </td>
 <td style="text-align:right;">
-3.356304
+3.662827
 </td>
 </tr>
 <tr>
@@ -2836,13 +2833,13 @@ Gene_c
 Gene_d
 </td>
 <td style="text-align:right;">
-2.488374
+4.472654
 </td>
 <td style="text-align:right;">
-4.405869
+5.642061
 </td>
 <td style="text-align:right;">
-3.486814
+2.695248
 </td>
 </tr>
 <tr>
@@ -2850,13 +2847,13 @@ Gene_d
 Gene_e
 </td>
 <td style="text-align:right;">
-9.178731
+10.580648
 </td>
 <td style="text-align:right;">
-8.392405
+10.243597
 </td>
 <td style="text-align:right;">
-9.337774
+11.787607
 </td>
 </tr>
 <tr>
@@ -2864,13 +2861,13 @@ Gene_e
 Gene_f
 </td>
 <td style="text-align:right;">
-9.950154
+10.458936
 </td>
 <td style="text-align:right;">
-10.605822
+10.689172
 </td>
 <td style="text-align:right;">
-11.395507
+12.026610
 </td>
 </tr>
 <tr>
@@ -2878,13 +2875,13 @@ Gene_f
 Gene_g
 </td>
 <td style="text-align:right;">
-11.565352
+9.445406
 </td>
 <td style="text-align:right;">
-11.321966
+8.953567
 </td>
 <td style="text-align:right;">
-9.165507
+9.839217
 </td>
 </tr>
 <tr>
@@ -2892,13 +2889,13 @@ Gene_g
 Gene_h
 </td>
 <td style="text-align:right;">
-9.865686
+10.739276
 </td>
 <td style="text-align:right;">
-9.546170
+10.240733
 </td>
 <td style="text-align:right;">
-11.131036
+8.686308
 </td>
 </tr>
 </tbody>
@@ -3073,12 +3070,12 @@ Gene_h
 </div>
 <div id="time-for-an-exercise-3" class="section level2">
 <h2>Time for an exercise!</h2>
-<p>Exercise on reading and writing data can be found <a href="http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/exercises/DataInputOutput_Exercises.html">here</a></p>
+<p>Exercise on reading and writing data can be found <a href="../../exercises/exercises/DataInputOutput_Exercises.html">here</a></p>
 </div>
 <div id="answers-to-exercise" class="section level2">
 <h2>Answers to exercise</h2>
-<p>Answers can be found <a href="http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/answers/DataInputOutput_answers.html">here</a></p>
-<p>R code for solutions can be found <a href="http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/answers/DataInputOutput_answers.R">here</a></p>
+<p>Answers can be found <a href="../../exercises/answers/DataInputOutput_answers.html">here</a></p>
+<p>R code for solutions can be found <a href="../../exercises/answers/DataInputOutput_answers.R">here</a></p>
 </div>
 </div>
 

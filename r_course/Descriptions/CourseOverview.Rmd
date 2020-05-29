@@ -1,0 +1,10 @@
+# Course Overview
+
+This course introduces R and statistical programming.
+
+The course consists of 2 sections, 1 on basic R data types and data input/output and a second on conditionals and looping.
+Each section is presented as HTMl presentations or single page document. Exercises and answer sheets are included after all subsections to practice techniques and provide future reference examples.
+
+Course material and exercises are available to view as rendered HTML at https://rockefelleruniversity.github.io/Intro_To_R_1Day/.
+All material is available to download under GPL v2 license.
+

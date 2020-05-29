@@ -1,0 +1,120 @@
+---
+title: "Introduction to R"
+author: "Bionformatics Resource Centre"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+pkgName="introToR"
+name="Intro_To_R_1Day"
+repo="RockefellerUniversity"
+courseFolder="r_course"
+branch="master"
+subdir="introToR"
+
+params=list(
+  name=name,
+  subdir=subdir,
+  pkg=pkgName,
+  repo=repo,
+  branch=branch)
+```
+
+# The Course
+
+```{r courseOverview, echo=FALSE,eval=TRUE,include=FALSE}
+courseSetUp <- system.file("extdata/_course.yml",mustWork = TRUE,package=params$pkg)
+courseSetUpYml <- yaml::read_yaml(courseSetUp)
+courseDescriptionRMD <- system.file(file.path("extdata","Descriptions",courseSetUpYml$Description$OverviewRmd),mustWork = TRUE,package=params$pkg)
+file.copy(courseDescriptionRMD,getwd())
+```
+
+```{r showSysInstall, child = basename(courseDescriptionRMD)}
+```
+
+
+## Setting up
+
+### System Requirements
+
+```{r installSysReqsMap,echo=FALSE,eval=TRUE,include=FALSE}
+tem <- utils::packageDescription(params$pkg)
+dependsR <- c("R")
+dependsSysReqs <- pkgload::parse_deps(tem$SystemRequirements)$name
+SysReqs <- c(dependsR,dependsSysReqs)
+listOfSysReqRMDs <- dir(system.file("extdata/SystemRequirements",mustWork = TRUE,package="compileCourses"),full.names = TRUE)
+dependsSysReqRMDs <- basename(listOfSysReqRMDs)[basename(listOfSysReqRMDs) %in% paste0("Install_",SysReqs,".Rmd")]
+file.copy(listOfSysReqRMDs,dependsSysReqRMDs)
+```
+
+
+```{r showSysInstall, child = dependsSysReqRMDs}
+```
+
+### Install required packages.
+
+
+#### From the course package
+
+```{r installFromGithub,echo=FALSE,eval=TRUE,results="asis"}
+cat("```{r}\n")
+cat("install.packages('BiocManager')\n")
+if(params$subdir == ""){
+  cat(sprintf("BiocManager::install('%s')",file.path(repo,params$name)),sep = "\n")
+}else{
+    cat(sprintf("BiocManager::install('%s',subdir='%s')",file.path(params$repo,params$name),params$subdir),sep = "\n")
+}
+cat("```\n")
+```
+
+#### From CRAN and Bioconductor
+```{r installAllSep,echo=FALSE,eval=TRUE,results="asis"}
+tem <- utils::packageDescription(params$pkg)
+pkdDep <- unique(c(pkgload::parse_deps(tem$Depends)$name,pkgload::parse_deps(tem$Suggests)$name,pkgload::parse_deps(tem$Imports)$name))
+cat("```{r}\n")
+cat("install.packages('BiocManager')\n")
+cat(sprintf("BiocManager::install('%s')",pkdDep),sep = "\n")
+cat("```\n")
+```
+
+### Download the material
+
+```{r downloadMaterial,echo=FALSE,eval=TRUE}
+repoFull <- file.path("https://github.com",params$repo,params$name,"archive",paste0(params$branch,".zip"))
+```
+
+[Download the material](`r repoFull`)
+
+### The presentations 
+
+```{r tempa,echo=FALSE,eval=TRUE,include=FALSE}
+presTitles <- unlist(strsplit(courseSetUpYml$Presentations$titles," "))
+presRMDs <- unlist(strsplit(courseSetUpYml$Presentations$PresRmd," "))
+presOverviews <- unlist(strsplit(courseSetUpYml$Presentations$PresOverviewRmd," "))
+presRMDsPaths <- file.path("presentations","slides",gsub(".Rmd",".html",basename(presRMDs)))
+pageRMDsPaths <- file.path("presentations","singlepage",gsub(".Rmd",".html",basename(presRMDs)))
+codeRMDsPaths <- file.path("presentations","r_code",gsub(".Rmd",".R",basename(presRMDs)))
+descriptionDir <- system.file(file.path("extdata","Descriptions"),mustWork = TRUE,package=params$pkg)
+file.copy(file.path(descriptionDir,presOverviews),presOverviews)
+```
+
+```{r temp,echo=FALSE,eval=TRUE,results="asis"}
+# titles <- c("A","B")
+# descriptions <- c("mdds","asss")
+# linksToPres <- c("https://rockefelleruniversity.github.io/Genomic_HeatmapsAndProfiles/r_course/presentations/slides/GenomicHeatmapsAndProfiles2.html#1","https://rockefelleruniversity.github.io/Genomic_HeatmapsAndProfiles/r_course/presentations/slides/GenomicHeatmapsAndProfiles2.html#1")
+
+for(i in 1:length(presRMDs)){
+  cat("\n###",presTitles[i],"\n")
+  
+  cat("### Description \n")  
+   
+  # cat(descriptions[i])
+  myRes <- knitr::knit_child(presOverviews[i],quiet = TRUE)
+  cat(myRes)
+  
+  cat("\n")  
+  cat("\n<iframe src=",presRMDsPaths[i]," width='100%' height='400' title=",presTitles[i],"></iframe>\n",sep="")
+}
+```
+

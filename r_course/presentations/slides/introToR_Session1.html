@@ -969,16 +969,16 @@ x[x &gt; 4 &amp; !x &lt; 7]
 ## Time for an exercise!
 
 
-Exercise on vectors can be found [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/exercises/vector_exercise.html)
+Exercise on vectors can be found [here](../../exercises/exercises/vector_exercise.html)
 
 
 ---
 ## Answers to exercise.
 
 
-Answers can be found here  [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/answers/vector_answers.html)
+Answers can be found here  [here](../../exercises/answers/vector_answers.html)
 
-R code for solutions can be found here  [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/answers/vector_answers.R)
+R code for solutions can be found here  [here](../../exercises/answers/vector_answers.R)
 ---
 
 class: inverse, center, middle
@@ -1151,8 +1151,7 @@ recycledMatrix2 &lt;- matrix(1:5, ncol = 2, nrow = 3)
 ```
 
 ```
-## Warning in matrix(1:5, ncol = 2, nrow = 3): data length [5] is not a sub-multiple or multiple of the
-## number of rows [3]
+## Warning in matrix(1:5, ncol = 2, nrow = 3): data length [5] is not a sub-multiple or multiple of the number of rows [3]
 ```
 
 ```r
@@ -1178,8 +1177,7 @@ recycledMatrix3 &lt;- rbind(recycledMatrix2, c(1:5))
 ```
 
 ```
-## Warning in rbind(recycledMatrix2, c(1:5)): number of columns of result is not a multiple of vector length
-## (arg 2)
+## Warning in rbind(recycledMatrix2, c(1:5)): number of columns of result is not a multiple of vector length (arg 2)
 ```
 
 ```r
@@ -1533,16 +1531,16 @@ narrowMatrix[, 2] * 2
 ## Time for an exercise!
 
 
-Exercise on matrices can be found [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/exercises/matrices_exercise.html)
+Exercise on matrices can be found [here](../../exercises/exercises/matrices_exercise.html)
 
 
 ---
 ## Answers to exercise.
 
 
-Answers can be found here  [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/answers/matrices_answers.html)
+Answers can be found here  [here](../../exercises/answers/matrices_answers.html)
 
-R code for solutions can be found [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/answers/matrices_answers.R)
+R code for solutions can be found [here](../../exercises/answers/matrices_answers.R)
 
 
 ---
@@ -1962,8 +1960,7 @@ dfExample[dfExample[, "Survival_Time"] &lt; 10, "Name"] &lt;- "patientX"
 ```
 
 ```
-## Warning in `[&lt;-.factor`(`*tmp*`, iseq, value = c("patientX", "patientX")): invalid factor level, NA
-## generated
+## Warning in `[&lt;-.factor`(`*tmp*`, iseq, value = c("patientX", "patientX")): invalid factor level, NA generated
 ```
 
 ```r
@@ -2173,15 +2170,15 @@ mergedDF
 ---
 ## Time for an exercise!
 
-Exercise on data frames can be found [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/exercises/factorsAndDataframes_Exercise.html)
+Exercise on data frames can be found [here](../../exercises/exercises/factorsAndDataframes_Exercise.html)
 
 
 ---
 ## Answers to exercise.
 
-Answers can be found here  [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/answers/factorsAndDataframes_Answers.html)
+Answers can be found here  [here](../../exercises/answers/factorsAndDataframes_Answers.html)
 
-R code solutions can be found [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/answers/factorsAndDataframes_Answers.R)
+R code solutions can be found [here](../../exercises/answers/factorsAndDataframes_Answers.R)
 
 ---
 class: inverse, center, middle
@@ -2515,51 +2512,51 @@ A standard format for this data is a table:
 &lt;tbody&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_a &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.093050 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.353686 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.702071 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.314145 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.255788 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 7.616786 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_b &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 2.418199 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.248359 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.619994 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.513066 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.353501 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5.181916 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_c &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 2.479372 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 5.029761 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 5.312436 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.031806 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.631960 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.858005 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_d &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 5.068244 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.681661 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 5.265801 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.599573 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.830475 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.527666 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_e &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.669008 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.736164 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.077547 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 11.061707 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 7.424162 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.886696 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_f &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.912820 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 7.886284 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.516252 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 11.704540 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.129520 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 12.244925 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_g &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 8.687929 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.012543 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 8.688617 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.836471 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.943521 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.639997 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_h &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.272838 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 11.344839 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.310716 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.380950 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.437471 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8.559271 &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -2885,14 +2882,14 @@ export(Table, file = "data/writeThisMultipleXLSX.xlsx")
 ---
 ## Time for an exercise!
 
-Exercise on reading and writing data can be found [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/exercises/DataInputOutput_Exercises.html)
+Exercise on reading and writing data can be found [here](../../exercises/exercises/DataInputOutput_Exercises.html)
 
 ---
 ## Answers to exercise
 
-Answers can be found [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/answers/DataInputOutput_answers.html)
+Answers can be found [here](../../exercises/answers/DataInputOutput_answers.html)
 
-R code for solutions can be found [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/answers/DataInputOutput_answers.R)
+R code for solutions can be found [here](../../exercises/answers/DataInputOutput_answers.R)
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
