@@ -192,6 +192,8 @@ jobs:
           message(paste('****', Sys.time(), 'installing rcmdcheck and BiocCheck ****'))
           remotes::install_cran("rcmdcheck")
           BiocManager::install("BiocCheck")
+          BiocManager::install("rmarkdown")
+          BiocManager::install("RockefellerUniversity/compileCourses",subdir="compileCourses")          
         shell: Rscript {0}
 
       - name: Session info
@@ -205,6 +207,10 @@ jobs:
         if: github.ref == 'refs/heads/master' 
         run: R CMD INSTALL ./introToR/
 
+      - name: Session info
+        run: |
+          compileCourses::compileSingleCourseMaterial(repo="RockefellerUniversity",subdir="introToR",branch="master")
+        shell: Rscript {0}
 
       - name: Upload check results
         if: failure()
