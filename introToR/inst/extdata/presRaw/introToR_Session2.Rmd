@@ -825,7 +825,7 @@ dayOfWeek <- function(){
 }
 ```
 ```{r}
-source("scripts/dayOfWeek.R")
+source("scripts/dayOfWeek.r")
 dayOfWeek()
 ```
 
