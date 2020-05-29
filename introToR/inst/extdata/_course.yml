@@ -1,5 +1,6 @@
 Description:
   OverviewRmd: CourseOverview.Rmd
 Presentations:
+    titles: Session1 Session2
     PresRmd: introToR_Session1.Rmd introToR_Session2.Rmd
     PresOverviewRmd: introToR_Session1_Overview.Rmd introToR_Session2_Overview.Rmd
