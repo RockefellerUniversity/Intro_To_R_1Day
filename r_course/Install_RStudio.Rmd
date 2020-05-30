@@ -1,0 +1,6 @@
+## Install RStudio
+
+RStudio can be installed from the R-project website.
+
+http://www.rstudio.com/
+
