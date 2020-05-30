@@ -1,7 +1,7 @@
 Package: introToR
 Type: Package
 Title: Introduction To R
-Version: 0.1.0
+Version: 0.1.1
 Author: Who wrote it
 Maintainer: Who to complain to <yourfault@somewhere.net>
 Description: More about what it does (maybe more than one line)
