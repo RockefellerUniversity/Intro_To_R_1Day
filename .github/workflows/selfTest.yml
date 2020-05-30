@@ -215,7 +215,7 @@ jobs:
       - name: Move to docs
         run: |
           mkdir -p docs
-          mv -r r_course/* docs/*
+          mv  r_course/* docs
           echo "Moved to docs"
         shell:
           bash {0}
