@@ -221,6 +221,7 @@ jobs:
         
       - name: commit
         run: |
+          git config --global user.email "tc.infomatics@gmail.com"
           git add docs/\* r_course/\*
           git commit -m 'Autobuild'  
       
