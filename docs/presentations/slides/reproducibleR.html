@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>reproducibleR.utf8</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Rockefeller University, Bioinformatics Resource Centre" />
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link rel="stylesheet" href="metropolisCustom.css" type="text/css" />
+    <link rel="stylesheet" href="metropolis-fontsCustom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Reproducible Reports
+<html>
+<div style="float:left">
+
+</div>
+<hr color='#EB811B' size=1px width=796px>
+</html>
+### Rockefeller University, Bioinformatics Resource Centre
+### <a href="http://rockefelleruniversity.github.io/Intro_To_R_1Day/" class="uri">http://rockefelleruniversity.github.io/Intro_To_R_1Day/</a>
+
+---
+
+
+
+
+
+## Set Up
+
+All prerequisites, links to material and slides for this course can be found on github.
+
+* [Reproducible_R](https://rockefelleruniversity.github.io/Reproducible_R/)
+
+Or can be downloaded as a zip archive from here.
+
+* [Download zip](https://github.com/rockefelleruniversity/Reproducible_R/zipball/master)
+
+---
+## Course materials
+
+Once the zip file in unarchived. All presentations as HTML slides and pages, their R code and HTML practical sheets will be available in the directories underneath.
+
+* **presentations/slides/**
+Presentations as an HTML slide show.
+* **presentations/singlepage/** 
+Presentations as an HTML single page.
+* **presentations/r_code/**
+R code in presentations.
+* **exercises/**
+Practicals as HTML pages. 
+* **answers/**
+Practicals with answers as HTML pages and R code solutions. 
+
+
+---
+## Set the Working directory
+
+Before running any of the code in the practicals or slides we need to set the working directory to the folder we unarchived. 
+
+You may navigate to the unarchived Reproducible_R folder in the Rstudio menu.
+
+**Session -&gt; Set Working Directory -&gt; Choose Directory**
+
+or in the console.
+
+
+```r
+setwd("/PathToMyDownload/Reproducible_R/r_course")
+# e.g. setwd("~/Downloads/Intro_To_R_1Day/r_course")
+```
+
+
+## Reproducible Research
+
+&gt;"Let us change our traditional attitude to the construction of programs: Instead of imagining that our main task is to instruct a computer what to do, let us concentrate rather on explaining to humans what we want the computer to do."
+ -- Donald E. Knuth, Literate Programming, 1984
+ 
+---
+## Reproducible Research in R
+
+  
+Sometime in the future, I, or my successor, will need to understand what analysis i did here.
+
+Using RStudio to make reproducible documents is very easy, so why not?
+
+
+---
+## A very quick reproducible document in R
+
+
+- Find your R script of interest.
+- Add the sessionInfo() function to the last line.
+- Click the "Compile Notebook function" -&gt; Select HTML document as output format.
+
+---
+class: inverse, center, middle
+
+# Creating Documents from R Scripts
+
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px width=720px&gt;&lt;/html&gt; 
+
+---
+
+---
+## From Scripts to Notes
+
+So we have just seen the speed at which you can produce a report document from an R script using Rstudio. 
+
+Rstudio makes things easy but for fine control we need to look at what is going on within Rstudio.
+
+Rstudio makes use of **rmarkdown** and **knitr** packages.
+
+---
+## Defaults
+
+Several packages offer methods to create notes from R scripts.
+
+One of the simplest way to create a note in R is to use the **render()** function in **rmarkdown** package.
+
+
+```r
+library(rmarkdown)
+render("scripts/script.r")
+```
+
+---
+## Output from render()
+
+By default the render() function will have created a html file in the current working directory.
+
+Have a look at the result script.html in the 
+scripts directory. 
+
+---
+## Controlling output type from render()
+
+The render() function takes the argument **output_format**.
+
+
+```r
+render("scripts/script.r", output_format="html_document")
+```
+
+---
+
+## Setting the render output directory
+
+The arguments **output_file** and **output_dir** can be used to control where output is rendered to.
+
+Note that file extension must be supplied.
+
+
+```r
+render("scripts/script.r", output_format="html_document",
+       output_file="myRenderedDoc.html",output_dir="scripts")
+```
+
+---
+class: inverse, center, middle
+
+# Comments
+
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px width=720px&gt;&lt;/html&gt; 
+
+---
+
+---
+## Comments 
+
+Rendering a report with metadata like author and date of render is the essential first step in reproducibility. 
+
+By itself code is great, but not as useful as it could be. We need to annotate our code.
+
+---
+## Adding comments and text
+
+In R we can use **#** as comments in the code. This is the most basic type of documentation for your code.
+
+
+```r
+# Generate some random numbers
+myRandNumbers &lt;- rnorm(100,10,2)
+```
+
+---
+## Adding comments and text
+
+If we want to include comments as text then we can use a new comment type **#'**  
+
+
+```r
+#' this would be placed as code
+# Generate some random numbers
+myRandNumbers &lt;- rnorm(100,10,2)
+```
+
+---
+## YAML metadata.
+
+If we wish to control author, title and date, we can insert metadata into the script as YAML.  
+
+
+
+```r
+#' ---
+#' title: "BRC making notes example"
+#' author: "Tom Carroll"
+#' date: "Reproducible R"
+#' ---
+#' this would be placed as text in html
+# Generate some random numbers (This is a comment with code)
+myRandNumbers &lt;- rnorm(100,10,2)
+```
+
+We will come back to YAML later.
+
+---
+## Controlling R code evaluation in notes
+
+We can control how the output from R looks in our rendered documents.
+
+Options are passed to R code by adding a line preceeding R code with the special comment **#+**. We will look at some options later but a useful example is fig.height and fig.width to control figure height and width in the document.
+
+
+```r
+#' Some comments for text.
+#+ fig.width=3, fig.height=3
+myRandNumbers &lt;- rnorm(100, 10, 2)
+hist(myRandNumbers)
+```
+
+---
+## Exercise
+
+- Have at the example notebook script "scriptWithNotebookExamples.r" in scripts directory and the html document rendered from it of the same name.
+- Open scriptToConvertToNote.r in scripts directory and save as new name.
+- Add notes to this script and compile with render() function or through RStudio. Compare changes between the original html and your html. 
+
+---
+class: inverse, center, middle
+
+# Markdown
+
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px width=720px&gt;&lt;/html&gt; 
+
+---
+
+---
+## Markdown
+
+Under the hood, R is creating an intermediate document in **Markdown** format.
+
+Markdown is a mark up language containing plain text and allowing for conversion to multiple rich text document types.
+
+Common formats markdown renders to are:  
+- html
+- pdf
+- Word doc
+
+---
+## Markdown
+
+Markdown is often used as an intermediate document in conversion from one type to another.  
+
+Github and Sourceforge make use of Markdown syntax in their Readme files and renders these in their webpages.
+
+https://github.com/github/markup/blob/master/README.md
+
+---
+class: inverse, center, middle
+
+# Markdown Syntax
+
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px width=720px&gt;&lt;/html&gt; 
+
+---
+
+---
+## Markdown syntax
+
+Markdown uses simple syntax to control text output.
+
+This allows for the inclusion of font styles, text structures, images and code chunks.
+
+Lets look at some simple syntax for markdown to help us understand the R documents output from RStudio.
+
+---
+## New line
+
+Markdown is written as plain text and ignores new lines. 
+
+To include a new line in markdown, end the previous line with two spaces.
+
+```
+This is my first line.  # the comment here shows the line end
+This would be a new line.
+This wouldn't be a new line.
+
+```
+
+To start a new paragraph, leave a line of space.
+
+```
+This is my first paragraph.
+
+This is my second paragraph
+
+```
+---
+## Font emphasis
+
+Emphasis can be added to text in markdown documents using either the **_** or __*__
+
+
+```r
+Italics = _Italics_ or *Italics*
+Bold  =  __Bold__ or **Bold**
+```
+_Italics_  
+__Bold__
+
+---
+## Including images
+
+Figures or external images can be used in Markdown documents.  
+Files may be local or accessible from http URL.
+
+```
+![alt text](imgs/Dist.jpg)
+![alt text](https://rockefelleruniversity.github.io//r_course/imgs/Dist.jpg)
+
+```
+
+---
+## Creating headers
+
+Section headers can be added to Markdown documents.
+
+Headers follow the same conventions as used in HTML markup and can implemented at multiple levels of size. Section headers in Markdown are created by using the **#** symbol
+
+```
+# Top level section
+## Middle level section
+### Bottom level section
+```
+
+### Rendered Bottom level section
+
+---
+## Lists
+
+Lists can be created in Markdown using the __-__ symbol.  
+Nested lists be specified with **+** symbol.
+
+```
+- First item
+- Second item
+    + Second item A
+    + Second item B
+```
+
+
+My list rendered:  
+
+- First item
+- Second item
+    + Second item A
+    + Second item B
+
+---
+## Order lists
+
+
+Lists can also include ordered numbers.
+
+```
+1. First item
+2. Second item
+    + Second item A
+    + Second item B
+```
+
+My list rendered:  
+
+1. First item
+2. Second item
+    + Second item A
+    + Second item B
+    
+---
+## Code chunks
+
+In Markdown, text may be highlighted as if code by placing the text between apostrophes in triplicate: '''.
+
+```
+_The code used to produce plot was:_
+'''
+hist(rnorm(100))
+'''
+
+```
+---
+## Code chunks
+
+
+In Markdown, text may be highlighted as if code by placing the text between apostrophes in triplicate: '''.
+
+
+```
+_The code used to produce plot was:_
+'''
+hist(rnorm(100))
+'''
+
+```
+
+*The code used to produce plot was:*
+```
+hist(rnorm(100))
+```
+
+---
+## HTML links
+
+HTML links can be included in Markdown documents either by simply including address in text or by using **[]** for the phrase to add link to, followed the link in **()**
+```
+https://rockefelleruniversity.github.io/
+[Github site](https://rockefelleruniversity.github.io/)
+```
+---
+## Page breaks
+
+Markdown allows for the specification of page breaks in your document.  
+To specify a page break use 3 or more asterisks or dashes.
+
+```
+Before the page break
+---
+After the page break
+```
+
+---
+class: inverse, center, middle
+
+# rMarkdown
+
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px width=720px&gt;&lt;/html&gt; 
+
+---
+
+---
+## rMarkdown
+
+rMarkdown is a script type used in R to allow for the generation of Markdown from R code. rMarkdown files will typically have the extension **.Rmd**.
+
+rMarkdown allows for the inclusion of Markdown syntax around **chunks** of R code.
+
+The output from running the R code can be tightly controled using rMarkdown, allowing for very neat integration of results with code used to generate them.
+
+---
+## knitr
+
+The **knitr** package is the main route to create documents from **.Rmd** files.
+
+**knitr** was created by Yihui Xie to wrap and clean up issues with other tools to make dynamic documents.
+
+http://yihui.name/knitr/
+
+---
+## Markdown to rMarkdown
+
+The transition from Markdown to rMarkdown is very simple. All Markdown syntax may be included and code to be evaluated in R placed between a special code chunk.  
+
+The code chunk containing R code to execute is specified by the inclusion of **{r}** as below.
+
+```
+My Markdown **syntax** here
+'''{r} 
+hist(rnorm(1000))
+'''
+```
+My Markdown **syntax** here
+
+```r
+hist(rnorm(1000))
+```
+
+![](reproducibleR_files/figure-html/unnamed-chunk-15-1.png)&lt;!-- --&gt;
+
+---
+## Control code evaluation
+
+Options may be included in the R code chunks. 
+
+An important option is to choose whether code will be run or is meant for display only. This can be controlled with the **eval** option. TRUE will evaluate the code.
+
+```
+
+'''{r, eval=F} 
+hist(rnorm(1000))
+'''
+
+```
+
+
+```r
+hist(rnorm(1000))
+```
+
+---
+## Control code display
+
+It may be that you wish to report just the results and not include the code used to generate them. This can be controlled with the **echo** argument. TRUE will display the code.
+
+```
+
+'''{r,echo=F} 
+hist(rnorm(1000))
+'''
+
+```
+![](reproducibleR_files/figure-html/unnamed-chunk-17-1.png)&lt;!-- --&gt;
+---
+
+## Messages and warnings
+
+R can produce a lot of output not related to your results. To control whether messages and warnings are reported in the rendered document we can specify the **message** and **warning** arguments. 
+
+Loading libraries in rMarkdown is often somewhere you would specify these as FALSE.
+
+```
+
+'''{r,warning=F,message=F} 
+library(ggplot2)
+'''
+
+```
+
+---
+## Control figure output
+
+Control over figure heights and widths can be implemented in rMarkdown using the **fig.width** and **fig.height** arguments. Further control over exact size in rendered document maybe specified with **out.width** and **out.height**.
+
+```
+
+'''{r,fig.width=5,fig.height=5} 
+hist(rnorm(100))
+'''
+
+```
+
+---
+## Automatically tidy code
+
+
+The code within the **{r}** code block can be reformatted using the formatR package. This can be automatically done when the **tidy** option is specified.
+
+```
+
+'''{r,tidy=T} 
+        hist( 
+rnorm(100  )
+      )
+'''
+
+```
+
+```r
+        hist( 
+rnorm(100  )
+)
+```
+
+![](reproducibleR_files/figure-html/unnamed-chunk-18-1.png)&lt;!-- --&gt;
+
+---
+## Print output with code
+
+The code within the **{r}** code block will by default appear in a separate block to results output. To force code and output to appear in the same block the **collapse** option should be specified.
+```
+
+'''{r,collapse=T} 
+temp &lt;- rnorm(10)
+temp
+'''
+
+```
+
+```r
+temp &lt;- rnorm(10)
+temp
+##  [1]  0.68754844  0.92761125 -1.48126077  0.94862965 -0.41102962 -0.09160126
+##  [7]  0.96324542  3.69615549 -0.05782815  0.62587894
+```
+
+---
+## Inserting tables
+
+The results of printing data frames or matrices in the console aren't neat.
+
+We can insert HTML tables into Markdown by setting the **results** option to **asis** and using the knitr function **kable()**.
+
+```
+
+'''{r,results='asis'} 
+temp &lt;- rnorm(10)
+temp2 &lt;- rnorm(10)
+dfExample &lt;- cbind(temp,temp2)
+kable(dfExample)
+'''
+
+```
+
+'''{r,results='asis'} 
+temp &lt;- rnorm(10)
+temp2 &lt;- rnorm(10)
+dfExample &lt;- cbind(temp,temp2)
+kable(dfExample)
+'''
+
+---
+## Evaluating code in the md
+
+
+It may be useful to report the results of R within the block of Markdown. This can be done adding the code to evalulate within **'r  '**
+
+```
+Here is some freeform _markdown_ and the first result
+from an rnorm call is 'r rnorm(3)[1]', followed by some 
+more free form text.
+
+```
+Here is some freeform _markdown_ and the first result
+from an rnorm call is 0.8051552, followed by some more free form text.
+
+---
+## cache
+
+Some operations may take a significant time or resource to compute. 
+
+The **cache** argument may be used to save the results in the current working directory. This code chunk will import the results in future document compilations and save computation time.
+
+```
+'''{r,cache=TRUE} 
+x &lt;- sample(1000,10^8,replace=T)
+length(x)
+'''
+```
+
+---
+## Saving a plot through rMarkdown 
+
+It is possible to save plots in your HTML reports by just right-clicking on them. It is sometimes easier to directly create seperate files with your plots. When we reviewed plotting we saw how to export plots, but rMarkdown has in-built system for figure output. 
+
+You can control the plot dimensions, the name, file type and path in which they will be saved. If you export multiple plots from a single chunk, they will have the same name, but they will be appended with a number. 
+
+```
+'''{r my_plot_title, fig.width=5, fig.height=5, fig.path='figures/', dev=c('png','pdf')}
+plot(1:10)
+'''
+```
+---
+## YAML in rMarkdown
+
+In rMarkdown the options for document processing are stored in YAML format at the top of the document.
+
+```
+---
+title: "Untitled"
+author: "tcarroll"
+date: "21 November 2014"
+output: html_document
+---
+```
+
+---
+## Controlling output type
+
+The **output** YAML option specifies the document type to be produced.
+
+```
+---
+output: html_document
+---
+```
+```
+---
+output: pdf_document
+---
+```
+```
+---
+output: word_document
+---
+```
+```
+---
+output: md_document
+---
+```
+
+---
+## Figure options in YAML
+
+Global default options for figure sizes and devices used can be set within the YAML metadata.
+
+```
+---
+output: 
+  html_document:
+    fig_width: 7
+    fig_height: 6
+---
+```
+---
+## Adding styles
+
+Styles for HTML can be applied using the **theme** option and syntax highlighting styles control by the **highlight** option.
+
+```
+---
+output: 
+  html_document:
+    theme: journal
+    highlight: espresso
+---
+```
+
+For a full list of theme options see -
+http://rmarkdown.rstudio.com/html_document_format.html
+
+---
+## Additional styles
+
+```
+---
+output: 
+  html_document:
+    css: style.css
+---
+```
+
+Custom styles can also be applied to rMarkdown documents using CSS style files and the 
+**css** option.
+
+---
+## Using Rstudio
+
+Lets see how to do this in RStudio.
+
+**File -&gt; New File -&gt; R Markdown** 
+
+---
+## Resources
+
+
+http://yihui.name/knitr/  
+http://rmarkdown.rstudio.com/  
+http://rcharts.io/  
+http://rstudio.github.io/packrat/  
+
+---
+## Exercises
+
+- Open up markdownExampleDefaultStyles.Rmd and markdownExample.Rmd in the scripts directory. Have a look at the rMarkdown examples here and the resulting output html files.
+
+[Example HTML Default style.](../../scripts/markdownExampleDefaultStyles.html)  
+[Example HTML with extra style.](../../scripts/markdownExample.html)
+
+- Open scriptToConvertToRMarkdown.r in scripts directory and save as new name.
+
+- Convert this script to an Rmarkdown document using the render() function or inside RStudio.
+
+---
+# Contact
+
+Any suggestions, comments, edits or questions (about content or the slides themselves) please reach out to our [GitHub](https://github.com/RockefellerUniversity/Reproducible_R/issues) and raise an issue.
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
