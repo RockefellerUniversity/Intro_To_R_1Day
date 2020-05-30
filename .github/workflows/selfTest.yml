@@ -223,7 +223,8 @@ jobs:
         run: |
           git config --global user.email "tc.infomatics@gmail.com"
           git add docs/\* r_course/\*
-          git commit -m 'Autobuild'  
+          git commit -m 'Autobuild' 
+          git push origin HEAD:refs/heads/master
       
       - name: Upload check results
         if: failure()
