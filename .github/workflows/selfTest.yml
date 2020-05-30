@@ -130,9 +130,6 @@ jobs:
       ## https://github.com/r-lib/actions/blob/master/examples/check-standard.yaml
       ## If they update their steps, we will also need to update ours.
       - uses: actions/checkout@v2
-      - uses: r-lib/actions/pr-fetch@master
-        with:
-          repo-token: ${{ secrets.GHTOKEN }}
       - name: Query dependencies
         run: |
           install.packages('remotes')
