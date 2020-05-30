@@ -816,7 +816,7 @@ To save all the objects (workspace) with extension **.RData**
 
 R scripts allow us to save and reuse custom functions we have written.  To run the code from an R script we can use the **source()** function with the name of the R script as the argument. 
 
-The file **dayOfWeek.r** in the "scripts" directory contains a simple R script to tell you what day it is after your marathon R coding session.
+The file **dayOfWeek.r** in the "scripts" directory contains a simple R script to tell you what day it is.
 
 ```
 #Contents of dayOfWeek.r
