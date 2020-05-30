@@ -212,6 +212,14 @@ jobs:
           compileCourses::compileSingleCourseMaterial(repo="RockefellerUniversity",subdir="introToR",branch="master")
         shell: Rscript {0}
 
+      - name: Move to docs
+        run: |
+          mkdir -p docs
+          mv -r r_course/* docs/*
+          echo "Moved to docs"
+        shell:
+          bash {0}
+        
       - name: Upload check results
         if: failure()
         uses: actions/upload-artifact@master
