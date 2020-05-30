@@ -1,7 +1,7 @@
 Package: introToR
 Type: Package
 Title: Introduction To R
-Version: 0.1.1
+Version: 0.1.2
 Author: Ji-Dung Luo, Matt Paul, Wei Wang, Doug Barrows and Thomas Carroll.
 Maintainer: Thomas Carroll <tc.infomatics@gmail>
 Description: More about what it does (maybe more than one line)
