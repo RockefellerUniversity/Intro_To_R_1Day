@@ -221,7 +221,7 @@ jobs:
         
       - name: commit
         run: |
-          git add docs/\* r_course/*
+          git add docs/\* r_course/\*
           git commit -m 'Autobuild'  
       
       - name: Upload check results
