@@ -1,4 +1,4 @@
-## Introduction to R, Session 2
+### Introduction to R, Session 2
 
 In session 2, programmatic techniques such as looping and conditional expressions are introduced
 The session includes longer exercises and shorter slide decks and so more time should be allocated to exercises in this session.
