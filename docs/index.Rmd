@@ -109,9 +109,9 @@ file.copy(file.path(descriptionDir,presOverviews),presOverviews)
 # linksToPres <- c("https://rockefelleruniversity.github.io/Genomic_HeatmapsAndProfiles/r_course/presentations/slides/GenomicHeatmapsAndProfiles2.html#1","https://rockefelleruniversity.github.io/Genomic_HeatmapsAndProfiles/r_course/presentations/slides/GenomicHeatmapsAndProfiles2.html#1")
 
 for(i in 1:length(presRMDs)){
-  cat("\n###",presTitles[i],"\n")
+  cat("\n##",presTitles[i],"\n")
   
-  cat("### Description \n")  
+  # cat("### Description \n")  
    
   # cat(descriptions[i])
   myRes <- knitr::knit_child(presOverviews[i],quiet = TRUE)
