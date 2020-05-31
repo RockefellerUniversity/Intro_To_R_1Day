@@ -208,6 +208,7 @@ jobs:
 
       - name: Session info
         run: |
+          require(compileCourses)
           compileCourses::compileSingleCourseMaterial(repo="RockefellerUniversity",subdir="introToR",branch="master")
         shell: Rscript {0}
 
