@@ -7,5 +7,7 @@ navbar:
 output:
   html_document:
     toc: yes
+    theme: cosmo
+    toc_float: yes
     highlight: textmate
 
