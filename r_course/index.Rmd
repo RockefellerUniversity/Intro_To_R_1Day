@@ -1,6 +1,6 @@
 ---
-title: "Introduction to R"
-author: "Bionformatics Resource Centre"
+title: "**Introduction to R**"
+author: "Bioinformatics Resource Centre"
 output:
   html_document:
     toc: true
@@ -25,7 +25,7 @@ params=list(
   branch=branch)
 ```
 
-# The Course
+# **The Course**
 
 ```{r courseOverview, echo=FALSE,eval=TRUE,include=FALSE}
 courseSetUp <- system.file("extdata/_course.yml",mustWork = TRUE,package=params$pkg)
@@ -38,7 +38,7 @@ file.copy(courseDescriptionRMD,getwd())
 ```
 
 
-# Setting up
+# **Setting up**
 
 ## System Requirements
 
@@ -90,7 +90,7 @@ repoFull <- file.path("https://github.com",params$repo,params$name,"archive",pas
 
 [Download the material](`r repoFull`)
 
-# The presentations 
+# **The presentations** 
 
 ```{r tempa,echo=FALSE,eval=TRUE,include=FALSE}
 presTitles <- unlist(strsplit(courseSetUpYml$Presentations$titles," "))
@@ -109,9 +109,9 @@ file.copy(file.path(descriptionDir,presOverviews),presOverviews)
 # linksToPres <- c("https://rockefelleruniversity.github.io/Genomic_HeatmapsAndProfiles/r_course/presentations/slides/GenomicHeatmapsAndProfiles2.html#1","https://rockefelleruniversity.github.io/Genomic_HeatmapsAndProfiles/r_course/presentations/slides/GenomicHeatmapsAndProfiles2.html#1")
 
 for(i in 1:length(presRMDs)){
-  cat("\n###",presTitles[i],"\n")
+  cat("\n##",presTitles[i],"\n")
   
-  cat("### Description \n")  
+  # cat("### Description \n")  
    
   # cat(descriptions[i])
   myRes <- knitr::knit_child(presOverviews[i],quiet = TRUE)
@@ -119,6 +119,16 @@ for(i in 1:length(presRMDs)){
   
   cat("\n")  
   cat("\n<iframe src=",presRMDsPaths[i]," width='100%' height='400' title=",presTitles[i],"></iframe>\n",sep="")
+  cat("\n") 
+  cat("\n") 
+  cat("\n### *Links to presentations*\n")
+    
+  cat("The html slide presentation can be found at this link [**Slide**]","","(",presRMDsPaths[i],")","\n",sep="")
+  cat("\n") 
+  cat("The single page html presentation can be found at this link [**Single Page**]","","(",pageRMDsPaths[i],")","\n",sep="")
+  cat("\n") 
+  cat("The code use in the presentations can be found at [**R code**]","","(",codeRMDsPaths[i],")","\n",sep="")
+  cat("\n") 
 }
 ```
 
