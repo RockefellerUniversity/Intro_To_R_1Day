@@ -5,6 +5,7 @@ output:
   html_document:
     toc: true
     toc_float: true
+    style: cosmo
 ---
 
 ```{r setup, include=FALSE}
@@ -37,9 +38,9 @@ file.copy(courseDescriptionRMD,getwd())
 ```
 
 
-## Setting up
+# Setting up
 
-### System Requirements
+## System Requirements
 
 ```{r installSysReqsMap,echo=FALSE,eval=TRUE,include=FALSE}
 tem <- utils::packageDescription(params$pkg)
@@ -55,10 +56,10 @@ file.copy(listOfSysReqRMDs,dependsSysReqRMDs)
 ```{r showSysInstall, child = dependsSysReqRMDs}
 ```
 
-### Install required packages.
+## Install required packages.
 
 
-#### From the course package
+### From the course package
 
 ```{r installFromGithub,echo=FALSE,eval=TRUE,results="asis"}
 cat("```{r}\n")
@@ -71,7 +72,7 @@ if(params$subdir == ""){
 cat("```\n")
 ```
 
-#### From CRAN and Bioconductor
+### From CRAN and Bioconductor
 ```{r installAllSep,echo=FALSE,eval=TRUE,results="asis"}
 tem <- utils::packageDescription(params$pkg)
 pkdDep <- unique(c(pkgload::parse_deps(tem$Depends)$name,pkgload::parse_deps(tem$Suggests)$name,pkgload::parse_deps(tem$Imports)$name))
@@ -81,7 +82,7 @@ cat(sprintf("BiocManager::install('%s')",pkdDep),sep = "\n")
 cat("```\n")
 ```
 
-### Download the material
+## Download the material
 
 ```{r downloadMaterial,echo=FALSE,eval=TRUE}
 repoFull <- file.path("https://github.com",params$repo,params$name,"archive",paste0(params$branch,".zip"))
@@ -89,7 +90,7 @@ repoFull <- file.path("https://github.com",params$repo,params$name,"archive",pas
 
 [Download the material](`r repoFull`)
 
-### The presentations 
+# The presentations 
 
 ```{r tempa,echo=FALSE,eval=TRUE,include=FALSE}
 presTitles <- unlist(strsplit(courseSetUpYml$Presentations$titles," "))

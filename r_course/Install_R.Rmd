@@ -1,5 +1,5 @@
 
-## Install R
+### Install R
 
 R can be installed from the R-project website.
 R 4.0 or higher is required for this course.

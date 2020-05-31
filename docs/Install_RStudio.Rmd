@@ -1,4 +1,4 @@
-## Install RStudio
+### Install RStudio
 
 RStudio can be installed from the R-project website.
 
