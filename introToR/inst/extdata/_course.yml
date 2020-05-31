@@ -4,3 +4,4 @@ Presentations:
     titles: Session1 Session2
     PresRmd: introToR_Session1.Rmd introToR_Session2.Rmd
     PresOverviewRmd: introToR_Session1Overview.Rmd introToR_Session2Overview.Rmd
+    Exercises: vector.Rmd,matrices.Rmd,factorsAndDataframes.Rmd,Dataframes.Rmd,DataInputOutput.Rmd conditionsAndLoops.Rmd,Functions.Rmd,
