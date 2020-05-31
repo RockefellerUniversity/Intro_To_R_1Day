@@ -4,6 +4,24 @@ navbar:
   left:
   - text: Home
     href: index.html
+  - text: Slides
+    menu:
+    - text: Session1
+      href: presentations/slides/introToR_Session1.html
+    - text: Session2
+      href: presentations/slides/introToR_Session2.html
+  - text: Single pages
+    menu:
+    - text: Session1
+      href: presentations/singlepage/introToR_Session1.html
+    - text: Session2
+      href: presentations/singlepage/introToR_Session2.html
+  - text: Code for presentations
+    menu:
+    - text: Session1
+      href: presentations/r_code/introToR_Session1.R
+    - text: Session2
+      href: presentations/r_code/introToR_Session2.R
 output:
   html_document:
     toc: yes
