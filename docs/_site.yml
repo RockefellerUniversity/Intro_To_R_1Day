@@ -7,21 +7,70 @@ navbar:
   - text: Slides
     menu:
     - text: Session1
-      href: presentations/slides/introToR_Session1.html
+      menu:
+      - text: Slide
+        href: presentations/slides/introToR_Session1.html
+      - text: Single Page
+        href: presentations/singlepage/introToR_Session1.html
+      - text: Code
+        href: presentations/r_code/introToR_Session1.R
     - text: Session2
-      href: presentations/slides/introToR_Session2.html
-  - text: Single pages
+      menu:
+      - text: Slide
+        href: presentations/slides/introToR_Session2.html
+      - text: Single Page
+        href: presentations/singlepage/introToR_Session2.html
+      - text: Code
+        href: presentations/r_code/introToR_Session2.R
+  - text: Exercises
     menu:
-    - text: Session1
-      href: presentations/singlepage/introToR_Session1.html
-    - text: Session2
-      href: presentations/singlepage/introToR_Session2.html
-  - text: Code for presentations
-    menu:
-    - text: Session1
-      href: presentations/r_code/introToR_Session1.R
-    - text: Session2
-      href: presentations/r_code/introToR_Session2.R
+    - text: vector
+      menu:
+      - text: Exercise
+        href: exercises/exercises/vector_exercises.html
+      - text: Solution
+        href: exercises/answers/vector_answers.html
+    - text: matrices
+      menu:
+      - text: Exercise
+        href: exercises/exercises/matrices_exercises.html
+      - text: Solution
+        href: exercises/answers/matrices_answers.html
+    - text: factorsAndDataframes
+      menu:
+      - text: Exercise
+        href: exercises/exercises/factorsAndDataframes_exercises.html
+      - text: Solution
+        href: exercises/answers/factorsAndDataframes_answers.html
+    - text: Dataframes
+      menu:
+      - text: Exercise
+        href: exercises/exercises/Dataframes_exercises.html
+      - text: Solution
+        href: exercises/answers/Dataframes_answers.html
+    - text: DataInputOutput
+      menu:
+      - text: Exercise
+        href: exercises/exercises/DataInputOutput_exercises.html
+      - text: Solution
+        href: exercises/answers/DataInputOutput_answers.html
+    - text: conditionsAndLoops
+      menu:
+      - text: Exercise
+        href: exercises/exercises/conditionsAndLoops_exercises.html
+      - text: Solution
+        href: exercises/answers/conditionsAndLoops_answers.html
+    - text: Functions
+      menu:
+      - text: Exercise
+        href: exercises/exercises/Functions_exercises.html
+      - text: Solution
+        href: exercises/answers/Functions_answers.html
+  right:
+  - text: Getting help!
+    href: https://github.com//RockefellerUniversity/Intro_To_R_1Day/issues
+  - icon: '<img id="logo" style="width: 30px;" src="https://github.com/RockefellerUniversity/Intro_To_R_1Day/workflows/R-CMD-check-bioc/badge.svg"
+      />'
 output:
   html_document:
     toc: yes

@@ -132,3 +132,22 @@ for(i in 1:length(presRMDs)){
 }
 ```
 
+
+# **Getting help** 
+
+## Course help
+
+**For advice, help and comments for the material covered in this course** please contact us at the issues page associated to this course.
+
+
+```{r help,echo=FALSE,eval=TRUE,include=FALSE}
+help <- file.path("https://github.com",params$repo,params$name,"issues")
+```
+
+
+The link to the help pages can be found [here](`r help`)
+
+## General Bioinformatics support.
+
+**If you would like contact us about general bioinformatics advice, support or collaboration,** please contact us the Bioinformatics Resource Center at **brc@rockefeller.edu**.
+
