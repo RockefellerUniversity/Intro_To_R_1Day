@@ -1,6 +1,10 @@
 ### Install RStudio
 
-RStudio can be installed from the R-project website.
+RStudio can be installed from the RStudio website.
 
 http://www.rstudio.com/
+
+RStudio can be downloaded for all platforms at the link below
+
+https://rstudio.com/products/rstudio/download/
 
