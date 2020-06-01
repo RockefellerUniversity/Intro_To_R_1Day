@@ -2128,17 +2128,17 @@ div.tocify {
 <span id="cb125-10"><a href="#cb125-10"></a>A &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">20</span>)</span>
 <span id="cb125-11"><a href="#cb125-11"></a></span>
 <span id="cb125-12"><a href="#cb125-12"></a><span class="kw">my_zscore</span>(<span class="dt">my_number=</span>A[<span class="dv">1</span>], <span class="dt">my_vector=</span>A)</span></code></pre></div>
-<pre><code>## Mean is -0.207642144106511</code></pre>
-<pre><code>## [1] 0.2063236</code></pre>
+<pre><code>## Mean is -0.289697141921882</code></pre>
+<pre><code>## [1] 0.5646796</code></pre>
 </div>
 <div id="custom-functions-and-apply" class="section level2">
 <h2>Custom functions and apply</h2>
 <p>These custom functions can also be utilised with apply.</p>
 <div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="#cb128-1"></a><span class="kw">sapply</span>(A, my_zscore, <span class="dt">my_vector=</span>A)</span></code></pre></div>
-<pre><code>##  [1]  0.20632360 -0.26087895 -0.90272786  0.31760084 -0.13388706  1.83150091
-##  [7]  0.69653974 -0.60054907 -1.50472369  1.47315158  1.77550524 -0.02887387
-## [13] -0.56111108 -0.18703010  0.70135852 -0.25304303  0.50138499 -1.86955698
-## [19]  0.02968413 -1.23066787</code></pre>
+<pre><code>##  [1]  0.56467956  0.09479905 -1.77711199  1.23914564  0.07258352 -0.24014784
+##  [7] -0.10475594  1.33082278 -0.24086380 -0.40856944 -0.65424025  0.39777279
+## [13] -1.15882445 -0.74693816  0.92106101  1.88905144 -1.56446121 -1.10813134
+## [19]  1.07339032  0.42073832</code></pre>
 </div>
 <div id="time-for-an-exercise" class="section level2">
 <h2>Time for an exercise!</h2>

@@ -1,6 +1,7 @@
 ## Course Overview
 
-![R-CMD-check-bioc](https://github.com/RockefellerUniversity/Intro_To_R_1Day/workflows/R-CMD-check-bioc/badge.svg)
+
+![](https://github.com/RockefellerUniversity/Intro_To_R_1Day/workflows/R-CMD-check-bioc/badge.svg)
 
 
 This course introduces R and statistical programming.
