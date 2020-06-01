@@ -27,43 +27,43 @@ navbar:
     - text: vector
       menu:
       - text: Exercise
-        href: exercises/exercises/vector_exercises.html
+        href: exercises/exercises/vector_exercise.html
       - text: Solution
         href: exercises/answers/vector_answers.html
     - text: matrices
       menu:
       - text: Exercise
-        href: exercises/exercises/matrices_exercises.html
+        href: exercises/exercises/matrices_exercise.html
       - text: Solution
         href: exercises/answers/matrices_answers.html
     - text: factorsAndDataframes
       menu:
       - text: Exercise
-        href: exercises/exercises/factorsAndDataframes_exercises.html
+        href: exercises/exercises/factorsAndDataframes_exercise.html
       - text: Solution
         href: exercises/answers/factorsAndDataframes_answers.html
     - text: Dataframes
       menu:
       - text: Exercise
-        href: exercises/exercises/Dataframes_exercises.html
+        href: exercises/exercises/Dataframes_exercise.html
       - text: Solution
         href: exercises/answers/Dataframes_answers.html
     - text: DataInputOutput
       menu:
       - text: Exercise
-        href: exercises/exercises/DataInputOutput_exercises.html
+        href: exercises/exercises/DataInputOutput_exercise.html
       - text: Solution
         href: exercises/answers/DataInputOutput_answers.html
     - text: conditionsAndLoops
       menu:
       - text: Exercise
-        href: exercises/exercises/conditionsAndLoops_exercises.html
+        href: exercises/exercises/conditionsAndLoops_exercise.html
       - text: Solution
         href: exercises/answers/conditionsAndLoops_answers.html
     - text: Functions
       menu:
       - text: Exercise
-        href: exercises/exercises/Functions_exercises.html
+        href: exercises/exercises/Functions_exercise.html
       - text: Solution
         href: exercises/answers/Functions_answers.html
   right:
