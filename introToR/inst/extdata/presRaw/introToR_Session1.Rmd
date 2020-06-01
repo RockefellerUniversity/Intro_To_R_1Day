@@ -1394,13 +1394,13 @@ mergedDF
 ---
 ## Time for an exercise!
 
-Exercise on data frames can be found [here](../../exercises/exercises/factorsAndDataframes_Exercise.html)
+Exercise on data frames can be found [here](../../exercises/exercises/factorsAndDataframes_exercise.html)
 
 
 ---
 ## Answers to exercise.
 
-Answers can be found here  [here](../../exercises/answers/factorsAndDataframes_Answers.html)
+Answers can be found here  [here](../../exercises/answers/factorsAndDataframes_answers.html)
 
 R code solutions can be found [here](../../exercises/answers/factorsAndDataframes_Answers.R)
 
