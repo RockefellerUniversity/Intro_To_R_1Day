@@ -69,8 +69,8 @@ navbar:
   right:
   - text: Getting help!
     href: https://github.com//RockefellerUniversity/Intro_To_R_1Day/issues
-  - icon: '<img id="logo" style="width: 30px;" src="https://github.com/RockefellerUniversity/Intro_To_R_1Day/workflows/R-CMD-check-bioc/badge.svg"
-      />'
+  - href: https://twitter.com/Rockefeller_BRC
+    icon: ion-social-twitter
 output:
   html_document:
     toc: yes
