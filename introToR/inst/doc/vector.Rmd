@@ -115,7 +115,7 @@ names(geneLengths[which.max(geneLengths)])
 - Identify genes which have a length greater than 100 and expression greater than 10000
 
 ```{r,echo=toMessage}
-geneNames[geneLengths > 100 & expression < 10000]
+geneNames[geneLengths > 100 & expression > 10000]
 
 ```
 
