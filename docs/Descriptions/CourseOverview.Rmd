@@ -1,5 +1,8 @@
 ## Course Overview
 
+![R-CMD-check-bioc](https://github.com/RockefellerUniversity/Intro_To_R_1Day/workflows/R-CMD-check-bioc/badge.svg)
+
+
 This course introduces R and statistical programming.
 
 The course consists of 2 sections, 1 on basic R data types and data input/output and a second on conditionals and looping.
