@@ -199,9 +199,9 @@ window.buildTabsets = function(tocID) {
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css" data-origin="pandoc">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -211,16 +211,14 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -229,9 +227,9 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  background-color: #f8f8f8; }
+  { background-color: #f8f8f8; }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+a.sourceLine::before { text-decoration: underline; }
 }
 code span.al { color: #ef2929; } /* Alert */
 code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
@@ -441,21 +439,21 @@ summary {
 <ul>
 <li>Create data frame called Annotation with a column of gene names (“Gene_1”, “Gene_2”, “Gene_3”,“Gene_4”,“Gene_5”), ensembl gene names (“Ens001”, “Ens003”, “Ens006”, “Ens007”, “Ens010”), pathway information (“Glycolysis”, “TGFb”, “Glycolysis”, “TGFb”, “Glycolysis”) and gene lengths (100, 3000, 200, 1000,1200).</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>Annotation &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">geneNames=</span><span class="kw">c</span>(<span class="st">&quot;Gene_1&quot;</span>, <span class="st">&quot;Gene_2&quot;</span>, <span class="st">&quot;Gene_3&quot;</span>,<span class="st">&quot;Gene_4&quot;</span>,<span class="st">&quot;Gene_5&quot;</span>), <span class="dt">ensembl=</span><span class="kw">c</span>(<span class="st">&quot;Ens001&quot;</span>, <span class="st">&quot;Ens003&quot;</span>, <span class="st">&quot;Ens006&quot;</span>, <span class="st">&quot;Ens007&quot;</span>, <span class="st">&quot;Ens010&quot;</span>),<span class="dt">pathway=</span><span class="kw">c</span>(<span class="st">&quot;Glycolysis&quot;</span>, <span class="st">&quot;TGFb&quot;</span>, <span class="st">&quot;Glycolysis&quot;</span>, <span class="st">&quot;TGFb&quot;</span>, <span class="st">&quot;Glycolysis&quot;</span>),<span class="dt">geneLengths=</span><span class="kw">c</span>(<span class="dv">100</span>, <span class="dv">3000</span>, <span class="dv">200</span>, <span class="dv">1000</span>,<span class="dv">1200</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1">Annotation &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">geneNames=</span><span class="kw">c</span>(<span class="st">&quot;Gene_1&quot;</span>, <span class="st">&quot;Gene_2&quot;</span>, <span class="st">&quot;Gene_3&quot;</span>,<span class="st">&quot;Gene_4&quot;</span>,<span class="st">&quot;Gene_5&quot;</span>), <span class="dt">ensembl=</span><span class="kw">c</span>(<span class="st">&quot;Ens001&quot;</span>, <span class="st">&quot;Ens003&quot;</span>, <span class="st">&quot;Ens006&quot;</span>, <span class="st">&quot;Ens007&quot;</span>, <span class="st">&quot;Ens010&quot;</span>),<span class="dt">pathway=</span><span class="kw">c</span>(<span class="st">&quot;Glycolysis&quot;</span>, <span class="st">&quot;TGFb&quot;</span>, <span class="st">&quot;Glycolysis&quot;</span>, <span class="st">&quot;TGFb&quot;</span>, <span class="st">&quot;Glycolysis&quot;</span>),<span class="dt">geneLengths=</span><span class="kw">c</span>(<span class="dv">100</span>, <span class="dv">3000</span>, <span class="dv">200</span>, <span class="dv">1000</span>,<span class="dv">1200</span>))</a></code></pre></div>
 <ul>
 <li>Create data frame called Sample1 with ensembl gene names (“Ens001”, “Ens003”, “Ens006”, “Ens010”) and expression (1000, 3000, 10000,5000)</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>Sample1 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">ensembl=</span><span class="kw">c</span>(<span class="st">&quot;Ens001&quot;</span>, <span class="st">&quot;Ens003&quot;</span>, <span class="st">&quot;Ens006&quot;</span>,<span class="st">&quot;Ens010&quot;</span>),<span class="dt">expression=</span><span class="kw">c</span>(<span class="dv">1000</span>, <span class="dv">3000</span>, <span class="dv">10000</span>,<span class="dv">5000</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">Sample1 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">ensembl=</span><span class="kw">c</span>(<span class="st">&quot;Ens001&quot;</span>, <span class="st">&quot;Ens003&quot;</span>, <span class="st">&quot;Ens006&quot;</span>,<span class="st">&quot;Ens010&quot;</span>),<span class="dt">expression=</span><span class="kw">c</span>(<span class="dv">1000</span>, <span class="dv">3000</span>, <span class="dv">10000</span>,<span class="dv">5000</span>))</a></code></pre></div>
 <ul>
 <li>Create data frame called Sample2 with ensembl gene names (“Ens001”, “Ens003”, “Ens006”, “Ens007”,“Ens010”) and expression (1500, 1500, 17000,500,10000)</li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>Sample2 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">ensembl=</span><span class="kw">c</span>(<span class="st">&quot;Ens001&quot;</span>, <span class="st">&quot;Ens003&quot;</span>, <span class="st">&quot;Ens006&quot;</span>,<span class="st">&quot;Ens007&quot;</span>,<span class="st">&quot;Ens010&quot;</span>),<span class="dt">expression=</span><span class="kw">c</span>(<span class="dv">1500</span>, <span class="dv">1500</span>, <span class="dv">17000</span>,<span class="dv">500</span>,<span class="dv">10000</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">Sample2 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">ensembl=</span><span class="kw">c</span>(<span class="st">&quot;Ens001&quot;</span>, <span class="st">&quot;Ens003&quot;</span>, <span class="st">&quot;Ens006&quot;</span>,<span class="st">&quot;Ens007&quot;</span>,<span class="st">&quot;Ens010&quot;</span>),<span class="dt">expression=</span><span class="kw">c</span>(<span class="dv">1500</span>, <span class="dv">1500</span>, <span class="dv">17000</span>,<span class="dv">500</span>,<span class="dv">10000</span>))</a></code></pre></div>
 <ul>
 <li>Create a data frame containing only those gene names common to all data frames with all information from Annotation and the expression from Sample 1 and Sample 2.</li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>AnnoSample1 &lt;-<span class="st"> </span><span class="kw">merge</span>(Annotation,Sample1,<span class="dt">by.x=</span><span class="dv">2</span>,<span class="dt">by.y=</span><span class="dv">1</span>,<span class="dt">all=</span>F) </span>
-<span id="cb4-2"><a href="#cb4-2"></a>AnnoSample1And2 &lt;-<span class="st"> </span><span class="kw">merge</span>(AnnoSample1,Sample2,<span class="dt">by=</span><span class="dv">1</span>,<span class="dt">all=</span>F) </span>
-<span id="cb4-3"><a href="#cb4-3"></a>AnnoSample1And2</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">AnnoSample1 &lt;-<span class="st"> </span><span class="kw">merge</span>(Annotation,Sample1,<span class="dt">by.x=</span><span class="dv">2</span>,<span class="dt">by.y=</span><span class="dv">1</span>,<span class="dt">all=</span>F) </a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">AnnoSample1And2 &lt;-<span class="st"> </span><span class="kw">merge</span>(AnnoSample1,Sample2,<span class="dt">by=</span><span class="dv">1</span>,<span class="dt">all=</span>F) </a>
+<a class="sourceLine" id="cb4-3" data-line-number="3">AnnoSample1And2</a></code></pre></div>
 <pre><code>##   ensembl geneNames    pathway geneLengths expression.x expression.y
 ## 1  Ens001    Gene_1 Glycolysis         100         1000         1500
 ## 2  Ens003    Gene_2       TGFb        3000         3000         1500
@@ -465,9 +463,9 @@ summary {
 <li>Add an extra two columns containing the length normalised expressions for Sample 1 and Sample 2.</li>
 </ul>
 <p>Hint see our <a href="../answers/matrices_answers.html#lne">previous exercises</a></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>AnnoSample1And2<span class="op">$</span>Sample1_lne &lt;-<span class="st"> </span>AnnoSample1And2<span class="op">$</span>expression.x<span class="op">/</span>AnnoSample1And2<span class="op">$</span>geneLengths</span>
-<span id="cb6-2"><a href="#cb6-2"></a>AnnoSample1And2<span class="op">$</span>Sample2_lne &lt;-<span class="st"> </span>AnnoSample1And2<span class="op">$</span>expression.y<span class="op">/</span>AnnoSample1And2<span class="op">$</span>geneLengths</span>
-<span id="cb6-3"><a href="#cb6-3"></a>AnnoSample1And2</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">AnnoSample1And2<span class="op">$</span>Sample1_lne &lt;-<span class="st"> </span>AnnoSample1And2<span class="op">$</span>expression.x<span class="op">/</span>AnnoSample1And2<span class="op">$</span>geneLengths</a>
+<a class="sourceLine" id="cb6-2" data-line-number="2">AnnoSample1And2<span class="op">$</span>Sample2_lne &lt;-<span class="st"> </span>AnnoSample1And2<span class="op">$</span>expression.y<span class="op">/</span>AnnoSample1And2<span class="op">$</span>geneLengths</a>
+<a class="sourceLine" id="cb6-3" data-line-number="3">AnnoSample1And2</a></code></pre></div>
 <pre><code>##   ensembl geneNames    pathway geneLengths expression.x expression.y
 ## 1  Ens001    Gene_1 Glycolysis         100         1000         1500
 ## 2  Ens003    Gene_2       TGFb        3000         3000         1500
@@ -481,21 +479,21 @@ summary {
 <ul>
 <li>Identify the mean length normalised expression across Sample1 and Sample2 for Ens006 genes</li>
 </ul>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw">rownames</span>(AnnoSample1And2) &lt;-<span class="st"> </span>AnnoSample1And2<span class="op">$</span>ensembl</span>
-<span id="cb8-2"><a href="#cb8-2"></a><span class="kw">mean</span>(AnnoSample1And2[<span class="st">&quot;Ens006&quot;</span>,<span class="st">&quot;Sample1_lne&quot;</span>],AnnoSample1And2[<span class="st">&quot;Ens006&quot;</span>,<span class="st">&quot;Sample2_lne&quot;</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">rownames</span>(AnnoSample1And2) &lt;-<span class="st"> </span>AnnoSample1And2<span class="op">$</span>ensembl</a>
+<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="kw">mean</span>(AnnoSample1And2[<span class="st">&quot;Ens006&quot;</span>,<span class="st">&quot;Sample1_lne&quot;</span>],AnnoSample1And2[<span class="st">&quot;Ens006&quot;</span>,<span class="st">&quot;Sample2_lne&quot;</span>])</a></code></pre></div>
 <pre><code>## [1] 50</code></pre>
 <ul>
 <li>For all genes, identify the log2 fold change in length normalised expression from Sample 1 to Sample 2.</li>
 </ul>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>log2FoldChange &lt;-<span class="st"> </span><span class="kw">log2</span>(AnnoSample1And2<span class="op">$</span>Sample2_lne) <span class="op">-</span><span class="st"> </span><span class="kw">log2</span>(AnnoSample1And2<span class="op">$</span>Sample1_lne)</span>
-<span id="cb10-2"><a href="#cb10-2"></a><span class="kw">names</span>(log2FoldChange) &lt;-<span class="st"> </span>AnnoSample1And2<span class="op">$</span>geneNames</span>
-<span id="cb10-3"><a href="#cb10-3"></a>log2FoldChange</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">log2FoldChange &lt;-<span class="st"> </span><span class="kw">log2</span>(AnnoSample1And2<span class="op">$</span>Sample2_lne) <span class="op">-</span><span class="st"> </span><span class="kw">log2</span>(AnnoSample1And2<span class="op">$</span>Sample1_lne)</a>
+<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="kw">names</span>(log2FoldChange) &lt;-<span class="st"> </span>AnnoSample1And2<span class="op">$</span>geneNames</a>
+<a class="sourceLine" id="cb10-3" data-line-number="3">log2FoldChange</a></code></pre></div>
 <pre><code>##     Gene_1     Gene_2     Gene_3     Gene_5 
 ##  0.5849625 -1.0000000  0.7655347  1.0000000</code></pre>
 <ul>
 <li>Identify the total length of genes in Glycolysis pathway.</li>
 </ul>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="kw">sum</span>(AnnoSample1And2[AnnoSample1And2<span class="op">$</span>pathway <span class="op">==</span><span class="st"> &quot;Glycolysis&quot;</span>,<span class="st">&quot;geneLengths&quot;</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="kw">sum</span>(AnnoSample1And2[AnnoSample1And2<span class="op">$</span>pathway <span class="op">==</span><span class="st"> &quot;Glycolysis&quot;</span>,<span class="st">&quot;geneLengths&quot;</span>])</a></code></pre></div>
 <pre><code>## [1] 1500</code></pre>
 
 
