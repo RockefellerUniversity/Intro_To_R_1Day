@@ -59,7 +59,7 @@ y
 ```
 - Create a new vector with all but the second and fifth value.
 ```{r,echo=toMessage}
-y <- x[-c(1,5)]
+y <- x[-c(2,5)]
 y
 ```
 - Create a new vector of square root of the sixth and seventh position.
