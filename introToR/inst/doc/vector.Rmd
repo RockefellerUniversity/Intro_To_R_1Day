@@ -95,7 +95,7 @@ x[1]
 
 **Exercise 4**
 
-- Create a vector of the gene names Gene_1, Gene_2, Gene_3
+- Create a vector of the gene names Gene_1, Gene_2, Gene_3 Gene_4
 - Create a vector of the expression values 1000, 3000, 10000, 12000
 - Create a vector of the gene lengths 100, 3000, 200, 1000
 ```{r,echo=toMessage}
