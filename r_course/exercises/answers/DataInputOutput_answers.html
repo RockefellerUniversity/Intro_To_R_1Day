@@ -199,9 +199,9 @@ window.buildTabsets = function(tocID) {
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css" data-origin="pandoc">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -211,16 +211,14 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -229,9 +227,9 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  background-color: #f8f8f8; }
+  { background-color: #f8f8f8; }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+a.sourceLine::before { text-decoration: underline; }
 }
 code span.al { color: #ef2929; } /* Alert */
 code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
@@ -442,24 +440,24 @@ summary {
 <ul>
 <li>Read in the tab delimited file “GeneExpression.txt”.</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>geneExpression &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;data/GeneExpression.txt&quot;</span>,<span class="dt">h=</span>T,<span class="dt">sep=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>,<span class="dt">row.names=</span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1">geneExpression &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;data/GeneExpression.txt&quot;</span>,<span class="dt">h=</span>T,<span class="dt">sep=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>,<span class="dt">row.names=</span><span class="dv">1</span>)</a></code></pre></div>
 <ul>
 <li>Find the mean expression of all samples.</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>sampleMeans &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">mean</span>(geneExpression[,<span class="dv">1</span>]),<span class="kw">mean</span>(geneExpression[,<span class="dv">2</span>]),<span class="kw">mean</span>(geneExpression[,<span class="dv">3</span>]),<span class="kw">mean</span>(geneExpression[,<span class="dv">4</span>]),<span class="kw">mean</span>(geneExpression[,<span class="dv">5</span>]),<span class="kw">mean</span>(geneExpression[,<span class="dv">5</span>]))</span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="kw">names</span>(sampleMeans) &lt;-<span class="st"> </span><span class="kw">colnames</span>(geneExpression)</span>
-<span id="cb2-3"><a href="#cb2-3"></a>sampleMeans</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">sampleMeans &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">mean</span>(geneExpression[,<span class="dv">1</span>]),<span class="kw">mean</span>(geneExpression[,<span class="dv">2</span>]),<span class="kw">mean</span>(geneExpression[,<span class="dv">3</span>]),<span class="kw">mean</span>(geneExpression[,<span class="dv">4</span>]),<span class="kw">mean</span>(geneExpression[,<span class="dv">5</span>]),<span class="kw">mean</span>(geneExpression[,<span class="dv">5</span>]))</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw">names</span>(sampleMeans) &lt;-<span class="st"> </span><span class="kw">colnames</span>(geneExpression)</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3">sampleMeans</a></code></pre></div>
 <pre><code>##  Sample_1.hi  Sample_2.hi  Sample_3.hi Sample_4.low Sample_5.low Sample_1.low 
 ##     7.514996     6.774108     6.508127     6.262253     6.177761     6.177761</code></pre>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># Alternatively we could use the colMeans() function.</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="kw">colMeans</span>(geneExpression)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co"># Alternatively we could use the colMeans() function.</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="kw">colMeans</span>(geneExpression)</a></code></pre></div>
 <pre><code>##  Sample_1.hi  Sample_2.hi  Sample_3.hi Sample_4.low Sample_5.low Sample_1.low 
 ##     7.514996     6.774108     6.508127     6.262253     6.177761     6.017462</code></pre>
 <ul>
 <li>Read in the tab delimited file “GeneExpressionWithMethods.txt”. This file contains information on analysis steps used to produce file.</li>
 </ul>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>geneExpression &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;data/GeneExpressionWithMethods.txt&quot;</span>,<span class="dt">h=</span>T,<span class="dt">sep=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>,<span class="dt">row.names=</span><span class="dv">1</span>,<span class="dt">skip=</span><span class="dv">3</span>)</span>
-<span id="cb6-2"><a href="#cb6-2"></a>geneExpression</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">geneExpression &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;data/GeneExpressionWithMethods.txt&quot;</span>,<span class="dt">h=</span>T,<span class="dt">sep=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>,<span class="dt">row.names=</span><span class="dv">1</span>,<span class="dt">skip=</span><span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb6-2" data-line-number="2">geneExpression</a></code></pre></div>
 <pre><code>##        Sample_1.hi Sample_2.hi Sample_3.hi Sample_4.low Sample_5.low
 ## Gene_a    5.742510    3.214303    4.116820     3.212353     5.742333
 ## Gene_b    6.444368    5.896076    2.592581     5.089549     3.624812
@@ -481,8 +479,8 @@ summary {
 <ul>
 <li>Read in the tab delimited file “GeneExpressionWithNotes.txt”. This file contains notes about particular genes.</li>
 </ul>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>geneExpression &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;data/GeneExpressionWithNotes.txt&quot;</span>,<span class="dt">h=</span>T,<span class="dt">sep=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>,<span class="dt">row.names=</span><span class="dv">1</span>,<span class="dt">comment.char =</span> <span class="st">&quot;&gt;&quot;</span>)</span>
-<span id="cb8-2"><a href="#cb8-2"></a>geneExpression</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">geneExpression &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;data/GeneExpressionWithNotes.txt&quot;</span>,<span class="dt">h=</span>T,<span class="dt">sep=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>,<span class="dt">row.names=</span><span class="dv">1</span>,<span class="dt">comment.char =</span> <span class="st">&quot;&gt;&quot;</span>)</a>
+<a class="sourceLine" id="cb8-2" data-line-number="2">geneExpression</a></code></pre></div>
 <pre><code>##        Sample_1.hi Sample_2.hi Sample_3.hi Sample_4.low Sample_5.low
 ## Gene_a    5.742510    3.214303    4.116820     3.212353     5.742333
 ## Gene_b    6.444368    5.896076    2.592581     5.089549     3.624812
@@ -504,11 +502,11 @@ summary {
 <ul>
 <li>Read in tab delimited file “GeneExpression.txt”. Order genes by decreasing expression in Sample_1.hi. Write out a new comma separated file with column titles.</li>
 </ul>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>geneExpression &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;data/GeneExpression.txt&quot;</span>,<span class="dt">h=</span>T,<span class="dt">sep=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>,<span class="dt">row.names=</span><span class="dv">1</span>)</span>
-<span id="cb10-2"><a href="#cb10-2"></a>orderedExpression &lt;-<span class="st"> </span>geneExpression[<span class="kw">order</span>(geneExpression<span class="op">$</span>Sample_<span class="fl">1.</span>hi,<span class="dt">decreasing=</span>T),]</span>
-<span id="cb10-3"><a href="#cb10-3"></a>expressionDF &lt;-<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">rownames</span>(orderedExpression),orderedExpression)</span>
-<span id="cb10-4"><a href="#cb10-4"></a><span class="kw">colnames</span>(expressionDF)[<span class="dv">1</span>] &lt;-<span class="st"> &quot;geneNames&quot;</span></span>
-<span id="cb10-5"><a href="#cb10-5"></a><span class="kw">write.table</span>(expressionDF,<span class="st">&quot;orderedExpression.txt&quot;</span>,<span class="dt">sep=</span><span class="st">&quot;,&quot;</span>,<span class="dt">col.names =</span> T,<span class="dt">row.names=</span>F)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">geneExpression &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;data/GeneExpression.txt&quot;</span>,<span class="dt">h=</span>T,<span class="dt">sep=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>,<span class="dt">row.names=</span><span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb10-2" data-line-number="2">orderedExpression &lt;-<span class="st"> </span>geneExpression[<span class="kw">order</span>(geneExpression<span class="op">$</span>Sample_<span class="fl">1.</span>hi,<span class="dt">decreasing=</span>T),]</a>
+<a class="sourceLine" id="cb10-3" data-line-number="3">expressionDF &lt;-<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">rownames</span>(orderedExpression),orderedExpression)</a>
+<a class="sourceLine" id="cb10-4" data-line-number="4"><span class="kw">colnames</span>(expressionDF)[<span class="dv">1</span>] &lt;-<span class="st"> &quot;geneNames&quot;</span></a>
+<a class="sourceLine" id="cb10-5" data-line-number="5"><span class="kw">write.table</span>(expressionDF,<span class="st">&quot;orderedExpression.txt&quot;</span>,<span class="dt">sep=</span><span class="st">&quot;,&quot;</span>,<span class="dt">col.names =</span> T,<span class="dt">row.names=</span>F)</a></code></pre></div>
 
 
 
