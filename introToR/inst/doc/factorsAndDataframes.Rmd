@@ -1,5 +1,5 @@
 ---
-title: "Factors and Data frames Answers"
+title: "Factors and Data frames"
 author: "Rockefeller University, Bioinformatics Resource Centre"
 date: "https://rockefelleruniversity.github.io/Intro_To_R_1Day/"
 output: 

@@ -1,5 +1,5 @@
 ---
-title: "Reading and writing data in R Answers"
+title: "Reading and writing data in R"
 author: "Rockefeller University, Bioinformatics Resource Centre"
 date: "https://rockefelleruniversity.github.io/Intro_To_R_1Day/"
 output: 
