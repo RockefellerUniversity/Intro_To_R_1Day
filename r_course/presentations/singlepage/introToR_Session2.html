@@ -2126,17 +2126,17 @@ div.tocify {
 <a class="sourceLine" id="cb125-10" data-line-number="10">A &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">20</span>)</a>
 <a class="sourceLine" id="cb125-11" data-line-number="11"></a>
 <a class="sourceLine" id="cb125-12" data-line-number="12"><span class="kw">my_zscore</span>(<span class="dt">my_number=</span>A[<span class="dv">1</span>], <span class="dt">my_vector=</span>A)</a></code></pre></div>
-<pre><code>## Mean is 0.186160716644967</code></pre>
-<pre><code>## [1] 0.2092732</code></pre>
+<pre><code>## Mean is -0.489268139956483</code></pre>
+<pre><code>## [1] -1.474605</code></pre>
 </div>
 <div id="custom-functions-and-apply" class="section level2">
 <h2>Custom functions and apply</h2>
 <p>These custom functions can also be utilised with apply.</p>
 <div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb128-1" data-line-number="1"><span class="kw">sapply</span>(A, my_zscore, <span class="dt">my_vector=</span>A)</a></code></pre></div>
-<pre><code>##  [1]  0.2092732  0.5297904  0.3927394  0.1653383  0.9652167 -0.4555703
-##  [7] -1.8256077 -2.0179884  1.2269120 -0.4613911  1.5470804 -1.1478248
-## [13] -1.5648199  0.1751837  0.2031730  0.9273906  0.1317993  0.9299973
-## [19]  0.3918178 -0.3225099</code></pre>
+<pre><code>##  [1] -1.4746051181 -0.3108643850  2.1218944148  1.3607215426 -0.4022101141
+##  [6] -0.6468778249  0.0759721686  0.1934600664 -1.1644957159  0.6074888771
+## [11] -0.3467420109  0.8970736888 -1.5047790333  1.0690976138 -1.6022022312
+## [16]  0.2971932511  0.8521057542 -0.4065212161  0.0004048543  0.3838854179</code></pre>
 </div>
 <div id="time-for-an-exercise" class="section level2">
 <h2>Time for an exercise!</h2>
@@ -2187,7 +2187,7 @@ dayOfWeek &lt;- function(){
 }</code></pre>
 <div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb134-1" data-line-number="1"><span class="kw">source</span>(<span class="st">&quot;scripts/dayOfWeek.r&quot;</span>)</a>
 <a class="sourceLine" id="cb134-2" data-line-number="2"><span class="kw">dayOfWeek</span>()</a></code></pre></div>
-<pre><code>## [1] &quot;Tue&quot;</code></pre>
+<pre><code>## [1] &quot;Wed&quot;</code></pre>
 </div>
 <div id="rscript" class="section level2">
 <h2>Rscript</h2>
