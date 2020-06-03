@@ -1018,6 +1018,15 @@ sapply(exampleList, summary)
 ##    1.00    2.50    3.50    3.25    4.25    5.00
 ```
 
+---
+class: inverse, center, middle
+
+# Custom functions
+
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px width=720px&gt;&lt;/html&gt; 
+
+---
+
 
 ---
 ## Custom functions
@@ -1037,16 +1046,6 @@ square_my_number(my_number=3)
 ```
 ## [1] 9
 ```
-
----
-class: inverse, center, middle
-
-# Custom functions
-
-&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px width=720px&gt;&lt;/html&gt; 
-
----
-
 
 ## Custom functions
 User defined functions can be as long and complicated as you want, taking in many variables, printing out messages and utilizing other functions within them.
@@ -1069,17 +1068,17 @@ my_zscore(my_number=A[1], my_vector=A)
 ```
 
 ```
-## Mean is 0.1289203956213
+## Mean is 0.0807757959710412
 ```
 
 ```
-## [1] 1.68473
+## [1] -0.3877965
 ```
 
 ---
 ## Custom functions and apply
 
-These custom functions can also be utilised with apply. 
+These custom functions can also be utilized with apply. 
 
 
 ```r
@@ -1087,10 +1086,10 @@ sapply(A, my_zscore, my_vector=A)
 ```
 
 ```
-##  [1]  1.68472973 -0.08844940  0.01698054 -0.13529762  1.29236423 -0.17028427
-##  [7]  0.89188409 -0.50297482 -0.11500596 -0.57524119 -2.64913191 -0.56617300
-## [13] -1.19741960  0.71683630 -0.48255974  0.25508355 -0.32871552  1.70424352
-## [19] -0.33145675  0.58058783
+##  [1] -0.38779653  0.04181093  0.76267798 -1.66939845 -0.68326072  0.66502048
+##  [7] -0.41756207  1.13659402  1.74864442  0.07163668 -2.04328198 -0.57149135
+## [13] -0.32912538  0.28715552  0.28923751  1.55592180 -0.57543655 -0.41053465
+## [19]  1.31447124 -0.78528290
 ```
 
 ---

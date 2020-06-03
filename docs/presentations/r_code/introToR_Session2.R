@@ -352,16 +352,6 @@ exampleList <- list(df=data.frame(sample=paste0("patient",1:2), data=c(1,12)),
 sapply(exampleList, summary)
 
 
-## ----makingfunctions----------------------------------------------------------
-square_my_number  <- function(my_number){
-  my_square <- my_number*my_number
-  return(my_square)
-}
-
-square_my_number(my_number=3)
-
-
-
 ## ---- results='asis',include=TRUE,echo=FALSE----------------------------------
 if(params$isSlides == "yes"){
   cat("class: inverse, center, middle
@@ -381,6 +371,16 @@ if(params$isSlides == "yes"){
   )
   
 }
+
+
+## ----makingfunctions----------------------------------------------------------
+square_my_number  <- function(my_number){
+  my_square <- my_number*my_number
+  return(my_square)
+}
+
+square_my_number(my_number=3)
+
 
 
 ## ----makingfunctions_zscores--------------------------------------------------
