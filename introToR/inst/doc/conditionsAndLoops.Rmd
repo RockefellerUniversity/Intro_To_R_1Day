@@ -18,7 +18,7 @@ message(toMessage)
 
 
 <p>&nbsp;</p>
-These answers are from the exercises about the conditions and loops sections of [Introduction to R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/). 
+These exercises are about the conditions and loops sections of [Introduction to R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/). 
 
 -- Calculate the factorial (factorial of 3 = 3 * 2 * 1) of 10 using a loop.
 

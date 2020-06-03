@@ -18,7 +18,7 @@ message(toMessage)
 
 
 <p>&nbsp;</p>
-These answers are from the exercises about the factors and data frames sections of [Introduction to R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/). 
+These exercises are about the factors and data frames sections of [Introduction to R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/). 
 
 **Exercise 1** - **Data frames**
 
