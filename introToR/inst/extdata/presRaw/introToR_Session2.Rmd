@@ -634,22 +634,6 @@ exampleList <- list(df=data.frame(sample=paste0("patient",1:2), data=c(1,12)),
 sapply(exampleList, summary)
 ```
 
-
----
-## Custom functions
-You can create your own functions easily in R using the **<-** assignment. We use the **function** statement with all input variables in **()** and all code to be executed in **{}**. Anything to be received back from the function is indicated by the **return** statement.  
-
-In this case we can recapitulate the square function. 
-```{r makingfunctions}
-square_my_number  <- function(my_number){
-  my_square <- my_number*my_number
-  return(my_square)
-}
-
-square_my_number(my_number=3)
-
-```
-
 ---
 ```{r, results='asis',include=TRUE,echo=FALSE}
 if(params$isSlides == "yes"){
@@ -672,6 +656,21 @@ if(params$isSlides == "yes"){
 }
 ```
 
+
+---
+## Custom functions
+You can create your own functions easily in R using the **<-** assignment. We use the **function** statement with all input variables in **()** and all code to be executed in **{}**. Anything to be received back from the function is indicated by the **return** statement.  
+
+In this case we can recapitulate the square function. 
+```{r makingfunctions}
+square_my_number  <- function(my_number){
+  my_square <- my_number*my_number
+  return(my_square)
+}
+
+square_my_number(my_number=3)
+
+```
 
 ## Custom functions
 User defined functions can be as long and complicated as you want, taking in many variables, printing out messages and utilizing other functions within them.
@@ -696,7 +695,7 @@ my_zscore(my_number=A[1], my_vector=A)
 ---
 ## Custom functions and apply
 
-These custom functions can also be utilised with apply. 
+These custom functions can also be utilized with apply. 
 
 ```{r, message=F}
 sapply(A, my_zscore, my_vector=A)
