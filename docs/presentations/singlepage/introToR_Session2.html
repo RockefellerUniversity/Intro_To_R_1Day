@@ -1918,11 +1918,11 @@ div.tocify {
 <a class="sourceLine" id="cb73-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb73-3" data-line-number="3"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">13</span>){</a>
 <a class="sourceLine" id="cb73-4" data-line-number="4">  <span class="cf">if</span>(i <span class="op">&gt;</span><span class="st"> </span><span class="dv">10</span>){</a>
-<a class="sourceLine" id="cb73-5" data-line-number="5">    <span class="kw">message</span>(<span class="st">&quot;Number &quot;</span>,i,<span class="st">&quot; is &gt; 10&quot;</span>)</a>
+<a class="sourceLine" id="cb73-5" data-line-number="5">    <span class="kw">message</span>(<span class="st">&quot;Number &quot;</span>,i,<span class="st">&quot; is greater than 10&quot;</span>)</a>
 <a class="sourceLine" id="cb73-6" data-line-number="6">  }<span class="cf">else</span> <span class="cf">if</span>(i <span class="op">==</span><span class="st"> </span><span class="dv">10</span>){</a>
 <a class="sourceLine" id="cb73-7" data-line-number="7">    <span class="kw">message</span>(<span class="st">&quot;Number &quot;</span>,i,<span class="st">&quot; is  10&quot;</span>) </a>
 <a class="sourceLine" id="cb73-8" data-line-number="8">  }<span class="cf">else</span>{</a>
-<a class="sourceLine" id="cb73-9" data-line-number="9">    <span class="kw">message</span>(<span class="st">&quot;Number &quot;</span>,i,<span class="st">&quot; is &lt; 10&quot;</span>) </a>
+<a class="sourceLine" id="cb73-9" data-line-number="9">    <span class="kw">message</span>(<span class="st">&quot;Number &quot;</span>,i,<span class="st">&quot; is less than 10&quot;</span>) </a>
 <a class="sourceLine" id="cb73-10" data-line-number="10">  }</a>
 <a class="sourceLine" id="cb73-11" data-line-number="11">}</a></code></pre></div>
 <pre><code>## Number 1 is less than  10</code></pre>
@@ -2126,17 +2126,17 @@ div.tocify {
 <a class="sourceLine" id="cb125-10" data-line-number="10">A &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">20</span>)</a>
 <a class="sourceLine" id="cb125-11" data-line-number="11"></a>
 <a class="sourceLine" id="cb125-12" data-line-number="12"><span class="kw">my_zscore</span>(<span class="dt">my_number=</span>A[<span class="dv">1</span>], <span class="dt">my_vector=</span>A)</a></code></pre></div>
-<pre><code>## Mean is 0.177629396873066</code></pre>
-<pre><code>## [1] 0.5168698</code></pre>
+<pre><code>## Mean is 0.186673265124402</code></pre>
+<pre><code>## [1] 2.136442</code></pre>
 </div>
 <div id="custom-functions-and-apply" class="section level2">
 <h2>Custom functions and apply</h2>
 <p>These custom functions can also be utilized with apply.</p>
 <div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb128-1" data-line-number="1"><span class="kw">sapply</span>(A, my_zscore, <span class="dt">my_vector=</span>A)</a></code></pre></div>
-<pre><code>##  [1]  0.51686979  1.58294606 -1.38754736 -1.36651269 -0.93899479 -1.60902785
-##  [7] -0.11379459  0.55859642  0.84091691 -0.11098285  0.56348227  1.34833445
-## [13] -0.99982215  0.38718302 -0.21247773  1.19866096 -1.52630268  0.61277154
-## [19]  0.66865444 -0.01295316</code></pre>
+<pre><code>##  [1]  2.1364422 -0.6545477  0.9611808  0.1346733 -0.8736193  0.1431503
+##  [7]  0.5066834  0.5929770 -1.1657687  0.8534101 -0.1698824  1.0905265
+## [13] -0.1287878 -1.1396262  0.7179168  0.8755158 -1.0329398  0.1695976
+## [19] -1.7572961 -1.2596057</code></pre>
 </div>
 <div id="time-for-an-exercise" class="section level2">
 <h2>Time for an exercise!</h2>
@@ -2187,7 +2187,7 @@ dayOfWeek &lt;- function(){
 }</code></pre>
 <div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb134-1" data-line-number="1"><span class="kw">source</span>(<span class="st">&quot;scripts/dayOfWeek.r&quot;</span>)</a>
 <a class="sourceLine" id="cb134-2" data-line-number="2"><span class="kw">dayOfWeek</span>()</a></code></pre></div>
-<pre><code>## [1] &quot;Wed&quot;</code></pre>
+<pre><code>## [1] &quot;Thu&quot;</code></pre>
 </div>
 <div id="rscript" class="section level2">
 <h2>Rscript</h2>

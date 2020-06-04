@@ -41,7 +41,7 @@ if(params$isSlides == "yes"){
 
 
 ## ----setwd_introtoR,eval=F----------------------------------------------------
-## setwd("/PathToMyDownload/Intro_To_R_1Day/r_course")
+## setwd("/PathToMyDownload/Intro_To_R_1Day-master/r_course")
 ## # e.g. setwd("~/Downloads/Intro_To_R_1Day/r_course")
 
 
@@ -461,6 +461,9 @@ narrowMatrix[narrowMatrix[,1] < 5,]
 narrowMatrix
 narrowMatrix[1,1]+2
 narrowMatrix[1,]+2
+
+
+## -----------------------------------------------------------------------------
 mean(narrowMatrix)
 
 

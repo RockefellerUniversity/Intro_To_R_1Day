@@ -243,11 +243,11 @@ for(i in 1:length(geneName)){
 ## 
 ## for(i in 1:13){
 ##   if(i > 10){
-##     message("Number ",i," is > 10")
+##     message("Number ",i," is greater than 10")
 ##   }else if(i == 10){
 ##     message("Number ",i," is  10")
 ##   }else{
-##     message("Number ",i," is < 10")
+##     message("Number ",i," is less than 10")
 ##   }
 ## }
 
