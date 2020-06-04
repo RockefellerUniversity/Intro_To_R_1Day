@@ -633,13 +633,9 @@ exampleList <- list(df=data.frame(sample=paste0("patient",1:2), data=c(1,12)),
                     vec=c(1,3,4,5))
 sapply(exampleList, summary)
 ```
-<<<<<<< HEAD
 
 ---
-=======
----
 
->>>>>>> cusomt functions has cover fixed
 ```{r, results='asis',include=TRUE,echo=FALSE}
 if(params$isSlides == "yes"){
   cat("class: inverse, center, middle
