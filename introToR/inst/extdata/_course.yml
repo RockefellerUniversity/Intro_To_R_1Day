@@ -1,4 +1,5 @@
 Description:
+  CourseName: Introduction to R
   OverviewRmd: CourseOverview.Rmd
 Presentations:
     titles: Session1 Session2
