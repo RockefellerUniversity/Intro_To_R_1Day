@@ -108,7 +108,7 @@ You may navigate to the unarchived Intro_To_R_1Day folder in the Rstudio menu.
 or in the console.
 
 ```{r setwd_introtoR,eval=F} 
-setwd("/PathToMyDownload/Intro_To_R_1Day/r_course")
+setwd("/PathToMyDownload/Intro_To_R_1Day-master/r_course")
 # e.g. setwd("~/Downloads/Intro_To_R_1Day/r_course")
 ```
 
@@ -142,7 +142,7 @@ if(params$isSlides == "yes"){
 **R** is a scripting language and environment for **statistical computing**.
 
 
-Developed by [Robert Gentleman](https://en.wikipedia.org/wiki/Robert_Gentleman_(statistician)) and [Ross Ihaka](https://en.wikipedia.org/wiki/Ross_Ihaka). 
+Developed by [Robert Gentleman](https://en.wikipedia.org/wiki/Robert_Gentleman_%28statistician%29) and [Ross Ihaka](https://en.wikipedia.org/wiki/Ross_Ihaka). 
 
 
 Inheriting much from **S** (Bell labs).
@@ -166,7 +166,7 @@ Inheriting much from **S** (Bell labs).
 **R** provides access to 1000s of packages ([CRAN](http://cran.r-project.org/)/[MRAN](http://mran.revolutionanalytics.com/)/[R-forge](https://r-forge.r-project.org/)) which extend the basic functionality of R while maintaining high quality documentation.
 
 
-In particular, [Robert Gentleman]("https://en.wikipedia.org/wiki/Robert_Gentleman_(statistician)") developed the **[Bioconductor](http://bioconductor.org/)** project where 100's of packages are directly related to computational biology and analysis of associated high-throughput experiments.
+In particular, [Robert Gentleman](https://en.wikipedia.org/wiki/Robert_Gentleman_%28statistician%29) developed the **[Bioconductor](http://bioconductor.org/)** project where 100's of packages are directly related to computational biology and analysis of associated high-throughput experiments.
   ] 
 .pull-right[
 ![R use over time](imgs/RCitations.jpeg)
@@ -964,20 +964,22 @@ narrowMatrix[narrowMatrix[,1] < 5,]
 ---
 ## Arithmetic operations
 
-
 As with vectors, matrices can have arithmetic operations applied to cells, rows, columns or the whole matrix
 ```{r matricesArithmetric_introtoR}
 narrowMatrix
 narrowMatrix[1,1]+2
 narrowMatrix[1,]+2
+```
+
+---
+## Arithmetic operations
+```{r}
 mean(narrowMatrix)
 
 ```
 
-
 ---
 ## Replacement
-
 
 As with vectors, matrices can have their elements replaced
 ```{r matricesReplace_introtoR}
