@@ -964,20 +964,22 @@ narrowMatrix[narrowMatrix[,1] < 5,]
 ---
 ## Arithmetic operations
 
-
 As with vectors, matrices can have arithmetic operations applied to cells, rows, columns or the whole matrix
 ```{r matricesArithmetric_introtoR}
 narrowMatrix
 narrowMatrix[1,1]+2
 narrowMatrix[1,]+2
+```
+
+---
+## Arithmetic operations
+```{r}
 mean(narrowMatrix)
 
 ```
 
-
 ---
 ## Replacement
-
 
 As with vectors, matrices can have their elements replaced
 ```{r matricesReplace_introtoR}
