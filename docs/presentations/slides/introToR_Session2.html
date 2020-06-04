@@ -1028,9 +1028,6 @@ class: inverse, center, middle
 
 ---
 
-
-
----
 ## Custom functions
 You can create your own functions easily in R using the **&lt;-** assignment. We use the **function** statement with all input variables in **()** and all code to be executed in **{}**. Anything to be received back from the function is indicated by the **return** statement.  
 
@@ -1049,6 +1046,7 @@ square_my_number(my_number=3)
 ## [1] 9
 ```
 
+---
 ## Custom functions
 User defined functions can be as long and complicated as you want, taking in many variables, printing out messages and utilizing other functions within them.
 
@@ -1070,11 +1068,11 @@ my_zscore(my_number=A[1], my_vector=A)
 ```
 
 ```
-## Mean is 0.4213765246063
+## Mean is 0.0433529418437475
 ```
 
 ```
-## [1] 1.492669
+## [1] -0.04392998
 ```
 
 ---
@@ -1088,10 +1086,10 @@ sapply(A, my_zscore, my_vector=A)
 ```
 
 ```
-##  [1]  1.49266888 -0.58454998 -0.02986952 -0.92617307  1.33116386 -1.38592486
-##  [7]  1.13086542 -0.44950977 -0.70124851  0.18626593 -0.68400355 -2.08223353
-## [13] -1.12423991 -0.05219063  1.47998224  0.07651770  0.44679659  0.81608674
-## [19]  0.82813643  0.23145952
+##  [1] -0.04392998  0.63549620  0.93995606  0.32398669  2.45560390  0.58866247
+##  [7] -1.32647877  0.03409787  1.41964387 -1.49998059 -1.00287283  0.43898477
+## [13] -0.14961896  0.25117253  0.11631604 -0.64324128 -0.23244477  0.26668967
+## [19] -1.45791801 -1.11412487
 ```
 
 ---
