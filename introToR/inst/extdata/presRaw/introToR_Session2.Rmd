@@ -657,9 +657,6 @@ if(params$isSlides == "yes"){
 }
 ```
 
-
-
----
 ## Custom functions
 You can create your own functions easily in R using the **<-** assignment. We use the **function** statement with all input variables in **()** and all code to be executed in **{}**. Anything to be received back from the function is indicated by the **return** statement.  
 
@@ -674,6 +671,7 @@ square_my_number(my_number=3)
 
 ```
 
+---
 ## Custom functions
 User defined functions can be as long and complicated as you want, taking in many variables, printing out messages and utilizing other functions within them.
 
