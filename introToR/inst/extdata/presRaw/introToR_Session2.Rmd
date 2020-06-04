@@ -633,13 +633,9 @@ exampleList <- list(df=data.frame(sample=paste0("patient",1:2), data=c(1,12)),
                     vec=c(1,3,4,5))
 sapply(exampleList, summary)
 ```
-<<<<<<< HEAD
 
 ---
-=======
----
 
->>>>>>> cusomt functions has cover fixed
 ```{r, results='asis',include=TRUE,echo=FALSE}
 if(params$isSlides == "yes"){
   cat("class: inverse, center, middle
@@ -661,21 +657,6 @@ if(params$isSlides == "yes"){
 }
 ```
 
-## Custom functions
-You can create your own functions easily in R using the **<-** assignment. We use the **function** statement with all input variables in **()** and all code to be executed in **{}**. Anything to be received back from the function is indicated by the **return** statement.  
-
-In this case we can recapitulate the square function. 
-```{r makingfunctions}
-square_my_number  <- function(my_number){
-  my_square <- my_number*my_number
-  return(my_square)
-}
-
-square_my_number(my_number=3)
-
-```
-
----
 
 
 ---
