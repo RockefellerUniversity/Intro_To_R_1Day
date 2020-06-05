@@ -444,11 +444,11 @@ summary {
 <ul>
 <li>Find the mean expression of all samples.</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">sampleMeans &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">mean</span>(geneExpression[,<span class="dv">1</span>]),<span class="kw">mean</span>(geneExpression[,<span class="dv">2</span>]),<span class="kw">mean</span>(geneExpression[,<span class="dv">3</span>]),<span class="kw">mean</span>(geneExpression[,<span class="dv">4</span>]),<span class="kw">mean</span>(geneExpression[,<span class="dv">5</span>]),<span class="kw">mean</span>(geneExpression[,<span class="dv">5</span>]))</a>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">sampleMeans &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">mean</span>(geneExpression[,<span class="dv">1</span>]),<span class="kw">mean</span>(geneExpression[,<span class="dv">2</span>]),<span class="kw">mean</span>(geneExpression[,<span class="dv">3</span>]),<span class="kw">mean</span>(geneExpression[,<span class="dv">4</span>]),<span class="kw">mean</span>(geneExpression[,<span class="dv">5</span>]),<span class="kw">mean</span>(geneExpression[,<span class="dv">6</span>]))</a>
 <a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw">names</span>(sampleMeans) &lt;-<span class="st"> </span><span class="kw">colnames</span>(geneExpression)</a>
 <a class="sourceLine" id="cb2-3" data-line-number="3">sampleMeans</a></code></pre></div>
 <pre><code>##  Sample_1.hi  Sample_2.hi  Sample_3.hi Sample_4.low Sample_5.low Sample_1.low 
-##     7.514996     6.774108     6.508127     6.262253     6.177761     6.177761</code></pre>
+##     7.514996     6.774108     6.508127     6.262253     6.177761     6.017462</code></pre>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co"># Alternatively we could use the colMeans() function.</span></a>
 <a class="sourceLine" id="cb4-2" data-line-number="2"><span class="kw">colMeans</span>(geneExpression)</a></code></pre></div>
 <pre><code>##  Sample_1.hi  Sample_2.hi  Sample_3.hi Sample_4.low Sample_5.low Sample_1.low 
