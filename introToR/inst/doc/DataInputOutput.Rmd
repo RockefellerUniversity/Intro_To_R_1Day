@@ -31,7 +31,7 @@ geneExpression <- read.table("data/GeneExpression.txt",h=T,sep="\t",row.names=1)
 
 - Find the mean expression of all samples.
 ```{r,echo=toMessage}
-sampleMeans <- c(mean(geneExpression[,1]),mean(geneExpression[,2]),mean(geneExpression[,3]),mean(geneExpression[,4]),mean(geneExpression[,5]),mean(geneExpression[,5]))
+sampleMeans <- c(mean(geneExpression[,1]),mean(geneExpression[,2]),mean(geneExpression[,3]),mean(geneExpression[,4]),mean(geneExpression[,5]),mean(geneExpression[,6]))
 names(sampleMeans) <- colnames(geneExpression)
 sampleMeans
 # Alternatively we could use the colMeans() function.
