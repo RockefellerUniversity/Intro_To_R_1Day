@@ -63,6 +63,7 @@ jobs:
           remotes::install_cran("rcmdcheck")
           remotes::install_cran("BiocManager")
           BiocManager::install("rmarkdown")
+          BiocManager::install("devtools")
           BiocManager::install("RockefellerUniversity/compileCourses",subdir="compileCourses")  
         shell: Rscript {0}
 
