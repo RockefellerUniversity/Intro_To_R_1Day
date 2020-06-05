@@ -1841,7 +1841,7 @@ export(Table,file = "data/writeThisMultipleXLSX.xlsx")
 ---
 ## Time for an exercise!
 
-Exercise on reading and writing data can be found [here](../../exercises/exercises/DataInputOutput_Exercises.html)
+Exercise on reading and writing data can be found [here](../../exercises/exercises/DataInputOutput_exercises.html)
 
 ---
 ## Answers to exercise
