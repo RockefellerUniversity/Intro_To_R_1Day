@@ -785,7 +785,7 @@ listAsMat
 if(params$isSlides == "yes"){
   cat("class: inverse, center, middle
 
-# Coercing data formats
+# Coercing data classes
 
 <html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
 
@@ -801,6 +801,11 @@ if(params$isSlides == "yes"){
   
 }
 
+
+
+## -----------------------------------------------------------------------------
+class(namedMatrix)
+class(dfExample)
 
 
 ## -----------------------------------------------------------------------------

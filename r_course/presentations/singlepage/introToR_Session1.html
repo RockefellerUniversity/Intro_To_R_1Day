@@ -2741,25 +2741,33 @@ div.tocify {
 </div>
 <div id="coercing-data-formats" class="section level1">
 <h1>Coercing data formats</h1>
-<div id="coercing-data-formats-1" class="section level2">
-<h2>Coercing data formats</h2>
-<p>Sometime you do not want to have to remake an object if it is in an undesired format. There are a group of functions to coerce your data object to a new format, <strong>as._desiredformat_()</strong>.</p>
-<div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb295-1" data-line-number="1">namedMatrix</a></code></pre></div>
+<div id="identifying-an-objects-class" class="section level2">
+<h2>Identifying an objects class</h2>
+<p>We can use the class() function to tell us the class of our variable or object.</p>
+<div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb295-1" data-line-number="1"><span class="kw">class</span>(namedMatrix)</a></code></pre></div>
+<pre><code>## [1] &quot;matrix&quot; &quot;array&quot;</code></pre>
+<div class="sourceCode" id="cb297"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb297-1" data-line-number="1"><span class="kw">class</span>(dfExample)</a></code></pre></div>
+<pre><code>## [1] &quot;data.frame&quot;</code></pre>
+</div>
+<div id="coercing-data-class" class="section level2">
+<h2>Coercing data class</h2>
+<p>Sometime you may want to cast an object into a new class There are a group of functions to coerce your data object to a new format, <strong>as._desiredClass_()</strong>.</p>
+<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb299-1" data-line-number="1">namedMatrix</a></code></pre></div>
 <pre><code>##       Column_1 Column_2 Column_3 Column_4 Column_5
 ## Row_1        1        3        5        7        9
 ## Row_2        2        4        6        8       10</code></pre>
-<div class="sourceCode" id="cb297"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb297-1" data-line-number="1"><span class="kw">as.character</span>(namedMatrix)</a></code></pre></div>
+<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb301-1" data-line-number="1"><span class="kw">as.character</span>(namedMatrix)</a></code></pre></div>
 <pre><code>##  [1] &quot;1&quot;  &quot;2&quot;  &quot;3&quot;  &quot;4&quot;  &quot;5&quot;  &quot;6&quot;  &quot;7&quot;  &quot;8&quot;  &quot;9&quot;  &quot;10&quot;</code></pre>
-<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb299-1" data-line-number="1"><span class="kw">as.vector</span>(namedMatrix)</a></code></pre></div>
+<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb303-1" data-line-number="1"><span class="kw">as.vector</span>(namedMatrix)</a></code></pre></div>
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
 </div>
-<div id="coercing-data-formats-2" class="section level2">
-<h2>Coercing data formats</h2>
-<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb301-1" data-line-number="1"><span class="kw">as.data.frame</span>(namedMatrix)</a></code></pre></div>
+<div id="coercing-data-class-1" class="section level2">
+<h2>Coercing data class</h2>
+<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb305-1" data-line-number="1"><span class="kw">as.data.frame</span>(namedMatrix)</a></code></pre></div>
 <pre><code>##       Column_1 Column_2 Column_3 Column_4 Column_5
 ## Row_1        1        3        5        7        9
 ## Row_2        2        4        6        8       10</code></pre>
-<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb303-1" data-line-number="1"><span class="kw">as.list</span>(namedMatrix)</a></code></pre></div>
+<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb307-1" data-line-number="1"><span class="kw">as.list</span>(namedMatrix)</a></code></pre></div>
 <pre><code>## [[1]]
 ## [1] 1
 ## 
@@ -2820,13 +2828,13 @@ Sample_3.hi
 Gene_a
 </td>
 <td style="text-align:right;">
-4.216994
+5.106521
 </td>
 <td style="text-align:right;">
-5.329429
+3.859210
 </td>
 <td style="text-align:right;">
-5.302283
+4.006512
 </td>
 </tr>
 <tr>
@@ -2834,13 +2842,13 @@ Gene_a
 Gene_b
 </td>
 <td style="text-align:right;">
-5.758765
+2.536178
 </td>
 <td style="text-align:right;">
-3.583906
+3.126901
 </td>
 <td style="text-align:right;">
-3.896293
+4.320224
 </td>
 </tr>
 <tr>
@@ -2848,13 +2856,13 @@ Gene_b
 Gene_c
 </td>
 <td style="text-align:right;">
-4.061314
+3.920304
 </td>
 <td style="text-align:right;">
-3.427065
+4.074705
 </td>
 <td style="text-align:right;">
-5.351464
+3.484600
 </td>
 </tr>
 <tr>
@@ -2862,13 +2870,13 @@ Gene_c
 Gene_d
 </td>
 <td style="text-align:right;">
-3.620344
+5.013069
 </td>
 <td style="text-align:right;">
-4.100764
+2.457437
 </td>
 <td style="text-align:right;">
-2.675257
+4.469285
 </td>
 </tr>
 <tr>
@@ -2876,13 +2884,13 @@ Gene_d
 Gene_e
 </td>
 <td style="text-align:right;">
-10.369635
+11.109698
 </td>
 <td style="text-align:right;">
-9.418460
+12.021562
 </td>
 <td style="text-align:right;">
-12.040224
+10.128836
 </td>
 </tr>
 <tr>
@@ -2890,13 +2898,13 @@ Gene_e
 Gene_f
 </td>
 <td style="text-align:right;">
-10.505673
+9.647756
 </td>
 <td style="text-align:right;">
-9.382633
+8.504832
 </td>
 <td style="text-align:right;">
-10.077192
+10.385523
 </td>
 </tr>
 <tr>
@@ -2904,13 +2912,13 @@ Gene_f
 Gene_g
 </td>
 <td style="text-align:right;">
-9.886567
+9.708868
 </td>
 <td style="text-align:right;">
-11.222766
+7.013634
 </td>
 <td style="text-align:right;">
-8.825981
+8.628186
 </td>
 </tr>
 <tr>
@@ -2918,13 +2926,13 @@ Gene_g
 Gene_h
 </td>
 <td style="text-align:right;">
-8.870774
+9.917048
 </td>
 <td style="text-align:right;">
-10.668342
+9.015070
 </td>
 <td style="text-align:right;">
-9.908774
+9.388005
 </td>
 </tr>
 </tbody>
@@ -2933,8 +2941,8 @@ Gene_h
 <div id="data-from-text-file-with-read.table" class="section level2">
 <h2>Data from text file with read.table()</h2>
 <p>Tables from text files can be read with <strong>read.table()</strong> function</p>
-<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb305-1" data-line-number="1">Table &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;data/readThisTable.csv&quot;</span>,<span class="dt">sep=</span><span class="st">&quot;,&quot;</span>,<span class="dt">header=</span>T)</a>
-<a class="sourceLine" id="cb305-2" data-line-number="2">Table[<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb309-1" data-line-number="1">Table &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;data/readThisTable.csv&quot;</span>,<span class="dt">sep=</span><span class="st">&quot;,&quot;</span>,<span class="dt">header=</span>T)</a>
+<a class="sourceLine" id="cb309-2" data-line-number="2">Table[<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]</a></code></pre></div>
 <pre><code>##   Gene_Name Sample_1.hi Sample_2.hi
 ## 1    Gene_a    4.570237    3.230467
 ## 2    Gene_b    3.561733    3.632285
@@ -2946,8 +2954,8 @@ Gene_h
 <h2>Row names in read.table()</h2>
 <p>read.table() allows for significant control over reading files through its many arguments. Have a look at options by using <strong>?read.table</strong></p>
 <p>The <strong>row.names</strong> argument can be used to specify a column to use as row names for the resulting data frame. Here we use the first column as row names.</p>
-<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb307-1" data-line-number="1">Table &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;data/readThisTable.csv&quot;</span>,<span class="dt">sep=</span><span class="st">&quot;,&quot;</span>,<span class="dt">header=</span>T,<span class="dt">row.names=</span><span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb307-2" data-line-number="2">Table[<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb311-1" data-line-number="1">Table &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;data/readThisTable.csv&quot;</span>,<span class="dt">sep=</span><span class="st">&quot;,&quot;</span>,<span class="dt">header=</span>T,<span class="dt">row.names=</span><span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb311-2" data-line-number="2">Table[<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]</a></code></pre></div>
 <pre><code>##        Sample_1.hi Sample_2.hi Sample_3.hi
 ## Gene_a    4.570237    3.230467    3.351827
 ## Gene_b    3.561733    3.632285    3.587523
@@ -2958,43 +2966,43 @@ Gene_h
 <h2>Setting factors from read.table()</h2>
 <p>As mentioned, data which is read into R through read.table() will be of data frame class.</p>
 <p>Similar to when we create data frames, we can control whether the data is read in as a factor or not with the <strong>stringsAsFactors</strong> argument. The default of this has also changed in R 4.0, from <strong>TRUE</strong> to <strong>FALSE</strong>.</p>
-<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb309-1" data-line-number="1">Table &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;data/readThisTable.csv&quot;</span>, <span class="dt">sep=</span><span class="st">&quot;,&quot;</span>, <span class="dt">header=</span>T, <span class="dt">stringsAsFactors=</span>F)</a></code></pre></div>
+<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb313-1" data-line-number="1">Table &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;data/readThisTable.csv&quot;</span>, <span class="dt">sep=</span><span class="st">&quot;,&quot;</span>, <span class="dt">header=</span>T, <span class="dt">stringsAsFactors=</span>F)</a></code></pre></div>
 <p>Other very useful functions for read table include: - <strong>skip</strong> - To set number of lines to skip when reading. - <strong>comment.char</strong> - To set the start identifier for lines not to be read.</p>
 </div>
 <div id="data-from-other-sources" class="section level2">
 <h2>Data from other sources</h2>
 <p>The read.table function can also read data from http.</p>
-<div class="sourceCode" id="cb310"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb310-1" data-line-number="1">URL &lt;-<span class="st"> &quot;http://rockefelleruniversity.github.io/readThisTable.csv&quot;</span></a>
-<a class="sourceLine" id="cb310-2" data-line-number="2">Table &lt;-<span class="st"> </span><span class="kw">read.table</span>(URL,<span class="dt">sep=</span><span class="st">&quot;,&quot;</span>,<span class="dt">header=</span>T)</a>
-<a class="sourceLine" id="cb310-3" data-line-number="3">Table[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb314-1" data-line-number="1">URL &lt;-<span class="st"> &quot;http://rockefelleruniversity.github.io/readThisTable.csv&quot;</span></a>
+<a class="sourceLine" id="cb314-2" data-line-number="2">Table &lt;-<span class="st"> </span><span class="kw">read.table</span>(URL,<span class="dt">sep=</span><span class="st">&quot;,&quot;</span>,<span class="dt">header=</span>T)</a>
+<a class="sourceLine" id="cb314-3" data-line-number="3">Table[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]</a></code></pre></div>
 <pre><code>##   Gene_Name Sample_1.hi Sample_2.hi
 ## 1    Gene_a    4.111851    3.837018
 ## 2    Gene_b    6.047822    5.683518</code></pre>
 <p>And the clipboard (this is Windows version).</p>
-<div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb312-1" data-line-number="1">Table &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file=</span><span class="st">&quot;clipboard&quot;</span>,<span class="dt">sep=</span><span class="st">&quot;,&quot;</span>,<span class="dt">header=</span>T)</a></code></pre></div>
+<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb316-1" data-line-number="1">Table &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file=</span><span class="st">&quot;clipboard&quot;</span>,<span class="dt">sep=</span><span class="st">&quot;,&quot;</span>,<span class="dt">header=</span>T)</a></code></pre></div>
 </div>
 <div id="data-from-file-columns" class="section level2">
 <h2>Data from file columns</h2>
 <p>read.table() function will by default read every row and column of a file.</p>
 <p>The <strong>scan()</strong> function allows for the selection of particular columns to be read into R and so can save memory when files are large.</p>
-<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb313-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="kw">scan</span>(<span class="st">&quot;data/readThisTable.csv&quot;</span>,<span class="dt">sep=</span><span class="st">&quot;,&quot;</span>,</a>
-<a class="sourceLine" id="cb313-2" data-line-number="2"><span class="dt">what =</span> <span class="kw">c</span>(<span class="st">&quot;character&quot;</span>,<span class="kw">rep</span>(<span class="st">&quot;numeric&quot;</span>, <span class="dv">6</span>)),<span class="dt">skip=</span><span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb313-3" data-line-number="3">x[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb317-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="kw">scan</span>(<span class="st">&quot;data/readThisTable.csv&quot;</span>,<span class="dt">sep=</span><span class="st">&quot;,&quot;</span>,</a>
+<a class="sourceLine" id="cb317-2" data-line-number="2"><span class="dt">what =</span> <span class="kw">c</span>(<span class="st">&quot;character&quot;</span>,<span class="kw">rep</span>(<span class="st">&quot;numeric&quot;</span>, <span class="dv">6</span>)),<span class="dt">skip=</span><span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb317-3" data-line-number="3">x[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]</a></code></pre></div>
 <pre><code>## [1] &quot;Gene_a&quot;           &quot;4.57023720364456&quot; &quot;3.23046698308814&quot;</code></pre>
 </div>
 <div id="writing-data-to-file" class="section level2">
 <h2>Writing data to file</h2>
 <p>Once we have our data analysed in R, we will want to export it to a file.</p>
 <p>The most common method is to use the write.table() function</p>
-<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb315-1" data-line-number="1"><span class="kw">write.table</span>(Table, <span class="dt">file=</span><span class="st">&quot;data/writeThisTable.csv&quot;</span>, <span class="dt">sep=</span><span class="st">&quot;,&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb319-1" data-line-number="1"><span class="kw">write.table</span>(Table, <span class="dt">file=</span><span class="st">&quot;data/writeThisTable.csv&quot;</span>, <span class="dt">sep=</span><span class="st">&quot;,&quot;</span>)</a></code></pre></div>
 <p>Since our data has column names but no row names, I will provide the arguments col.names and row.names to write.table()</p>
-<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb316-1" data-line-number="1"><span class="kw">write.table</span>(Table, <span class="dt">file=</span><span class="st">&quot;data/writeThisTable.csv&quot;</span>, <span class="dt">sep=</span><span class="st">&quot;,&quot;</span>, <span class="dt">row.names =</span>F, <span class="dt">col.names=</span>T)</a></code></pre></div>
+<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb320-1" data-line-number="1"><span class="kw">write.table</span>(Table, <span class="dt">file=</span><span class="st">&quot;data/writeThisTable.csv&quot;</span>, <span class="dt">sep=</span><span class="st">&quot;,&quot;</span>, <span class="dt">row.names =</span>F, <span class="dt">col.names=</span>T)</a></code></pre></div>
 </div>
 </div>
 <div id="reviewing-your-data" class="section level1">
 <h1>Reviewing your data</h1>
 <p>It is always important to know what your data is. Especially when you are reading it in for the first time. We have used indexing to get a taste of the data frames so far. But there are two functions to quickly check your data. <strong>head()</strong> and <strong>tail()</strong> return the first or last 6 lines by default.</p>
-<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb317-1" data-line-number="1"><span class="kw">head</span>(Table)</a></code></pre></div>
+<div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb321-1" data-line-number="1"><span class="kw">head</span>(Table)</a></code></pre></div>
 <pre><code>##   Gene_Name Sample_1.hi Sample_2.hi Sample_3.hi Sample_4.low Sample_5.low
 ## 1    Gene_a    4.111851    3.837018    4.360628     3.752517     4.368069
 ## 2    Gene_b    6.047822    5.683518    4.315889     3.381136     3.630273
@@ -3012,7 +3020,7 @@ Gene_h
 </div>
 <div id="reviewing-your-data-1" class="section level1">
 <h1>Reviewing your data</h1>
-<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb319-1" data-line-number="1"><span class="kw">tail</span>(Table)</a></code></pre></div>
+<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb323-1" data-line-number="1"><span class="kw">tail</span>(Table)</a></code></pre></div>
 <pre><code>##   Gene_Name Sample_1.hi Sample_2.hi Sample_3.hi Sample_4.low Sample_5.low
 ## 3    Gene_c    2.597068    3.316300    3.681509     4.886520     4.318289
 ## 4    Gene_d    6.009197    5.927419    2.244701     6.574108     8.288831
@@ -3027,7 +3035,7 @@ Gene_h
 ## 6     3.587755
 ## 7     9.649869
 ## 8     8.742943</code></pre>
-<div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb321-1" data-line-number="1"><span class="kw">head</span>(Table,<span class="dv">3</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb325-1" data-line-number="1"><span class="kw">head</span>(Table,<span class="dv">3</span>)</a></code></pre></div>
 <pre><code>##   Gene_Name Sample_1.hi Sample_2.hi Sample_3.hi Sample_4.low Sample_5.low
 ## 1    Gene_a    4.111851    3.837018    4.360628     3.752517     4.368069
 ## 2    Gene_b    6.047822    5.683518    4.315889     3.381136     3.630273
@@ -3052,22 +3060,22 @@ Gene_h
 <p>To make use of the rio package functionality we will need to install this package to our version of R.</p>
 <p>We can do this by using the <strong>install.packages()</strong> function with the package we wish to install.</p>
 <p><strong>install.packages(<em>PACKAGENAME</em>)</strong></p>
-<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb323-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;rio&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb327-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;rio&quot;</span>)</a></code></pre></div>
 </div>
 <div id="the-rio-package-1" class="section level2">
 <h2>The rio package</h2>
 <p>Once we have installed a package, we will need to load it to make the functions available to us.</p>
 <p>We can load a library by using the <strong>library()</strong> function with package we wish to install</p>
 <p><strong>library(<em>PACKAGENAME</em>)</strong></p>
-<div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb324-1" data-line-number="1"><span class="kw">library</span>(<span class="st">&quot;rio&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb328-1" data-line-number="1"><span class="kw">library</span>(<span class="st">&quot;rio&quot;</span>)</a></code></pre></div>
 </div>
 <div id="the-rio-package-2" class="section level2">
 <h2>The rio package</h2>
 <p>The main two functions in the rio package are the <strong>import</strong> and <strong>export</strong> functions.</p>
 <p>We can use the <strong>import()</strong> function to read in our csv file. We simple specify our file as an argument to the <strong>import()</strong> function.</p>
 <p><strong>import(<em>Filename</em>)</strong></p>
-<div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb325-1" data-line-number="1">Table &lt;-<span class="st"> </span><span class="kw">import</span>(<span class="st">&quot;data/readThisTable.csv&quot;</span>)</a>
-<a class="sourceLine" id="cb325-2" data-line-number="2">Table[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>,]</a></code></pre></div>
+<div class="sourceCode" id="cb329"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb329-1" data-line-number="1">Table &lt;-<span class="st"> </span><span class="kw">import</span>(<span class="st">&quot;data/readThisTable.csv&quot;</span>)</a>
+<a class="sourceLine" id="cb329-2" data-line-number="2">Table[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>,]</a></code></pre></div>
 <pre><code>##   Gene_Name Sample_1.hi Sample_2.hi Sample_3.hi Sample_4.low Sample_5.low
 ## 1    Gene_a    4.570237    3.230467    3.351827     3.930877     4.098247
 ## 2    Gene_b    3.561733    3.632285    3.587523     4.185287     1.380976
@@ -3079,11 +3087,11 @@ Gene_h
 <h2>The rio package</h2>
 <p>By default we will only retrieve the first sheet.</p>
 <p>We can specify the sheet by name or number using the <strong>which</strong> argument.</p>
-<div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb327-1" data-line-number="1">Table &lt;-<span class="st"> </span><span class="kw">import</span>(<span class="st">&quot;data/readThisXLS.xls&quot;</span>, </a>
-<a class="sourceLine" id="cb327-2" data-line-number="2">                <span class="dt">which=</span><span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb327-3" data-line-number="3">Table &lt;-<span class="st"> </span><span class="kw">import</span>(<span class="st">&quot;data/readThisXLS.xls&quot;</span>, </a>
-<a class="sourceLine" id="cb327-4" data-line-number="4">                <span class="dt">which=</span><span class="st">&quot;Metadata&quot;</span>)</a>
-<a class="sourceLine" id="cb327-5" data-line-number="5">Table[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>,]</a></code></pre></div>
+<div class="sourceCode" id="cb331"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb331-1" data-line-number="1">Table &lt;-<span class="st"> </span><span class="kw">import</span>(<span class="st">&quot;data/readThisXLS.xls&quot;</span>, </a>
+<a class="sourceLine" id="cb331-2" data-line-number="2">                <span class="dt">which=</span><span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb331-3" data-line-number="3">Table &lt;-<span class="st"> </span><span class="kw">import</span>(<span class="st">&quot;data/readThisXLS.xls&quot;</span>, </a>
+<a class="sourceLine" id="cb331-4" data-line-number="4">                <span class="dt">which=</span><span class="st">&quot;Metadata&quot;</span>)</a>
+<a class="sourceLine" id="cb331-5" data-line-number="5">Table[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>,]</a></code></pre></div>
 <pre><code>##       Patient Condition   Treatment
 ## 1 Sample_1.hi         A           X
 ## 2 Sample_2.hi         A NoTreatment</code></pre>
@@ -3092,22 +3100,22 @@ Gene_h
 <h2>The rio package</h2>
 <p>If we want to import all sheets, we can use the <strong>import_list</strong>.</p>
 <p>This returns a <em>list</em> containing our two spreadsheets. The list has two elements named after the corresponding XLS sheet.</p>
-<div class="sourceCode" id="cb329"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb329-1" data-line-number="1">Table &lt;-<span class="st"> </span><span class="kw">import_list</span>(<span class="st">&quot;data/readThisXLS.xls&quot;</span>)</a>
-<a class="sourceLine" id="cb329-2" data-line-number="2"><span class="kw">names</span>(Table)</a></code></pre></div>
+<div class="sourceCode" id="cb333"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb333-1" data-line-number="1">Table &lt;-<span class="st"> </span><span class="kw">import_list</span>(<span class="st">&quot;data/readThisXLS.xls&quot;</span>)</a>
+<a class="sourceLine" id="cb333-2" data-line-number="2"><span class="kw">names</span>(Table)</a></code></pre></div>
 <pre><code>## [1] &quot;ExpressionScores&quot; &quot;Metadata&quot;</code></pre>
 </div>
 <div id="the-rio-package-5" class="section level2">
 <h2>The rio package</h2>
 <p>Since this is a list of data.frames, we can access our sheets using standard list accessors, <strong>$</strong> and <strong>[[]]</strong>.</p>
-<div class="sourceCode" id="cb331"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb331-1" data-line-number="1"><span class="co">## Table[[&quot;ExpressionScores&quot;]][1:2,]</span></a>
-<a class="sourceLine" id="cb331-2" data-line-number="2">Table<span class="op">$</span>ExpressionScores[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>,]</a></code></pre></div>
+<div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb335-1" data-line-number="1"><span class="co">## Table[[&quot;ExpressionScores&quot;]][1:2,]</span></a>
+<a class="sourceLine" id="cb335-2" data-line-number="2">Table<span class="op">$</span>ExpressionScores[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>,]</a></code></pre></div>
 <pre><code>##   Gene_Name Sample_1.hi Sample_2.hi Sample_3.hi Sample_4.low Sample_5.low
 ## 1    Gene_a    4.570237    3.230467    3.351827     3.930877     4.098247
 ## 2    Gene_b    3.561733    3.632285    3.587523     4.185287     1.380976
 ##   Sample_1.low
 ## 1     4.418726
 ## 2     5.936990</code></pre>
-<div class="sourceCode" id="cb333"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb333-1" data-line-number="1">Table<span class="op">$</span>Metadata[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>,]</a></code></pre></div>
+<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb337-1" data-line-number="1">Table<span class="op">$</span>Metadata[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>,]</a></code></pre></div>
 <pre><code>##       Patient Condition   Treatment
 ## 1 Sample_1.hi         A           X
 ## 2 Sample_2.hi         A NoTreatment</code></pre>
@@ -3115,14 +3123,14 @@ Gene_h
 <div id="the-rio-package-6" class="section level2">
 <h2>The rio package</h2>
 <p>We can export our data back to file using the <strong>export()</strong> function and specifying the name of the output file to the <strong>file</strong> argument. The <strong>export()</strong> function will guess the format required from the extension.</p>
-<div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb335-1" data-line-number="1">ExpressionScores &lt;-<span class="st"> </span>Table<span class="op">$</span>ExpressionScores</a>
-<a class="sourceLine" id="cb335-2" data-line-number="2"><span class="kw">export</span>(ExpressionScores,<span class="dt">file =</span> <span class="st">&quot;data/writeThisXLSX.xlsx&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb339-1" data-line-number="1">ExpressionScores &lt;-<span class="st"> </span>Table<span class="op">$</span>ExpressionScores</a>
+<a class="sourceLine" id="cb339-2" data-line-number="2"><span class="kw">export</span>(ExpressionScores,<span class="dt">file =</span> <span class="st">&quot;data/writeThisXLSX.xlsx&quot;</span>)</a></code></pre></div>
 </div>
 <div id="the-rio-package-7" class="section level2">
 <h2>The rio package</h2>
 <p>We can export a list of data.frames to Excel’s xlsx format using the <strong>export()</strong> function. The names of list elements will be used to name sheets in xlsx file.</p>
-<div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb336-1" data-line-number="1"><span class="kw">names</span>(Table) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;expr&quot;</span>,<span class="st">&quot;meta&quot;</span>)</a>
-<a class="sourceLine" id="cb336-2" data-line-number="2"><span class="kw">export</span>(Table,<span class="dt">file =</span> <span class="st">&quot;data/writeThisMultipleXLSX.xlsx&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb340-1" data-line-number="1"><span class="kw">names</span>(Table) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;expr&quot;</span>,<span class="st">&quot;meta&quot;</span>)</a>
+<a class="sourceLine" id="cb340-2" data-line-number="2"><span class="kw">export</span>(Table,<span class="dt">file =</span> <span class="st">&quot;data/writeThisMultipleXLSX.xlsx&quot;</span>)</a></code></pre></div>
 </div>
 <div id="time-for-an-exercise-3" class="section level2">
 <h2>Time for an exercise!</h2>

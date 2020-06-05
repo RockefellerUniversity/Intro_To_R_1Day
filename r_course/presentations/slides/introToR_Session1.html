@@ -2426,14 +2426,35 @@ listAsMat
 ---
 class: inverse, center, middle
 
-# Coercing data formats
+# Coercing data classes
 
 &lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px width=720px&gt;&lt;/html&gt; 
 
 ---
 
-## Coercing data formats
-Sometime you do not want to have to remake an object if it is in an undesired format. There are a group of functions to coerce your data object to a new format, **as._desiredformat_()**.
+## Identifying an objects class
+
+We can use the class() function to tell us the class of our variable or object.
+
+
+```r
+class(namedMatrix)
+```
+
+```
+## [1] "matrix" "array"
+```
+
+```r
+class(dfExample)
+```
+
+```
+## [1] "data.frame"
+```
+
+## Coercing data class
+Sometime you may want to cast an object into a new class There are a group of functions to coerce your data object to a new format, **as._desiredClass_()**.
 
 
 ```r
@@ -2463,7 +2484,7 @@ as.vector(namedMatrix)
 ```
 
 ---
-## Coercing data formats
+## Coercing data class
 
 ```r
 as.data.frame(namedMatrix)
@@ -2538,51 +2559,51 @@ A standard format for this data is a table:
 &lt;tbody&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_a &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 2.778205 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.075304 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 2.647104 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5.322757 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.812610 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.669143 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_b &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.246111 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.716057 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.434631 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.155499 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.314487 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.741420 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_c &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.731099 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.495032 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.846325 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 6.341146 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.410443 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.256257 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_d &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.847809 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 2.905747 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.668157 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.517595 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.406714 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.682469 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_e &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.919781 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 11.233401 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.665353 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8.704605 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8.972818 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.530624 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_f &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.076710 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 11.472927 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.218900 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.441235 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.497393 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8.933960 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_g &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.859169 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 11.586930 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.122876 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.281310 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.961482 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8.879450 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_h &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.536564 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 8.912303 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.424903 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.435685 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.366701 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.342403 &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
