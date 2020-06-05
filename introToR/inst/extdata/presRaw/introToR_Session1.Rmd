@@ -1541,7 +1541,7 @@ listAsMat
 if(params$isSlides == "yes"){
   cat("class: inverse, center, middle
 
-# Coercing data formats
+# Coercing data classes
 
 <html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
 
@@ -1559,8 +1559,17 @@ if(params$isSlides == "yes"){
 
 ```
 
-## Coercing data formats
-Sometime you do not want to have to remake an object if it is in an undesired format. There are a group of functions to coerce your data object to a new format, **as._desiredformat_()**.
+## Identifying an objects class
+
+We can use the class() function to tell us the class of our variable or object.
+
+```{r}
+class(namedMatrix)
+class(dfExample)
+```
+
+## Coercing data class
+Sometime you may want to cast an object into a new class There are a group of functions to coerce your data object to a new format, **as._desiredClass_()**.
 
 ```{r}
 namedMatrix
@@ -1571,7 +1580,7 @@ as.vector(namedMatrix)
 ```
 
 ---
-## Coercing data formats
+## Coercing data class
 ```{r}
 as.data.frame(namedMatrix)
 

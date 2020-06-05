@@ -635,6 +635,20 @@ sapply(exampleList, summary)
 ```
 
 ---
+## Time for an exercise!
+
+
+Exercise on loops and conditional branching can be found [here](../..//exercises/exercises/conditionsAndLoops_exercise.html)
+
+---
+## Answers to exercise.
+
+
+Answers can be found here  [here](../..//exercises/answers/conditionsAndLoops_answers.html)
+
+Rcode for answers can be found here  [here](../..//exercises/answers//answers/conditionsAndLoops_Answers.R)
+
+---
 
 ```{r, results='asis',include=TRUE,echo=FALSE}
 if(params$isSlides == "yes"){
@@ -702,19 +716,6 @@ sapply(A, my_zscore, my_vector=A)
 
 ```
 
----
-## Time for an exercise!
-
-
-Exercise on loops and conditional branching can be found [here](../..//exercises/exercises/conditionsAndLoops_exercise.html)
-
----
-## Answers to exercise.
-
-
-Answers can be found here  [here](../..//exercises/answers/conditionsAndLoops_answers.html)
-
-Rcode for answers can be found here  [here](../..//exercises/answers//answers/conditionsAndLoops_Answers.R)
 
 ---
 ```{r, results='asis',include=TRUE,echo=FALSE}
