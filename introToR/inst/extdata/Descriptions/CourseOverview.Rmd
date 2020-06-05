@@ -1,9 +1,19 @@
 ## Course Overview
+<br>
 
+### Course Integrity
+**This course is compiled automatically on _`r Sys.Date()`_ **
 <br>
 [<img src="https://github.com/RockefellerUniversity/Intro_To_R_1Day/workflows/R-CMD-check-bioc/badge.svg">](https://github.com/RockefellerUniversity/Intro_To_R_1Day/actions?query=workflow%3AR-CMD-check-bioc)
 
+**The course is tested and available on MacOS, Windows and Ubuntu Linux for R 4.0**
+<br>
+[<img src="https://github.com/RockefellerUniversity/Intro_To_R_1Day/workflows/R-CMD-check/badge.svg">](https://github.com/RockefellerUniversity/Intro_To_R_1Day/actions?query=workflow%3AR-CMD-check)
 
+<br>
+<br>
+
+### Overview
 This course introduces R and statistical programming.
 
 The course consists of 2 sections, 1 on basic R data types and data input/output and a second on conditionals and looping.
