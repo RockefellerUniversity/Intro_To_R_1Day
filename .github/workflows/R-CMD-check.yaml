@@ -75,7 +75,9 @@ jobs:
 
       - name: Install package
         if: github.ref == 'refs/heads/master' 
-        run: R CMD INSTALL ./introToR/
+        run: |
+          devtools::install("introToR/",dependencies = TRUE,quick = TRUE)
+        shell: Rscript {0}
 
       - name: CompileCourse
         run: |
