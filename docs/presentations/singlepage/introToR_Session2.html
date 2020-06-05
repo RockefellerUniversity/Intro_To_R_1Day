@@ -2126,25 +2126,25 @@ div.tocify {
 <a class="sourceLine" id="cb125-10" data-line-number="10">A &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">20</span>)</a>
 <a class="sourceLine" id="cb125-11" data-line-number="11"></a>
 <a class="sourceLine" id="cb125-12" data-line-number="12"><span class="kw">my_zscore</span>(<span class="dt">my_number=</span>A[<span class="dv">1</span>], <span class="dt">my_vector=</span>A)</a></code></pre></div>
-<pre><code>## Mean is -0.159775733903242</code></pre>
-<pre><code>## [1] -1.056298</code></pre>
+<pre><code>## Mean is -0.17208082357154</code></pre>
+<pre><code>## [1] 0.3587549</code></pre>
 </div>
 <div id="custom-functions-and-apply" class="section level2">
 <h2>Custom functions and apply</h2>
 <p>These custom functions can also be utilized with apply.</p>
 <div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb128-1" data-line-number="1"><span class="kw">sapply</span>(A, my_zscore, <span class="dt">my_vector=</span>A)</a></code></pre></div>
-<pre><code>##  [1] -1.056298413  2.363717486 -1.129639943 -0.940084679 -0.291254068
-##  [6]  1.023759648  0.498789305 -1.541398282  0.367522172 -0.314478337
-## [11] -0.440417070  1.662431898  0.366552041  0.084142715 -0.009252489
-## [16]  0.560011190 -0.644300822  0.972787578 -1.080146548 -0.452443382</code></pre>
+<pre><code>##  [1]  0.358754885  1.359392444  0.724401132 -0.862842233  0.641770707
+##  [6] -2.316958084  1.502279470  0.507950786 -0.198466753 -0.077588829
+## [11] -0.616882934 -0.869116174 -1.218189579 -0.064742815 -0.227204093
+## [16] -0.580775340  2.071942405 -0.289790300  0.154038280  0.002027027</code></pre>
 </div>
 <div id="time-for-an-exercise" class="section level2">
 <h2>Time for an exercise!</h2>
-<p>Exercise on loops and conditional branching can be found <a href="http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/exercises//conditionsAndLoops_Exercises.html">here</a></p>
+<p>Exercise on loops and conditional branching can be found <a href="http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/exercises/exercises/conditionsAndLoops_exercise.html">here</a></p>
 </div>
 <div id="answers-to-exercise." class="section level2">
 <h2>Answers to exercise.</h2>
-<p>Answers can be found here <a href="http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/answers/conditionsAndLoops_Answers.html">here</a></p>
+<p>Answers can be found here <a href="http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/exercises/answers/conditionsAndLoops_answers.html">here</a></p>
 <p>Rcode for answers can be found here <a href="http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/answers/conditionsAndLoops_Answers.R">here</a></p>
 </div>
 </div>
@@ -2187,7 +2187,7 @@ dayOfWeek &lt;- function(){
 }</code></pre>
 <div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb134-1" data-line-number="1"><span class="kw">source</span>(<span class="st">&quot;scripts/dayOfWeek.r&quot;</span>)</a>
 <a class="sourceLine" id="cb134-2" data-line-number="2"><span class="kw">dayOfWeek</span>()</a></code></pre></div>
-<pre><code>## [1] &quot;Thu&quot;</code></pre>
+<pre><code>## [1] &quot;Fri&quot;</code></pre>
 </div>
 <div id="rscript" class="section level2">
 <h2>Rscript</h2>
