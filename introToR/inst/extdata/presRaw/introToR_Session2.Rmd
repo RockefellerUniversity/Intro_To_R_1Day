@@ -706,13 +706,13 @@ sapply(A, my_zscore, my_vector=A)
 ## Time for an exercise!
 
 
-Exercise on loops and conditional branching can be found [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/exercises//conditionsAndLoops_Exercises.html)
+Exercise on loops and conditional branching can be found [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/exercises/exercises/conditionsAndLoops_exercise.html)
 
 ---
 ## Answers to exercise.
 
 
-Answers can be found here  [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/answers/conditionsAndLoops_Answers.html)
+Answers can be found here  [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/exercises/answers/conditionsAndLoops_answers.html)
 
 Rcode for answers can be found here  [here](http://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/answers/conditionsAndLoops_Answers.R)
 
