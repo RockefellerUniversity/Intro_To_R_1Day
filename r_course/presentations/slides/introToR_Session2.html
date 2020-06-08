@@ -1042,18 +1042,293 @@ class: inverse, center, middle
 
 ---
 
+
 ## Custom functions
-You can create your own functions easily in R using the **&lt;-** assignment. We use the **function** statement with all input variables in **()** and all code to be executed in **{}**. Anything to be received back from the function is indicated by the **return** statement.  
+You can create your own functions easily in R using the **&lt;-** assignment and **function** statement.  
+We put all our input arguments in **()** and all code to be executed in **{}**.  
+Anything to be received back from the function is indicated by the **return** statement.  
 
 In this case we can recapitulate the square function. 
 
 ```r
-square_my_number  &lt;- function(my_number){
-  my_square &lt;- my_number*my_number
-  return(my_square)
+myFirstFunction  &lt;- function(MYARGUMENT){
+  ...................
+  ..CODE_TO_EXECUTE..
+  ...................
+  return(MYRESULT)
 }
 
-square_my_number(my_number=3)
+myFirstFunction(MYARGUMENT=MY_USER_SUPPLIED_ARGUMENT)
+```
+
+---
+## Functions - First example
+
+First lets create a function that can sum two numbers. We can call the function **myFirstFunction** and set our arguments as **num1** and **num2**.
+
+
+
+```r
+myFirstFunction  &lt;- function(num1,num2){
+  sumNum &lt;- num1+num2
+  return(sumNum)
+}
+
+myResult &lt;- myFirstFunction(num1=2,num2=3)
+
+myResult
+```
+
+```
+## [1] 5
+```
+
+---
+## Functions - Returning from function.
+
+We can only **return** 1 object at a time from function. Here we create the multiple of our numbers and try and return alongside our sum.
+
+
+
+```r
+myFirstFunction  &lt;- function(num1,num2){
+  sumNum &lt;- num1+num2
+  multipleNum &lt;- num1*num2
+  return(sumNum,multipleNum)
+}
+
+myResult &lt;- myFirstFunction(num1=2,num2=3)
+```
+
+```
+## Error in return(sumNum, multipleNum): multi-argument returns are not permitted
+```
+
+---
+## Functions - Returning multiple values
+
+A simple solution is to pass back an object that contains both results. Here we create a named vector to return our multiple and sum.
+
+
+
+```r
+myFirstFunction  &lt;- function(num1,num2){
+  sumNum &lt;- num1+num2
+  multipleNum &lt;- num1*num2
+  VectorOfResults &lt;- c(sumNum,multipleNum)
+  names(VectorOfResults) &lt;- c("multiple","sum")
+  return(VectorOfResults)
+}
+
+myResult &lt;- myFirstFunction(num1=2,num2=3)
+myResult
+```
+
+```
+## multiple      sum 
+##        5        6
+```
+
+---
+## Functions - Returning values in a list.
+
+Lists are very useful here as they can contain different object classes in their elements and so we can return mixed data types from our functions using this. Below we return a list with elements of the input arguments as a vector and the result as a data.frame.
+
+
+
+```r
+myFirstFunction  &lt;- function(num1,num2){
+  sumNum &lt;- num1+num2
+  multipleNum &lt;- num1*num2
+  InputNumbers &lt;- c(FirstNum=num1,SecondNum=num2)
+  DF &lt;- data.frame(Sum=sumNum,Multiple=multipleNum)
+  listToReturn &lt;- list(Input=InputNumbers,Result=DF)
+  return(listToReturn)
+}
+
+myResult &lt;- myFirstFunction(num1=2,num2=3)
+myResult
+```
+
+```
+## $Input
+##  FirstNum SecondNum 
+##         2         3 
+## 
+## $Result
+##   Sum Multiple
+## 1   5        6
+```
+
+---
+## Functions - Evaluate until return.
+
+In a function containing a **return** statement, the code up until the return statement is evaluated and anything after the return statement is not evaluated.
+
+
+
+```r
+myFirstFunction  &lt;- function(num1,num2){
+  sumNum &lt;- num1+num2
+  multipleNum &lt;- num1*num2
+  InputNumbers &lt;- c(FirstNum=num1,SecondNum=num2)
+  DF &lt;- data.frame(Sum=sumNum,Multiple=multipleNum)
+  listToReturn &lt;- list(Input=InputNumbers,Result=DF)
+  message("Before return")
+  return(listToReturn)
+  message("After return")
+}
+
+myResult &lt;- myFirstFunction(num1=2,num2=3)
+```
+
+```
+## Before return
+```
+
+```r
+myResult
+```
+
+```
+## $Input
+##  FirstNum SecondNum 
+##         2         3 
+## 
+## $Result
+##   Sum Multiple
+## 1   5        6
+```
+
+---
+## Functions - No return statement.
+
+If a function does not contain a return statement, the result of the last line in function is returned.
+
+
+
+```r
+myFirstFunction  &lt;- function(num1,num2){
+  sumNum &lt;- num1+num2
+  multipleNum &lt;- num1*num2
+  InputNumbers &lt;- c(FirstNum=num1,SecondNum=num2)
+  DF &lt;- data.frame(Sum=sumNum,Multiple=multipleNum)
+  listToReturn &lt;- list(Input=InputNumbers,Result=DF)
+  listToReturn
+}
+
+myResult &lt;- myFirstFunction(num1=2,num2=3)
+myResult
+```
+
+```
+## $Input
+##  FirstNum SecondNum 
+##         2         3 
+## 
+## $Result
+##   Sum Multiple
+## 1   5        6
+```
+
+---
+## Functions - Variable scope.
+
+Variables defined in the arguments or within the function exist only within the environment of the function.
+
+
+```r
+myFirstFunction  &lt;- function(num1,num2){
+  sumNum &lt;- num1+num2
+  return(sumNum)
+}
+myResult &lt;- myFirstFunction(num1=2,num2=3)
+myResult
+```
+
+```
+## [1] 5
+```
+
+```r
+sumNum
+```
+
+```
+## Error in eval(expr, envir, enclos): object 'sumNum' not found
+```
+
+---
+## Functions - Variable scope.
+
+Variables defined in the global environment outside the function are available within the function.
+
+
+```r
+my3rdNumber &lt;- 4
+myFirstFunction  &lt;- function(num1,num2){
+  sumNum &lt;- num1+num2+my3rdNumber
+  return(sumNum)
+}
+myResult &lt;- myFirstFunction(num1=2,num2=3)
+myResult
+```
+
+```
+## [1] 9
+```
+
+
+---
+## Functions - Variable scope.
+
+Changes to variables defined in the global environment from within the function will not be reflected in the global environment.
+
+
+```r
+my3rdNumber &lt;- 4
+myFirstFunction  &lt;- function(num1,num2){
+  my3rdNumber &lt;- num1+num2+my3rdNumber
+  return(my3rdNumber)
+}
+myResult &lt;- myFirstFunction(num1=2,num2=3)
+myResult
+```
+
+```
+## [1] 9
+```
+
+```r
+my3rdNumber
+```
+
+```
+## [1] 4
+```
+
+---
+## Functions - Variable scope.
+
+We can use a **&lt;&lt;-** to assign to the environment outside the function although we will rarely do this
+
+
+```r
+my3rdNumber &lt;- 4
+myFirstFunction  &lt;- function(num1,num2){
+  my3rdNumber &lt;&lt;- num1+num2+my3rdNumber
+  return(my3rdNumber)
+}
+myResult &lt;- myFirstFunction(num1=2,num2=3)
+myResult
+```
+
+```
+## [1] 9
+```
+
+```r
+my3rdNumber
 ```
 
 ```
@@ -1061,7 +1336,34 @@ square_my_number(my_number=3)
 ```
 
 ---
-## Custom functions
+## Functions - Argument defaults
+
+Functions can have defaults for their arguments which will be used when arguments are not specified.
+
+
+```r
+myFirstFunction  &lt;- function(num1=1,num2=3){
+  my3rdNumber &lt;- num1+num2+my3rdNumber
+  return(my3rdNumber)
+}
+myFirstFunction()
+```
+
+```
+## [1] 13
+```
+
+```r
+myFirstFunction(3,4)
+```
+
+```
+## [1] 16
+```
+
+
+---
+## Custom functions - Example
 User defined functions can be as long and complicated as you want, taking in many variables, printing out messages and utilizing other functions within them.
 
 Lets make z-scores:
@@ -1082,11 +1384,22 @@ my_zscore(my_number=A[1], my_vector=A)
 ```
 
 ```
-## Mean is 0.159060536996745
+## Mean is -0.0240153211878668
 ```
 
 ```
-## [1] -0.6657115
+## [1] -0.9339654
+```
+
+---
+## Functions - Debug functions
+
+In Rstudio, if we want to see what may be happening within our function we can use **debug** function with our function of interest's name. We can stop debugging with the **undebug** function.
+
+
+```r
+debug(myFirstFunction)
+undebug(myFirstFunction)
 ```
 
 ---
@@ -1100,10 +1413,10 @@ sapply(A, my_zscore, my_vector=A)
 ```
 
 ```
-##  [1] -0.66571153  0.26258170 -0.49011489 -0.94449466  0.56717771 -2.76577117
-##  [7] -0.05812531  0.02816680  0.01972807 -0.04457998 -0.97237025  1.64016745
-## [13]  0.55141151 -0.98428799  1.59683879  0.09679745  0.31085274  0.08273257
-## [19]  0.53671023  1.23229076
+##  [1] -0.93396540  0.03942568 -1.09568522  1.71695713  0.76506144  1.03455580
+##  [7] -0.22257765 -0.19337797 -0.84149732  0.06947916 -0.66059833  0.24655730
+## [13] -1.69348447 -1.07991400  1.67283447  0.57039938  0.60005620 -0.05123226
+## [19] -1.29491085  1.35191689
 ```
 
 
@@ -1198,7 +1511,7 @@ dayOfWeek()
 ```
 
 ```
-## [1] "Fri"
+## [1] "Mon"
 ```
 
 ---
@@ -1250,6 +1563,21 @@ Since vectors can only be one type, all command line arguments are strings and m
 - Local friendly bioinformaticians and computational biologists.
 - [Stackoverflow](http://stackoverflow.com/)
 - [R-help](https://stat.ethz.ch/mailman/listinfo/r-help)
+
+
+---
+## Time for an exercise!
+
+
+Exercise on functions can be found [here](../..//exercises/exercises/Functions_exercise.html)
+
+---
+## Answers to exercise.
+
+
+Answers can be found here  [here](../..//exercises/answers/Functions_answers.html)
+
+Rcode for answers can be found here  [here](../..//exercises/answers//answers/Functions_Answers.R)
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

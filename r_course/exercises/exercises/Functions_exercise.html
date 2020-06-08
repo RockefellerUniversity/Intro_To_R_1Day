@@ -345,31 +345,29 @@ summary {
  
 </p>
 <p>These exercises are about the functions sections of <a href="https://rockefelleruniversity.github.io/Intro_To_R_1Day/">Introduction to R</a>.</p>
+<p>– Create a function which takes one number and returns the square of that number</p>
+<pre><code>## [1] 9</code></pre>
+<p>– Create a function which takes two numbers and returns the mean</p>
+<pre><code>## [1] 2</code></pre>
+<ul>
+<li>Create a function which takes two vectors and returns the mean</li>
+</ul>
+<pre><code>## [1] 2</code></pre>
+<ul>
+<li>Create a function which takes two numbers and returns the two numbers as a vector and the mean, summary and multiple as a data.frame.</li>
+</ul>
+<pre><code>## [[1]]
+## [1] 1 3
+## 
+## [[2]]
+##   mean sum multiple
+## 1    2   4        3</code></pre>
 <p>– Create a function which takes one argument and finds the smallest number whose factorial is greater than that argument.</p>
 <pre><code>## [1] 7</code></pre>
 <pre><code>## [1] 70</code></pre>
-<p>– Create a function which takes a vector argument and returns both the number of even perfect squares and a vector of perfect squares.</p>
-<pre><code>## $vectorOfSquares
-##  [1]   1   4   9  16  25  36  49  64  81 100
-## 
-## $nOfEvenSquares
-## [1] 5</code></pre>
-<pre><code>## $vectorOfSquares
-##  [1]   1   4   9  16  25  36  49  64  81 100
-## 
-## $nOfEvenSquares
-## 
-## FALSE  TRUE 
-##    95     5</code></pre>
-<p>– Create a function which takes an argument of the directory containing expression files and the name of the annotation file and writes a the table with all samples’ expression results and all annotation to file.</p>
-<pre><code>## [1] &quot;ExpressionResults_Summarised.csv&quot;</code></pre>
-<p>– Adapt the above function to also write a t-test result table filtered by the p-value cut-off. An additional argument specifying the allocation a samples into groups must be specified.</p>
-<p>To retrieve the indicies of the <strong>first</strong> occurence of every element in one vector in a second vector you can use the <strong>match()</strong> function.</p>
-<pre><code>## [1] 1 5</code></pre>
-<pre><code>## [1] &quot;sample1.txt&quot; &quot;sample5.txt&quot;</code></pre>
-<p>To find <strong>all</strong> occurences of vector in another you can use the <strong>%in%</strong> operator</p>
-<pre><code>## [1]  TRUE FALSE FALSE FALSE  TRUE</code></pre>
-<pre><code>## [1] &quot;sample1.txt&quot; &quot;sample5.txt&quot;</code></pre>
+<p>– Add a if and else statement in your function to only calculate factorial code if argument is a numeric.</p>
+<pre><code>## [1] 7</code></pre>
+<pre><code>## Please provide a numeric argument!</code></pre>
 
 
 

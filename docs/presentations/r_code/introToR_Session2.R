@@ -373,14 +373,146 @@ if(params$isSlides == "yes"){
 }
 
 
-## ----makingfunctions----------------------------------------------------------
-square_my_number  <- function(my_number){
-  my_square <- my_number*my_number
-  return(my_square)
+## ----makingfunctions,eval=FALSE-----------------------------------------------
+## myFirstFunction  <- function(MYARGUMENT){
+##   ...................
+##   ..CODE_TO_EXECUTE..
+##   ...................
+##   return(MYRESULT)
+## }
+## 
+## myFirstFunction(MYARGUMENT=MY_USER_SUPPLIED_ARGUMENT)
+## 
+
+
+## ----makingfunctionsb---------------------------------------------------------
+myFirstFunction  <- function(num1,num2){
+  sumNum <- num1+num2
+  return(sumNum)
 }
 
-square_my_number(my_number=3)
+myResult <- myFirstFunction(num1=2,num2=3)
 
+myResult
+
+
+## ----makingfunctionsc,error=TRUE----------------------------------------------
+myFirstFunction  <- function(num1,num2){
+  sumNum <- num1+num2
+  multipleNum <- num1*num2
+  return(sumNum,multipleNum)
+}
+
+myResult <- myFirstFunction(num1=2,num2=3)
+
+
+
+## ----makingfunctionsd,error=FALSE---------------------------------------------
+myFirstFunction  <- function(num1,num2){
+  sumNum <- num1+num2
+  multipleNum <- num1*num2
+  VectorOfResults <- c(sumNum,multipleNum)
+  names(VectorOfResults) <- c("multiple","sum")
+  return(VectorOfResults)
+}
+
+myResult <- myFirstFunction(num1=2,num2=3)
+myResult
+
+
+## ----makingfunctionse,error=FALSE---------------------------------------------
+myFirstFunction  <- function(num1,num2){
+  sumNum <- num1+num2
+  multipleNum <- num1*num2
+  InputNumbers <- c(FirstNum=num1,SecondNum=num2)
+  DF <- data.frame(Sum=sumNum,Multiple=multipleNum)
+  listToReturn <- list(Input=InputNumbers,Result=DF)
+  return(listToReturn)
+}
+
+myResult <- myFirstFunction(num1=2,num2=3)
+myResult
+
+
+## ----makingfunctionsf,error=FALSE---------------------------------------------
+myFirstFunction  <- function(num1,num2){
+  sumNum <- num1+num2
+  multipleNum <- num1*num2
+  InputNumbers <- c(FirstNum=num1,SecondNum=num2)
+  DF <- data.frame(Sum=sumNum,Multiple=multipleNum)
+  listToReturn <- list(Input=InputNumbers,Result=DF)
+  message("Before return")
+  return(listToReturn)
+  message("After return")
+}
+
+myResult <- myFirstFunction(num1=2,num2=3)
+myResult
+
+
+## ----makingfunctionsg,error=FALSE---------------------------------------------
+myFirstFunction  <- function(num1,num2){
+  sumNum <- num1+num2
+  multipleNum <- num1*num2
+  InputNumbers <- c(FirstNum=num1,SecondNum=num2)
+  DF <- data.frame(Sum=sumNum,Multiple=multipleNum)
+  listToReturn <- list(Input=InputNumbers,Result=DF)
+  listToReturn
+}
+
+myResult <- myFirstFunction(num1=2,num2=3)
+myResult
+
+
+## ----makingfunctionsh,error=TRUE----------------------------------------------
+myFirstFunction  <- function(num1,num2){
+  sumNum <- num1+num2
+  return(sumNum)
+}
+myResult <- myFirstFunction(num1=2,num2=3)
+myResult
+sumNum
+
+
+## ----makingfunctionsi,error=FALSE---------------------------------------------
+my3rdNumber <- 4
+myFirstFunction  <- function(num1,num2){
+  sumNum <- num1+num2+my3rdNumber
+  return(sumNum)
+}
+myResult <- myFirstFunction(num1=2,num2=3)
+myResult
+
+
+## ----makingfunctionsj,error=FALSE---------------------------------------------
+my3rdNumber <- 4
+myFirstFunction  <- function(num1,num2){
+  my3rdNumber <- num1+num2+my3rdNumber
+  return(my3rdNumber)
+}
+myResult <- myFirstFunction(num1=2,num2=3)
+myResult
+my3rdNumber
+
+
+## ----makingfunctionsk,error=FALSE---------------------------------------------
+my3rdNumber <- 4
+myFirstFunction  <- function(num1,num2){
+  my3rdNumber <<- num1+num2+my3rdNumber
+  return(my3rdNumber)
+}
+myResult <- myFirstFunction(num1=2,num2=3)
+myResult
+my3rdNumber
+
+
+## ----makingfunctionsl,error=FALSE---------------------------------------------
+myFirstFunction  <- function(num1=1,num2=3){
+  my3rdNumber <- num1+num2+my3rdNumber
+  return(my3rdNumber)
+}
+myFirstFunction()
+myFirstFunction(3,4)
 
 
 ## ----makingfunctions_zscores--------------------------------------------------
@@ -397,6 +529,11 @@ A <- rnorm(20)
 
 my_zscore(my_number=A[1], my_vector=A)
 
+
+
+## ----makingfunctionsO,error=FALSE,eval=FALSE----------------------------------
+## debug(myFirstFunction)
+## undebug(myFirstFunction)
 
 
 ## ---- message=F---------------------------------------------------------------
