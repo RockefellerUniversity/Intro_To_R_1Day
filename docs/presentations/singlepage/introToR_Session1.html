@@ -1588,6 +1588,7 @@ div.tocify {
 
 <div id="introduction-to-r-part-1" class="section level1">
 <h1>Introduction to R (part 1)</h1>
+<hr />
 <div id="overview" class="section level2">
 <h2>Overview</h2>
 <ul>
@@ -1600,6 +1601,7 @@ div.tocify {
 </div>
 <div id="set-up" class="section level1">
 <h1>Set Up</h1>
+<hr />
 <div id="materials" class="section level2">
 <h2>Materials</h2>
 <p>All prerequisites, links to material and slides for this course can be found on github.</p>
@@ -1634,6 +1636,7 @@ div.tocify {
 </div>
 <div id="background-of-r" class="section level1">
 <h1>Background of R</h1>
+<hr />
 <div id="what-is-r" class="section level2">
 <h2>What is R?</h2>
 <p><strong>R</strong> is a scripting language and environment for <strong>statistical computing</strong>.</p>
@@ -1677,6 +1680,7 @@ div.tocify {
 </div>
 <div id="data-types-in-r" class="section level1">
 <h1>Data Types in R</h1>
+<hr />
 <div id="different-data-types-in-r" class="section level2">
 <h2>Different Data types in R</h2>
 <ul>
@@ -1745,6 +1749,7 @@ div.tocify {
 </div>
 <div id="variables" class="section level1">
 <h1>Variables</h1>
+<hr />
 <div id="variables-1" class="section level2">
 <h2>Variables</h2>
 <p>As with other programming languages and even graphical calculators, <strong>R</strong> makes use of <strong>variables</strong>.</p>
@@ -1779,6 +1784,7 @@ div.tocify {
 </div>
 <div id="vectors" class="section level1">
 <h1>Vectors</h1>
+<hr />
 <div id="vectors-1" class="section level2">
 <h2>Vectors</h2>
 <p>In <strong>R</strong> the most basic variable or data type is a <strong>vector</strong>. A vector is an ordered collection of values. The x and y variables we have previously assigned are examples of a vector of length 1.</p>
@@ -2004,6 +2010,7 @@ div.tocify {
 </div>
 <div id="matrices" class="section level1">
 <h1>Matrices</h1>
+<hr />
 <div id="creating-matrices" class="section level2">
 <h2>Creating matrices</h2>
 <p>In programs such as Excel, we are used to tables.</p>
@@ -2103,8 +2110,8 @@ div.tocify {
 <h3>Incompatible vectors and matrices</h3>
 <p>For <strong>rbind()</strong> function, the longer vector is clipped.</p>
 <div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="#cb140-1"></a>recycledMatrix3 &lt;-<span class="st"> </span><span class="kw">rbind</span>(recycledMatrix2,<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>))</span></code></pre></div>
-<pre><code>## Warning in rbind(recycledMatrix2, c(1:5)): number of columns of result is not a
-## multiple of vector length (arg 2)</code></pre>
+<pre><code>## Warning in rbind(...): number of columns of result is not a multiple of vector
+## length (arg 2)</code></pre>
 <div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="#cb142-1"></a>recycledMatrix3</span></code></pre></div>
 <pre><code>##      [,1] [,2]
 ## [1,]    1    4
@@ -2287,6 +2294,7 @@ div.tocify {
 </div>
 <div id="factors" class="section level1">
 <h1>Factors</h1>
+<hr />
 <div id="creating-factors" class="section level2">
 <h2>Creating factors</h2>
 <p>A special case of a vector is a <strong>factor</strong>.</p>
@@ -2368,6 +2376,7 @@ div.tocify {
 </div>
 <div id="data-frames" class="section level1">
 <h1>Data Frames</h1>
+<hr />
 <div id="creating-data-frames" class="section level2">
 <h2>Creating data frames</h2>
 <p><a href="https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#matrices_-_data_types">We saw that with matrices you can only have one type of data</a>. We tried to create a matrix with a character element and the entire matrix became a character.</p>
@@ -2613,6 +2622,7 @@ div.tocify {
 </div>
 <div id="lists" class="section level1">
 <h1>Lists</h1>
+<hr />
 <div id="creating-lists" class="section level2">
 <h2>Creating lists</h2>
 <p>Lists are the final data type we will look at.</p>
@@ -2743,6 +2753,7 @@ div.tocify {
 </div>
 <div id="coercing-data-formats" class="section level1">
 <h1>Coercing data formats</h1>
+<hr />
 <div id="identifying-an-objects-class" class="section level2">
 <h2>Identifying an objects class</h2>
 <p>We can use the class() function to tell us the class of our variable or object.</p>
@@ -2803,6 +2814,7 @@ div.tocify {
 </div>
 <div id="reading-and-writing-data" class="section level1">
 <h1>Reading and Writing Data</h1>
+<hr />
 <div id="data-from-external-sources" class="section level2">
 <h2>Data from external sources</h2>
 <p>Most of the time, you will not be generating data in R but will be importing data from external files.</p>
@@ -2830,13 +2842,13 @@ Sample_3.hi
 Gene_a
 </td>
 <td style="text-align:right;">
-3.038227
+4.873980
 </td>
 <td style="text-align:right;">
-4.722209
+5.175888
 </td>
 <td style="text-align:right;">
-3.752018
+4.801092
 </td>
 </tr>
 <tr>
@@ -2844,13 +2856,13 @@ Gene_a
 Gene_b
 </td>
 <td style="text-align:right;">
-2.462461
+2.742363
 </td>
 <td style="text-align:right;">
-3.471673
+4.020235
 </td>
 <td style="text-align:right;">
-4.054280
+4.446810
 </td>
 </tr>
 <tr>
@@ -2858,13 +2870,13 @@ Gene_b
 Gene_c
 </td>
 <td style="text-align:right;">
-3.632999
+4.749023
 </td>
 <td style="text-align:right;">
-3.088699
+5.395767
 </td>
 <td style="text-align:right;">
-3.150465
+4.421568
 </td>
 </tr>
 <tr>
@@ -2872,13 +2884,13 @@ Gene_c
 Gene_d
 </td>
 <td style="text-align:right;">
-4.858022
+5.811653
 </td>
 <td style="text-align:right;">
-3.883051
+2.104711
 </td>
 <td style="text-align:right;">
-3.954469
+5.829690
 </td>
 </tr>
 <tr>
@@ -2886,13 +2898,13 @@ Gene_d
 Gene_e
 </td>
 <td style="text-align:right;">
-10.544746
+10.787704
 </td>
 <td style="text-align:right;">
-10.660544
+9.691439
 </td>
 <td style="text-align:right;">
-9.917359
+11.203426
 </td>
 </tr>
 <tr>
@@ -2900,13 +2912,13 @@ Gene_e
 Gene_f
 </td>
 <td style="text-align:right;">
-9.409951
+9.354323
 </td>
 <td style="text-align:right;">
-9.216570
+10.429844
 </td>
 <td style="text-align:right;">
-10.466750
+9.415348
 </td>
 </tr>
 <tr>
@@ -2914,13 +2926,13 @@ Gene_f
 Gene_g
 </td>
 <td style="text-align:right;">
-9.817605
+10.467070
 </td>
 <td style="text-align:right;">
-11.024965
+9.185461
 </td>
 <td style="text-align:right;">
-7.073763
+9.768230
 </td>
 </tr>
 <tr>
@@ -2928,13 +2940,13 @@ Gene_g
 Gene_h
 </td>
 <td style="text-align:right;">
-10.695243
+11.083342
 </td>
 <td style="text-align:right;">
-9.165239
+10.306646
 </td>
 <td style="text-align:right;">
-9.430685
+8.818002
 </td>
 </tr>
 </tbody>

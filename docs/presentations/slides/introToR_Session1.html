@@ -1179,8 +1179,8 @@ recycledMatrix3 &lt;- rbind(recycledMatrix2,c(1:5))
 ```
 
 ```
-## Warning in rbind(recycledMatrix2, c(1:5)): number of columns of result is not a
-## multiple of vector length (arg 2)
+## Warning in rbind(...): number of columns of result is not a multiple of vector
+## length (arg 2)
 ```
 
 ```r
@@ -2453,6 +2453,7 @@ class(dfExample)
 ## [1] "data.frame"
 ```
 
+---
 ## Coercing data class
 Sometime you may want to cast an object into a new class There are a group of functions to coerce your data object to a new format, **as._desiredClass_()**.
 
@@ -2559,51 +2560,51 @@ A standard format for this data is a table:
 &lt;tbody&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_a &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 2.480071 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 2.344539 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.138702 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.805277 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.729309 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5.360014 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_b &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.322774 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 2.167557 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 5.172381 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.860072 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.911228 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.228515 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_c &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 5.359709 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 6.073795 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 6.047325 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5.257245 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.316335 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.524370 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_d &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.835873 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.107113 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.469635 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.024367 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5.301273 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.449064 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_e &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.120479 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 8.888288 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.220121 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.303364 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.669301 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 11.765779 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_f &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 8.881434 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.529202 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 8.361030 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.954110 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.593583 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.972051 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_g &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.926706 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.490561 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.404701 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.967072 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.252296 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.573303 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_h &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.896273 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 11.696632 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.235632 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.481917 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 13.296629 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 12.153045 &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;

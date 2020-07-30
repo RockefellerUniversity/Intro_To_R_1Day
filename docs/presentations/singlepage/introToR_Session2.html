@@ -1588,6 +1588,7 @@ div.tocify {
 
 <div id="introduction-to-r-part-2" class="section level1">
 <h1>Introduction to R (part 2)</h1>
+<hr />
 <div id="overview" class="section level2">
 <h2>Overview</h2>
 <ul>
@@ -1764,6 +1765,7 @@ div.tocify {
 </div>
 <div id="conditions-and-loops" class="section level1">
 <h1>Conditions and Loops</h1>
+<hr />
 <div id="conditions-and-loops-1" class="section level2">
 <h2>Conditions and Loops</h2>
 <p>We have looked at using logical vectors as a way to index other data types.</p>
@@ -2109,6 +2111,7 @@ div.tocify {
 </div>
 <div id="custom-functions" class="section level1">
 <h1>Custom functions</h1>
+<hr />
 <div id="custom-functions-1" class="section level2">
 <h2>Custom functions</h2>
 <p>You can create your own functions easily in R using the <strong>&lt;-</strong> assignment and <strong>function</strong> statement.<br />
@@ -2315,8 +2318,8 @@ Anything to be received back from the function is indicated by the <strong>retur
 <span id="cb156-10"><a href="#cb156-10"></a>A &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">20</span>)</span>
 <span id="cb156-11"><a href="#cb156-11"></a></span>
 <span id="cb156-12"><a href="#cb156-12"></a><span class="kw">my_zscore</span>(<span class="dt">my_number=</span>A[<span class="dv">1</span>], <span class="dt">my_vector=</span>A)</span></code></pre></div>
-<pre><code>## Mean is -0.344119003619593</code></pre>
-<pre><code>## [1] 1.845984</code></pre>
+<pre><code>## Mean is 0.0607033786924987</code></pre>
+<pre><code>## [1] -0.2389133</code></pre>
 </div>
 <div id="functions---debug-functions" class="section level2">
 <h2>Functions - Debug functions</h2>
@@ -2328,14 +2331,15 @@ Anything to be received back from the function is indicated by the <strong>retur
 <h2>Custom functions and apply</h2>
 <p>These custom functions can also be utilized with apply.</p>
 <div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="#cb160-1"></a><span class="kw">sapply</span>(A, my_zscore, <span class="dt">my_vector=</span>A)</span></code></pre></div>
-<pre><code>##  [1]  1.8459837  0.3240940  1.0448958 -0.4997852 -2.0979422  0.0571592
-##  [7] -0.3460170 -1.3362186  0.9091411  0.8257090  0.9313168  0.1471480
-## [13] -0.5686363  0.1731080  0.7401427  0.7418979  0.3639661 -0.6620180
-## [19] -1.4582022 -1.1357428</code></pre>
+<pre><code>##  [1] -0.2389133 -0.4280746  1.2169888 -2.0766818  0.3503673  0.2910589
+##  [7]  1.2277673 -1.4929159  0.6313584 -0.7852646  0.6455879 -0.7959621
+## [13]  0.9917283  0.8865139 -0.7608130 -1.2888286  0.1996812 -0.5261661
+## [19]  0.3744554  1.5781126</code></pre>
 </div>
 </div>
 <div id="getting-additional-libraries" class="section level1">
 <h1>Getting Additional Libraries</h1>
+<hr />
 <div id="loading-libraries" class="section level2">
 <h2>Loading libraries</h2>
 <p>Libraries can be loaded using the library() function with an argument of the name of the library.</p>
@@ -2353,6 +2357,7 @@ Anything to be received back from the function is indicated by the <strong>retur
 </div>
 <div id="scripts" class="section level1">
 <h1>Scripts</h1>
+<hr />
 <div id="saving-scripts" class="section level2">
 <h2>Saving scripts</h2>
 <p>Once we have got our functions together and know how we want to analyse our data, we can save our analysis as a <strong>script</strong>. By convention R scripts typically end in <strong>.r</strong> or <strong>.R</strong></p>
@@ -2373,7 +2378,7 @@ dayOfWeek &lt;- function(){
 }</code></pre>
 <div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="#cb166-1"></a><span class="kw">source</span>(<span class="st">&quot;scripts/dayOfWeek.r&quot;</span>)</span>
 <span id="cb166-2"><a href="#cb166-2"></a><span class="kw">dayOfWeek</span>()</span></code></pre></div>
-<pre><code>## [1] &quot;Mon&quot;</code></pre>
+<pre><code>## [1] &quot;Thu&quot;</code></pre>
 </div>
 <div id="rscript" class="section level2">
 <h2>Rscript</h2>
