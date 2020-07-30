@@ -1568,6 +1568,7 @@ class(namedMatrix)
 class(dfExample)
 ```
 
+---
 ## Coercing data class
 Sometime you may want to cast an object into a new class There are a group of functions to coerce your data object to a new format, **as._desiredClass_()**.
 
