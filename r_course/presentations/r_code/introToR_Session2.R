@@ -10,7 +10,7 @@ knitr::opts_chunk$set(echo = TRUE, tidy = T)
 if(params$isSlides != "yes"){
   cat("# Introduction to R (part 2)
 
-
+---
 "    
   )
   
@@ -115,13 +115,13 @@ if(params$isSlides == "yes"){
 
 <html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
 
-
+---
 "    
   )
 }else{
   cat("# Conditions and Loops
 
-
+---
 "    
   )
   
@@ -360,13 +360,13 @@ if(params$isSlides == "yes"){
 
 <html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
 
-
+---
 "    
   )
 }else{
   cat("# Custom functions
 
-
+---
 "    
   )
   
@@ -549,13 +549,13 @@ if(params$isSlides == "yes"){
 
 <html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
 
-
+---
 "    
   )
 }else{
   cat("# Getting Additional Libraries
 
-
+---
 "    
   )
   
@@ -582,13 +582,13 @@ if(params$isSlides == "yes"){
 
 <html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
 
-
+---
 "    
   )
 }else{
   cat("# Scripts
 
-
+---
 "    
   )
   

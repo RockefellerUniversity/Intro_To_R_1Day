@@ -10,7 +10,7 @@ knitr::opts_chunk$set(echo = TRUE, tidy = T)
 if(params$isSlides != "yes"){
   cat("# Introduction to R (part 1)
 
-
+---
 "    
   )
   
@@ -26,13 +26,13 @@ if(params$isSlides == "yes"){
 
 <html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
 
-
+---
 "    
   )
 }else{
   cat("# Set Up
 
-
+---
 "    
   )
   
@@ -53,13 +53,13 @@ if(params$isSlides == "yes"){
 
 <html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
 
-
+---
 "    
   )
 }else{
   cat("# Background of R
 
-
+---
 "    
   )
   
@@ -75,13 +75,13 @@ if(params$isSlides == "yes"){
 
 <html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
 
-
+---
 "    
   )
 }else{
   cat("# Data Types in R
 
-
+---
 "    
   )
   
@@ -131,13 +131,13 @@ if(params$isSlides == "yes"){
 
 <html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
 
-
+---
 "    
   )
 }else{
   cat("# Variables
 
-
+---
 "    
   )
   
@@ -183,13 +183,13 @@ if(params$isSlides == "yes"){
 
 <html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
 
-
+---
 "    
   )
 }else{
   cat("# Vectors
 
-
+---
 "    
   )
   
@@ -348,13 +348,13 @@ if(params$isSlides == "yes"){
 
 <html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
 
-
+---
 "    
   )
 }else{
   cat("# Matrices
 
-
+---
 "    
   )
   
@@ -495,13 +495,13 @@ if(params$isSlides == "yes"){
 
 <html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
 
-
+---
 "    
   )
 }else{
   cat("# Factors
 
-
+---
 "    
   )
   
@@ -563,13 +563,13 @@ if(params$isSlides == "yes"){
 
 <html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
 
-
+---
 "    
   )
 }else{
   cat("# Data Frames
 
-
+---
 "    
   )
   
@@ -709,13 +709,13 @@ if(params$isSlides == "yes"){
 
 <html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
 
-
+---
 "    
   )
 }else{
   cat("# Lists
 
-
+---
 "    
   )
   
@@ -789,13 +789,13 @@ if(params$isSlides == "yes"){
 
 <html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
 
-
+---
 "    
   )
 }else{
   cat("# Coercing data formats
 
-
+---
 "    
   )
   
@@ -831,13 +831,13 @@ if(params$isSlides == "yes"){
 
 <html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
 
-
+---
 "    
   )
 }else{
   cat("# Reading and Writing Data
 
-
+---
 "    
   )
   
