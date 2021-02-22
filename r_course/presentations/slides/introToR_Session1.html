@@ -32,10 +32,10 @@ class: center, middle, inverse, title-slide
 
 ## Overview
 
-- [Set up](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#set-up)
-- [Background to R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#background-to-r)
-- [Data types in R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#data_types_in_r)
-- [Reading and writing in R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#reading-and-writing-data-in-r)
+- [Set up](https://rockefelleruniversity.github.io/Intro_To_R_1Day/presentations/singlepage/introToR_Session1.html#set-up)
+- [Background to R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/presentations/singlepage/introToR_Session1.html#background-to-r)
+- [Data types in R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/presentations/singlepage/introToR_Session1.html#data_types_in_r)
+- [Reading and writing in R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/presentations/singlepage/introToR_Session1.html#reading-and-writing-data-in-r)
 
 ---
 class: inverse, center, middle
@@ -483,7 +483,7 @@ length(x)
 ---
 ## Vectors
 
-Vectors of continuous stretches of values can be created by the shortcut - **:**
+Vectors of continuous stretches of values can be created using a colon (**:**) as a shortcut.
 
 
 ```r
@@ -654,7 +654,7 @@ sqrt(4)
 ---
 ## Arithmetic operations 
 
-Vectors in R can be used in arithmetic operations as seen with [variables earlier](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#simple_calculations). When a standard arithmetic operation is applied to vector, the operation is applied to each position in a vector.
+Vectors in R can be used in arithmetic operations as seen with [variables earlier](https://rockefelleruniversity.github.io/Intro_To_R_1Day/presentations/singlepage/introToR_Session1.html#Using_variables). When a standard arithmetic operation is applied to vector, the operation is applied to each position in a vector.
 
 
 ```r
@@ -728,7 +728,7 @@ x+c(1,2,3)
 
 So far we have only looked at numeric vectors or variables.
 
-In R we can also create character vectors [again using **c()** function](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#vectors22). These vectors can be indexed just the same.
+In R we can also create character vectors [again using **c()** function](https://rockefelleruniversity.github.io/Intro_To_R_1Day/presentations/singlepage/introToR_Session1.html#vectors22). These vectors can be indexed just the same.
 
 
 ```r
@@ -791,7 +791,9 @@ Similarly, when a calculation can not be perfomed, R will input a **NaN** value.
 - **NA** - Not Available.
 - **NaN** - Not A Number.
 
-**NA** values allow for R to handle missing data correctly but requires different handling than standard numeric or character values. We will illustrate an example handling **NA** values [later](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#data-frames---ordering-with-na-values).
+**NA** values allow for R to handle missing data correctly as they require different handling than standard numeric or character values. We will illustrate an example handling **NA** values [later](https://rockefelleruniversity.github.io/Intro_To_R_1Day/presentations/singlepage/introToR_Session1.html#Ordering_with_NA_values).
+
+
 
 
 ---
@@ -994,7 +996,7 @@ class: inverse, center, middle
 ## Creating matrices
 
 
-In programs such as Excel, we are used to tables.
+In programs such as Excel we are used to tables.
 
 &lt;div align="center"&gt;
 &lt;img src="imgs/ExcelMat2.png" alt="igv" height="300" width="600"&gt;
@@ -1200,7 +1202,7 @@ recycledMatrix3
 ---
 ## Column and row names
 
-[As we have seen with vectors](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#vectors---character-vectors), matrices can be named. For matrices the naming is done by columns and rows using **colnames()** and **rownames()** functions.
+[As we have seen with vectors](https://rockefelleruniversity.github.io/Intro_To_R_1Day/presentations/singlepage/introToR_Session1.html#Character_vectors), matrices can be named. For matrices the naming is done by columns and rows using **colnames()** and **rownames()** functions.
 
 
 ```r
@@ -1241,7 +1243,7 @@ rownames(namedMatrix)
 ---
 ## Indexing
 
-Selecting and replacing portions of a matrix can be done by **indexing** using square brackets **[]** much [like for vectors](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#vectors---indexing).
+Selecting and replacing portions of a matrix can be done by **indexing** using square brackets **[]** much [like for vectors](https://rockefelleruniversity.github.io/Intro_To_R_1Day/presentations/singlepage/introToR_Session1.html#Indexing).
 
 When indexing matrices, two values may be provided within the square brackets separated by a comma to retrieve information on a matrix position.
 
@@ -1748,7 +1750,7 @@ class: inverse, center, middle
 
 ## Creating data frames 
 
-[We saw that with matrices you can only have one type of data](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#matrices_-_data_types). We tried to create a matrix with a character element and the entire matrix became a character.
+[We saw that with matrices you can only have one type of data](https://rockefelleruniversity.github.io/Intro_To_R_1Day/presentations/singlepage/introToR_Session1.html#Data_types). We tried to create a matrix with a character element and the entire matrix became a character.
 
 In practice, we would want to have a table which is a mixture of types (e.g a table with sample names (character), sample type (factor) and survival time (numeric))
 
@@ -1781,7 +1783,7 @@ dfExample
 ---
 ## Indexing and replacement
 
-Data frames may be indexed just [as matrices](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#matrices_-_indexing).
+Data frames may be indexed just [as matrices](https://rockefelleruniversity.github.io/Intro_To_R_1Day/presentations/singlepage/introToR_Session1.html#Indexing).
 
 
 ```r
@@ -2254,7 +2256,7 @@ myList
 ---
 ## Named lists
  
-[Just as with vectors](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#vectors_-_character_vectors), list elements can be assigned names.
+[Just as with vectors](https://rockefelleruniversity.github.io/Intro_To_R_1Day/presentations/singlepage/introToR_Session1.html#Character_vectors), list elements can be assigned names.
 
 
 ```r
@@ -2283,7 +2285,7 @@ myNamedList
 ---
 ## Indexing
 
-List, as [with other data types in R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#vectors_-_indexing) can be indexed. In contrast to other types, using **[]** on a list will subset the list to another list of selected indices. To retrieve an element from a list in R , two square brackets **[[]]** must be used. 
+List, as [with other data types in R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/presentations/singlepage/introToR_Session1.html#Indexing) can be indexed. In contrast to other types, using **[]** on a list will subset the list to another list of selected indices. To retrieve an element from a list in R , two square brackets **[[]]** must be used. 
 
 
 ```r
@@ -2320,7 +2322,7 @@ myNamedList$First
 ## Joining lists
 
 
-Again, [similar to vectors](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#vectors22), lists can be joined together in R using the c() function 
+Again, [similar to vectors](https://rockefelleruniversity.github.io/Intro_To_R_1Day/presentations/singlepage/introToR_Session1.html#Vectors25), lists can be joined together in R using the c() function 
 
 
 ```r
@@ -2561,51 +2563,51 @@ A standard format for this data is a table:
 &lt;tbody&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_a &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 2.872963 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.360655 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.838526 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.690499 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.623594 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.047009 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_b &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 2.820220 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.528281 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.661183 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.074815 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.290759 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.251189 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_c &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.204789 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.601004 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.852330 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5.469855 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.209675 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.767170 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_d &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.738626 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 1.739438 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.751128 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.200161 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.301891 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5.743042 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_e &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 11.303389 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.539528 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.653989 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.688263 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.553736 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.307553 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_f &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 8.919875 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 11.115578 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.977119 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.532297 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.410118 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.632425 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_g &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.890265 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.728152 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.795055 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 11.115234 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8.188564 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 11.016850 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_h &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 8.607083 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.757199 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.502647 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.012873 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8.735812 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.567128 &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
