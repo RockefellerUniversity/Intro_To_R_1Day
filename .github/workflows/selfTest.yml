@@ -99,8 +99,8 @@ jobs:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
       TZ: UTC
       NOT_CRAN: true
-      GITHUB_TOKEN: ${{ secrets.GHTOKEN }}
-      GITHUB_PAT: ${{ secrets.GHTOKEN }}
+      GITHUB_TOKEN: ${{ secrets.GHTOKEN2 }}
+      GITHUB_PAT: ${{ secrets.GHTOKEN2 }}
 
     ## The docker container to use. Note that we link a directory on the GHA
     ## runner to a docker directory, such that we can then cache the linked
