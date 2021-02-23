@@ -854,7 +854,6 @@ div.tocify {
 <div id="answers-to-exercise" class="section level2">
 <h2>Answers to exercise</h2>
 <p>Answers can be found here <a href="../..//exercises/answers/conditionsAndLoops_answers.html">here</a></p>
-<p>Rcode for answers can be found here <a href="../..//exercises/answers//answers/conditionsAndLoops_Answers.R">here</a></p>
 </div>
 </div>
 <div id="custom-functions" class="section level1">
@@ -1066,8 +1065,8 @@ Anything to be received back from the function is indicated by the <strong>retur
 <span id="cb156-10"><a href="#cb156-10" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">20</span>)</span>
 <span id="cb156-11"><a href="#cb156-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb156-12"><a href="#cb156-12" aria-hidden="true" tabindex="-1"></a><span class="fu">my_zscore</span>(<span class="at">my_number=</span>A[<span class="dv">1</span>], <span class="at">my_vector=</span>A)</span></code></pre></div>
-<pre><code>## Mean is 0.0851163297102845</code></pre>
-<pre><code>## [1] 0.8816517</code></pre>
+<pre><code>## Mean is 0.193507892915437</code></pre>
+<pre><code>## [1] 0.5548726</code></pre>
 </div>
 <div id="debugging-functions" class="section level2">
 <h2>Debugging functions</h2>
@@ -1079,10 +1078,10 @@ Anything to be received back from the function is indicated by the <strong>retur
 <h2>Custom functions and apply</h2>
 <p>These custom functions can also be utilized with apply.</p>
 <div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="#cb160-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(A, my_zscore, <span class="at">my_vector=</span>A)</span></code></pre></div>
-<pre><code>##  [1]  0.88165171  0.08050709 -0.35274886  0.15679835 -1.20174780  0.47341571
-##  [7] -0.72138533  0.35400589  1.06015226 -0.14232329  2.34425497  0.89076005
-## [13]  0.81029798 -0.81126475 -0.59210508  0.85231980 -0.35413698 -2.10009759
-## [19] -0.99669882 -0.63165532</code></pre>
+<pre><code>##  [1]  0.55487257  0.15309108 -1.63912480  0.18210288 -0.15373925  1.09666658
+##  [7] -0.73821692 -1.35297514  1.68435443  0.43623336 -0.92714514  0.35003854
+## [13] -0.27700646  1.19245372 -0.88066088 -1.54960516 -0.70004632  0.06927846
+## [19]  1.10216705  1.39726141</code></pre>
 </div>
 </div>
 <div id="getting-additional-libraries" class="section level1">
@@ -1126,7 +1125,7 @@ dayOfWeek &lt;- function(){
 }</code></pre>
 <div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="#cb166-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;scripts/dayOfWeek.r&quot;</span>)</span>
 <span id="cb166-2"><a href="#cb166-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dayOfWeek</span>()</span></code></pre></div>
-<pre><code>## [1] &quot;Mon&quot;</code></pre>
+<pre><code>## [1] &quot;Tue&quot;</code></pre>
 </div>
 <div id="rscript" class="section level2">
 <h2>Rscript</h2>
@@ -1146,6 +1145,14 @@ dayOfWeek &lt;- function(){
 <pre><code>10</code></pre>
 <p>Since vectors can only be one type, all command line arguments are strings and must be converted to numeric if needed with <strong>as.numeric()</strong>.</p>
 </div>
+<div id="time-for-an-exercise-1" class="section level2">
+<h2>Time for an exercise!</h2>
+<p>Exercise on functions can be found <a href="../..//exercises/exercises/Functions_exercise.html">here</a></p>
+</div>
+<div id="answers-to-exercise-1" class="section level2">
+<h2>Answers to exercise</h2>
+<p>Answers can be found here <a href="../..//exercises/answers/Functions_answers.html">here</a></p>
+</div>
 <div id="getting-help" class="section level2">
 <h2>Getting help</h2>
 <ul>
@@ -1155,15 +1162,6 @@ dayOfWeek &lt;- function(){
 <li><a href="http://stackoverflow.com/">Stackoverflow</a></li>
 <li><a href="https://stat.ethz.ch/mailman/listinfo/r-help">R-help</a></li>
 </ul>
-</div>
-<div id="time-for-an-exercise-1" class="section level2">
-<h2>Time for an exercise!</h2>
-<p>Exercise on functions can be found <a href="../..//exercises/exercises/Functions_exercise.html">here</a></p>
-</div>
-<div id="answers-to-exercise." class="section level2">
-<h2>Answers to exercise.</h2>
-<p>Answers can be found here <a href="../..//exercises/answers/Functions_answers.html">here</a></p>
-<p>Rcode for answers can be found here <a href="../..//exercises/answers//answers/Functions_Answers.R">here</a></p>
 </div>
 </div>
 
