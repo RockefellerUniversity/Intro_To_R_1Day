@@ -646,7 +646,6 @@ Exercise on loops and conditional branching can be found [here](../..//exercises
 
 Answers can be found here  [here](../..//exercises/answers/conditionsAndLoops_answers.html)
 
-Rcode for answers can be found here  [here](../..//exercises/answers//answers/conditionsAndLoops_Answers.R)
 
 ---
 
@@ -1077,6 +1076,18 @@ as.numeric(myFirstArgument)
 Since vectors can only be one type, all command line arguments are strings and must be converted to numeric if needed with **as.numeric()**.
 
 ---
+## Time for an exercise!
+
+
+Exercise on functions can be found [here](../..//exercises/exercises/Functions_exercise.html)
+
+---
+## Answers to exercise
+
+
+Answers can be found here  [here](../..//exercises/answers/Functions_answers.html)
+
+---
 ## Getting help
 
 - From us: Raise an issue on our [GitHub](https://github.com/RockefellerUniversity/Intro_To_R_1Day/issues). This can be suggestions, comments, edits or questions (about content or the slides themselves).
@@ -1086,17 +1097,4 @@ Since vectors can only be one type, all command line arguments are strings and m
 - [R-help](https://stat.ethz.ch/mailman/listinfo/r-help)
 
 
----
-## Time for an exercise!
-
-
-Exercise on functions can be found [here](../..//exercises/exercises/Functions_exercise.html)
-
----
-## Answers to exercise.
-
-
-Answers can be found here  [here](../..//exercises/answers/Functions_answers.html)
-
-Rcode for answers can be found here  [here](../..//exercises/answers//answers/Functions_Answers.R)
 

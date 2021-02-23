@@ -735,7 +735,6 @@ Exercise on vectors can be found [here](../../exercises/exercises/vector_exercis
 
 Answers can be found here  [here](../../exercises/answers/vector_answers.html)
 
-R code for solutions can be found here  [here](../../exercises/answers/vector_answers.R)
 ---
 
 ```{r, results='asis',include=TRUE,echo=FALSE}
@@ -1028,7 +1027,6 @@ Exercise on matrices can be found [here](../../exercises/exercises/matrices_exer
 
 Answers can be found here  [here](../../exercises/answers/matrices_answers.html)
 
-R code for solutions can be found [here](../../exercises/answers/matrices_answers.R)
 
 
 ---
@@ -1406,7 +1404,6 @@ Exercise on data frames can be found [here](../../exercises/exercises/factorsAnd
 
 Answers can be found here  [here](../../exercises/answers/factorsAndDataframes_answers.html)
 
-R code solutions can be found [here](../../exercises/answers/factorsAndDataframes_Answers.R)
 
 ---
 ```{r, results='asis',include=TRUE,echo=FALSE}
@@ -1860,6 +1857,5 @@ Exercise on reading and writing data can be found [here](../../exercises/exercis
 
 Answers can be found [here](../../exercises/answers/DataInputOutput_answers.html)
 
-R code for solutions can be found [here](../../exercises/answers/DataInputOutput_answers.R)
 
 
