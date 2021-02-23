@@ -340,10 +340,10 @@ div.tocify {
 <div id="overview" class="section level2">
 <h2>Overview</h2>
 <ul>
-<li><a href="https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session2.html#recap">Recap</a></li>
-<li><a href="https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session2.html#conditions_and_loops">Conditions and Loops</a></li>
-<li><a href="https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session2.html#getting_additional_libraries">Libraries</a></li>
-<li><a href="https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session2.html#scripts">Writing scripts</a></li>
+<li><a href="https://rockefelleruniversity.github.io/Intro_To_R_1Day/presentations/singlepage/introToR_Session2.html#recap">Recap</a></li>
+<li><a href="https://rockefelleruniversity.github.io/Intro_To_R_1Day/presentations/singlepage/introToR_Session2.html#conditions_and_loops">Conditions and Loops</a></li>
+<li><a href="https://rockefelleruniversity.github.io/Intro_To_R_1Day/presentations/singlepage/introToR_Session2.html#getting_additional_libraries">Libraries</a></li>
+<li><a href="https://rockefelleruniversity.github.io/Intro_To_R_1Day/presentations/singlepage/introToR_Session2.html#scripts">Writing scripts</a></li>
 </ul>
 </div>
 </div>
@@ -351,9 +351,9 @@ div.tocify {
 <h1>Recap</h1>
 <p>Session 1 covered introduction to R data types and import/export of data.</p>
 <ul>
-<li><a href="https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#background-to-r">Background to R</a></li>
-<li><a href="https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#data_types_in_r">Data types in R</a></li>
-<li><a href="https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#reading-and-writing-data-in-r">Reading and writing in R</a></li>
+<li><a href="https://rockefelleruniversity.github.io/Intro_To_R_1Day/presentations/singlepage/introToR_Session1.html#background-to-r">Background to R</a></li>
+<li><a href="https://rockefelleruniversity.github.io/Intro_To_R_1Day/presentations/singlepage/introToR_Session1.html#data_types_in_r">Data types in R</a></li>
+<li><a href="https://rockefelleruniversity.github.io/Intro_To_R_1Day/presentations/singlepage/introToR_Session1.html#reading-and-writing-data-in-r">Reading and writing in R</a></li>
 </ul>
 <div id="recap-1" class="section level2">
 <h2>Recap</h2>
@@ -851,8 +851,8 @@ div.tocify {
 <h2>Time for an exercise!</h2>
 <p>Exercise on loops and conditional branching can be found <a href="../..//exercises/exercises/conditionsAndLoops_exercise.html">here</a></p>
 </div>
-<div id="answers-to-exercise." class="section level2">
-<h2>Answers to exercise.</h2>
+<div id="answers-to-exercise" class="section level2">
+<h2>Answers to exercise</h2>
 <p>Answers can be found here <a href="../..//exercises/answers/conditionsAndLoops_answers.html">here</a></p>
 <p>Rcode for answers can be found here <a href="../..//exercises/answers//answers/conditionsAndLoops_Answers.R">here</a></p>
 </div>
@@ -875,8 +875,8 @@ Anything to be received back from the function is indicated by the <strong>retur
 <span id="cb123-7"><a href="#cb123-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb123-8"><a href="#cb123-8" aria-hidden="true" tabindex="-1"></a><span class="fu">myFirstFunction</span>(<span class="at">MYARGUMENT=</span>MY_USER_SUPPLIED_ARGUMENT)</span></code></pre></div>
 </div>
-<div id="functions---first-example" class="section level2">
-<h2>Functions - First example</h2>
+<div id="custom-functions-2" class="section level2">
+<h2>Custom functions</h2>
 <p>First lets create a function that can sum two numbers. We can call the function <strong>myFirstFunction</strong> and set our arguments as <strong>num1</strong> and <strong>num2</strong>.</p>
 <div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="#cb124-1" aria-hidden="true" tabindex="-1"></a>myFirstFunction  <span class="ot">&lt;-</span> <span class="cf">function</span>(num1,num2){</span>
 <span id="cb124-2"><a href="#cb124-2" aria-hidden="true" tabindex="-1"></a>  sumNum <span class="ot">&lt;-</span> num1<span class="sc">+</span>num2</span>
@@ -888,8 +888,8 @@ Anything to be received back from the function is indicated by the <strong>retur
 <span id="cb124-8"><a href="#cb124-8" aria-hidden="true" tabindex="-1"></a>myResult</span></code></pre></div>
 <pre><code>## [1] 5</code></pre>
 </div>
-<div id="functions---returning-from-function." class="section level2">
-<h2>Functions - Returning from function.</h2>
+<div id="returning-multiple-values" class="section level2">
+<h2>Returning multiple values</h2>
 <p>We can only <strong>return</strong> 1 object at a time from function. Here we create the multiple of our numbers and try and return alongside our sum.</p>
 <div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="#cb126-1" aria-hidden="true" tabindex="-1"></a>myFirstFunction  <span class="ot">&lt;-</span> <span class="cf">function</span>(num1,num2){</span>
 <span id="cb126-2"><a href="#cb126-2" aria-hidden="true" tabindex="-1"></a>  sumNum <span class="ot">&lt;-</span> num1<span class="sc">+</span>num2</span>
@@ -900,8 +900,8 @@ Anything to be received back from the function is indicated by the <strong>retur
 <span id="cb126-7"><a href="#cb126-7" aria-hidden="true" tabindex="-1"></a>myResult <span class="ot">&lt;-</span> <span class="fu">myFirstFunction</span>(<span class="at">num1=</span><span class="dv">2</span>,<span class="at">num2=</span><span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## Error in return(sumNum, multipleNum): multi-argument returns are not permitted</code></pre>
 </div>
-<div id="functions---returning-multiple-values" class="section level2">
-<h2>Functions - Returning multiple values</h2>
+<div id="returning-multiple-values-1" class="section level2">
+<h2>Returning multiple values</h2>
 <p>A simple solution is to pass back an object that contains both results. Here we create a named vector to return our multiple and sum.</p>
 <div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="#cb128-1" aria-hidden="true" tabindex="-1"></a>myFirstFunction  <span class="ot">&lt;-</span> <span class="cf">function</span>(num1,num2){</span>
 <span id="cb128-2"><a href="#cb128-2" aria-hidden="true" tabindex="-1"></a>  sumNum <span class="ot">&lt;-</span> num1<span class="sc">+</span>num2</span>
@@ -916,8 +916,8 @@ Anything to be received back from the function is indicated by the <strong>retur
 <pre><code>## multiple      sum 
 ##        5        6</code></pre>
 </div>
-<div id="functions---returning-values-in-a-list." class="section level2">
-<h2>Functions - Returning values in a list.</h2>
+<div id="returning-multiple-values-2" class="section level2">
+<h2>Returning multiple values</h2>
 <p>Lists are very useful here as they can contain different object classes in their elements and so we can return mixed data types from our functions using this. Below we return a list with elements of the input arguments as a vector and the result as a data.frame.</p>
 <div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="#cb130-1" aria-hidden="true" tabindex="-1"></a>myFirstFunction  <span class="ot">&lt;-</span> <span class="cf">function</span>(num1,num2){</span>
 <span id="cb130-2"><a href="#cb130-2" aria-hidden="true" tabindex="-1"></a>  sumNum <span class="ot">&lt;-</span> num1<span class="sc">+</span>num2</span>
@@ -938,8 +938,8 @@ Anything to be received back from the function is indicated by the <strong>retur
 ##   Sum Multiple
 ## 1   5        6</code></pre>
 </div>
-<div id="functions---evaluate-until-return." class="section level2">
-<h2>Functions - Evaluate until return.</h2>
+<div id="evaluate-until-return" class="section level2">
+<h2>Evaluate until return</h2>
 <p>In a function containing a <strong>return</strong> statement, the code up until the return statement is evaluated and anything after the return statement is not evaluated.</p>
 <div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="#cb132-1" aria-hidden="true" tabindex="-1"></a>myFirstFunction  <span class="ot">&lt;-</span> <span class="cf">function</span>(num1,num2){</span>
 <span id="cb132-2"><a href="#cb132-2" aria-hidden="true" tabindex="-1"></a>  sumNum <span class="ot">&lt;-</span> num1<span class="sc">+</span>num2</span>
@@ -963,8 +963,8 @@ Anything to be received back from the function is indicated by the <strong>retur
 ##   Sum Multiple
 ## 1   5        6</code></pre>
 </div>
-<div id="functions---no-return-statement." class="section level2">
-<h2>Functions - No return statement.</h2>
+<div id="no-return-statement" class="section level2">
+<h2>No return statement</h2>
 <p>If a function does not contain a return statement, the result of the last line in function is returned.</p>
 <div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="#cb136-1" aria-hidden="true" tabindex="-1"></a>myFirstFunction  <span class="ot">&lt;-</span> <span class="cf">function</span>(num1,num2){</span>
 <span id="cb136-2"><a href="#cb136-2" aria-hidden="true" tabindex="-1"></a>  sumNum <span class="ot">&lt;-</span> num1<span class="sc">+</span>num2</span>
@@ -985,8 +985,8 @@ Anything to be received back from the function is indicated by the <strong>retur
 ##   Sum Multiple
 ## 1   5        6</code></pre>
 </div>
-<div id="functions---variable-scope." class="section level2">
-<h2>Functions - Variable scope.</h2>
+<div id="variable-scope-in-functions" class="section level2">
+<h2>Variable scope in functions</h2>
 <p>Variables defined in the arguments or within the function exist only within the environment of the function.</p>
 <div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="#cb138-1" aria-hidden="true" tabindex="-1"></a>myFirstFunction  <span class="ot">&lt;-</span> <span class="cf">function</span>(num1,num2){</span>
 <span id="cb138-2"><a href="#cb138-2" aria-hidden="true" tabindex="-1"></a>  sumNum <span class="ot">&lt;-</span> num1<span class="sc">+</span>num2</span>
@@ -998,8 +998,8 @@ Anything to be received back from the function is indicated by the <strong>retur
 <div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="#cb140-1" aria-hidden="true" tabindex="-1"></a>sumNum</span></code></pre></div>
 <pre><code>## Error in eval(expr, envir, enclos): object &#39;sumNum&#39; not found</code></pre>
 </div>
-<div id="functions---variable-scope.-1" class="section level2">
-<h2>Functions - Variable scope.</h2>
+<div id="variable-scope-in-functions-1" class="section level2">
+<h2>Variable scope in functions</h2>
 <p>Variables defined in the global environment outside the function are available within the function.</p>
 <div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="#cb142-1" aria-hidden="true" tabindex="-1"></a>my3rdNumber <span class="ot">&lt;-</span> <span class="dv">4</span></span>
 <span id="cb142-2"><a href="#cb142-2" aria-hidden="true" tabindex="-1"></a>myFirstFunction  <span class="ot">&lt;-</span> <span class="cf">function</span>(num1,num2){</span>
@@ -1010,8 +1010,8 @@ Anything to be received back from the function is indicated by the <strong>retur
 <span id="cb142-7"><a href="#cb142-7" aria-hidden="true" tabindex="-1"></a>myResult</span></code></pre></div>
 <pre><code>## [1] 9</code></pre>
 </div>
-<div id="functions---variable-scope.-2" class="section level2">
-<h2>Functions - Variable scope.</h2>
+<div id="variable-scope-in-functions-2" class="section level2">
+<h2>Variable scope in functions</h2>
 <p>Changes to variables defined in the global environment from within the function will not be reflected in the global environment.</p>
 <div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="#cb144-1" aria-hidden="true" tabindex="-1"></a>my3rdNumber <span class="ot">&lt;-</span> <span class="dv">4</span></span>
 <span id="cb144-2"><a href="#cb144-2" aria-hidden="true" tabindex="-1"></a>myFirstFunction  <span class="ot">&lt;-</span> <span class="cf">function</span>(num1,num2){</span>
@@ -1024,8 +1024,8 @@ Anything to be received back from the function is indicated by the <strong>retur
 <div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="#cb146-1" aria-hidden="true" tabindex="-1"></a>my3rdNumber</span></code></pre></div>
 <pre><code>## [1] 4</code></pre>
 </div>
-<div id="functions---variable-scope.-3" class="section level2">
-<h2>Functions - Variable scope.</h2>
+<div id="variable-scope-in-functions-3" class="section level2">
+<h2>Variable scope in functions</h2>
 <p>We can use a <strong>&lt;&lt;-</strong> to assign to the environment outside the function although we will rarely do this</p>
 <div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="#cb148-1" aria-hidden="true" tabindex="-1"></a>my3rdNumber <span class="ot">&lt;-</span> <span class="dv">4</span></span>
 <span id="cb148-2"><a href="#cb148-2" aria-hidden="true" tabindex="-1"></a>myFirstFunction  <span class="ot">&lt;-</span> <span class="cf">function</span>(num1,num2){</span>
@@ -1038,8 +1038,8 @@ Anything to be received back from the function is indicated by the <strong>retur
 <div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="#cb150-1" aria-hidden="true" tabindex="-1"></a>my3rdNumber</span></code></pre></div>
 <pre><code>## [1] 9</code></pre>
 </div>
-<div id="functions---argument-defaults" class="section level2">
-<h2>Functions - Argument defaults</h2>
+<div id="argument-defaults" class="section level2">
+<h2>Argument defaults</h2>
 <p>Functions can have defaults for their arguments which will be used when arguments are not specified.</p>
 <div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="#cb152-1" aria-hidden="true" tabindex="-1"></a>myFirstFunction  <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">num1=</span><span class="dv">1</span>,<span class="at">num2=</span><span class="dv">3</span>){</span>
 <span id="cb152-2"><a href="#cb152-2" aria-hidden="true" tabindex="-1"></a>  my3rdNumber <span class="ot">&lt;-</span> num1<span class="sc">+</span>num2<span class="sc">+</span>my3rdNumber</span>
@@ -1050,8 +1050,8 @@ Anything to be received back from the function is indicated by the <strong>retur
 <div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="#cb154-1" aria-hidden="true" tabindex="-1"></a><span class="fu">myFirstFunction</span>(<span class="dv">3</span>,<span class="dv">4</span>)</span></code></pre></div>
 <pre><code>## [1] 16</code></pre>
 </div>
-<div id="custom-functions---example" class="section level2">
-<h2>Custom functions - Example</h2>
+<div id="custom-function-example" class="section level2">
+<h2>Custom function example</h2>
 <p>User defined functions can be as long and complicated as you want, taking in many variables, printing out messages and utilizing other functions within them.</p>
 <p>Lets make z-scores:</p>
 <div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="#cb156-1" aria-hidden="true" tabindex="-1"></a>my_zscore  <span class="ot">&lt;-</span> <span class="cf">function</span>(my_number, my_vector){</span>
@@ -1066,11 +1066,11 @@ Anything to be received back from the function is indicated by the <strong>retur
 <span id="cb156-10"><a href="#cb156-10" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">20</span>)</span>
 <span id="cb156-11"><a href="#cb156-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb156-12"><a href="#cb156-12" aria-hidden="true" tabindex="-1"></a><span class="fu">my_zscore</span>(<span class="at">my_number=</span>A[<span class="dv">1</span>], <span class="at">my_vector=</span>A)</span></code></pre></div>
-<pre><code>## Mean is -0.174660312738315</code></pre>
-<pre><code>## [1] 0.0749688</code></pre>
+<pre><code>## Mean is 0.0851163297102845</code></pre>
+<pre><code>## [1] 0.8816517</code></pre>
 </div>
-<div id="functions---debug-functions" class="section level2">
-<h2>Functions - Debug functions</h2>
+<div id="debugging-functions" class="section level2">
+<h2>Debugging functions</h2>
 <p>In Rstudio, if we want to see what may be happening within our function we can use <strong>debug</strong> function with our function of interest’s name. We can stop debugging with the <strong>undebug</strong> function.</p>
 <div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="#cb159-1" aria-hidden="true" tabindex="-1"></a><span class="fu">debug</span>(myFirstFunction)</span>
 <span id="cb159-2"><a href="#cb159-2" aria-hidden="true" tabindex="-1"></a><span class="fu">undebug</span>(myFirstFunction)</span></code></pre></div>
@@ -1079,10 +1079,10 @@ Anything to be received back from the function is indicated by the <strong>retur
 <h2>Custom functions and apply</h2>
 <p>These custom functions can also be utilized with apply.</p>
 <div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="#cb160-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(A, my_zscore, <span class="at">my_vector=</span>A)</span></code></pre></div>
-<pre><code>##  [1]  0.0749688  1.9564185 -2.2271233  1.0288808 -0.3568060 -0.8388329
-##  [7]  1.0923925 -0.4627200 -1.5256591  0.7459738 -0.1415495 -0.4129982
-## [13] -0.5924048  0.8524209 -0.2137219 -0.4519554 -0.5295838  0.2198770
-## [19]  0.3479765  1.4344461</code></pre>
+<pre><code>##  [1]  0.88165171  0.08050709 -0.35274886  0.15679835 -1.20174780  0.47341571
+##  [7] -0.72138533  0.35400589  1.06015226 -0.14232329  2.34425497  0.89076005
+## [13]  0.81029798 -0.81126475 -0.59210508  0.85231980 -0.35413698 -2.10009759
+## [19] -0.99669882 -0.63165532</code></pre>
 </div>
 </div>
 <div id="getting-additional-libraries" class="section level1">
@@ -1160,7 +1160,7 @@ dayOfWeek &lt;- function(){
 <h2>Time for an exercise!</h2>
 <p>Exercise on functions can be found <a href="../..//exercises/exercises/Functions_exercise.html">here</a></p>
 </div>
-<div id="answers-to-exercise.-1" class="section level2">
+<div id="answers-to-exercise." class="section level2">
 <h2>Answers to exercise.</h2>
 <p>Answers can be found here <a href="../..//exercises/answers/Functions_answers.html">here</a></p>
 <p>Rcode for answers can be found here <a href="../..//exercises/answers//answers/Functions_Answers.R">here</a></p>

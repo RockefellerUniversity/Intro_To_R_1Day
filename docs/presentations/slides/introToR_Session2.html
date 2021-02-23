@@ -31,10 +31,10 @@ class: center, middle, inverse, title-slide
 
 ## Overview
 
-- [Recap](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session2.html#recap)
-- [Conditions and Loops](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session2.html#conditions_and_loops)
-- [Libraries](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session2.html#getting_additional_libraries)
-- [Writing scripts](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session2.html#scripts)
+- [Recap](https://rockefelleruniversity.github.io/Intro_To_R_1Day/presentations/singlepage/introToR_Session2.html#recap)
+- [Conditions and Loops](https://rockefelleruniversity.github.io/Intro_To_R_1Day/presentations/singlepage/introToR_Session2.html#conditions_and_loops)
+- [Libraries](https://rockefelleruniversity.github.io/Intro_To_R_1Day/presentations/singlepage/introToR_Session2.html#getting_additional_libraries)
+- [Writing scripts](https://rockefelleruniversity.github.io/Intro_To_R_1Day/presentations/singlepage/introToR_Session2.html#scripts)
 
 
 ---
@@ -42,9 +42,9 @@ class: center, middle, inverse, title-slide
 
 Session 1 covered introduction to R data types and import/export of data.
 
-- [Background to R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#background-to-r)
-- [Data types in R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#data_types_in_r)
-- [Reading and writing in R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#reading-and-writing-data-in-r)
+- [Background to R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/presentations/singlepage/introToR_Session1.html#background-to-r)
+- [Data types in R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/presentations/singlepage/introToR_Session1.html#data_types_in_r)
+- [Reading and writing in R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/presentations/singlepage/introToR_Session1.html#reading-and-writing-data-in-r)
 
 ---
 ## Recap
@@ -1026,7 +1026,7 @@ sapply(exampleList, summary)
 Exercise on loops and conditional branching can be found [here](../..//exercises/exercises/conditionsAndLoops_exercise.html)
 
 ---
-## Answers to exercise.
+## Answers to exercise
 
 
 Answers can be found here  [here](../..//exercises/answers/conditionsAndLoops_answers.html)
@@ -1063,7 +1063,7 @@ myFirstFunction(MYARGUMENT=MY_USER_SUPPLIED_ARGUMENT)
 ```
 
 ---
-## Functions - First example
+## Custom functions
 
 First lets create a function that can sum two numbers. We can call the function **myFirstFunction** and set our arguments as **num1** and **num2**.
 
@@ -1085,7 +1085,7 @@ myResult
 ```
 
 ---
-## Functions - Returning from function.
+## Returning multiple values
 
 We can only **return** 1 object at a time from function. Here we create the multiple of our numbers and try and return alongside our sum.
 
@@ -1106,7 +1106,7 @@ myResult &lt;- myFirstFunction(num1=2,num2=3)
 ```
 
 ---
-## Functions - Returning multiple values
+## Returning multiple values
 
 A simple solution is to pass back an object that contains both results. Here we create a named vector to return our multiple and sum.
 
@@ -1131,7 +1131,7 @@ myResult
 ```
 
 ---
-## Functions - Returning values in a list.
+## Returning multiple values
 
 Lists are very useful here as they can contain different object classes in their elements and so we can return mixed data types from our functions using this. Below we return a list with elements of the input arguments as a vector and the result as a data.frame.
 
@@ -1162,7 +1162,7 @@ myResult
 ```
 
 ---
-## Functions - Evaluate until return.
+## Evaluate until return
 
 In a function containing a **return** statement, the code up until the return statement is evaluated and anything after the return statement is not evaluated.
 
@@ -1202,7 +1202,7 @@ myResult
 ```
 
 ---
-## Functions - No return statement.
+## No return statement
 
 If a function does not contain a return statement, the result of the last line in function is returned.
 
@@ -1233,7 +1233,7 @@ myResult
 ```
 
 ---
-## Functions - Variable scope.
+## Variable scope in functions
 
 Variables defined in the arguments or within the function exist only within the environment of the function.
 
@@ -1260,7 +1260,7 @@ sumNum
 ```
 
 ---
-## Functions - Variable scope.
+## Variable scope in functions
 
 Variables defined in the global environment outside the function are available within the function.
 
@@ -1281,7 +1281,7 @@ myResult
 
 
 ---
-## Functions - Variable scope.
+##  Variable scope in functions
 
 Changes to variables defined in the global environment from within the function will not be reflected in the global environment.
 
@@ -1309,7 +1309,7 @@ my3rdNumber
 ```
 
 ---
-## Functions - Variable scope.
+##  Variable scope in functions
 
 We can use a **&lt;&lt;-** to assign to the environment outside the function although we will rarely do this
 
@@ -1337,7 +1337,7 @@ my3rdNumber
 ```
 
 ---
-## Functions - Argument defaults
+## Argument defaults
 
 Functions can have defaults for their arguments which will be used when arguments are not specified.
 
@@ -1364,7 +1364,7 @@ myFirstFunction(3,4)
 
 
 ---
-## Custom functions - Example
+## Custom function example
 User defined functions can be as long and complicated as you want, taking in many variables, printing out messages and utilizing other functions within them.
 
 Lets make z-scores:
@@ -1385,15 +1385,15 @@ my_zscore(my_number=A[1], my_vector=A)
 ```
 
 ```
-## Mean is 0.0598578605763662
+## Mean is -0.391956325108615
 ```
 
 ```
-## [1] 0.4589797
+## [1] 0.7035409
 ```
 
 ---
-## Functions - Debug functions
+## Debugging functions
 
 In Rstudio, if we want to see what may be happening within our function we can use **debug** function with our function of interest's name. We can stop debugging with the **undebug** function.
 
@@ -1414,10 +1414,10 @@ sapply(A, my_zscore, my_vector=A)
 ```
 
 ```
-##  [1]  0.4589797 -1.1661719  0.2389790 -0.2325423 -0.8968640  1.1909638
-##  [7]  0.1882874  0.2953032  0.7600115 -1.1934601 -1.1943133  0.2634409
-## [13]  0.5930831 -1.4930364 -0.1024283 -0.1073480  2.5443515 -1.3067192
-## [19]  0.6763521  0.4831314
+##  [1]  0.70354086  0.64668309 -0.52300879  0.02157602  0.78217814  1.04568069
+##  [7]  1.07758726 -0.97317800  0.77401463 -2.55229150  0.35170314  0.06794999
+## [13] -1.33080465  0.19472472  0.54233630  1.17265312 -0.65126921 -0.05892850
+## [19]  0.35900252 -1.65014985
 ```
 
 
