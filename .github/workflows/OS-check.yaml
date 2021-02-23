@@ -6,10 +6,10 @@ on:
     branches:
       - master
 
-name: R-CMD-check
+name: OS-check
 
 jobs:
-  R-CMD-check:
+  OS-check:
     runs-on: ${{ matrix.config.os }}
 
     name: ${{ matrix.config.os }} (${{ matrix.config.r }})
