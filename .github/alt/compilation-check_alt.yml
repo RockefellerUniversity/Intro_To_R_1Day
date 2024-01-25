@@ -32,11 +32,11 @@
 on:
   push:
     branches:
-      - master
+      - main
       - 'RELEASE_*'
   pull_request:
     branches:
-      - master
+      - main
       - 'RELEASE_*'
 
 name: compilation-check
@@ -89,8 +89,8 @@ jobs:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
       TZ: UTC
       NOT_CRAN: true
-      GITHUB_TOKEN: ${{ secrets.GHTOKEN }}
-      GITHUB_PAT: ${{ secrets.GHTOKEN }}
+      GITHUB_TOKEN: ${{ secrets.GHTOKEN2 }}
+      GITHUB_PAT: ${{ secrets.GHTOKEN2 }}
 
     ## The docker container to use. Note that we link a directory on the GHA
     ## runner to a docker directory, such that we can then cache the linked
@@ -113,21 +113,38 @@ jobs:
           cd -
           git --version
         shell: bash {0}
-      ## Related to https://github.com/actions/checkout/issues/238
+        
+      - name: Install GitLFS
+        run: |
+          sudo apt-get update 
+          sudo apt-get install git-lfs
+          git lfs install
+        shell: bash {0}
+      
+      - name: Install GLPK
+        run: |
+          sudo apt-get update -y
+          sudo apt-get install -y glpk-utils
+        shell: bash {0}
+        ## Related to https://github.com/actions/checkout/issues/238
       ## https://www.digitalocean.com/community/tutorials/how-to-install-git-on-ubuntu-18-04
 
       ## Most of these steps are the same as the ones in
       ## https://github.com/r-lib/actions/blob/master/examples/check-standard.yaml
       ## If they update their steps, we will also need to update ours.
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          lfs: true
+      - name: Checkout LFS objects
+        run: git lfs pull
       - name: Query dependencies
         run: |
           install.packages('remotes')
-          saveRDS(remotes::dev_package_deps("introToR/",dependencies = TRUE), ".github/depends.Rds", version = 2)
+          saveRDS(remotes::dev_package_deps("scRNASeq/",dependencies = TRUE), ".github/depends.Rds", version = 2)
           message(paste('****', Sys.time(), 'installing BiocManager ****'))
           remotes::install_cran("BiocManager")
         shell: Rscript {0}
-
       ## Find the corresponding R version based on the Bioconductor version
       ## to use for the macOS and Windows checks by the next GHA job
       - id: findrversion
@@ -163,19 +180,22 @@ jobs:
           ## Ideally, all dependencies should get installed in the first pass.
           ## Pass #1 at installing dependencies
           message(paste('****', Sys.time(), 'pass number 1 at installing dependencies: local dependencies ****'))
-          local_deps <- remotes::local_package_deps("introToR/",dependencies = TRUE)
-          deps <- remotes::dev_package_deps("introToR/",dependencies = TRUE, repos = BiocManager::repositories())
+          local_deps <- remotes::local_package_deps("scRNASeq/",dependencies = TRUE)
+          deps <- remotes::dev_package_deps("scRNASeq/",dependencies = TRUE, repos = BiocManager::repositories())
           BiocManager::install(local_deps[local_deps %in% deps$package[deps$diff != 0]])
           ## Pass #2 at installing dependencies
           message(paste('****', Sys.time(), 'pass number 2 at installing dependencies: any remaining dependencies ****'))
-          deps <- remotes::dev_package_deps("introToR/",dependencies = TRUE, repos = BiocManager::repositories())
+          deps <- remotes::dev_package_deps("scRNASeq/",dependencies = TRUE, repos = BiocManager::repositories())
           BiocManager::install(deps$package[deps$diff != 0])
-          ## For running the checks
+          ## For running the checks addiotnal cusotm packages can be added here
           message(paste('****', Sys.time(), 'installing rcmdcheck and BiocCheck ****'))
           remotes::install_cran("rcmdcheck")
           BiocManager::install("BiocCheck")
           BiocManager::install("rmarkdown")
-          BiocManager::install("RockefellerUniversity/compileCourses",subdir="compileCourses")          
+          BiocManager::install("RockefellerUniversity/compileCourses",subdir="compileCourses")
+          BiocManager::install("devtools")
+          BiocManager::install("Herper")
+          devtools::install_github('satijalab/seurat-data')
         shell: Rscript {0}
 
       - name: Session info
@@ -186,18 +206,19 @@ jobs:
         shell: Rscript {0}
 
       - name: Install package
-        if: github.ref == 'refs/heads/master' 
-        run: R CMD INSTALL ./introToR/
+        if: github.ref == 'refs/heads/main' 
+        run: R CMD INSTALL ./scRNASeq/
 
       - name: Session info
         run: |
           require(compileCourses)
-          compileCourses::compileSingleCourseMaterial(repo="RockefellerUniversity",subdir="introToR",branch="master")
+          compileCourses::compileSingleCourseMaterial(repo="RockefellerUniversity",subdir="scRNASeq",branch="main")
         shell: Rscript {0}
 
       - name: Move to docs
         run: |
           mkdir -p docs
+          rm -r r_course/*/*/*_cache
           cp -r  r_course/* docs/
           echo "Copied to docs"
         shell:
@@ -209,11 +230,11 @@ jobs:
           git config --global http.postBuffer 263112000
           git add docs/\* r_course/\*
           git commit -m 'Autobuild' 
-          git push origin HEAD:refs/heads/master
+          git push origin HEAD:refs/heads/main
       
       - name: Upload check results
         if: failure()
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@main
         with:
           name: ${{ runner.os }}-biocdocker-biocbranch-release-r-${{ steps.findrversion.outputs.rversion }}-bioc-${{ steps.findrversion.outputs.biocversionnum }}-results
           path: check
