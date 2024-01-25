@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>introToR_Session2.utf8</title>
+    <title>Introduction to R, Session 2 ¶  ¶ ¶  ¶ </title>
     <meta charset="utf-8" />
     <meta name="author" content="Rockefeller University, Bioinformatics Resource Centre" />
+    <script src="libs/header-attrs-2.25/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link rel="stylesheet" href="metropolisCustom.css" type="text/css" />
     <link rel="stylesheet" href="metropolis-fontsCustom.css" type="text/css" />
@@ -12,15 +13,15 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
-# Introduction to R, Session 2
-<html>
-<div style="float:left">
-
-</div>
-<hr color='#EB811B' size=1px width=796px>
-</html>
+.title[
+# Introduction to R, Session 2 ¶ <html> ¶ ¶ <hr color='#EB811B' size=1px width=796px> ¶ </html>
+]
+.author[
 ### Rockefeller University, Bioinformatics Resource Centre
+]
+.date[
 ### <a href="http://rockefelleruniversity.github.io/Intro_To_R_1Day/" class="uri">http://rockefelleruniversity.github.io/Intro_To_R_1Day/</a>
+]
 
 ---
 
@@ -1383,11 +1384,11 @@ my_zscore(my_number=A[1], my_vector=A)
 ```
 
 ```
-## Mean is 0.290551949290036
+## Mean is 0.0727249508985324
 ```
 
 ```
-## [1] -0.4466291
+## [1] 1.500345
 ```
 
 ---
@@ -1412,10 +1413,10 @@ sapply(A, my_zscore, my_vector=A)
 ```
 
 ```
-##  [1] -0.4466291  1.8349212  0.2935585 -0.5377074  0.4365208  1.4010397
-##  [7]  0.3640984  0.1074542 -1.9522542 -1.0661325  0.7347903  0.7422989
-## [13]  0.3919661 -1.1863846  0.7793160 -1.1099035  0.1063682  1.1170540
-## [19] -1.1493276 -0.8610472
+##  [1]  1.50034473 -2.00951544 -0.03868685  1.04348607  0.49010888  0.92693225
+##  [7]  0.09237574 -0.85779442 -0.05221997  0.64175929  1.06980686 -0.91267143
+## [13] -0.09292465 -0.27876424 -1.62304392 -0.23900727 -0.62374406 -1.28453152
+## [19]  0.98106171  1.26702826
 ```
 
 
@@ -1510,7 +1511,7 @@ dayOfWeek()
 ```
 
 ```
-## [1] "Tue"
+## [1] "Thu"
 ```
 
 ---
@@ -1574,6 +1575,9 @@ Answers can be found here  [here](../..//exercises/answers/Functions_answers.htm
 - Local friendly bioinformaticians and computational biologists.
 - [Stackoverflow](http://stackoverflow.com/)
 - [R-help](https://stat.ethz.ch/mailman/listinfo/r-help)
+
+
+
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
@@ -1621,6 +1625,19 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     deleted = true;
   });
 })();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
 (function() {
   "use strict"
   // Replace <script> tags in slides area to make them executable
