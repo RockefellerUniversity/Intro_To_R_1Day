@@ -6,7 +6,7 @@ suppressPackageStartupMessages(require(knitr))
 knitr::opts_chunk$set(echo = TRUE, tidy = T)
 
 
-## ---- results='asis',include=TRUE,echo=FALSE----------------------------------
+## ----results='asis',include=TRUE,echo=FALSE-----------------------------------
 if(params$isSlides != "yes"){
   cat("# Introduction to R (part 2)
 
@@ -107,7 +107,7 @@ Table[1:3,]
 ## ?merge
 
 
-## ---- results='asis',include=TRUE,echo=FALSE----------------------------------
+## ----results='asis',include=TRUE,echo=FALSE-----------------------------------
 if(params$isSlides == "yes"){
   cat("class: inverse, center, middle
 
@@ -180,7 +180,7 @@ if(x < 5){
 
 
 
-## ---- message=TRUE------------------------------------------------------------
+## ----message=TRUE-------------------------------------------------------------
 x <- 5
 if(x > 5){
   message(x," is greater than 5")
@@ -196,7 +196,7 @@ x <- 1:10
 x
 
 
-## ---- message=TRUE------------------------------------------------------------
+## ----message=TRUE-------------------------------------------------------------
 ifelse(x <= 3,"lessOrEqual","more") 
 
 
@@ -206,7 +206,7 @@ ifelse(x == 3,"same",
       ) 
 
 
-## ---- message=TRUE------------------------------------------------------------
+## ----message=TRUE-------------------------------------------------------------
 x <- 1
 while(x < 3){
   message("x is ",x," ")
@@ -215,14 +215,14 @@ while(x < 3){
 message("Finally x is not less than 3")
 
 
-## ---- message=TRUE------------------------------------------------------------
+## ----message=TRUE-------------------------------------------------------------
 x <- 1:5
 for(i in x){
   message(i," ", appendLF = F)
 }
 
 
-## ---- message=TRUE------------------------------------------------------------
+## ----message=TRUE-------------------------------------------------------------
 x <- toupper(letters[1:5])
 for(i in x){
   message(i," ", appendLF = F)
@@ -352,7 +352,7 @@ exampleList <- list(df=data.frame(sample=paste0("patient",1:2), data=c(1,12)),
 sapply(exampleList, summary)
 
 
-## ---- results='asis',include=TRUE,echo=FALSE----------------------------------
+## ----results='asis',include=TRUE,echo=FALSE-----------------------------------
 if(params$isSlides == "yes"){
   cat("class: inverse, center, middle
 
@@ -536,12 +536,12 @@ my_zscore(my_number=A[1], my_vector=A)
 ## undebug(myFirstFunction)
 
 
-## ---- message=F---------------------------------------------------------------
+## ----message=F----------------------------------------------------------------
 sapply(A, my_zscore, my_vector=A)
 
 
 
-## ---- results='asis',include=TRUE,echo=FALSE----------------------------------
+## ----results='asis',include=TRUE,echo=FALSE-----------------------------------
 if(params$isSlides == "yes"){
   cat("class: inverse, center, middle
 
@@ -574,7 +574,7 @@ if(params$isSlides == "yes"){
 ## install.packages("Hmisc")
 
 
-## ---- results='asis',include=TRUE,echo=FALSE----------------------------------
+## ----results='asis',include=TRUE,echo=FALSE-----------------------------------
 if(params$isSlides == "yes"){
   cat("class: inverse, center, middle
 
