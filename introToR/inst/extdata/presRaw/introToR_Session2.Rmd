@@ -4,8 +4,6 @@ author: "Rockefeller University, Bioinformatics Resource Centre"
 date: "http://rockefelleruniversity.github.io/Intro_To_R_1Day/"
 output: 
   xaringan::moon_reader:
-    css: ["default", "metropolisCustom.css", "metropolis-fontsCustom.css"]
-    lib_dir: libs
     nature:
       highlightStyle: github
       highlightLines: true
