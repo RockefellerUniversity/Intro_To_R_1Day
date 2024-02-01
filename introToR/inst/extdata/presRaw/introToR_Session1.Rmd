@@ -1,8 +1,6 @@
 ---
 title: "Introduction to R - Session 1"
-subtitle: 
-  - "Rockefeller University"
-  - "Bioinformatics Resource Center"
+subtitle: "Bioinformatics Resource Center - Rockefeller University"
 author: 
   - "http://rockefelleruniversity.github.io/Intro_To_R_1Day/"
   - "brc@rockefeller.edu"
