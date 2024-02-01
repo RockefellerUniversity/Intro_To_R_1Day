@@ -13,7 +13,7 @@
 <meta name="author" content="brc@rockefeller.edu" />
 
 
-<title>Introduction to R, Session 2</title>
+<title>Introduction to R - Session 2</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -1556,7 +1556,7 @@ border-radius: 0px;
 
 
 
-<h1 class="title toc-ignore">Introduction to R, Session 2</h1>
+<h1 class="title toc-ignore">Introduction to R - Session 2</h1>
 <h3 class="subtitle">Rockefeller UniversityBioinformatics Resource
 Center</h3>
 <h4 class="author"><a href="http://rockefelleruniversity.github.io/Intro_To_R_1Day/" class="uri">http://rockefelleruniversity.github.io/Intro_To_R_1Day/</a></h4>
@@ -2390,8 +2390,8 @@ functions within them.</p>
 <span id="cb156-10"><a href="#cb156-10" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">20</span>)</span>
 <span id="cb156-11"><a href="#cb156-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb156-12"><a href="#cb156-12" aria-hidden="true" tabindex="-1"></a><span class="fu">my_zscore</span>(<span class="at">my_number=</span>A[<span class="dv">1</span>], <span class="at">my_vector=</span>A)</span></code></pre></div>
-<pre><code>## Mean is 0.336760141226945</code></pre>
-<pre><code>## [1] 0.8414817</code></pre>
+<pre><code>## Mean is -0.339070410259268</code></pre>
+<pre><code>## [1] -0.9170779</code></pre>
 </div>
 <div id="debugging-functions" class="section level2">
 <h2>Debugging functions</h2>
@@ -2406,10 +2406,10 @@ function.</p>
 <h2>Custom functions and apply</h2>
 <p>These custom functions can also be utilized with apply.</p>
 <div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="#cb160-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(A, my_zscore, <span class="at">my_vector=</span>A)</span></code></pre></div>
-<pre><code>##  [1]  0.84148168 -1.13408164  1.39003255 -0.29577921  0.86770920  0.34013182
-##  [7] -0.06687190  1.83415324  0.97555702 -0.26817883  0.78264740 -0.76312822
-## [13]  0.31684741 -1.11205128 -0.75935860 -1.51774974 -1.69251669 -0.64868855
-## [19] -0.09906415  1.00890849</code></pre>
+<pre><code>##  [1] -0.91707786 -1.27881585 -0.09207309  0.27502420 -0.21778697 -1.07329500
+##  [7] -0.01765323  0.16428822  1.18594526 -0.95894849 -0.02403633 -1.81818368
+## [13] -0.44579057  0.82992612  1.94427763 -0.03240710 -0.83499881  0.49418623
+## [19]  1.38393290  1.43348640</code></pre>
 </div>
 </div>
 <div id="getting-additional-libraries" class="section level1">
