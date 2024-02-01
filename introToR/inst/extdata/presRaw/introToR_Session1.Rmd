@@ -1,8 +1,9 @@
 ---
 title: "Introduction to R, Session 1"
-author: 
+subtitle: 
   - "Rockefeller University"
   - "Bioinformatics Resource Center"
+author: 
   - "http://rockefelleruniversity.github.io/Intro_To_R_1Day/"
   - "brc@rockefeller.edu"
 output: 
