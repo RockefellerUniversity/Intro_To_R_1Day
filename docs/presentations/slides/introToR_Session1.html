@@ -4,10 +4,8 @@
     <title>Introduction to R, Session 1 ¶  ¶ ¶  ¶ </title>
     <meta charset="utf-8" />
     <meta name="author" content="Rockefeller University, Bioinformatics Resource Centre" />
-    <script src="libs/header-attrs-2.25/header-attrs.js"></script>
-    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
-    <link rel="stylesheet" href="metropolisCustom.css" type="text/css" />
-    <link rel="stylesheet" href="metropolis-fontsCustom.css" type="text/css" />
+    <script src="introToR_Session1_files/header-attrs-2.25/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
@@ -24,6 +22,8 @@ class: center, middle, inverse, title-slide
 ]
 
 ---
+
+
 
 
 
@@ -2560,51 +2560,51 @@ A standard format for this data is a table:
 &lt;tbody&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_a &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 5.092536 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.959288 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.287512 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.157579 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.795394 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.370030 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_b &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.417673 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.270618 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 5.088228 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.716156 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.796734 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.188728 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_c &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.233973 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.178460 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 2.868515 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.519151 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.238041 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.559169 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_d &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 2.296124 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 5.721397 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 2.786783 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.422169 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.976644 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5.314345 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_e &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.914222 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.831209 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 11.169593 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.162650 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.599316 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.706213 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_f &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 8.604553 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 11.513139 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.825915 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.909772 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.605606 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.456477 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_g &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.022908 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.256610 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.752722 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.223857 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 11.481391 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.427870 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_h &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 11.433772 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.258782 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.899988 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 11.521883 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.130797 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.791020 &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
