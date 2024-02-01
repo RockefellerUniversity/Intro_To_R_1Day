@@ -1,7 +1,10 @@
 ---
-title: "Introduction to R, Session 2 <html><div style='float:left'></div><hr color='#EB811B' size=1px width=796px></html>"
-author: "Rockefeller University, Bioinformatics Resource Centre"
-date: "http://rockefelleruniversity.github.io/Intro_To_R_1Day/"
+title: "Introduction to R, Session 2"
+author: 
+  - "Rockefeller University"
+  - "Bioinformatics Resource Center"
+  - "http://rockefelleruniversity.github.io/Intro_To_R_1Day/"
+  - "brc@rockefeller.edu"
 output: 
   xaringan::moon_reader:
     nature:
@@ -18,9 +21,20 @@ output:
 params:
   isSlides: "no"
 ---
+
 ```{r setup, include=FALSE}
 suppressPackageStartupMessages(require(knitr))
 knitr::opts_chunk$set(echo = TRUE, tidy = T)
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+style_mono_accent(
+  base_color = "#23373B",
+  header_font_google = google_font("Montserrat"),
+  text_font_google   = google_font("Fira Sans", "300", "300i"),
+  code_font_google   = google_font("Fira Code")
+)
 ```
 
 ```{r, results='asis',include=TRUE,echo=FALSE}
@@ -41,7 +55,6 @@ if(params$isSlides != "yes"){
 - [Conditions and Loops](https://rockefelleruniversity.github.io/Intro_To_R_1Day/presentations/singlepage/introToR_Session2.html#conditions_and_loops)
 - [Libraries](https://rockefelleruniversity.github.io/Intro_To_R_1Day/presentations/singlepage/introToR_Session2.html#getting_additional_libraries)
 - [Writing scripts](https://rockefelleruniversity.github.io/Intro_To_R_1Day/presentations/singlepage/introToR_Session2.html#scripts)
-
 
 ---
 #  Recap
