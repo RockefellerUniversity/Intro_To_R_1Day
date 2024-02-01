@@ -3,13 +3,10 @@
   <head>
     <title>Introduction to R, Session 2</title>
     <meta charset="utf-8" />
-    <meta name="author" content="Rockefeller University" />
-    <meta name="author" content="Bioinformatics Resource Center" />
     <meta name="author" content="http://rockefelleruniversity.github.io/Intro_To_R_1Day/" />
     <meta name="author" content="brc@rockefeller.edu" />
     <script src="introToR_Session2_files/header-attrs-2.25/header-attrs.js"></script>
-    <link href="introToR_Session2_files/remark-css-0.0.1/default.css" rel="stylesheet" />
-    <link href="introToR_Session2_files/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
@@ -18,11 +15,8 @@ class: center, middle, inverse, title-slide
 .title[
 # Introduction to R, Session 2
 ]
-.author[
-### Rockefeller University
-]
-.author[
-### Bioinformatics Resource Center
+.subtitle[
+## Rockefeller UniversityBioinformatics Resource Center
 ]
 .author[
 ### <a href="http://rockefelleruniversity.github.io/Intro_To_R_1Day/" class="uri">http://rockefelleruniversity.github.io/Intro_To_R_1Day/</a>
@@ -1394,11 +1388,11 @@ my_zscore(my_number=A[1], my_vector=A)
 ```
 
 ```
-## Mean is 0.0213025802018711
+## Mean is 0.15265775034694
 ```
 
 ```
-## [1] 2.506417
+## [1] -2.670376
 ```
 
 ---
@@ -1423,10 +1417,10 @@ sapply(A, my_zscore, my_vector=A)
 ```
 
 ```
-##  [1]  2.5064166  0.3384537 -1.5639004 -0.4367883 -0.1023052 -0.2479230
-##  [7]  0.8048726  0.3938762 -0.4739163 -0.1021068 -0.9742132  1.6428937
-## [13]  0.1696986 -1.3119838 -0.1666072 -1.6856568  0.2129831  0.1369554
-## [19]  0.7089834  0.1502676
+##  [1] -2.67037573 -1.51655597  0.92502321 -0.13927423  1.10004582 -0.16407196
+##  [7]  0.71037255 -0.06715683  0.15406743  1.64852107 -1.60355040  0.20080593
+## [13] -0.17084239  0.67952690  0.27015253  0.54263021  0.72567945 -0.03336160
+## [19] -0.16590065 -0.42573534
 ```
 
 
