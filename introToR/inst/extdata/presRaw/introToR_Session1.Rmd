@@ -6,7 +6,6 @@ author:
   - "http://rockefelleruniversity.github.io/Intro_To_R_1Day/"
   - "brc@rockefeller.edu"
 output: 
-output: 
   xaringan::moon_reader:
     css: xaringan-themer.css
     nature:
