@@ -1,5 +1,5 @@
 ---
-title: "Introduction to R, Session 1 <html><div style='float:left'></div><hr color='#EB811B' size=1px width=796px></html>"
+title: "Introduction to R, Session 1"
 author: "Rockefeller University, Bioinformatics Resource Centre"
 date: "http://rockefelleruniversity.github.io/Intro_To_R_1Day/"
 output: 
