@@ -9,10 +9,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Rockefeller University, Bioinformatics Resource Centre" />
+<meta name="author" content="Rockefeller University" />
+<meta name="author" content="Bioinformatics Resource Center" />
+<meta name="author" content="http://rockefelleruniversity.github.io/Intro_To_R_1Day/" />
+<meta name="author" content="brc@rockefeller.edu" />
 
 
-<title>Introduction to R, Session 2 ¶  ¶ ¶  ¶ </title>
+<title>Introduction to R, Session 2</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -1555,11 +1558,11 @@ border-radius: 0px;
 
 
 
-<h1 class="title toc-ignore">Introduction to R, Session 2 ¶ <html> ¶ ¶
-<hr color="#EB811B" size="1px" width="796px"> ¶ </html></h1>
-<h4 class="author">Rockefeller University, Bioinformatics Resource
-Centre</h4>
-<h4 class="date"><a href="http://rockefelleruniversity.github.io/Intro_To_R_1Day/" class="uri">http://rockefelleruniversity.github.io/Intro_To_R_1Day/</a></h4>
+<h1 class="title toc-ignore">Introduction to R, Session 2</h1>
+<h4 class="author">Rockefeller University</h4>
+<h4 class="author">Bioinformatics Resource Center</h4>
+<h4 class="author"><a href="http://rockefelleruniversity.github.io/Intro_To_R_1Day/" class="uri">http://rockefelleruniversity.github.io/Intro_To_R_1Day/</a></h4>
+<h4 class="author"><a href="mailto:brc@rockefeller.edu" class="email">brc@rockefeller.edu</a></h4>
 
 </div>
 
@@ -2389,8 +2392,8 @@ functions within them.</p>
 <span id="cb156-10"><a href="#cb156-10" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">20</span>)</span>
 <span id="cb156-11"><a href="#cb156-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb156-12"><a href="#cb156-12" aria-hidden="true" tabindex="-1"></a><span class="fu">my_zscore</span>(<span class="at">my_number=</span>A[<span class="dv">1</span>], <span class="at">my_vector=</span>A)</span></code></pre></div>
-<pre><code>## Mean is 0.234377094749696</code></pre>
-<pre><code>## [1] -0.9715912</code></pre>
+<pre><code>## Mean is 0.267745483307702</code></pre>
+<pre><code>## [1] -1.659081</code></pre>
 </div>
 <div id="debugging-functions" class="section level2">
 <h2>Debugging functions</h2>
@@ -2405,10 +2408,10 @@ function.</p>
 <h2>Custom functions and apply</h2>
 <p>These custom functions can also be utilized with apply.</p>
 <div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="#cb160-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(A, my_zscore, <span class="at">my_vector=</span>A)</span></code></pre></div>
-<pre><code>##  [1] -0.97159116  0.32385300  0.09273780 -1.43723828  0.77615773  0.23989367
-##  [7] -0.28025630 -0.27637826 -0.85384484 -0.78851036  0.64910588 -0.41752804
-## [13]  0.06011209 -0.10467610 -0.04418539 -1.87700202  2.55462255  0.04428067
-## [19]  1.59037277  0.72007461</code></pre>
+<pre><code>##  [1] -1.659081312 -0.521385758  0.774612930  2.861772431  0.131227763
+##  [6]  0.495242611  0.474716884 -1.327482755  0.251037466 -0.085124417
+## [11]  0.001984395 -0.571234827  0.213895134 -0.078139969  0.143146443
+## [16] -0.550726452 -0.859529265  0.229768762  1.335560013 -1.260260075</code></pre>
 </div>
 </div>
 <div id="getting-additional-libraries" class="section level1">

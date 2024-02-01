@@ -6,6 +6,16 @@ suppressPackageStartupMessages(require(knitr))
 knitr::opts_chunk$set(echo = TRUE, tidy = T)
 
 
+## ----xaringan-themer, include=FALSE, warning=FALSE----------------------------
+library(xaringanthemer)
+style_mono_accent(
+  base_color = "#23373B",
+  header_font_google = google_font("Montserrat"),
+  text_font_google   = google_font("Fira Sans", "300", "300i"),
+  code_font_google   = google_font("Fira Code")
+)
+
+
 ## ----results='asis',include=TRUE,echo=FALSE-----------------------------------
 if(params$isSlides != "yes"){
   cat("# Introduction to R (part 2)
