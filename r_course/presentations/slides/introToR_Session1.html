@@ -4,9 +4,10 @@
     <title>Introduction to R, Session 1 ¶  ¶ ¶  ¶ </title>
     <meta charset="utf-8" />
     <meta name="author" content="Rockefeller University, Bioinformatics Resource Centre" />
-    <script src="introToR_Session1_files/header-attrs-2.25/header-attrs.js"></script>
-    <link href="introToR_Session1_files/remark-css-0.0.1/default.css" rel="stylesheet" />
-    <link href="introToR_Session1_files/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+    <script src="libs/header-attrs-2.25/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link rel="stylesheet" href="metropolisCustom.css" type="text/css" />
+    <link rel="stylesheet" href="metropolis-fontsCustom.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
@@ -2559,51 +2560,51 @@ A standard format for this data is a table:
 &lt;tbody&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_a &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.916719 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 2.680731 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.134158 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5.092536 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.959288 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.287512 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_b &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.763512 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 5.018327 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 2.275269 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.417673 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.270618 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5.088228 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_c &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.430662 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.723086 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.966000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.233973 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.178460 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.868515 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_d &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.281147 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.536989 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 5.731316 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.296124 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5.721397 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.786783 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_e &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.467424 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.402453 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 8.436454 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.914222 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.831209 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 11.169593 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_f &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.110573 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 11.772371 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 11.266674 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8.604553 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 11.513139 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.825915 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_g &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.415595 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.922700 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.440116 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.022908 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.256610 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.752722 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_h &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.014145 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.958627 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.499032 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 11.433772 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.258782 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.899988 &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -2968,7 +2969,11 @@ Answers can be found [here](../../exercises/answers/DataInputOutput_answers.html
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
-<script>var slideshow = remark.create();
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));
 });
@@ -3046,7 +3051,24 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
       links[i].target = '_blank';
     }
   }
-})();</script>
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
 
 <script>
 slideshow._releaseMath = function(el) {
