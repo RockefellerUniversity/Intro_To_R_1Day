@@ -51,6 +51,7 @@ if(params$isSlides != "yes"){
 
 ## Overview
 
+- [Course Home Page](http://rockefelleruniversity.github.io/Intro_To_R_1Day/)
 - [Set up](https://rockefelleruniversity.github.io/Intro_To_R_1Day/presentations/singlepage/introToR_Session1.html#set-up)
 - [Background to R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/presentations/singlepage/introToR_Session1.html#background-to-r)
 - [Data types in R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/presentations/singlepage/introToR_Session1.html#data_types_in_r)
@@ -62,6 +63,7 @@ if(params$isSlides == "yes"){
   cat("class: inverse, center, middle
 
 # Set Up
+<html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
 ---
 "    
   )
@@ -91,25 +93,24 @@ Or can be downloaded as a zip archive from here.
 
 Once the zip file in unarchived. All presentations as HTML slides and pages, their R code and HTML practical sheets will be available in the directories underneath.
 
-* **presentations/slides/**
+* **r_course/presentations/slides/**
 Presentations as an HTML slide show.
-* **presentations/singlepage/** 
+* **r_course/presentations/singlepage/** 
 Presentations as an HTML single page.
-* **presentations/r_code/**
+* **r_course/presentations/r_code/**
 R code in presentations.
-* **exercises/**
+* **r_course/exercises/**
 Practicals as HTML pages. 
-* **answers/**
+* **r_course/answers/**
 Practicals with answers as HTML pages and R code solutions. 
 
 
 ---
 ## Set the Working directory
 
-
 Before running any of the code in the practicals or slides we need to set the working directory to the folder we unarchived. 
 
-You may navigate to the unarchived Intro_To_R_1Day folder in the Rstudio menu.
+You may navigate to the unarchived Intro_To_R_1Day folder in the Rstudio menu. We specifically want to set the working directory to the r_course folder.
 
 **Session -> Set Working Directory -> Choose Directory**
 
