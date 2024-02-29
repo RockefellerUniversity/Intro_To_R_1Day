@@ -33,6 +33,7 @@ if(params$isSlides == "yes"){
   cat("class: inverse, center, middle
 
 # Set Up
+<html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
 ---
 "    
   )

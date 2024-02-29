@@ -36,6 +36,7 @@ class: center, middle, inverse, title-slide
 
 ## Overview
 
+- [Course Home Page](http://rockefelleruniversity.github.io/Intro_To_R_1Day/)
 - [Set up](https://rockefelleruniversity.github.io/Intro_To_R_1Day/presentations/singlepage/introToR_Session1.html#set-up)
 - [Background to R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/presentations/singlepage/introToR_Session1.html#background-to-r)
 - [Data types in R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/presentations/singlepage/introToR_Session1.html#data_types_in_r)
@@ -45,6 +46,7 @@ class: center, middle, inverse, title-slide
 class: inverse, center, middle
 
 # Set Up
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px width=720px&gt;&lt;/html&gt; 
 ---
 
 ## Materials
@@ -62,25 +64,24 @@ Or can be downloaded as a zip archive from here.
 
 Once the zip file in unarchived. All presentations as HTML slides and pages, their R code and HTML practical sheets will be available in the directories underneath.
 
-* **presentations/slides/**
+* **r_course/presentations/slides/**
 Presentations as an HTML slide show.
-* **presentations/singlepage/** 
+* **r_course/presentations/singlepage/** 
 Presentations as an HTML single page.
-* **presentations/r_code/**
+* **r_course/presentations/r_code/**
 R code in presentations.
-* **exercises/**
+* **r_course/exercises/**
 Practicals as HTML pages. 
-* **answers/**
+* **r_course/answers/**
 Practicals with answers as HTML pages and R code solutions. 
 
 
 ---
 ## Set the Working directory
 
-
 Before running any of the code in the practicals or slides we need to set the working directory to the folder we unarchived. 
 
-You may navigate to the unarchived Intro_To_R_1Day folder in the Rstudio menu.
+You may navigate to the unarchived Intro_To_R_1Day folder in the Rstudio menu. We specifically want to set the working directory to the r_course folder.
 
 **Session -&gt; Set Working Directory -&gt; Choose Directory**
 
@@ -2561,51 +2562,51 @@ A standard format for this data is a table:
 &lt;tbody&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_a &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.549640 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.055915 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 5.473899 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.989086 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.385071 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.849135 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_b &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.061181 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.567089 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 2.627906 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.852941 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.469174 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.148399 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_c &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.768581 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.002469 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.166941 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5.880219 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.141099 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.591890 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_d &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.020130 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.633432 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.570594 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.677737 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.569226 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.292513 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_e &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.302783 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.623047 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.761798 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.574137 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.197844 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.068146 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_f &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.505908 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.555179 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.795322 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.084131 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.509316 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.518761 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_g &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.919977 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 8.395819 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.455944 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.311670 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.295871 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 11.361108 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_h &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.139262 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 8.447773 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.196103 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.108728 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.681291 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.532434 &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
