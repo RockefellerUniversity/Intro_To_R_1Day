@@ -1305,7 +1305,7 @@ overflow: visible;
 </style>
 <style type="text/css" data-origin="pandoc">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -1316,7 +1316,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
 { counter-reset: source-line 0; }
@@ -1340,11 +1340,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 code span.al { color: #ef2929; } 
 code span.an { color: #8f5902; font-weight: bold; font-style: italic; } 
-code span.at { color: #c4a000; } 
+code span.at { color: #204a87; } 
 code span.bn { color: #0000cf; } 
 code span.cf { color: #204a87; font-weight: bold; } 
 code span.ch { color: #4e9a06; } 
-code span.cn { color: #000000; } 
+code span.cn { color: #8f5902; } 
 code span.co { color: #8f5902; font-style: italic; } 
 code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } 
 code span.do { color: #8f5902; font-weight: bold; font-style: italic; } 
@@ -1353,14 +1353,14 @@ code span.dv { color: #0000cf; }
 code span.er { color: #a40000; font-weight: bold; } 
 code span.ex { } 
 code span.fl { color: #0000cf; } 
-code span.fu { color: #000000; } 
+code span.fu { color: #204a87; font-weight: bold; } 
 code span.im { } 
 code span.in { color: #8f5902; font-weight: bold; font-style: italic; } 
 code span.kw { color: #204a87; font-weight: bold; } 
 code span.op { color: #ce5c00; font-weight: bold; } 
 code span.ot { color: #8f5902; } 
 code span.pp { color: #8f5902; font-style: italic; } 
-code span.sc { color: #000000; } 
+code span.sc { color: #ce5c00; font-weight: bold; } 
 code span.ss { color: #4e9a06; } 
 code span.st { color: #4e9a06; } 
 code span.va { color: #000000; } 
@@ -1607,21 +1607,21 @@ data types of same length.</li>
 <li><strong>List</strong> - Ordered collection of multiple data types of
 differing length.</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>aVector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>aMatrix <span class="ot">&lt;-</span> <span class="fu">matrix</span>(aVector,<span class="at">ncol=</span><span class="dv">2</span>,<span class="at">nrow=</span><span class="dv">5</span>,<span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>aFactor <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;R&quot;</span>,<span class="st">&quot;Python&quot;</span>,<span class="st">&quot;R&quot;</span>,<span class="st">&quot;R&quot;</span>,<span class="st">&quot;Python&quot;</span>),<span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;R&quot;</span>,<span class="st">&quot;Python&quot;</span>))</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>aDataFrame <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Number=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>),<span class="at">Factor=</span>aFactor)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>aVector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>aMatrix <span class="ot">&lt;-</span> <span class="fu">matrix</span>(aVector,<span class="at">ncol=</span><span class="dv">2</span>,<span class="at">nrow=</span><span class="dv">5</span>,<span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>aFactor <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;R&quot;</span>,<span class="st">&quot;Python&quot;</span>,<span class="st">&quot;R&quot;</span>,<span class="st">&quot;R&quot;</span>,<span class="st">&quot;Python&quot;</span>),<span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;R&quot;</span>,<span class="st">&quot;Python&quot;</span>))</span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a>aDataFrame <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Number=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>),<span class="at">Factor=</span>aFactor)</span></code></pre></div>
 </div>
 <div id="recap-2" class="section level2">
 <h2>Recap</h2>
 <p>We can access and change information in our data.types using
 <strong>indexing</strong> with <strong>[]</strong> (or
 <strong>[[]]</strong> for lists).</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>aVector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>aVector[<span class="dv">10</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>aVector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>aVector[<span class="dv">10</span>]</span></code></pre></div>
 <pre><code>## [1] 10</code></pre>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>aVector[<span class="dv">10</span>] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>aVector</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>aVector[<span class="dv">10</span>] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>aVector</span></code></pre></div>
 <pre><code>##  [1] 1 2 3 4 5 6 7 8 9 0</code></pre>
 </div>
 <div id="recap-3" class="section level2">
@@ -1629,22 +1629,22 @@ differing length.</li>
 <p>For matricies and data frames we use two indexes, specifying columns
 and rows.
 <strong>matrix[<em>rowIndex</em>,<em>columnIndex</em>]</strong></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>aMatrix <span class="ot">&lt;-</span> <span class="fu">matrix</span>(aVector,<span class="at">ncol=</span><span class="dv">2</span>,</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">nrow=</span><span class="dv">5</span>,<span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>aMatrix</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>aMatrix <span class="ot">&lt;-</span> <span class="fu">matrix</span>(aVector,<span class="at">ncol=</span><span class="dv">2</span>,</span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>                  <span class="at">nrow=</span><span class="dv">5</span>,<span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>aMatrix</span></code></pre></div>
 <pre><code>##      [,1] [,2]
 ## [1,]    1    2
 ## [2,]    3    4
 ## [3,]    5    6
 ## [4,]    7    8
 ## [5,]    9    0</code></pre>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>aMatrix[<span class="dv">1</span>,]</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>aMatrix[<span class="dv">1</span>,]</span></code></pre></div>
 <pre><code>## [1] 1 2</code></pre>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>aMatrix[,<span class="dv">1</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a>aMatrix[,<span class="dv">1</span>]</span></code></pre></div>
 <pre><code>## [1] 1 3 5 7 9</code></pre>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>aMatrix[<span class="dv">1</span>,<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>aMatrix[,<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>aMatrix</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a>aMatrix[<span class="dv">1</span>,<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a>aMatrix[,<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a>aMatrix</span></code></pre></div>
 <pre><code>##      [,1] [,2]
 ## [1,]    0  100
 ## [2,]    3  100
@@ -1656,17 +1656,17 @@ and rows.
 <h2>Recap</h2>
 <p>Remember a matrix can only contain one data type (numeric, character
 etc). For mixed data types we use data frames.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>aMatrix <span class="ot">&lt;-</span> <span class="fu">matrix</span>(aVector,<span class="at">ncol=</span><span class="dv">2</span>,</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">nrow=</span><span class="dv">5</span>,<span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>aMatrix</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a>aMatrix <span class="ot">&lt;-</span> <span class="fu">matrix</span>(aVector,<span class="at">ncol=</span><span class="dv">2</span>,</span>
+<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a>                  <span class="at">nrow=</span><span class="dv">5</span>,<span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a>aMatrix</span></code></pre></div>
 <pre><code>##      [,1] [,2]
 ## [1,]    1    2
 ## [2,]    3    4
 ## [3,]    5    6
 ## [4,]    7    8
 ## [5,]    9    0</code></pre>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>aMatrix[<span class="dv">1</span>,<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="st">&quot;Word&quot;</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>aMatrix</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a>aMatrix[<span class="dv">1</span>,<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="st">&quot;Word&quot;</span></span>
+<span id="cb16-2"><a href="#cb16-2" tabindex="-1"></a>aMatrix</span></code></pre></div>
 <pre><code>##      [,1] [,2]  
 ## [1,] &quot;1&quot;  &quot;Word&quot;
 ## [2,] &quot;3&quot;  &quot;4&quot;   
@@ -1678,44 +1678,44 @@ etc). For mixed data types we use data frames.</p>
 <h2>Recap</h2>
 <p>We can use logical operations to evaluate information our data
 types.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>aVector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>)</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>aVector <span class="sc">&gt;</span> <span class="dv">9</span></span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a>aVector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>)</span>
+<span id="cb18-2"><a href="#cb18-2" tabindex="-1"></a>aVector <span class="sc">&gt;</span> <span class="dv">9</span></span></code></pre></div>
 <pre><code>##  [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE</code></pre>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>aFactor <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;R&quot;</span>,<span class="st">&quot;Python&quot;</span>,<span class="st">&quot;R&quot;</span>,<span class="st">&quot;R&quot;</span>,<span class="st">&quot;Python&quot;</span>),<span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;R&quot;</span>,<span class="st">&quot;Python&quot;</span>))</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>aDataFrame <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Number=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>),<span class="at">Factor=</span>aFactor)</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>aDataFrame</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a>aFactor <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;R&quot;</span>,<span class="st">&quot;Python&quot;</span>,<span class="st">&quot;R&quot;</span>,<span class="st">&quot;R&quot;</span>,<span class="st">&quot;Python&quot;</span>),<span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;R&quot;</span>,<span class="st">&quot;Python&quot;</span>))</span>
+<span id="cb20-2"><a href="#cb20-2" tabindex="-1"></a>aDataFrame <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Number=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>),<span class="at">Factor=</span>aFactor)</span>
+<span id="cb20-3"><a href="#cb20-3" tabindex="-1"></a>aDataFrame</span></code></pre></div>
 <pre><code>##   Number Factor
 ## 1      1      R
 ## 2      2 Python
 ## 3      3      R
 ## 4      4      R
 ## 5      5 Python</code></pre>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>aDataFrame<span class="sc">$</span>Factor <span class="sc">==</span> <span class="st">&quot;R&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a>aDataFrame<span class="sc">$</span>Factor <span class="sc">==</span> <span class="st">&quot;R&quot;</span></span></code></pre></div>
 <pre><code>## [1]  TRUE FALSE  TRUE  TRUE FALSE</code></pre>
 </div>
 <div id="recap-6" class="section level2">
 <h2>Recap</h2>
 <p>We can use logical operations with indexing to subset or alter
 information held in our data types.</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>aVector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>)</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>aVector <span class="sc">&gt;</span> <span class="dv">5</span></span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" tabindex="-1"></a>aVector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>)</span>
+<span id="cb24-2"><a href="#cb24-2" tabindex="-1"></a>aVector <span class="sc">&gt;</span> <span class="dv">5</span></span></code></pre></div>
 <pre><code>##  [1] FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE</code></pre>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>aVector[aVector <span class="sc">&gt;</span> <span class="dv">5</span>] <span class="ot">&lt;-</span> <span class="dv">10</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>aVector</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" tabindex="-1"></a>aVector[aVector <span class="sc">&gt;</span> <span class="dv">5</span>] <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb26-2"><a href="#cb26-2" tabindex="-1"></a>aVector</span></code></pre></div>
 <pre><code>##  [1]  1  2  3  4  5 10 10 10 10 10</code></pre>
 </div>
 <div id="recap-7" class="section level2">
 <h2>Recap</h2>
 <p>When replacing factor columns in data frames we have to remember the
 <strong>levels</strong>.</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>aFactor <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;R&quot;</span>,<span class="st">&quot;Python&quot;</span>,<span class="st">&quot;R&quot;</span>,<span class="st">&quot;R&quot;</span>,<span class="st">&quot;Python&quot;</span>),</span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;R&quot;</span>,<span class="st">&quot;Python&quot;</span>))</span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>aDataFrame <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Number=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>),</span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>                         <span class="at">Factor=</span>aFactor)</span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>aDataFrame[aDataFrame<span class="sc">$</span>Factor <span class="sc">==</span> <span class="st">&quot;R&quot;</span>,<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="st">&quot;NotPython&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" tabindex="-1"></a>aFactor <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;R&quot;</span>,<span class="st">&quot;Python&quot;</span>,<span class="st">&quot;R&quot;</span>,<span class="st">&quot;R&quot;</span>,<span class="st">&quot;Python&quot;</span>),</span>
+<span id="cb28-2"><a href="#cb28-2" tabindex="-1"></a>                  <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;R&quot;</span>,<span class="st">&quot;Python&quot;</span>))</span>
+<span id="cb28-3"><a href="#cb28-3" tabindex="-1"></a>aDataFrame <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Number=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>),</span>
+<span id="cb28-4"><a href="#cb28-4" tabindex="-1"></a>                         <span class="at">Factor=</span>aFactor)</span>
+<span id="cb28-5"><a href="#cb28-5" tabindex="-1"></a>aDataFrame[aDataFrame<span class="sc">$</span>Factor <span class="sc">==</span> <span class="st">&quot;R&quot;</span>,<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="st">&quot;NotPython&quot;</span></span></code></pre></div>
 <pre><code>## Warning in `[&lt;-.factor`(`*tmp*`, iseq, value = c(&quot;NotPython&quot;, &quot;NotPython&quot;, :
 ## invalid factor level, NA generated</code></pre>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>aDataFrame</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" tabindex="-1"></a>aDataFrame</span></code></pre></div>
 <pre><code>##   Number Factor
 ## 1      1   &lt;NA&gt;
 ## 2      2 Python
@@ -1727,12 +1727,12 @@ information held in our data types.</p>
 <h2>Recap</h2>
 <p>We can update levels in a data frame column as we would a factor. Now
 we can replace our elements in data frame.</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>aDataFrame <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Number=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>),</span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>                         <span class="at">Factor=</span>aFactor)</span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>aDataFrame<span class="sc">$</span>Factor <span class="ot">&lt;-</span> <span class="fu">factor</span>(aDataFrame<span class="sc">$</span>Factor,</span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>                            <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;R&quot;</span>,<span class="st">&quot;Python&quot;</span>,<span class="st">&quot;NotPython&quot;</span>))</span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>aDataFrame[aDataFrame<span class="sc">$</span>Factor <span class="sc">==</span> <span class="st">&quot;R&quot;</span>,<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="st">&quot;NotPython&quot;</span></span>
-<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>aDataFrame</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" tabindex="-1"></a>aDataFrame <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Number=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>),</span>
+<span id="cb32-2"><a href="#cb32-2" tabindex="-1"></a>                         <span class="at">Factor=</span>aFactor)</span>
+<span id="cb32-3"><a href="#cb32-3" tabindex="-1"></a>aDataFrame<span class="sc">$</span>Factor <span class="ot">&lt;-</span> <span class="fu">factor</span>(aDataFrame<span class="sc">$</span>Factor,</span>
+<span id="cb32-4"><a href="#cb32-4" tabindex="-1"></a>                            <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;R&quot;</span>,<span class="st">&quot;Python&quot;</span>,<span class="st">&quot;NotPython&quot;</span>))</span>
+<span id="cb32-5"><a href="#cb32-5" tabindex="-1"></a>aDataFrame[aDataFrame<span class="sc">$</span>Factor <span class="sc">==</span> <span class="st">&quot;R&quot;</span>,<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="st">&quot;NotPython&quot;</span></span>
+<span id="cb32-6"><a href="#cb32-6" tabindex="-1"></a>aDataFrame</span></code></pre></div>
 <pre><code>##   Number    Factor
 ## 1      1 NotPython
 ## 2      2    Python
@@ -1745,8 +1745,8 @@ we can replace our elements in data frame.</p>
 <p>Data can be read into R as a table with the
 <strong>read.table()</strong> function and written to file with the
 <strong>write.table()</strong> function.</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>Table <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;data/readThisTable.csv&quot;</span>,<span class="at">sep=</span><span class="st">&quot;,&quot;</span>,<span class="at">header=</span>T,<span class="at">row.names=</span><span class="dv">1</span>)</span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>Table[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>,]</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" tabindex="-1"></a>Table <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;data/readThisTable.csv&quot;</span>,<span class="at">sep=</span><span class="st">&quot;,&quot;</span>,<span class="at">header=</span>T,<span class="at">row.names=</span><span class="dv">1</span>)</span>
+<span id="cb34-2"><a href="#cb34-2" tabindex="-1"></a>Table[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>,]</span></code></pre></div>
 <pre><code>##        Sample_1.hi Sample_2.hi Sample_3.hi Sample_4.low Sample_5.low
 ## Gene_a    4.570237    3.230467    3.351827     3.930877     4.098247
 ## Gene_b    3.561733    3.632285    3.587523     4.185287     1.380976
@@ -1755,14 +1755,14 @@ we can replace our elements in data frame.</p>
 ## Gene_a     4.418726
 ## Gene_b     5.936990
 ## Gene_c     3.780917</code></pre>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(Table,<span class="at">file=</span><span class="st">&quot;data/writeThisTable.csv&quot;</span>, <span class="at">sep=</span><span class="st">&quot;,&quot;</span>, <span class="at">row.names =</span>F,<span class="at">col.names=</span>T)</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" tabindex="-1"></a><span class="fu">write.table</span>(Table,<span class="at">file=</span><span class="st">&quot;data/writeThisTable.csv&quot;</span>, <span class="at">sep=</span><span class="st">&quot;,&quot;</span>, <span class="at">row.names =</span>F,<span class="at">col.names=</span>T)</span></code></pre></div>
 </div>
 <div id="recap-10" class="section level2">
 <h2>Recap</h2>
 <p>If we want to know how a function works or get an example on its use
 we can use <strong>?</strong> infront function name.</p>
 <p><strong>?<em>FunctionName</em></strong></p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>?merge</span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" tabindex="-1"></a>?merge</span></code></pre></div>
 </div>
 </div>
 <div id="conditions-and-loops" class="section level1">
@@ -1772,8 +1772,8 @@ we can use <strong>?</strong> infront function name.</p>
 <h2>Conditions and Loops</h2>
 <p>We have looked at using logical vectors as a way to index other data
 types.</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>x[x <span class="sc">&lt;</span> <span class="dv">4</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb38-2"><a href="#cb38-2" tabindex="-1"></a>x[x <span class="sc">&lt;</span> <span class="dv">4</span>]</span></code></pre></div>
 <pre><code>## [1] 1 2 3</code></pre>
 <p>Logicals are also used in controlling how scripted procedures
 execute.</p>
@@ -1795,31 +1795,31 @@ whether a chunk of code is executed.</p>
 <p>In R, we use the <strong>if</strong> statement with the logical to be
 evaluated in <strong>()</strong> and dependent code to be executed in
 <strong>{}</strong>.</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(x){</span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">message</span>(<span class="st">&quot;x is true&quot;</span>)</span>
-<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
+<span id="cb40-2"><a href="#cb40-2" tabindex="-1"></a><span class="cf">if</span>(x){</span>
+<span id="cb40-3"><a href="#cb40-3" tabindex="-1"></a>  <span class="fu">message</span>(<span class="st">&quot;x is true&quot;</span>)</span>
+<span id="cb40-4"><a href="#cb40-4" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## x is true</code></pre>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="cn">FALSE</span></span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(x){</span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">message</span>(<span class="st">&quot;x is true&quot;</span>)</span>
-<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="cn">FALSE</span></span>
+<span id="cb42-2"><a href="#cb42-2" tabindex="-1"></a><span class="cf">if</span>(x){</span>
+<span id="cb42-3"><a href="#cb42-3" tabindex="-1"></a>  <span class="fu">message</span>(<span class="st">&quot;x is true&quot;</span>)</span>
+<span id="cb42-4"><a href="#cb42-4" tabindex="-1"></a>}</span></code></pre></div>
 </div>
 <div id="evaluating-with-if" class="section level2">
 <h2>Evaluating with if()</h2>
 <p>More often, we construct the logical value within <strong>()</strong>
 itself. This can be termed the <strong>condition</strong>.</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">10</span></span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">4</span></span>
-<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(x <span class="sc">&gt;</span> y){</span>
-<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">message</span>(<span class="st">&quot;The value of x is &quot;</span>,x,<span class="st">&quot; which is greater than &quot;</span>, y)</span>
-<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb43-2"><a href="#cb43-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb43-3"><a href="#cb43-3" tabindex="-1"></a><span class="cf">if</span>(x <span class="sc">&gt;</span> y){</span>
+<span id="cb43-4"><a href="#cb43-4" tabindex="-1"></a>  <span class="fu">message</span>(<span class="st">&quot;The value of x is &quot;</span>,x,<span class="st">&quot; which is greater than &quot;</span>, y)</span>
+<span id="cb43-5"><a href="#cb43-5" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## The value of x is 10 which is greater than 4</code></pre>
 <p>The message is printed above because x is greater than y.</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">20</span></span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(x <span class="sc">&gt;</span> y){</span>
-<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">message</span>(<span class="st">&quot;The value of x is &quot;</span>,x,<span class="st">&quot; which is greater than &quot;</span>, y)</span>
-<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">20</span></span>
+<span id="cb45-2"><a href="#cb45-2" tabindex="-1"></a><span class="cf">if</span>(x <span class="sc">&gt;</span> y){</span>
+<span id="cb45-3"><a href="#cb45-3" tabindex="-1"></a>  <span class="fu">message</span>(<span class="st">&quot;The value of x is &quot;</span>,x,<span class="st">&quot; which is greater than &quot;</span>, y)</span>
+<span id="cb45-4"><a href="#cb45-4" tabindex="-1"></a>}</span></code></pre></div>
 <p>x is now no longer greater than y, so no message is printed.</p>
 <p>We really still want a message telling us what was the result of the
 condition.</p>
@@ -1828,21 +1828,21 @@ condition.</p>
 <h2>else following an if</h2>
 <p>If we want to perform an operation when the condition is false we can
 follow the if() statement with an else statement.</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(x <span class="sc">&lt;</span> <span class="dv">5</span>){</span>
-<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">message</span>(x, <span class="st">&quot; is less than to 5&quot;</span>)</span>
-<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>   }<span class="cf">else</span>{</span>
-<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>     <span class="fu">message</span>(x,<span class="st">&quot; is greater than or equal to 5&quot;</span>)</span>
-<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb46-2"><a href="#cb46-2" tabindex="-1"></a><span class="cf">if</span>(x <span class="sc">&lt;</span> <span class="dv">5</span>){</span>
+<span id="cb46-3"><a href="#cb46-3" tabindex="-1"></a>  <span class="fu">message</span>(x, <span class="st">&quot; is less than to 5&quot;</span>)</span>
+<span id="cb46-4"><a href="#cb46-4" tabindex="-1"></a>   }<span class="cf">else</span>{</span>
+<span id="cb46-5"><a href="#cb46-5" tabindex="-1"></a>     <span class="fu">message</span>(x,<span class="st">&quot; is greater than or equal to 5&quot;</span>)</span>
+<span id="cb46-6"><a href="#cb46-6" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## 3 is less than to 5</code></pre>
 <p>With the addition of the else statement, when x is not less than 5
 the code following the else statement is executed.</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">10</span></span>
-<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(x <span class="sc">&lt;</span> <span class="dv">5</span>){</span>
-<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">message</span>(x, <span class="st">&quot; is less than 5&quot;</span>)</span>
-<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>   }<span class="cf">else</span>{</span>
-<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>     <span class="fu">message</span>(x,<span class="st">&quot; is greater than or equal to 5&quot;</span>)</span>
-<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb48-2"><a href="#cb48-2" tabindex="-1"></a><span class="cf">if</span>(x <span class="sc">&lt;</span> <span class="dv">5</span>){</span>
+<span id="cb48-3"><a href="#cb48-3" tabindex="-1"></a>  <span class="fu">message</span>(x, <span class="st">&quot; is less than 5&quot;</span>)</span>
+<span id="cb48-4"><a href="#cb48-4" tabindex="-1"></a>   }<span class="cf">else</span>{</span>
+<span id="cb48-5"><a href="#cb48-5" tabindex="-1"></a>     <span class="fu">message</span>(x,<span class="st">&quot; is greater than or equal to 5&quot;</span>)</span>
+<span id="cb48-6"><a href="#cb48-6" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## 10 is greater than or equal to 5</code></pre>
 </div>
 <div id="else-if" class="section level2">
@@ -1850,27 +1850,27 @@ the code following the else statement is executed.</p>
 <p>We may wish to execute different procedures under multiple
 conditions. This can be controlled in R using the else if() following an
 initial if() statement.</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">5</span></span>
-<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(x <span class="sc">&gt;</span> <span class="dv">5</span>){</span>
-<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">message</span>(x,<span class="st">&quot; is greater than 5&quot;</span>)</span>
-<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>  }<span class="cf">else</span> <span class="cf">if</span>(x <span class="sc">==</span> <span class="dv">5</span>){</span>
-<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">message</span>(x,<span class="st">&quot; is 5&quot;</span>)</span>
-<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a>  }<span class="cf">else</span>{</span>
-<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">message</span>(x, <span class="st">&quot; is less than 5&quot;</span>)</span>
-<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a>  }</span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb50-2"><a href="#cb50-2" tabindex="-1"></a><span class="cf">if</span>(x <span class="sc">&gt;</span> <span class="dv">5</span>){</span>
+<span id="cb50-3"><a href="#cb50-3" tabindex="-1"></a>  <span class="fu">message</span>(x,<span class="st">&quot; is greater than 5&quot;</span>)</span>
+<span id="cb50-4"><a href="#cb50-4" tabindex="-1"></a>  }<span class="cf">else</span> <span class="cf">if</span>(x <span class="sc">==</span> <span class="dv">5</span>){</span>
+<span id="cb50-5"><a href="#cb50-5" tabindex="-1"></a>    <span class="fu">message</span>(x,<span class="st">&quot; is 5&quot;</span>)</span>
+<span id="cb50-6"><a href="#cb50-6" tabindex="-1"></a>  }<span class="cf">else</span>{</span>
+<span id="cb50-7"><a href="#cb50-7" tabindex="-1"></a>    <span class="fu">message</span>(x, <span class="st">&quot; is less than 5&quot;</span>)</span>
+<span id="cb50-8"><a href="#cb50-8" tabindex="-1"></a>  }</span></code></pre></div>
 <pre><code>## 5 is 5</code></pre>
 </div>
 <div id="ifelse" class="section level2">
 <h2>ifelse()</h2>
 <p>A useful function to evaluate conditional statements over vectors is
 the <strong>ifelse()</strong> function.</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
-<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb52-2"><a href="#cb52-2" tabindex="-1"></a>x</span></code></pre></div>
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
 <p>The ifelse() functions take the arguments of the condition to
 evaluate, the action if the condition is true and the action when
 condition is false.</p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ifelse</span>(x <span class="sc">&lt;=</span> <span class="dv">3</span>,<span class="st">&quot;lessOrEqual&quot;</span>,<span class="st">&quot;more&quot;</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" tabindex="-1"></a><span class="fu">ifelse</span>(x <span class="sc">&lt;=</span> <span class="dv">3</span>,<span class="st">&quot;lessOrEqual&quot;</span>,<span class="st">&quot;more&quot;</span>) </span></code></pre></div>
 <pre><code>##  [1] &quot;lessOrEqual&quot; &quot;lessOrEqual&quot; &quot;lessOrEqual&quot; &quot;more&quot;        &quot;more&quot;       
 ##  [6] &quot;more&quot;        &quot;more&quot;        &quot;more&quot;        &quot;more&quot;        &quot;more&quot;</code></pre>
 </div>
@@ -1878,9 +1878,9 @@ condition is false.</p>
 <h2>ifelse()</h2>
 <p>We can use multiple nested <strong>ifelse</strong> functions to be
 apply more complex logical to vectors.</p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ifelse</span>(x <span class="sc">==</span> <span class="dv">3</span>,<span class="st">&quot;same&quot;</span>,</span>
-<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">ifelse</span>(x <span class="sc">&lt;</span> <span class="dv">3</span>,<span class="st">&quot;less&quot;</span>,<span class="st">&quot;more&quot;</span>)</span>
-<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>      ) </span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" tabindex="-1"></a><span class="fu">ifelse</span>(x <span class="sc">==</span> <span class="dv">3</span>,<span class="st">&quot;same&quot;</span>,</span>
+<span id="cb56-2"><a href="#cb56-2" tabindex="-1"></a>       <span class="fu">ifelse</span>(x <span class="sc">&lt;</span> <span class="dv">3</span>,<span class="st">&quot;less&quot;</span>,<span class="st">&quot;more&quot;</span>)</span>
+<span id="cb56-3"><a href="#cb56-3" tabindex="-1"></a>      ) </span></code></pre></div>
 <pre><code>##  [1] &quot;less&quot; &quot;less&quot; &quot;same&quot; &quot;more&quot; &quot;more&quot; &quot;more&quot; &quot;more&quot; &quot;more&quot; &quot;more&quot; &quot;more&quot;</code></pre>
 </div>
 <div id="loops" class="section level2">
@@ -1899,14 +1899,14 @@ code for a range of specified values.</p></li>
 <p>While loops are most useful if you know the condition will be
 satisified but are not sure when (i.e. Looking for a point when a number
 first occurs in a list).</p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span>(x <span class="sc">&lt;</span> <span class="dv">3</span>){</span>
-<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">message</span>(<span class="st">&quot;x is &quot;</span>,x,<span class="st">&quot; &quot;</span>)</span>
-<span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> x<span class="sc">+</span><span class="dv">1</span></span>
-<span id="cb58-5"><a href="#cb58-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb58-2"><a href="#cb58-2" tabindex="-1"></a><span class="cf">while</span>(x <span class="sc">&lt;</span> <span class="dv">3</span>){</span>
+<span id="cb58-3"><a href="#cb58-3" tabindex="-1"></a>  <span class="fu">message</span>(<span class="st">&quot;x is &quot;</span>,x,<span class="st">&quot; &quot;</span>)</span>
+<span id="cb58-4"><a href="#cb58-4" tabindex="-1"></a>  x <span class="ot">&lt;-</span> x<span class="sc">+</span><span class="dv">1</span></span>
+<span id="cb58-5"><a href="#cb58-5" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## x is 1</code></pre>
 <pre><code>## x is 2</code></pre>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">message</span>(<span class="st">&quot;Finally x is not less than 3&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" tabindex="-1"></a><span class="fu">message</span>(<span class="st">&quot;Finally x is not less than 3&quot;</span>)</span></code></pre></div>
 <pre><code>## Finally x is not less than 3</code></pre>
 </div>
 <div id="for-loops" class="section level2">
@@ -1914,16 +1914,16 @@ first occurs in a list).</p>
 <p>For loops allow the user to cycle through a range of values applying
 an operation for every value.</p>
 <p>Here we cycle through a numeric vector and print out its value.</p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span></span>
-<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> x){</span>
-<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">message</span>(i,<span class="st">&quot; &quot;</span>, <span class="at">appendLF =</span> F)</span>
-<span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span></span>
+<span id="cb63-2"><a href="#cb63-2" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> x){</span>
+<span id="cb63-3"><a href="#cb63-3" tabindex="-1"></a>  <span class="fu">message</span>(i,<span class="st">&quot; &quot;</span>, <span class="at">appendLF =</span> F)</span>
+<span id="cb63-4"><a href="#cb63-4" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## 1 2 3 4 5</code></pre>
 <p>Similarly we can cycle through other vector types (or lists).</p>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">toupper</span>(letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>])</span>
-<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> x){</span>
-<span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">message</span>(i,<span class="st">&quot; &quot;</span>, <span class="at">appendLF =</span> F)</span>
-<span id="cb65-4"><a href="#cb65-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">toupper</span>(letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>])</span>
+<span id="cb65-2"><a href="#cb65-2" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> x){</span>
+<span id="cb65-3"><a href="#cb65-3" tabindex="-1"></a>  <span class="fu">message</span>(i,<span class="st">&quot; &quot;</span>, <span class="at">appendLF =</span> F)</span>
+<span id="cb65-4"><a href="#cb65-4" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## A B C D E</code></pre>
 </div>
 <div id="looping-through-indices" class="section level2">
@@ -1932,13 +1932,13 @@ an operation for every value.</p>
 retrieve the same index in other variables. A common practice is to loop
 though all possible index positions of x using the expression
 <strong>1:length(x)</strong>.</p>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>geneName <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Ikzf1&quot;</span>,<span class="st">&quot;Myc&quot;</span>,<span class="st">&quot;Igll1&quot;</span>)</span>
-<span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a>expression <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">10.4</span>,<span class="fl">4.3</span>,<span class="fl">6.5</span>)</span>
-<span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(geneName)</span></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" tabindex="-1"></a>geneName <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Ikzf1&quot;</span>,<span class="st">&quot;Myc&quot;</span>,<span class="st">&quot;Igll1&quot;</span>)</span>
+<span id="cb67-2"><a href="#cb67-2" tabindex="-1"></a>expression <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">10.4</span>,<span class="fl">4.3</span>,<span class="fl">6.5</span>)</span>
+<span id="cb67-3"><a href="#cb67-3" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(geneName)</span></code></pre></div>
 <pre><code>## [1] 1 2 3</code></pre>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(geneName)){</span>
-<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">message</span>(geneName[i],<span class="st">&quot; has an RPKM of &quot;</span>,expression[i])</span>
-<span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(geneName)){</span>
+<span id="cb69-2"><a href="#cb69-2" tabindex="-1"></a>  <span class="fu">message</span>(geneName[i],<span class="st">&quot; has an RPKM of &quot;</span>,expression[i])</span>
+<span id="cb69-3"><a href="#cb69-3" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## Ikzf1 has an RPKM of 10.4</code></pre>
 <pre><code>## Myc has an RPKM of 4.3</code></pre>
 <pre><code>## Igll1 has an RPKM of 6.5</code></pre>
@@ -1947,17 +1947,17 @@ though all possible index positions of x using the expression
 <h2>Loops and conditionals</h2>
 <p>Loops can be combined with conditional statements to allow for
 complex control of their execution over R objects.</p>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">13</span></span>
-<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">13</span>){</span>
-<span id="cb73-4"><a href="#cb73-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(i <span class="sc">&gt;</span> <span class="dv">10</span>){</span>
-<span id="cb73-5"><a href="#cb73-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">message</span>(<span class="st">&quot;Number &quot;</span>,i,<span class="st">&quot; is greater than 10&quot;</span>)</span>
-<span id="cb73-6"><a href="#cb73-6" aria-hidden="true" tabindex="-1"></a>  }<span class="cf">else</span> <span class="cf">if</span>(i <span class="sc">==</span> <span class="dv">10</span>){</span>
-<span id="cb73-7"><a href="#cb73-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">message</span>(<span class="st">&quot;Number &quot;</span>,i,<span class="st">&quot; is  10&quot;</span>) </span>
-<span id="cb73-8"><a href="#cb73-8" aria-hidden="true" tabindex="-1"></a>  }<span class="cf">else</span>{</span>
-<span id="cb73-9"><a href="#cb73-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">message</span>(<span class="st">&quot;Number &quot;</span>,i,<span class="st">&quot; is less than 10&quot;</span>) </span>
-<span id="cb73-10"><a href="#cb73-10" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb73-11"><a href="#cb73-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">13</span></span>
+<span id="cb73-2"><a href="#cb73-2" tabindex="-1"></a></span>
+<span id="cb73-3"><a href="#cb73-3" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">13</span>){</span>
+<span id="cb73-4"><a href="#cb73-4" tabindex="-1"></a>  <span class="cf">if</span>(i <span class="sc">&gt;</span> <span class="dv">10</span>){</span>
+<span id="cb73-5"><a href="#cb73-5" tabindex="-1"></a>    <span class="fu">message</span>(<span class="st">&quot;Number &quot;</span>,i,<span class="st">&quot; is greater than 10&quot;</span>)</span>
+<span id="cb73-6"><a href="#cb73-6" tabindex="-1"></a>  }<span class="cf">else</span> <span class="cf">if</span>(i <span class="sc">==</span> <span class="dv">10</span>){</span>
+<span id="cb73-7"><a href="#cb73-7" tabindex="-1"></a>    <span class="fu">message</span>(<span class="st">&quot;Number &quot;</span>,i,<span class="st">&quot; is  10&quot;</span>) </span>
+<span id="cb73-8"><a href="#cb73-8" tabindex="-1"></a>  }<span class="cf">else</span>{</span>
+<span id="cb73-9"><a href="#cb73-9" tabindex="-1"></a>    <span class="fu">message</span>(<span class="st">&quot;Number &quot;</span>,i,<span class="st">&quot; is less than 10&quot;</span>) </span>
+<span id="cb73-10"><a href="#cb73-10" tabindex="-1"></a>  }</span>
+<span id="cb73-11"><a href="#cb73-11" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## Number 1 is less than  10</code></pre>
 <pre><code>## Number 2 is less than  10</code></pre>
 <pre><code>## Number 3 is less than  10</code></pre>
@@ -1976,18 +1976,18 @@ complex control of their execution over R objects.</p>
 <h2>Breaking loops</h2>
 <p>We can use conditionals to exit a loop if a condition is satisfied,
 just like a while loop.</p>
-<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">13</span></span>
-<span id="cb87-2"><a href="#cb87-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb87-3"><a href="#cb87-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">13</span>){</span>
-<span id="cb87-4"><a href="#cb87-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(i <span class="sc">&lt;</span> <span class="dv">10</span>){</span>
-<span id="cb87-5"><a href="#cb87-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">message</span>(<span class="st">&quot;Number &quot;</span>,i,<span class="st">&quot; is less than 10&quot;</span>)</span>
-<span id="cb87-6"><a href="#cb87-6" aria-hidden="true" tabindex="-1"></a>  }<span class="cf">else</span> <span class="cf">if</span>(i <span class="sc">==</span> <span class="dv">10</span>){</span>
-<span id="cb87-7"><a href="#cb87-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">message</span>(<span class="st">&quot;Number &quot;</span>,i,<span class="st">&quot; is  10&quot;</span>)</span>
-<span id="cb87-8"><a href="#cb87-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">break</span></span>
-<span id="cb87-9"><a href="#cb87-9" aria-hidden="true" tabindex="-1"></a>  }<span class="cf">else</span>{</span>
-<span id="cb87-10"><a href="#cb87-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">message</span>(<span class="st">&quot;Number &quot;</span>,i,<span class="st">&quot; is greater than  10&quot;</span>) </span>
-<span id="cb87-11"><a href="#cb87-11" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb87-12"><a href="#cb87-12" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">13</span></span>
+<span id="cb87-2"><a href="#cb87-2" tabindex="-1"></a></span>
+<span id="cb87-3"><a href="#cb87-3" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">13</span>){</span>
+<span id="cb87-4"><a href="#cb87-4" tabindex="-1"></a>  <span class="cf">if</span>(i <span class="sc">&lt;</span> <span class="dv">10</span>){</span>
+<span id="cb87-5"><a href="#cb87-5" tabindex="-1"></a>    <span class="fu">message</span>(<span class="st">&quot;Number &quot;</span>,i,<span class="st">&quot; is less than 10&quot;</span>)</span>
+<span id="cb87-6"><a href="#cb87-6" tabindex="-1"></a>  }<span class="cf">else</span> <span class="cf">if</span>(i <span class="sc">==</span> <span class="dv">10</span>){</span>
+<span id="cb87-7"><a href="#cb87-7" tabindex="-1"></a>    <span class="fu">message</span>(<span class="st">&quot;Number &quot;</span>,i,<span class="st">&quot; is  10&quot;</span>)</span>
+<span id="cb87-8"><a href="#cb87-8" tabindex="-1"></a>    <span class="cf">break</span></span>
+<span id="cb87-9"><a href="#cb87-9" tabindex="-1"></a>  }<span class="cf">else</span>{</span>
+<span id="cb87-10"><a href="#cb87-10" tabindex="-1"></a>    <span class="fu">message</span>(<span class="st">&quot;Number &quot;</span>,i,<span class="st">&quot; is greater than  10&quot;</span>) </span>
+<span id="cb87-11"><a href="#cb87-11" tabindex="-1"></a>  }</span>
+<span id="cb87-12"><a href="#cb87-12" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## Number 1 is less than 10</code></pre>
 <pre><code>## Number 2 is less than 10</code></pre>
 <pre><code>## Number 3 is less than 10</code></pre>
@@ -2029,16 +2029,16 @@ cells</li>
 </div>
 <div id="apply-example" class="section level2">
 <h2>apply() example</h2>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="#cb99-1" aria-hidden="true" tabindex="-1"></a>matExample <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>),<span class="at">nrow=</span><span class="dv">2</span>,<span class="at">ncol=</span><span class="dv">2</span>,<span class="at">byrow=</span>T)</span>
-<span id="cb99-2"><a href="#cb99-2" aria-hidden="true" tabindex="-1"></a>matExample</span></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="#cb99-1" tabindex="-1"></a>matExample <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>),<span class="at">nrow=</span><span class="dv">2</span>,<span class="at">ncol=</span><span class="dv">2</span>,<span class="at">byrow=</span>T)</span>
+<span id="cb99-2"><a href="#cb99-2" tabindex="-1"></a>matExample</span></code></pre></div>
 <pre><code>##      [,1] [,2]
 ## [1,]    1    2
 ## [2,]    3    4</code></pre>
 <p>Get the mean of rows</p>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(matExample,<span class="dv">1</span>,mean)</span></code></pre></div>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="#cb101-1" tabindex="-1"></a><span class="fu">apply</span>(matExample,<span class="dv">1</span>,mean)</span></code></pre></div>
 <pre><code>## [1] 1.5 3.5</code></pre>
 <p>Get the mean of columns</p>
-<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(matExample,<span class="dv">2</span>,mean)</span></code></pre></div>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="#cb103-1" tabindex="-1"></a><span class="fu">apply</span>(matExample,<span class="dv">2</span>,mean)</span></code></pre></div>
 <pre><code>## [1] 2 3</code></pre>
 </div>
 <div id="additional-arguments-to-apply" class="section level2">
@@ -2047,7 +2047,7 @@ cells</li>
 be specified after the function argument.</p>
 <p>Arguments may be ordered as if passed to function directly. For
 <strong>paste()</strong> function however this isn’t possible.</p>
-<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(matExample,<span class="dv">1</span>,paste,<span class="at">collapse=</span><span class="st">&quot;;&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="#cb105-1" tabindex="-1"></a><span class="fu">apply</span>(matExample,<span class="dv">1</span>,paste,<span class="at">collapse=</span><span class="st">&quot;;&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;1;2&quot; &quot;3;4&quot;</code></pre>
 </div>
 <div id="lapply" class="section level2">
@@ -2056,7 +2056,7 @@ be specified after the function argument.</p>
 element of a vector or list.</p>
 <p><strong>lapply</strong> returns a list object containing the results
 of evaluating the function.</p>
-<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>),mean)</span></code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="#cb107-1" tabindex="-1"></a><span class="fu">lapply</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>),mean)</span></code></pre></div>
 <pre><code>## [[1]]
 ## [1] 1
 ## 
@@ -2064,7 +2064,7 @@ of evaluating the function.</p>
 ## [1] 2</code></pre>
 <p>As with apply() additional arguments can be supplied after the
 function name argument.</p>
-<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(<span class="fu">list</span>(<span class="dv">1</span>,<span class="fu">c</span>(<span class="cn">NA</span>,<span class="dv">1</span>),<span class="dv">2</span>),mean, <span class="at">na.rm=</span>T)</span></code></pre></div>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="#cb109-1" tabindex="-1"></a><span class="fu">lapply</span>(<span class="fu">list</span>(<span class="dv">1</span>,<span class="fu">c</span>(<span class="cn">NA</span>,<span class="dv">1</span>),<span class="dv">2</span>),mean, <span class="at">na.rm=</span>T)</span></code></pre></div>
 <pre><code>## [[1]]
 ## [1] 1
 ## 
@@ -2079,21 +2079,21 @@ function name argument.</p>
 <p><strong>sapply</strong> (<em>smart apply</em>) acts as lapply but
 attempts to return the results as the most appropriate data type.</p>
 <p>Here sapply returns a vector where lapply would return lists.</p>
-<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="#cb111-1" aria-hidden="true" tabindex="-1"></a>exampleVector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>)</span>
-<span id="cb111-2"><a href="#cb111-2" aria-hidden="true" tabindex="-1"></a>exampleList <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>)</span>
-<span id="cb111-3"><a href="#cb111-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(exampleVector, mean, <span class="at">na.rm=</span>T)</span></code></pre></div>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="#cb111-1" tabindex="-1"></a>exampleVector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>)</span>
+<span id="cb111-2"><a href="#cb111-2" tabindex="-1"></a>exampleList <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>)</span>
+<span id="cb111-3"><a href="#cb111-3" tabindex="-1"></a><span class="fu">sapply</span>(exampleVector, mean, <span class="at">na.rm=</span>T)</span></code></pre></div>
 <pre><code>## [1] 1 2 3 4 5</code></pre>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(exampleList, mean, <span class="at">na.rm=</span>T)</span></code></pre></div>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="#cb113-1" tabindex="-1"></a><span class="fu">sapply</span>(exampleList, mean, <span class="at">na.rm=</span>T)</span></code></pre></div>
 <pre><code>## [1] 1 2 3 4 5</code></pre>
 </div>
 <div id="sapply-example" class="section level2">
 <h2>sapply() example</h2>
 <p>In this example lapply returns a list of vectors from the quantile
 function.</p>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a>exampleList <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">row1=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, </span>
-<span id="cb115-2"><a href="#cb115-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">row2=</span><span class="dv">6</span><span class="sc">:</span><span class="dv">10</span>, </span>
-<span id="cb115-3"><a href="#cb115-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">row3=</span><span class="dv">11</span><span class="sc">:</span><span class="dv">15</span>)</span>
-<span id="cb115-4"><a href="#cb115-4" aria-hidden="true" tabindex="-1"></a>exampleList</span></code></pre></div>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="#cb115-1" tabindex="-1"></a>exampleList <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">row1=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, </span>
+<span id="cb115-2"><a href="#cb115-2" tabindex="-1"></a>                    <span class="at">row2=</span><span class="dv">6</span><span class="sc">:</span><span class="dv">10</span>, </span>
+<span id="cb115-3"><a href="#cb115-3" tabindex="-1"></a>                    <span class="at">row3=</span><span class="dv">11</span><span class="sc">:</span><span class="dv">15</span>)</span>
+<span id="cb115-4"><a href="#cb115-4" tabindex="-1"></a>exampleList</span></code></pre></div>
 <pre><code>## $row1
 ## [1] 1 2 3 4 5
 ## 
@@ -2102,7 +2102,7 @@ function.</p>
 ## 
 ## $row3
 ## [1] 11 12 13 14 15</code></pre>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(exampleList, quantile)</span></code></pre></div>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="#cb117-1" tabindex="-1"></a><span class="fu">lapply</span>(exampleList, quantile)</span></code></pre></div>
 <pre><code>## $row1
 ##   0%  25%  50%  75% 100% 
 ##    1    2    3    4    5 
@@ -2121,7 +2121,7 @@ function.</p>
 function in a <em>smart</em> way.</p>
 <p>When a function always returns a vector of the same length, sapply
 will create a matrix with elements by column.</p>
-<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(exampleList, quantile)</span></code></pre></div>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="#cb119-1" tabindex="-1"></a><span class="fu">sapply</span>(exampleList, quantile)</span></code></pre></div>
 <pre><code>##      row1 row2 row3
 ## 0%      1    6   11
 ## 25%     2    7   12
@@ -2133,9 +2133,9 @@ will create a matrix with elements by column.</p>
 <h2>sapply() example 3</h2>
 <p>When sapply cannot parse the result to a vector or matrix, a list
 will be returned.</p>
-<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="#cb121-1" aria-hidden="true" tabindex="-1"></a>exampleList <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">df=</span><span class="fu">data.frame</span>(<span class="at">sample=</span><span class="fu">paste0</span>(<span class="st">&quot;patient&quot;</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>), <span class="at">data=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">12</span>)),</span>
-<span id="cb121-2"><a href="#cb121-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">vec=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>))</span>
-<span id="cb121-3"><a href="#cb121-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(exampleList, summary)</span></code></pre></div>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="#cb121-1" tabindex="-1"></a>exampleList <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">df=</span><span class="fu">data.frame</span>(<span class="at">sample=</span><span class="fu">paste0</span>(<span class="st">&quot;patient&quot;</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>), <span class="at">data=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">12</span>)),</span>
+<span id="cb121-2"><a href="#cb121-2" tabindex="-1"></a>                    <span class="at">vec=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>))</span>
+<span id="cb121-3"><a href="#cb121-3" tabindex="-1"></a><span class="fu">sapply</span>(exampleList, summary)</span></code></pre></div>
 <pre><code>## $df
 ##     sample               data      
 ##  Length:2           Min.   : 1.00  
@@ -2171,28 +2171,28 @@ executed in <strong>{}</strong>.<br />
 Anything to be received back from the function is indicated by the
 <strong>return</strong> statement.</p>
 <p>In this case we can recapitulate the square function.</p>
-<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="#cb123-1" aria-hidden="true" tabindex="-1"></a>myFirstFunction  <span class="ot">&lt;-</span> <span class="cf">function</span>(MYARGUMENT){</span>
-<span id="cb123-2"><a href="#cb123-2" aria-hidden="true" tabindex="-1"></a>  ...................</span>
-<span id="cb123-3"><a href="#cb123-3" aria-hidden="true" tabindex="-1"></a>  ..CODE_TO_EXECUTE..</span>
-<span id="cb123-4"><a href="#cb123-4" aria-hidden="true" tabindex="-1"></a>  ...................</span>
-<span id="cb123-5"><a href="#cb123-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(MYRESULT)</span>
-<span id="cb123-6"><a href="#cb123-6" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb123-7"><a href="#cb123-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb123-8"><a href="#cb123-8" aria-hidden="true" tabindex="-1"></a><span class="fu">myFirstFunction</span>(<span class="at">MYARGUMENT=</span>MY_USER_SUPPLIED_ARGUMENT)</span></code></pre></div>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="#cb123-1" tabindex="-1"></a>myFirstFunction  <span class="ot">&lt;-</span> <span class="cf">function</span>(MYARGUMENT){</span>
+<span id="cb123-2"><a href="#cb123-2" tabindex="-1"></a>  ...................</span>
+<span id="cb123-3"><a href="#cb123-3" tabindex="-1"></a>  ..CODE_TO_EXECUTE..</span>
+<span id="cb123-4"><a href="#cb123-4" tabindex="-1"></a>  ...................</span>
+<span id="cb123-5"><a href="#cb123-5" tabindex="-1"></a>  <span class="fu">return</span>(MYRESULT)</span>
+<span id="cb123-6"><a href="#cb123-6" tabindex="-1"></a>}</span>
+<span id="cb123-7"><a href="#cb123-7" tabindex="-1"></a></span>
+<span id="cb123-8"><a href="#cb123-8" tabindex="-1"></a><span class="fu">myFirstFunction</span>(<span class="at">MYARGUMENT=</span>MY_USER_SUPPLIED_ARGUMENT)</span></code></pre></div>
 </div>
 <div id="custom-functions-2" class="section level2">
 <h2>Custom functions</h2>
 <p>First lets create a function that can sum two numbers. We can call
 the function <strong>myFirstFunction</strong> and set our arguments as
 <strong>num1</strong> and <strong>num2</strong>.</p>
-<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="#cb124-1" aria-hidden="true" tabindex="-1"></a>myFirstFunction  <span class="ot">&lt;-</span> <span class="cf">function</span>(num1,num2){</span>
-<span id="cb124-2"><a href="#cb124-2" aria-hidden="true" tabindex="-1"></a>  sumNum <span class="ot">&lt;-</span> num1<span class="sc">+</span>num2</span>
-<span id="cb124-3"><a href="#cb124-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(sumNum)</span>
-<span id="cb124-4"><a href="#cb124-4" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb124-5"><a href="#cb124-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb124-6"><a href="#cb124-6" aria-hidden="true" tabindex="-1"></a>myResult <span class="ot">&lt;-</span> <span class="fu">myFirstFunction</span>(<span class="at">num1=</span><span class="dv">2</span>,<span class="at">num2=</span><span class="dv">3</span>)</span>
-<span id="cb124-7"><a href="#cb124-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb124-8"><a href="#cb124-8" aria-hidden="true" tabindex="-1"></a>myResult</span></code></pre></div>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="#cb124-1" tabindex="-1"></a>myFirstFunction  <span class="ot">&lt;-</span> <span class="cf">function</span>(num1,num2){</span>
+<span id="cb124-2"><a href="#cb124-2" tabindex="-1"></a>  sumNum <span class="ot">&lt;-</span> num1<span class="sc">+</span>num2</span>
+<span id="cb124-3"><a href="#cb124-3" tabindex="-1"></a>  <span class="fu">return</span>(sumNum)</span>
+<span id="cb124-4"><a href="#cb124-4" tabindex="-1"></a>}</span>
+<span id="cb124-5"><a href="#cb124-5" tabindex="-1"></a></span>
+<span id="cb124-6"><a href="#cb124-6" tabindex="-1"></a>myResult <span class="ot">&lt;-</span> <span class="fu">myFirstFunction</span>(<span class="at">num1=</span><span class="dv">2</span>,<span class="at">num2=</span><span class="dv">3</span>)</span>
+<span id="cb124-7"><a href="#cb124-7" tabindex="-1"></a></span>
+<span id="cb124-8"><a href="#cb124-8" tabindex="-1"></a>myResult</span></code></pre></div>
 <pre><code>## [1] 5</code></pre>
 </div>
 <div id="returning-multiple-values" class="section level2">
@@ -2200,13 +2200,13 @@ the function <strong>myFirstFunction</strong> and set our arguments as
 <p>We can only <strong>return</strong> 1 object at a time from function.
 Here we create the multiple of our numbers and try and return alongside
 our sum.</p>
-<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="#cb126-1" aria-hidden="true" tabindex="-1"></a>myFirstFunction  <span class="ot">&lt;-</span> <span class="cf">function</span>(num1,num2){</span>
-<span id="cb126-2"><a href="#cb126-2" aria-hidden="true" tabindex="-1"></a>  sumNum <span class="ot">&lt;-</span> num1<span class="sc">+</span>num2</span>
-<span id="cb126-3"><a href="#cb126-3" aria-hidden="true" tabindex="-1"></a>  multipleNum <span class="ot">&lt;-</span> num1<span class="sc">*</span>num2</span>
-<span id="cb126-4"><a href="#cb126-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(sumNum,multipleNum)</span>
-<span id="cb126-5"><a href="#cb126-5" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb126-6"><a href="#cb126-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb126-7"><a href="#cb126-7" aria-hidden="true" tabindex="-1"></a>myResult <span class="ot">&lt;-</span> <span class="fu">myFirstFunction</span>(<span class="at">num1=</span><span class="dv">2</span>,<span class="at">num2=</span><span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="#cb126-1" tabindex="-1"></a>myFirstFunction  <span class="ot">&lt;-</span> <span class="cf">function</span>(num1,num2){</span>
+<span id="cb126-2"><a href="#cb126-2" tabindex="-1"></a>  sumNum <span class="ot">&lt;-</span> num1<span class="sc">+</span>num2</span>
+<span id="cb126-3"><a href="#cb126-3" tabindex="-1"></a>  multipleNum <span class="ot">&lt;-</span> num1<span class="sc">*</span>num2</span>
+<span id="cb126-4"><a href="#cb126-4" tabindex="-1"></a>  <span class="fu">return</span>(sumNum,multipleNum)</span>
+<span id="cb126-5"><a href="#cb126-5" tabindex="-1"></a>}</span>
+<span id="cb126-6"><a href="#cb126-6" tabindex="-1"></a></span>
+<span id="cb126-7"><a href="#cb126-7" tabindex="-1"></a>myResult <span class="ot">&lt;-</span> <span class="fu">myFirstFunction</span>(<span class="at">num1=</span><span class="dv">2</span>,<span class="at">num2=</span><span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## Error in return(sumNum, multipleNum): multi-argument returns are not permitted</code></pre>
 </div>
 <div id="returning-multiple-values-1" class="section level2">
@@ -2214,16 +2214,16 @@ our sum.</p>
 <p>A simple solution is to pass back an object that contains both
 results. Here we create a named vector to return our multiple and
 sum.</p>
-<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="#cb128-1" aria-hidden="true" tabindex="-1"></a>myFirstFunction  <span class="ot">&lt;-</span> <span class="cf">function</span>(num1,num2){</span>
-<span id="cb128-2"><a href="#cb128-2" aria-hidden="true" tabindex="-1"></a>  sumNum <span class="ot">&lt;-</span> num1<span class="sc">+</span>num2</span>
-<span id="cb128-3"><a href="#cb128-3" aria-hidden="true" tabindex="-1"></a>  multipleNum <span class="ot">&lt;-</span> num1<span class="sc">*</span>num2</span>
-<span id="cb128-4"><a href="#cb128-4" aria-hidden="true" tabindex="-1"></a>  VectorOfResults <span class="ot">&lt;-</span> <span class="fu">c</span>(sumNum,multipleNum)</span>
-<span id="cb128-5"><a href="#cb128-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">names</span>(VectorOfResults) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;multiple&quot;</span>,<span class="st">&quot;sum&quot;</span>)</span>
-<span id="cb128-6"><a href="#cb128-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(VectorOfResults)</span>
-<span id="cb128-7"><a href="#cb128-7" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb128-8"><a href="#cb128-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb128-9"><a href="#cb128-9" aria-hidden="true" tabindex="-1"></a>myResult <span class="ot">&lt;-</span> <span class="fu">myFirstFunction</span>(<span class="at">num1=</span><span class="dv">2</span>,<span class="at">num2=</span><span class="dv">3</span>)</span>
-<span id="cb128-10"><a href="#cb128-10" aria-hidden="true" tabindex="-1"></a>myResult</span></code></pre></div>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="#cb128-1" tabindex="-1"></a>myFirstFunction  <span class="ot">&lt;-</span> <span class="cf">function</span>(num1,num2){</span>
+<span id="cb128-2"><a href="#cb128-2" tabindex="-1"></a>  sumNum <span class="ot">&lt;-</span> num1<span class="sc">+</span>num2</span>
+<span id="cb128-3"><a href="#cb128-3" tabindex="-1"></a>  multipleNum <span class="ot">&lt;-</span> num1<span class="sc">*</span>num2</span>
+<span id="cb128-4"><a href="#cb128-4" tabindex="-1"></a>  VectorOfResults <span class="ot">&lt;-</span> <span class="fu">c</span>(sumNum,multipleNum)</span>
+<span id="cb128-5"><a href="#cb128-5" tabindex="-1"></a>  <span class="fu">names</span>(VectorOfResults) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;multiple&quot;</span>,<span class="st">&quot;sum&quot;</span>)</span>
+<span id="cb128-6"><a href="#cb128-6" tabindex="-1"></a>  <span class="fu">return</span>(VectorOfResults)</span>
+<span id="cb128-7"><a href="#cb128-7" tabindex="-1"></a>}</span>
+<span id="cb128-8"><a href="#cb128-8" tabindex="-1"></a></span>
+<span id="cb128-9"><a href="#cb128-9" tabindex="-1"></a>myResult <span class="ot">&lt;-</span> <span class="fu">myFirstFunction</span>(<span class="at">num1=</span><span class="dv">2</span>,<span class="at">num2=</span><span class="dv">3</span>)</span>
+<span id="cb128-10"><a href="#cb128-10" tabindex="-1"></a>myResult</span></code></pre></div>
 <pre><code>## multiple      sum 
 ##        5        6</code></pre>
 </div>
@@ -2233,17 +2233,17 @@ sum.</p>
 classes in their elements and so we can return mixed data types from our
 functions using this. Below we return a list with elements of the input
 arguments as a vector and the result as a data.frame.</p>
-<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="#cb130-1" aria-hidden="true" tabindex="-1"></a>myFirstFunction  <span class="ot">&lt;-</span> <span class="cf">function</span>(num1,num2){</span>
-<span id="cb130-2"><a href="#cb130-2" aria-hidden="true" tabindex="-1"></a>  sumNum <span class="ot">&lt;-</span> num1<span class="sc">+</span>num2</span>
-<span id="cb130-3"><a href="#cb130-3" aria-hidden="true" tabindex="-1"></a>  multipleNum <span class="ot">&lt;-</span> num1<span class="sc">*</span>num2</span>
-<span id="cb130-4"><a href="#cb130-4" aria-hidden="true" tabindex="-1"></a>  InputNumbers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">FirstNum=</span>num1,<span class="at">SecondNum=</span>num2)</span>
-<span id="cb130-5"><a href="#cb130-5" aria-hidden="true" tabindex="-1"></a>  DF <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Sum=</span>sumNum,<span class="at">Multiple=</span>multipleNum)</span>
-<span id="cb130-6"><a href="#cb130-6" aria-hidden="true" tabindex="-1"></a>  listToReturn <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">Input=</span>InputNumbers,<span class="at">Result=</span>DF)</span>
-<span id="cb130-7"><a href="#cb130-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(listToReturn)</span>
-<span id="cb130-8"><a href="#cb130-8" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb130-9"><a href="#cb130-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb130-10"><a href="#cb130-10" aria-hidden="true" tabindex="-1"></a>myResult <span class="ot">&lt;-</span> <span class="fu">myFirstFunction</span>(<span class="at">num1=</span><span class="dv">2</span>,<span class="at">num2=</span><span class="dv">3</span>)</span>
-<span id="cb130-11"><a href="#cb130-11" aria-hidden="true" tabindex="-1"></a>myResult</span></code></pre></div>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="#cb130-1" tabindex="-1"></a>myFirstFunction  <span class="ot">&lt;-</span> <span class="cf">function</span>(num1,num2){</span>
+<span id="cb130-2"><a href="#cb130-2" tabindex="-1"></a>  sumNum <span class="ot">&lt;-</span> num1<span class="sc">+</span>num2</span>
+<span id="cb130-3"><a href="#cb130-3" tabindex="-1"></a>  multipleNum <span class="ot">&lt;-</span> num1<span class="sc">*</span>num2</span>
+<span id="cb130-4"><a href="#cb130-4" tabindex="-1"></a>  InputNumbers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">FirstNum=</span>num1,<span class="at">SecondNum=</span>num2)</span>
+<span id="cb130-5"><a href="#cb130-5" tabindex="-1"></a>  DF <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Sum=</span>sumNum,<span class="at">Multiple=</span>multipleNum)</span>
+<span id="cb130-6"><a href="#cb130-6" tabindex="-1"></a>  listToReturn <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">Input=</span>InputNumbers,<span class="at">Result=</span>DF)</span>
+<span id="cb130-7"><a href="#cb130-7" tabindex="-1"></a>  <span class="fu">return</span>(listToReturn)</span>
+<span id="cb130-8"><a href="#cb130-8" tabindex="-1"></a>}</span>
+<span id="cb130-9"><a href="#cb130-9" tabindex="-1"></a></span>
+<span id="cb130-10"><a href="#cb130-10" tabindex="-1"></a>myResult <span class="ot">&lt;-</span> <span class="fu">myFirstFunction</span>(<span class="at">num1=</span><span class="dv">2</span>,<span class="at">num2=</span><span class="dv">3</span>)</span>
+<span id="cb130-11"><a href="#cb130-11" tabindex="-1"></a>myResult</span></code></pre></div>
 <pre><code>## $Input
 ##  FirstNum SecondNum 
 ##         2         3 
@@ -2257,20 +2257,20 @@ arguments as a vector and the result as a data.frame.</p>
 <p>In a function containing a <strong>return</strong> statement, the
 code up until the return statement is evaluated and anything after the
 return statement is not evaluated.</p>
-<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="#cb132-1" aria-hidden="true" tabindex="-1"></a>myFirstFunction  <span class="ot">&lt;-</span> <span class="cf">function</span>(num1,num2){</span>
-<span id="cb132-2"><a href="#cb132-2" aria-hidden="true" tabindex="-1"></a>  sumNum <span class="ot">&lt;-</span> num1<span class="sc">+</span>num2</span>
-<span id="cb132-3"><a href="#cb132-3" aria-hidden="true" tabindex="-1"></a>  multipleNum <span class="ot">&lt;-</span> num1<span class="sc">*</span>num2</span>
-<span id="cb132-4"><a href="#cb132-4" aria-hidden="true" tabindex="-1"></a>  InputNumbers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">FirstNum=</span>num1,<span class="at">SecondNum=</span>num2)</span>
-<span id="cb132-5"><a href="#cb132-5" aria-hidden="true" tabindex="-1"></a>  DF <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Sum=</span>sumNum,<span class="at">Multiple=</span>multipleNum)</span>
-<span id="cb132-6"><a href="#cb132-6" aria-hidden="true" tabindex="-1"></a>  listToReturn <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">Input=</span>InputNumbers,<span class="at">Result=</span>DF)</span>
-<span id="cb132-7"><a href="#cb132-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">message</span>(<span class="st">&quot;Before return&quot;</span>)</span>
-<span id="cb132-8"><a href="#cb132-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(listToReturn)</span>
-<span id="cb132-9"><a href="#cb132-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">message</span>(<span class="st">&quot;After return&quot;</span>)</span>
-<span id="cb132-10"><a href="#cb132-10" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb132-11"><a href="#cb132-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb132-12"><a href="#cb132-12" aria-hidden="true" tabindex="-1"></a>myResult <span class="ot">&lt;-</span> <span class="fu">myFirstFunction</span>(<span class="at">num1=</span><span class="dv">2</span>,<span class="at">num2=</span><span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="#cb132-1" tabindex="-1"></a>myFirstFunction  <span class="ot">&lt;-</span> <span class="cf">function</span>(num1,num2){</span>
+<span id="cb132-2"><a href="#cb132-2" tabindex="-1"></a>  sumNum <span class="ot">&lt;-</span> num1<span class="sc">+</span>num2</span>
+<span id="cb132-3"><a href="#cb132-3" tabindex="-1"></a>  multipleNum <span class="ot">&lt;-</span> num1<span class="sc">*</span>num2</span>
+<span id="cb132-4"><a href="#cb132-4" tabindex="-1"></a>  InputNumbers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">FirstNum=</span>num1,<span class="at">SecondNum=</span>num2)</span>
+<span id="cb132-5"><a href="#cb132-5" tabindex="-1"></a>  DF <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Sum=</span>sumNum,<span class="at">Multiple=</span>multipleNum)</span>
+<span id="cb132-6"><a href="#cb132-6" tabindex="-1"></a>  listToReturn <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">Input=</span>InputNumbers,<span class="at">Result=</span>DF)</span>
+<span id="cb132-7"><a href="#cb132-7" tabindex="-1"></a>  <span class="fu">message</span>(<span class="st">&quot;Before return&quot;</span>)</span>
+<span id="cb132-8"><a href="#cb132-8" tabindex="-1"></a>  <span class="fu">return</span>(listToReturn)</span>
+<span id="cb132-9"><a href="#cb132-9" tabindex="-1"></a>  <span class="fu">message</span>(<span class="st">&quot;After return&quot;</span>)</span>
+<span id="cb132-10"><a href="#cb132-10" tabindex="-1"></a>}</span>
+<span id="cb132-11"><a href="#cb132-11" tabindex="-1"></a></span>
+<span id="cb132-12"><a href="#cb132-12" tabindex="-1"></a>myResult <span class="ot">&lt;-</span> <span class="fu">myFirstFunction</span>(<span class="at">num1=</span><span class="dv">2</span>,<span class="at">num2=</span><span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## Before return</code></pre>
-<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="#cb134-1" aria-hidden="true" tabindex="-1"></a>myResult</span></code></pre></div>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="#cb134-1" tabindex="-1"></a>myResult</span></code></pre></div>
 <pre><code>## $Input
 ##  FirstNum SecondNum 
 ##         2         3 
@@ -2283,17 +2283,17 @@ return statement is not evaluated.</p>
 <h2>No return statement</h2>
 <p>If a function does not contain a return statement, the result of the
 last line in function is returned.</p>
-<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="#cb136-1" aria-hidden="true" tabindex="-1"></a>myFirstFunction  <span class="ot">&lt;-</span> <span class="cf">function</span>(num1,num2){</span>
-<span id="cb136-2"><a href="#cb136-2" aria-hidden="true" tabindex="-1"></a>  sumNum <span class="ot">&lt;-</span> num1<span class="sc">+</span>num2</span>
-<span id="cb136-3"><a href="#cb136-3" aria-hidden="true" tabindex="-1"></a>  multipleNum <span class="ot">&lt;-</span> num1<span class="sc">*</span>num2</span>
-<span id="cb136-4"><a href="#cb136-4" aria-hidden="true" tabindex="-1"></a>  InputNumbers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">FirstNum=</span>num1,<span class="at">SecondNum=</span>num2)</span>
-<span id="cb136-5"><a href="#cb136-5" aria-hidden="true" tabindex="-1"></a>  DF <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Sum=</span>sumNum,<span class="at">Multiple=</span>multipleNum)</span>
-<span id="cb136-6"><a href="#cb136-6" aria-hidden="true" tabindex="-1"></a>  listToReturn <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">Input=</span>InputNumbers,<span class="at">Result=</span>DF)</span>
-<span id="cb136-7"><a href="#cb136-7" aria-hidden="true" tabindex="-1"></a>  listToReturn</span>
-<span id="cb136-8"><a href="#cb136-8" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb136-9"><a href="#cb136-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb136-10"><a href="#cb136-10" aria-hidden="true" tabindex="-1"></a>myResult <span class="ot">&lt;-</span> <span class="fu">myFirstFunction</span>(<span class="at">num1=</span><span class="dv">2</span>,<span class="at">num2=</span><span class="dv">3</span>)</span>
-<span id="cb136-11"><a href="#cb136-11" aria-hidden="true" tabindex="-1"></a>myResult</span></code></pre></div>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="#cb136-1" tabindex="-1"></a>myFirstFunction  <span class="ot">&lt;-</span> <span class="cf">function</span>(num1,num2){</span>
+<span id="cb136-2"><a href="#cb136-2" tabindex="-1"></a>  sumNum <span class="ot">&lt;-</span> num1<span class="sc">+</span>num2</span>
+<span id="cb136-3"><a href="#cb136-3" tabindex="-1"></a>  multipleNum <span class="ot">&lt;-</span> num1<span class="sc">*</span>num2</span>
+<span id="cb136-4"><a href="#cb136-4" tabindex="-1"></a>  InputNumbers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">FirstNum=</span>num1,<span class="at">SecondNum=</span>num2)</span>
+<span id="cb136-5"><a href="#cb136-5" tabindex="-1"></a>  DF <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Sum=</span>sumNum,<span class="at">Multiple=</span>multipleNum)</span>
+<span id="cb136-6"><a href="#cb136-6" tabindex="-1"></a>  listToReturn <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">Input=</span>InputNumbers,<span class="at">Result=</span>DF)</span>
+<span id="cb136-7"><a href="#cb136-7" tabindex="-1"></a>  listToReturn</span>
+<span id="cb136-8"><a href="#cb136-8" tabindex="-1"></a>}</span>
+<span id="cb136-9"><a href="#cb136-9" tabindex="-1"></a></span>
+<span id="cb136-10"><a href="#cb136-10" tabindex="-1"></a>myResult <span class="ot">&lt;-</span> <span class="fu">myFirstFunction</span>(<span class="at">num1=</span><span class="dv">2</span>,<span class="at">num2=</span><span class="dv">3</span>)</span>
+<span id="cb136-11"><a href="#cb136-11" tabindex="-1"></a>myResult</span></code></pre></div>
 <pre><code>## $Input
 ##  FirstNum SecondNum 
 ##         2         3 
@@ -2306,70 +2306,70 @@ last line in function is returned.</p>
 <h2>Variable scope in functions</h2>
 <p>Variables defined in the arguments or within the function exist only
 within the environment of the function.</p>
-<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="#cb138-1" aria-hidden="true" tabindex="-1"></a>myFirstFunction  <span class="ot">&lt;-</span> <span class="cf">function</span>(num1,num2){</span>
-<span id="cb138-2"><a href="#cb138-2" aria-hidden="true" tabindex="-1"></a>  sumNum <span class="ot">&lt;-</span> num1<span class="sc">+</span>num2</span>
-<span id="cb138-3"><a href="#cb138-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(sumNum)</span>
-<span id="cb138-4"><a href="#cb138-4" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb138-5"><a href="#cb138-5" aria-hidden="true" tabindex="-1"></a>myResult <span class="ot">&lt;-</span> <span class="fu">myFirstFunction</span>(<span class="at">num1=</span><span class="dv">2</span>,<span class="at">num2=</span><span class="dv">3</span>)</span>
-<span id="cb138-6"><a href="#cb138-6" aria-hidden="true" tabindex="-1"></a>myResult</span></code></pre></div>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="#cb138-1" tabindex="-1"></a>myFirstFunction  <span class="ot">&lt;-</span> <span class="cf">function</span>(num1,num2){</span>
+<span id="cb138-2"><a href="#cb138-2" tabindex="-1"></a>  sumNum <span class="ot">&lt;-</span> num1<span class="sc">+</span>num2</span>
+<span id="cb138-3"><a href="#cb138-3" tabindex="-1"></a>  <span class="fu">return</span>(sumNum)</span>
+<span id="cb138-4"><a href="#cb138-4" tabindex="-1"></a>}</span>
+<span id="cb138-5"><a href="#cb138-5" tabindex="-1"></a>myResult <span class="ot">&lt;-</span> <span class="fu">myFirstFunction</span>(<span class="at">num1=</span><span class="dv">2</span>,<span class="at">num2=</span><span class="dv">3</span>)</span>
+<span id="cb138-6"><a href="#cb138-6" tabindex="-1"></a>myResult</span></code></pre></div>
 <pre><code>## [1] 5</code></pre>
-<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="#cb140-1" aria-hidden="true" tabindex="-1"></a>sumNum</span></code></pre></div>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="#cb140-1" tabindex="-1"></a>sumNum</span></code></pre></div>
 <pre><code>## Error in eval(expr, envir, enclos): object &#39;sumNum&#39; not found</code></pre>
 </div>
 <div id="variable-scope-in-functions-1" class="section level2">
 <h2>Variable scope in functions</h2>
 <p>Variables defined in the global environment outside the function are
 available within the function.</p>
-<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="#cb142-1" aria-hidden="true" tabindex="-1"></a>my3rdNumber <span class="ot">&lt;-</span> <span class="dv">4</span></span>
-<span id="cb142-2"><a href="#cb142-2" aria-hidden="true" tabindex="-1"></a>myFirstFunction  <span class="ot">&lt;-</span> <span class="cf">function</span>(num1,num2){</span>
-<span id="cb142-3"><a href="#cb142-3" aria-hidden="true" tabindex="-1"></a>  sumNum <span class="ot">&lt;-</span> num1<span class="sc">+</span>num2<span class="sc">+</span>my3rdNumber</span>
-<span id="cb142-4"><a href="#cb142-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(sumNum)</span>
-<span id="cb142-5"><a href="#cb142-5" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb142-6"><a href="#cb142-6" aria-hidden="true" tabindex="-1"></a>myResult <span class="ot">&lt;-</span> <span class="fu">myFirstFunction</span>(<span class="at">num1=</span><span class="dv">2</span>,<span class="at">num2=</span><span class="dv">3</span>)</span>
-<span id="cb142-7"><a href="#cb142-7" aria-hidden="true" tabindex="-1"></a>myResult</span></code></pre></div>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="#cb142-1" tabindex="-1"></a>my3rdNumber <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb142-2"><a href="#cb142-2" tabindex="-1"></a>myFirstFunction  <span class="ot">&lt;-</span> <span class="cf">function</span>(num1,num2){</span>
+<span id="cb142-3"><a href="#cb142-3" tabindex="-1"></a>  sumNum <span class="ot">&lt;-</span> num1<span class="sc">+</span>num2<span class="sc">+</span>my3rdNumber</span>
+<span id="cb142-4"><a href="#cb142-4" tabindex="-1"></a>  <span class="fu">return</span>(sumNum)</span>
+<span id="cb142-5"><a href="#cb142-5" tabindex="-1"></a>}</span>
+<span id="cb142-6"><a href="#cb142-6" tabindex="-1"></a>myResult <span class="ot">&lt;-</span> <span class="fu">myFirstFunction</span>(<span class="at">num1=</span><span class="dv">2</span>,<span class="at">num2=</span><span class="dv">3</span>)</span>
+<span id="cb142-7"><a href="#cb142-7" tabindex="-1"></a>myResult</span></code></pre></div>
 <pre><code>## [1] 9</code></pre>
 </div>
 <div id="variable-scope-in-functions-2" class="section level2">
 <h2>Variable scope in functions</h2>
 <p>Changes to variables defined in the global environment from within
 the function will not be reflected in the global environment.</p>
-<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="#cb144-1" aria-hidden="true" tabindex="-1"></a>my3rdNumber <span class="ot">&lt;-</span> <span class="dv">4</span></span>
-<span id="cb144-2"><a href="#cb144-2" aria-hidden="true" tabindex="-1"></a>myFirstFunction  <span class="ot">&lt;-</span> <span class="cf">function</span>(num1,num2){</span>
-<span id="cb144-3"><a href="#cb144-3" aria-hidden="true" tabindex="-1"></a>  my3rdNumber <span class="ot">&lt;-</span> num1<span class="sc">+</span>num2<span class="sc">+</span>my3rdNumber</span>
-<span id="cb144-4"><a href="#cb144-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(my3rdNumber)</span>
-<span id="cb144-5"><a href="#cb144-5" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb144-6"><a href="#cb144-6" aria-hidden="true" tabindex="-1"></a>myResult <span class="ot">&lt;-</span> <span class="fu">myFirstFunction</span>(<span class="at">num1=</span><span class="dv">2</span>,<span class="at">num2=</span><span class="dv">3</span>)</span>
-<span id="cb144-7"><a href="#cb144-7" aria-hidden="true" tabindex="-1"></a>myResult</span></code></pre></div>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="#cb144-1" tabindex="-1"></a>my3rdNumber <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb144-2"><a href="#cb144-2" tabindex="-1"></a>myFirstFunction  <span class="ot">&lt;-</span> <span class="cf">function</span>(num1,num2){</span>
+<span id="cb144-3"><a href="#cb144-3" tabindex="-1"></a>  my3rdNumber <span class="ot">&lt;-</span> num1<span class="sc">+</span>num2<span class="sc">+</span>my3rdNumber</span>
+<span id="cb144-4"><a href="#cb144-4" tabindex="-1"></a>  <span class="fu">return</span>(my3rdNumber)</span>
+<span id="cb144-5"><a href="#cb144-5" tabindex="-1"></a>}</span>
+<span id="cb144-6"><a href="#cb144-6" tabindex="-1"></a>myResult <span class="ot">&lt;-</span> <span class="fu">myFirstFunction</span>(<span class="at">num1=</span><span class="dv">2</span>,<span class="at">num2=</span><span class="dv">3</span>)</span>
+<span id="cb144-7"><a href="#cb144-7" tabindex="-1"></a>myResult</span></code></pre></div>
 <pre><code>## [1] 9</code></pre>
-<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="#cb146-1" aria-hidden="true" tabindex="-1"></a>my3rdNumber</span></code></pre></div>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="#cb146-1" tabindex="-1"></a>my3rdNumber</span></code></pre></div>
 <pre><code>## [1] 4</code></pre>
 </div>
 <div id="variable-scope-in-functions-3" class="section level2">
 <h2>Variable scope in functions</h2>
 <p>We can use a <strong>&lt;&lt;-</strong> to assign to the environment
 outside the function although we will rarely do this</p>
-<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="#cb148-1" aria-hidden="true" tabindex="-1"></a>my3rdNumber <span class="ot">&lt;-</span> <span class="dv">4</span></span>
-<span id="cb148-2"><a href="#cb148-2" aria-hidden="true" tabindex="-1"></a>myFirstFunction  <span class="ot">&lt;-</span> <span class="cf">function</span>(num1,num2){</span>
-<span id="cb148-3"><a href="#cb148-3" aria-hidden="true" tabindex="-1"></a>  my3rdNumber <span class="ot">&lt;&lt;-</span> num1<span class="sc">+</span>num2<span class="sc">+</span>my3rdNumber</span>
-<span id="cb148-4"><a href="#cb148-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(my3rdNumber)</span>
-<span id="cb148-5"><a href="#cb148-5" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb148-6"><a href="#cb148-6" aria-hidden="true" tabindex="-1"></a>myResult <span class="ot">&lt;-</span> <span class="fu">myFirstFunction</span>(<span class="at">num1=</span><span class="dv">2</span>,<span class="at">num2=</span><span class="dv">3</span>)</span>
-<span id="cb148-7"><a href="#cb148-7" aria-hidden="true" tabindex="-1"></a>myResult</span></code></pre></div>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="#cb148-1" tabindex="-1"></a>my3rdNumber <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb148-2"><a href="#cb148-2" tabindex="-1"></a>myFirstFunction  <span class="ot">&lt;-</span> <span class="cf">function</span>(num1,num2){</span>
+<span id="cb148-3"><a href="#cb148-3" tabindex="-1"></a>  my3rdNumber <span class="ot">&lt;&lt;-</span> num1<span class="sc">+</span>num2<span class="sc">+</span>my3rdNumber</span>
+<span id="cb148-4"><a href="#cb148-4" tabindex="-1"></a>  <span class="fu">return</span>(my3rdNumber)</span>
+<span id="cb148-5"><a href="#cb148-5" tabindex="-1"></a>}</span>
+<span id="cb148-6"><a href="#cb148-6" tabindex="-1"></a>myResult <span class="ot">&lt;-</span> <span class="fu">myFirstFunction</span>(<span class="at">num1=</span><span class="dv">2</span>,<span class="at">num2=</span><span class="dv">3</span>)</span>
+<span id="cb148-7"><a href="#cb148-7" tabindex="-1"></a>myResult</span></code></pre></div>
 <pre><code>## [1] 9</code></pre>
-<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="#cb150-1" aria-hidden="true" tabindex="-1"></a>my3rdNumber</span></code></pre></div>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="#cb150-1" tabindex="-1"></a>my3rdNumber</span></code></pre></div>
 <pre><code>## [1] 9</code></pre>
 </div>
 <div id="argument-defaults" class="section level2">
 <h2>Argument defaults</h2>
 <p>Functions can have defaults for their arguments which will be used
 when arguments are not specified.</p>
-<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="#cb152-1" aria-hidden="true" tabindex="-1"></a>myFirstFunction  <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">num1=</span><span class="dv">1</span>,<span class="at">num2=</span><span class="dv">3</span>){</span>
-<span id="cb152-2"><a href="#cb152-2" aria-hidden="true" tabindex="-1"></a>  my3rdNumber <span class="ot">&lt;-</span> num1<span class="sc">+</span>num2<span class="sc">+</span>my3rdNumber</span>
-<span id="cb152-3"><a href="#cb152-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(my3rdNumber)</span>
-<span id="cb152-4"><a href="#cb152-4" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb152-5"><a href="#cb152-5" aria-hidden="true" tabindex="-1"></a><span class="fu">myFirstFunction</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="#cb152-1" tabindex="-1"></a>myFirstFunction  <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">num1=</span><span class="dv">1</span>,<span class="at">num2=</span><span class="dv">3</span>){</span>
+<span id="cb152-2"><a href="#cb152-2" tabindex="-1"></a>  my3rdNumber <span class="ot">&lt;-</span> num1<span class="sc">+</span>num2<span class="sc">+</span>my3rdNumber</span>
+<span id="cb152-3"><a href="#cb152-3" tabindex="-1"></a>  <span class="fu">return</span>(my3rdNumber)</span>
+<span id="cb152-4"><a href="#cb152-4" tabindex="-1"></a>}</span>
+<span id="cb152-5"><a href="#cb152-5" tabindex="-1"></a><span class="fu">myFirstFunction</span>()</span></code></pre></div>
 <pre><code>## [1] 13</code></pre>
-<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="#cb154-1" aria-hidden="true" tabindex="-1"></a><span class="fu">myFirstFunction</span>(<span class="dv">3</span>,<span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="#cb154-1" tabindex="-1"></a><span class="fu">myFirstFunction</span>(<span class="dv">3</span>,<span class="dv">4</span>)</span></code></pre></div>
 <pre><code>## [1] 16</code></pre>
 </div>
 <div id="custom-function-example" class="section level2">
@@ -2378,20 +2378,20 @@ when arguments are not specified.</p>
 taking in many variables, printing out messages and utilizing other
 functions within them.</p>
 <p>Lets make z-scores:</p>
-<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="#cb156-1" aria-hidden="true" tabindex="-1"></a>my_zscore  <span class="ot">&lt;-</span> <span class="cf">function</span>(my_number, my_vector){</span>
-<span id="cb156-2"><a href="#cb156-2" aria-hidden="true" tabindex="-1"></a>  my_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(my_vector)</span>
-<span id="cb156-3"><a href="#cb156-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">message</span>(<span class="st">&quot;Mean is &quot;</span>, my_mean)</span>
-<span id="cb156-4"><a href="#cb156-4" aria-hidden="true" tabindex="-1"></a>  diff_from_mean <span class="ot">&lt;-</span> my_number<span class="sc">-</span>my_mean</span>
-<span id="cb156-5"><a href="#cb156-5" aria-hidden="true" tabindex="-1"></a>  stdev <span class="ot">&lt;-</span> <span class="fu">sd</span>(my_vector)</span>
-<span id="cb156-6"><a href="#cb156-6" aria-hidden="true" tabindex="-1"></a>  my_z <span class="ot">&lt;-</span> diff_from_mean<span class="sc">/</span>stdev</span>
-<span id="cb156-7"><a href="#cb156-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(my_z)</span>
-<span id="cb156-8"><a href="#cb156-8" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb156-9"><a href="#cb156-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb156-10"><a href="#cb156-10" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">20</span>)</span>
-<span id="cb156-11"><a href="#cb156-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb156-12"><a href="#cb156-12" aria-hidden="true" tabindex="-1"></a><span class="fu">my_zscore</span>(<span class="at">my_number=</span>A[<span class="dv">1</span>], <span class="at">my_vector=</span>A)</span></code></pre></div>
-<pre><code>## Mean is 0.0576699715298993</code></pre>
-<pre><code>## [1] 1.188415</code></pre>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="#cb156-1" tabindex="-1"></a>my_zscore  <span class="ot">&lt;-</span> <span class="cf">function</span>(my_number, my_vector){</span>
+<span id="cb156-2"><a href="#cb156-2" tabindex="-1"></a>  my_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(my_vector)</span>
+<span id="cb156-3"><a href="#cb156-3" tabindex="-1"></a>  <span class="fu">message</span>(<span class="st">&quot;Mean is &quot;</span>, my_mean)</span>
+<span id="cb156-4"><a href="#cb156-4" tabindex="-1"></a>  diff_from_mean <span class="ot">&lt;-</span> my_number<span class="sc">-</span>my_mean</span>
+<span id="cb156-5"><a href="#cb156-5" tabindex="-1"></a>  stdev <span class="ot">&lt;-</span> <span class="fu">sd</span>(my_vector)</span>
+<span id="cb156-6"><a href="#cb156-6" tabindex="-1"></a>  my_z <span class="ot">&lt;-</span> diff_from_mean<span class="sc">/</span>stdev</span>
+<span id="cb156-7"><a href="#cb156-7" tabindex="-1"></a>  <span class="fu">return</span>(my_z)</span>
+<span id="cb156-8"><a href="#cb156-8" tabindex="-1"></a>}</span>
+<span id="cb156-9"><a href="#cb156-9" tabindex="-1"></a></span>
+<span id="cb156-10"><a href="#cb156-10" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">20</span>)</span>
+<span id="cb156-11"><a href="#cb156-11" tabindex="-1"></a></span>
+<span id="cb156-12"><a href="#cb156-12" tabindex="-1"></a><span class="fu">my_zscore</span>(<span class="at">my_number=</span>A[<span class="dv">1</span>], <span class="at">my_vector=</span>A)</span></code></pre></div>
+<pre><code>## Mean is 0.480188148009546</code></pre>
+<pre><code>## [1] -1.314621</code></pre>
 </div>
 <div id="debugging-functions" class="section level2">
 <h2>Debugging functions</h2>
@@ -2399,17 +2399,17 @@ functions within them.</p>
 function we can use <strong>debug</strong> function with our function of
 interest’s name. We can stop debugging with the <strong>undebug</strong>
 function.</p>
-<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="#cb159-1" aria-hidden="true" tabindex="-1"></a><span class="fu">debug</span>(myFirstFunction)</span>
-<span id="cb159-2"><a href="#cb159-2" aria-hidden="true" tabindex="-1"></a><span class="fu">undebug</span>(myFirstFunction)</span></code></pre></div>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="#cb159-1" tabindex="-1"></a><span class="fu">debug</span>(myFirstFunction)</span>
+<span id="cb159-2"><a href="#cb159-2" tabindex="-1"></a><span class="fu">undebug</span>(myFirstFunction)</span></code></pre></div>
 </div>
 <div id="custom-functions-and-apply" class="section level2">
 <h2>Custom functions and apply</h2>
 <p>These custom functions can also be utilized with apply.</p>
-<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="#cb160-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(A, my_zscore, <span class="at">my_vector=</span>A)</span></code></pre></div>
-<pre><code>##  [1]  1.18841455 -0.80518972  2.14728345  0.33310878  0.29239133 -0.39101258
-##  [7]  0.73115264 -0.36333039 -2.10804346 -1.35900898  0.21919244 -0.49845015
-## [13]  0.06455631  0.50871301 -0.72986823  0.31496230  0.99586036  0.68455667
-## [19] -1.51248824  0.28719990</code></pre>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="#cb160-1" tabindex="-1"></a><span class="fu">sapply</span>(A, my_zscore, <span class="at">my_vector=</span>A)</span></code></pre></div>
+<pre><code>##  [1] -1.3146209 -1.1547496 -0.1624832 -0.4852206  0.7804410  0.7946507
+##  [7] -1.4354910 -0.4865548 -0.1110640 -0.8370155  1.4019234  1.7115228
+## [13]  0.8961397  1.3370200 -0.8580370  0.6437355  0.2198656 -0.5749302
+## [19] -1.2651717  0.9000397</code></pre>
 </div>
 </div>
 <div id="getting-additional-libraries" class="section level1">
@@ -2419,17 +2419,17 @@ function.</p>
 <h2>Loading libraries</h2>
 <p>Libraries can be loaded using the library() function with an argument
 of the name of the library.</p>
-<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="#cb162-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="#cb162-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div>
 <p>You can see what libraries are available in the Packages panel or by
 the library() function with no arguments supplied.</p>
-<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="#cb163-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="#cb163-1" tabindex="-1"></a><span class="fu">library</span>()</span></code></pre></div>
 </div>
 <div id="installing-libraries" class="section level2">
 <h2>Installing libraries</h2>
 <p>Libraries can be installed through the R studio menu.</p>
 <p><strong>-&gt; Tools -&gt; Install packages ..</strong></p>
 <p>Or by using the install.packages() command.</p>
-<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="#cb164-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;Hmisc&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="#cb164-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;Hmisc&quot;</span>)</span></code></pre></div>
 </div>
 </div>
 <div id="scripts" class="section level1">
@@ -2461,9 +2461,9 @@ contains a simple R script to tell you what day it is.</p>
 dayOfWeek &lt;- function(){
   return(gsub(&quot; .*&quot;,&quot;&quot;,date()))  
 }</code></pre>
-<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="#cb166-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;scripts/dayOfWeek.r&quot;</span>)</span>
-<span id="cb166-2"><a href="#cb166-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dayOfWeek</span>()</span></code></pre></div>
-<pre><code>## [1] &quot;Thu&quot;</code></pre>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="#cb166-1" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;scripts/dayOfWeek.r&quot;</span>)</span>
+<span id="cb166-2"><a href="#cb166-2" tabindex="-1"></a><span class="fu">dayOfWeek</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;Mon&quot;</code></pre>
 </div>
 <div id="rscript" class="section level2">
 <h2>Rscript</h2>
@@ -2482,11 +2482,11 @@ appended.</p>
 <p>To provide arguments to an R script at the command line we must add
 <strong>commandArgs()</strong> function to parse command line
 arguments.</p>
-<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="#cb170-1" aria-hidden="true" tabindex="-1"></a>args <span class="ot">&lt;-</span> <span class="fu">commandArgs</span>(<span class="cn">TRUE</span>)</span>
-<span id="cb170-2"><a href="#cb170-2" aria-hidden="true" tabindex="-1"></a>myFirstArgument <span class="ot">&lt;-</span> args[<span class="dv">1</span>]</span>
-<span id="cb170-3"><a href="#cb170-3" aria-hidden="true" tabindex="-1"></a>myFirstArgument</span></code></pre></div>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="#cb170-1" tabindex="-1"></a>args <span class="ot">&lt;-</span> <span class="fu">commandArgs</span>(<span class="cn">TRUE</span>)</span>
+<span id="cb170-2"><a href="#cb170-2" tabindex="-1"></a>myFirstArgument <span class="ot">&lt;-</span> args[<span class="dv">1</span>]</span>
+<span id="cb170-3"><a href="#cb170-3" tabindex="-1"></a>myFirstArgument</span></code></pre></div>
 <pre><code>&#39;10&#39;</code></pre>
-<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="#cb172-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>(myFirstArgument)</span></code></pre></div>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="#cb172-1" tabindex="-1"></a><span class="fu">as.numeric</span>(myFirstArgument)</span></code></pre></div>
 <pre><code>10</code></pre>
 <p>Since vectors can only be one type, all command line arguments are
 strings and must be converted to numeric if needed with

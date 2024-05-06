@@ -236,7 +236,7 @@ overflow: visible;
 </style>
 <style type="text/css" data-origin="pandoc">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -247,7 +247,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
 { counter-reset: source-line 0; }
@@ -271,11 +271,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 code span.al { color: #ef2929; } 
 code span.an { color: #8f5902; font-weight: bold; font-style: italic; } 
-code span.at { color: #c4a000; } 
+code span.at { color: #204a87; } 
 code span.bn { color: #0000cf; } 
 code span.cf { color: #204a87; font-weight: bold; } 
 code span.ch { color: #4e9a06; } 
-code span.cn { color: #000000; } 
+code span.cn { color: #8f5902; } 
 code span.co { color: #8f5902; font-style: italic; } 
 code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } 
 code span.do { color: #8f5902; font-weight: bold; font-style: italic; } 
@@ -284,14 +284,14 @@ code span.dv { color: #0000cf; }
 code span.er { color: #a40000; font-weight: bold; } 
 code span.ex { } 
 code span.fl { color: #0000cf; } 
-code span.fu { color: #000000; } 
+code span.fu { color: #204a87; font-weight: bold; } 
 code span.im { } 
 code span.in { color: #8f5902; font-weight: bold; font-style: italic; } 
 code span.kw { color: #204a87; font-weight: bold; } 
 code span.op { color: #ce5c00; font-weight: bold; } 
 code span.ot { color: #8f5902; } 
 code span.pp { color: #8f5902; font-style: italic; } 
-code span.sc { color: #000000; } 
+code span.sc { color: #ce5c00; font-weight: bold; } 
 code span.ss { color: #4e9a06; } 
 code span.st { color: #4e9a06; } 
 code span.va { color: #000000; } 
@@ -445,25 +445,25 @@ read. All files can be found in the “data” directory.</p>
 <ul>
 <li>Read in the tab delimited file “GeneExpression.txt”.</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>geneExpression <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;data/GeneExpression.txt&quot;</span>,<span class="at">h=</span>T,<span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>,<span class="at">row.names=</span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>geneExpression <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;data/GeneExpression.txt&quot;</span>,<span class="at">h=</span>T,<span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>,<span class="at">row.names=</span><span class="dv">1</span>)</span></code></pre></div>
 <ul>
 <li>Find the mean expression of all samples.</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>sampleMeans <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">mean</span>(geneExpression[,<span class="dv">1</span>]),<span class="fu">mean</span>(geneExpression[,<span class="dv">2</span>]),<span class="fu">mean</span>(geneExpression[,<span class="dv">3</span>]),<span class="fu">mean</span>(geneExpression[,<span class="dv">4</span>]),<span class="fu">mean</span>(geneExpression[,<span class="dv">5</span>]),<span class="fu">mean</span>(geneExpression[,<span class="dv">6</span>]))</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(sampleMeans) <span class="ot">&lt;-</span> <span class="fu">colnames</span>(geneExpression)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>sampleMeans</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>sampleMeans <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">mean</span>(geneExpression[,<span class="dv">1</span>]),<span class="fu">mean</span>(geneExpression[,<span class="dv">2</span>]),<span class="fu">mean</span>(geneExpression[,<span class="dv">3</span>]),<span class="fu">mean</span>(geneExpression[,<span class="dv">4</span>]),<span class="fu">mean</span>(geneExpression[,<span class="dv">5</span>]),<span class="fu">mean</span>(geneExpression[,<span class="dv">6</span>]))</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="fu">names</span>(sampleMeans) <span class="ot">&lt;-</span> <span class="fu">colnames</span>(geneExpression)</span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>sampleMeans</span></code></pre></div>
 <pre><code>##  Sample_1.hi  Sample_2.hi  Sample_3.hi Sample_4.low Sample_5.low Sample_1.low 
 ##     7.514996     6.774108     6.508127     6.262253     6.177761     6.017462</code></pre>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Alternatively we could use the colMeans() function.</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colMeans</span>(geneExpression)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="co"># Alternatively we could use the colMeans() function.</span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="fu">colMeans</span>(geneExpression)</span></code></pre></div>
 <pre><code>##  Sample_1.hi  Sample_2.hi  Sample_3.hi Sample_4.low Sample_5.low Sample_1.low 
 ##     7.514996     6.774108     6.508127     6.262253     6.177761     6.017462</code></pre>
 <ul>
 <li>Read in the tab delimited file “GeneExpressionWithMethods.txt”. This
 file contains information on analysis steps used to produce file.</li>
 </ul>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>geneExpression <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;data/GeneExpressionWithMethods.txt&quot;</span>,<span class="at">h=</span>T,<span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>,<span class="at">row.names=</span><span class="dv">1</span>,<span class="at">skip=</span><span class="dv">3</span>)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>geneExpression</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>geneExpression <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;data/GeneExpressionWithMethods.txt&quot;</span>,<span class="at">h=</span>T,<span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>,<span class="at">row.names=</span><span class="dv">1</span>,<span class="at">skip=</span><span class="dv">3</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>geneExpression</span></code></pre></div>
 <pre><code>##        Sample_1.hi Sample_2.hi Sample_3.hi Sample_4.low Sample_5.low
 ## Gene_a    5.742510    3.214303    4.116820     3.212353     5.742333
 ## Gene_b    6.444368    5.896076    2.592581     5.089549     3.624812
@@ -486,8 +486,8 @@ file contains information on analysis steps used to produce file.</li>
 <li>Read in the tab delimited file “GeneExpressionWithNotes.txt”. This
 file contains notes about particular genes.</li>
 </ul>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>geneExpression <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;data/GeneExpressionWithNotes.txt&quot;</span>,<span class="at">h=</span>T,<span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>,<span class="at">row.names=</span><span class="dv">1</span>,<span class="at">comment.char =</span> <span class="st">&quot;&gt;&quot;</span>)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>geneExpression</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>geneExpression <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;data/GeneExpressionWithNotes.txt&quot;</span>,<span class="at">h=</span>T,<span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>,<span class="at">row.names=</span><span class="dv">1</span>,<span class="at">comment.char =</span> <span class="st">&quot;&gt;&quot;</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>geneExpression</span></code></pre></div>
 <pre><code>##        Sample_1.hi Sample_2.hi Sample_3.hi Sample_4.low Sample_5.low
 ## Gene_a    5.742510    3.214303    4.116820     3.212353     5.742333
 ## Gene_b    6.444368    5.896076    2.592581     5.089549     3.624812
@@ -511,11 +511,11 @@ file contains notes about particular genes.</li>
 decreasing expression in Sample_1.hi. Write out a new comma separated
 file with column titles.</li>
 </ul>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>geneExpression <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;data/GeneExpression.txt&quot;</span>,<span class="at">h=</span>T,<span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>,<span class="at">row.names=</span><span class="dv">1</span>)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>orderedExpression <span class="ot">&lt;-</span> geneExpression[<span class="fu">order</span>(geneExpression<span class="sc">$</span>Sample_1.hi,<span class="at">decreasing=</span>T),]</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>expressionDF <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="fu">rownames</span>(orderedExpression),orderedExpression)</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(expressionDF)[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="st">&quot;geneNames&quot;</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(expressionDF,<span class="st">&quot;orderedExpression.txt&quot;</span>,<span class="at">sep=</span><span class="st">&quot;,&quot;</span>,<span class="at">col.names =</span> T,<span class="at">row.names=</span>F)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a>geneExpression <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;data/GeneExpression.txt&quot;</span>,<span class="at">h=</span>T,<span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>,<span class="at">row.names=</span><span class="dv">1</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a>orderedExpression <span class="ot">&lt;-</span> geneExpression[<span class="fu">order</span>(geneExpression<span class="sc">$</span>Sample_1.hi,<span class="at">decreasing=</span>T),]</span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a>expressionDF <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="fu">rownames</span>(orderedExpression),orderedExpression)</span>
+<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a><span class="fu">colnames</span>(expressionDF)[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="st">&quot;geneNames&quot;</span></span>
+<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a><span class="fu">write.table</span>(expressionDF,<span class="st">&quot;orderedExpression.txt&quot;</span>,<span class="at">sep=</span><span class="st">&quot;,&quot;</span>,<span class="at">col.names =</span> T,<span class="at">row.names=</span>F)</span></code></pre></div>
 
 
 

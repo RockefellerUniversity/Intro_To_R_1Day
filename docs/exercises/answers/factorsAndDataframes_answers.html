@@ -236,7 +236,7 @@ overflow: visible;
 </style>
 <style type="text/css" data-origin="pandoc">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -247,7 +247,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
 { counter-reset: source-line 0; }
@@ -271,11 +271,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 code span.al { color: #ef2929; } 
 code span.an { color: #8f5902; font-weight: bold; font-style: italic; } 
-code span.at { color: #c4a000; } 
+code span.at { color: #204a87; } 
 code span.bn { color: #0000cf; } 
 code span.cf { color: #204a87; font-weight: bold; } 
 code span.ch { color: #4e9a06; } 
-code span.cn { color: #000000; } 
+code span.cn { color: #8f5902; } 
 code span.co { color: #8f5902; font-style: italic; } 
 code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } 
 code span.do { color: #8f5902; font-weight: bold; font-style: italic; } 
@@ -284,14 +284,14 @@ code span.dv { color: #0000cf; }
 code span.er { color: #a40000; font-weight: bold; } 
 code span.ex { } 
 code span.fl { color: #0000cf; } 
-code span.fu { color: #000000; } 
+code span.fu { color: #204a87; font-weight: bold; } 
 code span.im { } 
 code span.in { color: #8f5902; font-weight: bold; font-style: italic; } 
 code span.kw { color: #204a87; font-weight: bold; } 
 code span.op { color: #ce5c00; font-weight: bold; } 
 code span.ot { color: #8f5902; } 
 code span.pp { color: #8f5902; font-style: italic; } 
-code span.sc { color: #000000; } 
+code span.sc { color: #ce5c00; font-weight: bold; } 
 code span.ss { color: #4e9a06; } 
 code span.st { color: #4e9a06; } 
 code span.va { color: #000000; } 
@@ -445,25 +445,25 @@ to R</a>.</p>
 <li>Create a ordinal factor named “Height” containing – high, low, mid,
 low, mid, low, mid, high, mid, high.</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>ordinalFactor <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;high&quot;</span>, <span class="st">&quot;low&quot;</span>, <span class="st">&quot;mid&quot;</span>, <span class="st">&quot;low&quot;</span>, <span class="st">&quot;mid&quot;</span>, <span class="st">&quot;low&quot;</span>, <span class="st">&quot;mid&quot;</span>, <span class="st">&quot;high&quot;</span>, <span class="st">&quot;mid&quot;</span>, <span class="st">&quot;high&quot;</span>),<span class="at">ordered=</span>T,<span class="at">levels=</span><span class="fu">c</span>(<span class="st">&quot;low&quot;</span>, <span class="st">&quot;mid&quot;</span>, <span class="st">&quot;high&quot;</span>))</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>ordinalFactor</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>ordinalFactor <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;high&quot;</span>, <span class="st">&quot;low&quot;</span>, <span class="st">&quot;mid&quot;</span>, <span class="st">&quot;low&quot;</span>, <span class="st">&quot;mid&quot;</span>, <span class="st">&quot;low&quot;</span>, <span class="st">&quot;mid&quot;</span>, <span class="st">&quot;high&quot;</span>, <span class="st">&quot;mid&quot;</span>, <span class="st">&quot;high&quot;</span>),<span class="at">ordered=</span>T,<span class="at">levels=</span><span class="fu">c</span>(<span class="st">&quot;low&quot;</span>, <span class="st">&quot;mid&quot;</span>, <span class="st">&quot;high&quot;</span>))</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>ordinalFactor</span></code></pre></div>
 <pre><code>##  [1] high low  mid  low  mid  low  mid  high mid  high
 ## Levels: low &lt; mid &lt; high</code></pre>
 <ul>
 <li>Using a logical index, create new factor of only those from
 “Height”” greater than low.</li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>filteredFactor <span class="ot">&lt;-</span> ordinalFactor[ordinalFactor <span class="sc">&gt;</span> <span class="st">&quot;low&quot;</span>]</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>filteredFactor</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>filteredFactor <span class="ot">&lt;-</span> ordinalFactor[ordinalFactor <span class="sc">&gt;</span> <span class="st">&quot;low&quot;</span>]</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>filteredFactor</span></code></pre></div>
 <pre><code>## [1] high mid  mid  mid  high mid  high
 ## Levels: low &lt; mid &lt; high</code></pre>
 <ul>
 <li>Replace the last index in “Height” with veryHigh and create new
 factor with those greater than mid.</li>
 </ul>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>newFactor <span class="ot">&lt;-</span> <span class="fu">factor</span>(ordinalFactor,<span class="at">ordered=</span>T,<span class="at">levels=</span><span class="fu">c</span>(<span class="st">&quot;low&quot;</span>, <span class="st">&quot;mid&quot;</span>, <span class="st">&quot;high&quot;</span>,<span class="st">&quot;veryHigh&quot;</span>))</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>newFactor[<span class="fu">length</span>(newFactor)] <span class="ot">&lt;-</span> <span class="st">&quot;veryHigh&quot;</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>newFactor[newFactor <span class="sc">&gt;</span> <span class="st">&quot;mid&quot;</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>newFactor <span class="ot">&lt;-</span> <span class="fu">factor</span>(ordinalFactor,<span class="at">ordered=</span>T,<span class="at">levels=</span><span class="fu">c</span>(<span class="st">&quot;low&quot;</span>, <span class="st">&quot;mid&quot;</span>, <span class="st">&quot;high&quot;</span>,<span class="st">&quot;veryHigh&quot;</span>))</span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>newFactor[<span class="fu">length</span>(newFactor)] <span class="ot">&lt;-</span> <span class="st">&quot;veryHigh&quot;</span></span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a>newFactor[newFactor <span class="sc">&gt;</span> <span class="st">&quot;mid&quot;</span>]</span></code></pre></div>
 <pre><code>## [1] high     high     veryHigh
 ## Levels: low &lt; mid &lt; high &lt; veryHigh</code></pre>
 <p><strong>Exercise 2</strong> - <strong>Data frames</strong></p>
@@ -474,27 +474,27 @@ factor with those greater than mid.</li>
 (“Glycolysis”, “TGFb”, “Glycolysis”, “TGFb”, “Glycolysis”) and gene
 lengths (100, 3000, 200, 1000,1200).</li>
 </ul>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>Annotation <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">geneNames=</span><span class="fu">c</span>(<span class="st">&quot;Gene_1&quot;</span>, <span class="st">&quot;Gene_2&quot;</span>, <span class="st">&quot;Gene_3&quot;</span>,<span class="st">&quot;Gene_4&quot;</span>,<span class="st">&quot;Gene_5&quot;</span>), <span class="at">ensembl=</span><span class="fu">c</span>(<span class="st">&quot;Ens001&quot;</span>, <span class="st">&quot;Ens003&quot;</span>, <span class="st">&quot;Ens006&quot;</span>, <span class="st">&quot;Ens007&quot;</span>, <span class="st">&quot;Ens010&quot;</span>),<span class="at">pathway=</span><span class="fu">c</span>(<span class="st">&quot;Glycolysis&quot;</span>, <span class="st">&quot;TGFb&quot;</span>, <span class="st">&quot;Glycolysis&quot;</span>, <span class="st">&quot;TGFb&quot;</span>, <span class="st">&quot;Glycolysis&quot;</span>),<span class="at">geneLengths=</span><span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">3000</span>, <span class="dv">200</span>, <span class="dv">1000</span>,<span class="dv">1200</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>Annotation <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">geneNames=</span><span class="fu">c</span>(<span class="st">&quot;Gene_1&quot;</span>, <span class="st">&quot;Gene_2&quot;</span>, <span class="st">&quot;Gene_3&quot;</span>,<span class="st">&quot;Gene_4&quot;</span>,<span class="st">&quot;Gene_5&quot;</span>), <span class="at">ensembl=</span><span class="fu">c</span>(<span class="st">&quot;Ens001&quot;</span>, <span class="st">&quot;Ens003&quot;</span>, <span class="st">&quot;Ens006&quot;</span>, <span class="st">&quot;Ens007&quot;</span>, <span class="st">&quot;Ens010&quot;</span>),<span class="at">pathway=</span><span class="fu">c</span>(<span class="st">&quot;Glycolysis&quot;</span>, <span class="st">&quot;TGFb&quot;</span>, <span class="st">&quot;Glycolysis&quot;</span>, <span class="st">&quot;TGFb&quot;</span>, <span class="st">&quot;Glycolysis&quot;</span>),<span class="at">geneLengths=</span><span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">3000</span>, <span class="dv">200</span>, <span class="dv">1000</span>,<span class="dv">1200</span>))</span></code></pre></div>
 <ul>
 <li>Create data frame called Sample1 with ensembl gene names (“Ens001”,
 “Ens003”, “Ens006”, “Ens010”) and expression (1000, 3000,
 10000,5000)</li>
 </ul>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>Sample1 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">ensembl=</span><span class="fu">c</span>(<span class="st">&quot;Ens001&quot;</span>, <span class="st">&quot;Ens003&quot;</span>, <span class="st">&quot;Ens006&quot;</span>,<span class="st">&quot;Ens010&quot;</span>),<span class="at">expression=</span><span class="fu">c</span>(<span class="dv">1000</span>, <span class="dv">3000</span>, <span class="dv">10000</span>,<span class="dv">5000</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>Sample1 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">ensembl=</span><span class="fu">c</span>(<span class="st">&quot;Ens001&quot;</span>, <span class="st">&quot;Ens003&quot;</span>, <span class="st">&quot;Ens006&quot;</span>,<span class="st">&quot;Ens010&quot;</span>),<span class="at">expression=</span><span class="fu">c</span>(<span class="dv">1000</span>, <span class="dv">3000</span>, <span class="dv">10000</span>,<span class="dv">5000</span>))</span></code></pre></div>
 <ul>
 <li>Create data frame called Sample2 with ensembl gene names (“Ens001”,
 “Ens003”, “Ens006”, “Ens007”,“Ens010”) and expression (1500, 1500,
 17000,500,10000)</li>
 </ul>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>Sample2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">ensembl=</span><span class="fu">c</span>(<span class="st">&quot;Ens001&quot;</span>, <span class="st">&quot;Ens003&quot;</span>, <span class="st">&quot;Ens006&quot;</span>,<span class="st">&quot;Ens007&quot;</span>,<span class="st">&quot;Ens010&quot;</span>),<span class="at">expression=</span><span class="fu">c</span>(<span class="dv">1500</span>, <span class="dv">1500</span>, <span class="dv">17000</span>,<span class="dv">500</span>,<span class="dv">10000</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>Sample2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">ensembl=</span><span class="fu">c</span>(<span class="st">&quot;Ens001&quot;</span>, <span class="st">&quot;Ens003&quot;</span>, <span class="st">&quot;Ens006&quot;</span>,<span class="st">&quot;Ens007&quot;</span>,<span class="st">&quot;Ens010&quot;</span>),<span class="at">expression=</span><span class="fu">c</span>(<span class="dv">1500</span>, <span class="dv">1500</span>, <span class="dv">17000</span>,<span class="dv">500</span>,<span class="dv">10000</span>))</span></code></pre></div>
 <ul>
 <li>Create a data frame containing only those gene names common to all
 data frames with all information from Annotation and the expression from
 Sample 1 and Sample 2.</li>
 </ul>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>AnnoSample1 <span class="ot">&lt;-</span> <span class="fu">merge</span>(Annotation,Sample1,<span class="at">by.x=</span><span class="dv">2</span>,<span class="at">by.y=</span><span class="dv">1</span>,<span class="at">all=</span>F) </span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>AnnoSample1And2 <span class="ot">&lt;-</span> <span class="fu">merge</span>(AnnoSample1,Sample2,<span class="at">by=</span><span class="dv">1</span>,<span class="at">all=</span>F) </span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>AnnoSample1And2</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a>AnnoSample1 <span class="ot">&lt;-</span> <span class="fu">merge</span>(Annotation,Sample1,<span class="at">by.x=</span><span class="dv">2</span>,<span class="at">by.y=</span><span class="dv">1</span>,<span class="at">all=</span>F) </span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a>AnnoSample1And2 <span class="ot">&lt;-</span> <span class="fu">merge</span>(AnnoSample1,Sample2,<span class="at">by=</span><span class="dv">1</span>,<span class="at">all=</span>F) </span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a>AnnoSample1And2</span></code></pre></div>
 <pre><code>##   ensembl geneNames    pathway geneLengths expression.x expression.y
 ## 1  Ens001    Gene_1 Glycolysis         100         1000         1500
 ## 2  Ens003    Gene_2       TGFb        3000         3000         1500
@@ -504,9 +504,9 @@ Sample 1 and Sample 2.</li>
 <li>Add an extra two columns containing the length normalised
 expressions for Sample 1 and Sample 2</li>
 </ul>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>AnnoSample1And2<span class="sc">$</span>Sample1_lne <span class="ot">&lt;-</span> AnnoSample1And2<span class="sc">$</span>expression.x<span class="sc">/</span>AnnoSample1And2<span class="sc">$</span>geneLengths</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>AnnoSample1And2<span class="sc">$</span>Sample2_lne <span class="ot">&lt;-</span> AnnoSample1And2<span class="sc">$</span>expression.y<span class="sc">/</span>AnnoSample1And2<span class="sc">$</span>geneLengths</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>AnnoSample1And2</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a>AnnoSample1And2<span class="sc">$</span>Sample1_lne <span class="ot">&lt;-</span> AnnoSample1And2<span class="sc">$</span>expression.x<span class="sc">/</span>AnnoSample1And2<span class="sc">$</span>geneLengths</span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a>AnnoSample1And2<span class="sc">$</span>Sample2_lne <span class="ot">&lt;-</span> AnnoSample1And2<span class="sc">$</span>expression.y<span class="sc">/</span>AnnoSample1And2<span class="sc">$</span>geneLengths</span>
+<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a>AnnoSample1And2</span></code></pre></div>
 <pre><code>##   ensembl geneNames    pathway geneLengths expression.x expression.y
 ## 1  Ens001    Gene_1 Glycolysis         100         1000         1500
 ## 2  Ens003    Gene_2       TGFb        3000         3000         1500
@@ -521,22 +521,22 @@ expressions for Sample 1 and Sample 2</li>
 <li>Identify the mean length normalised expression across Sample1 and
 Sample2 for Ens006 genes</li>
 </ul>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(AnnoSample1And2) <span class="ot">&lt;-</span> AnnoSample1And2<span class="sc">$</span>ensembl</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">c</span>(AnnoSample1And2[<span class="st">&quot;Ens006&quot;</span>,<span class="st">&quot;Sample1_lne&quot;</span>],AnnoSample1And2[<span class="st">&quot;Ens006&quot;</span>,<span class="st">&quot;Sample2_lne&quot;</span>]))</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="fu">rownames</span>(AnnoSample1And2) <span class="ot">&lt;-</span> AnnoSample1And2<span class="sc">$</span>ensembl</span>
+<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">c</span>(AnnoSample1And2[<span class="st">&quot;Ens006&quot;</span>,<span class="st">&quot;Sample1_lne&quot;</span>],AnnoSample1And2[<span class="st">&quot;Ens006&quot;</span>,<span class="st">&quot;Sample2_lne&quot;</span>]))</span></code></pre></div>
 <pre><code>## [1] 67.5</code></pre>
 <ul>
 <li>For all genes, identify the log2 fold change in length normalised
 expression from Sample 1 to Sample 2.</li>
 </ul>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>log2FoldChange <span class="ot">&lt;-</span> <span class="fu">log2</span>(AnnoSample1And2<span class="sc">$</span>Sample2_lne) <span class="sc">-</span> <span class="fu">log2</span>(AnnoSample1And2<span class="sc">$</span>Sample1_lne)</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(log2FoldChange) <span class="ot">&lt;-</span> AnnoSample1And2<span class="sc">$</span>geneNames</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>log2FoldChange</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a>log2FoldChange <span class="ot">&lt;-</span> <span class="fu">log2</span>(AnnoSample1And2<span class="sc">$</span>Sample2_lne) <span class="sc">-</span> <span class="fu">log2</span>(AnnoSample1And2<span class="sc">$</span>Sample1_lne)</span>
+<span id="cb16-2"><a href="#cb16-2" tabindex="-1"></a><span class="fu">names</span>(log2FoldChange) <span class="ot">&lt;-</span> AnnoSample1And2<span class="sc">$</span>geneNames</span>
+<span id="cb16-3"><a href="#cb16-3" tabindex="-1"></a>log2FoldChange</span></code></pre></div>
 <pre><code>##     Gene_1     Gene_2     Gene_3     Gene_5 
 ##  0.5849625 -1.0000000  0.7655347  1.0000000</code></pre>
 <ul>
 <li>Identify the total length of genes in Glycolysis pathway.</li>
 </ul>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(AnnoSample1And2[AnnoSample1And2<span class="sc">$</span>pathway <span class="sc">==</span> <span class="st">&quot;Glycolysis&quot;</span>,<span class="st">&quot;geneLengths&quot;</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a><span class="fu">sum</span>(AnnoSample1And2[AnnoSample1And2<span class="sc">$</span>pathway <span class="sc">==</span> <span class="st">&quot;Glycolysis&quot;</span>,<span class="st">&quot;geneLengths&quot;</span>])</span></code></pre></div>
 <pre><code>## [1] 1500</code></pre>
 
 

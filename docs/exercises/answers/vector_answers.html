@@ -236,7 +236,7 @@ overflow: visible;
 </style>
 <style type="text/css" data-origin="pandoc">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -247,7 +247,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
 { counter-reset: source-line 0; }
@@ -271,11 +271,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 code span.al { color: #ef2929; } 
 code span.an { color: #8f5902; font-weight: bold; font-style: italic; } 
-code span.at { color: #c4a000; } 
+code span.at { color: #204a87; } 
 code span.bn { color: #0000cf; } 
 code span.cf { color: #204a87; font-weight: bold; } 
 code span.ch { color: #4e9a06; } 
-code span.cn { color: #000000; } 
+code span.cn { color: #8f5902; } 
 code span.co { color: #8f5902; font-style: italic; } 
 code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } 
 code span.do { color: #8f5902; font-weight: bold; font-style: italic; } 
@@ -284,14 +284,14 @@ code span.dv { color: #0000cf; }
 code span.er { color: #a40000; font-weight: bold; } 
 code span.ex { } 
 code span.fl { color: #0000cf; } 
-code span.fu { color: #000000; } 
+code span.fu { color: #204a87; font-weight: bold; } 
 code span.im { } 
 code span.in { color: #8f5902; font-weight: bold; font-style: italic; } 
 code span.kw { color: #204a87; font-weight: bold; } 
 code span.op { color: #ce5c00; font-weight: bold; } 
 code span.ot { color: #8f5902; } 
 code span.pp { color: #8f5902; font-style: italic; } 
-code span.sc { color: #000000; } 
+code span.sc { color: #ce5c00; font-weight: bold; } 
 code span.ss { color: #4e9a06; } 
 code span.st { color: #4e9a06; } 
 code span.va { color: #000000; } 
@@ -443,14 +443,14 @@ to R</a>.</p>
 <ul>
 <li>Create a vector containing the values 1,2,3,4,5</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>x</span></code></pre></div>
 <pre><code>## [1] 1 2 3 4 5</code></pre>
 <ul>
 <li>Create a vector containing the values 1 to 100</li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span></span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>x</span></code></pre></div>
 <pre><code>##   [1]   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18
 ##  [19]  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36
 ##  [37]  37  38  39  40  41  42  43  44  45  46  47  48  49  50  51  52  53  54
@@ -460,67 +460,67 @@ to R</a>.</p>
 <ul>
 <li>Create a vector containing the values 0,5,10,15,20</li>
 </ul>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">20</span>,<span class="dv">5</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">20</span>,<span class="dv">5</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>x</span></code></pre></div>
 <pre><code>## [1]  0  5 10 15 20</code></pre>
 <ul>
 <li>Create a vector containing the values 1,1,2,2,3,3</li>
 </ul>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">1</span>,<span class="dv">2</span>),<span class="fu">rep</span>(<span class="dv">2</span>,<span class="dv">2</span>),<span class="fu">rep</span>(<span class="dv">3</span>,<span class="dv">2</span>))</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">1</span>,<span class="dv">2</span>),<span class="fu">rep</span>(<span class="dv">2</span>,<span class="dv">2</span>),<span class="fu">rep</span>(<span class="dv">3</span>,<span class="dv">2</span>))</span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>x</span></code></pre></div>
 <pre><code>## [1] 1 1 2 2 3 3</code></pre>
 <ul>
 <li>Create a vector containing the values 1,1,5,7,9,10</li>
 </ul>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">1</span>,<span class="dv">2</span>),<span class="fu">seq</span>(<span class="dv">5</span>,<span class="dv">9</span>,<span class="dv">2</span>),<span class="dv">10</span>)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">1</span>,<span class="dv">2</span>),<span class="fu">seq</span>(<span class="dv">5</span>,<span class="dv">9</span>,<span class="dv">2</span>),<span class="dv">10</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>x</span></code></pre></div>
 <pre><code>## [1]  1  1  5  7  9 10</code></pre>
 <p><strong>Exercise 2</strong></p>
 <ul>
 <li>Create a vector containing the values 1 to 10.</li>
 </ul>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a>x</span></code></pre></div>
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
 <ul>
 <li>Create a new vector with all but the first and last value.</li>
 </ul>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> x[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="fu">length</span>(x))]</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>y</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a>y <span class="ot">&lt;-</span> x[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="fu">length</span>(x))]</span>
+<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a>y</span></code></pre></div>
 <pre><code>## [1] 2 3 4 5 6 7 8 9</code></pre>
 <ul>
 <li>Create a new vector with all but the second and fifth value.</li>
 </ul>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> x[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">5</span>)]</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>y</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a>y <span class="ot">&lt;-</span> x[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">5</span>)]</span>
+<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a>y</span></code></pre></div>
 <pre><code>## [1]  1  3  4  6  7  8  9 10</code></pre>
 <ul>
 <li>Create a new vector of square root of the sixth and seventh
 position.</li>
 </ul>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(x[<span class="dv">6</span><span class="sc">:</span><span class="dv">7</span>])</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>y</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(x[<span class="dv">6</span><span class="sc">:</span><span class="dv">7</span>])</span>
+<span id="cb17-2"><a href="#cb17-2" tabindex="-1"></a>y</span></code></pre></div>
 <pre><code>## [1] 2.449490 2.645751</code></pre>
 <ul>
 <li>Create a new vector of alternating positions in the vector using
 another vector.</li>
 </ul>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> x[<span class="fu">seq</span>(<span class="dv">1</span>,<span class="dv">10</span>,<span class="dv">2</span>)]</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>y</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a>y <span class="ot">&lt;-</span> x[<span class="fu">seq</span>(<span class="dv">1</span>,<span class="dv">10</span>,<span class="dv">2</span>)]</span>
+<span id="cb19-2"><a href="#cb19-2" tabindex="-1"></a>y</span></code></pre></div>
 <pre><code>## [1] 1 3 5 7 9</code></pre>
 <p><strong>Exercise 3</strong></p>
 <ul>
 <li>Find the number of files in the present working directory.</li>
 </ul>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Depend on current working directory..</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">dir</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a><span class="co"># Depend on current working directory..</span></span>
+<span id="cb21-2"><a href="#cb21-2" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">dir</span>())</span></code></pre></div>
 <pre><code>## [1] 10</code></pre>
 <ul>
 <li>List the first file in the present working directory.</li>
 </ul>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">dir</span>()</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">1</span>]</span></code></pre></div>
-<pre><code>## [1] &quot;_course.yml&quot;</code></pre>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">dir</span>()</span>
+<span id="cb23-2"><a href="#cb23-2" tabindex="-1"></a>x[<span class="dv">1</span>]</span></code></pre></div>
+<pre><code>## [1] &quot;Descriptions&quot;</code></pre>
 <p><strong>Exercise 4</strong></p>
 <ul>
 <li>Create a vector of the gene names Gene_1, Gene_2, Gene_3 Gene_4</li>
@@ -528,44 +528,44 @@ another vector.</li>
 12000</li>
 <li>Create a vector of the gene lengths 100, 3000, 200, 1000</li>
 </ul>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>geneNames <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Gene_1&quot;</span>, <span class="st">&quot;Gene_2&quot;</span>, <span class="st">&quot;Gene_3&quot;</span>,<span class="st">&quot;Gene_4&quot;</span>)</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>expression <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1000</span>, <span class="dv">3000</span>, <span class="dv">10000</span>, <span class="dv">12000</span>)</span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>geneLengths <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">3000</span>, <span class="dv">200</span>, <span class="dv">1000</span>)</span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(expression) <span class="ot">&lt;-</span> geneNames</span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(geneLengths) <span class="ot">&lt;-</span> geneNames</span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>expression</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a>geneNames <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Gene_1&quot;</span>, <span class="st">&quot;Gene_2&quot;</span>, <span class="st">&quot;Gene_3&quot;</span>,<span class="st">&quot;Gene_4&quot;</span>)</span>
+<span id="cb25-2"><a href="#cb25-2" tabindex="-1"></a>expression <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1000</span>, <span class="dv">3000</span>, <span class="dv">10000</span>, <span class="dv">12000</span>)</span>
+<span id="cb25-3"><a href="#cb25-3" tabindex="-1"></a>geneLengths <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">3000</span>, <span class="dv">200</span>, <span class="dv">1000</span>)</span>
+<span id="cb25-4"><a href="#cb25-4" tabindex="-1"></a><span class="fu">names</span>(expression) <span class="ot">&lt;-</span> geneNames</span>
+<span id="cb25-5"><a href="#cb25-5" tabindex="-1"></a><span class="fu">names</span>(geneLengths) <span class="ot">&lt;-</span> geneNames</span>
+<span id="cb25-6"><a href="#cb25-6" tabindex="-1"></a>expression</span></code></pre></div>
 <pre><code>## Gene_1 Gene_2 Gene_3 Gene_4 
 ##   1000   3000  10000  12000</code></pre>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>geneLengths</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" tabindex="-1"></a>geneLengths</span></code></pre></div>
 <pre><code>## Gene_1 Gene_2 Gene_3 Gene_4 
 ##    100   3000    200   1000</code></pre>
 <ul>
 <li>Find the longest gene.</li>
 </ul>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(geneLengths[geneLengths <span class="sc">==</span> <span class="fu">max</span>(geneLengths)])</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" tabindex="-1"></a><span class="fu">names</span>(geneLengths[geneLengths <span class="sc">==</span> <span class="fu">max</span>(geneLengths)])</span></code></pre></div>
 <pre><code>## [1] &quot;Gene_2&quot;</code></pre>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(geneLengths[<span class="fu">which.max</span>(geneLengths)])</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" tabindex="-1"></a><span class="fu">names</span>(geneLengths[<span class="fu">which.max</span>(geneLengths)])</span></code></pre></div>
 <pre><code>## [1] &quot;Gene_2&quot;</code></pre>
 <ul>
 <li>Identify genes which have a length greater than 100 and expression
 greater than 10000</li>
 </ul>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>geneNames[geneLengths <span class="sc">&gt;</span> <span class="dv">100</span> <span class="sc">&amp;</span> expression <span class="sc">&gt;</span> <span class="dv">10000</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" tabindex="-1"></a>geneNames[geneLengths <span class="sc">&gt;</span> <span class="dv">100</span> <span class="sc">&amp;</span> expression <span class="sc">&gt;</span> <span class="dv">10000</span>]</span></code></pre></div>
 <pre><code>## [1] &quot;Gene_4&quot;</code></pre>
 <p><strong>Bonus Questions</strong> <a name="bonus" id="bonus"></a></p>
 <ul>
 <li>Calculate the expression over the gene length for all genes (Length
 normalised expression).</li>
 </ul>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>lne <span class="ot">&lt;-</span> expression<span class="sc">/</span>geneLengths</span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>lne</span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" tabindex="-1"></a>lne <span class="ot">&lt;-</span> expression<span class="sc">/</span>geneLengths</span>
+<span id="cb35-2"><a href="#cb35-2" tabindex="-1"></a>lne</span></code></pre></div>
 <pre><code>## Gene_1 Gene_2 Gene_3 Gene_4 
 ##     10      1     50     12</code></pre>
 <ul>
 <li>Identify genes with a length normalised expression greater than the
 average</li>
 </ul>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>geneNames[lne <span class="sc">&gt;</span> <span class="fu">mean</span>(lne)]</span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" tabindex="-1"></a>geneNames[lne <span class="sc">&gt;</span> <span class="fu">mean</span>(lne)]</span></code></pre></div>
 <pre><code>## [1] &quot;Gene_3&quot;</code></pre>
 
 
