@@ -1706,7 +1706,7 @@ The **scan()** function allows for the selection of particular columns to be rea
 
 ```{r,echo=T}
 x <- scan("data/readThisTable.csv",sep=",",
-what = c("character",rep("numeric", 6)),skip=1)
+          what = as.list(c("character",rep("numeric", 6))),skip=1)
 x[1:3]
 ```
 
