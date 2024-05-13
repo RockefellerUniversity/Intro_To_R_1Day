@@ -2562,51 +2562,51 @@ A standard format for this data is a table:
 &lt;tbody&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_a &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.483826 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 6.202978 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.332023 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.366452 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.003145 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.602878 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_b &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.287577 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.210882 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.261737 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.891159 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.550023 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.691935 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_c &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.289181 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 5.390190 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 6.079531 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.224076 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.117969 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.909349 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_d &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.300989 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.825434 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.265450 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.223075 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.405338 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.405127 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_e &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.165968 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.267673 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.903448 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.599861 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.453869 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.043660 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_f &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 8.382947 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.781532 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 8.709914 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.620966 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.817297 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.724616 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_g &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.425136 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.033342 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.041640 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.089671 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.653978 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.695810 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_h &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.866059 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.290761 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.498897 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 11.734888 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.830967 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.641975 &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -2707,12 +2707,21 @@ The **scan()** function allows for the selection of particular columns to be rea
 
 ```r
 x &lt;- scan("data/readThisTable.csv",sep=",",
-what = c("character",rep("numeric", 6)),skip=1)
+          what = as.list(c("character",rep("numeric", 6))),skip=1)
 x[1:3]
 ```
 
 ```
-## [1] "Gene_a"           "4.57023720364456" "3.23046698308814"
+## [[1]]
+## [1] "Gene_a" "Gene_b" "Gene_c" "Gene_d" "Gene_e" "Gene_f" "Gene_g" "Gene_h"
+## 
+## [[2]]
+## [1] "4.57023720364456" "3.56173302139372" "3.79727358461183" "3.39824234540912"
+## [5] "10.1287867100999" "8.4743967992122"  "10.0100200884644" "9.39999241674877"
+## 
+## [[3]]
+## [1] "3.23046698308814" "3.63228532632679" "2.87446166873403" "4.41520211046494"
+## [5] "10.2240711640563" "8.61262799641256" "10.3123540206195" "10.3328437472096"
 ```
 
 ---

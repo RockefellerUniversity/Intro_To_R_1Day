@@ -3010,13 +3010,13 @@ Sample_3.hi
 Gene_a
 </td>
 <td style="text-align:right;">
-2.885966
+3.983232
 </td>
 <td style="text-align:right;">
-3.454668
+5.920004
 </td>
 <td style="text-align:right;">
-4.921851
+3.985142
 </td>
 </tr>
 <tr>
@@ -3024,13 +3024,13 @@ Gene_a
 Gene_b
 </td>
 <td style="text-align:right;">
-2.574689
+5.529501
 </td>
 <td style="text-align:right;">
-3.215788
+6.159414
 </td>
 <td style="text-align:right;">
-3.319630
+5.376445
 </td>
 </tr>
 <tr>
@@ -3038,13 +3038,13 @@ Gene_b
 Gene_c
 </td>
 <td style="text-align:right;">
-4.451842
+4.680871
 </td>
 <td style="text-align:right;">
-2.089224
+3.660254
 </td>
 <td style="text-align:right;">
-4.520354
+4.968984
 </td>
 </tr>
 <tr>
@@ -3052,13 +3052,13 @@ Gene_c
 Gene_d
 </td>
 <td style="text-align:right;">
-3.158549
+2.360663
 </td>
 <td style="text-align:right;">
-5.203696
+5.169839
 </td>
 <td style="text-align:right;">
-4.909154
+2.827649
 </td>
 </tr>
 <tr>
@@ -3066,13 +3066,13 @@ Gene_d
 Gene_e
 </td>
 <td style="text-align:right;">
-11.359671
+9.885761
 </td>
 <td style="text-align:right;">
-7.466230
+10.075091
 </td>
 <td style="text-align:right;">
-9.706977
+9.934059
 </td>
 </tr>
 <tr>
@@ -3080,13 +3080,13 @@ Gene_e
 Gene_f
 </td>
 <td style="text-align:right;">
-10.891717
+10.730846
 </td>
 <td style="text-align:right;">
-12.220161
+12.163187
 </td>
 <td style="text-align:right;">
-9.634062
+10.786216
 </td>
 </tr>
 <tr>
@@ -3094,13 +3094,13 @@ Gene_f
 Gene_g
 </td>
 <td style="text-align:right;">
-10.310832
+8.949767
 </td>
 <td style="text-align:right;">
-12.263450
+8.706670
 </td>
 <td style="text-align:right;">
-10.997775
+9.535106
 </td>
 </tr>
 <tr>
@@ -3108,13 +3108,13 @@ Gene_g
 Gene_h
 </td>
 <td style="text-align:right;">
-9.661241
+8.077743
 </td>
 <td style="text-align:right;">
-9.421937
+10.914715
 </td>
 <td style="text-align:right;">
-9.365687
+11.028635
 </td>
 </tr>
 </tbody>
@@ -3187,9 +3187,18 @@ file.</p>
 particular columns to be read into R and so can save memory when files
 are large.</p>
 <div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb317-1"><a href="#cb317-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">scan</span>(<span class="st">&quot;data/readThisTable.csv&quot;</span>,<span class="at">sep=</span><span class="st">&quot;,&quot;</span>,</span>
-<span id="cb317-2"><a href="#cb317-2" tabindex="-1"></a><span class="at">what =</span> <span class="fu">c</span>(<span class="st">&quot;character&quot;</span>,<span class="fu">rep</span>(<span class="st">&quot;numeric&quot;</span>, <span class="dv">6</span>)),<span class="at">skip=</span><span class="dv">1</span>)</span>
+<span id="cb317-2"><a href="#cb317-2" tabindex="-1"></a>          <span class="at">what =</span> <span class="fu">as.list</span>(<span class="fu">c</span>(<span class="st">&quot;character&quot;</span>,<span class="fu">rep</span>(<span class="st">&quot;numeric&quot;</span>, <span class="dv">6</span>))),<span class="at">skip=</span><span class="dv">1</span>)</span>
 <span id="cb317-3"><a href="#cb317-3" tabindex="-1"></a>x[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]</span></code></pre></div>
-<pre><code>## [1] &quot;Gene_a&quot;           &quot;4.57023720364456&quot; &quot;3.23046698308814&quot;</code></pre>
+<pre><code>## [[1]]
+## [1] &quot;Gene_a&quot; &quot;Gene_b&quot; &quot;Gene_c&quot; &quot;Gene_d&quot; &quot;Gene_e&quot; &quot;Gene_f&quot; &quot;Gene_g&quot; &quot;Gene_h&quot;
+## 
+## [[2]]
+## [1] &quot;4.57023720364456&quot; &quot;3.56173302139372&quot; &quot;3.79727358461183&quot; &quot;3.39824234540912&quot;
+## [5] &quot;10.1287867100999&quot; &quot;8.4743967992122&quot;  &quot;10.0100200884644&quot; &quot;9.39999241674877&quot;
+## 
+## [[3]]
+## [1] &quot;3.23046698308814&quot; &quot;3.63228532632679&quot; &quot;2.87446166873403&quot; &quot;4.41520211046494&quot;
+## [5] &quot;10.2240711640563&quot; &quot;8.61262799641256&quot; &quot;10.3123540206195&quot; &quot;10.3328437472096&quot;</code></pre>
 </div>
 <div id="writing-data-to-file" class="section level2">
 <h2>Writing data to file</h2>

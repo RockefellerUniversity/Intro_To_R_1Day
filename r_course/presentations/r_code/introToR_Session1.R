@@ -891,7 +891,7 @@ Table[1:2,1:3]
 
 ## ----echo=T-------------------------------------------------------------------
 x <- scan("data/readThisTable.csv",sep=",",
-what = c("character",rep("numeric", 6)),skip=1)
+          what = as.list(c("character",rep("numeric", 6))),skip=1)
 x[1:3]
 
 
