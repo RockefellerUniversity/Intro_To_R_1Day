@@ -62,7 +62,7 @@ R stores data in five main data types.
 - **List** - Ordered collection of multiple data types of differing length.
 
 
-```r
+``` r
 aVector &lt;- c(1,2,3,4,5,6,7,8,9,10)
 aMatrix &lt;- matrix(aVector,ncol=2,nrow=5,byrow = TRUE)
 aFactor &lt;- factor(c("R","Python","R","R","Python"),levels = c("R","Python"))
@@ -75,7 +75,7 @@ aDataFrame &lt;- data.frame(Number=c(1,2,3,4,5),Factor=aFactor)
 We can access and change information in our data.types using **indexing** with **[]**  (or **[[]]** for lists).
 
 
-```r
+``` r
 aVector &lt;- c(1,2,3,4,5,6,7,8,9,10)
 aVector[10]
 ```
@@ -84,7 +84,7 @@ aVector[10]
 ## [1] 10
 ```
 
-```r
+``` r
 aVector[10] &lt;- 0
 aVector
 ```
@@ -99,7 +99,7 @@ For matricies and data frames we use two indexes, specifying columns and rows. *
 
 .pull-left[
 
-```r
+``` r
 aMatrix &lt;- matrix(aVector,ncol=2,
                   nrow=5,byrow = TRUE)
 aMatrix
@@ -114,7 +114,7 @@ aMatrix
 ## [5,]    9    0
 ```
 
-```r
+``` r
 aMatrix[1,]
 ```
 
@@ -122,7 +122,7 @@ aMatrix[1,]
 ## [1] 1 2
 ```
 
-```r
+``` r
 aMatrix[,1]
 ```
 
@@ -132,7 +132,7 @@ aMatrix[,1]
   ]
 .pull-right[
 
-```r
+``` r
 aMatrix[1,1] &lt;- 0
 aMatrix[,2] &lt;- 100
 aMatrix
@@ -155,7 +155,7 @@ Remember a matrix can only contain one data type (numeric, character etc). For m
 
 .pull-left[
 
-```r
+``` r
 aMatrix &lt;- matrix(aVector,ncol=2,
                   nrow=5,byrow = TRUE)
 aMatrix
@@ -172,7 +172,7 @@ aMatrix
   ]
 .pull-right[
 
-```r
+``` r
 aMatrix[1,2] &lt;- "Word"
 aMatrix
 ```
@@ -193,7 +193,7 @@ aMatrix
 We can use logical operations to evaluate information our data types.
 
 
-```r
+``` r
 aVector &lt;- c(1,2,3,4,5,6,7,8,9,10)
 aVector &gt; 9
 ```
@@ -202,7 +202,7 @@ aVector &gt; 9
 ##  [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE
 ```
 
-```r
+``` r
 aFactor &lt;- factor(c("R","Python","R","R","Python"),levels = c("R","Python"))
 aDataFrame &lt;- data.frame(Number=c(1,2,3,4,5),Factor=aFactor)
 aDataFrame
@@ -217,7 +217,7 @@ aDataFrame
 ## 5      5 Python
 ```
 
-```r
+``` r
 aDataFrame$Factor == "R"
 ```
 
@@ -232,7 +232,7 @@ We can use logical operations with indexing to subset or alter information held 
 
 
 
-```r
+``` r
 aVector &lt;- c(1,2,3,4,5,6,7,8,9,10)
 aVector &gt; 5
 ```
@@ -241,7 +241,7 @@ aVector &gt; 5
 ##  [1] FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE
 ```
 
-```r
+``` r
 aVector[aVector &gt; 5] &lt;- 10
 aVector
 ```
@@ -256,7 +256,7 @@ aVector
 When replacing factor columns in data frames we have to remember the **levels**.
 
 
-```r
+``` r
 aFactor &lt;- factor(c("R","Python","R","R","Python"),
                   levels = c("R","Python"))
 aDataFrame &lt;- data.frame(Number=c(1,2,3,4,5),
@@ -269,7 +269,7 @@ aDataFrame[aDataFrame$Factor == "R",2] &lt;- "NotPython"
 ## invalid factor level, NA generated
 ```
 
-```r
+``` r
 aDataFrame
 ```
 
@@ -289,7 +289,7 @@ aDataFrame
 We can update levels in a data frame column as we would a factor. Now we can replace our elements in data frame.
 
 
-```r
+``` r
 aDataFrame &lt;- data.frame(Number=c(1,2,3,4,5),
                          Factor=aFactor)
 aDataFrame$Factor &lt;- factor(aDataFrame$Factor,
@@ -315,7 +315,7 @@ aDataFrame
 Data can be read into R as a table with the **read.table()** function and written to file with the **write.table()** function.
 
 
-```r
+``` r
 Table &lt;- read.table("data/readThisTable.csv",sep=",",header=T,row.names=1)
 Table[1:3,]
 ```
@@ -331,7 +331,7 @@ Table[1:3,]
 ## Gene_c     3.780917
 ```
 
-```r
+``` r
 write.table(Table,file="data/writeThisTable.csv", sep=",", row.names =F,col.names=T)
 ```
 
@@ -345,7 +345,7 @@ If we want to know how a function works or get an example on its use we can use 
 **?_FunctionName_**
 
 
-```r
+``` r
 ?merge
 ```
 
@@ -363,7 +363,7 @@ class: inverse, center, middle
 
 We have looked at using logical vectors as a way to index other data types.
 
-```r
+``` r
 x &lt;- 1:10
 x[x &lt; 4]
 ```
@@ -392,7 +392,7 @@ Conditional branching is the evaluation of a logical to determine whether a chun
 In R, we use the **if** statement with the logical to be evaluated in **()** and dependent code to be executed in **{}**.
 
 
-```r
+``` r
 x &lt;- TRUE
 if(x){
   message("x is true")
@@ -403,7 +403,7 @@ if(x){
 ## x is true
 ```
 
-```r
+``` r
 x &lt;- FALSE
 if(x){
   message("x is true")
@@ -416,7 +416,7 @@ if(x){
 More often, we construct the logical value within **()** itself. This can be termed the **condition**. 
 
 
-```r
+``` r
 x &lt;- 10
 y &lt;- 4
 if(x &gt; y){
@@ -431,7 +431,7 @@ if(x &gt; y){
 The message is printed above because x is greater than y. 
 
 
-```r
+``` r
 y &lt;- 20
 if(x &gt; y){
   message("The value of x is ",x," which is greater than ", y)
@@ -448,7 +448,7 @@ We really still want a message telling us what was the result of the condition.
 If we want to perform an operation when the condition is false we can follow the if() statement with an else statement.
 
 
-```r
+``` r
 x &lt;- 3
 if(x &lt; 5){
   message(x, " is less than to 5")
@@ -465,7 +465,7 @@ if(x &lt; 5){
 With the addition of the else statement, when x is not less than 5 the code following the else statement is executed.
 
 
-```r
+``` r
 x &lt;- 10
 if(x &lt; 5){
   message(x, " is less than 5")
@@ -485,7 +485,7 @@ if(x &lt; 5){
 
 We may wish to execute different procedures under multiple conditions. This can be controlled in R using the else if() following an initial if() statement.
 
-```r
+``` r
 x &lt;- 5
 if(x &gt; 5){
   message(x," is greater than 5")
@@ -506,7 +506,7 @@ if(x &gt; 5){
 A useful function to evaluate conditional statements over vectors is the **ifelse()** function.
 
 
-```r
+``` r
 x &lt;- 1:10
 x
 ```
@@ -518,7 +518,7 @@ x
 The ifelse() functions take the arguments of the condition to evaluate, the action if the condition is true and the action when condition is false.
 
 
-```r
+``` r
 ifelse(x &lt;= 3,"lessOrEqual","more") 
 ```
 
@@ -533,7 +533,7 @@ ifelse(x &lt;= 3,"lessOrEqual","more")
 We can use multiple nested **ifelse** functions to be apply more complex logical to vectors.
 
 
-```r
+``` r
 ifelse(x == 3,"same",
        ifelse(x &lt; 3,"less","more")
       ) 
@@ -557,7 +557,7 @@ The two main generic methods of looping in R are **while** and **for**
 
 While loops are most useful if you know the condition will be satisified but are not sure when (i.e. Looking for a point when a number first occurs in a list).
 
-```r
+``` r
 x &lt;- 1
 while(x &lt; 3){
   message("x is ",x," ")
@@ -573,7 +573,7 @@ while(x &lt; 3){
 ## x is 2
 ```
 
-```r
+``` r
 message("Finally x is not less than 3")
 ```
 
@@ -588,7 +588,7 @@ For loops allow the user to cycle through a range of values applying an operatio
 
 Here we cycle through a numeric vector and print out its value.
 
-```r
+``` r
 x &lt;- 1:5
 for(i in x){
   message(i," ", appendLF = F)
@@ -601,7 +601,7 @@ for(i in x){
 
 Similarly we can cycle through other vector types (or lists).
 
-```r
+``` r
 x &lt;- toupper(letters[1:5])
 for(i in x){
   message(i," ", appendLF = F)
@@ -618,7 +618,7 @@ for(i in x){
 We may wish to keep track of the position in x we are evaluating to retrieve the same index in other variables. A common practice is to loop though all possible index positions of x using the expression **1:length(x)**.
 
 
-```r
+``` r
 geneName &lt;- c("Ikzf1","Myc","Igll1")
 expression &lt;- c(10.4,4.3,6.5)
 1:length(geneName)
@@ -628,7 +628,7 @@ expression &lt;- c(10.4,4.3,6.5)
 ## [1] 1 2 3
 ```
 
-```r
+``` r
 for(i in 1:length(geneName)){
   message(geneName[i]," has an RPKM of ",expression[i])
 }
@@ -652,7 +652,7 @@ for(i in 1:length(geneName)){
 Loops can be combined with conditional statements to allow for complex control of their execution over R objects. 
 .pull-left[
 
-```r
+``` r
 x &lt;- 1:13
 
 for(i in 1:13){
@@ -729,7 +729,7 @@ We can use conditionals to exit a loop if a condition is satisfied, just like a 
 
 .pull-left[
 
-```r
+``` r
 x &lt;- 1:13
 
 for(i in 1:13){
@@ -815,7 +815,7 @@ apply(DATA,MARGIN,FUN,...)
 ## apply() example
 
 
-```r
+``` r
 matExample &lt;- matrix(c(1:4),nrow=2,ncol=2,byrow=T)
 matExample
 ```
@@ -827,7 +827,7 @@ matExample
 ```
 Get the mean of rows
 
-```r
+``` r
 apply(matExample,1,mean)
 ```
 
@@ -836,7 +836,7 @@ apply(matExample,1,mean)
 ```
 Get the mean of columns
 
-```r
+``` r
 apply(matExample,2,mean)
 ```
 
@@ -853,7 +853,7 @@ Arguments may be ordered as if passed to function directly. For **paste()** func
 
 
 
-```r
+``` r
 apply(matExample,1,paste,collapse=";")
 ```
 
@@ -870,7 +870,7 @@ Similar to apply, **lapply** applies a function to every element of a vector or 
 **lapply** returns a list object containing the results of evaluating the function.
 
 
-```r
+``` r
 lapply(c(1,2),mean)
 ```
 
@@ -886,7 +886,7 @@ lapply(c(1,2),mean)
 As with apply() additional arguments can be supplied after the function name argument.
 
 
-```r
+``` r
 lapply(list(1,c(NA,1),2),mean, na.rm=T)
 ```
 
@@ -909,7 +909,7 @@ lapply(list(1,c(NA,1),2),mean, na.rm=T)
 
 Here sapply returns a vector where lapply would return lists.
 
-```r
+``` r
 exampleVector &lt;- c(1,2,3,4,5)
 exampleList &lt;- list(1,2,3,4,5)
 sapply(exampleVector, mean, na.rm=T)
@@ -919,7 +919,7 @@ sapply(exampleVector, mean, na.rm=T)
 ## [1] 1 2 3 4 5
 ```
 
-```r
+``` r
 sapply(exampleList, mean, na.rm=T)
 ```
 
@@ -934,7 +934,7 @@ sapply(exampleList, mean, na.rm=T)
 In this example lapply returns a list of vectors from the quantile function.
 
 
-```r
+``` r
 exampleList &lt;- list(row1=1:5, 
                     row2=6:10, 
                     row3=11:15)
@@ -955,7 +955,7 @@ exampleList
 
 .pull-right[
 
-```r
+``` r
 lapply(exampleList, quantile)
 ```
 
@@ -982,7 +982,7 @@ Here is an example of sapply parsing a result from the quantile function in a *s
 When a function always returns a vector of the same length, sapply will create a matrix with elements by column.
 
 
-```r
+``` r
 sapply(exampleList, quantile)
 ```
 
@@ -1002,7 +1002,7 @@ sapply(exampleList, quantile)
 When sapply cannot parse the result to a vector or matrix, a list will be returned.
 
 
-```r
+``` r
 exampleList &lt;- list(df=data.frame(sample=paste0("patient",1:2), data=c(1,12)),
                     vec=c(1,3,4,5))
 sapply(exampleList, summary)
@@ -1054,7 +1054,7 @@ Anything to be received back from the function is indicated by the **return** st
 
 In this case we can recapitulate the square function. 
 
-```r
+``` r
 myFirstFunction  &lt;- function(MYARGUMENT){
   ...................
   ..CODE_TO_EXECUTE..
@@ -1072,7 +1072,7 @@ First lets create a function that can sum two numbers. We can call the function 
 
 
 
-```r
+``` r
 myFirstFunction  &lt;- function(num1,num2){
   sumNum &lt;- num1+num2
   return(sumNum)
@@ -1094,7 +1094,7 @@ We can only **return** 1 object at a time from function. Here we create the mult
 
 
 
-```r
+``` r
 myFirstFunction  &lt;- function(num1,num2){
   sumNum &lt;- num1+num2
   multipleNum &lt;- num1*num2
@@ -1115,7 +1115,7 @@ A simple solution is to pass back an object that contains both results. Here we 
 
 
 
-```r
+``` r
 myFirstFunction  &lt;- function(num1,num2){
   sumNum &lt;- num1+num2
   multipleNum &lt;- num1*num2
@@ -1140,7 +1140,7 @@ Lists are very useful here as they can contain different object classes in their
 
 
 
-```r
+``` r
 myFirstFunction  &lt;- function(num1,num2){
   sumNum &lt;- num1+num2
   multipleNum &lt;- num1*num2
@@ -1171,7 +1171,7 @@ In a function containing a **return** statement, the code up until the return st
 
 
 
-```r
+``` r
 myFirstFunction  &lt;- function(num1,num2){
   sumNum &lt;- num1+num2
   multipleNum &lt;- num1*num2
@@ -1190,7 +1190,7 @@ myResult &lt;- myFirstFunction(num1=2,num2=3)
 ## Before return
 ```
 
-```r
+``` r
 myResult
 ```
 
@@ -1211,7 +1211,7 @@ If a function does not contain a return statement, the result of the last line i
 
 
 
-```r
+``` r
 myFirstFunction  &lt;- function(num1,num2){
   sumNum &lt;- num1+num2
   multipleNum &lt;- num1*num2
@@ -1241,7 +1241,7 @@ myResult
 Variables defined in the arguments or within the function exist only within the environment of the function.
 
 
-```r
+``` r
 myFirstFunction  &lt;- function(num1,num2){
   sumNum &lt;- num1+num2
   return(sumNum)
@@ -1254,7 +1254,7 @@ myResult
 ## [1] 5
 ```
 
-```r
+``` r
 sumNum
 ```
 
@@ -1268,7 +1268,7 @@ sumNum
 Variables defined in the global environment outside the function are available within the function.
 
 
-```r
+``` r
 my3rdNumber &lt;- 4
 myFirstFunction  &lt;- function(num1,num2){
   sumNum &lt;- num1+num2+my3rdNumber
@@ -1289,7 +1289,7 @@ myResult
 Changes to variables defined in the global environment from within the function will not be reflected in the global environment.
 
 
-```r
+``` r
 my3rdNumber &lt;- 4
 myFirstFunction  &lt;- function(num1,num2){
   my3rdNumber &lt;- num1+num2+my3rdNumber
@@ -1303,7 +1303,7 @@ myResult
 ## [1] 9
 ```
 
-```r
+``` r
 my3rdNumber
 ```
 
@@ -1317,7 +1317,7 @@ my3rdNumber
 We can use a **&lt;&lt;-** to assign to the environment outside the function although we will rarely do this
 
 
-```r
+``` r
 my3rdNumber &lt;- 4
 myFirstFunction  &lt;- function(num1,num2){
   my3rdNumber &lt;&lt;- num1+num2+my3rdNumber
@@ -1331,7 +1331,7 @@ myResult
 ## [1] 9
 ```
 
-```r
+``` r
 my3rdNumber
 ```
 
@@ -1345,7 +1345,7 @@ my3rdNumber
 Functions can have defaults for their arguments which will be used when arguments are not specified.
 
 
-```r
+``` r
 myFirstFunction  &lt;- function(num1=1,num2=3){
   my3rdNumber &lt;- num1+num2+my3rdNumber
   return(my3rdNumber)
@@ -1357,7 +1357,7 @@ myFirstFunction()
 ## [1] 13
 ```
 
-```r
+``` r
 myFirstFunction(3,4)
 ```
 
@@ -1372,7 +1372,7 @@ User defined functions can be as long and complicated as you want, taking in man
 
 Lets make z-scores:
 
-```r
+``` r
 my_zscore  &lt;- function(my_number, my_vector){
   my_mean &lt;- mean(my_vector)
   message("Mean is ", my_mean)
@@ -1388,11 +1388,11 @@ my_zscore(my_number=A[1], my_vector=A)
 ```
 
 ```
-## Mean is -0.133784967850533
+## Mean is -0.140277871678136
 ```
 
 ```
-## [1] 0.6506316
+## [1] 1.364932
 ```
 
 ---
@@ -1401,7 +1401,7 @@ my_zscore(my_number=A[1], my_vector=A)
 In Rstudio, if we want to see what may be happening within our function we can use **debug** function with our function of interest's name. We can stop debugging with the **undebug** function.
 
 
-```r
+``` r
 debug(myFirstFunction)
 undebug(myFirstFunction)
 ```
@@ -1412,15 +1412,15 @@ undebug(myFirstFunction)
 These custom functions can also be utilized with apply. 
 
 
-```r
+``` r
 sapply(A, my_zscore, my_vector=A)
 ```
 
 ```
-##  [1]  0.65063158  0.04305989 -0.32807782  0.23424920  1.15704381  0.78605475
-##  [7] -0.29783153  0.19536757  0.45202643 -0.76260256 -0.13470090 -1.91248000
-## [13] -1.85617201  0.63840694  2.22653853  0.54450207 -0.86216686 -1.15462282
-## [19]  0.74325363 -0.36247990
+##  [1]  1.3649317  0.3989000 -0.2541164 -0.8951413  0.4795989 -1.1399360
+##  [7] -1.9458817  0.3967466  0.1457260 -0.7903283  1.2343657  0.8338012
+## [13] -0.2681244  0.9204996 -0.7335495 -1.8423171  1.0492859 -0.6254312
+## [19]  0.7046352  0.9663351
 ```
 
 
@@ -1439,14 +1439,14 @@ class: inverse, center, middle
 Libraries can be loaded using the library() function with an argument of the name of the library.
 
 
-```r
+``` r
 library(ggplot2)
 ```
 
 You can see what libraries are available in the Packages panel or by the library() function with no arguments supplied.
 
 
-```r
+``` r
 library()
 ```
 
@@ -1461,7 +1461,7 @@ Libraries can be installed through the R studio menu.
 Or by using the install.packages() command.
 
 
-```r
+``` r
 install.packages("Hmisc")
 ```
 
@@ -1509,13 +1509,13 @@ dayOfWeek &lt;- function(){
 }
 ```
 
-```r
+``` r
 source("scripts/dayOfWeek.r")
 dayOfWeek()
 ```
 
 ```
-## [1] "Mon"
+## [1] "Thu"
 ```
 
 ---
@@ -1541,7 +1541,7 @@ R CMD BATCH myscript.r
 To provide arguments to an R script at the command line we must add **commandArgs()** function to parse command line arguments.
 
 
-```r
+``` r
 args &lt;- commandArgs(TRUE)
 myFirstArgument &lt;- args[1]
 myFirstArgument
@@ -1551,7 +1551,7 @@ myFirstArgument
 '10'
 ```
 
-```r
+``` r
 as.numeric(myFirstArgument)
 ```
 ```
