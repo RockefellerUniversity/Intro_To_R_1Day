@@ -8,7 +8,7 @@ output:
     theme: united  # many options for theme, this one is my favorite.
     highlight: tango  # specifies the syntax highlighting style
 ---
-
+ 
 <p>&nbsp;</p>
 These answers are from the exercises about the factors and data frames sections of [Introduction to R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/). 
 
