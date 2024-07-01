@@ -481,7 +481,7 @@ class="email">brc@rockefeller.edu</a></h4>
 <p><br></p>
 <div id="course-integrity" class="section level3">
 <h3>Course Integrity</h3>
-<p><strong>This course is compiled automatically on <em>2024-06-11</em>
+<p><strong>This course is compiled automatically on <em>2024-07-01</em>
 </strong> <br> <a
 href="https://github.com/RockefellerUniversity/Intro_To_R_1Day/actions?query=workflow%3compilation-check"><img src="https://github.com/RockefellerUniversity/Intro_To_R_1Day/workflows/compilation-check/badge.svg"></a></p>
 <p><strong>The course is tested and available on MacOS, Windows and
@@ -544,14 +544,17 @@ class="uri">https://rstudio.com/products/rstudio/download/</a></p>
 </div>
 <div id="install-required-r-packages" class="section level4">
 <h4><strong>Install required R packages</strong></h4>
-<pre><code>  R Packages can be installed from the course package or from CRAN/Bioconductor.
-
-  ##### From the course package</code></pre>
-<p><code>{r} install.packages('BiocManager') install.packages('remotes') BiocManager::install('RockefellerUniversity/Intro_To_R_1Day',subdir='introToR')</code></p>
-<pre><code>
-##### From CRAN and Bioconductor
-```{r}
-install.packages(&#39;BiocManager&#39;)
+<p>R Packages can be installed from the course package or from
+CRAN/Bioconductor.</p>
+<div id="from-the-course-package" class="section level5">
+<h5>From the course package</h5>
+<pre><code>install.packages(&#39;BiocManager&#39;)
+install.packages(&#39;remotes&#39;)
+BiocManager::install(&#39;RockefellerUniversity/Intro_To_R_1Day&#39;,subdir=&#39;introToR&#39;)</code></pre>
+</div>
+<div id="from-cran-and-bioconductor" class="section level5">
+<h5>From CRAN and Bioconductor</h5>
+<pre><code>install.packages(&#39;BiocManager&#39;)
 BiocManager::install(&#39;methods&#39;)
 BiocManager::install(&#39;ggplot2&#39;)
 BiocManager::install(&#39;rmarkdown&#39;)
@@ -560,7 +563,7 @@ BiocManager::install(&#39;xaringanthemer&#39;)
 BiocManager::install(&#39;knitr&#39;)
 BiocManager::install(&#39;testthat&#39;)
 BiocManager::install(&#39;yaml&#39;)</code></pre>
-<p>```</p>
+</div>
 </div>
 <div id="download-the-material" class="section level4">
 <h4><strong>Download the material</strong></h4>
