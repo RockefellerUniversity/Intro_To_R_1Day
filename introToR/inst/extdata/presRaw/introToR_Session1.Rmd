@@ -164,7 +164,7 @@ Inheriting much from **S** (Bell labs).
 In particular, [Robert Gentleman](https://en.wikipedia.org/wiki/Robert_Gentleman_%28statistician%29) developed the **[Bioconductor](http://bioconductor.org/)** project where 100's of packages are directly related to computational biology and analysis of associated high-throughput experiments.
   ] 
 .pull-right[
-![R use over time](imgs/RCitations.jpeg)
+![R use over time](imgs/scanpy_vs_seurat.jpg)
 
   ]
 
