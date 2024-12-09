@@ -14,7 +14,7 @@ output:
   html_document:
     toc: true # table of content true
     toc_float: yes
-    depth: 3  # upto three depths of headings (specified by #, ## and ###)
+    depth: 3  # up to three depths of headings (specified by #, ## and ###)
     number_sections: false  ## if you want number sections at each table header
     theme: united  # many options for theme, this one is my favorite.
     highlight: tango  # specifies the syntax highlighting style
@@ -105,21 +105,7 @@ Practicals as HTML pages.
 Practicals with answers as HTML pages and R code solutions. 
 
 
----
-## Set the Working directory
 
-Before running any of the code in the practicals or slides we need to set the working directory to the folder we unarchived. 
-
-You may navigate to the unarchived Intro_To_R_1Day folder in the Rstudio menu. We specifically want to set the working directory to the r_course folder.
-
-**Session -> Set Working Directory -> Choose Directory**
-
-or in the console.
-
-```{r setwd_introtoR,eval=F} 
-setwd("/PathToMyDownload/Intro_To_R_1Day-master/r_course")
-# e.g. setwd("~/Downloads/Intro_To_R_1Day/r_course")
-```
 
 
 ---
@@ -686,9 +672,42 @@ geneList[logical_index]
 
 
 ---
+## The *grepl()* function
+
+Another more flexible way of making a logical vector for indexing is by using the grepl function. This uses *regular expressions* so you can do more advanced pattern matching. 
+
+We simply provide the pattern we are looking for and the vector we are looking in. 
+
+```{r}
+mixedList <- c("protein1","Gene1","Protein2","Gene3","Gene4","Protein4","Gene5","Gene1","Protein5")
+logical_index <- grepl("Prot", mixedList)
+logical_index
+
+mixedList[logical_index]
+```
+
+---
+## The *grepl()* function
+
+We can also control case sensitivity with the *ignore.case=T*.
+
+```{r}
+logical_index <- grepl("Prot", mixedList, ignore.case=T)
+logical_index
+mixedList[logical_index]
+```
+
+There is also a related *grep()* function which returns the numeric index in which a pattern was matched. 
+
+```{r}
+grep("Prot", mixedList)
+
+```
+
+---
 ## Logical vectors from operators
 
-Vectors may be evaluated to produce logical vectors. This can be very useful when using a logical to index.
+Vectors may also be directly evaluated to produce logical vectors. This can be very useful when using a logical to index.
 
 Common examples are:
 
@@ -1151,6 +1170,32 @@ levels(factorExample) <- c("big","small","huge")
 factorExample[1] <- c("huge")
 factorExample
 ```
+
+---
+## R and messages
+
+When R gives you an unexpected response DON'T PANIC.
+
+You will run into errors coding. 
+
+Most of the time the messages are very clear. And if they are not a quick google will often clear it up:
+
+```
+Warning in `[<-.factor`(`*tmp*`, 1, value = "huge") :
+  invalid factor level, NA generated
+```
+
+---
+## Messages, Warnings, Errors
+
+There are several kinds of messages.
+
+* Message - Just a text message - This can denote progress or options used.
+
+* Warning - Just a text message starting with **"Warning"** - Often denotes if you have done something atypical. You should review the message unless you did it on purpose. 
+
+* Error - The code will stop and a text message starting with **"Error"** - Something broke the code. Review the message.
+
 
 ---
 ```{r, results='asis',include=TRUE,echo=FALSE}
@@ -1620,11 +1665,85 @@ if(params$isSlides == "yes"){
 
 ```
 
+---
+## Working Directory
+
+Most of the time, you will not be generating data in R but will be importing data from external files. Before we can read in data, you need to know from which vantage point your R console is looking. This view point is the Working Directory. 
+
+![location](imgs/youarehere.png)
+
+---
+## Working Directory
+
+You can check your working directory using the *getwd()* function.
+
+```{r}
+getwd()
+```
+
+```
+[1] "/Users/mattpaul"
+```
+
+---
+## Setting the Working directory
+
+Your current working directory is typically your *HOME* directory. When we do work on a project we typically want to keep everything in on place i.e. input files, output files, scripts etc. It is also good to set our working directory there. 
+
+We will do this in our downloaded course material, so everyone is in the same place. 
+
+**Session -> Set Working Directory -> Choose Directory**
+
+or in the console.
+
+```{r setwd_introtoR,eval=F} 
+setwd("/PathToMyDownload/Intro_To_R_1Day-master/r_course")
+# e.g. setwd("/Users/mattpaul/Downloads/Intro_To_R_1Day/r_course")
+```
+
+---
+## Paths
+
+When you give a path to python it can either be relative or absolute. 
+
+![location](imgs/youarehere2.png)
+
+
+---
+## Paths
+
+To use our map analogy:
+
+- Relative path are like directions i.e. take a left, go straight then take a right etc. The context of where you start is essential.
+
+- Absolute paths are like an address. They give the final location in absence of any other external information. 
+
+Both have their benefits. 
+
+---
+
+## Paths in use
+
+The command we used before was using an absolute path. Typically they start with "/" to get to the top level of your computers file structure.
+
+```{r, eval=F}
+
+setwd("/Users/mattpaul/Downloads/Intro_To_Python-master/r_course/")
+
+```
+
+Given that we started at: */Users/mattpaul*, we could have also used the path below. This uses the knowledge of our start position to specify where we are going. 
+
+```{r, eval=F}
+
+setwd("Downloads/Intro_To_Python-master/r_course/")
+
+```
+
+---
 ## Data from external sources
 
-Most of the time, you will not be generating data in R but will be importing data from external files.
-
-A standard format for this data is a table:
+Now we have set our location we can start thinking about reading in data. A standard format for data is a table:
 
 ```{r,echo=F}
 minRep <- rbind(cbind(matrix(rnorm(12,4),ncol=3,byrow = T),matrix(c(rnorm(9,4),rnorm(3,8)),ncol=3,byrow = T)),
@@ -1642,14 +1761,14 @@ kable(minRepdf[,1:4], format='html')
 ## Data from text file with read.table()
 
 
-Tables from text files can be read with **read.table()** function
+Tables from text files can be read with **read.table()** function. We are providing a relative path to our file as the first argument.
 
 ```{r,echo=T}
 Table <- read.table("data/readThisTable.csv",sep=",",header=T)
 Table[1:4,1:3]
 ```
 
-Here we have provided two arguments. 
+Here we have provided two additional arguments. 
 - **sep** argument specifies how columns are separated in our text file. ("," for .csv, "\t" for .tsv)
 - **header** argument specifies whether columns have headers.
 
@@ -1851,9 +1970,60 @@ We can export a list of data.frames to Excel's xlsx format using the **export()*
 
 ```{r,echo=T,eval=TRUE}
 names(Table) <- c("expr","meta")
-export(Table,file = "data/writeThisMultipleXLSX.xlsx")
+export(Table, file = "data/writeThisMultipleXLSX.xlsx")
 
 ```
+
+
+---
+## Save and read data
+
+If you have an R object that is not rectangular, i.e. a list or a specialist R object, you can still save it. 
+
+Lets remake our list.
+
+```{r}
+firstElement <- c(1,2,3,4)
+secondElement <- matrix(1:10,nrow=2,ncol=5)
+thirdElement <- data.frame(colOne=c(1,2,4,5),colTwo=c("One","Two","Three","Four"))
+
+myList <- list(firstElement,secondElement,thirdElement)
+myList
+```
+
+---
+## Save and read data
+
+We can use the *saveRDS()* and *readRDS()* functions to save and read in our R object. They are save as a *.rds object. 
+
+```{r}
+saveRDS(myList, "my_list.rds")
+
+```
+
+```{r}
+my_newlist <- readRDS("my_list.rds")
+my_newlist
+```
+
+---
+## Save and read data
+
+There is also a *save()* function. This can be used to save multiple data objects into a single *RData* file. We have to ensure that we name the argument for file output (*file=*).
+
+```{r}
+save(Table, myList, file = "my_list.RData")
+
+```
+
+We simply use *load()* to read it back in. We cannot assign this to a new variable as there are multiple objects. Instead load remembers the objects original name i.e. Table or myList.
+
+```{r}
+load("my_list.RData")
+
+```
+
+
 
 
 ---

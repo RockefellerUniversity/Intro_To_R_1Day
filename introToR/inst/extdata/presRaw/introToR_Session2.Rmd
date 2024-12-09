@@ -987,6 +987,57 @@ install.packages("Hmisc")
 ```
 
 ---
+## Installing other libraries
+
+By default when we run *install.packages()* we are installing from [CRAN](https://cran.r-project.org/). This is the central network of servers that are the repository for R and it's packages.
+
+We can also install from other sources. For Bioinformatics we have **[Bioconductor](http://bioconductor.org/)**. There is a huge collection of packages that are interoperable and specific to our interest i.e.
+
+Bioconductor packages undergo peer review, undergo rigorous testing and are required to have vignettes unlike CRAN packages so we tyically hold these packages in a higher regard. 
+
+---
+## BiocManager::install()
+
+Bioconductor uses a different install function which is contained in the BiocManager package. We first have to install this from CRAN. 
+
+```{r, eval=F}
+install.packages("BiocManager")
+```
+
+Once installed, BiocManager will install Bioconductor packages or CRAN packages. 
+
+```{r, eval=F}
+# Bioconductor package
+BiocManager::install("Rsamtools")
+# CRAN package
+BiocManager::install("ggplot2")
+```
+
+
+---
+## Github packages
+
+Another resource for packages is GitHub. There are a wide variety of packages. Some very polished. Some less so. There are not the same systems to validate the package works as in Bioconductor and CRAN, so always make sure that it is a trusted and reputable author. 
+
+Here we will demonstrate the installation of the [SeuratData package](https://github.com/satijalab/seurat-data) containing single cell data from the Satija lab.
+
+Again we must install a new installation package called *devtools* from CRAN. We can then use the *install_github()* function along with the name of the GitHub repository to install the package. 
+
+```{r, eval=F}
+install.packages("devtools")
+devtools::install_github('satijalab/seurat-data')
+```
+
+---
+## Which install?
+
+As we have alluded to there is a hierarchy of trust when it comes to installing software. As a default we typically use BiocManager to install our software, but sometimes we may have to deviate. 
+
+Every R package (even on Bioconductor) will have a GitHub page. If there is a new update it may not appear in the final Bioconductor version for months, so sometimes you may want to use the GitHub version.
+
+A quick note, is that all these functions also have ways of managing which versions of packages are installed. 
+
+---
 ```{r, results='asis',include=TRUE,echo=FALSE}
 if(params$isSlides == "yes"){
   cat("class: inverse, center, middle
