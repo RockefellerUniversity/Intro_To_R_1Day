@@ -1805,7 +1805,7 @@ Other very useful functions for read table include:
 The read.table function can also read data from http.
 
 ```{r,echo=T}
-URL <- "http://rockefelleruniversity.github.io/readThisTable.csv"
+URL <- "http://rockefelleruniversity.github.io/Archived/readThisTable.csv"
 Table <- read.table(URL,sep=",",header=T)
 Table[1:2,1:3]
 ```
