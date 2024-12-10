@@ -110,11 +110,11 @@ Table <- read.table("data/readThisTable.csv",sep=",",header=T,row.names=1)
 Table[1:3,]
 
 ## ----echo=T,eval=F------------------------------------------------------------
-## write.table(Table,file="data/writeThisTable.csv", sep=",", row.names =F,col.names=T)
+# write.table(Table,file="data/writeThisTable.csv", sep=",", row.names =F,col.names=T)
 
 
 ## ----echo=T,eval=F------------------------------------------------------------
-## ?merge
+# ?merge
 
 
 ## ----results='asis',include=TRUE,echo=FALSE-----------------------------------
@@ -249,17 +249,17 @@ for(i in 1:length(geneName)){
 
 
 ## ----echo=T,eval=F------------------------------------------------------------
-## x <- 1:13
-## 
-## for(i in 1:13){
-##   if(i > 10){
-##     message("Number ",i," is greater than 10")
-##   }else if(i == 10){
-##     message("Number ",i," is  10")
-##   }else{
-##     message("Number ",i," is less than 10")
-##   }
-## }
+# x <- 1:13
+# 
+# for(i in 1:13){
+#   if(i > 10){
+#     message("Number ",i," is greater than 10")
+#   }else if(i == 10){
+#     message("Number ",i," is  10")
+#   }else{
+#     message("Number ",i," is less than 10")
+#   }
+# }
 
 
 ## ----message=T,echo=F---------------------------------------------------------
@@ -277,18 +277,18 @@ for(i in 1:13){
 
 
 ## ----message=T,eval=F---------------------------------------------------------
-## x <- 1:13
-## 
-## for(i in 1:13){
-##   if(i < 10){
-##     message("Number ",i," is less than 10")
-##   }else if(i == 10){
-##     message("Number ",i," is  10")
-##     break
-##   }else{
-##     message("Number ",i," is greater than  10")
-##   }
-## }
+# x <- 1:13
+# 
+# for(i in 1:13){
+#   if(i < 10){
+#     message("Number ",i," is less than 10")
+#   }else if(i == 10){
+#     message("Number ",i," is  10")
+#     break
+#   }else{
+#     message("Number ",i," is greater than  10")
+#   }
+# }
 
 
 ## ----message=T,eval=T,echo=F--------------------------------------------------
@@ -384,15 +384,15 @@ if(params$isSlides == "yes"){
 
 
 ## ----makingfunctions,eval=FALSE-----------------------------------------------
-## myFirstFunction  <- function(MYARGUMENT){
-##   ...................
-##   ..CODE_TO_EXECUTE..
-##   ...................
-##   return(MYRESULT)
-## }
-## 
-## myFirstFunction(MYARGUMENT=MY_USER_SUPPLIED_ARGUMENT)
-## 
+# myFirstFunction  <- function(MYARGUMENT){
+#   ...................
+#   ..CODE_TO_EXECUTE..
+#   ...................
+#   return(MYRESULT)
+# }
+# 
+# myFirstFunction(MYARGUMENT=MY_USER_SUPPLIED_ARGUMENT)
+# 
 
 
 ## ----makingfunctionsb---------------------------------------------------------
@@ -407,6 +407,7 @@ myResult
 
 
 ## ----makingfunctionsc,error=TRUE----------------------------------------------
+try({
 myFirstFunction  <- function(num1,num2){
   sumNum <- num1+num2
   multipleNum <- num1*num2
@@ -415,6 +416,7 @@ myFirstFunction  <- function(num1,num2){
 
 myResult <- myFirstFunction(num1=2,num2=3)
 
+})
 
 
 ## ----makingfunctionsd,error=FALSE---------------------------------------------
@@ -475,6 +477,7 @@ myResult
 
 
 ## ----makingfunctionsh,error=TRUE----------------------------------------------
+try({
 myFirstFunction  <- function(num1,num2){
   sumNum <- num1+num2
   return(sumNum)
@@ -482,6 +485,7 @@ myFirstFunction  <- function(num1,num2){
 myResult <- myFirstFunction(num1=2,num2=3)
 myResult
 sumNum
+})
 
 
 ## ----makingfunctionsi,error=FALSE---------------------------------------------
@@ -542,8 +546,8 @@ my_zscore(my_number=A[1], my_vector=A)
 
 
 ## ----makingfunctionsO,error=FALSE,eval=FALSE----------------------------------
-## debug(myFirstFunction)
-## undebug(myFirstFunction)
+# debug(myFirstFunction)
+# undebug(myFirstFunction)
 
 
 ## ----message=F----------------------------------------------------------------
@@ -573,15 +577,31 @@ if(params$isSlides == "yes"){
 
 
 ## ----eval=F-------------------------------------------------------------------
-## library(ggplot2)
+# library(ggplot2)
 
 
 ## ----eval=F-------------------------------------------------------------------
-## library()
+# library()
 
 
 ## ----eval=F-------------------------------------------------------------------
-## install.packages("Hmisc")
+# install.packages("Hmisc")
+
+
+## ----eval=F-------------------------------------------------------------------
+# install.packages("BiocManager")
+
+
+## ----eval=F-------------------------------------------------------------------
+# # Bioconductor package
+# BiocManager::install("Rsamtools")
+# # CRAN package
+# BiocManager::install("ggplot2")
+
+
+## ----eval=F-------------------------------------------------------------------
+# install.packages("devtools")
+# devtools::install_github('satijalab/seurat-data')
 
 
 ## ----results='asis',include=TRUE,echo=FALSE-----------------------------------
@@ -611,11 +631,11 @@ dayOfWeek()
 
 
 ## ----eval=F-------------------------------------------------------------------
-## args <- commandArgs(TRUE)
-## myFirstArgument <- args[1]
-## myFirstArgument
+# args <- commandArgs(TRUE)
+# myFirstArgument <- args[1]
+# myFirstArgument
 
 
 ## ----eval=F-------------------------------------------------------------------
-## as.numeric(myFirstArgument)
+# as.numeric(myFirstArgument)
 

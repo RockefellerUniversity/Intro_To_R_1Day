@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Introduction to R - Session 1</title>
+    <title>Introduction to R - Session 2</title>
     <meta charset="utf-8" />
     <meta name="author" content="http://rockefelleruniversity.github.io/Intro_To_R_1Day/" />
     <meta name="author" content="brc@rockefeller.edu" />
-    <script src="introToR_Session2_files/header-attrs-2.28/header-attrs.js"></script>
+    <script src="introToR_Session2_files/header-attrs-2.29/header-attrs.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
   <body>
@@ -13,7 +13,7 @@
 class: center, middle, inverse, title-slide
 
 .title[
-# Introduction to R - Session 1
+# Introduction to R - Session 2
 ]
 .subtitle[
 ## Bioinformatics Resource Center - Rockefeller University
@@ -1259,7 +1259,7 @@ sumNum
 ```
 
 ```
-## Error in eval(expr, envir, enclos): object 'sumNum' not found
+## Error: object 'sumNum' not found
 ```
 
 ---
@@ -1388,11 +1388,11 @@ my_zscore(my_number=A[1], my_vector=A)
 ```
 
 ```
-## Mean is -0.291886870969441
+## Mean is -0.0400868779508497
 ```
 
 ```
-## [1] 0.5069468
+## [1] -0.2545761
 ```
 
 ---
@@ -1417,10 +1417,10 @@ sapply(A, my_zscore, my_vector=A)
 ```
 
 ```
-##  [1]  0.5069468  1.1721642 -0.2136127 -1.8213223 -1.7784706  1.0575052
-##  [7] -0.3538844 -1.1216666  0.6399390  0.4956691  0.1269911 -0.8052040
-## [13]  1.0932200  0.6988936 -0.3326891  0.2913395  1.7879013 -0.1856724
-## [19]  0.1194098 -1.3774573
+##  [1] -0.25457607  0.07264897  0.34919842 -0.12866420  1.51737305  1.42829117
+##  [7]  0.01534431 -2.52904525 -0.53358008 -1.09397250 -0.27162433  1.13733487
+## [13]  0.03277172 -0.97087998  0.99598270  0.58286337  0.28031793 -1.37029710
+## [19] -0.22051338  0.96102637
 ```
 
 
@@ -1464,6 +1464,60 @@ Or by using the install.packages() command.
 ``` r
 install.packages("Hmisc")
 ```
+
+---
+## Installing other libraries
+
+By default when we run *install.packages()* we are installing from [CRAN](https://cran.r-project.org/). This is the central network of servers that are the repository for R and it's packages.
+
+We can also install from other sources. For Bioinformatics we have **[Bioconductor](http://bioconductor.org/)**. There is a huge collection of packages that are interoperable and specific to our interest i.e.
+
+Bioconductor packages undergo peer review, undergo rigorous testing and are required to have vignettes unlike CRAN packages so we tyically hold these packages in a higher regard. 
+
+---
+## BiocManager::install()
+
+Bioconductor uses a different install function which is contained in the BiocManager package. We first have to install this from CRAN. 
+
+
+``` r
+install.packages("BiocManager")
+```
+
+Once installed, BiocManager will install Bioconductor packages or CRAN packages. 
+
+
+``` r
+# Bioconductor package
+BiocManager::install("Rsamtools")
+# CRAN package
+BiocManager::install("ggplot2")
+```
+
+
+---
+## Github packages
+
+Another resource for packages is GitHub. There are a wide variety of packages. Some very polished. Some less so. There are not the same systems to validate the package works as in Bioconductor and CRAN, so always make sure that it is a trusted and reputable author. 
+
+Here we will demonstrate the installation of the [SeuratData package](https://github.com/satijalab/seurat-data) containing single cell data from the Satija lab.
+
+Again we must install a new installation package called *devtools* from CRAN. We can then use the *install_github()* function along with the name of the GitHub repository to install the package. 
+
+
+``` r
+install.packages("devtools")
+devtools::install_github('satijalab/seurat-data')
+```
+
+---
+## Which install?
+
+As we have alluded to there is a hierarchy of trust when it comes to installing software. As a default we typically use BiocManager to install our software, but sometimes we may have to deviate. 
+
+Every R package (even on Bioconductor) will have a GitHub page. If there is a new update it may not appear in the final Bioconductor version for months, so sometimes you may want to use the GitHub version.
+
+A quick note, is that all these functions also have ways of managing which versions of packages are installed. 
 
 ---
 class: inverse, center, middle
@@ -1515,7 +1569,7 @@ dayOfWeek()
 ```
 
 ```
-## [1] "Wed"
+## [1] "Tue"
 ```
 
 ---

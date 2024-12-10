@@ -1643,6 +1643,136 @@ as.list(namedMatrix)
 ```
 
 ---
+## Objects
+
+All these common data classes we have covered so far are examples of R objects.
+
+As shown we can assess the type of object using the **class()** function.
+
+```{r}
+class(dfExample)
+```
+
+---
+## Working with objects
+
+
+
+We have also seen that functions act differently with the different data types.
+
+```{r}
+summary(namedMatrix)
+summary(dfExample)
+```
+
+---
+## Working with objects (2)
+
+In fact simple interactions, such as indexing, with the different data types can be very different.
+
+```{r}
+namedMatrix[,1]
+dfExample$Type
+```
+
+---
+## Working with objects (3)
+
+To learn about how to work with the different data types we can use the help functions built into R
+
+```{r}
+?data.frame
+```
+
+---
+## More complex objects
+
+As we progress through using R in our day to day analysis we will want to take advantage of more complex objects available in either Base R or in one of the many extension packages.
+
+By using pre-established objects we gain access to the routines and functions built for that object's special use cases.
+
+An example of a more complex object type is that which helps us manage Dates or Times.
+
+```{r}
+Time <- Sys.time()
+Time
+```
+
+---
+## More complex objects
+
+As you can see this object shows the local date and time in a human readable way.
+
+The object however is not one of our standard data types but is a new data type called **POSIXct**
+
+```{r}
+class(Time)
+```
+
+---
+## More complex objects
+
+Lets use the the help function to learn more about this object.
+
+```{r}
+?POSIXct
+```
+
+---
+## More complex objects
+
+We can see from the help that we can use logical operators with our POSIXct object.
+
+```{r}
+TimeNow <- Sys.time()
+TimeNow > Time
+```
+
+---
+## More complex objects
+
+We can also use the arithmetic operations with our time objects.
+
+```{r}
+Time
+Time - 120
+TimeNow -Time
+```
+
+---
+## More complex objects
+
+Most objects will have a default display defined by a print method
+
+We can control the printing method by using the **format()** method for date time POSIXct objects.
+
+We can also change the timezone by specifying a **tz** parameter
+
+```{r}
+format(myDate,format="%H O'Clock %p %A on %B %dth")
+format(myDate,format="%H O'Clock %p %A on %B %dth",tz = "GMT")
+```
+
+---
+## Complex to base objects
+
+Most of the time we can convert more complex object back to our basic object types we are more familar with.
+
+```{r}
+as.character(Time)
+as.numeric(TimeNow-Time)
+```
+
+---
+## Complex objects summary
+
+In future courses we will come across object which help us handle data such as from BAM files, FastQ files and single cell experiments. 
+
+How to interact with these objects will be defined in their help pages.
+
+By using these specialised objects we will be able to focus on understanding and analyzing the data contained within the object instead of how to format and interact with such complex data.
+
+---
 ```{r, results='asis',include=TRUE,echo=FALSE}
 if(params$isSlides == "yes"){
   cat("class: inverse, center, middle
