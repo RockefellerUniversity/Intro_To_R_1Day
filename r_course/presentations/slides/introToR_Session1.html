@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="author" content="http://rockefelleruniversity.github.io/Intro_To_R_1Day/" />
     <meta name="author" content="brc@rockefeller.edu" />
-    <script src="introToR_Session1_files/header-attrs-2.28/header-attrs.js"></script>
+    <script src="introToR_Session1_files/header-attrs-2.29/header-attrs.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
   <body>
@@ -76,22 +76,7 @@ Practicals as HTML pages.
 Practicals with answers as HTML pages and R code solutions. 
 
 
----
-## Set the Working directory
 
-Before running any of the code in the practicals or slides we need to set the working directory to the folder we unarchived. 
-
-You may navigate to the unarchived Intro_To_R_1Day folder in the Rstudio menu. We specifically want to set the working directory to the r_course folder.
-
-**Session -&gt; Set Working Directory -&gt; Choose Directory**
-
-or in the console.
-
-
-``` r
-setwd("/PathToMyDownload/Intro_To_R_1Day-master/r_course")
-# e.g. setwd("~/Downloads/Intro_To_R_1Day/r_course")
-```
 
 
 ---
@@ -136,7 +121,7 @@ Inheriting much from **S** (Bell labs).
 In particular, [Robert Gentleman](https://en.wikipedia.org/wiki/Robert_Gentleman_%28statistician%29) developed the **[Bioconductor](http://bioconductor.org/)** project where 100's of packages are directly related to computational biology and analysis of associated high-throughput experiments.
   ] 
 .pull-right[
-![R use over time](imgs/RCitations.jpeg)
+![R use over time](imgs/bioconductor_packages.png)
 
   ]
 
@@ -876,9 +861,69 @@ geneList[logical_index]
 
 
 ---
+## The *grepl()* function
+
+Another more flexible way of making a logical vector for indexing is by using the grepl function. This uses *regular expressions* so you can do more advanced pattern matching. 
+
+We simply provide the pattern we are looking for and the vector we are looking in. 
+
+
+``` r
+mixedList &lt;- c("protein1","Gene1","Protein2","Gene3","Gene4","Protein4","Gene5","Gene1","Protein5")
+logical_index &lt;- grepl("Prot", mixedList)
+logical_index
+```
+
+```
+## [1] FALSE FALSE  TRUE FALSE FALSE  TRUE FALSE FALSE  TRUE
+```
+
+``` r
+mixedList[logical_index]
+```
+
+```
+## [1] "Protein2" "Protein4" "Protein5"
+```
+
+---
+## The *grepl()* function
+
+We can also control case sensitivity with the *ignore.case=T*.
+
+
+``` r
+logical_index &lt;- grepl("Prot", mixedList, ignore.case=T)
+logical_index
+```
+
+```
+## [1]  TRUE FALSE  TRUE FALSE FALSE  TRUE FALSE FALSE  TRUE
+```
+
+``` r
+mixedList[logical_index]
+```
+
+```
+## [1] "protein1" "Protein2" "Protein4" "Protein5"
+```
+
+There is also a related *grep()* function which returns the numeric index in which a pattern was matched. 
+
+
+``` r
+grep("Prot", mixedList)
+```
+
+```
+## [1] 3 6 9
+```
+
+---
 ## Logical vectors from operators
 
-Vectors may be evaluated to produce logical vectors. This can be very useful when using a logical to index.
+Vectors may also be directly evaluated to produce logical vectors. This can be very useful when using a logical to index.
 
 Common examples are:
 
@@ -1740,6 +1785,32 @@ factorExample
 ```
 
 ---
+## R and messages
+
+When R gives you an unexpected response DON'T PANIC.
+
+You will run into errors coding. 
+
+Most of the time the messages are very clear. And if they are not a quick google will often clear it up:
+
+```
+Warning in `[&lt;-.factor`(`*tmp*`, 1, value = "huge") :
+  invalid factor level, NA generated
+```
+
+---
+## Messages, Warnings, Errors
+
+There are several kinds of messages.
+
+* Message - Just a text message - This can denote progress or options used.
+
+* Warning - Just a text message starting with **"Warning"** - Often denotes if you have done something atypical. You should review the message unless you did it on purpose. 
+
+* Error - The code will stop and a text message starting with **"Error"** - Something broke the code. Review the message.
+
+
+---
 class: inverse, center, middle
 
 # Data Frames
@@ -2544,11 +2615,89 @@ class: inverse, center, middle
 
 ---
 
+---
+## Working Directory
+
+Most of the time, you will not be generating data in R but will be importing data from external files. Before we can read in data, you need to know from which vantage point your R console is looking. This view point is the Working Directory. 
+
+![location](imgs/youarehere.png)
+
+---
+## Working Directory
+
+You can check your working directory using the *getwd()* function.
+
+
+``` r
+getwd()
+```
+
+```
+## [1] "/__w/Intro_To_R_1Day/Intro_To_R_1Day/extdata"
+```
+
+```
+[1] "/Users/mattpaul"
+```
+
+---
+## Setting the Working directory
+
+Your current working directory is typically your *HOME* directory. When we do work on a project we typically want to keep everything in on place i.e. input files, output files, scripts etc. It is also good to set our working directory there. 
+
+We will do this in our downloaded course material, so everyone is in the same place. 
+
+**Session -&gt; Set Working Directory -&gt; Choose Directory**
+
+or in the console.
+
+
+``` r
+setwd("/PathToMyDownload/Intro_To_R_1Day-master/r_course")
+# e.g. setwd("/Users/mattpaul/Downloads/Intro_To_R_1Day/r_course")
+```
+
+---
+## Paths
+
+When you give a path to python it can either be relative or absolute. 
+
+![location](imgs/youarehere2.png)
+
+
+---
+## Paths
+
+To use our map analogy:
+
+- Relative path are like directions i.e. take a left, go straight then take a right etc. The context of where you start is essential.
+
+- Absolute paths are like an address. They give the final location in absence of any other external information. 
+
+Both have their benefits. 
+
+---
+
+## Paths in use
+
+The command we used before was using an absolute path. Typically they start with "/" to get to the top level of your computers file structure.
+
+
+``` r
+setwd("/Users/mattpaul/Downloads/Intro_To_Python-master/r_course/")
+```
+
+Given that we started at: */Users/mattpaul*, we could have also used the path below. This uses the knowledge of our start position to specify where we are going. 
+
+
+``` r
+setwd("Downloads/Intro_To_Python-master/r_course/")
+```
+
+---
 ## Data from external sources
 
-Most of the time, you will not be generating data in R but will be importing data from external files.
-
-A standard format for this data is a table:
+Now we have set our location we can start thinking about reading in data. A standard format for data is a table:
 
 &lt;table&gt;
  &lt;thead&gt;
@@ -2562,51 +2711,51 @@ A standard format for this data is a table:
 &lt;tbody&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_a &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.375226 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.414816 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.521253 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.113062 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.979498 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.271967 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_b &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.686318 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 5.633211 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 5.124963 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.851311 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.716320 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.307982 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_c &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 5.477069 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.789905 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.664868 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.389243 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.098752 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.407627 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_d &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.427628 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 5.832673 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.941895 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.896660 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5.703101 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.495875 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_e &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.510304 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 8.468101 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.632162 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.545253 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8.903781 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.219459 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_f &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 11.987103 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 11.305126 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.408192 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.907688 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.016107 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.672721 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_g &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.158123 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.354079 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.291712 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.267063 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.860265 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.339305 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_h &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.508586 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 11.496215 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.552864 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.721443 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.118847 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.671504 &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -2615,7 +2764,7 @@ A standard format for this data is a table:
 ## Data from text file with read.table()
 
 
-Tables from text files can be read with **read.table()** function
+Tables from text files can be read with **read.table()** function. We are providing a relative path to our file as the first argument.
 
 
 ``` r
@@ -2631,7 +2780,7 @@ Table[1:4,1:3]
 ## 4    Gene_d    3.398242    4.415202
 ```
 
-Here we have provided two arguments. 
+Here we have provided two additional arguments. 
 - **sep** argument specifies how columns are separated in our text file. ("," for .csv, "\t" for .tsv)
 - **header** argument specifies whether columns have headers.
 
@@ -2679,15 +2828,15 @@ The read.table function can also read data from http.
 
 
 ``` r
-URL &lt;- "http://rockefelleruniversity.github.io/readThisTable.csv"
+URL &lt;- "https://raw.githubusercontent.com/RockefellerUniversity/Intro_To_R_1Day/refs/heads/master/readThisTable.csv"
 Table &lt;- read.table(URL,sep=",",header=T)
 Table[1:2,1:3]
 ```
 
 ```
 ##   Gene_Name Sample_1.hi Sample_2.hi
-## 1    Gene_a    4.111851    3.837018
-## 2    Gene_b    6.047822    5.683518
+## 1    Gene_a    4.570237    3.230467
+## 2    Gene_b    3.561733    3.632285
 ```
 And the clipboard (this is Windows version).
 
@@ -2754,19 +2903,19 @@ head(Table)
 
 ```
 ##   Gene_Name Sample_1.hi Sample_2.hi Sample_3.hi Sample_4.low Sample_5.low
-## 1    Gene_a    4.111851    3.837018    4.360628     3.752517     4.368069
-## 2    Gene_b    6.047822    5.683518    4.315889     3.381136     3.630273
-## 3    Gene_c    2.597068    3.316300    3.681509     4.886520     4.318289
-## 4    Gene_d    6.009197    5.927419    2.244701     6.574108     8.288831
-## 5    Gene_e   10.152509   10.218200   10.004835     2.251603     1.805168
-## 6    Gene_f   11.107868    9.592153   10.263975     3.567560     2.496475
+## 1    Gene_a    4.570237    3.230467    3.351827     3.930877     4.098247
+## 2    Gene_b    3.561733    3.632285    3.587523     4.185287     1.380976
+## 3    Gene_c    3.797274    2.874462    4.016916     4.175772     1.988263
+## 4    Gene_d    3.398242    4.415202    4.893561     8.432342     9.609151
+## 5    Gene_e   10.128787   10.224071    8.945813     2.936174     3.892924
+## 6    Gene_f    8.474397    8.612628    7.170830     3.299351     2.575870
 ##   Sample_1.low
-## 1     3.421009
-## 2     5.560802
-## 3     5.097783
-## 4     6.857291
-## 5     2.396295
-## 6     3.587755
+## 1    4.4187260
+## 2    5.9369901
+## 3    3.7809172
+## 4    9.0198647
+## 5    0.9192079
+## 6    2.5427773
 ```
 ---
 # Reviewing your data
@@ -2777,19 +2926,19 @@ tail(Table)
 
 ```
 ##   Gene_Name Sample_1.hi Sample_2.hi Sample_3.hi Sample_4.low Sample_5.low
-## 3    Gene_c    2.597068    3.316300    3.681509     4.886520     4.318289
-## 4    Gene_d    6.009197    5.927419    2.244701     6.574108     8.288831
-## 5    Gene_e   10.152509   10.218200   10.004835     2.251603     1.805168
-## 6    Gene_f   11.107868    9.592153   10.263975     3.567560     2.496475
-## 7    Gene_g    8.705787    8.949422    9.226990    10.051516     7.841664
-## 8    Gene_h    9.239039    9.839734   10.027812    11.084444     9.316200
+## 3    Gene_c    3.797274    2.874462    4.016916     4.175772     1.988263
+## 4    Gene_d    3.398242    4.415202    4.893561     8.432342     9.609151
+## 5    Gene_e   10.128787   10.224071    8.945813     2.936174     3.892924
+## 6    Gene_f    8.474397    8.612628    7.170830     3.299351     2.575870
+## 7    Gene_g   10.010020   10.312354   11.603290     9.930704     7.748795
+## 8    Gene_h    9.399992   10.332844    9.378217    10.065200    10.788619
 ##   Sample_1.low
-## 3     5.097783
-## 4     6.857291
-## 5     2.396295
-## 6     3.587755
-## 7     9.649869
-## 8     8.742943
+## 3    3.7809172
+## 4    9.0198647
+## 5    0.9192079
+## 6    2.5427773
+## 7    9.7988238
+## 8   10.2453258
 ```
 
 ``` r
@@ -2798,13 +2947,13 @@ head(Table,3)
 
 ```
 ##   Gene_Name Sample_1.hi Sample_2.hi Sample_3.hi Sample_4.low Sample_5.low
-## 1    Gene_a    4.111851    3.837018    4.360628     3.752517     4.368069
-## 2    Gene_b    6.047822    5.683518    4.315889     3.381136     3.630273
-## 3    Gene_c    2.597068    3.316300    3.681509     4.886520     4.318289
+## 1    Gene_a    4.570237    3.230467    3.351827     3.930877     4.098247
+## 2    Gene_b    3.561733    3.632285    3.587523     4.185287     1.380976
+## 3    Gene_c    3.797274    2.874462    4.016916     4.175772     1.988263
 ##   Sample_1.low
-## 1     3.421009
-## 2     5.560802
-## 3     5.097783
+## 1     4.418726
+## 2     5.936990
+## 3     3.780917
 ```
 
 ---
@@ -2961,8 +3110,95 @@ We can export a list of data.frames to Excel's xlsx format using the **export()*
 
 ``` r
 names(Table) &lt;- c("expr","meta")
-export(Table,file = "data/writeThisMultipleXLSX.xlsx")
+export(Table, file = "data/writeThisMultipleXLSX.xlsx")
 ```
+
+
+---
+## Save and read data
+
+If you have an R object that is not rectangular, i.e. a list or a specialist R object, you can still save it. 
+
+Lets remake our list.
+
+
+``` r
+firstElement &lt;- c(1,2,3,4)
+secondElement &lt;- matrix(1:10,nrow=2,ncol=5)
+thirdElement &lt;- data.frame(colOne=c(1,2,4,5),colTwo=c("One","Two","Three","Four"))
+
+myList &lt;- list(firstElement,secondElement,thirdElement)
+myList
+```
+
+```
+## [[1]]
+## [1] 1 2 3 4
+## 
+## [[2]]
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,]    1    3    5    7    9
+## [2,]    2    4    6    8   10
+## 
+## [[3]]
+##   colOne colTwo
+## 1      1    One
+## 2      2    Two
+## 3      4  Three
+## 4      5   Four
+```
+
+---
+## Save and read data
+
+We can use the *saveRDS()* and *readRDS()* functions to save and read in our R object. They are save as a *.rds object. 
+
+
+``` r
+saveRDS(myList, "my_list.rds")
+```
+
+
+``` r
+my_newlist &lt;- readRDS("my_list.rds")
+my_newlist
+```
+
+```
+## [[1]]
+## [1] 1 2 3 4
+## 
+## [[2]]
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,]    1    3    5    7    9
+## [2,]    2    4    6    8   10
+## 
+## [[3]]
+##   colOne colTwo
+## 1      1    One
+## 2      2    Two
+## 3      4  Three
+## 4      5   Four
+```
+
+---
+## Save and read data
+
+There is also a *save()* function. This can be used to save multiple data objects into a single *RData* file. We have to ensure that we name the argument for file output (*file=*).
+
+
+``` r
+save(Table, myList, file = "my_list.RData")
+```
+
+We simply use *load()* to read it back in. We cannot assign this to a new variable as there are multiple objects. Instead load remembers the objects original name i.e. Table or myList.
+
+
+``` r
+load("my_list.RData")
+```
+
+
 
 
 ---

@@ -48,11 +48,6 @@ if(params$isSlides == "yes"){
 
 
 
-## ----setwd_introtoR,eval=F----------------------------------------------------
-## setwd("/PathToMyDownload/Intro_To_R_1Day-master/r_course")
-## # e.g. setwd("~/Downloads/Intro_To_R_1Day/r_course")
-
-
 ## ----results='asis',include=TRUE,echo=FALSE-----------------------------------
 if(params$isSlides == "yes"){
   cat("class: inverse, center, middle
@@ -121,14 +116,14 @@ min(6,4,5)
 
 
 ## ----usingFunctionsSetNames_introtoR,eval=F-----------------------------------
-## dir()
-## dir(full.names=T)
+# dir()
+# dir(full.names=T)
 
 
 ## ----usingFunctionsDefaultOrder_introtoR,eval=F-------------------------------
-## dir(full.names=T)
-## # Is equivalent to...
-## dir(".",NULL,FALSE,T)
+# dir(full.names=T)
+# # Is equivalent to...
+# dir(".",NULL,FALSE,T)
 
 
 ## ----results='asis',include=TRUE,echo=FALSE-----------------------------------
@@ -326,6 +321,25 @@ logical_index <- geneList %in% secondGeneList
 logical_index
 
 geneList[logical_index]
+
+
+## -----------------------------------------------------------------------------
+mixedList <- c("protein1","Gene1","Protein2","Gene3","Gene4","Protein4","Gene5","Gene1","Protein5")
+logical_index <- grepl("Prot", mixedList)
+logical_index
+
+mixedList[logical_index]
+
+
+## -----------------------------------------------------------------------------
+logical_index <- grepl("Prot", mixedList, ignore.case=T)
+logical_index
+mixedList[logical_index]
+
+
+## -----------------------------------------------------------------------------
+grep("Prot", mixedList)
+
 
 
 ## ----vectorLogicalFromOperators_introtoR--------------------------------------
@@ -609,7 +623,7 @@ dfExample$Surv
 
 
 ## ----dataframesIndexbyName_introtoR, eval=F-----------------------------------
-## dfExample[,"Surv"]
+# dfExample[,"Surv"]
 
 
 ## ----dataframesNewbyDollar_introtoR-------------------------------------------
@@ -853,6 +867,27 @@ if(params$isSlides == "yes"){
 
 
 
+## -----------------------------------------------------------------------------
+getwd()
+
+
+## ----setwd_introtoR,eval=F----------------------------------------------------
+# setwd("/PathToMyDownload/Intro_To_R_1Day-master/r_course")
+# # e.g. setwd("/Users/mattpaul/Downloads/Intro_To_R_1Day/r_course")
+
+
+## ----eval=F-------------------------------------------------------------------
+# 
+# setwd("/Users/mattpaul/Downloads/Intro_To_Python-master/r_course/")
+# 
+
+
+## ----eval=F-------------------------------------------------------------------
+# 
+# setwd("Downloads/Intro_To_Python-master/r_course/")
+# 
+
+
 ## ----echo=F-------------------------------------------------------------------
 minRep <- rbind(cbind(matrix(rnorm(12,4),ncol=3,byrow = T),matrix(c(rnorm(9,4),rnorm(3,8)),ncol=3,byrow = T)),
 cbind(matrix(rnorm(12,10),ncol=3,byrow = T),matrix(c(rnorm(6,3),rnorm(6,10)),ncol=3,byrow = T)))
@@ -880,13 +915,14 @@ Table <- read.table("data/readThisTable.csv", sep=",", header=T, stringsAsFactor
 
 
 ## ----echo=T-------------------------------------------------------------------
-URL <- "http://rockefelleruniversity.github.io/readThisTable.csv"
+URL <- "https://raw.githubusercontent.com/RockefellerUniversity/Intro_To_R_1Day/refs/heads/master/readThisTable.csv"
 Table <- read.table(URL,sep=",",header=T)
 Table[1:2,1:3]
 
 
+
 ## ----eval=F-------------------------------------------------------------------
-## Table <- read.table(file="clipboard",sep=",",header=T)
+# Table <- read.table(file="clipboard",sep=",",header=T)
 
 
 ## ----echo=T-------------------------------------------------------------------
@@ -913,7 +949,7 @@ head(Table,3)
 
 
 ## ----echo=T,eval=FALSE--------------------------------------------------------
-## install.packages("rio")
+# install.packages("rio")
 
 
 ## ----echo=T,eval=TRUE---------------------------------------------------------
@@ -952,6 +988,35 @@ export(ExpressionScores,file = "data/writeThisXLSX.xlsx")
 
 ## ----echo=T,eval=TRUE---------------------------------------------------------
 names(Table) <- c("expr","meta")
-export(Table,file = "data/writeThisMultipleXLSX.xlsx")
+export(Table, file = "data/writeThisMultipleXLSX.xlsx")
+
+
+
+## -----------------------------------------------------------------------------
+firstElement <- c(1,2,3,4)
+secondElement <- matrix(1:10,nrow=2,ncol=5)
+thirdElement <- data.frame(colOne=c(1,2,4,5),colTwo=c("One","Two","Three","Four"))
+
+myList <- list(firstElement,secondElement,thirdElement)
+myList
+
+
+## -----------------------------------------------------------------------------
+saveRDS(myList, "my_list.rds")
+
+
+
+## -----------------------------------------------------------------------------
+my_newlist <- readRDS("my_list.rds")
+my_newlist
+
+
+## -----------------------------------------------------------------------------
+save(Table, myList, file = "my_list.RData")
+
+
+
+## -----------------------------------------------------------------------------
+load("my_list.RData")
 
 

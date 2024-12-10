@@ -13,7 +13,7 @@
 <meta name="author" content="brc@rockefeller.edu" />
 
 
-<title>Introduction to R - Session 1</title>
+<title>Introduction to R - Session 2</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -1556,7 +1556,7 @@ border-radius: 0px;
 
 
 
-<h1 class="title toc-ignore">Introduction to R - Session 1</h1>
+<h1 class="title toc-ignore">Introduction to R - Session 2</h1>
 <h3 class="subtitle">Bioinformatics Resource Center - Rockefeller
 University</h3>
 <h4 class="author"><a href="http://rockefelleruniversity.github.io/Intro_To_R_1Day/" class="uri">http://rockefelleruniversity.github.io/Intro_To_R_1Day/</a></h4>
@@ -2314,7 +2314,7 @@ within the environment of the function.</p>
 <span id="cb138-6"><a href="#cb138-6" tabindex="-1"></a>myResult</span></code></pre></div>
 <pre><code>## [1] 5</code></pre>
 <div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="#cb140-1" tabindex="-1"></a>sumNum</span></code></pre></div>
-<pre><code>## Error in eval(expr, envir, enclos): object &#39;sumNum&#39; not found</code></pre>
+<pre><code>## Error: object &#39;sumNum&#39; not found</code></pre>
 </div>
 <div id="variable-scope-in-functions-1" class="section level2">
 <h2>Variable scope in functions</h2>
@@ -2390,8 +2390,8 @@ functions within them.</p>
 <span id="cb156-10"><a href="#cb156-10" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">20</span>)</span>
 <span id="cb156-11"><a href="#cb156-11" tabindex="-1"></a></span>
 <span id="cb156-12"><a href="#cb156-12" tabindex="-1"></a><span class="fu">my_zscore</span>(<span class="at">my_number=</span>A[<span class="dv">1</span>], <span class="at">my_vector=</span>A)</span></code></pre></div>
-<pre><code>## Mean is -0.186024460821081</code></pre>
-<pre><code>## [1] 0.8948993</code></pre>
+<pre><code>## Mean is -0.167333552344735</code></pre>
+<pre><code>## [1] -1.062964</code></pre>
 </div>
 <div id="debugging-functions" class="section level2">
 <h2>Debugging functions</h2>
@@ -2406,10 +2406,10 @@ function.</p>
 <h2>Custom functions and apply</h2>
 <p>These custom functions can also be utilized with apply.</p>
 <div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="#cb160-1" tabindex="-1"></a><span class="fu">sapply</span>(A, my_zscore, <span class="at">my_vector=</span>A)</span></code></pre></div>
-<pre><code>##  [1]  0.89489931 -0.02965885 -1.72706895 -0.18808151  0.84449689  2.15899574
-##  [7] -0.21524073 -0.07665160  1.70488730 -1.21029848  0.04219758  1.05041236
-## [13] -0.86045033 -0.39379250 -0.41399727  0.21903212  0.85581804 -0.85026968
-## [19] -1.09915530 -0.70607414</code></pre>
+<pre><code>##  [1] -1.062964274  1.341026938  0.331392934 -0.779933307 -1.118339791
+##  [6] -1.181095872 -0.009198807  1.265555393 -0.064538082  1.162612606
+## [11] -0.742176503 -1.535164799 -0.043706808  1.088388565  0.470851986
+## [16] -0.194513844  1.204883843 -1.594943374  1.138798772  0.323064424</code></pre>
 </div>
 </div>
 <div id="getting-additional-libraries" class="section level1">
@@ -2430,6 +2430,58 @@ the library() function with no arguments supplied.</p>
 <p><strong>-&gt; Tools -&gt; Install packages ..</strong></p>
 <p>Or by using the install.packages() command.</p>
 <div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="#cb164-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;Hmisc&quot;</span>)</span></code></pre></div>
+</div>
+<div id="installing-other-libraries" class="section level2">
+<h2>Installing other libraries</h2>
+<p>By default when we run <em>install.packages()</em> we are installing
+from <a href="https://cran.r-project.org/">CRAN</a>. This is the central
+network of servers that are the repository for R and it’s packages.</p>
+<p>We can also install from other sources. For Bioinformatics we have
+<strong><a href="http://bioconductor.org/">Bioconductor</a></strong>.
+There is a huge collection of packages that are interoperable and
+specific to our interest i.e.</p>
+<p>Bioconductor packages undergo peer review, undergo rigorous testing
+and are required to have vignettes unlike CRAN packages so we tyically
+hold these packages in a higher regard.</p>
+</div>
+<div id="biocmanagerinstall" class="section level2">
+<h2>BiocManager::install()</h2>
+<p>Bioconductor uses a different install function which is contained in
+the BiocManager package. We first have to install this from CRAN.</p>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="#cb165-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;BiocManager&quot;</span>)</span></code></pre></div>
+<p>Once installed, BiocManager will install Bioconductor packages or
+CRAN packages.</p>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="#cb166-1" tabindex="-1"></a><span class="co"># Bioconductor package</span></span>
+<span id="cb166-2"><a href="#cb166-2" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">&quot;Rsamtools&quot;</span>)</span>
+<span id="cb166-3"><a href="#cb166-3" tabindex="-1"></a><span class="co"># CRAN package</span></span>
+<span id="cb166-4"><a href="#cb166-4" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">&quot;ggplot2&quot;</span>)</span></code></pre></div>
+</div>
+<div id="github-packages" class="section level2">
+<h2>Github packages</h2>
+<p>Another resource for packages is GitHub. There are a wide variety of
+packages. Some very polished. Some less so. There are not the same
+systems to validate the package works as in Bioconductor and CRAN, so
+always make sure that it is a trusted and reputable author.</p>
+<p>Here we will demonstrate the installation of the <a href="https://github.com/satijalab/seurat-data">SeuratData package</a>
+containing single cell data from the Satija lab.</p>
+<p>Again we must install a new installation package called
+<em>devtools</em> from CRAN. We can then use the
+<em>install_github()</em> function along with the name of the GitHub
+repository to install the package.</p>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="#cb167-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)</span>
+<span id="cb167-2"><a href="#cb167-2" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&#39;satijalab/seurat-data&#39;</span>)</span></code></pre></div>
+</div>
+<div id="which-install" class="section level2">
+<h2>Which install?</h2>
+<p>As we have alluded to there is a hierarchy of trust when it comes to
+installing software. As a default we typically use BiocManager to
+install our software, but sometimes we may have to deviate.</p>
+<p>Every R package (even on Bioconductor) will have a GitHub page. If
+there is a new update it may not appear in the final Bioconductor
+version for months, so sometimes you may want to use the GitHub
+version.</p>
+<p>A quick note, is that all these functions also have ways of managing
+which versions of packages are installed.</p>
 </div>
 </div>
 <div id="scripts" class="section level1">
@@ -2461,9 +2513,9 @@ contains a simple R script to tell you what day it is.</p>
 dayOfWeek &lt;- function(){
   return(gsub(&quot; .*&quot;,&quot;&quot;,date()))  
 }</code></pre>
-<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="#cb166-1" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;scripts/dayOfWeek.r&quot;</span>)</span>
-<span id="cb166-2"><a href="#cb166-2" tabindex="-1"></a><span class="fu">dayOfWeek</span>()</span></code></pre></div>
-<pre><code>## [1] &quot;Wed&quot;</code></pre>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="#cb169-1" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;scripts/dayOfWeek.r&quot;</span>)</span>
+<span id="cb169-2"><a href="#cb169-2" tabindex="-1"></a><span class="fu">dayOfWeek</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;Tue&quot;</code></pre>
 </div>
 <div id="rscript" class="section level2">
 <h2>Rscript</h2>
@@ -2482,11 +2534,11 @@ appended.</p>
 <p>To provide arguments to an R script at the command line we must add
 <strong>commandArgs()</strong> function to parse command line
 arguments.</p>
-<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="#cb170-1" tabindex="-1"></a>args <span class="ot">&lt;-</span> <span class="fu">commandArgs</span>(<span class="cn">TRUE</span>)</span>
-<span id="cb170-2"><a href="#cb170-2" tabindex="-1"></a>myFirstArgument <span class="ot">&lt;-</span> args[<span class="dv">1</span>]</span>
-<span id="cb170-3"><a href="#cb170-3" tabindex="-1"></a>myFirstArgument</span></code></pre></div>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="#cb173-1" tabindex="-1"></a>args <span class="ot">&lt;-</span> <span class="fu">commandArgs</span>(<span class="cn">TRUE</span>)</span>
+<span id="cb173-2"><a href="#cb173-2" tabindex="-1"></a>myFirstArgument <span class="ot">&lt;-</span> args[<span class="dv">1</span>]</span>
+<span id="cb173-3"><a href="#cb173-3" tabindex="-1"></a>myFirstArgument</span></code></pre></div>
 <pre><code>&#39;10&#39;</code></pre>
-<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="#cb172-1" tabindex="-1"></a><span class="fu">as.numeric</span>(myFirstArgument)</span></code></pre></div>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="#cb175-1" tabindex="-1"></a><span class="fu">as.numeric</span>(myFirstArgument)</span></code></pre></div>
 <pre><code>10</code></pre>
 <p>Since vectors can only be one type, all command line arguments are
 strings and must be converted to numeric if needed with
