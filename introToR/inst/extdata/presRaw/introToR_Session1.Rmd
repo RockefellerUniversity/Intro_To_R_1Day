@@ -1940,6 +1940,7 @@ Table <- read.table(URL,sep=",",header=T)
 Table[1:2,1:3]
 
 ```
+
 And the clipboard (this is Windows version).
 
 ```{r,eval=F}
@@ -2125,7 +2126,7 @@ myList
 ---
 ## Save and read data
 
-We can use the *saveRDS()* and *readRDS()* functions to save and read in our R object. They are save as a *.rds object. 
+We can use the *saveRDS()* and *readRDS()* functions to save and read in our R object. They are saved as a *.rds object. 
 
 ```{r}
 saveRDS(myList, "my_list.rds")
