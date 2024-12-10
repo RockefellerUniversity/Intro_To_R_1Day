@@ -25,6 +25,7 @@ These exercises cover the matrices sections of [Introduction to R]("introToR_Day
 **Exercise 1**
 
 - Create a matrix containing information on gene names Gene_1, Gene_2, Gene_3,Gene_4 expression values 1000, 3000, 10000, 12000 and gene lengths 100, 3000, 200, 1000
+
 ```{r,echo=toMessage}
 geneNames <- c("Gene_1", "Gene_2", "Gene_3","Gene_4")
 expression <- c(1000, 3000, 10000, 12000)
@@ -33,6 +34,7 @@ geneMatrix <- cbind(expression,geneLengths)
 rownames(geneMatrix) <- geneNames
 geneMatrix
 ```
+
 - Update the matrix to contain the expression over the gene length for all genes (Length normalised expression) as final column.
 <a name="lne"></a>
 
@@ -43,16 +45,48 @@ lne <- geneMatrix[,"expression"]/geneMatrix[,"geneLengths"]
 geneMatrix <- cbind(geneMatrix,lne)
 geneMatrix
 ```
+
 - Create a smaller matrix containing genes longer than 200
 ```{r,echo=toMessage}
 smallGeneMatrix <- geneMatrix[geneMatrix[,"geneLengths"] > 200,]
 smallGeneMatrix
 ```
+
 - Create a smaller matrix with just expression and lne columns containing genes longer than 200 and expression greater than 300.
 ```{r,echo=toMessage}
 smallGeneMatrix <- geneMatrix[geneMatrix[,"geneLengths"] > 200 & geneMatrix[,"expression"] > 300,c("expression","lne")]
 smallGeneMatrix
 ```
+
+- Add an additional column to the orginal matrix which contains some GO terms associated with these genes: "Positively Regulates Transcription", "Negatively Regulates Transcription", "Positively Regulates Transcription", "Regulates Autophagy"
+
+```{r,echo=toMessage}
+GOterms <- c("Positively Regulates Transcription", "Negatively Regulates Transcription", "Positively Regulates Transcription", "Regulates Autophagy")
+geneMatrix_GO <- cbind(geneMatrix,GOterms)
+geneMatrix_GO
+```
+
+- What is the data type? Use the class(),is.numeric() and is.character() functions to investigate. Compare this to the original matrix.
+
+```{r}
+class(geneMatrix_GO)
+is.numeric(geneMatrix_GO)
+is.character(geneMatrix_GO)
+class(geneMatrix)
+is.numeric(geneMatrix)
+is.character(geneMatrix)
+```
+
+- Subset the original matrix to only genes that are involved in Transcription. Make sure the result is a numeric matrix. 
+
+```{r}
+
+geneMatrix_transcription <- geneMatrix[grepl("transcription",GOterms, ignore.case = T),]
+
+geneMatrix_transcription
+is.numeric(geneMatrix_transcription)
+```
+
 **Bonus Question**
 
 <a name="bonus"></a>

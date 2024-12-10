@@ -25,25 +25,42 @@ These exercises are about the vector sections of [Introduction to R](https://roc
 
 - Create a vector containing the values 1,2,3,4,5
 ```{r,echo=toMessage}
-x <- c(1,2,3,4,5)
-x
+c(1,2,3,4,5)
+
 ```
-- Create a vector containing the values 1 to 100
+
+- Create a vector containing the values 1 to 100. Save it as the variable x. 
 ```{r,echo=toMessage}
 x <- 1:100
 x
 ```
+
+- Multiply x by 2
+```{r,echo=toMessage}
+x*2
+```
+
 - Create a vector containing the values  0,5,10,15,20
 ```{r,echo=toMessage}
 x <- seq(0,20,5)
 x
 ```
-- Create a vector containing the values 1,1,2,2,3,3
+
+- Check the help page for the rep function
+
+```{r}
+?rep()
+
+```
+
+
+- Create a vector containing the values 1,1,2,2,3,3 using rep
 ```{r,echo=toMessage}
 x <- c(rep(1,2),rep(2,2),rep(3,2))
 x
 ```
-- Create a vector containing the values 1,1,5,7,9,10
+
+- Create a vector containing the values 1,1,5,7,9,10. Overwrite the variable x with this.
 ```{r,echo=toMessage}
 x <- c(rep(1,2),seq(5,9,2),10)
 x
@@ -56,16 +73,19 @@ x
 x <- 1:10
 x
 ```
+
 - Create a new vector with all but the first and last value.
 ```{r,echo=toMessage}
 y <- x[-c(1,length(x))]
 y
 ```
+
 - Create a new vector with all but the second and fifth value.
 ```{r,echo=toMessage}
 y <- x[-c(2,5)]
 y
 ```
+
 - Create a new vector of square root of the sixth and seventh position.
 ```{r,echo=toMessage}
 y <- sqrt(x[6:7])
@@ -81,23 +101,67 @@ y
 
 **Exercise 3** 
 
-- Find the number of files in the present working directory.
+- Check the help page for the *paste()* function.
 ```{r,echo=toMessage}
-# Depend on current working directory..
-length(dir())
+?paste
 ```
 
-- List the first file in the present working directory.
+- Combine the two characters: "A" and "B"
 ```{r,echo=toMessage}
-x <- dir()
-x[1]
+paste("A","B")
+```
+
+- Change the separator to an underscore
+
+```{r,echo=toMessage}
+paste("A","B", sep="_")
 ```
 
 **Exercise 4**
 
+- Create a vector with these gene names: "PKM", "ADPRH", "TDG", "ATP4A", "SLC6A4", "CAPN3", "TDG", "ATP1A2","PKM"
+- Subset to just the unique genes
+
+```{r}
+my_genes <- c("PKM", "ADPRH", "TDG", "ATP4A", "SLC6A4", "CAPN3", "TDG", "ATP1A2","PKM")
+my_genes <- unique(my_genes)
+my_genes 
+```
+
+- Create a second vector with these gene names: "SLC6A4", "CAPN3", "TDG", "ATP1A2", "IMPA1", "PDXK".
+- Check which genes from vector 1 are present in vector 2.
+- Subset vector 1 depending on whether the gene is present in vector 2. 
+
+```{r}
+my_genes_of_interest <- c("SLC6A4", "CAPN3", "TDG", "ATP1A2", "IMPA1", "PDXK")
+idx <- my_genes %in% my_genes_of_interest
+idx
+my_genes[idx]
+```
+
+
+```{r}
+my_genes_of_interest <- c("SLC6A4", "CAPN3", "TDG", "ATP1A2", "IMPA1", "PDXK")
+idx <- my_genes %in% my_genes_of_interest
+idx
+my_genes[idx]
+```
+
+- Create a vector with these gene names: "SMC1", "SMC3", "SCC1", "SCC3", "RAD21", "NIPBL", "SMC2", "SMC4","CAPH","CAPD3"
+- Subset to just the genes containing SMC
+
+```{r}
+my_genes <- c("SMC1", "SMC3", "SCC1", "SCC3", "RAD21", "NIPBL", "SMC2", "SMC4","CAPH","CAPD3")
+my_genes[grepl("SMC",my_genes)]
+
+```
+
+**Exercise 5**
+
 - Create a vector of the gene names Gene_1, Gene_2, Gene_3 Gene_4
 - Create a vector of the expression values 1000, 3000, 10000, 12000
 - Create a vector of the gene lengths 100, 3000, 200, 1000
+
 ```{r,echo=toMessage}
 geneNames <- c("Gene_1", "Gene_2", "Gene_3","Gene_4")
 expression <- c(1000, 3000, 10000, 12000)
@@ -107,11 +171,13 @@ names(geneLengths) <- geneNames
 expression
 geneLengths
 ```
+
 - Find the longest gene.
 ```{r,echo=toMessage}
 names(geneLengths[geneLengths == max(geneLengths)])
 names(geneLengths[which.max(geneLengths)])
 ```
+
 - Identify genes which have a length greater than 100 and expression greater than 10000
 
 ```{r,echo=toMessage}
