@@ -1126,7 +1126,6 @@ summary(factorExample)
 ## Nominal factors
 
 In some cases there is no natural order to the categories such that one category is greater than the other (nominal data).
-In this case we can see that R is gender neutral.
 
 ```{r factorsNominal_introtoR}
 factorExample <- factor(vectorExample, levels=c("male","female"))
