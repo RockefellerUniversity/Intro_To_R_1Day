@@ -1736,7 +1736,7 @@ We can also use the arithmetic operations with our time objects.
 ```{r}
 Time
 Time - 120
-TimeNow -Time
+TimeNow - Time
 ```
 
 ---
@@ -1749,8 +1749,8 @@ We can control the printing method by using the **format()** method for date tim
 We can also change the timezone by specifying a **tz** parameter
 
 ```{r}
-format(myDate,format="%H O'Clock %p %A on %B %dth")
-format(myDate,format="%H O'Clock %p %A on %B %dth",tz = "GMT")
+format(Time,format="%H O'Clock %p %A on %B %dth")
+format(Time,format="%H O'Clock %p %A on %B %dth",tz = "GMT")
 ```
 
 ---
