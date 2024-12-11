@@ -20,6 +20,123 @@ message(toMessage)
 <p>&nbsp;</p>
 These exercises are about the conditions and loops sections of [Introduction to R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/). 
 
+
+**Exercise 1** - **If Else**
+
+- Build an if statement that test if x is a negative number. Write a print statement that will confirm if x is less than 0. Test it with several values of x.
+
+
+```{r,echo=toMessage}
+x<- 42
+
+if (x<0){
+  print("It's a negative number!")
+}
+
+x <- -42
+
+if (x<0){
+  print("It's a negative number!")
+}
+
+```
+
+- Modify the previous if statement to include an else. Ensure a print statement is returned to say if the number is not negative. 
+
+```{r,echo=toMessage}
+
+x <- 0
+
+if (x<0){
+  print("It's a negative number!")
+}else{
+  print("It's not a negative number!")
+}
+
+x <- -1
+
+if (x<0){
+  print("It's a negative number!")
+}else{
+  print("It's not a negative number!")
+}
+```
+
+- Finally add a else if statement. We want a response to confirm if x is negative, positive or if it is zero. 
+
+```{r,echo=toMessage}
+x <- -1
+
+if (x<0){
+  print("It's a negative number!")
+}else if (x==0){
+  print("It's zero")
+}else{
+  print("It's a positive number!")
+}
+
+x <- 0
+
+if (x<0){
+  print("It's a negative number!")
+}else if (x==0){
+  print("It's zero")
+}else{
+  print("It's a positive number!")
+}
+  
+x <- 1
+
+if (x<0){
+  print("It's a negative number!")
+}else if (x==0){
+  print("It's zero")
+}else{
+  print("It's a positive number!")
+}
+
+```
+
+
+- Build an if/else statement that test if a variable is odd/even. Include x in the printed output. 
+
+*Hint: The modulus operator may be useful here i.e. x%%2 returns the remainder after the value of x is divided by 2.* 
+
+
+```{r,echo=toMessage}
+x <- 1
+
+if (x%%2==0){
+  paste(x,"is even")
+}else{
+  paste(x,"is odd")
+}
+  
+x <- 2
+
+if (x%%2==0){
+  paste(x,"is even")
+}else{
+  paste(x,"is odd")
+}
+
+```
+
+
+-- Using an ifelse() expression, create a factor from a vector of 1 to 40 where all numbers less than 10 are "small",10 to 30 are "mid",31 to 40 are "big"
+
+```{r,echo=toMessage}
+condExercise <- 1:40
+condExercise
+vectorResult <- ifelse(condExercise<10,"small",ifelse(condExercise < 31,"mid","big"))
+temp <- factor(vectorResult,levels=c("small","mid","big"),order=T)
+temp
+```
+
+
+
+
+
 -- Calculate the factorial (factorial of 3 = 3 * 2 * 1) of 10 using a loop.
 
 ```{r,echo=toMessage}
@@ -33,6 +150,7 @@ for(x in 1:10){
 }
 factorialAnswer
 ```
+
 -- Adjusting your answer from before, what is the first number that has a factorial greater than 1000.
 ```{r,echo=toMessage}
 
@@ -50,22 +168,15 @@ while(factorialAnswer <= 1000){
 count
 ```
 
--- Using an ifelse() expression, create a factor from a vector of 1 to 40 where all numbers less than 10 are "small",10 to 30 are "mid",31 to 40 are "big"
 
-```{r,echo=toMessage}
-condExercise <- 1:40
-condExercise
-vectorResult <- ifelse(condExercise<10,"small",ifelse(condExercise < 31,"mid","big"))
-temp <- factor(vectorResult,levels=c("small","mid","big"),order=T)
-temp
-```
-
--- Read in all files from expression directory with .txt extension and create a table of gene expression results.
+- Set your working directory to be in the downloaded course material. Specifically the *r_course* subdirectory. [The exact path will depend on where you have save your download]. Read in all files from expression directory ("ExpressionResults/") with .txt extension and create a table of gene expression results.
 
 ```{r,echo=toMessage}
 
+setwd("~/Downloads/Intro_To_R_1Day-master/r_course")
 filesToRead <- dir("ExpressionResults/",pattern = "*\\.txt",full.names=T)
 fileRead <- vector("list",length=length(filesToRead))
+
 for(i in 1:length(filesToRead)){
   fileRead[[i]] <- read.delim(filesToRead[i],header=F,sep="\t")
   colnames(fileRead[[i]]) <- c("GeneNames",basename(filesToRead[i]))
@@ -84,6 +195,7 @@ for(i in fileRead){
 mergedTable[1:3,] 
 
 ```
+
 -- Add annotation from Annotation.txt. How do the pathway information for genes compare between expression table and annotation table.
  
 ```{r,echo=toMessage}

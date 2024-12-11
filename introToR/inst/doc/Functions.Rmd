@@ -20,6 +20,8 @@ message(toMessage)
 <p>&nbsp;</p>
 These exercises are about the functions sections of [Introduction to R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/). 
 
+**Exercise 1** - **Functions**
+
 -- Create a function which takes one number and returns the square of that number
 
 ```{r,echo=toMessage}
@@ -42,15 +44,17 @@ meanOfNumbers <- function(number,number2){
 meanOfNumbers(1,3)
 ```
 
-- Create a function which takes two vectors and returns the mean
+- Create a function which takes two vectors and returns the mean. Include a message statement that gives the total length of both vectors. 
 
 ```{r,echo=toMessage}
 meanOfVectors <- function(vector,vector2){
-  meanOfVectorsRes <- mean(c(vector,vector2))
+  bigvector <- c(vector,vector2)
+  message(paste("The total length of my vectors is", length(bigvector)))
+  meanOfVectorsRes <- mean(bigvector )
   return(meanOfVectorsRes)
 }
 
-meanOfVectors(1,3)
+meanOfVectors(c(1,3,4),c(3,6,1,7,9))
 ```
 
 - Create a function which takes two numbers and returns the two numbers as a vector and the mean, summary and multiple as a data.frame.
@@ -117,3 +121,33 @@ findSmallestFactorial(3000)
 findSmallestFactorial("Hello")
 ```
 
+
+
+
+**Exercise 2** - **Scripts**
+
+Lets try to put as much together that we have learnt thus far. This will be a multistep challenge. Break it down and use pseudocode to help. Start by working the code interactively, then turn it into a script. 
+
+
+1. Read in the "data/GeneExpression.txt" dataset. 
+2. Use a apply to calculate the Z score for each gene (per row). The zscore is (gene_expression - mean)/standard deviation. You should use a function to do this calculation.
+3. Find which gene has the highest absolute max Zscore. This is a very rough proxy for the variability of that gene.
+4. Print out the gene name with the highest value
+5. Turn this into a script and run the script
+6. Think about what modifications you would need to make in order to accept a different data set as input.
+
+```{r,echo=toMessage}
+
+geneExpression <- read.table("data/GeneExpression.txt",h=T,sep="\t",row.names=1)
+geneExpression <-as.matrix(geneExpression)
+zscores <- function(x){
+    my_mean <- mean(x)
+    my_sd <- sd(x)
+    my_z <- (x-my_mean)/my_sd
+    return(my_z)}
+
+my_zs <- apply(geneExpression,2, zscores)
+
+inds <- which(my_zs == max(my_zs), arr.ind = T)       
+rownames(geneExpression)[inds[,1]]
+```

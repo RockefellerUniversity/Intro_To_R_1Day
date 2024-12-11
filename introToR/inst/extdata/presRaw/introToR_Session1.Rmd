@@ -754,14 +754,14 @@ x[x > 4 & !x < 7]
 ## Time for an exercise!
 
 
-Exercise on vectors can be found [here](../../exercises/exercises/vector_exercise.html)
+Exercise on vectors can be found [here](../../exercises/exercises/Vectors_exercise.html)
 
 
 ---
-## Answers to exercise.
+## Answers to exercise
 
 
-Answers can be found here  [here](../../exercises/answers/vector_answers.html)
+Answers can be found here  [here](../../exercises/answers/Vectors_answers.html)
 
 ---
 
@@ -1046,14 +1046,14 @@ narrowMatrix[,2] *2
 ## Time for an exercise!
 
 
-Exercise on matrices can be found [here](../../exercises/exercises/matrices_exercise.html)
+Exercise on matrices can be found [here](../../exercises/exercises/Matrices_exercise.html)
 
 
 ---
-## Answers to exercise.
+## Answers to exercise
 
 
-Answers can be found here  [here](../../exercises/answers/matrices_answers.html)
+Answers can be found here  [here](../../exercises/answers/Matrices_answers.html)
 
 
 
@@ -1449,13 +1449,13 @@ mergedDF
 ---
 ## Time for an exercise!
 
-Exercise on data frames can be found [here](../../exercises/exercises/factorsAndDataframes_exercise.html)
+Exercise on data frames can be found [here](../../exercises/exercises/FactorsAndDataframes_exercise.html)
 
 
 ---
-## Answers to exercise.
+## Answers to exercise
 
-Answers can be found here  [here](../../exercises/answers/factorsAndDataframes_answers.html)
+Answers can be found here  [here](../../exercises/answers/FactorsAndDataframes_answers.html)
 
 
 ---
@@ -1586,6 +1586,21 @@ listAsMat <- matrix(flatList,
                     dimnames=list(names(myNamedList)))
 listAsMat
 ```
+
+---
+## Time for an exercise!
+
+
+Exercise on matrices can be found [here](../../exercises/exercises/Lists_exercise.html)
+
+
+---
+## Answers to exercise
+
+
+Answers can be found here  [here](../../exercises/answers/Lists_answers.html)
+
+
 
 
 ---

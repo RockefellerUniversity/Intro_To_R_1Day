@@ -1,0 +1,85 @@
+---
+title: "Lists"
+author: "Rockefeller University, Bioinformatics Resource Centre"
+date: "https://rockefelleruniversity.github.io/Intro_To_R_1Day/"
+output: 
+  html_document:
+    number_sections: false  ## if you want number sections at each table header
+    theme: united  # many options for theme, this one is my favorite.
+    highlight: tango  # specifies the syntax highlighting style
+params:
+  toMessage: false    
+---
+
+```{r, setup,include=FALSE}
+toMessage <- ifelse(!is.null(params$toMessage),params$toMessage,FALSE)
+message(toMessage)
+```
+
+
+<p>&nbsp;</p>
+These exercises are about the Lists sections of [Introduction to R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/). 
+
+**Exercise 1**
+
+- Create a list containing a character vector, a numeric matrix and a data frame with 2 or more datatypes.
+
+```{r}
+firstElement <- c("A","B","C","D","E")
+secondElement <- matrix(1:5,nrow=5,ncol=5)
+thirdElement <- data.frame(Sample=c("Sample1","Sample2","Sample3","Sample4"), Age=c(25,21,24,25),factor=c("Smoker","Smoker","NonSmoker","Smoker"))
+
+my_list <- list(firstElement, secondElement, thirdElement)
+my_list
+```
+- Rename each entry: "my_vector", "my_matrix", "my_df"
+
+```{r}
+
+names(my_list) <- c("my_vector", "my_matrix", "my_df")
+my_list
+```
+
+- Access the second column of the dataframe. Try to access it in at least two different ways.
+
+```{r}
+my_list$my_df$Age
+
+my_list[[3]][,2]
+```
+
+- Add a list into the fourth slot of our list. This list should contain 2 numeric vectors. The resulting list should be 4 long. Check.  
+
+```{r}
+fourthElement <- list(1:5,
+                      2:6)
+
+my_list <- c(my_list,list(fourthElement ))
+length(my_list)
+```
+
+- Access the second vector within the sublist in the 4th position.
+
+```{r}
+my_list[[4]][[2]]
+```
+
+- Create a list with three numeric vectors: c(5,2,9), c(13,12,6), c(1,3,4)
+
+```{r}
+my_list <- list(First=c(5,2,9),Second=c(13,12,6),Third=c(1,3,4))
+
+```
+
+- Flatten the list and turn it into a matrix. 
+
+```{r}
+flat_list <- unlist(my_list)
+listAsMat <- matrix(flat_list,
+                    nrow=length(my_list),
+                    ncol=3,
+                    byrow=T,
+                    dimnames=list(names(my_list)))
+listAsMat
+
+```

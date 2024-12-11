@@ -18,26 +18,67 @@ message(toMessage)
 
 
 <p>&nbsp;</p>
-These exercises are about the factors and data framessections of [Introduction to R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/). 
-
-These exercises cover the factors and data frames sections of [Introduction to R]("introToR_Day1.html").
+These exercises are about the factors and data frames sections of [Introduction to R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/). 
 
 **Exercise 1** - **Factors**
 
+- Create a nominal factor called CellType containing: "DC1","DC1","DC1","NK","NK","Mono","Mono","DC2","NK"
+```{r,echo=toMessage}
+CellType <- factor(c("DC1","DC1","DC1","NK","NK","Mono","Mono","DC2","NK"))
+CellType
+```
+
+- Modify the the third position of CellType to "Neu", by modifying the levels of the factor. 
+```{r,echo=toMessage}
+levels(CellType) <- c(levels(CellType),"Neu")
+CellType[3] <- "Neu"
+CellType
+```
+
+- Create CellType2 with the same entries, but directly specify the levels to include:
+"DC1", "DC2", "Mono", "NK", "Neu", "Bcell", "Tcell". 
+```{r,echo=toMessage}
+CellType2 <- factor(c("DC1","DC1","DC1","NK","NK","Mono","Mono","DC2","NK"), levels = c("DC1", "DC2", "Mono", "NK", "Neu", "Bcell", "Tcell"))
+CellType2
+```
+
+- Use combine to increase the length of CellType2 to include:
+"Neu","Neu","Bcell","DC1"
+```{r,echo=toMessage}
+CellType2 <- c(CellType2, factor(c("Neu","Neu","Bcell","DC1"), levels = c("DC1", "DC2", "Mono", "NK", "Neu", "Bcell", "Tcell")))
+CellType2
+```
+
+- Summarize the number of entries for each cell type. 
+
+```{r}
+summary(CellType2)
+
+```
+- Reorder the summary to alphabetical order 
+
+```{r}
+levels(CellType2) <- c("Bcell","DC1", "DC2", "Mono", "Neu","NK","Tcell")
+summary(CellType2)
+
+```
+
+
 - Create a ordinal factor named "Height" containing -- high, low, mid, low, mid, low, mid, high, mid, high.
 ```{r,echo=toMessage}
-ordinalFactor <- factor(c("high", "low", "mid", "low", "mid", "low", "mid", "high", "mid", "high"),ordered=T,levels=c("low", "mid", "high"))
-ordinalFactor
+Height <- factor(c("high", "low", "mid", "low", "mid", "low", "mid", "high", "mid", "high"),ordered=T,levels=c("low", "mid", "high"))
+Height
 ```
 
 - Using a logical index, create new factor of only those from "Height"" greater than low.
 ```{r,echo=toMessage}
-filteredFactor <- ordinalFactor[ordinalFactor > "low"]
-filteredFactor
+filteredHeight <- ordinalFactor[Height > "low"]
+filteredHeight
 ```
+
 - Replace the last index in "Height" with veryHigh and create new factor with those greater than mid.
 ```{r,echo=toMessage}
-newFactor <- factor(ordinalFactor,ordered=T,levels=c("low", "mid", "high","veryHigh"))
+newFactor <- factor(Height,ordered=T,levels=c("low", "mid", "high","veryHigh"))
 newFactor[length(newFactor)] <- "veryHigh"
 newFactor[newFactor > "mid"]
 ```
@@ -45,19 +86,44 @@ newFactor[newFactor > "mid"]
 **Exercise 2** - **Data frames**
 
 - Create data frame called Annotation with a column of gene names ("Gene_1", "Gene_2", "Gene_3","Gene_4","Gene_5"),  ensembl gene names ("Ens001", "Ens003", "Ens006", "Ens007", "Ens010"),  pathway information ("Glycolysis", "TGFb", "Glycolysis", "TGFb", "Glycolysis") and  gene lengths (100, 3000, 200, 1000,1200).
+
 ```{r,echo=toMessage}
 Annotation <- data.frame(geneNames=c("Gene_1", "Gene_2", "Gene_3","Gene_4","Gene_5"), ensembl=c("Ens001", "Ens003", "Ens006", "Ens007", "Ens010"),pathway=c("Glycolysis", "TGFb", "Glycolysis", "TGFb", "Glycolysis"),geneLengths=c(100, 3000, 200, 1000,1200))
+Annotation
 ```
 
+- Filter Annotation to geneLengths that are greater than 500 and less than 2000. Use the dollar sign to extract column information. 
+
+```{r,echo=toMessage}
+Annotation[Annotation$geneLengths>500 & Annotation$geneLengths<2000,]
+```
+
+- Check the data types of each column. Update the pathway column to be a factor. 
+
+```{r,echo=toMessage}
+class(Annotation[,1])
+class(Annotation[,2])
+class(Annotation[,3])
+class(Annotation[,4])
+
+Annotation[,3] <- factor(Annotation[,3])
+Annotation
+class(Annotation[,3])
+```
+
+
 - Create data frame called Sample1 with ensembl gene names ("Ens001", "Ens003", "Ens006", "Ens010") and expression  (1000, 3000, 10000,5000)
+
 ```{r,echo=toMessage}
 Sample1 <- data.frame(ensembl=c("Ens001", "Ens003", "Ens006","Ens010"),expression=c(1000, 3000, 10000,5000))
+Sample1
 ```
 
 
 - Create data frame called Sample2 with ensembl gene names ("Ens001", "Ens003", "Ens006", "Ens007","Ens010") and expression  (1500, 1500, 17000,500,10000)
 ```{r,echo=toMessage}
 Sample2 <- data.frame(ensembl=c("Ens001", "Ens003", "Ens006","Ens007","Ens010"),expression=c(1500, 1500, 17000,500,10000))
+Sample2
 ```
 
 - Create a data frame containing only those gene names common to all data frames with all information from Annotation and the expression from Sample 1 and Sample 2.
@@ -66,22 +132,28 @@ AnnoSample1 <- merge(Annotation,Sample1,by.x=2,by.y=1,all=F)
 AnnoSample1And2 <- merge(AnnoSample1,Sample2,by=1,all=F) 
 AnnoSample1And2
 ```
+- Order our new dataframe by geneLengths - biggest to smallest.
 
-- Add an extra two columns containing the length normalised expressions for Sample 1 and Sample 2
+```{r,echo=toMessage}
+AnnoSample1And2 <- AnnoSample1And2[order(AnnoSample1And2$geneLengths, decreasing = T),]
+AnnoSample1And2
+```
+
+- Add an extra two columns containing the length normalized expressions for Sample 1 and Sample 2
 ```{r,echo=toMessage}
 AnnoSample1And2$Sample1_lne <- AnnoSample1And2$expression.x/AnnoSample1And2$geneLengths
 AnnoSample1And2$Sample2_lne <- AnnoSample1And2$expression.y/AnnoSample1And2$geneLengths
 AnnoSample1And2
 ```
 
-- Identify the mean length normalised expression across Sample1 and Sample2 for Ens006 genes
+- Identify the mean length normalized expression across Sample1 and Sample2 for Ens006 genes
 
 ```{r,echo=toMessage}
 rownames(AnnoSample1And2) <- AnnoSample1And2$ensembl
 mean(c(AnnoSample1And2["Ens006","Sample1_lne"],AnnoSample1And2["Ens006","Sample2_lne"]))
 ```
 
-- For all genes, identify the log2 fold change in length normalised expression from Sample 1 to Sample 2.
+- For all genes, identify the log2 fold change in length normalized expression from Sample 1 to Sample 2.
 
 ```{r,echo=toMessage}
 log2FoldChange <- log2(AnnoSample1And2$Sample2_lne) - log2(AnnoSample1And2$Sample1_lne)

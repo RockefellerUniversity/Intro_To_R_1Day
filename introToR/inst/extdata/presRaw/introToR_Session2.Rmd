@@ -649,13 +649,13 @@ sapply(exampleList, summary)
 ## Time for an exercise!
 
 
-Exercise on loops and conditional branching can be found [here](../..//exercises/exercises/conditionsAndLoops_exercise.html)
+Exercise on loops and conditional branching can be found [here](../..//exercises/exercises/ConditionsAndLoops_exercise.html)
 
 ---
 ## Answers to exercise
 
 
-Answers can be found here  [here](../..//exercises/answers/conditionsAndLoops_answers.html)
+Answers can be found here  [here](../..//exercises/answers/ConditionsAndLoops_answers.html)
 
 
 ---
