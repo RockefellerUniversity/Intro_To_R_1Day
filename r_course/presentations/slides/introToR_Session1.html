@@ -2607,6 +2607,239 @@ as.list(namedMatrix)
 ```
 
 ---
+## Objects
+
+All these common data classes we have covered so far are examples of R objects.
+
+As shown we can assess the type of object using the **class()** function.
+
+
+``` r
+class(dfExample)
+```
+
+```
+## [1] "data.frame"
+```
+
+---
+## Working with objects
+
+
+
+We have also seen that functions act differently with the different data types.
+
+
+``` r
+summary(namedMatrix)
+```
+
+```
+##     Column_1       Column_2       Column_3       Column_4       Column_5    
+##  Min.   :1.00   Min.   :3.00   Min.   :5.00   Min.   :7.00   Min.   : 9.00  
+##  1st Qu.:1.25   1st Qu.:3.25   1st Qu.:5.25   1st Qu.:7.25   1st Qu.: 9.25  
+##  Median :1.50   Median :3.50   Median :5.50   Median :7.50   Median : 9.50  
+##  Mean   :1.50   Mean   :3.50   Mean   :5.50   Mean   :7.50   Mean   : 9.50  
+##  3rd Qu.:1.75   3rd Qu.:3.75   3rd Qu.:5.75   3rd Qu.:7.75   3rd Qu.: 9.75  
+##  Max.   :2.00   Max.   :4.00   Max.   :6.00   Max.   :8.00   Max.   :10.00
+```
+
+``` r
+summary(dfExample)
+```
+
+```
+##      Name               Type   Survival_Time  
+##  Length:4           female:2   Min.   : 1.00  
+##  Class :character   male  :2   1st Qu.: 1.75  
+##  Mode  :character              Median :11.00  
+##                                Mean   :13.25  
+##                                3rd Qu.:22.50  
+##                                Max.   :30.00
+```
+
+---
+## Working with objects (2)
+
+In fact simple interactions, such as indexing, with the different data types can be very different.
+
+
+``` r
+namedMatrix[,1]
+```
+
+```
+## Row_1 Row_2 
+##     1     2
+```
+
+``` r
+dfExample$Type
+```
+
+```
+## [1] male   female male   female
+## Levels: female male
+```
+
+---
+## Working with objects (3)
+
+To learn about how to work with the different data types we can use the help functions built into R
+
+
+``` r
+?data.frame
+```
+
+---
+## More complex objects
+
+As we progress through using R in our day to day analysis we will want to take advantage of more complex objects available in either Base R or in one of the many extension packages.
+
+By using pre-established objects we gain access to the routines and functions built for that object's special use cases.
+
+An example of a more complex object type is that which helps us manage Dates or Times.
+
+
+``` r
+Time &lt;- Sys.time()
+Time
+```
+
+```
+## [1] "2024-12-10 21:07:43 UTC"
+```
+
+---
+## More complex objects
+
+As you can see this object shows the local date and time in a human readable way.
+
+The object however is not one of our standard data types but is a new data type called **POSIXct**
+
+
+``` r
+class(Time)
+```
+
+```
+## [1] "POSIXct" "POSIXt"
+```
+
+---
+## More complex objects
+
+Lets use the the help function to learn more about this object.
+
+
+``` r
+?POSIXct
+```
+
+---
+## More complex objects
+
+We can see from the help that we can use logical operators with our POSIXct object.
+
+
+``` r
+TimeNow &lt;- Sys.time()
+TimeNow &gt; Time
+```
+
+```
+## [1] TRUE
+```
+
+---
+## More complex objects
+
+We can also use the arithmetic operations with our time objects.
+
+
+``` r
+Time
+```
+
+```
+## [1] "2024-12-10 21:07:43 UTC"
+```
+
+``` r
+Time - 120
+```
+
+```
+## [1] "2024-12-10 21:05:43 UTC"
+```
+
+``` r
+TimeNow - Time
+```
+
+```
+## Time difference of 0.1014812 secs
+```
+
+---
+## More complex objects
+
+Most objects will have a default display defined by a print method
+
+We can control the printing method by using the **format()** method for date time POSIXct objects.
+
+We can also change the timezone by specifying a **tz** parameter
+
+
+``` r
+format(Time,format="%H O'Clock %p %A on %B %dth")
+```
+
+```
+## [1] "21 O'Clock PM Tuesday on December 10th"
+```
+
+``` r
+format(Time,format="%H O'Clock %p %A on %B %dth",tz = "GMT")
+```
+
+```
+## [1] "21 O'Clock PM Tuesday on December 10th"
+```
+
+---
+## Complex to base objects
+
+Most of the time we can convert more complex object back to our basic object types we are more familar with.
+
+
+``` r
+as.character(Time)
+```
+
+```
+## [1] "2024-12-10 21:07:43.989243"
+```
+
+``` r
+as.numeric(TimeNow-Time)
+```
+
+```
+## [1] 0.1014812
+```
+
+---
+## Complex objects summary
+
+In future courses we will come across object which help us handle data such as from BAM files, FastQ files and single cell experiments. 
+
+How to interact with these objects will be defined in their help pages.
+
+By using these specialised objects we will be able to focus on understanding and analyzing the data contained within the object instead of how to format and interact with such complex data.
+
+---
 class: inverse, center, middle
 
 # Reading and Writing Data
@@ -2711,51 +2944,51 @@ Now we have set our location we can start thinking about reading in data. A stan
 &lt;tbody&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_a &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.113062 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.979498 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.271967 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.423364 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.551130 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.575654 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_b &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.851311 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.716320 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.307982 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.080952 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5.865549 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.958085 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_c &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.389243 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 2.098752 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.407627 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.473275 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.771709 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.611821 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_d &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 2.896660 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 5.703101 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.495875 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.415446 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.817052 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.907351 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_e &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.545253 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 8.903781 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.219459 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 11.960879 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.113075 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.927639 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_f &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.907688 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.016107 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.672721 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.821113 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8.704334 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.940262 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_g &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.267063 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.860265 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.339305 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.763196 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.869513 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.393374 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_h &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.721443 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.118847 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.671504 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 11.401766 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.550342 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 11.530905 &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -2838,6 +3071,7 @@ Table[1:2,1:3]
 ## 1    Gene_a    4.570237    3.230467
 ## 2    Gene_b    3.561733    3.632285
 ```
+
 And the clipboard (this is Windows version).
 
 
@@ -3151,7 +3385,7 @@ myList
 ---
 ## Save and read data
 
-We can use the *saveRDS()* and *readRDS()* functions to save and read in our R object. They are save as a *.rds object. 
+We can use the *saveRDS()* and *readRDS()* functions to save and read in our R object. They are saved as a *.rds object. 
 
 
 ``` r

@@ -489,14 +489,58 @@ containing genes longer than 200 and expression greater than 300.</li>
 <pre><code>##        expression lne
 ## Gene_2       3000   1
 ## Gene_4      12000  12</code></pre>
+<ul>
+<li>Add an additional column to the orginal matrix which contains some
+GO terms associated with these genes: “Positively Regulates
+Transcription”, “Negatively Regulates Transcription”, “Positively
+Regulates Transcription”, “Regulates Autophagy”</li>
+</ul>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>GOterms <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Positively Regulates Transcription&quot;</span>, <span class="st">&quot;Negatively Regulates Transcription&quot;</span>, <span class="st">&quot;Positively Regulates Transcription&quot;</span>, <span class="st">&quot;Regulates Autophagy&quot;</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>geneMatrix_GO <span class="ot">&lt;-</span> <span class="fu">cbind</span>(geneMatrix,GOterms)</span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a>geneMatrix_GO</span></code></pre></div>
+<pre><code>##        expression geneLengths lne  GOterms                             
+## Gene_1 &quot;1000&quot;     &quot;100&quot;       &quot;10&quot; &quot;Positively Regulates Transcription&quot;
+## Gene_2 &quot;3000&quot;     &quot;3000&quot;      &quot;1&quot;  &quot;Negatively Regulates Transcription&quot;
+## Gene_3 &quot;10000&quot;    &quot;200&quot;       &quot;50&quot; &quot;Positively Regulates Transcription&quot;
+## Gene_4 &quot;12000&quot;    &quot;1000&quot;      &quot;12&quot; &quot;Regulates Autophagy&quot;</code></pre>
+<ul>
+<li>What is the data type? Use the class(),is.numeric() and
+is.character() functions to investigate. Compare this to the original
+matrix.</li>
+</ul>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="fu">class</span>(geneMatrix_GO)</span></code></pre></div>
+<pre><code>## [1] &quot;matrix&quot; &quot;array&quot;</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="fu">is.numeric</span>(geneMatrix_GO)</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="fu">is.character</span>(geneMatrix_GO)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="fu">class</span>(geneMatrix)</span></code></pre></div>
+<pre><code>## [1] &quot;matrix&quot; &quot;array&quot;</code></pre>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a><span class="fu">is.numeric</span>(geneMatrix)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a><span class="fu">is.character</span>(geneMatrix)</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<ul>
+<li>Subset the original matrix to only genes that are involved in
+Transcription. Make sure the result is a numeric matrix.</li>
+</ul>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a>geneMatrix_transcription <span class="ot">&lt;-</span> geneMatrix[<span class="fu">grepl</span>(<span class="st">&quot;transcription&quot;</span>,GOterms, <span class="at">ignore.case =</span> T),]</span>
+<span id="cb23-2"><a href="#cb23-2" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" tabindex="-1"></a>geneMatrix_transcription</span></code></pre></div>
+<pre><code>##        expression geneLengths lne
+## Gene_1       1000         100  10
+## Gene_2       3000        3000   1
+## Gene_3      10000         200  50</code></pre>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a><span class="fu">is.numeric</span>(geneMatrix_transcription)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
 <p><strong>Bonus Question</strong></p>
 <p><a name="bonus"></a> - Calculate the sum of expression and length
 columns for only genes with length &gt; 100.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>expressionSum <span class="ot">&lt;-</span> <span class="fu">sum</span>(geneMatrix[geneMatrix[,<span class="st">&quot;geneLengths&quot;</span>] <span class="sc">&gt;</span> <span class="dv">100</span>,<span class="st">&quot;expression&quot;</span>])</span>
-<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>geneLengthSum <span class="ot">&lt;-</span> <span class="fu">sum</span>(geneMatrix[geneMatrix[,<span class="st">&quot;geneLengths&quot;</span>] <span class="sc">&gt;</span> <span class="dv">100</span>,<span class="st">&quot;geneLengths&quot;</span>])</span>
-<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a><span class="co">#OR</span></span>
-<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a>expressionAndGeneLengthSum <span class="ot">&lt;-</span> <span class="fu">colSums</span>(geneMatrix[geneMatrix[,<span class="st">&quot;geneLengths&quot;</span>] <span class="sc">&gt;</span> <span class="dv">100</span>,<span class="fu">c</span>(<span class="st">&quot;expression&quot;</span>,<span class="st">&quot;geneLengths&quot;</span>)])</span>
-<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a>expressionAndGeneLengthSum</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" tabindex="-1"></a>expressionSum <span class="ot">&lt;-</span> <span class="fu">sum</span>(geneMatrix[geneMatrix[,<span class="st">&quot;geneLengths&quot;</span>] <span class="sc">&gt;</span> <span class="dv">100</span>,<span class="st">&quot;expression&quot;</span>])</span>
+<span id="cb27-2"><a href="#cb27-2" tabindex="-1"></a>geneLengthSum <span class="ot">&lt;-</span> <span class="fu">sum</span>(geneMatrix[geneMatrix[,<span class="st">&quot;geneLengths&quot;</span>] <span class="sc">&gt;</span> <span class="dv">100</span>,<span class="st">&quot;geneLengths&quot;</span>])</span>
+<span id="cb27-3"><a href="#cb27-3" tabindex="-1"></a><span class="co">#OR</span></span>
+<span id="cb27-4"><a href="#cb27-4" tabindex="-1"></a>expressionAndGeneLengthSum <span class="ot">&lt;-</span> <span class="fu">colSums</span>(geneMatrix[geneMatrix[,<span class="st">&quot;geneLengths&quot;</span>] <span class="sc">&gt;</span> <span class="dv">100</span>,<span class="fu">c</span>(<span class="st">&quot;expression&quot;</span>,<span class="st">&quot;geneLengths&quot;</span>)])</span>
+<span id="cb27-5"><a href="#cb27-5" tabindex="-1"></a>expressionAndGeneLengthSum</span></code></pre></div>
 <pre><code>##  expression geneLengths 
 ##       25000        4200</code></pre>
 

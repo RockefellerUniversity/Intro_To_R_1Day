@@ -49,8 +49,7 @@ x
 - Check the help page for the rep function
 
 ```{r}
-?rep()
-
+?rep
 ```
 
 

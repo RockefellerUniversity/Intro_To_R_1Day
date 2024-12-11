@@ -3017,6 +3017,131 @@ group of functions to coerce your data object to a new format,
 ## [[10]]
 ## [1] 10</code></pre>
 </div>
+<div id="objects" class="section level2">
+<h2>Objects</h2>
+<p>All these common data classes we have covered so far are examples of
+R objects.</p>
+<p>As shown we can assess the type of object using the
+<strong>class()</strong> function.</p>
+<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb319-1"><a href="#cb319-1" tabindex="-1"></a><span class="fu">class</span>(dfExample)</span></code></pre></div>
+<pre><code>## [1] &quot;data.frame&quot;</code></pre>
+</div>
+<div id="working-with-objects" class="section level2">
+<h2>Working with objects</h2>
+<p>We have also seen that functions act differently with the different
+data types.</p>
+<div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb321-1"><a href="#cb321-1" tabindex="-1"></a><span class="fu">summary</span>(namedMatrix)</span></code></pre></div>
+<pre><code>##     Column_1       Column_2       Column_3       Column_4       Column_5    
+##  Min.   :1.00   Min.   :3.00   Min.   :5.00   Min.   :7.00   Min.   : 9.00  
+##  1st Qu.:1.25   1st Qu.:3.25   1st Qu.:5.25   1st Qu.:7.25   1st Qu.: 9.25  
+##  Median :1.50   Median :3.50   Median :5.50   Median :7.50   Median : 9.50  
+##  Mean   :1.50   Mean   :3.50   Mean   :5.50   Mean   :7.50   Mean   : 9.50  
+##  3rd Qu.:1.75   3rd Qu.:3.75   3rd Qu.:5.75   3rd Qu.:7.75   3rd Qu.: 9.75  
+##  Max.   :2.00   Max.   :4.00   Max.   :6.00   Max.   :8.00   Max.   :10.00</code></pre>
+<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb323-1"><a href="#cb323-1" tabindex="-1"></a><span class="fu">summary</span>(dfExample)</span></code></pre></div>
+<pre><code>##      Name               Type   Survival_Time  
+##  Length:4           female:2   Min.   : 1.00  
+##  Class :character   male  :2   1st Qu.: 1.75  
+##  Mode  :character              Median :11.00  
+##                                Mean   :13.25  
+##                                3rd Qu.:22.50  
+##                                Max.   :30.00</code></pre>
+</div>
+<div id="working-with-objects-2" class="section level2">
+<h2>Working with objects (2)</h2>
+<p>In fact simple interactions, such as indexing, with the different
+data types can be very different.</p>
+<div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb325-1"><a href="#cb325-1" tabindex="-1"></a>namedMatrix[,<span class="dv">1</span>]</span></code></pre></div>
+<pre><code>## Row_1 Row_2 
+##     1     2</code></pre>
+<div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb327-1"><a href="#cb327-1" tabindex="-1"></a>dfExample<span class="sc">$</span>Type</span></code></pre></div>
+<pre><code>## [1] male   female male   female
+## Levels: female male</code></pre>
+</div>
+<div id="working-with-objects-3" class="section level2">
+<h2>Working with objects (3)</h2>
+<p>To learn about how to work with the different data types we can use
+the help functions built into R</p>
+<div class="sourceCode" id="cb329"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb329-1"><a href="#cb329-1" tabindex="-1"></a>?data.frame</span></code></pre></div>
+</div>
+<div id="more-complex-objects" class="section level2">
+<h2>More complex objects</h2>
+<p>As we progress through using R in our day to day analysis we will
+want to take advantage of more complex objects available in either Base
+R or in one of the many extension packages.</p>
+<p>By using pre-established objects we gain access to the routines and
+functions built for that object’s special use cases.</p>
+<p>An example of a more complex object type is that which helps us
+manage Dates or Times.</p>
+<div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb330-1"><a href="#cb330-1" tabindex="-1"></a>Time <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
+<span id="cb330-2"><a href="#cb330-2" tabindex="-1"></a>Time</span></code></pre></div>
+<pre><code>## [1] &quot;2024-12-10 21:07:46 UTC&quot;</code></pre>
+</div>
+<div id="more-complex-objects-1" class="section level2">
+<h2>More complex objects</h2>
+<p>As you can see this object shows the local date and time in a human
+readable way.</p>
+<p>The object however is not one of our standard data types but is a new
+data type called <strong>POSIXct</strong></p>
+<div class="sourceCode" id="cb332"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb332-1"><a href="#cb332-1" tabindex="-1"></a><span class="fu">class</span>(Time)</span></code></pre></div>
+<pre><code>## [1] &quot;POSIXct&quot; &quot;POSIXt&quot;</code></pre>
+</div>
+<div id="more-complex-objects-2" class="section level2">
+<h2>More complex objects</h2>
+<p>Lets use the the help function to learn more about this object.</p>
+<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb334-1"><a href="#cb334-1" tabindex="-1"></a>?POSIXct</span></code></pre></div>
+</div>
+<div id="more-complex-objects-3" class="section level2">
+<h2>More complex objects</h2>
+<p>We can see from the help that we can use logical operators with our
+POSIXct object.</p>
+<div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb335-1"><a href="#cb335-1" tabindex="-1"></a>TimeNow <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
+<span id="cb335-2"><a href="#cb335-2" tabindex="-1"></a>TimeNow <span class="sc">&gt;</span> Time</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+</div>
+<div id="more-complex-objects-4" class="section level2">
+<h2>More complex objects</h2>
+<p>We can also use the arithmetic operations with our time objects.</p>
+<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="#cb337-1" tabindex="-1"></a>Time</span></code></pre></div>
+<pre><code>## [1] &quot;2024-12-10 21:07:46 UTC&quot;</code></pre>
+<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb339-1"><a href="#cb339-1" tabindex="-1"></a>Time <span class="sc">-</span> <span class="dv">120</span></span></code></pre></div>
+<pre><code>## [1] &quot;2024-12-10 21:05:46 UTC&quot;</code></pre>
+<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb341-1"><a href="#cb341-1" tabindex="-1"></a>TimeNow <span class="sc">-</span> Time</span></code></pre></div>
+<pre><code>## Time difference of 0.1043649 secs</code></pre>
+</div>
+<div id="more-complex-objects-5" class="section level2">
+<h2>More complex objects</h2>
+<p>Most objects will have a default display defined by a print
+method</p>
+<p>We can control the printing method by using the
+<strong>format()</strong> method for date time POSIXct objects.</p>
+<p>We can also change the timezone by specifying a <strong>tz</strong>
+parameter</p>
+<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb343-1"><a href="#cb343-1" tabindex="-1"></a><span class="fu">format</span>(Time,<span class="at">format=</span><span class="st">&quot;%H O&#39;Clock %p %A on %B %dth&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;21 O&#39;Clock PM Tuesday on December 10th&quot;</code></pre>
+<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="#cb345-1" tabindex="-1"></a><span class="fu">format</span>(Time,<span class="at">format=</span><span class="st">&quot;%H O&#39;Clock %p %A on %B %dth&quot;</span>,<span class="at">tz =</span> <span class="st">&quot;GMT&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;21 O&#39;Clock PM Tuesday on December 10th&quot;</code></pre>
+</div>
+<div id="complex-to-base-objects" class="section level2">
+<h2>Complex to base objects</h2>
+<p>Most of the time we can convert more complex object back to our basic
+object types we are more familar with.</p>
+<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="#cb347-1" tabindex="-1"></a><span class="fu">as.character</span>(Time)</span></code></pre></div>
+<pre><code>## [1] &quot;2024-12-10 21:07:46.094567&quot;</code></pre>
+<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="#cb349-1" tabindex="-1"></a><span class="fu">as.numeric</span>(TimeNow<span class="sc">-</span>Time)</span></code></pre></div>
+<pre><code>## [1] 0.1043649</code></pre>
+</div>
+<div id="complex-objects-summary" class="section level2">
+<h2>Complex objects summary</h2>
+<p>In future courses we will come across object which help us handle
+data such as from BAM files, FastQ files and single cell
+experiments.</p>
+<p>How to interact with these objects will be defined in their help
+pages.</p>
+<p>By using these specialised objects we will be able to focus on
+understanding and analyzing the data contained within the object instead
+of how to format and interact with such complex data.</p>
+</div>
 </div>
 <div id="reading-and-writing-data" class="section level1">
 <h1>Reading and Writing Data</h1>
@@ -3036,7 +3161,7 @@ point is the Working Directory.</p>
 <h2>Working Directory</h2>
 <p>You can check your working directory using the <em>getwd()</em>
 function.</p>
-<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb319-1"><a href="#cb319-1" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="#cb351-1" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
 <pre><code>## [1] &quot;/__w/Intro_To_R_1Day/Intro_To_R_1Day/extdata&quot;</code></pre>
 <pre><code>[1] &quot;/Users/mattpaul&quot;</code></pre>
 </div>
@@ -3051,8 +3176,8 @@ the same place.</p>
 <p><strong>Session -&gt; Set Working Directory -&gt; Choose
 Directory</strong></p>
 <p>or in the console.</p>
-<div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb322-1"><a href="#cb322-1" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;/PathToMyDownload/Intro_To_R_1Day-master/r_course&quot;</span>)</span>
-<span id="cb322-2"><a href="#cb322-2" tabindex="-1"></a><span class="co"># e.g. setwd(&quot;/Users/mattpaul/Downloads/Intro_To_R_1Day/r_course&quot;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb354-1"><a href="#cb354-1" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;/PathToMyDownload/Intro_To_R_1Day-master/r_course&quot;</span>)</span>
+<span id="cb354-2"><a href="#cb354-2" tabindex="-1"></a><span class="co"># e.g. setwd(&quot;/Users/mattpaul/Downloads/Intro_To_R_1Day/r_course&quot;)</span></span></code></pre></div>
 </div>
 <div id="paths" class="section level2">
 <h2>Paths</h2>
@@ -3080,11 +3205,11 @@ in absence of any other external information.</p></li>
 <p>The command we used before was using an absolute path. Typically they
 start with “/” to get to the top level of your computers file
 structure.</p>
-<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb323-1"><a href="#cb323-1" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;/Users/mattpaul/Downloads/Intro_To_Python-master/r_course/&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb355-1"><a href="#cb355-1" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;/Users/mattpaul/Downloads/Intro_To_Python-master/r_course/&quot;</span>)</span></code></pre></div>
 <p>Given that we started at: <em>/Users/mattpaul</em>, we could have
 also used the path below. This uses the knowledge of our start position
 to specify where we are going.</p>
-<div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb324-1"><a href="#cb324-1" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;Downloads/Intro_To_Python-master/r_course/&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb356-1"><a href="#cb356-1" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;Downloads/Intro_To_Python-master/r_course/&quot;</span>)</span></code></pre></div>
 </div>
 <div id="data-from-external-sources" class="section level2">
 <h2>Data from external sources</h2>
@@ -3113,13 +3238,13 @@ Sample_3.hi
 Gene_a
 </td>
 <td style="text-align:right;">
-2.596711
+3.973947
 </td>
 <td style="text-align:right;">
-3.656180
+3.930245
 </td>
 <td style="text-align:right;">
-6.133657
+2.474149
 </td>
 </tr>
 <tr>
@@ -3127,13 +3252,13 @@ Gene_a
 Gene_b
 </td>
 <td style="text-align:right;">
-5.580034
+3.461118
 </td>
 <td style="text-align:right;">
-5.385708
+3.985219
 </td>
 <td style="text-align:right;">
-4.336537
+5.081024
 </td>
 </tr>
 <tr>
@@ -3141,13 +3266,13 @@ Gene_b
 Gene_c
 </td>
 <td style="text-align:right;">
-3.628295
+4.363544
 </td>
 <td style="text-align:right;">
-3.669526
+4.808006
 </td>
 <td style="text-align:right;">
-4.421981
+4.068423
 </td>
 </tr>
 <tr>
@@ -3155,13 +3280,13 @@ Gene_c
 Gene_d
 </td>
 <td style="text-align:right;">
-5.226014
+5.089677
 </td>
 <td style="text-align:right;">
-3.398163
+1.477786
 </td>
 <td style="text-align:right;">
-4.945436
+4.949975
 </td>
 </tr>
 <tr>
@@ -3169,13 +3294,13 @@ Gene_d
 Gene_e
 </td>
 <td style="text-align:right;">
-8.828465
+9.478252
 </td>
 <td style="text-align:right;">
-11.203231
+10.525974
 </td>
 <td style="text-align:right;">
-11.179521
+9.489895
 </td>
 </tr>
 <tr>
@@ -3183,13 +3308,13 @@ Gene_e
 Gene_f
 </td>
 <td style="text-align:right;">
-9.807203
+9.167348
 </td>
 <td style="text-align:right;">
-9.695646
+10.601165
 </td>
 <td style="text-align:right;">
-11.164522
+9.324316
 </td>
 </tr>
 <tr>
@@ -3197,13 +3322,13 @@ Gene_f
 Gene_g
 </td>
 <td style="text-align:right;">
-11.087055
+9.399451
 </td>
 <td style="text-align:right;">
-10.773416
+11.443669
 </td>
 <td style="text-align:right;">
-11.799930
+9.400897
 </td>
 </tr>
 <tr>
@@ -3211,13 +3336,13 @@ Gene_g
 Gene_h
 </td>
 <td style="text-align:right;">
-10.152536
+11.166681
 </td>
 <td style="text-align:right;">
-8.134268
+11.069730
 </td>
 <td style="text-align:right;">
-11.630507
+9.805737
 </td>
 </tr>
 </tbody>
@@ -3228,8 +3353,8 @@ Gene_h
 <p>Tables from text files can be read with <strong>read.table()</strong>
 function. We are providing a relative path to our file as the first
 argument.</p>
-<div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb325-1"><a href="#cb325-1" tabindex="-1"></a>Table <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;data/readThisTable.csv&quot;</span>,<span class="at">sep=</span><span class="st">&quot;,&quot;</span>,<span class="at">header=</span>T)</span>
-<span id="cb325-2"><a href="#cb325-2" tabindex="-1"></a>Table[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb357-1"><a href="#cb357-1" tabindex="-1"></a>Table <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;data/readThisTable.csv&quot;</span>,<span class="at">sep=</span><span class="st">&quot;,&quot;</span>,<span class="at">header=</span>T)</span>
+<span id="cb357-2"><a href="#cb357-2" tabindex="-1"></a>Table[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]</span></code></pre></div>
 <pre><code>##   Gene_Name Sample_1.hi Sample_2.hi
 ## 1    Gene_a    4.570237    3.230467
 ## 2    Gene_b    3.561733    3.632285
@@ -3248,8 +3373,8 @@ through its many arguments. Have a look at options by using
 <p>The <strong>row.names</strong> argument can be used to specify a
 column to use as row names for the resulting data frame. Here we use the
 first column as row names.</p>
-<div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb327-1"><a href="#cb327-1" tabindex="-1"></a>Table <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;data/readThisTable.csv&quot;</span>,<span class="at">sep=</span><span class="st">&quot;,&quot;</span>,<span class="at">header=</span>T,<span class="at">row.names=</span><span class="dv">1</span>)</span>
-<span id="cb327-2"><a href="#cb327-2" tabindex="-1"></a>Table[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb359-1"><a href="#cb359-1" tabindex="-1"></a>Table <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;data/readThisTable.csv&quot;</span>,<span class="at">sep=</span><span class="st">&quot;,&quot;</span>,<span class="at">header=</span>T,<span class="at">row.names=</span><span class="dv">1</span>)</span>
+<span id="cb359-2"><a href="#cb359-2" tabindex="-1"></a>Table[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]</span></code></pre></div>
 <pre><code>##        Sample_1.hi Sample_2.hi Sample_3.hi
 ## Gene_a    4.570237    3.230467    3.351827
 ## Gene_b    3.561733    3.632285    3.587523
@@ -3265,7 +3390,7 @@ data is read in as a factor or not with the
 <strong>stringsAsFactors</strong> argument. The default of this has also
 changed in R 4.0, from <strong>TRUE</strong> to
 <strong>FALSE</strong>.</p>
-<div class="sourceCode" id="cb329"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb329-1"><a href="#cb329-1" tabindex="-1"></a>Table <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;data/readThisTable.csv&quot;</span>, <span class="at">sep=</span><span class="st">&quot;,&quot;</span>, <span class="at">header=</span>T, <span class="at">stringsAsFactors=</span>F)</span></code></pre></div>
+<div class="sourceCode" id="cb361"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb361-1"><a href="#cb361-1" tabindex="-1"></a>Table <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;data/readThisTable.csv&quot;</span>, <span class="at">sep=</span><span class="st">&quot;,&quot;</span>, <span class="at">header=</span>T, <span class="at">stringsAsFactors=</span>F)</span></code></pre></div>
 <p>Other very useful functions for read table include: -
 <strong>skip</strong> - To set number of lines to skip when reading. -
 <strong>comment.char</strong> - To set the start identifier for lines
@@ -3274,14 +3399,14 @@ not to be read.</p>
 <div id="data-from-other-sources" class="section level2">
 <h2>Data from other sources</h2>
 <p>The read.table function can also read data from http.</p>
-<div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb330-1"><a href="#cb330-1" tabindex="-1"></a>URL <span class="ot">&lt;-</span> <span class="st">&quot;https://raw.githubusercontent.com/RockefellerUniversity/Intro_To_R_1Day/refs/heads/master/readThisTable.csv&quot;</span></span>
-<span id="cb330-2"><a href="#cb330-2" tabindex="-1"></a>Table <span class="ot">&lt;-</span> <span class="fu">read.table</span>(URL,<span class="at">sep=</span><span class="st">&quot;,&quot;</span>,<span class="at">header=</span>T)</span>
-<span id="cb330-3"><a href="#cb330-3" tabindex="-1"></a>Table[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb362-1"><a href="#cb362-1" tabindex="-1"></a>URL <span class="ot">&lt;-</span> <span class="st">&quot;https://raw.githubusercontent.com/RockefellerUniversity/Intro_To_R_1Day/refs/heads/master/readThisTable.csv&quot;</span></span>
+<span id="cb362-2"><a href="#cb362-2" tabindex="-1"></a>Table <span class="ot">&lt;-</span> <span class="fu">read.table</span>(URL,<span class="at">sep=</span><span class="st">&quot;,&quot;</span>,<span class="at">header=</span>T)</span>
+<span id="cb362-3"><a href="#cb362-3" tabindex="-1"></a>Table[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]</span></code></pre></div>
 <pre><code>##   Gene_Name Sample_1.hi Sample_2.hi
 ## 1    Gene_a    4.570237    3.230467
 ## 2    Gene_b    3.561733    3.632285</code></pre>
 <p>And the clipboard (this is Windows version).</p>
-<div class="sourceCode" id="cb332"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb332-1"><a href="#cb332-1" tabindex="-1"></a>Table <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file=</span><span class="st">&quot;clipboard&quot;</span>,<span class="at">sep=</span><span class="st">&quot;,&quot;</span>,<span class="at">header=</span>T)</span></code></pre></div>
+<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb364-1"><a href="#cb364-1" tabindex="-1"></a>Table <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file=</span><span class="st">&quot;clipboard&quot;</span>,<span class="at">sep=</span><span class="st">&quot;,&quot;</span>,<span class="at">header=</span>T)</span></code></pre></div>
 </div>
 <div id="data-from-file-columns" class="section level2">
 <h2>Data from file columns</h2>
@@ -3290,9 +3415,9 @@ file.</p>
 <p>The <strong>scan()</strong> function allows for the selection of
 particular columns to be read into R and so can save memory when files
 are large.</p>
-<div class="sourceCode" id="cb333"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb333-1"><a href="#cb333-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">scan</span>(<span class="st">&quot;data/readThisTable.csv&quot;</span>,<span class="at">sep=</span><span class="st">&quot;,&quot;</span>,</span>
-<span id="cb333-2"><a href="#cb333-2" tabindex="-1"></a>          <span class="at">what =</span> <span class="fu">as.list</span>(<span class="fu">c</span>(<span class="st">&quot;character&quot;</span>,<span class="fu">rep</span>(<span class="st">&quot;numeric&quot;</span>, <span class="dv">6</span>))),<span class="at">skip=</span><span class="dv">1</span>)</span>
-<span id="cb333-3"><a href="#cb333-3" tabindex="-1"></a>x[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb365"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb365-1"><a href="#cb365-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">scan</span>(<span class="st">&quot;data/readThisTable.csv&quot;</span>,<span class="at">sep=</span><span class="st">&quot;,&quot;</span>,</span>
+<span id="cb365-2"><a href="#cb365-2" tabindex="-1"></a>          <span class="at">what =</span> <span class="fu">as.list</span>(<span class="fu">c</span>(<span class="st">&quot;character&quot;</span>,<span class="fu">rep</span>(<span class="st">&quot;numeric&quot;</span>, <span class="dv">6</span>))),<span class="at">skip=</span><span class="dv">1</span>)</span>
+<span id="cb365-3"><a href="#cb365-3" tabindex="-1"></a>x[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]</span></code></pre></div>
 <pre><code>## [[1]]
 ## [1] &quot;Gene_a&quot; &quot;Gene_b&quot; &quot;Gene_c&quot; &quot;Gene_d&quot; &quot;Gene_e&quot; &quot;Gene_f&quot; &quot;Gene_g&quot; &quot;Gene_h&quot;
 ## 
@@ -3309,10 +3434,10 @@ are large.</p>
 <p>Once we have our data analysed in R, we will want to export it to a
 file.</p>
 <p>The most common method is to use the write.table() function</p>
-<div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb335-1"><a href="#cb335-1" tabindex="-1"></a><span class="fu">write.table</span>(Table, <span class="at">file=</span><span class="st">&quot;data/writeThisTable.csv&quot;</span>, <span class="at">sep=</span><span class="st">&quot;,&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb367"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb367-1"><a href="#cb367-1" tabindex="-1"></a><span class="fu">write.table</span>(Table, <span class="at">file=</span><span class="st">&quot;data/writeThisTable.csv&quot;</span>, <span class="at">sep=</span><span class="st">&quot;,&quot;</span>)</span></code></pre></div>
 <p>Since our data has column names but no row names, I will provide the
 arguments col.names and row.names to write.table()</p>
-<div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb336-1"><a href="#cb336-1" tabindex="-1"></a><span class="fu">write.table</span>(Table, <span class="at">file=</span><span class="st">&quot;data/writeThisTable.csv&quot;</span>, <span class="at">sep=</span><span class="st">&quot;,&quot;</span>, <span class="at">row.names =</span>F, <span class="at">col.names=</span>T)</span></code></pre></div>
+<div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb368-1"><a href="#cb368-1" tabindex="-1"></a><span class="fu">write.table</span>(Table, <span class="at">file=</span><span class="st">&quot;data/writeThisTable.csv&quot;</span>, <span class="at">sep=</span><span class="st">&quot;,&quot;</span>, <span class="at">row.names =</span>F, <span class="at">col.names=</span>T)</span></code></pre></div>
 </div>
 </div>
 <div id="reviewing-your-data" class="section level1">
@@ -3322,7 +3447,7 @@ are reading it in for the first time. We have used indexing to get a
 taste of the data frames so far. But there are two functions to quickly
 check your data. <strong>head()</strong> and <strong>tail()</strong>
 return the first or last 6 lines by default.</p>
-<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="#cb337-1" tabindex="-1"></a><span class="fu">head</span>(Table)</span></code></pre></div>
+<div class="sourceCode" id="cb369"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb369-1"><a href="#cb369-1" tabindex="-1"></a><span class="fu">head</span>(Table)</span></code></pre></div>
 <pre><code>##   Gene_Name Sample_1.hi Sample_2.hi Sample_3.hi Sample_4.low Sample_5.low
 ## 1    Gene_a    4.570237    3.230467    3.351827     3.930877     4.098247
 ## 2    Gene_b    3.561733    3.632285    3.587523     4.185287     1.380976
@@ -3340,7 +3465,7 @@ return the first or last 6 lines by default.</p>
 </div>
 <div id="reviewing-your-data-1" class="section level1">
 <h1>Reviewing your data</h1>
-<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb339-1"><a href="#cb339-1" tabindex="-1"></a><span class="fu">tail</span>(Table)</span></code></pre></div>
+<div class="sourceCode" id="cb371"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb371-1"><a href="#cb371-1" tabindex="-1"></a><span class="fu">tail</span>(Table)</span></code></pre></div>
 <pre><code>##   Gene_Name Sample_1.hi Sample_2.hi Sample_3.hi Sample_4.low Sample_5.low
 ## 3    Gene_c    3.797274    2.874462    4.016916     4.175772     1.988263
 ## 4    Gene_d    3.398242    4.415202    4.893561     8.432342     9.609151
@@ -3355,7 +3480,7 @@ return the first or last 6 lines by default.</p>
 ## 6    2.5427773
 ## 7    9.7988238
 ## 8   10.2453258</code></pre>
-<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb341-1"><a href="#cb341-1" tabindex="-1"></a><span class="fu">head</span>(Table,<span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb373"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb373-1"><a href="#cb373-1" tabindex="-1"></a><span class="fu">head</span>(Table,<span class="dv">3</span>)</span></code></pre></div>
 <pre><code>##   Gene_Name Sample_1.hi Sample_2.hi Sample_3.hi Sample_4.low Sample_5.low
 ## 1    Gene_a    4.570237    3.230467    3.351827     3.930877     4.098247
 ## 2    Gene_b    3.561733    3.632285    3.587523     4.185287     1.380976
@@ -3383,7 +3508,7 @@ this package to our version of R.</p>
 <p>We can do this by using the <strong>install.packages()</strong>
 function with the package we wish to install.</p>
 <p><strong>install.packages(<em>PACKAGENAME</em>)</strong></p>
-<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb343-1"><a href="#cb343-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;rio&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb375"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb375-1"><a href="#cb375-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;rio&quot;</span>)</span></code></pre></div>
 </div>
 <div id="the-rio-package-1" class="section level2">
 <h2>The rio package</h2>
@@ -3392,7 +3517,7 @@ functions available to us.</p>
 <p>We can load a library by using the <strong>library()</strong>
 function with package we wish to install</p>
 <p><strong>library(<em>PACKAGENAME</em>)</strong></p>
-<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb344-1"><a href="#cb344-1" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;rio&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb376"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb376-1"><a href="#cb376-1" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;rio&quot;</span>)</span></code></pre></div>
 </div>
 <div id="the-rio-package-2" class="section level2">
 <h2>The rio package</h2>
@@ -3402,8 +3527,8 @@ function with package we wish to install</p>
 file. We simple specify our file as an argument to the
 <strong>import()</strong> function.</p>
 <p><strong>import(<em>Filename</em>)</strong></p>
-<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="#cb345-1" tabindex="-1"></a>Table <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">&quot;data/readThisTable.csv&quot;</span>)</span>
-<span id="cb345-2"><a href="#cb345-2" tabindex="-1"></a>Table[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>,]</span></code></pre></div>
+<div class="sourceCode" id="cb377"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb377-1"><a href="#cb377-1" tabindex="-1"></a>Table <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">&quot;data/readThisTable.csv&quot;</span>)</span>
+<span id="cb377-2"><a href="#cb377-2" tabindex="-1"></a>Table[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>,]</span></code></pre></div>
 <pre><code>##   Gene_Name Sample_1.hi Sample_2.hi Sample_3.hi Sample_4.low Sample_5.low
 ## 1    Gene_a    4.570237    3.230467    3.351827     3.930877     4.098247
 ## 2    Gene_b    3.561733    3.632285    3.587523     4.185287     1.380976
@@ -3416,11 +3541,11 @@ file. We simple specify our file as an argument to the
 <p>By default we will only retrieve the first sheet.</p>
 <p>We can specify the sheet by name or number using the
 <strong>which</strong> argument.</p>
-<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="#cb347-1" tabindex="-1"></a>Table <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">&quot;data/readThisXLS.xls&quot;</span>, </span>
-<span id="cb347-2"><a href="#cb347-2" tabindex="-1"></a>                <span class="at">which=</span><span class="dv">2</span>)</span>
-<span id="cb347-3"><a href="#cb347-3" tabindex="-1"></a>Table <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">&quot;data/readThisXLS.xls&quot;</span>, </span>
-<span id="cb347-4"><a href="#cb347-4" tabindex="-1"></a>                <span class="at">which=</span><span class="st">&quot;Metadata&quot;</span>)</span>
-<span id="cb347-5"><a href="#cb347-5" tabindex="-1"></a>Table[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>,]</span></code></pre></div>
+<div class="sourceCode" id="cb379"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb379-1"><a href="#cb379-1" tabindex="-1"></a>Table <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">&quot;data/readThisXLS.xls&quot;</span>, </span>
+<span id="cb379-2"><a href="#cb379-2" tabindex="-1"></a>                <span class="at">which=</span><span class="dv">2</span>)</span>
+<span id="cb379-3"><a href="#cb379-3" tabindex="-1"></a>Table <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">&quot;data/readThisXLS.xls&quot;</span>, </span>
+<span id="cb379-4"><a href="#cb379-4" tabindex="-1"></a>                <span class="at">which=</span><span class="st">&quot;Metadata&quot;</span>)</span>
+<span id="cb379-5"><a href="#cb379-5" tabindex="-1"></a>Table[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>,]</span></code></pre></div>
 <pre><code>##       Patient Condition   Treatment
 ## 1 Sample_1.hi         A           X
 ## 2 Sample_2.hi         A NoTreatment</code></pre>
@@ -3431,8 +3556,8 @@ file. We simple specify our file as an argument to the
 <strong>import_list</strong>.</p>
 <p>This returns a <em>list</em> containing our two spreadsheets. The
 list has two elements named after the corresponding XLS sheet.</p>
-<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="#cb349-1" tabindex="-1"></a>Table <span class="ot">&lt;-</span> <span class="fu">import_list</span>(<span class="st">&quot;data/readThisXLS.xls&quot;</span>)</span>
-<span id="cb349-2"><a href="#cb349-2" tabindex="-1"></a><span class="fu">names</span>(Table)</span></code></pre></div>
+<div class="sourceCode" id="cb381"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb381-1"><a href="#cb381-1" tabindex="-1"></a>Table <span class="ot">&lt;-</span> <span class="fu">import_list</span>(<span class="st">&quot;data/readThisXLS.xls&quot;</span>)</span>
+<span id="cb381-2"><a href="#cb381-2" tabindex="-1"></a><span class="fu">names</span>(Table)</span></code></pre></div>
 <pre><code>## [1] &quot;ExpressionScores&quot; &quot;Metadata&quot;</code></pre>
 </div>
 <div id="the-rio-package-5" class="section level2">
@@ -3440,15 +3565,15 @@ list has two elements named after the corresponding XLS sheet.</p>
 <p>Since this is a list of data.frames, we can access our sheets using
 standard list accessors, <strong>$</strong> and
 <strong>[[]]</strong>.</p>
-<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="#cb351-1" tabindex="-1"></a><span class="do">## Table[[&quot;ExpressionScores&quot;]][1:2,]</span></span>
-<span id="cb351-2"><a href="#cb351-2" tabindex="-1"></a>Table<span class="sc">$</span>ExpressionScores[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>,]</span></code></pre></div>
+<div class="sourceCode" id="cb383"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb383-1"><a href="#cb383-1" tabindex="-1"></a><span class="do">## Table[[&quot;ExpressionScores&quot;]][1:2,]</span></span>
+<span id="cb383-2"><a href="#cb383-2" tabindex="-1"></a>Table<span class="sc">$</span>ExpressionScores[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>,]</span></code></pre></div>
 <pre><code>##   Gene_Name Sample_1.hi Sample_2.hi Sample_3.hi Sample_4.low Sample_5.low
 ## 1    Gene_a    4.570237    3.230467    3.351827     3.930877     4.098247
 ## 2    Gene_b    3.561733    3.632285    3.587523     4.185287     1.380976
 ##   Sample_1.low
 ## 1     4.418726
 ## 2     5.936990</code></pre>
-<div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb353-1"><a href="#cb353-1" tabindex="-1"></a>Table<span class="sc">$</span>Metadata[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>,]</span></code></pre></div>
+<div class="sourceCode" id="cb385"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb385-1"><a href="#cb385-1" tabindex="-1"></a>Table<span class="sc">$</span>Metadata[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>,]</span></code></pre></div>
 <pre><code>##       Patient Condition   Treatment
 ## 1 Sample_1.hi         A           X
 ## 2 Sample_2.hi         A NoTreatment</code></pre>
@@ -3460,28 +3585,28 @@ standard list accessors, <strong>$</strong> and
 file to the <strong>file</strong> argument. The
 <strong>export()</strong> function will guess the format required from
 the extension.</p>
-<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb355-1"><a href="#cb355-1" tabindex="-1"></a>ExpressionScores <span class="ot">&lt;-</span> Table<span class="sc">$</span>ExpressionScores</span>
-<span id="cb355-2"><a href="#cb355-2" tabindex="-1"></a><span class="fu">export</span>(ExpressionScores,<span class="at">file =</span> <span class="st">&quot;data/writeThisXLSX.xlsx&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb387"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb387-1"><a href="#cb387-1" tabindex="-1"></a>ExpressionScores <span class="ot">&lt;-</span> Table<span class="sc">$</span>ExpressionScores</span>
+<span id="cb387-2"><a href="#cb387-2" tabindex="-1"></a><span class="fu">export</span>(ExpressionScores,<span class="at">file =</span> <span class="st">&quot;data/writeThisXLSX.xlsx&quot;</span>)</span></code></pre></div>
 </div>
 <div id="the-rio-package-7" class="section level2">
 <h2>The rio package</h2>
 <p>We can export a list of data.frames to Excel’s xlsx format using the
 <strong>export()</strong> function. The names of list elements will be
 used to name sheets in xlsx file.</p>
-<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb356-1"><a href="#cb356-1" tabindex="-1"></a><span class="fu">names</span>(Table) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;expr&quot;</span>,<span class="st">&quot;meta&quot;</span>)</span>
-<span id="cb356-2"><a href="#cb356-2" tabindex="-1"></a><span class="fu">export</span>(Table, <span class="at">file =</span> <span class="st">&quot;data/writeThisMultipleXLSX.xlsx&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb388"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb388-1"><a href="#cb388-1" tabindex="-1"></a><span class="fu">names</span>(Table) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;expr&quot;</span>,<span class="st">&quot;meta&quot;</span>)</span>
+<span id="cb388-2"><a href="#cb388-2" tabindex="-1"></a><span class="fu">export</span>(Table, <span class="at">file =</span> <span class="st">&quot;data/writeThisMultipleXLSX.xlsx&quot;</span>)</span></code></pre></div>
 </div>
 <div id="save-and-read-data" class="section level2">
 <h2>Save and read data</h2>
 <p>If you have an R object that is not rectangular, i.e. a list or a
 specialist R object, you can still save it.</p>
 <p>Lets remake our list.</p>
-<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb357-1"><a href="#cb357-1" tabindex="-1"></a>firstElement <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)</span>
-<span id="cb357-2"><a href="#cb357-2" tabindex="-1"></a>secondElement <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,<span class="at">nrow=</span><span class="dv">2</span>,<span class="at">ncol=</span><span class="dv">5</span>)</span>
-<span id="cb357-3"><a href="#cb357-3" tabindex="-1"></a>thirdElement <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">colOne=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">5</span>),<span class="at">colTwo=</span><span class="fu">c</span>(<span class="st">&quot;One&quot;</span>,<span class="st">&quot;Two&quot;</span>,<span class="st">&quot;Three&quot;</span>,<span class="st">&quot;Four&quot;</span>))</span>
-<span id="cb357-4"><a href="#cb357-4" tabindex="-1"></a></span>
-<span id="cb357-5"><a href="#cb357-5" tabindex="-1"></a>myList <span class="ot">&lt;-</span> <span class="fu">list</span>(firstElement,secondElement,thirdElement)</span>
-<span id="cb357-6"><a href="#cb357-6" tabindex="-1"></a>myList</span></code></pre></div>
+<div class="sourceCode" id="cb389"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb389-1"><a href="#cb389-1" tabindex="-1"></a>firstElement <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)</span>
+<span id="cb389-2"><a href="#cb389-2" tabindex="-1"></a>secondElement <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,<span class="at">nrow=</span><span class="dv">2</span>,<span class="at">ncol=</span><span class="dv">5</span>)</span>
+<span id="cb389-3"><a href="#cb389-3" tabindex="-1"></a>thirdElement <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">colOne=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">5</span>),<span class="at">colTwo=</span><span class="fu">c</span>(<span class="st">&quot;One&quot;</span>,<span class="st">&quot;Two&quot;</span>,<span class="st">&quot;Three&quot;</span>,<span class="st">&quot;Four&quot;</span>))</span>
+<span id="cb389-4"><a href="#cb389-4" tabindex="-1"></a></span>
+<span id="cb389-5"><a href="#cb389-5" tabindex="-1"></a>myList <span class="ot">&lt;-</span> <span class="fu">list</span>(firstElement,secondElement,thirdElement)</span>
+<span id="cb389-6"><a href="#cb389-6" tabindex="-1"></a>myList</span></code></pre></div>
 <pre><code>## [[1]]
 ## [1] 1 2 3 4
 ## 
@@ -3500,10 +3625,10 @@ specialist R object, you can still save it.</p>
 <div id="save-and-read-data-1" class="section level2">
 <h2>Save and read data</h2>
 <p>We can use the <em>saveRDS()</em> and <em>readRDS()</em> functions to
-save and read in our R object. They are save as a *.rds object.</p>
-<div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb359-1"><a href="#cb359-1" tabindex="-1"></a><span class="fu">saveRDS</span>(myList, <span class="st">&quot;my_list.rds&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb360-1"><a href="#cb360-1" tabindex="-1"></a>my_newlist <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;my_list.rds&quot;</span>)</span>
-<span id="cb360-2"><a href="#cb360-2" tabindex="-1"></a>my_newlist</span></code></pre></div>
+save and read in our R object. They are saved as a *.rds object.</p>
+<div class="sourceCode" id="cb391"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb391-1"><a href="#cb391-1" tabindex="-1"></a><span class="fu">saveRDS</span>(myList, <span class="st">&quot;my_list.rds&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb392"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb392-1"><a href="#cb392-1" tabindex="-1"></a>my_newlist <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;my_list.rds&quot;</span>)</span>
+<span id="cb392-2"><a href="#cb392-2" tabindex="-1"></a>my_newlist</span></code></pre></div>
 <pre><code>## [[1]]
 ## [1] 1 2 3 4
 ## 
@@ -3524,11 +3649,11 @@ save and read in our R object. They are save as a *.rds object.</p>
 <p>There is also a <em>save()</em> function. This can be used to save
 multiple data objects into a single <em>RData</em> file. We have to
 ensure that we name the argument for file output (<em>file=</em>).</p>
-<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb362-1"><a href="#cb362-1" tabindex="-1"></a><span class="fu">save</span>(Table, myList, <span class="at">file =</span> <span class="st">&quot;my_list.RData&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb394"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb394-1"><a href="#cb394-1" tabindex="-1"></a><span class="fu">save</span>(Table, myList, <span class="at">file =</span> <span class="st">&quot;my_list.RData&quot;</span>)</span></code></pre></div>
 <p>We simply use <em>load()</em> to read it back in. We cannot assign
 this to a new variable as there are multiple objects. Instead load
 remembers the objects original name i.e. Table or myList.</p>
-<div class="sourceCode" id="cb363"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb363-1"><a href="#cb363-1" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;my_list.RData&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb395"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb395-1"><a href="#cb395-1" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;my_list.RData&quot;</span>)</span></code></pre></div>
 </div>
 <div id="time-for-an-exercise-3" class="section level2">
 <h2>Time for an exercise!</h2>
