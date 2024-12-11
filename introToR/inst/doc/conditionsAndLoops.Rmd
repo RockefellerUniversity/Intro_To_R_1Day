@@ -171,9 +171,13 @@ count
 
 - Set your working directory to be in the downloaded course material. Specifically the *r_course* subdirectory. [The exact path will depend on where you have save your download]. Read in all files from expression directory ("ExpressionResults/") with .txt extension and create a table of gene expression results.
 
-```{r,echo=toMessage}
+```{r,echo=toMessage, eval=F}
 
 setwd("~/Downloads/Intro_To_R_1Day-master/r_course")
+```
+
+
+```{r,echo=toMessage}
 filesToRead <- dir("ExpressionResults/",pattern = "*\\.txt",full.names=T)
 fileRead <- vector("list",length=length(filesToRead))
 
