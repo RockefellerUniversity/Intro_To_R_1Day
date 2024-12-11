@@ -12,7 +12,7 @@
 <meta name="author" content="Rockefeller University, Bioinformatics Resource Centre" />
 
 
-<title>Reading and writing data in R</title>
+<title>Vectors</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -426,7 +426,7 @@ display: none;
 
 
 
-<h1 class="title toc-ignore">Reading and writing data in R</h1>
+<h1 class="title toc-ignore">Vectors</h1>
 <h4 class="author">Rockefeller University, Bioinformatics Resource
 Centre</h4>
 <h4 class="date"><a href="https://rockefelleruniversity.github.io/Intro_To_R_1Day/" class="uri">https://rockefelleruniversity.github.io/Intro_To_R_1Day/</a></h4>
@@ -437,129 +437,206 @@ Centre</h4>
 <p>
  
 </p>
-<p>These exercises are about reading and writing data sections of <a href="https://rockefelleruniversity.github.io/Intro_To_R_1Day/">Introduction
+<p>These exercises are about the vector sections of <a href="https://rockefelleruniversity.github.io/Intro_To_R_1Day/">Introduction
 to R</a>.</p>
 <p><strong>Exercise 1</strong></p>
-<p>Have a look at all files in notepad or excel before attempting to
-read. All files can be found in the “data” directory.</p>
 <ul>
-<li>Check your current working directory. Set your working directory to
-be in the downloaded course material. Specifically the <em>r_course</em>
-subdirectory. [The exact path will depend on where you have save your
-download]</li>
+<li>Create a vector containing the values 1,2,3,4,5</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
-<pre><code>[1] &quot;/Users/mattpaul&quot;</code></pre>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;~/Downloads/Intro_To_R_1Day-master/r_course&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>)</span></code></pre></div>
+<pre><code>## [1] 1 2 3 4 5</code></pre>
 <ul>
-<li>Read in the tab delimited file “GeneExpression.txt”. Check the data
-type.</li>
+<li>Create a vector containing the values 1 to 100. Save it as the
+variable x.</li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>geneExpression <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;data/GeneExpression.txt&quot;</span>,<span class="at">h=</span>T,<span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>,<span class="at">row.names=</span><span class="dv">1</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="fu">is</span>(geneExpression)</span></code></pre></div>
-<pre><code>## [1] &quot;data.frame&quot;       &quot;list&quot;             &quot;oldClass&quot;         &quot;vector&quot;          
-## [5] &quot;list_OR_List&quot;     &quot;vector_OR_factor&quot; &quot;vector_OR_Vector&quot;</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span></span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>##   [1]   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18
+##  [19]  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36
+##  [37]  37  38  39  40  41  42  43  44  45  46  47  48  49  50  51  52  53  54
+##  [55]  55  56  57  58  59  60  61  62  63  64  65  66  67  68  69  70  71  72
+##  [73]  73  74  75  76  77  78  79  80  81  82  83  84  85  86  87  88  89  90
+##  [91]  91  92  93  94  95  96  97  98  99 100</code></pre>
 <ul>
-<li>Coerce the data frame to a matrix</li>
+<li>Multiply x by 2</li>
 </ul>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>geneExpression <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(geneExpression)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>x<span class="sc">*</span><span class="dv">2</span></span></code></pre></div>
+<pre><code>##   [1]   2   4   6   8  10  12  14  16  18  20  22  24  26  28  30  32  34  36
+##  [19]  38  40  42  44  46  48  50  52  54  56  58  60  62  64  66  68  70  72
+##  [37]  74  76  78  80  82  84  86  88  90  92  94  96  98 100 102 104 106 108
+##  [55] 110 112 114 116 118 120 122 124 126 128 130 132 134 136 138 140 142 144
+##  [73] 146 148 150 152 154 156 158 160 162 164 166 168 170 172 174 176 178 180
+##  [91] 182 184 186 188 190 192 194 196 198 200</code></pre>
 <ul>
-<li>Find the mean expression of all genes.</li>
+<li>Create a vector containing the values 0,5,10,15,20</li>
 </ul>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>sampleMeans <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">mean</span>(geneExpression[<span class="dv">1</span>,]),<span class="fu">mean</span>(geneExpression[<span class="dv">2</span>,]),<span class="fu">mean</span>(geneExpression[<span class="dv">3</span>,]),<span class="fu">mean</span>(geneExpression[<span class="dv">4</span>,]),<span class="fu">mean</span>(geneExpression[<span class="dv">5</span>,]),<span class="fu">mean</span>(geneExpression[<span class="dv">6</span>,]),<span class="fu">mean</span>(geneExpression[<span class="dv">7</span>,]),<span class="fu">mean</span>(geneExpression[<span class="dv">8</span>,]))</span>
-<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="fu">names</span>(sampleMeans) <span class="ot">&lt;-</span> <span class="fu">rownames</span>(geneExpression)</span>
-<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>sampleMeans</span></code></pre></div>
-<pre><code>##    Gene_a    Gene_b    Gene_c    Gene_d    Gene_e    Gene_f    Gene_g    Gene_h 
-##  4.660569  4.379796  4.259824  5.849420  5.850658  6.732781 10.405203 10.201357</code></pre>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="co"># Alternatively we could use the colMeans() function.</span></span>
-<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a><span class="co"># rowMeans(geneExpression)</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">20</span>,<span class="dv">5</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>## [1]  0  5 10 15 20</code></pre>
 <ul>
-<li>Coerce the matrix back to a data frame. Add an additional column
-with extra gene info
-“Kidney”,“Adrenal”,“Liver”,“Adrenal”,“Kidney”,“Liver”,“Liver”,“Kidney”.
-Also add the mean expression as a column.</li>
+<li>Check the help page for the rep function</li>
 </ul>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a>geneExpression <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(geneExpression)</span>
-<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a>geneExpression<span class="sc">$</span>tissue_localisation <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;Kidney&quot;</span>,<span class="st">&quot;Adrenal&quot;</span>,<span class="st">&quot;Liver&quot;</span>,<span class="st">&quot;Adrenal&quot;</span>,<span class="st">&quot;Kidney&quot;</span>,<span class="st">&quot;Liver&quot;</span>,<span class="st">&quot;Liver&quot;</span>,<span class="st">&quot;Kidney&quot;</span>))</span>
-<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a>geneExpression<span class="sc">$</span>mean_expr <span class="ot">&lt;-</span> sampleMeans</span>
-<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a>geneExpression</span></code></pre></div>
-<pre><code>##        Sample_1.hi Sample_2.hi Sample_3.hi Sample_4.low Sample_5.low
-## Gene_a    5.742510    3.214303    4.116820     3.212353     5.742333
-## Gene_b    6.444368    5.896076    2.592581     5.089549     3.624812
-## Gene_c    3.083392    3.414723    3.706069     4.535536     5.104273
-## Gene_d    4.726498    3.023746    3.033173     8.017895     8.098800
-## Gene_e    9.909185    9.174323    9.957153     2.053501     3.276533
-## Gene_f   10.680459    9.951243    8.985412     3.360963     3.566663
-## Gene_g   10.516534   10.176163    9.778173    11.781520     9.005437
-## Gene_h    9.017020    9.342291    9.895636    12.046704    11.003240
-##        Sample_1.low tissue_localisation mean_expr
-## Gene_a    5.9350948              Kidney  4.660569
-## Gene_b    2.6313925             Adrenal  4.379796
-## Gene_c    5.7149521               Liver  4.259824
-## Gene_d    8.1964109             Adrenal  5.849420
-## Gene_e    0.7332521              Kidney  5.850658
-## Gene_f    3.8519471               Liver  6.732781
-## Gene_g   11.1733928               Liver 10.405203
-## Gene_h    9.9032500              Kidney 10.201357</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>?rep</span></code></pre></div>
+<pre><code>## Help on topic &#39;rep&#39; was found in the following packages:
+## 
+##   Package               Library
+##   base                  /usr/local/lib/R/library
+##   S4Vectors             /usr/local/lib/R/host-site-library
+## 
+## 
+## Using the first match ...</code></pre>
 <ul>
-<li>Read in tab delimited file “GeneExpression.txt”. Order genes by
-decreasing expression in mean expression. Filter out genes with
-expression below 5. Write out a new comma separated file with column
-titles.</li>
+<li>Create a vector containing the values 1,1,2,2,3,3 using rep</li>
 </ul>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a>orderedExpression <span class="ot">&lt;-</span> geneExpression[<span class="fu">order</span>(geneExpression<span class="sc">$</span>mean_expr,<span class="at">decreasing=</span>T),]</span>
-<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a>filteredExpression <span class="ot">&lt;-</span> orderedExpression[orderedExpression<span class="sc">$</span>mean_expr<span class="sc">&gt;</span><span class="dv">5</span>,]</span>
-<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a>expressionDF <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="fu">rownames</span>(filteredExpression),filteredExpression)</span>
-<span id="cb12-4"><a href="#cb12-4" tabindex="-1"></a><span class="fu">colnames</span>(expressionDF)[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="st">&quot;geneNames&quot;</span></span>
-<span id="cb12-5"><a href="#cb12-5" tabindex="-1"></a><span class="fu">write.table</span>(expressionDF,<span class="st">&quot;orderedExpression.txt&quot;</span>,<span class="at">sep=</span><span class="st">&quot;,&quot;</span>,<span class="at">col.names =</span> T,<span class="at">row.names=</span>F)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">1</span>,<span class="dv">2</span>),<span class="fu">rep</span>(<span class="dv">2</span>,<span class="dv">2</span>),<span class="fu">rep</span>(<span class="dv">3</span>,<span class="dv">2</span>))</span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>## [1] 1 1 2 2 3 3</code></pre>
 <ul>
-<li>Read in the tab delimited file “GeneExpressionWithMethods.txt”. This
-file contains information on analysis steps used to produce file.</li>
+<li>Create a vector containing the values 1,1,5,7,9,10. Overwrite the
+variable x with this.</li>
 </ul>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a>geneExpression <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;data/GeneExpressionWithMethods.txt&quot;</span>,<span class="at">h=</span>T,<span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>,<span class="at">row.names=</span><span class="dv">1</span>,<span class="at">skip=</span><span class="dv">3</span>)</span>
-<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a>geneExpression</span></code></pre></div>
-<pre><code>##        Sample_1.hi Sample_2.hi Sample_3.hi Sample_4.low Sample_5.low
-## Gene_a    5.742510    3.214303    4.116820     3.212353     5.742333
-## Gene_b    6.444368    5.896076    2.592581     5.089549     3.624812
-## Gene_c    3.083392    3.414723    3.706069     4.535536     5.104273
-## Gene_d    4.726498    3.023746    3.033173     8.017895     8.098800
-## Gene_e    9.909185    9.174323    9.957153     2.053501     3.276533
-## Gene_f   10.680459    9.951243    8.985412     3.360963     3.566663
-## Gene_g   10.516534   10.176163    9.778173    11.781520     9.005437
-## Gene_h    9.017020    9.342291    9.895636    12.046704    11.003240
-##        Sample_1.low
-## Gene_a    5.9350948
-## Gene_b    2.6313925
-## Gene_c    5.7149521
-## Gene_d    8.1964109
-## Gene_e    0.7332521
-## Gene_f    3.8519471
-## Gene_g   11.1733928
-## Gene_h    9.9032500</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">1</span>,<span class="dv">2</span>),<span class="fu">seq</span>(<span class="dv">5</span>,<span class="dv">9</span>,<span class="dv">2</span>),<span class="dv">10</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>## [1]  1  1  5  7  9 10</code></pre>
+<p><strong>Exercise 2</strong></p>
 <ul>
-<li>Read in the tab delimited file “GeneExpressionWithNotes.txt”. This
-file contains notes about particular genes.</li>
+<li>Create a vector containing the values 1 to 10.</li>
 </ul>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a>geneExpression <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;data/GeneExpressionWithNotes.txt&quot;</span>,<span class="at">h=</span>T,<span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>,<span class="at">row.names=</span><span class="dv">1</span>,<span class="at">comment.char =</span> <span class="st">&quot;&gt;&quot;</span>)</span>
-<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a>geneExpression</span></code></pre></div>
-<pre><code>##        Sample_1.hi Sample_2.hi Sample_3.hi Sample_4.low Sample_5.low
-## Gene_a    5.742510    3.214303    4.116820     3.212353     5.742333
-## Gene_b    6.444368    5.896076    2.592581     5.089549     3.624812
-## Gene_c    3.083392    3.414723    3.706069     4.535536     5.104273
-## Gene_d    4.726498    3.023746    3.033173     8.017895     8.098800
-## Gene_e    9.909185    9.174323    9.957153     2.053501     3.276533
-## Gene_f   10.680459    9.951243    8.985412     3.360963     3.566663
-## Gene_g   10.516534   10.176163    9.778173    11.781520     9.005437
-## Gene_h    9.017020    9.342291    9.895636    12.046704    11.003240
-##        Sample_1.low
-## Gene_a    5.9350948
-## Gene_b    2.6313925
-## Gene_c    5.7149521
-## Gene_d    8.1964109
-## Gene_e    0.7332521
-## Gene_f    3.8519471
-## Gene_g   11.1733928
-## Gene_h    9.9032500</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<ul>
+<li>Create a new vector with all but the first and last value.</li>
+</ul>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a>y <span class="ot">&lt;-</span> x[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="fu">length</span>(x))]</span>
+<span id="cb17-2"><a href="#cb17-2" tabindex="-1"></a>y</span></code></pre></div>
+<pre><code>## [1] 2 3 4 5 6 7 8 9</code></pre>
+<ul>
+<li>Create a new vector with all but the second and fifth value.</li>
+</ul>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a>y <span class="ot">&lt;-</span> x[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">5</span>)]</span>
+<span id="cb19-2"><a href="#cb19-2" tabindex="-1"></a>y</span></code></pre></div>
+<pre><code>## [1]  1  3  4  6  7  8  9 10</code></pre>
+<ul>
+<li>Create a new vector of square root of the sixth and seventh
+position.</li>
+</ul>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(x[<span class="dv">6</span><span class="sc">:</span><span class="dv">7</span>])</span>
+<span id="cb21-2"><a href="#cb21-2" tabindex="-1"></a>y</span></code></pre></div>
+<pre><code>## [1] 2.449490 2.645751</code></pre>
+<ul>
+<li>Create a new vector of alternating positions in the vector using
+another vector.</li>
+</ul>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a>y <span class="ot">&lt;-</span> x[<span class="fu">seq</span>(<span class="dv">1</span>,<span class="dv">10</span>,<span class="dv">2</span>)]</span>
+<span id="cb23-2"><a href="#cb23-2" tabindex="-1"></a>y</span></code></pre></div>
+<pre><code>## [1] 1 3 5 7 9</code></pre>
+<p><strong>Exercise 3</strong></p>
+<ul>
+<li>Check the help page for the <em>paste()</em> function.</li>
+</ul>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a>?paste</span></code></pre></div>
+<pre><code>## Help on topic &#39;paste&#39; was found in the following packages:
+## 
+##   Package               Library
+##   base                  /usr/local/lib/R/library
+##   BiocGenerics          /usr/local/lib/R/host-site-library
+## 
+## 
+## Using the first match ...</code></pre>
+<ul>
+<li>Combine the two characters: “A” and “B”</li>
+</ul>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" tabindex="-1"></a><span class="fu">paste</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;A B&quot;</code></pre>
+<ul>
+<li>Change the separator to an underscore</li>
+</ul>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" tabindex="-1"></a><span class="fu">paste</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>, <span class="at">sep=</span><span class="st">&quot;_&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;A_B&quot;</code></pre>
+<p><strong>Exercise 4</strong></p>
+<ul>
+<li>Create a vector with these gene names: “PKM”, “ADPRH”, “TDG”,
+“ATP4A”, “SLC6A4”, “CAPN3”, “TDG”, “ATP1A2”,“PKM”</li>
+<li>Subset to just the unique genes</li>
+</ul>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" tabindex="-1"></a>my_genes <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;PKM&quot;</span>, <span class="st">&quot;ADPRH&quot;</span>, <span class="st">&quot;TDG&quot;</span>, <span class="st">&quot;ATP4A&quot;</span>, <span class="st">&quot;SLC6A4&quot;</span>, <span class="st">&quot;CAPN3&quot;</span>, <span class="st">&quot;TDG&quot;</span>, <span class="st">&quot;ATP1A2&quot;</span>,<span class="st">&quot;PKM&quot;</span>)</span>
+<span id="cb31-2"><a href="#cb31-2" tabindex="-1"></a>my_genes <span class="ot">&lt;-</span> <span class="fu">unique</span>(my_genes)</span>
+<span id="cb31-3"><a href="#cb31-3" tabindex="-1"></a>my_genes </span></code></pre></div>
+<pre><code>## [1] &quot;PKM&quot;    &quot;ADPRH&quot;  &quot;TDG&quot;    &quot;ATP4A&quot;  &quot;SLC6A4&quot; &quot;CAPN3&quot;  &quot;ATP1A2&quot;</code></pre>
+<ul>
+<li>Create a second vector with these gene names: “SLC6A4”, “CAPN3”,
+“TDG”, “ATP1A2”, “IMPA1”, “PDXK”.</li>
+<li>Check which genes from vector 1 are present in vector 2.</li>
+<li>Subset vector 1 depending on whether the gene is present in vector
+2.</li>
+</ul>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" tabindex="-1"></a>my_genes_of_interest <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;SLC6A4&quot;</span>, <span class="st">&quot;CAPN3&quot;</span>, <span class="st">&quot;TDG&quot;</span>, <span class="st">&quot;ATP1A2&quot;</span>, <span class="st">&quot;IMPA1&quot;</span>, <span class="st">&quot;PDXK&quot;</span>)</span>
+<span id="cb33-2"><a href="#cb33-2" tabindex="-1"></a>idx <span class="ot">&lt;-</span> my_genes <span class="sc">%in%</span> my_genes_of_interest</span>
+<span id="cb33-3"><a href="#cb33-3" tabindex="-1"></a>idx</span></code></pre></div>
+<pre><code>## [1] FALSE FALSE  TRUE FALSE  TRUE  TRUE  TRUE</code></pre>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" tabindex="-1"></a>my_genes[idx]</span></code></pre></div>
+<pre><code>## [1] &quot;TDG&quot;    &quot;SLC6A4&quot; &quot;CAPN3&quot;  &quot;ATP1A2&quot;</code></pre>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" tabindex="-1"></a>my_genes_of_interest <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;SLC6A4&quot;</span>, <span class="st">&quot;CAPN3&quot;</span>, <span class="st">&quot;TDG&quot;</span>, <span class="st">&quot;ATP1A2&quot;</span>, <span class="st">&quot;IMPA1&quot;</span>, <span class="st">&quot;PDXK&quot;</span>)</span>
+<span id="cb37-2"><a href="#cb37-2" tabindex="-1"></a>idx <span class="ot">&lt;-</span> my_genes <span class="sc">%in%</span> my_genes_of_interest</span>
+<span id="cb37-3"><a href="#cb37-3" tabindex="-1"></a>idx</span></code></pre></div>
+<pre><code>## [1] FALSE FALSE  TRUE FALSE  TRUE  TRUE  TRUE</code></pre>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" tabindex="-1"></a>my_genes[idx]</span></code></pre></div>
+<pre><code>## [1] &quot;TDG&quot;    &quot;SLC6A4&quot; &quot;CAPN3&quot;  &quot;ATP1A2&quot;</code></pre>
+<ul>
+<li>Create a vector with these gene names: “SMC1”, “SMC3”, “SCC1”,
+“SCC3”, “RAD21”, “NIPBL”, “SMC2”, “SMC4”,“CAPH”,“CAPD3”</li>
+<li>Subset to just the genes containing SMC</li>
+</ul>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" tabindex="-1"></a>my_genes <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;SMC1&quot;</span>, <span class="st">&quot;SMC3&quot;</span>, <span class="st">&quot;SCC1&quot;</span>, <span class="st">&quot;SCC3&quot;</span>, <span class="st">&quot;RAD21&quot;</span>, <span class="st">&quot;NIPBL&quot;</span>, <span class="st">&quot;SMC2&quot;</span>, <span class="st">&quot;SMC4&quot;</span>,<span class="st">&quot;CAPH&quot;</span>,<span class="st">&quot;CAPD3&quot;</span>)</span>
+<span id="cb41-2"><a href="#cb41-2" tabindex="-1"></a>my_genes[<span class="fu">grepl</span>(<span class="st">&quot;SMC&quot;</span>,my_genes)]</span></code></pre></div>
+<pre><code>## [1] &quot;SMC1&quot; &quot;SMC3&quot; &quot;SMC2&quot; &quot;SMC4&quot;</code></pre>
+<p><strong>Exercise 5</strong></p>
+<ul>
+<li>Create a vector of the gene names Gene_1, Gene_2, Gene_3 Gene_4</li>
+<li>Create a vector of the expression values 1000, 3000, 10000,
+12000</li>
+<li>Create a vector of the gene lengths 100, 3000, 200, 1000</li>
+</ul>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" tabindex="-1"></a>geneNames <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Gene_1&quot;</span>, <span class="st">&quot;Gene_2&quot;</span>, <span class="st">&quot;Gene_3&quot;</span>,<span class="st">&quot;Gene_4&quot;</span>)</span>
+<span id="cb43-2"><a href="#cb43-2" tabindex="-1"></a>expression <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1000</span>, <span class="dv">3000</span>, <span class="dv">10000</span>, <span class="dv">12000</span>)</span>
+<span id="cb43-3"><a href="#cb43-3" tabindex="-1"></a>geneLengths <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">3000</span>, <span class="dv">200</span>, <span class="dv">1000</span>)</span>
+<span id="cb43-4"><a href="#cb43-4" tabindex="-1"></a><span class="fu">names</span>(expression) <span class="ot">&lt;-</span> geneNames</span>
+<span id="cb43-5"><a href="#cb43-5" tabindex="-1"></a><span class="fu">names</span>(geneLengths) <span class="ot">&lt;-</span> geneNames</span>
+<span id="cb43-6"><a href="#cb43-6" tabindex="-1"></a>expression</span></code></pre></div>
+<pre><code>## Gene_1 Gene_2 Gene_3 Gene_4 
+##   1000   3000  10000  12000</code></pre>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" tabindex="-1"></a>geneLengths</span></code></pre></div>
+<pre><code>## Gene_1 Gene_2 Gene_3 Gene_4 
+##    100   3000    200   1000</code></pre>
+<ul>
+<li>Find the longest gene.</li>
+</ul>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" tabindex="-1"></a><span class="fu">names</span>(geneLengths[geneLengths <span class="sc">==</span> <span class="fu">max</span>(geneLengths)])</span></code></pre></div>
+<pre><code>## [1] &quot;Gene_2&quot;</code></pre>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" tabindex="-1"></a><span class="fu">names</span>(geneLengths[<span class="fu">which.max</span>(geneLengths)])</span></code></pre></div>
+<pre><code>## [1] &quot;Gene_2&quot;</code></pre>
+<ul>
+<li>Identify genes which have a length greater than 100 and expression
+greater than 10000</li>
+</ul>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" tabindex="-1"></a>geneNames[geneLengths <span class="sc">&gt;</span> <span class="dv">100</span> <span class="sc">&amp;</span> expression <span class="sc">&gt;</span> <span class="dv">10000</span>]</span></code></pre></div>
+<pre><code>## [1] &quot;Gene_4&quot;</code></pre>
+<p><strong>Bonus Questions</strong> <a name="bonus" id="bonus"></a></p>
+<ul>
+<li>Calculate the expression over the gene length for all genes (Length
+normalised expression).</li>
+</ul>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" tabindex="-1"></a>lne <span class="ot">&lt;-</span> expression<span class="sc">/</span>geneLengths</span>
+<span id="cb53-2"><a href="#cb53-2" tabindex="-1"></a>lne</span></code></pre></div>
+<pre><code>## Gene_1 Gene_2 Gene_3 Gene_4 
+##     10      1     50     12</code></pre>
+<ul>
+<li>Identify genes with a length normalised expression greater than the
+average</li>
+</ul>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" tabindex="-1"></a>geneNames[lne <span class="sc">&gt;</span> <span class="fu">mean</span>(lne)]</span></code></pre></div>
+<pre><code>## [1] &quot;Gene_3&quot;</code></pre>
 
 
 

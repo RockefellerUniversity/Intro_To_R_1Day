@@ -339,12 +339,34 @@ Centre</h4>
 </p>
 <p>These exercises are about the conditions and loops sections of <a href="https://rockefelleruniversity.github.io/Intro_To_R_1Day/">Introduction
 to R</a>.</p>
-<p>– Calculate the factorial (factorial of 3 = 3 * 2 * 1) of 10 using a
-loop.</p>
-<pre><code>## [1] 3628800</code></pre>
-<p>– Adjusting your answer from before, what is the first number that
-has a factorial greater than 1000.</p>
-<pre><code>## [1] 7</code></pre>
+<p><strong>Exercise 1</strong> - <strong>If Else</strong></p>
+<ul>
+<li>Build an if statement that test if x is a negative number. Write a
+print statement that will confirm if x is less than 0. Test it with
+several values of x.</li>
+</ul>
+<pre><code>## [1] &quot;It&#39;s a negative number!&quot;</code></pre>
+<ul>
+<li>Modify the previous if statement to include an else. Ensure a print
+statement is returned to say if the number is not negative.</li>
+</ul>
+<pre><code>## [1] &quot;It&#39;s not a negative number!&quot;</code></pre>
+<pre><code>## [1] &quot;It&#39;s a negative number!&quot;</code></pre>
+<ul>
+<li>Finally add a else if statement. We want a response to confirm if x
+is negative, positive or if it is zero.</li>
+</ul>
+<pre><code>## [1] &quot;It&#39;s a negative number!&quot;</code></pre>
+<pre><code>## [1] &quot;It&#39;s zero&quot;</code></pre>
+<pre><code>## [1] &quot;It&#39;s a positive number!&quot;</code></pre>
+<ul>
+<li>Build an if/else statement that test if a variable is odd/even.
+Include x in the printed output.</li>
+</ul>
+<p><em>Hint: The modulus operator may be useful here i.e. x%%2 returns
+the remainder after the value of x is divided by 2.</em></p>
+<pre><code>## [1] &quot;1 is odd&quot;</code></pre>
+<pre><code>## [1] &quot;2 is even&quot;</code></pre>
 <p>– Using an ifelse() expression, create a factor from a vector of 1 to
 40 where all numbers less than 10 are “small”,10 to 30 are “mid”,31 to
 40 are “big”</p>
@@ -355,8 +377,19 @@ has a factorial greater than 1000.</p>
 ## [25] mid   mid   mid   mid   mid   mid   big   big   big   big   big   big  
 ## [37] big   big   big   big  
 ## Levels: small &lt; mid &lt; big</code></pre>
-<p>– Read in all files from expression directory with .txt extension and
-create a table of gene expression results.</p>
+<p>– Calculate the factorial (factorial of 3 = 3 * 2 * 1) of 10 using a
+loop.</p>
+<pre><code>## [1] 3628800</code></pre>
+<p>– Adjusting your answer from before, what is the first number that
+has a factorial greater than 1000.</p>
+<pre><code>## [1] 7</code></pre>
+<ul>
+<li>Set your working directory to be in the downloaded course material.
+Specifically the <em>r_course</em> subdirectory. [The exact path will
+depend on where you have save your download]. Read in all files from
+expression directory (“ExpressionResults/”) with .txt extension and
+create a table of gene expression results.</li>
+</ul>
 <pre><code>## [1] 5001
 ## [1] 5001
 ## [1] 5001

@@ -12,7 +12,7 @@
 <meta name="author" content="Rockefeller University, Bioinformatics Resource Centre" />
 
 
-<title>Factors and Data frames</title>
+<title>Lists</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -426,7 +426,7 @@ display: none;
 
 
 
-<h1 class="title toc-ignore">Factors and Data frames</h1>
+<h1 class="title toc-ignore">Lists</h1>
 <h4 class="author">Rockefeller University, Bioinformatics Resource
 Centre</h4>
 <h4 class="date"><a href="https://rockefelleruniversity.github.io/Intro_To_R_1Day/" class="uri">https://rockefelleruniversity.github.io/Intro_To_R_1Day/</a></h4>
@@ -437,82 +437,102 @@ Centre</h4>
 <p>
  
 </p>
-<p>These exercises are about the factors and data frames sections of <a href="https://rockefelleruniversity.github.io/Intro_To_R_1Day/">Introduction
+<p>These exercises are about the Lists sections of <a href="https://rockefelleruniversity.github.io/Intro_To_R_1Day/">Introduction
 to R</a>.</p>
-<p><strong>Exercise 1</strong> - <strong>Data frames</strong></p>
+<p><strong>Exercise 1</strong></p>
 <ul>
-<li>Create data frame called Annotation with a column of gene names
-(“Gene_1”, “Gene_2”, “Gene_3”,“Gene_4”,“Gene_5”), ensembl gene names
-(“Ens001”, “Ens003”, “Ens006”, “Ens007”, “Ens010”), pathway information
-(“Glycolysis”, “TGFb”, “Glycolysis”, “TGFb”, “Glycolysis”) and gene
-lengths (100, 3000, 200, 1000,1200).</li>
+<li>Create a list containing a character vector, a numeric matrix and a
+data frame with 2 or more datatypes.</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>Annotation <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">geneNames=</span><span class="fu">c</span>(<span class="st">&quot;Gene_1&quot;</span>, <span class="st">&quot;Gene_2&quot;</span>, <span class="st">&quot;Gene_3&quot;</span>,<span class="st">&quot;Gene_4&quot;</span>,<span class="st">&quot;Gene_5&quot;</span>), <span class="at">ensembl=</span><span class="fu">c</span>(<span class="st">&quot;Ens001&quot;</span>, <span class="st">&quot;Ens003&quot;</span>, <span class="st">&quot;Ens006&quot;</span>, <span class="st">&quot;Ens007&quot;</span>, <span class="st">&quot;Ens010&quot;</span>),<span class="at">pathway=</span><span class="fu">c</span>(<span class="st">&quot;Glycolysis&quot;</span>, <span class="st">&quot;TGFb&quot;</span>, <span class="st">&quot;Glycolysis&quot;</span>, <span class="st">&quot;TGFb&quot;</span>, <span class="st">&quot;Glycolysis&quot;</span>),<span class="at">geneLengths=</span><span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">3000</span>, <span class="dv">200</span>, <span class="dv">1000</span>,<span class="dv">1200</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>firstElement <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;C&quot;</span>,<span class="st">&quot;D&quot;</span>,<span class="st">&quot;E&quot;</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>secondElement <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,<span class="at">nrow=</span><span class="dv">5</span>,<span class="at">ncol=</span><span class="dv">5</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>thirdElement <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Sample=</span><span class="fu">c</span>(<span class="st">&quot;Sample1&quot;</span>,<span class="st">&quot;Sample2&quot;</span>,<span class="st">&quot;Sample3&quot;</span>,<span class="st">&quot;Sample4&quot;</span>), <span class="at">Age=</span><span class="fu">c</span>(<span class="dv">25</span>,<span class="dv">21</span>,<span class="dv">24</span>,<span class="dv">25</span>),<span class="at">factor=</span><span class="fu">c</span>(<span class="st">&quot;Smoker&quot;</span>,<span class="st">&quot;Smoker&quot;</span>,<span class="st">&quot;NonSmoker&quot;</span>,<span class="st">&quot;Smoker&quot;</span>))</span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a>my_list <span class="ot">&lt;-</span> <span class="fu">list</span>(firstElement, secondElement, thirdElement)</span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a>my_list</span></code></pre></div>
+<pre><code>## [[1]]
+## [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot;
+## 
+## [[2]]
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,]    1    1    1    1    1
+## [2,]    2    2    2    2    2
+## [3,]    3    3    3    3    3
+## [4,]    4    4    4    4    4
+## [5,]    5    5    5    5    5
+## 
+## [[3]]
+##    Sample Age    factor
+## 1 Sample1  25    Smoker
+## 2 Sample2  21    Smoker
+## 3 Sample3  24 NonSmoker
+## 4 Sample4  25    Smoker</code></pre>
 <ul>
-<li>Create data frame called Sample1 with ensembl gene names (“Ens001”,
-“Ens003”, “Ens006”, “Ens010”) and expression (1000, 3000,
-10000,5000)</li>
+<li>Rename each entry: “my_vector”, “my_matrix”, “my_df”</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>Sample1 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">ensembl=</span><span class="fu">c</span>(<span class="st">&quot;Ens001&quot;</span>, <span class="st">&quot;Ens003&quot;</span>, <span class="st">&quot;Ens006&quot;</span>,<span class="st">&quot;Ens010&quot;</span>),<span class="at">expression=</span><span class="fu">c</span>(<span class="dv">1000</span>, <span class="dv">3000</span>, <span class="dv">10000</span>,<span class="dv">5000</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">names</span>(my_list) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;my_vector&quot;</span>, <span class="st">&quot;my_matrix&quot;</span>, <span class="st">&quot;my_df&quot;</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>my_list</span></code></pre></div>
+<pre><code>## $my_vector
+## [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot;
+## 
+## $my_matrix
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,]    1    1    1    1    1
+## [2,]    2    2    2    2    2
+## [3,]    3    3    3    3    3
+## [4,]    4    4    4    4    4
+## [5,]    5    5    5    5    5
+## 
+## $my_df
+##    Sample Age    factor
+## 1 Sample1  25    Smoker
+## 2 Sample2  21    Smoker
+## 3 Sample3  24 NonSmoker
+## 4 Sample4  25    Smoker</code></pre>
 <ul>
-<li>Create data frame called Sample2 with ensembl gene names (“Ens001”,
-“Ens003”, “Ens006”, “Ens007”,“Ens010”) and expression (1500, 1500,
-17000,500,10000)</li>
+<li>Access the second column of the dataframe. Try to access it in at
+least two different ways.</li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>Sample2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">ensembl=</span><span class="fu">c</span>(<span class="st">&quot;Ens001&quot;</span>, <span class="st">&quot;Ens003&quot;</span>, <span class="st">&quot;Ens006&quot;</span>,<span class="st">&quot;Ens007&quot;</span>,<span class="st">&quot;Ens010&quot;</span>),<span class="at">expression=</span><span class="fu">c</span>(<span class="dv">1500</span>, <span class="dv">1500</span>, <span class="dv">17000</span>,<span class="dv">500</span>,<span class="dv">10000</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>my_list<span class="sc">$</span>my_df<span class="sc">$</span>Age</span></code></pre></div>
+<pre><code>## [1] 25 21 24 25</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>my_list[[<span class="dv">3</span>]][,<span class="dv">2</span>]</span></code></pre></div>
+<pre><code>## [1] 25 21 24 25</code></pre>
 <ul>
-<li>Create a data frame containing only those gene names common to all
-data frames with all information from Annotation and the expression from
-Sample 1 and Sample 2.</li>
+<li>Add a list into the fourth slot of our list. This list should
+contain 2 numeric vectors. The resulting list should be 4 long.
+Check.</li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>AnnoSample1 <span class="ot">&lt;-</span> <span class="fu">merge</span>(Annotation,Sample1,<span class="at">by.x=</span><span class="dv">2</span>,<span class="at">by.y=</span><span class="dv">1</span>,<span class="at">all=</span>F) </span>
-<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>AnnoSample1And2 <span class="ot">&lt;-</span> <span class="fu">merge</span>(AnnoSample1,Sample2,<span class="at">by=</span><span class="dv">1</span>,<span class="at">all=</span>F) </span>
-<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>AnnoSample1And2</span></code></pre></div>
-<pre><code>##   ensembl geneNames    pathway geneLengths expression.x expression.y
-## 1  Ens001    Gene_1 Glycolysis         100         1000         1500
-## 2  Ens003    Gene_2       TGFb        3000         3000         1500
-## 3  Ens006    Gene_3 Glycolysis         200        10000        17000
-## 4  Ens010    Gene_5 Glycolysis        1200         5000        10000</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>fourthElement <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,</span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>                      <span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a>my_list <span class="ot">&lt;-</span> <span class="fu">c</span>(my_list,<span class="fu">list</span>(fourthElement ))</span>
+<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a><span class="fu">length</span>(my_list)</span></code></pre></div>
+<pre><code>## [1] 4</code></pre>
 <ul>
-<li>Add an extra two columns containing the length normalised
-expressions for Sample 1 and Sample 2.</li>
+<li>Access the second vector within the sublist in the 4th
+position.</li>
 </ul>
-<p>Hint see our <a href="../answers/matrices_answers.html#lne">previous
-exercises</a></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>AnnoSample1And2<span class="sc">$</span>Sample1_lne <span class="ot">&lt;-</span> AnnoSample1And2<span class="sc">$</span>expression.x<span class="sc">/</span>AnnoSample1And2<span class="sc">$</span>geneLengths</span>
-<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>AnnoSample1And2<span class="sc">$</span>Sample2_lne <span class="ot">&lt;-</span> AnnoSample1And2<span class="sc">$</span>expression.y<span class="sc">/</span>AnnoSample1And2<span class="sc">$</span>geneLengths</span>
-<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>AnnoSample1And2</span></code></pre></div>
-<pre><code>##   ensembl geneNames    pathway geneLengths expression.x expression.y
-## 1  Ens001    Gene_1 Glycolysis         100         1000         1500
-## 2  Ens003    Gene_2       TGFb        3000         3000         1500
-## 3  Ens006    Gene_3 Glycolysis         200        10000        17000
-## 4  Ens010    Gene_5 Glycolysis        1200         5000        10000
-##   Sample1_lne Sample2_lne
-## 1   10.000000   15.000000
-## 2    1.000000    0.500000
-## 3   50.000000   85.000000
-## 4    4.166667    8.333333</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a>my_list[[<span class="dv">4</span>]][[<span class="dv">2</span>]]</span></code></pre></div>
+<pre><code>## [1] 2 3 4 5 6</code></pre>
 <ul>
-<li>Identify the mean length normalised expression across Sample1 and
-Sample2 for Ens006 genes</li>
+<li>Create a list with three numeric vectors: c(5,2,9), c(13,12,6),
+c(1,3,4)</li>
 </ul>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="fu">rownames</span>(AnnoSample1And2) <span class="ot">&lt;-</span> AnnoSample1And2<span class="sc">$</span>ensembl</span>
-<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="fu">mean</span>(AnnoSample1And2[<span class="st">&quot;Ens006&quot;</span>,<span class="st">&quot;Sample1_lne&quot;</span>],AnnoSample1And2[<span class="st">&quot;Ens006&quot;</span>,<span class="st">&quot;Sample2_lne&quot;</span>])</span></code></pre></div>
-<pre><code>## [1] 50</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a>my_list <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">First=</span><span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">2</span>,<span class="dv">9</span>),<span class="at">Second=</span><span class="fu">c</span>(<span class="dv">13</span>,<span class="dv">12</span>,<span class="dv">6</span>),<span class="at">Third=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">4</span>))</span></code></pre></div>
 <ul>
-<li>For all genes, identify the log2 fold change in length normalised
-expression from Sample 1 to Sample 2.</li>
+<li>Flatten the list and turn it into a matrix.</li>
 </ul>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a>log2FoldChange <span class="ot">&lt;-</span> <span class="fu">log2</span>(AnnoSample1And2<span class="sc">$</span>Sample2_lne) <span class="sc">-</span> <span class="fu">log2</span>(AnnoSample1And2<span class="sc">$</span>Sample1_lne)</span>
-<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a><span class="fu">names</span>(log2FoldChange) <span class="ot">&lt;-</span> AnnoSample1And2<span class="sc">$</span>geneNames</span>
-<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a>log2FoldChange</span></code></pre></div>
-<pre><code>##     Gene_1     Gene_2     Gene_3     Gene_5 
-##  0.5849625 -1.0000000  0.7655347  1.0000000</code></pre>
-<ul>
-<li>Identify the total length of genes in Glycolysis pathway.</li>
-</ul>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="fu">sum</span>(AnnoSample1And2[AnnoSample1And2<span class="sc">$</span>pathway <span class="sc">==</span> <span class="st">&quot;Glycolysis&quot;</span>,<span class="st">&quot;geneLengths&quot;</span>])</span></code></pre></div>
-<pre><code>## [1] 1500</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a>flat_list <span class="ot">&lt;-</span> <span class="fu">unlist</span>(my_list)</span>
+<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a>listAsMat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(flat_list,</span>
+<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a>                    <span class="at">nrow=</span><span class="fu">length</span>(my_list),</span>
+<span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a>                    <span class="at">ncol=</span><span class="dv">3</span>,</span>
+<span id="cb14-5"><a href="#cb14-5" tabindex="-1"></a>                    <span class="at">byrow=</span>T,</span>
+<span id="cb14-6"><a href="#cb14-6" tabindex="-1"></a>                    <span class="at">dimnames=</span><span class="fu">list</span>(<span class="fu">names</span>(my_list)))</span>
+<span id="cb14-7"><a href="#cb14-7" tabindex="-1"></a>listAsMat</span></code></pre></div>
+<pre><code>##        [,1] [,2] [,3]
+## First     5    2    9
+## Second   13   12    6
+## Third     1    3    4</code></pre>
 
 
 

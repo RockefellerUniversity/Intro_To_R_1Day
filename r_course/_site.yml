@@ -24,42 +24,36 @@ navbar:
         href: presentations/r_code/introToR_Session2.R
   - text: Exercises
     menu:
-    - text: vector
+    - text: Vectors
       menu:
       - text: Exercise
-        href: exercises/exercises/vector_exercise.html
+        href: exercises/exercises/Vectors_exercise.html
       - text: Solution
-        href: exercises/answers/vector_answers.html
-    - text: matrices
+        href: exercises/answers/Vectors_answers.html
+    - text: Matrices
       menu:
       - text: Exercise
-        href: exercises/exercises/matrices_exercise.html
+        href: exercises/exercises/Matrices_exercise.html
       - text: Solution
-        href: exercises/answers/matrices_answers.html
-    - text: factorsAndDataframes
+        href: exercises/answers/Matrices_answers.html
+    - text: FactorsAndDataframes
       menu:
       - text: Exercise
-        href: exercises/exercises/factorsAndDataframes_exercise.html
+        href: exercises/exercises/FactorsAndDataframes_exercise.html
       - text: Solution
-        href: exercises/answers/factorsAndDataframes_answers.html
-    - text: Dataframes
-      menu:
-      - text: Exercise
-        href: exercises/exercises/Dataframes_exercise.html
-      - text: Solution
-        href: exercises/answers/Dataframes_answers.html
+        href: exercises/answers/FactorsAndDataframes_answers.html
     - text: DataInputOutput
       menu:
       - text: Exercise
         href: exercises/exercises/DataInputOutput_exercise.html
       - text: Solution
         href: exercises/answers/DataInputOutput_answers.html
-    - text: conditionsAndLoops
+    - text: ConditionsAndLoops
       menu:
       - text: Exercise
-        href: exercises/exercises/conditionsAndLoops_exercise.html
+        href: exercises/exercises/ConditionsAndLoops_exercise.html
       - text: Solution
-        href: exercises/answers/conditionsAndLoops_answers.html
+        href: exercises/answers/ConditionsAndLoops_answers.html
     - text: Functions
       menu:
       - text: Exercise

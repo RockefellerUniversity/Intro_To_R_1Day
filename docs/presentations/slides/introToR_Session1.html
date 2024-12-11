@@ -1020,14 +1020,14 @@ x[x &gt; 4 &amp; !x &lt; 7]
 ## Time for an exercise!
 
 
-Exercise on vectors can be found [here](../../exercises/exercises/vector_exercise.html)
+Exercise on vectors can be found [here](../../exercises/exercises/Vectors_exercise.html)
 
 
 ---
-## Answers to exercise.
+## Answers to exercise
 
 
-Answers can be found here  [here](../../exercises/answers/vector_answers.html)
+Answers can be found here  [here](../../exercises/answers/Vectors_answers.html)
 
 ---
 
@@ -1583,14 +1583,14 @@ narrowMatrix[,2] *2
 ## Time for an exercise!
 
 
-Exercise on matrices can be found [here](../../exercises/exercises/matrices_exercise.html)
+Exercise on matrices can be found [here](../../exercises/exercises/Matrices_exercise.html)
 
 
 ---
-## Answers to exercise.
+## Answers to exercise
 
 
-Answers can be found here  [here](../../exercises/answers/matrices_answers.html)
+Answers can be found here  [here](../../exercises/answers/Matrices_answers.html)
 
 
 
@@ -1690,7 +1690,6 @@ summary(factorExample)
 ## Nominal factors
 
 In some cases there is no natural order to the categories such that one category is greater than the other (nominal data).
-In this case we can see that R is gender neutral.
 
 
 ``` r
@@ -2264,13 +2263,13 @@ mergedDF
 ---
 ## Time for an exercise!
 
-Exercise on data frames can be found [here](../../exercises/exercises/factorsAndDataframes_exercise.html)
+Exercise on data frames can be found [here](../../exercises/exercises/FactorsAndDataframes_exercise.html)
 
 
 ---
-## Answers to exercise.
+## Answers to exercise
 
-Answers can be found here  [here](../../exercises/answers/factorsAndDataframes_answers.html)
+Answers can be found here  [here](../../exercises/answers/FactorsAndDataframes_answers.html)
 
 
 ---
@@ -2495,6 +2494,21 @@ listAsMat
 ## Third     1    4    7
 ```
 
+---
+## Time for an exercise!
+
+
+Exercise on matrices can be found [here](../../exercises/exercises/Lists_exercise.html)
+
+
+---
+## Answers to exercise
+
+
+Answers can be found here  [here](../../exercises/answers/Lists_answers.html)
+
+
+
 
 ---
 class: inverse, center, middle
@@ -2708,7 +2722,7 @@ Time
 ```
 
 ```
-## [1] "2024-12-10 21:07:43 UTC"
+## [1] "2024-12-11 01:00:30 UTC"
 ```
 
 ---
@@ -2763,7 +2777,7 @@ Time
 ```
 
 ```
-## [1] "2024-12-10 21:07:43 UTC"
+## [1] "2024-12-11 01:00:30 UTC"
 ```
 
 ``` r
@@ -2771,7 +2785,7 @@ Time - 120
 ```
 
 ```
-## [1] "2024-12-10 21:05:43 UTC"
+## [1] "2024-12-11 00:58:30 UTC"
 ```
 
 ``` r
@@ -2779,7 +2793,7 @@ TimeNow - Time
 ```
 
 ```
-## Time difference of 0.1014812 secs
+## Time difference of 0.09647393 secs
 ```
 
 ---
@@ -2797,7 +2811,7 @@ format(Time,format="%H O'Clock %p %A on %B %dth")
 ```
 
 ```
-## [1] "21 O'Clock PM Tuesday on December 10th"
+## [1] "01 O'Clock AM Wednesday on December 11th"
 ```
 
 ``` r
@@ -2805,7 +2819,7 @@ format(Time,format="%H O'Clock %p %A on %B %dth",tz = "GMT")
 ```
 
 ```
-## [1] "21 O'Clock PM Tuesday on December 10th"
+## [1] "01 O'Clock AM Wednesday on December 11th"
 ```
 
 ---
@@ -2819,7 +2833,7 @@ as.character(Time)
 ```
 
 ```
-## [1] "2024-12-10 21:07:43.989243"
+## [1] "2024-12-11 01:00:30.832828"
 ```
 
 ``` r
@@ -2827,7 +2841,7 @@ as.numeric(TimeNow-Time)
 ```
 
 ```
-## [1] 0.1014812
+## [1] 0.09647393
 ```
 
 ---
@@ -2944,51 +2958,51 @@ Now we have set our location we can start thinking about reading in data. A stan
 &lt;tbody&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_a &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.423364 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 2.551130 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 2.575654 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.429622 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.363374 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.520210 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_b &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.080952 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 5.865549 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.958085 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.114483 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.992814 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.877940 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_c &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.473275 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.771709 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.611821 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.521606 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.215211 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5.199799 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_d &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.415446 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.817052 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 2.907351 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.840954 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.860644 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.688784 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_e &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 11.960879 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.113075 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.927639 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 11.896069 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.056214 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.062543 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_f &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.821113 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 8.704334 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.940262 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.947901 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8.884012 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8.773162 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_g &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.763196 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.869513 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.393374 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.640603 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.470026 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.591002 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_h &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 11.401766 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.550342 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 11.530905 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 11.954618 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.533096 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 11.728931 &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;

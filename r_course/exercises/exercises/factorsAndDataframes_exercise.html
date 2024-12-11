@@ -226,6 +226,106 @@ ul.task-list{list-style: none;}
 
 
 
+<style type="text/css">
+code {
+white-space: pre;
+}
+.sourceCode {
+overflow: visible;
+}
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
+div.sourceCode
+{ background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } 
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } 
+code span.at { color: #204a87; } 
+code span.bn { color: #0000cf; } 
+code span.cf { color: #204a87; font-weight: bold; } 
+code span.ch { color: #4e9a06; } 
+code span.cn { color: #8f5902; } 
+code span.co { color: #8f5902; font-style: italic; } 
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } 
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } 
+code span.dt { color: #204a87; } 
+code span.dv { color: #0000cf; } 
+code span.er { color: #a40000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #0000cf; } 
+code span.fu { color: #204a87; font-weight: bold; } 
+code span.im { } 
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } 
+code span.kw { color: #204a87; font-weight: bold; } 
+code span.op { color: #ce5c00; font-weight: bold; } 
+code span.ot { color: #8f5902; } 
+code span.pp { color: #8f5902; font-style: italic; } 
+code span.sc { color: #ce5c00; font-weight: bold; } 
+code span.ss { color: #4e9a06; } 
+code span.st { color: #4e9a06; } 
+code span.va { color: #000000; } 
+code span.vs { color: #4e9a06; } 
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } 
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
 
 
 
@@ -337,10 +437,48 @@ Centre</h4>
 <p>
  
 </p>
-<p>These exercises are about the factors and data framessections of <a href="https://rockefelleruniversity.github.io/Intro_To_R_1Day/">Introduction
+<p>These exercises are about the factors and data frames sections of <a href="https://rockefelleruniversity.github.io/Intro_To_R_1Day/">Introduction
 to R</a>.</p>
-<p>These exercises cover the factors and data frames sections of <a href="%22introToR_Day1.html%22">Introduction to R</a>.</p>
 <p><strong>Exercise 1</strong> - <strong>Factors</strong></p>
+<ul>
+<li>Create a nominal factor called CellType containing:
+“DC1”,“DC1”,“DC1”,“NK”,“NK”,“Mono”,“Mono”,“DC2”,“NK”</li>
+</ul>
+<pre><code>## [1] DC1  DC1  DC1  NK   NK   Mono Mono DC2  NK  
+## Levels: DC1 DC2 Mono NK</code></pre>
+<ul>
+<li>Modify the the third position of CellType to “Neu”, by modifying the
+levels of the factor.</li>
+</ul>
+<pre><code>## [1] DC1  DC1  Neu  NK   NK   Mono Mono DC2  NK  
+## Levels: DC1 DC2 Mono NK Neu</code></pre>
+<ul>
+<li>Create CellType2 with the same entries, but directly specify the
+levels to include: “DC1”, “DC2”, “Mono”, “NK”, “Neu”, “Bcell”,
+“Tcell”.</li>
+</ul>
+<pre><code>## [1] DC1  DC1  DC1  NK   NK   Mono Mono DC2  NK  
+## Levels: DC1 DC2 Mono NK Neu Bcell Tcell</code></pre>
+<ul>
+<li>Use combine to increase the length of CellType2 to include:
+“Neu”,“Neu”,“Bcell”,“DC1”</li>
+</ul>
+<pre><code>##  [1] DC1   DC1   DC1   NK    NK    Mono  Mono  DC2   NK    Neu   Neu   Bcell
+## [13] DC1  
+## Levels: DC1 DC2 Mono NK Neu Bcell Tcell</code></pre>
+<ul>
+<li>Summarize the number of entries for each cell type.</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">summary</span>(CellType2)</span></code></pre></div>
+<pre><code>##   DC1   DC2  Mono    NK   Neu Bcell Tcell 
+##     4     1     2     3     2     1     0</code></pre>
+<ul>
+<li>Reorder the summary to alphabetical order</li>
+</ul>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="fu">levels</span>(CellType2) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Bcell&quot;</span>,<span class="st">&quot;DC1&quot;</span>, <span class="st">&quot;DC2&quot;</span>, <span class="st">&quot;Mono&quot;</span>, <span class="st">&quot;Neu&quot;</span>,<span class="st">&quot;NK&quot;</span>,<span class="st">&quot;Tcell&quot;</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="fu">summary</span>(CellType2)</span></code></pre></div>
+<pre><code>## Bcell   DC1   DC2  Mono   Neu    NK Tcell 
+##     4     1     2     3     2     1     0</code></pre>
 <ul>
 <li>Create a ordinal factor named “Height” containing – high, low, mid,
 low, mid, low, mid, high, mid, high.</li>
@@ -361,20 +499,65 @@ factor with those greater than mid.</li>
 ## Levels: low &lt; mid &lt; high &lt; veryHigh</code></pre>
 <p><strong>Exercise 2</strong> - <strong>Data frames</strong></p>
 <ul>
-<li><p>Create data frame called Annotation with a column of gene names
+<li>Create data frame called Annotation with a column of gene names
 (“Gene_1”, “Gene_2”, “Gene_3”,“Gene_4”,“Gene_5”), ensembl gene names
 (“Ens001”, “Ens003”, “Ens006”, “Ens007”, “Ens010”), pathway information
 (“Glycolysis”, “TGFb”, “Glycolysis”, “TGFb”, “Glycolysis”) and gene
-lengths (100, 3000, 200, 1000,1200).</p></li>
-<li><p>Create data frame called Sample1 with ensembl gene names
-(“Ens001”, “Ens003”, “Ens006”, “Ens010”) and expression (1000, 3000,
-10000,5000)</p></li>
-<li><p>Create data frame called Sample2 with ensembl gene names
-(“Ens001”, “Ens003”, “Ens006”, “Ens007”,“Ens010”) and expression (1500,
-1500, 17000,500,10000)</p></li>
-<li><p>Create a data frame containing only those gene names common to
-all data frames with all information from Annotation and the expression
-from Sample 1 and Sample 2.</p></li>
+lengths (100, 3000, 200, 1000,1200).</li>
+</ul>
+<pre><code>##   geneNames ensembl    pathway geneLengths
+## 1    Gene_1  Ens001 Glycolysis         100
+## 2    Gene_2  Ens003       TGFb        3000
+## 3    Gene_3  Ens006 Glycolysis         200
+## 4    Gene_4  Ens007       TGFb        1000
+## 5    Gene_5  Ens010 Glycolysis        1200</code></pre>
+<ul>
+<li>Filter Annotation to geneLengths that are greater than 500 and less
+than 2000. Use the dollar sign to extract column information.</li>
+</ul>
+<pre><code>##   geneNames ensembl    pathway geneLengths
+## 4    Gene_4  Ens007       TGFb        1000
+## 5    Gene_5  Ens010 Glycolysis        1200</code></pre>
+<ul>
+<li>Check the data types of each column. Update the pathway column to be
+a factor.</li>
+</ul>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<pre><code>##   geneNames ensembl    pathway geneLengths
+## 1    Gene_1  Ens001 Glycolysis         100
+## 2    Gene_2  Ens003       TGFb        3000
+## 3    Gene_3  Ens006 Glycolysis         200
+## 4    Gene_4  Ens007       TGFb        1000
+## 5    Gene_5  Ens010 Glycolysis        1200</code></pre>
+<pre><code>## [1] &quot;factor&quot;</code></pre>
+<ul>
+<li>Create data frame called Sample1 with ensembl gene names (“Ens001”,
+“Ens003”, “Ens006”, “Ens010”) and expression (1000, 3000,
+10000,5000)</li>
+</ul>
+<pre><code>##   ensembl expression
+## 1  Ens001       1000
+## 2  Ens003       3000
+## 3  Ens006      10000
+## 4  Ens010       5000</code></pre>
+<ul>
+<li>Create data frame called Sample2 with ensembl gene names (“Ens001”,
+“Ens003”, “Ens006”, “Ens007”,“Ens010”) and expression (1500, 1500,
+17000,500,10000)</li>
+</ul>
+<pre><code>##   ensembl expression
+## 1  Ens001       1500
+## 2  Ens003       1500
+## 3  Ens006      17000
+## 4  Ens007        500
+## 5  Ens010      10000</code></pre>
+<ul>
+<li>Create a data frame containing only those gene names common to all
+data frames with all information from Annotation and the expression from
+Sample 1 and Sample 2.</li>
 </ul>
 <pre><code>##   ensembl geneNames    pathway geneLengths expression.x expression.y
 ## 1  Ens001    Gene_1 Glycolysis         100         1000         1500
@@ -382,30 +565,38 @@ from Sample 1 and Sample 2.</p></li>
 ## 3  Ens006    Gene_3 Glycolysis         200        10000        17000
 ## 4  Ens010    Gene_5 Glycolysis        1200         5000        10000</code></pre>
 <ul>
-<li>Add an extra two columns containing the length normalised
+<li>Order our new dataframe by geneLengths - biggest to smallest.</li>
+</ul>
+<pre><code>##   ensembl geneNames    pathway geneLengths expression.x expression.y
+## 2  Ens003    Gene_2       TGFb        3000         3000         1500
+## 4  Ens010    Gene_5 Glycolysis        1200         5000        10000
+## 3  Ens006    Gene_3 Glycolysis         200        10000        17000
+## 1  Ens001    Gene_1 Glycolysis         100         1000         1500</code></pre>
+<ul>
+<li>Add an extra two columns containing the length normalized
 expressions for Sample 1 and Sample 2</li>
 </ul>
 <pre><code>##   ensembl geneNames    pathway geneLengths expression.x expression.y
-## 1  Ens001    Gene_1 Glycolysis         100         1000         1500
 ## 2  Ens003    Gene_2       TGFb        3000         3000         1500
-## 3  Ens006    Gene_3 Glycolysis         200        10000        17000
 ## 4  Ens010    Gene_5 Glycolysis        1200         5000        10000
+## 3  Ens006    Gene_3 Glycolysis         200        10000        17000
+## 1  Ens001    Gene_1 Glycolysis         100         1000         1500
 ##   Sample1_lne Sample2_lne
-## 1   10.000000   15.000000
 ## 2    1.000000    0.500000
+## 4    4.166667    8.333333
 ## 3   50.000000   85.000000
-## 4    4.166667    8.333333</code></pre>
+## 1   10.000000   15.000000</code></pre>
 <ul>
-<li>Identify the mean length normalised expression across Sample1 and
+<li>Identify the mean length normalized expression across Sample1 and
 Sample2 for Ens006 genes</li>
 </ul>
 <pre><code>## [1] 67.5</code></pre>
 <ul>
-<li>For all genes, identify the log2 fold change in length normalised
+<li>For all genes, identify the log2 fold change in length normalized
 expression from Sample 1 to Sample 2.</li>
 </ul>
-<pre><code>##     Gene_1     Gene_2     Gene_3     Gene_5 
-##  0.5849625 -1.0000000  0.7655347  1.0000000</code></pre>
+<pre><code>##     Gene_2     Gene_5     Gene_3     Gene_1 
+## -1.0000000  1.0000000  0.7655347  0.5849625</code></pre>
 <ul>
 <li>Identify the total length of genes in Glycolysis pathway.</li>
 </ul>

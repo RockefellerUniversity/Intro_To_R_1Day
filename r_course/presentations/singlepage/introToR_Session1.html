@@ -2084,11 +2084,11 @@ values.</p>
 </div>
 <div id="time-for-an-exercise" class="section level2">
 <h2>Time for an exercise!</h2>
-<p>Exercise on vectors can be found <a href="../../exercises/exercises/vector_exercise.html">here</a></p>
+<p>Exercise on vectors can be found <a href="../../exercises/exercises/Vectors_exercise.html">here</a></p>
 </div>
-<div id="answers-to-exercise." class="section level2">
-<h2>Answers to exercise.</h2>
-<p>Answers can be found here <a href="../../exercises/answers/vector_answers.html">here</a></p>
+<div id="answers-to-exercise" class="section level2">
+<h2>Answers to exercise</h2>
+<p>Answers can be found here <a href="../../exercises/answers/Vectors_answers.html">here</a></p>
 </div>
 </div>
 <div id="matrices" class="section level1">
@@ -2395,11 +2395,11 @@ character matrix.</p>
 </div>
 <div id="time-for-an-exercise-1" class="section level2">
 <h2>Time for an exercise!</h2>
-<p>Exercise on matrices can be found <a href="../../exercises/exercises/matrices_exercise.html">here</a></p>
+<p>Exercise on matrices can be found <a href="../../exercises/exercises/Matrices_exercise.html">here</a></p>
 </div>
-<div id="answers-to-exercise.-1" class="section level2">
-<h2>Answers to exercise.</h2>
-<p>Answers can be found here <a href="../../exercises/answers/matrices_answers.html">here</a></p>
+<div id="answers-to-exercise-1" class="section level2">
+<h2>Answers to exercise</h2>
+<p>Answers can be found here <a href="../../exercises/answers/Matrices_answers.html">here</a></p>
 </div>
 </div>
 <div id="factors" class="section level1">
@@ -2453,8 +2453,7 @@ argument in the <strong>factor()</strong> function call.</p>
 <div id="nominal-factors" class="section level2">
 <h2>Nominal factors</h2>
 <p>In some cases there is no natural order to the categories such that
-one category is greater than the other (nominal data). In this case we
-can see that R is gender neutral.</p>
+one category is greater than the other (nominal data).</p>
 <div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="#cb213-1" tabindex="-1"></a>factorExample <span class="ot">&lt;-</span> <span class="fu">factor</span>(vectorExample, <span class="at">levels=</span><span class="fu">c</span>(<span class="st">&quot;male&quot;</span>,<span class="st">&quot;female&quot;</span>))</span>
 <span id="cb213-2"><a href="#cb213-2" tabindex="-1"></a>factorExample[<span class="dv">1</span>] <span class="sc">&lt;</span> factorExample[<span class="dv">2</span>]</span></code></pre></div>
 <pre><code>## Warning in Ops.factor(factorExample[1], factorExample[2]): &#39;&lt;&#39; not meaningful
@@ -2798,11 +2797,11 @@ argument is set to FALSE.</p>
 </div>
 <div id="time-for-an-exercise-2" class="section level2">
 <h2>Time for an exercise!</h2>
-<p>Exercise on data frames can be found <a href="../../exercises/exercises/factorsAndDataframes_exercise.html">here</a></p>
+<p>Exercise on data frames can be found <a href="../../exercises/exercises/FactorsAndDataframes_exercise.html">here</a></p>
 </div>
-<div id="answers-to-exercise.-2" class="section level2">
-<h2>Answers to exercise.</h2>
-<p>Answers can be found here <a href="../../exercises/answers/factorsAndDataframes_answers.html">here</a></p>
+<div id="answers-to-exercise-2" class="section level2">
+<h2>Answers to exercise</h2>
+<p>Answers can be found here <a href="../../exercises/answers/FactorsAndDataframes_answers.html">here</a></p>
 </div>
 </div>
 <div id="lists" class="section level1">
@@ -2953,6 +2952,14 @@ with.</p>
 ## Second    2    6    7
 ## Third     1    4    7</code></pre>
 </div>
+<div id="time-for-an-exercise-3" class="section level2">
+<h2>Time for an exercise!</h2>
+<p>Exercise on matrices can be found <a href="../../exercises/exercises/Lists_exercise.html">here</a></p>
+</div>
+<div id="answers-to-exercise-3" class="section level2">
+<h2>Answers to exercise</h2>
+<p>Answers can be found here <a href="../../exercises/answers/Lists_answers.html">here</a></p>
+</div>
 </div>
 <div id="coercing-data-formats" class="section level1">
 <h1>Coercing data formats</h1>
@@ -3075,7 +3082,7 @@ functions built for that object’s special use cases.</p>
 manage Dates or Times.</p>
 <div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb330-1"><a href="#cb330-1" tabindex="-1"></a>Time <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
 <span id="cb330-2"><a href="#cb330-2" tabindex="-1"></a>Time</span></code></pre></div>
-<pre><code>## [1] &quot;2024-12-10 21:07:46 UTC&quot;</code></pre>
+<pre><code>## [1] &quot;2024-12-11 01:00:32 UTC&quot;</code></pre>
 </div>
 <div id="more-complex-objects-1" class="section level2">
 <h2>More complex objects</h2>
@@ -3103,11 +3110,11 @@ POSIXct object.</p>
 <h2>More complex objects</h2>
 <p>We can also use the arithmetic operations with our time objects.</p>
 <div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="#cb337-1" tabindex="-1"></a>Time</span></code></pre></div>
-<pre><code>## [1] &quot;2024-12-10 21:07:46 UTC&quot;</code></pre>
+<pre><code>## [1] &quot;2024-12-11 01:00:32 UTC&quot;</code></pre>
 <div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb339-1"><a href="#cb339-1" tabindex="-1"></a>Time <span class="sc">-</span> <span class="dv">120</span></span></code></pre></div>
-<pre><code>## [1] &quot;2024-12-10 21:05:46 UTC&quot;</code></pre>
+<pre><code>## [1] &quot;2024-12-11 00:58:32 UTC&quot;</code></pre>
 <div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb341-1"><a href="#cb341-1" tabindex="-1"></a>TimeNow <span class="sc">-</span> Time</span></code></pre></div>
-<pre><code>## Time difference of 0.1043649 secs</code></pre>
+<pre><code>## Time difference of 0.1018391 secs</code></pre>
 </div>
 <div id="more-complex-objects-5" class="section level2">
 <h2>More complex objects</h2>
@@ -3118,18 +3125,18 @@ method</p>
 <p>We can also change the timezone by specifying a <strong>tz</strong>
 parameter</p>
 <div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb343-1"><a href="#cb343-1" tabindex="-1"></a><span class="fu">format</span>(Time,<span class="at">format=</span><span class="st">&quot;%H O&#39;Clock %p %A on %B %dth&quot;</span>)</span></code></pre></div>
-<pre><code>## [1] &quot;21 O&#39;Clock PM Tuesday on December 10th&quot;</code></pre>
+<pre><code>## [1] &quot;01 O&#39;Clock AM Wednesday on December 11th&quot;</code></pre>
 <div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="#cb345-1" tabindex="-1"></a><span class="fu">format</span>(Time,<span class="at">format=</span><span class="st">&quot;%H O&#39;Clock %p %A on %B %dth&quot;</span>,<span class="at">tz =</span> <span class="st">&quot;GMT&quot;</span>)</span></code></pre></div>
-<pre><code>## [1] &quot;21 O&#39;Clock PM Tuesday on December 10th&quot;</code></pre>
+<pre><code>## [1] &quot;01 O&#39;Clock AM Wednesday on December 11th&quot;</code></pre>
 </div>
 <div id="complex-to-base-objects" class="section level2">
 <h2>Complex to base objects</h2>
 <p>Most of the time we can convert more complex object back to our basic
 object types we are more familar with.</p>
 <div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="#cb347-1" tabindex="-1"></a><span class="fu">as.character</span>(Time)</span></code></pre></div>
-<pre><code>## [1] &quot;2024-12-10 21:07:46.094567&quot;</code></pre>
+<pre><code>## [1] &quot;2024-12-11 01:00:32.629524&quot;</code></pre>
 <div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="#cb349-1" tabindex="-1"></a><span class="fu">as.numeric</span>(TimeNow<span class="sc">-</span>Time)</span></code></pre></div>
-<pre><code>## [1] 0.1043649</code></pre>
+<pre><code>## [1] 0.1018391</code></pre>
 </div>
 <div id="complex-objects-summary" class="section level2">
 <h2>Complex objects summary</h2>
@@ -3238,13 +3245,13 @@ Sample_3.hi
 Gene_a
 </td>
 <td style="text-align:right;">
-3.973947
+3.658047
 </td>
 <td style="text-align:right;">
-3.930245
+5.530241
 </td>
 <td style="text-align:right;">
-2.474149
+3.272248
 </td>
 </tr>
 <tr>
@@ -3252,13 +3259,13 @@ Gene_a
 Gene_b
 </td>
 <td style="text-align:right;">
-3.461118
+3.778873
 </td>
 <td style="text-align:right;">
-3.985219
+5.652030
 </td>
 <td style="text-align:right;">
-5.081024
+3.694406
 </td>
 </tr>
 <tr>
@@ -3266,13 +3273,13 @@ Gene_b
 Gene_c
 </td>
 <td style="text-align:right;">
-4.363544
+3.918055
 </td>
 <td style="text-align:right;">
-4.808006
+4.841402
 </td>
 <td style="text-align:right;">
-4.068423
+5.957884
 </td>
 </tr>
 <tr>
@@ -3280,13 +3287,13 @@ Gene_c
 Gene_d
 </td>
 <td style="text-align:right;">
-5.089677
+3.223094
 </td>
 <td style="text-align:right;">
-1.477786
+3.130542
 </td>
 <td style="text-align:right;">
-4.949975
+4.522371
 </td>
 </tr>
 <tr>
@@ -3294,13 +3301,13 @@ Gene_d
 Gene_e
 </td>
 <td style="text-align:right;">
-9.478252
+10.369538
 </td>
 <td style="text-align:right;">
-10.525974
+10.172782
 </td>
 <td style="text-align:right;">
-9.489895
+10.039658
 </td>
 </tr>
 <tr>
@@ -3308,13 +3315,13 @@ Gene_e
 Gene_f
 </td>
 <td style="text-align:right;">
-9.167348
+11.044072
 </td>
 <td style="text-align:right;">
-10.601165
+10.561451
 </td>
 <td style="text-align:right;">
-9.324316
+9.909005
 </td>
 </tr>
 <tr>
@@ -3322,13 +3329,13 @@ Gene_f
 Gene_g
 </td>
 <td style="text-align:right;">
-9.399451
+8.915426
 </td>
 <td style="text-align:right;">
-11.443669
+11.178636
 </td>
 <td style="text-align:right;">
-9.400897
+10.473599
 </td>
 </tr>
 <tr>
@@ -3336,13 +3343,13 @@ Gene_g
 Gene_h
 </td>
 <td style="text-align:right;">
-11.166681
+9.649608
 </td>
 <td style="text-align:right;">
-11.069730
+10.231282
 </td>
 <td style="text-align:right;">
-9.805737
+10.386836
 </td>
 </tr>
 </tbody>
@@ -3655,11 +3662,11 @@ this to a new variable as there are multiple objects. Instead load
 remembers the objects original name i.e. Table or myList.</p>
 <div class="sourceCode" id="cb395"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb395-1"><a href="#cb395-1" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;my_list.RData&quot;</span>)</span></code></pre></div>
 </div>
-<div id="time-for-an-exercise-3" class="section level2">
+<div id="time-for-an-exercise-4" class="section level2">
 <h2>Time for an exercise!</h2>
 <p>Exercise on reading and writing data can be found <a href="../../exercises/exercises/DataInputOutput_exercises.html">here</a></p>
 </div>
-<div id="answers-to-exercise" class="section level2">
+<div id="answers-to-exercise-4" class="section level2">
 <h2>Answers to exercise</h2>
 <p>Answers can be found <a href="../../exercises/answers/DataInputOutput_answers.html">here</a></p>
 </div>

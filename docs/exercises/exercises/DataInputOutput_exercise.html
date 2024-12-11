@@ -226,6 +226,106 @@ ul.task-list{list-style: none;}
 
 
 
+<style type="text/css">
+code {
+white-space: pre;
+}
+.sourceCode {
+overflow: visible;
+}
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
+div.sourceCode
+{ background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } 
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } 
+code span.at { color: #204a87; } 
+code span.bn { color: #0000cf; } 
+code span.cf { color: #204a87; font-weight: bold; } 
+code span.ch { color: #4e9a06; } 
+code span.cn { color: #8f5902; } 
+code span.co { color: #8f5902; font-style: italic; } 
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } 
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } 
+code span.dt { color: #204a87; } 
+code span.dv { color: #0000cf; } 
+code span.er { color: #a40000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #0000cf; } 
+code span.fu { color: #204a87; font-weight: bold; } 
+code span.im { } 
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } 
+code span.kw { color: #204a87; font-weight: bold; } 
+code span.op { color: #ce5c00; font-weight: bold; } 
+code span.ot { color: #8f5902; } 
+code span.pp { color: #8f5902; font-style: italic; } 
+code span.sc { color: #ce5c00; font-weight: bold; } 
+code span.ss { color: #4e9a06; } 
+code span.st { color: #4e9a06; } 
+code span.va { color: #000000; } 
+code span.vs { color: #4e9a06; } 
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } 
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
 
 
 
@@ -337,22 +437,68 @@ Centre</h4>
 <p>
  
 </p>
-<p>These exercises are about the vector sections of <a href="https://rockefelleruniversity.github.io/Intro_To_R_1Day/">Introduction
+<p>These exercises are about reading and writing data sections of <a href="https://rockefelleruniversity.github.io/Intro_To_R_1Day/">Introduction
 to R</a>.</p>
 <p><strong>Exercise 1</strong></p>
 <p>Have a look at all files in notepad or excel before attempting to
 read. All files can be found in the “data” directory.</p>
 <ul>
-<li><p>Read in the tab delimited file “GeneExpression.txt”.</p></li>
-<li><p>Find the mean expression of all samples.</p></li>
+<li>Check your current working directory. Set your working directory to
+be in the downloaded course material. Specifically the <em>r_course</em>
+subdirectory. [The exact path will depend on where you have save your
+download]</li>
 </ul>
-<pre><code>##  Sample_1.hi  Sample_2.hi  Sample_3.hi Sample_4.low Sample_5.low Sample_1.low 
-##     7.514996     6.774108     6.508127     6.262253     6.177761     6.017462</code></pre>
-<pre><code>##  Sample_1.hi  Sample_2.hi  Sample_3.hi Sample_4.low Sample_5.low Sample_1.low 
-##     7.514996     6.774108     6.508127     6.262253     6.177761     6.017462</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
+<pre><code>[1] &quot;/Users/mattpaul&quot;</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;~/Downloads/Intro_To_R_1Day-master/r_course&quot;</span>)</span></code></pre></div>
 <ul>
-<li>Read in the tab delimited file “GeneExpressionWithMethods.txt”. This
-file contains information on analysis steps used to produce file.</li>
+<li>Read in the tab delimited file “GeneExpression.txt”. Check the data
+type.</li>
+</ul>
+<pre><code>## [1] &quot;data.frame&quot;       &quot;list&quot;             &quot;oldClass&quot;         &quot;vector&quot;          
+## [5] &quot;list_OR_List&quot;     &quot;vector_OR_factor&quot; &quot;vector_OR_Vector&quot;</code></pre>
+<ul>
+<li><p>Coerce the data frame to a matrix</p></li>
+<li><p>Find the mean expression of all genes.</p></li>
+</ul>
+<pre><code>##    Gene_a    Gene_b    Gene_c    Gene_d    Gene_e    Gene_f    Gene_g    Gene_h 
+##  4.660569  4.379796  4.259824  5.849420  5.850658  6.732781 10.405203 10.201357</code></pre>
+<ul>
+<li>Coerce the matrix back to a data frame. Add an additional column
+with extra gene info
+“Kidney”,“Adrenal”,“Liver”,“Adrenal”,“Kidney”,“Liver”,“Liver”,“Kidney”.
+Also add the mean expression as a column.</li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>geneExpression <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(geneExpression)</span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>geneExpression<span class="sc">$</span>tissue_localisation <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;Kidney&quot;</span>,<span class="st">&quot;Adrenal&quot;</span>,<span class="st">&quot;Liver&quot;</span>,<span class="st">&quot;Adrenal&quot;</span>,<span class="st">&quot;Kidney&quot;</span>,<span class="st">&quot;Liver&quot;</span>,<span class="st">&quot;Liver&quot;</span>,<span class="st">&quot;Kidney&quot;</span>))</span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>geneExpression<span class="sc">$</span>mean_expr <span class="ot">&lt;-</span> sampleMeans</span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>geneExpression</span></code></pre></div>
+<pre><code>##        Sample_1.hi Sample_2.hi Sample_3.hi Sample_4.low Sample_5.low
+## Gene_a    5.742510    3.214303    4.116820     3.212353     5.742333
+## Gene_b    6.444368    5.896076    2.592581     5.089549     3.624812
+## Gene_c    3.083392    3.414723    3.706069     4.535536     5.104273
+## Gene_d    4.726498    3.023746    3.033173     8.017895     8.098800
+## Gene_e    9.909185    9.174323    9.957153     2.053501     3.276533
+## Gene_f   10.680459    9.951243    8.985412     3.360963     3.566663
+## Gene_g   10.516534   10.176163    9.778173    11.781520     9.005437
+## Gene_h    9.017020    9.342291    9.895636    12.046704    11.003240
+##        Sample_1.low tissue_localisation mean_expr
+## Gene_a    5.9350948              Kidney  4.660569
+## Gene_b    2.6313925             Adrenal  4.379796
+## Gene_c    5.7149521               Liver  4.259824
+## Gene_d    8.1964109             Adrenal  5.849420
+## Gene_e    0.7332521              Kidney  5.850658
+## Gene_f    3.8519471               Liver  6.732781
+## Gene_g   11.1733928               Liver 10.405203
+## Gene_h    9.9032500              Kidney 10.201357</code></pre>
+<ul>
+<li><p>Read in tab delimited file “GeneExpression.txt”. Order genes by
+decreasing expression in mean expression. Filter out genes with
+expression below 5. Write out a new comma separated file with column
+titles.</p></li>
+<li><p>Read in the tab delimited file “GeneExpressionWithMethods.txt”.
+This file contains information on analysis steps used to produce
+file.</p></li>
 </ul>
 <pre><code>##        Sample_1.hi Sample_2.hi Sample_3.hi Sample_4.low Sample_5.low
 ## Gene_a    5.742510    3.214303    4.116820     3.212353     5.742333
@@ -394,11 +540,6 @@ file contains notes about particular genes.</li>
 ## Gene_f    3.8519471
 ## Gene_g   11.1733928
 ## Gene_h    9.9032500</code></pre>
-<ul>
-<li>Read in tab delimited file “GeneExpression.txt”. Order genes by
-decreasing expression in Sample_1.hi. Write out a new comma separated
-file with column titles.</li>
-</ul>
 
 
 

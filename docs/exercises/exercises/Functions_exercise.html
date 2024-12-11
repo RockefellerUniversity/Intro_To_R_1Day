@@ -339,15 +339,19 @@ Centre</h4>
 </p>
 <p>These exercises are about the functions sections of <a href="https://rockefelleruniversity.github.io/Intro_To_R_1Day/">Introduction
 to R</a>.</p>
+<p><strong>Exercise 1</strong> - <strong>Functions</strong></p>
 <p>– Create a function which takes one number and returns the square of
 that number</p>
 <pre><code>## [1] 9</code></pre>
 <p>– Create a function which takes two numbers and returns the mean</p>
 <pre><code>## [1] 2</code></pre>
 <ul>
-<li>Create a function which takes two vectors and returns the mean</li>
+<li>Create a function which takes two vectors and returns the mean.
+Include a message statement that gives the total length of both
+vectors.</li>
 </ul>
-<pre><code>## [1] 2</code></pre>
+<pre><code>## The total length of my vectors is 8</code></pre>
+<pre><code>## [1] 4.25</code></pre>
 <ul>
 <li>Create a function which takes two numbers and returns the two
 numbers as a vector and the mean, summary and multiple as a
@@ -367,6 +371,23 @@ number whose factorial is greater than that argument.</p>
 factorial code if argument is a numeric.</p>
 <pre><code>## [1] 7</code></pre>
 <pre><code>## Please provide a numeric argument!</code></pre>
+<p><strong>Exercise 2</strong> - <strong>Scripts</strong></p>
+<p>Lets try to put as much together that we have learnt thus far. This
+will be a multistep challenge. Break it down and use pseudocode to help.
+Start by working the code interactively, then turn it into a script.</p>
+<ol style="list-style-type: decimal">
+<li>Read in the “data/GeneExpression.txt” dataset.</li>
+<li>Use a apply to calculate the Z score for each gene (per row). The
+zscore is (gene_expression - mean)/standard deviation. You should use a
+function to do this calculation.</li>
+<li>Find which gene has the highest absolute max Zscore. This is a very
+rough proxy for the variability of that gene.</li>
+<li>Print out the gene name with the highest value</li>
+<li>Turn this into a script and run the script</li>
+<li>Think about what modifications you would need to make in order to
+accept a different data set as input.</li>
+</ol>
+<pre><code>## [1] &quot;Gene_h&quot;</code></pre>
 
 
 
