@@ -72,7 +72,7 @@ Height
 
 - Using a logical index, create new factor of only those from "Height"" greater than low.
 ```{r,echo=toMessage}
-filteredHeight <- ordinalFactor[Height > "low"]
+filteredHeight <- Height[Height > "low"]
 filteredHeight
 ```
 
