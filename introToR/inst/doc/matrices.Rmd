@@ -20,8 +20,6 @@ message(toMessage)
 <p>&nbsp;</p>
 These exercises are about the matrices sections of [Introduction to R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/). 
 
-These exercises cover the matrices sections of [Introduction to R]("introToR_Day1.html").
-
 **Exercise 1**
 
 - Create a matrix containing information on gene names Gene_1, Gene_2, Gene_3,Gene_4 expression values 1000, 3000, 10000, 12000 and gene lengths 100, 3000, 200, 1000
