@@ -2390,8 +2390,8 @@ functions within them.</p>
 <span id="cb156-10"><a href="#cb156-10" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">20</span>)</span>
 <span id="cb156-11"><a href="#cb156-11" tabindex="-1"></a></span>
 <span id="cb156-12"><a href="#cb156-12" tabindex="-1"></a><span class="fu">my_zscore</span>(<span class="at">my_number=</span>A[<span class="dv">1</span>], <span class="at">my_vector=</span>A)</span></code></pre></div>
-<pre><code>## Mean is 0.260665894154018</code></pre>
-<pre><code>## [1] -0.2426098</code></pre>
+<pre><code>## Mean is 0.44908684470079</code></pre>
+<pre><code>## [1] 0.3379332</code></pre>
 </div>
 <div id="debugging-functions" class="section level2">
 <h2>Debugging functions</h2>
@@ -2406,10 +2406,10 @@ function.</p>
 <h2>Custom functions and apply</h2>
 <p>These custom functions can also be utilized with apply.</p>
 <div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="#cb160-1" tabindex="-1"></a><span class="fu">sapply</span>(A, my_zscore, <span class="at">my_vector=</span>A)</span></code></pre></div>
-<pre><code>##  [1] -0.24260979  0.37093999  0.58712023  0.81503665  0.92783453  0.54524311
-##  [7] -1.15824154 -0.38544962  0.08283829  0.73612828 -1.39531982 -0.48690779
-## [13] -2.08700758  1.41872341 -0.02320079  0.08587476  1.50147491 -1.67344992
-## [19]  0.86495743 -0.48398475</code></pre>
+<pre><code>##  [1]  0.337933160 -0.496189946 -0.131783788  1.860802961 -0.351713185
+##  [6] -0.756876188 -1.171406657  2.194038393 -1.019586807 -2.117439503
+## [11] -0.347653944  0.004174429  0.806745923  0.716368182  0.300398862
+## [16]  0.889356728  0.228566227 -0.713090113 -0.110268415 -0.122376322</code></pre>
 </div>
 </div>
 <div id="getting-additional-libraries" class="section level1">
