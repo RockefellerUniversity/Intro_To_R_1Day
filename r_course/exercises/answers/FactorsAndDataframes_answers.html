@@ -12,7 +12,7 @@
 <meta name="author" content="Rockefeller University, Bioinformatics Resource Centre" />
 
 
-<title>Matrices</title>
+<title>Factors and Data frames</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -426,7 +426,7 @@ display: none;
 
 
 
-<h1 class="title toc-ignore">Matrices</h1>
+<h1 class="title toc-ignore">Factors and Data frames</h1>
 <h4 class="author">Rockefeller University, Bioinformatics Resource
 Centre</h4>
 <h4 class="date"><a href="https://rockefelleruniversity.github.io/Intro_To_R_1Day/" class="uri">https://rockefelleruniversity.github.io/Intro_To_R_1Day/</a></h4>
@@ -437,112 +437,214 @@ Centre</h4>
 <p>
  
 </p>
-<p>These exercises are about the matrices sections of <a href="https://rockefelleruniversity.github.io/Intro_To_R_1Day/">Introduction
+<p>These exercises are about the factors and data frames sections of <a href="https://rockefelleruniversity.github.io/Intro_To_R_1Day/">Introduction
 to R</a>.</p>
-<p>These exercises cover the matrices sections of <a href="%22introToR_Day1.html%22">Introduction to R</a>.</p>
-<p><strong>Exercise 1</strong></p>
+<p><strong>Exercise 1</strong> - <strong>Factors</strong></p>
 <ul>
-<li>Create a matrix containing information on gene names Gene_1, Gene_2,
-Gene_3,Gene_4 expression values 1000, 3000, 10000, 12000 and gene
-lengths 100, 3000, 200, 1000</li>
+<li>Create a nominal factor called CellType containing:
+“DC1”,“DC1”,“DC1”,“NK”,“NK”,“Mono”,“Mono”,“DC2”,“NK”</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>geneNames <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Gene_1&quot;</span>, <span class="st">&quot;Gene_2&quot;</span>, <span class="st">&quot;Gene_3&quot;</span>,<span class="st">&quot;Gene_4&quot;</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>expression <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1000</span>, <span class="dv">3000</span>, <span class="dv">10000</span>, <span class="dv">12000</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>geneLengths <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">3000</span>, <span class="dv">200</span>, <span class="dv">1000</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a>geneMatrix <span class="ot">&lt;-</span> <span class="fu">cbind</span>(expression,geneLengths)</span>
-<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="fu">rownames</span>(geneMatrix) <span class="ot">&lt;-</span> geneNames</span>
-<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a>geneMatrix</span></code></pre></div>
-<pre><code>##        expression geneLengths
-## Gene_1       1000         100
-## Gene_2       3000        3000
-## Gene_3      10000         200
-## Gene_4      12000        1000</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>CellType <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;DC1&quot;</span>,<span class="st">&quot;DC1&quot;</span>,<span class="st">&quot;DC1&quot;</span>,<span class="st">&quot;NK&quot;</span>,<span class="st">&quot;NK&quot;</span>,<span class="st">&quot;Mono&quot;</span>,<span class="st">&quot;Mono&quot;</span>,<span class="st">&quot;DC2&quot;</span>,<span class="st">&quot;NK&quot;</span>))</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>CellType</span></code></pre></div>
+<pre><code>## [1] DC1  DC1  DC1  NK   NK   Mono Mono DC2  NK  
+## Levels: DC1 DC2 Mono NK</code></pre>
 <ul>
-<li>Update the matrix to contain the expression over the gene length for
-all genes (Length normalised expression) as final column.
-<a name="lne"></a></li>
+<li>Modify the the third position of CellType to “Neu”, by modifying the
+levels of the factor.</li>
 </ul>
-<p>HINT - We calculated LNE before in <a href="../answers/vector_answers.html#bonus">vectors exercises’ bonus
-question</a></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>lne <span class="ot">&lt;-</span> geneMatrix[,<span class="st">&quot;expression&quot;</span>]<span class="sc">/</span>geneMatrix[,<span class="st">&quot;geneLengths&quot;</span>]</span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>geneMatrix <span class="ot">&lt;-</span> <span class="fu">cbind</span>(geneMatrix,lne)</span>
-<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>geneMatrix</span></code></pre></div>
-<pre><code>##        expression geneLengths lne
-## Gene_1       1000         100  10
-## Gene_2       3000        3000   1
-## Gene_3      10000         200  50
-## Gene_4      12000        1000  12</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">levels</span>(CellType) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">levels</span>(CellType),<span class="st">&quot;Neu&quot;</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>CellType[<span class="dv">3</span>] <span class="ot">&lt;-</span> <span class="st">&quot;Neu&quot;</span></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>CellType</span></code></pre></div>
+<pre><code>## [1] DC1  DC1  Neu  NK   NK   Mono Mono DC2  NK  
+## Levels: DC1 DC2 Mono NK Neu</code></pre>
 <ul>
-<li>Create a smaller matrix containing genes longer than 200</li>
+<li>Create CellType2 with the same entries, but directly specify the
+levels to include: “DC1”, “DC2”, “Mono”, “NK”, “Neu”, “Bcell”,
+“Tcell”.</li>
 </ul>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>smallGeneMatrix <span class="ot">&lt;-</span> geneMatrix[geneMatrix[,<span class="st">&quot;geneLengths&quot;</span>] <span class="sc">&gt;</span> <span class="dv">200</span>,]</span>
-<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>smallGeneMatrix</span></code></pre></div>
-<pre><code>##        expression geneLengths lne
-## Gene_2       3000        3000   1
-## Gene_4      12000        1000  12</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>CellType2 <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;DC1&quot;</span>,<span class="st">&quot;DC1&quot;</span>,<span class="st">&quot;DC1&quot;</span>,<span class="st">&quot;NK&quot;</span>,<span class="st">&quot;NK&quot;</span>,<span class="st">&quot;Mono&quot;</span>,<span class="st">&quot;Mono&quot;</span>,<span class="st">&quot;DC2&quot;</span>,<span class="st">&quot;NK&quot;</span>), <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;DC1&quot;</span>, <span class="st">&quot;DC2&quot;</span>, <span class="st">&quot;Mono&quot;</span>, <span class="st">&quot;NK&quot;</span>, <span class="st">&quot;Neu&quot;</span>, <span class="st">&quot;Bcell&quot;</span>, <span class="st">&quot;Tcell&quot;</span>))</span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>CellType2</span></code></pre></div>
+<pre><code>## [1] DC1  DC1  DC1  NK   NK   Mono Mono DC2  NK  
+## Levels: DC1 DC2 Mono NK Neu Bcell Tcell</code></pre>
 <ul>
-<li>Create a smaller matrix with just expression and lne columns
-containing genes longer than 200 and expression greater than 300.</li>
+<li>Use combine to increase the length of CellType2 to include:
+“Neu”,“Neu”,“Bcell”,“DC1”</li>
 </ul>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>smallGeneMatrix <span class="ot">&lt;-</span> geneMatrix[geneMatrix[,<span class="st">&quot;geneLengths&quot;</span>] <span class="sc">&gt;</span> <span class="dv">200</span> <span class="sc">&amp;</span> geneMatrix[,<span class="st">&quot;expression&quot;</span>] <span class="sc">&gt;</span> <span class="dv">300</span>,<span class="fu">c</span>(<span class="st">&quot;expression&quot;</span>,<span class="st">&quot;lne&quot;</span>)]</span>
-<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>smallGeneMatrix</span></code></pre></div>
-<pre><code>##        expression lne
-## Gene_2       3000   1
-## Gene_4      12000  12</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>CellType2 <span class="ot">&lt;-</span> <span class="fu">c</span>(CellType2, <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;Neu&quot;</span>,<span class="st">&quot;Neu&quot;</span>,<span class="st">&quot;Bcell&quot;</span>,<span class="st">&quot;DC1&quot;</span>), <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;DC1&quot;</span>, <span class="st">&quot;DC2&quot;</span>, <span class="st">&quot;Mono&quot;</span>, <span class="st">&quot;NK&quot;</span>, <span class="st">&quot;Neu&quot;</span>, <span class="st">&quot;Bcell&quot;</span>, <span class="st">&quot;Tcell&quot;</span>)))</span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>CellType2</span></code></pre></div>
+<pre><code>##  [1] DC1   DC1   DC1   NK    NK    Mono  Mono  DC2   NK    Neu   Neu   Bcell
+## [13] DC1  
+## Levels: DC1 DC2 Mono NK Neu Bcell Tcell</code></pre>
 <ul>
-<li>Add an additional column to the orginal matrix which contains some
-GO terms associated with these genes: “Positively Regulates
-Transcription”, “Negatively Regulates Transcription”, “Positively
-Regulates Transcription”, “Regulates Autophagy”</li>
+<li>Summarize the number of entries for each cell type.</li>
 </ul>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>GOterms <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Positively Regulates Transcription&quot;</span>, <span class="st">&quot;Negatively Regulates Transcription&quot;</span>, <span class="st">&quot;Positively Regulates Transcription&quot;</span>, <span class="st">&quot;Regulates Autophagy&quot;</span>)</span>
-<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>geneMatrix_GO <span class="ot">&lt;-</span> <span class="fu">cbind</span>(geneMatrix,GOterms)</span>
-<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a>geneMatrix_GO</span></code></pre></div>
-<pre><code>##        expression geneLengths lne  GOterms                             
-## Gene_1 &quot;1000&quot;     &quot;100&quot;       &quot;10&quot; &quot;Positively Regulates Transcription&quot;
-## Gene_2 &quot;3000&quot;     &quot;3000&quot;      &quot;1&quot;  &quot;Negatively Regulates Transcription&quot;
-## Gene_3 &quot;10000&quot;    &quot;200&quot;       &quot;50&quot; &quot;Positively Regulates Transcription&quot;
-## Gene_4 &quot;12000&quot;    &quot;1000&quot;      &quot;12&quot; &quot;Regulates Autophagy&quot;</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="fu">summary</span>(CellType2)</span></code></pre></div>
+<pre><code>##   DC1   DC2  Mono    NK   Neu Bcell Tcell 
+##     4     1     2     3     2     1     0</code></pre>
 <ul>
-<li>What is the data type? Use the class(),is.numeric() and
-is.character() functions to investigate. Compare this to the original
-matrix.</li>
+<li>Reorder the summary to alphabetical order</li>
 </ul>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="fu">class</span>(geneMatrix_GO)</span></code></pre></div>
-<pre><code>## [1] &quot;matrix&quot; &quot;array&quot;</code></pre>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="fu">is.numeric</span>(geneMatrix_GO)</span></code></pre></div>
-<pre><code>## [1] FALSE</code></pre>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="fu">is.character</span>(geneMatrix_GO)</span></code></pre></div>
-<pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="fu">class</span>(geneMatrix)</span></code></pre></div>
-<pre><code>## [1] &quot;matrix&quot; &quot;array&quot;</code></pre>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a><span class="fu">is.numeric</span>(geneMatrix)</span></code></pre></div>
-<pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a><span class="fu">is.character</span>(geneMatrix)</span></code></pre></div>
-<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="fu">levels</span>(CellType2) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Bcell&quot;</span>,<span class="st">&quot;DC1&quot;</span>, <span class="st">&quot;DC2&quot;</span>, <span class="st">&quot;Mono&quot;</span>, <span class="st">&quot;Neu&quot;</span>,<span class="st">&quot;NK&quot;</span>,<span class="st">&quot;Tcell&quot;</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a><span class="fu">summary</span>(CellType2)</span></code></pre></div>
+<pre><code>## Bcell   DC1   DC2  Mono   Neu    NK Tcell 
+##     4     1     2     3     2     1     0</code></pre>
 <ul>
-<li>Subset the original matrix to only genes that are involved in
-Transcription. Make sure the result is a numeric matrix.</li>
+<li>Create a ordinal factor named “Height” containing – high, low, mid,
+low, mid, low, mid, high, mid, high.</li>
 </ul>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a>geneMatrix_transcription <span class="ot">&lt;-</span> geneMatrix[<span class="fu">grepl</span>(<span class="st">&quot;transcription&quot;</span>,GOterms, <span class="at">ignore.case =</span> T),]</span>
-<span id="cb23-2"><a href="#cb23-2" tabindex="-1"></a></span>
-<span id="cb23-3"><a href="#cb23-3" tabindex="-1"></a>geneMatrix_transcription</span></code></pre></div>
-<pre><code>##        expression geneLengths lne
-## Gene_1       1000         100  10
-## Gene_2       3000        3000   1
-## Gene_3      10000         200  50</code></pre>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a><span class="fu">is.numeric</span>(geneMatrix_transcription)</span></code></pre></div>
-<pre><code>## [1] TRUE</code></pre>
-<p><strong>Bonus Question</strong></p>
-<p><a name="bonus"></a> - Calculate the sum of expression and length
-columns for only genes with length &gt; 100.</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" tabindex="-1"></a>expressionSum <span class="ot">&lt;-</span> <span class="fu">sum</span>(geneMatrix[geneMatrix[,<span class="st">&quot;geneLengths&quot;</span>] <span class="sc">&gt;</span> <span class="dv">100</span>,<span class="st">&quot;expression&quot;</span>])</span>
-<span id="cb27-2"><a href="#cb27-2" tabindex="-1"></a>geneLengthSum <span class="ot">&lt;-</span> <span class="fu">sum</span>(geneMatrix[geneMatrix[,<span class="st">&quot;geneLengths&quot;</span>] <span class="sc">&gt;</span> <span class="dv">100</span>,<span class="st">&quot;geneLengths&quot;</span>])</span>
-<span id="cb27-3"><a href="#cb27-3" tabindex="-1"></a><span class="co">#OR</span></span>
-<span id="cb27-4"><a href="#cb27-4" tabindex="-1"></a>expressionAndGeneLengthSum <span class="ot">&lt;-</span> <span class="fu">colSums</span>(geneMatrix[geneMatrix[,<span class="st">&quot;geneLengths&quot;</span>] <span class="sc">&gt;</span> <span class="dv">100</span>,<span class="fu">c</span>(<span class="st">&quot;expression&quot;</span>,<span class="st">&quot;geneLengths&quot;</span>)])</span>
-<span id="cb27-5"><a href="#cb27-5" tabindex="-1"></a>expressionAndGeneLengthSum</span></code></pre></div>
-<pre><code>##  expression geneLengths 
-##       25000        4200</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a>Height <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;high&quot;</span>, <span class="st">&quot;low&quot;</span>, <span class="st">&quot;mid&quot;</span>, <span class="st">&quot;low&quot;</span>, <span class="st">&quot;mid&quot;</span>, <span class="st">&quot;low&quot;</span>, <span class="st">&quot;mid&quot;</span>, <span class="st">&quot;high&quot;</span>, <span class="st">&quot;mid&quot;</span>, <span class="st">&quot;high&quot;</span>),<span class="at">ordered=</span>T,<span class="at">levels=</span><span class="fu">c</span>(<span class="st">&quot;low&quot;</span>, <span class="st">&quot;mid&quot;</span>, <span class="st">&quot;high&quot;</span>))</span>
+<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a>Height</span></code></pre></div>
+<pre><code>##  [1] high low  mid  low  mid  low  mid  high mid  high
+## Levels: low &lt; mid &lt; high</code></pre>
+<ul>
+<li>Using a logical index, create new factor of only those from
+“Height”” greater than low.</li>
+</ul>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a>filteredHeight <span class="ot">&lt;-</span> Height[Height <span class="sc">&gt;</span> <span class="st">&quot;low&quot;</span>]</span>
+<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a>filteredHeight</span></code></pre></div>
+<pre><code>## [1] high mid  mid  mid  high mid  high
+## Levels: low &lt; mid &lt; high</code></pre>
+<ul>
+<li>Replace the last index in “Height” with veryHigh and create new
+factor with those greater than mid.</li>
+</ul>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a>newFactor <span class="ot">&lt;-</span> <span class="fu">factor</span>(Height,<span class="at">ordered=</span>T,<span class="at">levels=</span><span class="fu">c</span>(<span class="st">&quot;low&quot;</span>, <span class="st">&quot;mid&quot;</span>, <span class="st">&quot;high&quot;</span>,<span class="st">&quot;veryHigh&quot;</span>))</span>
+<span id="cb17-2"><a href="#cb17-2" tabindex="-1"></a>newFactor[<span class="fu">length</span>(newFactor)] <span class="ot">&lt;-</span> <span class="st">&quot;veryHigh&quot;</span></span>
+<span id="cb17-3"><a href="#cb17-3" tabindex="-1"></a>newFactor[newFactor <span class="sc">&gt;</span> <span class="st">&quot;mid&quot;</span>]</span></code></pre></div>
+<pre><code>## [1] high     high     veryHigh
+## Levels: low &lt; mid &lt; high &lt; veryHigh</code></pre>
+<p><strong>Exercise 2</strong> - <strong>Data frames</strong></p>
+<ul>
+<li>Create data frame called Annotation with a column of gene names
+(“Gene_1”, “Gene_2”, “Gene_3”,“Gene_4”,“Gene_5”), ensembl gene names
+(“Ens001”, “Ens003”, “Ens006”, “Ens007”, “Ens010”), pathway information
+(“Glycolysis”, “TGFb”, “Glycolysis”, “TGFb”, “Glycolysis”) and gene
+lengths (100, 3000, 200, 1000,1200).</li>
+</ul>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a>Annotation <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">geneNames=</span><span class="fu">c</span>(<span class="st">&quot;Gene_1&quot;</span>, <span class="st">&quot;Gene_2&quot;</span>, <span class="st">&quot;Gene_3&quot;</span>,<span class="st">&quot;Gene_4&quot;</span>,<span class="st">&quot;Gene_5&quot;</span>), <span class="at">ensembl=</span><span class="fu">c</span>(<span class="st">&quot;Ens001&quot;</span>, <span class="st">&quot;Ens003&quot;</span>, <span class="st">&quot;Ens006&quot;</span>, <span class="st">&quot;Ens007&quot;</span>, <span class="st">&quot;Ens010&quot;</span>),<span class="at">pathway=</span><span class="fu">c</span>(<span class="st">&quot;Glycolysis&quot;</span>, <span class="st">&quot;TGFb&quot;</span>, <span class="st">&quot;Glycolysis&quot;</span>, <span class="st">&quot;TGFb&quot;</span>, <span class="st">&quot;Glycolysis&quot;</span>),<span class="at">geneLengths=</span><span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">3000</span>, <span class="dv">200</span>, <span class="dv">1000</span>,<span class="dv">1200</span>))</span>
+<span id="cb19-2"><a href="#cb19-2" tabindex="-1"></a>Annotation</span></code></pre></div>
+<pre><code>##   geneNames ensembl    pathway geneLengths
+## 1    Gene_1  Ens001 Glycolysis         100
+## 2    Gene_2  Ens003       TGFb        3000
+## 3    Gene_3  Ens006 Glycolysis         200
+## 4    Gene_4  Ens007       TGFb        1000
+## 5    Gene_5  Ens010 Glycolysis        1200</code></pre>
+<ul>
+<li>Filter Annotation to geneLengths that are greater than 500 and less
+than 2000. Use the dollar sign to extract column information.</li>
+</ul>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a>Annotation[Annotation<span class="sc">$</span>geneLengths<span class="sc">&gt;</span><span class="dv">500</span> <span class="sc">&amp;</span> Annotation<span class="sc">$</span>geneLengths<span class="sc">&lt;</span><span class="dv">2000</span>,]</span></code></pre></div>
+<pre><code>##   geneNames ensembl    pathway geneLengths
+## 4    Gene_4  Ens007       TGFb        1000
+## 5    Gene_5  Ens010 Glycolysis        1200</code></pre>
+<ul>
+<li>Check the data types of each column. Update the pathway column to be
+a factor.</li>
+</ul>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a><span class="fu">class</span>(Annotation[,<span class="dv">1</span>])</span></code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a><span class="fu">class</span>(Annotation[,<span class="dv">2</span>])</span></code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" tabindex="-1"></a><span class="fu">class</span>(Annotation[,<span class="dv">3</span>])</span></code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" tabindex="-1"></a><span class="fu">class</span>(Annotation[,<span class="dv">4</span>])</span></code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" tabindex="-1"></a>Annotation[,<span class="dv">3</span>] <span class="ot">&lt;-</span> <span class="fu">factor</span>(Annotation[,<span class="dv">3</span>])</span>
+<span id="cb31-2"><a href="#cb31-2" tabindex="-1"></a>Annotation</span></code></pre></div>
+<pre><code>##   geneNames ensembl    pathway geneLengths
+## 1    Gene_1  Ens001 Glycolysis         100
+## 2    Gene_2  Ens003       TGFb        3000
+## 3    Gene_3  Ens006 Glycolysis         200
+## 4    Gene_4  Ens007       TGFb        1000
+## 5    Gene_5  Ens010 Glycolysis        1200</code></pre>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" tabindex="-1"></a><span class="fu">class</span>(Annotation[,<span class="dv">3</span>])</span></code></pre></div>
+<pre><code>## [1] &quot;factor&quot;</code></pre>
+<ul>
+<li>Create data frame called Sample1 with ensembl gene names (“Ens001”,
+“Ens003”, “Ens006”, “Ens010”) and expression (1000, 3000,
+10000,5000)</li>
+</ul>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" tabindex="-1"></a>Sample1 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">ensembl=</span><span class="fu">c</span>(<span class="st">&quot;Ens001&quot;</span>, <span class="st">&quot;Ens003&quot;</span>, <span class="st">&quot;Ens006&quot;</span>,<span class="st">&quot;Ens010&quot;</span>),<span class="at">expression=</span><span class="fu">c</span>(<span class="dv">1000</span>, <span class="dv">3000</span>, <span class="dv">10000</span>,<span class="dv">5000</span>))</span>
+<span id="cb35-2"><a href="#cb35-2" tabindex="-1"></a>Sample1</span></code></pre></div>
+<pre><code>##   ensembl expression
+## 1  Ens001       1000
+## 2  Ens003       3000
+## 3  Ens006      10000
+## 4  Ens010       5000</code></pre>
+<ul>
+<li>Create data frame called Sample2 with ensembl gene names (“Ens001”,
+“Ens003”, “Ens006”, “Ens007”,“Ens010”) and expression (1500, 1500,
+17000,500,10000)</li>
+</ul>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" tabindex="-1"></a>Sample2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">ensembl=</span><span class="fu">c</span>(<span class="st">&quot;Ens001&quot;</span>, <span class="st">&quot;Ens003&quot;</span>, <span class="st">&quot;Ens006&quot;</span>,<span class="st">&quot;Ens007&quot;</span>,<span class="st">&quot;Ens010&quot;</span>),<span class="at">expression=</span><span class="fu">c</span>(<span class="dv">1500</span>, <span class="dv">1500</span>, <span class="dv">17000</span>,<span class="dv">500</span>,<span class="dv">10000</span>))</span>
+<span id="cb37-2"><a href="#cb37-2" tabindex="-1"></a>Sample2</span></code></pre></div>
+<pre><code>##   ensembl expression
+## 1  Ens001       1500
+## 2  Ens003       1500
+## 3  Ens006      17000
+## 4  Ens007        500
+## 5  Ens010      10000</code></pre>
+<ul>
+<li>Create a data frame containing only those gene names common to all
+data frames with all information from Annotation and the expression from
+Sample 1 and Sample 2.</li>
+</ul>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" tabindex="-1"></a>AnnoSample1 <span class="ot">&lt;-</span> <span class="fu">merge</span>(Annotation,Sample1,<span class="at">by.x=</span><span class="dv">2</span>,<span class="at">by.y=</span><span class="dv">1</span>,<span class="at">all=</span>F) </span>
+<span id="cb39-2"><a href="#cb39-2" tabindex="-1"></a>AnnoSample1And2 <span class="ot">&lt;-</span> <span class="fu">merge</span>(AnnoSample1,Sample2,<span class="at">by=</span><span class="dv">1</span>,<span class="at">all=</span>F) </span>
+<span id="cb39-3"><a href="#cb39-3" tabindex="-1"></a>AnnoSample1And2</span></code></pre></div>
+<pre><code>##   ensembl geneNames    pathway geneLengths expression.x expression.y
+## 1  Ens001    Gene_1 Glycolysis         100         1000         1500
+## 2  Ens003    Gene_2       TGFb        3000         3000         1500
+## 3  Ens006    Gene_3 Glycolysis         200        10000        17000
+## 4  Ens010    Gene_5 Glycolysis        1200         5000        10000</code></pre>
+<ul>
+<li>Order our new dataframe by geneLengths - biggest to smallest.</li>
+</ul>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" tabindex="-1"></a>AnnoSample1And2 <span class="ot">&lt;-</span> AnnoSample1And2[<span class="fu">order</span>(AnnoSample1And2<span class="sc">$</span>geneLengths, <span class="at">decreasing =</span> T),]</span>
+<span id="cb41-2"><a href="#cb41-2" tabindex="-1"></a>AnnoSample1And2</span></code></pre></div>
+<pre><code>##   ensembl geneNames    pathway geneLengths expression.x expression.y
+## 2  Ens003    Gene_2       TGFb        3000         3000         1500
+## 4  Ens010    Gene_5 Glycolysis        1200         5000        10000
+## 3  Ens006    Gene_3 Glycolysis         200        10000        17000
+## 1  Ens001    Gene_1 Glycolysis         100         1000         1500</code></pre>
+<ul>
+<li>Add an extra two columns containing the length normalized
+expressions for Sample 1 and Sample 2</li>
+</ul>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" tabindex="-1"></a>AnnoSample1And2<span class="sc">$</span>Sample1_lne <span class="ot">&lt;-</span> AnnoSample1And2<span class="sc">$</span>expression.x<span class="sc">/</span>AnnoSample1And2<span class="sc">$</span>geneLengths</span>
+<span id="cb43-2"><a href="#cb43-2" tabindex="-1"></a>AnnoSample1And2<span class="sc">$</span>Sample2_lne <span class="ot">&lt;-</span> AnnoSample1And2<span class="sc">$</span>expression.y<span class="sc">/</span>AnnoSample1And2<span class="sc">$</span>geneLengths</span>
+<span id="cb43-3"><a href="#cb43-3" tabindex="-1"></a>AnnoSample1And2</span></code></pre></div>
+<pre><code>##   ensembl geneNames    pathway geneLengths expression.x expression.y
+## 2  Ens003    Gene_2       TGFb        3000         3000         1500
+## 4  Ens010    Gene_5 Glycolysis        1200         5000        10000
+## 3  Ens006    Gene_3 Glycolysis         200        10000        17000
+## 1  Ens001    Gene_1 Glycolysis         100         1000         1500
+##   Sample1_lne Sample2_lne
+## 2    1.000000    0.500000
+## 4    4.166667    8.333333
+## 3   50.000000   85.000000
+## 1   10.000000   15.000000</code></pre>
+<ul>
+<li>Identify the mean length normalized expression across Sample1 and
+Sample2 for Ens006 genes</li>
+</ul>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" tabindex="-1"></a><span class="fu">rownames</span>(AnnoSample1And2) <span class="ot">&lt;-</span> AnnoSample1And2<span class="sc">$</span>ensembl</span>
+<span id="cb45-2"><a href="#cb45-2" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">c</span>(AnnoSample1And2[<span class="st">&quot;Ens006&quot;</span>,<span class="st">&quot;Sample1_lne&quot;</span>],AnnoSample1And2[<span class="st">&quot;Ens006&quot;</span>,<span class="st">&quot;Sample2_lne&quot;</span>]))</span></code></pre></div>
+<pre><code>## [1] 67.5</code></pre>
+<ul>
+<li>For all genes, identify the log2 fold change in length normalized
+expression from Sample 1 to Sample 2.</li>
+</ul>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" tabindex="-1"></a>log2FoldChange <span class="ot">&lt;-</span> <span class="fu">log2</span>(AnnoSample1And2<span class="sc">$</span>Sample2_lne) <span class="sc">-</span> <span class="fu">log2</span>(AnnoSample1And2<span class="sc">$</span>Sample1_lne)</span>
+<span id="cb47-2"><a href="#cb47-2" tabindex="-1"></a><span class="fu">names</span>(log2FoldChange) <span class="ot">&lt;-</span> AnnoSample1And2<span class="sc">$</span>geneNames</span>
+<span id="cb47-3"><a href="#cb47-3" tabindex="-1"></a>log2FoldChange</span></code></pre></div>
+<pre><code>##     Gene_2     Gene_5     Gene_3     Gene_1 
+## -1.0000000  1.0000000  0.7655347  0.5849625</code></pre>
+<ul>
+<li>Identify the total length of genes in Glycolysis pathway.</li>
+</ul>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" tabindex="-1"></a><span class="fu">sum</span>(AnnoSample1And2[AnnoSample1And2<span class="sc">$</span>pathway <span class="sc">==</span> <span class="st">&quot;Glycolysis&quot;</span>,<span class="st">&quot;geneLengths&quot;</span>])</span></code></pre></div>
+<pre><code>## [1] 1500</code></pre>
 
 
 
