@@ -47,8 +47,8 @@ aVector
 aMatrix <- matrix(aVector,ncol=2,
                   nrow=5,byrow = TRUE)
 aMatrix
-aMatrix[1,]
-aMatrix[,1]
+aMatrix[1,1]
+aMatrix[,2]
 
 
 ## ----echo=T,eval=T,tidy=FALSE-------------------------------------------------
@@ -222,20 +222,19 @@ while(x < 3){
   message("x is ",x," ")
   x <- x+1
 }
-message("Finally x is not less than 3")
 
 
 ## ----message=TRUE-------------------------------------------------------------
 x <- 1:5
 for(i in x){
-  message(i," ", appendLF = F)
+  message(i)
 }
 
 
 ## ----message=TRUE-------------------------------------------------------------
-x <- toupper(letters[1:5])
+x <- letters[1:5]
 for(i in x){
-  message(i," ", appendLF = F)
+  message(i)
 }
 
 
@@ -249,62 +248,57 @@ for(i in 1:length(geneName)){
 
 
 ## ----echo=T,eval=F------------------------------------------------------------
-# x <- 1:13
 # 
-# for(i in 1:13){
-#   if(i > 10){
-#     message("Number ",i," is greater than 10")
-#   }else if(i == 10){
-#     message("Number ",i," is  10")
+# for(i in 1:8){
+#   if(i > 5){
+#     message("Number ",i," is greater than 5")
+#   }else if(i == 5){
+#     message("Number ",i," is  5")
 #   }else{
-#     message("Number ",i," is less than 10")
+#     message("Number ",i," is less than 5")
 #   }
 # }
 
 
 ## ----message=T,echo=F---------------------------------------------------------
-x <- 1:13
-
-for(i in 1:13){
-  if(i > 10){
-    message("Number ",i," is greater than 10")
-  }else if(i == 10){
-    message("Number ",i," is  10") 
+for(i in 1:8){
+  if(i > 5){
+    message("Number ",i," is greater than 5")
+  }else if(i == 5){
+    message("Number ",i," is  5") 
   }else{
-    message("Number ",i," is less than  10") 
+    message("Number ",i," is less than  5") 
   }
 }
 
 
 ## ----message=T,eval=F---------------------------------------------------------
-# x <- 1:13
-# 
-# for(i in 1:13){
-#   if(i < 10){
-#     message("Number ",i," is less than 10")
-#   }else if(i == 10){
-#     message("Number ",i," is  10")
+# for(i in 1:8){
+#   if(i < 5){
+#     message("Number ",i," is less than 5")
+#   }else if(i == 5){
+#     message("Number ",i," is  5")
 #     break
 #   }else{
-#     message("Number ",i," is greater than  10")
+#     message("Number ",i," is greater than  5")
 #   }
 # }
 
 
 ## ----message=T,eval=T,echo=F--------------------------------------------------
-x <- 1:13
+x <- 1:8
 
-for(i in 1:13){
-  if(i < 10){
+for(i in 1:8){
+  if(i < 5){
     message("Number ",i,
-            " is less than 10")
-  }else if(i == 10){
+            " is less than 5")
+  }else if(i == 5){
     message("Number ",i,
-            " is  10")
+            " is  5")
     break
   }else{
     message("Number ",i,
-            " is greater than  10") 
+            " is greater than  5") 
   }
 }
 
@@ -327,24 +321,24 @@ apply(matExample,1,paste,collapse=";")
 
 
 ## -----------------------------------------------------------------------------
-lapply(c(1,2),mean)
+lapply(c(4,16),sqrt)
 
 
 ## -----------------------------------------------------------------------------
-lapply(list(1,c(NA,1),2),mean, na.rm=T)
+lapply(list(c(2,4),c(NA,9)),mean, na.rm=T)
 
 
 ## -----------------------------------------------------------------------------
-exampleVector <- c(1,2,3,4,5)
-exampleList <- list(1,2,3,4,5)
-sapply(exampleVector, mean, na.rm=T)
-sapply(exampleList, mean, na.rm=T)
+exampleVector <- c(4,9,16)
+exampleList <- list(4,9,16)
+sapply(exampleVector, sqrt)
+sapply(exampleList, sqrt)
 
 
 ## ----tidy=FALSE---------------------------------------------------------------
-exampleList <- list(row1=1:5, 
-                    row2=6:10, 
-                    row3=11:15)
+exampleList <- list(row1=1:10, 
+                    row2=6:15, 
+                    row3=10:20)
 exampleList
 
 

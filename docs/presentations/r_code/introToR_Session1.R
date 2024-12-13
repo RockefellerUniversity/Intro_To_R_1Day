@@ -679,8 +679,9 @@ dfExample
 
 
 ## ----dataframesOrder_introtoR-------------------------------------------------
-testOrder <- c(20,10,30)
+testOrder <- c(20,100,45, 31)
 testOrder
+order(testOrder)
 order(testOrder,decreasing=T)
 
 

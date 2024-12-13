@@ -121,6 +121,9 @@ Inheriting much from **S** (Bell labs).
 In particular, [Robert Gentleman](https://en.wikipedia.org/wiki/Robert_Gentleman_%28statistician%29) developed the **[Bioconductor](http://bioconductor.org/)** project where 100's of packages are directly related to computational biology and analysis of associated high-throughput experiments.
   ] 
 .pull-right[
+
+R package downloads from Bioconductor
+
 ![R use over time](imgs/bioconductor_packages.png)
 
   ]
@@ -708,6 +711,33 @@ x+c(1,2,3)
 ```
 ##  [1]  2  4  6  5  7  9  8 10 12 11
 ```
+
+
+---
+## R and messages
+
+When R gives you an unexpected response DON'T PANIC.
+
+You will run into errors coding. 
+
+Most of the time the messages are very clear. And if they are not, a quick google will often clear it up:
+
+```
+Warning in x + c(1, 2, 3) :
+  longer object length is not a multiple of shorter object length
+```
+
+---
+## Messages, Warnings, Errors
+
+There are several kinds of messages.
+
+* Message - Just a text message - This can denote progress or options used.
+
+* Warning - Just a text message starting with **"Warning"** - Often denotes if you have done something atypical. You should review the message unless you did it on purpose. 
+
+* Error - The code will stop and a text message starting with **"Error"** - Something broke the code. Review the message.
+
 
 
 ---
@@ -1783,30 +1813,6 @@ factorExample
 ## Levels: big small huge
 ```
 
----
-## R and messages
-
-When R gives you an unexpected response DON'T PANIC.
-
-You will run into errors coding. 
-
-Most of the time the messages are very clear. And if they are not a quick google will often clear it up:
-
-```
-Warning in `[&lt;-.factor`(`*tmp*`, 1, value = "huge") :
-  invalid factor level, NA generated
-```
-
----
-## Messages, Warnings, Errors
-
-There are several kinds of messages.
-
-* Message - Just a text message - This can denote progress or options used.
-
-* Warning - Just a text message starting with **"Warning"** - Often denotes if you have done something atypical. You should review the message unless you did it on purpose. 
-
-* Error - The code will stop and a text message starting with **"Error"** - Something broke the code. Review the message.
 
 
 ---
@@ -2090,16 +2096,24 @@ dfExample
 
 A useful function in R is **order()**
 
-For numeric vectors, **order()** by default returns the indices of a vector in that vector's increasing order. This behaviour can be altered by using the "decreasing" argument passed to order.
+For numeric vectors, **order()** by default returns the indices of a vector in that vector's increasing order. This behavior can be altered by using the "decreasing" argument passed to order.
 
 
 ``` r
-testOrder &lt;- c(20,10,30)
+testOrder &lt;- c(20,100,45, 31)
 testOrder
 ```
 
 ```
-## [1] 20 10 30
+## [1]  20 100  45  31
+```
+
+``` r
+order(testOrder)
+```
+
+```
+## [1] 1 4 3 2
 ```
 
 ``` r
@@ -2107,13 +2121,13 @@ order(testOrder,decreasing=T)
 ```
 
 ```
-## [1] 3 1 2
+## [1] 2 3 4 1
 ```
 
 ---
 ## Ordering with order()
 
-Once you have a vecor of ordered indices, you can then use this to index your object. 
+Once you have a vector of ordered indices, you can then use this to index your object. 
 
 
 ``` r
@@ -2121,7 +2135,7 @@ testOrder[order(testOrder)]
 ```
 
 ```
-## [1] 10 20 30
+## [1]  20  31  45 100
 ```
 
 ``` r
@@ -2129,7 +2143,7 @@ testOrder[order(testOrder,decreasing=T)]
 ```
 
 ```
-## [1] 30 20 10
+## [1] 100  45  31  20
 ```
 
 ---
@@ -2639,8 +2653,6 @@ class(dfExample)
 ---
 ## Working with objects
 
-
-
 We have also seen that functions act differently with the different data types.
 
 
@@ -2673,7 +2685,7 @@ summary(dfExample)
 ```
 
 ---
-## Working with objects (2)
+## Working with objects
 
 In fact simple interactions, such as indexing, with the different data types can be very different.
 
@@ -2697,7 +2709,7 @@ dfExample$Type
 ```
 
 ---
-## Working with objects (3)
+## Working with objects
 
 To learn about how to work with the different data types we can use the help functions built into R
 
@@ -2722,7 +2734,7 @@ Time
 ```
 
 ```
-## [1] "2024-12-12 18:17:46 UTC"
+## [1] "2024-12-13 16:12:00 UTC"
 ```
 
 ---
@@ -2777,7 +2789,7 @@ Time
 ```
 
 ```
-## [1] "2024-12-12 18:17:46 UTC"
+## [1] "2024-12-13 16:12:00 UTC"
 ```
 
 ``` r
@@ -2785,7 +2797,7 @@ Time - 120
 ```
 
 ```
-## [1] "2024-12-12 18:15:46 UTC"
+## [1] "2024-12-13 16:10:00 UTC"
 ```
 
 ``` r
@@ -2793,7 +2805,7 @@ TimeNow - Time
 ```
 
 ```
-## Time difference of 0.09844422 secs
+## Time difference of 0.09927535 secs
 ```
 
 ---
@@ -2811,7 +2823,7 @@ format(Time,format="%H O'Clock %p %A on %B %dth")
 ```
 
 ```
-## [1] "18 O'Clock PM Thursday on December 12th"
+## [1] "16 O'Clock PM Friday on December 13th"
 ```
 
 ``` r
@@ -2819,7 +2831,7 @@ format(Time,format="%H O'Clock %p %A on %B %dth",tz = "GMT")
 ```
 
 ```
-## [1] "18 O'Clock PM Thursday on December 12th"
+## [1] "16 O'Clock PM Friday on December 13th"
 ```
 
 ---
@@ -2833,7 +2845,7 @@ as.character(Time)
 ```
 
 ```
-## [1] "2024-12-12 18:17:46.550892"
+## [1] "2024-12-13 16:12:00.724375"
 ```
 
 ``` r
@@ -2841,7 +2853,7 @@ as.numeric(TimeNow-Time)
 ```
 
 ```
-## [1] 0.09844422
+## [1] 0.09927535
 ```
 
 ---
@@ -2851,7 +2863,7 @@ In future courses we will come across object which help us handle data such as f
 
 How to interact with these objects will be defined in their help pages.
 
-By using these specialised objects we will be able to focus on understanding and analyzing the data contained within the object instead of how to format and interact with such complex data.
+By using these specialized objects we will be able to focus on understanding and analyzing the data contained within the object instead of how to format and interact with such complex data.
 
 ---
 class: inverse, center, middle
@@ -2907,7 +2919,7 @@ setwd("/PathToMyDownload/Intro_To_R_1Day-master/r_course")
 ---
 ## Paths
 
-When you give a path to python it can either be relative or absolute. 
+When you give a path to R it can either be relative or absolute. 
 
 ![location](imgs/youarehere2.png)
 
@@ -2958,51 +2970,51 @@ Now we have set our location we can start thinking about reading in data. A stan
 &lt;tbody&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_a &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.105297 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 6.088697 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.464946 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.656480 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.947870 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.038254 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_b &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.965824 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.824165 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.362726 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.196082 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.193327 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.187906 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_c &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.160481 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.168378 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 5.195890 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.042921 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.771332 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.845659 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_d &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 5.147786 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 5.073560 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.867378 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5.566092 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.728139 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.401410 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_e &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.858584 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.429851 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.389943 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.379760 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.564606 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.578029 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_f &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.881685 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.665446 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.889218 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 11.345852 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8.952399 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.716140 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_g &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 11.000092 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 8.432757 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.048769 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.745760 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.239025 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.489322 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_h &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.097411 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 11.998301 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 8.317919 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 11.654193 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 11.124576 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.580235 &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
