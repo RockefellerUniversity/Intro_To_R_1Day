@@ -164,6 +164,9 @@ Inheriting much from **S** (Bell labs).
 In particular, [Robert Gentleman](https://en.wikipedia.org/wiki/Robert_Gentleman_%28statistician%29) developed the **[Bioconductor](http://bioconductor.org/)** project where 100's of packages are directly related to computational biology and analysis of associated high-throughput experiments.
   ] 
 .pull-right[
+
+R package downloads from Bioconductor
+
 ![R use over time](imgs/bioconductor_packages.png)
 
   ]
@@ -568,6 +571,33 @@ x+c(1,2)
 ```{r vectorShorterRecycle_introtoR}
 x+c(1,2,3)
 ```
+
+
+---
+## R and messages
+
+When R gives you an unexpected response DON'T PANIC.
+
+You will run into errors coding. 
+
+Most of the time the messages are very clear. And if they are not, a quick google will often clear it up:
+
+```
+Warning in x + c(1, 2, 3) :
+  longer object length is not a multiple of shorter object length
+```
+
+---
+## Messages, Warnings, Errors
+
+There are several kinds of messages.
+
+* Message - Just a text message - This can denote progress or options used.
+
+* Warning - Just a text message starting with **"Warning"** - Often denotes if you have done something atypical. You should review the message unless you did it on purpose. 
+
+* Error - The code will stop and a text message starting with **"Error"** - Something broke the code. Review the message.
+
 
 
 ---
@@ -1170,30 +1200,6 @@ factorExample[1] <- c("huge")
 factorExample
 ```
 
----
-## R and messages
-
-When R gives you an unexpected response DON'T PANIC.
-
-You will run into errors coding. 
-
-Most of the time the messages are very clear. And if they are not a quick google will often clear it up:
-
-```
-Warning in `[<-.factor`(`*tmp*`, 1, value = "huge") :
-  invalid factor level, NA generated
-```
-
----
-## Messages, Warnings, Errors
-
-There are several kinds of messages.
-
-* Message - Just a text message - This can denote progress or options used.
-
-* Warning - Just a text message starting with **"Warning"** - Often denotes if you have done something atypical. You should review the message unless you did it on purpose. 
-
-* Error - The code will stop and a text message starting with **"Error"** - Something broke the code. Review the message.
 
 
 ---
@@ -1366,18 +1372,19 @@ dfExample
 
 A useful function in R is **order()**
 
-For numeric vectors, **order()** by default returns the indices of a vector in that vector's increasing order. This behaviour can be altered by using the "decreasing" argument passed to order.
+For numeric vectors, **order()** by default returns the indices of a vector in that vector's increasing order. This behavior can be altered by using the "decreasing" argument passed to order.
 
 ```{r dataframesOrder_introtoR}
-testOrder <- c(20,10,30)
+testOrder <- c(20,100,45, 31)
 testOrder
+order(testOrder)
 order(testOrder,decreasing=T)
 ```
 
 ---
 ## Ordering with order()
 
-Once you have a vecor of ordered indices, you can then use this to index your object. 
+Once you have a vector of ordered indices, you can then use this to index your object. 
 
 ```{r}
 testOrder[order(testOrder)]
@@ -1670,8 +1677,6 @@ class(dfExample)
 ---
 ## Working with objects
 
-
-
 We have also seen that functions act differently with the different data types.
 
 ```{r}
@@ -1680,7 +1685,7 @@ summary(dfExample)
 ```
 
 ---
-## Working with objects (2)
+## Working with objects
 
 In fact simple interactions, such as indexing, with the different data types can be very different.
 
@@ -1690,7 +1695,7 @@ dfExample$Type
 ```
 
 ---
-## Working with objects (3)
+## Working with objects
 
 To learn about how to work with the different data types we can use the help functions built into R
 
@@ -1784,7 +1789,7 @@ In future courses we will come across object which help us handle data such as f
 
 How to interact with these objects will be defined in their help pages.
 
-By using these specialised objects we will be able to focus on understanding and analyzing the data contained within the object instead of how to format and interact with such complex data.
+By using these specialized objects we will be able to focus on understanding and analyzing the data contained within the object instead of how to format and interact with such complex data.
 
 ---
 ```{r, results='asis',include=TRUE,echo=FALSE}
@@ -1848,7 +1853,7 @@ setwd("/PathToMyDownload/Intro_To_R_1Day-master/r_course")
 ---
 ## Paths
 
-When you give a path to python it can either be relative or absolute. 
+When you give a path to R it can either be relative or absolute. 
 
 ![location](imgs/youarehere2.png)
 

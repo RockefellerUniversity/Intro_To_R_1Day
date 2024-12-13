@@ -71,8 +71,8 @@ Session 1 covered introduction to R data types and import/export of data.
 R stores data in five main data types.
 
 - **Vector** - Ordered collection of single data type (numeric/character/logical).
-- **Matrix** - Table (ordered 2D collection) of single data type (numeric/character/logical).
-- **Factors** - Ordered collection of ordinal or nominal catagories.
+- **Matrix** - Table (ordered 2D array) of single data type (numeric/character/logical).
+- **Factors** - Ordered collection of ordinal or nominal categories.
 - **Data frame** - Table (ordered 2D array) of multiple data types of same length.
 - **List** - Ordered collection of multiple data types of differing length.
 
@@ -98,15 +98,15 @@ aVector
 
 ---
 ## Recap
-For matricies and data frames we use two indexes, specifying columns and rows. **matrix[_rowIndex_,_columnIndex_]**
+For matrices and data frames we use two indexes, specifying columns and rows. **matrix[_rowIndex_,_columnIndex_]**
 
 .pull-left[
 ```{r,echo=T,eval=T,tidy=FALSE}
 aMatrix <- matrix(aVector,ncol=2,
                   nrow=5,byrow = TRUE)
 aMatrix
-aMatrix[1,]
-aMatrix[,1]
+aMatrix[1,1]
+aMatrix[,2]
 ```
   ]
 .pull-right[
@@ -245,6 +245,15 @@ if(params$isSlides == "yes"){
 }
 ```
 
+
+## Conditions and Loops
+
+* <span style="color:red">Conditional branching (if,else)</span>
+* <span style="color:green">Loops (for, while)</span>
+
+<span style="color:green">While</span> I'm analysing data, <span style="color:red">if</span> I need to execute complex statistical procedures on the data I will use R <span style="color:red">else</span> I will use a calculator.
+
+---
 ## Conditions and Loops
 
 
@@ -255,15 +264,6 @@ x[x < 4]
 ```
 
 Logicals are also used in controlling how scripted procedures execute.
-
-
----
-## Conditions and Loops
-
-* <span style="color:red">Conditional branching (if,else)</span>
-* <span style="color:green">Loops (for, while)</span>
-
-<span style="color:green">While</span> I'm analysing data, <span style="color:red">if</span> I need to execute complex statistical procedures on the data I will use R <span style="color:red">else</span> I will use a calculator.
 
 ---
 ## Conditional branching
@@ -395,14 +395,13 @@ The two main generic methods of looping in R are **while** and **for**
 ---
 ## While loops
 
-While loops are most useful if you know the condition will be satisified but are not sure when (i.e. Looking for a point when a number first occurs in a list).
+While loops are most useful if you know the condition will be satisfied but are not sure when (i.e. Looking for a point when a number first occurs in a list).
 ```{r, message=TRUE}
 x <- 1
 while(x < 3){
   message("x is ",x," ")
   x <- x+1
 }
-message("Finally x is not less than 3")
 ```
 
 ---
@@ -414,15 +413,18 @@ Here we cycle through a numeric vector and print out its value.
 ```{r, message=TRUE}
 x <- 1:5
 for(i in x){
-  message(i," ", appendLF = F)
+  message(i)
 }
 ```
 
+---
+## For loops
+
 Similarly we can cycle through other vector types (or lists).
 ```{r, message=TRUE}
-x <- toupper(letters[1:5])
+x <- letters[1:5]
 for(i in x){
-  message(i," ", appendLF = F)
+  message(i)
 }
 ```
 
@@ -446,15 +448,14 @@ for(i in 1:length(geneName)){
 Loops can be combined with conditional statements to allow for complex control of their execution over R objects. 
 .pull-left[
 ```{r,echo=T,eval=F}
-x <- 1:13
 
-for(i in 1:13){
-  if(i > 10){
-    message("Number ",i," is greater than 10")
-  }else if(i == 10){
-    message("Number ",i," is  10") 
+for(i in 1:8){
+  if(i > 5){
+    message("Number ",i," is greater than 5")
+  }else if(i == 5){
+    message("Number ",i," is  5") 
   }else{
-    message("Number ",i," is less than 10") 
+    message("Number ",i," is less than 5") 
   }
 }
 ```
@@ -462,15 +463,13 @@ for(i in 1:13){
   ]
 .pull-right[
 ```{r,message=T,echo=F}
-x <- 1:13
-
-for(i in 1:13){
-  if(i > 10){
-    message("Number ",i," is greater than 10")
-  }else if(i == 10){
-    message("Number ",i," is  10") 
+for(i in 1:8){
+  if(i > 5){
+    message("Number ",i," is greater than 5")
+  }else if(i == 5){
+    message("Number ",i," is  5") 
   }else{
-    message("Number ",i," is less than  10") 
+    message("Number ",i," is less than  5") 
   }
 }
 ```
@@ -483,16 +482,14 @@ We can use conditionals to exit a loop if a condition is satisfied, just like a 
 
 .pull-left[
 ```{r,message=T,eval=F}
-x <- 1:13
-
-for(i in 1:13){
-  if(i < 10){
-    message("Number ",i," is less than 10")
-  }else if(i == 10){
-    message("Number ",i," is  10")
+for(i in 1:8){
+  if(i < 5){
+    message("Number ",i," is less than 5")
+  }else if(i == 5){
+    message("Number ",i," is  5")
     break
   }else{
-    message("Number ",i," is greater than  10") 
+    message("Number ",i," is greater than  5") 
   }
 }
 ```
@@ -500,19 +497,19 @@ for(i in 1:13){
 
 .pull-right[
 ```{r,message=T,eval=T,echo=F}
-x <- 1:13
+x <- 1:8
 
-for(i in 1:13){
-  if(i < 10){
+for(i in 1:8){
+  if(i < 5){
     message("Number ",i,
-            " is less than 10")
-  }else if(i == 10){
+            " is less than 5")
+  }else if(i == 5){
     message("Number ",i,
-            " is  10")
+            " is  5")
     break
   }else{
     message("Number ",i,
-            " is greater than  10") 
+            " is greater than  5") 
   }
 }
 ```
@@ -578,16 +575,17 @@ Similar to apply, **lapply** applies a function to every element of a vector or 
 **lapply** returns a list object containing the results of evaluating the function.
 
 ```{r}
-lapply(c(1,2),mean)
+lapply(c(4,16),sqrt)
 ```
   ]
 .pull-right[
 As with apply() additional arguments can be supplied after the function name argument.
 
 ```{r}
-lapply(list(1,c(NA,1),2),mean, na.rm=T)
+lapply(list(c(2,4),c(NA,9)),mean, na.rm=T)
 ```
   ]
+  
 ---
 ## sapply()
 
@@ -596,22 +594,22 @@ lapply(list(1,c(NA,1),2),mean, na.rm=T)
 
 Here sapply returns a vector where lapply would return lists.
 ```{r}
-exampleVector <- c(1,2,3,4,5)
-exampleList <- list(1,2,3,4,5)
-sapply(exampleVector, mean, na.rm=T)
-sapply(exampleList, mean, na.rm=T)
+exampleVector <- c(4,9,16)
+exampleList <- list(4,9,16)
+sapply(exampleVector, sqrt)
+sapply(exampleList, sqrt)
 ```
 
 ---
-## sapply() example
+## sapply() examples
 
 .pull-left[
 In this example lapply returns a list of vectors from the quantile function.
 
 ```{r,tidy=FALSE}
-exampleList <- list(row1=1:5, 
-                    row2=6:10, 
-                    row3=11:15)
+exampleList <- list(row1=1:10, 
+                    row2=6:15, 
+                    row3=10:20)
 exampleList
 ```
   ]
@@ -623,7 +621,7 @@ lapply(exampleList, quantile)
   ]
 
 ---
-## sapply() example 2
+## sapply() examples
 
 Here is an example of sapply parsing a result from the quantile function in a *smart* way.
 
@@ -634,7 +632,7 @@ sapply(exampleList, quantile)
 ```
 
 ---
-## sapply() example 3
+## sapply() examples
 
 
 When sapply cannot parse the result to a vector or matrix, a list will be returned.
