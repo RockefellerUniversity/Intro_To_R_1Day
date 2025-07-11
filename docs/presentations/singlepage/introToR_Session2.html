@@ -2382,8 +2382,8 @@ functions within them.</p>
 <span id="cb152-10"><a href="#cb152-10" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">20</span>)</span>
 <span id="cb152-11"><a href="#cb152-11" tabindex="-1"></a></span>
 <span id="cb152-12"><a href="#cb152-12" tabindex="-1"></a><span class="fu">my_zscore</span>(<span class="at">my_number=</span>A[<span class="dv">1</span>], <span class="at">my_vector=</span>A)</span></code></pre></div>
-<pre><code>## Mean is 0.0460323155915139</code></pre>
-<pre><code>## [1] 1.411186</code></pre>
+<pre><code>## Mean is -0.117179763613099</code></pre>
+<pre><code>## [1] -0.5553641</code></pre>
 </div>
 <div id="debugging-functions" class="section level2">
 <h2>Debugging functions</h2>
@@ -2398,10 +2398,10 @@ function.</p>
 <h2>Custom functions and apply</h2>
 <p>These custom functions can also be utilized with apply.</p>
 <div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="#cb156-1" tabindex="-1"></a><span class="fu">sapply</span>(A, my_zscore, <span class="at">my_vector=</span>A)</span></code></pre></div>
-<pre><code>##  [1]  1.41118629 -0.09200572  1.17655990  0.19127856 -0.53121733 -0.30114220
-##  [7]  1.20063626  0.20044196  1.86244324 -2.74557280 -0.24523457  0.39461774
-## [13]  0.44057860 -0.46759730 -0.16234167  0.11677359 -0.47753051 -1.16425698
-## [19] -0.13970944 -0.66790762</code></pre>
+<pre><code>##  [1] -0.5553641  1.4430326  0.7068327 -0.8970050 -0.4562262 -1.7338690
+##  [7]  0.9357045 -0.5944109  1.9208366 -0.8420893  0.5977144  1.1485825
+## [13]  0.6285987  0.4140164 -0.8330053 -0.2846234 -0.3209234  0.2668000
+## [19] -1.7915968  0.2469950</code></pre>
 </div>
 </div>
 <div id="getting-additional-libraries" class="section level1">
@@ -2507,7 +2507,7 @@ dayOfWeek &lt;- function(){
 }</code></pre>
 <div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="#cb165-1" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;scripts/dayOfWeek.r&quot;</span>)</span>
 <span id="cb165-2"><a href="#cb165-2" tabindex="-1"></a><span class="fu">dayOfWeek</span>()</span></code></pre></div>
-<pre><code>## [1] &quot;Wed&quot;</code></pre>
+<pre><code>## [1] &quot;Fri&quot;</code></pre>
 </div>
 <div id="rscript" class="section level2">
 <h2>Rscript</h2>
