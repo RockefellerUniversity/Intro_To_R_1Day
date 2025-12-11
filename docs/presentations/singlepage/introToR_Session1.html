@@ -3086,7 +3086,7 @@ functions built for that object’s special use cases.</p>
 manage Dates or Times.</p>
 <div class="sourceCode" id="cb332"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb332-1"><a href="#cb332-1" tabindex="-1"></a>Time <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
 <span id="cb332-2"><a href="#cb332-2" tabindex="-1"></a>Time</span></code></pre></div>
-<pre><code>## [1] &quot;2025-11-11 07:12:54 UTC&quot;</code></pre>
+<pre><code>## [1] &quot;2025-12-11 07:15:37 UTC&quot;</code></pre>
 </div>
 <div id="more-complex-objects-1" class="section level2">
 <h2>More complex objects</h2>
@@ -3114,11 +3114,11 @@ POSIXct object.</p>
 <h2>More complex objects</h2>
 <p>We can also use the arithmetic operations with our time objects.</p>
 <div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb339-1"><a href="#cb339-1" tabindex="-1"></a>Time</span></code></pre></div>
-<pre><code>## [1] &quot;2025-11-11 07:12:54 UTC&quot;</code></pre>
+<pre><code>## [1] &quot;2025-12-11 07:15:37 UTC&quot;</code></pre>
 <div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb341-1"><a href="#cb341-1" tabindex="-1"></a>Time <span class="sc">-</span> <span class="dv">120</span></span></code></pre></div>
-<pre><code>## [1] &quot;2025-11-11 07:10:54 UTC&quot;</code></pre>
+<pre><code>## [1] &quot;2025-12-11 07:13:37 UTC&quot;</code></pre>
 <div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb343-1"><a href="#cb343-1" tabindex="-1"></a>TimeNow <span class="sc">-</span> Time</span></code></pre></div>
-<pre><code>## Time difference of 0.1075976 secs</code></pre>
+<pre><code>## Time difference of 0.1085284 secs</code></pre>
 </div>
 <div id="more-complex-objects-5" class="section level2">
 <h2>More complex objects</h2>
@@ -3129,18 +3129,18 @@ method</p>
 <p>We can also change the timezone by specifying a <strong>tz</strong>
 parameter</p>
 <div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="#cb345-1" tabindex="-1"></a><span class="fu">format</span>(Time,<span class="at">format=</span><span class="st">&quot;%H O&#39;Clock %p %A on %B %dth&quot;</span>)</span></code></pre></div>
-<pre><code>## [1] &quot;07 O&#39;Clock AM Tuesday on November 11th&quot;</code></pre>
+<pre><code>## [1] &quot;07 O&#39;Clock AM Thursday on December 11th&quot;</code></pre>
 <div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="#cb347-1" tabindex="-1"></a><span class="fu">format</span>(Time,<span class="at">format=</span><span class="st">&quot;%H O&#39;Clock %p %A on %B %dth&quot;</span>,<span class="at">tz =</span> <span class="st">&quot;GMT&quot;</span>)</span></code></pre></div>
-<pre><code>## [1] &quot;07 O&#39;Clock AM Tuesday on November 11th&quot;</code></pre>
+<pre><code>## [1] &quot;07 O&#39;Clock AM Thursday on December 11th&quot;</code></pre>
 </div>
 <div id="complex-to-base-objects" class="section level2">
 <h2>Complex to base objects</h2>
 <p>Most of the time we can convert more complex object back to our basic
 object types we are more familar with.</p>
 <div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="#cb349-1" tabindex="-1"></a><span class="fu">as.character</span>(Time)</span></code></pre></div>
-<pre><code>## [1] &quot;2025-11-11 07:12:54.632195&quot;</code></pre>
+<pre><code>## [1] &quot;2025-12-11 07:15:37.412572&quot;</code></pre>
 <div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="#cb351-1" tabindex="-1"></a><span class="fu">as.numeric</span>(TimeNow<span class="sc">-</span>Time)</span></code></pre></div>
-<pre><code>## [1] 0.1075976</code></pre>
+<pre><code>## [1] 0.1085284</code></pre>
 </div>
 <div id="complex-objects-summary" class="section level2">
 <h2>Complex objects summary</h2>
@@ -3248,13 +3248,13 @@ Sample_3.hi
 Gene_a
 </td>
 <td style="text-align:right;">
-3.827874
+3.670621
 </td>
 <td style="text-align:right;">
-2.015235
+2.375383
 </td>
 <td style="text-align:right;">
-3.771988
+3.166057
 </td>
 </tr>
 <tr>
@@ -3262,13 +3262,13 @@ Gene_a
 Gene_b
 </td>
 <td style="text-align:right;">
-3.509715
+3.351274
 </td>
 <td style="text-align:right;">
-5.201440
+5.026943
 </td>
 <td style="text-align:right;">
-5.488768
+3.638415
 </td>
 </tr>
 <tr>
@@ -3276,13 +3276,13 @@ Gene_b
 Gene_c
 </td>
 <td style="text-align:right;">
-3.868801
+3.511782
 </td>
 <td style="text-align:right;">
-4.665301
+3.657276
 </td>
 <td style="text-align:right;">
-4.319166
+5.781023
 </td>
 </tr>
 <tr>
@@ -3290,13 +3290,13 @@ Gene_c
 Gene_d
 </td>
 <td style="text-align:right;">
-5.393602
+4.983508
 </td>
 <td style="text-align:right;">
-2.388344
+5.136340
 </td>
 <td style="text-align:right;">
-5.357980
+3.281560
 </td>
 </tr>
 <tr>
@@ -3304,13 +3304,13 @@ Gene_d
 Gene_e
 </td>
 <td style="text-align:right;">
-10.797817
+10.199804
 </td>
 <td style="text-align:right;">
-8.995435
+9.765134
 </td>
 <td style="text-align:right;">
-10.535039
+10.419389
 </td>
 </tr>
 <tr>
@@ -3318,13 +3318,13 @@ Gene_e
 Gene_f
 </td>
 <td style="text-align:right;">
-10.673994
+11.309625
 </td>
 <td style="text-align:right;">
-9.454052
+7.813944
 </td>
 <td style="text-align:right;">
-9.980142
+10.133309
 </td>
 </tr>
 <tr>
@@ -3332,13 +3332,13 @@ Gene_f
 Gene_g
 </td>
 <td style="text-align:right;">
-8.441636
+10.788585
 </td>
 <td style="text-align:right;">
-9.544787
+11.884595
 </td>
 <td style="text-align:right;">
-12.065747
+11.322543
 </td>
 </tr>
 <tr>
@@ -3346,13 +3346,13 @@ Gene_g
 Gene_h
 </td>
 <td style="text-align:right;">
-9.813652
+10.316085
 </td>
 <td style="text-align:right;">
-10.200118
+10.896384
 </td>
 <td style="text-align:right;">
-10.360450
+10.827683
 </td>
 </tr>
 </tbody>
