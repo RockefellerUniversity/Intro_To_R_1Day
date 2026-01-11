@@ -2200,7 +2200,8 @@ our sum.</p>
 <span id="cb122-5"><a href="#cb122-5" tabindex="-1"></a>}</span>
 <span id="cb122-6"><a href="#cb122-6" tabindex="-1"></a></span>
 <span id="cb122-7"><a href="#cb122-7" tabindex="-1"></a>myResult <span class="ot">&lt;-</span> <span class="fu">myFirstFunction</span>(<span class="at">num1=</span><span class="dv">2</span>,<span class="at">num2=</span><span class="dv">3</span>)</span></code></pre></div>
-<pre><code>## Error in return(sumNum, multipleNum): multi-argument returns are not permitted</code></pre>
+<pre><code>## Error in `return()`:
+## ! multi-argument returns are not permitted</code></pre>
 </div>
 <div id="returning-multiple-values-1" class="section level2">
 <h2>Returning multiple values</h2>
@@ -2307,7 +2308,8 @@ within the environment of the function.</p>
 <span id="cb134-6"><a href="#cb134-6" tabindex="-1"></a>myResult</span></code></pre></div>
 <pre><code>## [1] 5</code></pre>
 <div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="#cb136-1" tabindex="-1"></a>sumNum</span></code></pre></div>
-<pre><code>## Error: object &#39;sumNum&#39; not found</code></pre>
+<pre><code>## Error:
+## ! object &#39;sumNum&#39; not found</code></pre>
 </div>
 <div id="variable-scope-in-functions-1" class="section level2">
 <h2>Variable scope in functions</h2>
@@ -2383,8 +2385,8 @@ functions within them.</p>
 <span id="cb152-10"><a href="#cb152-10" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">20</span>)</span>
 <span id="cb152-11"><a href="#cb152-11" tabindex="-1"></a></span>
 <span id="cb152-12"><a href="#cb152-12" tabindex="-1"></a><span class="fu">my_zscore</span>(<span class="at">my_number=</span>A[<span class="dv">1</span>], <span class="at">my_vector=</span>A)</span></code></pre></div>
-<pre><code>## Mean is 0.694813708432671</code></pre>
-<pre><code>## [1] -0.3515551</code></pre>
+<pre><code>## Mean is -0.0936135583415502</code></pre>
+<pre><code>## [1] -1.753787</code></pre>
 </div>
 <div id="debugging-functions" class="section level2">
 <h2>Debugging functions</h2>
@@ -2399,10 +2401,10 @@ function.</p>
 <h2>Custom functions and apply</h2>
 <p>These custom functions can also be utilized with apply.</p>
 <div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="#cb156-1" tabindex="-1"></a><span class="fu">sapply</span>(A, my_zscore, <span class="at">my_vector=</span>A)</span></code></pre></div>
-<pre><code>##  [1] -0.3515551 -1.5423486  0.4017387 -0.6366531 -0.6964460  1.0054694
-##  [7] -1.1771513 -1.0972238  1.7046144  0.7260111  0.9396692 -0.6651392
-## [13] -0.3601583 -0.6290328  1.0651492 -0.1773960 -0.4659298  1.3180554
-## [19]  1.5914776 -0.9531510</code></pre>
+<pre><code>##  [1] -1.75378700  0.78237777 -0.59110080  0.41789759  1.00405655  1.07336197
+##  [7] -0.17680272 -0.39963856 -0.18896166 -1.34122052 -0.44040903  0.57975310
+## [13] -0.06510196 -1.24609071 -0.60832081  1.62824917  1.56492113  0.54672476
+## [19]  0.71096553 -1.49687382</code></pre>
 </div>
 </div>
 <div id="getting-additional-libraries" class="section level1">
@@ -2508,7 +2510,7 @@ dayOfWeek &lt;- function(){
 }</code></pre>
 <div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="#cb165-1" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;scripts/dayOfWeek.r&quot;</span>)</span>
 <span id="cb165-2"><a href="#cb165-2" tabindex="-1"></a><span class="fu">dayOfWeek</span>()</span></code></pre></div>
-<pre><code>## [1] &quot;Thu&quot;</code></pre>
+<pre><code>## [1] &quot;Sun&quot;</code></pre>
 </div>
 <div id="rscript" class="section level2">
 <h2>Rscript</h2>

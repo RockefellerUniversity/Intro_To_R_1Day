@@ -1605,7 +1605,8 @@ narrowMatrix[,2] *2
 ```
 
 ```
-## Error in narrowMatrix[, 2] * 2: non-numeric argument to binary operator
+## Error in `narrowMatrix[, 2] * 2`:
+## ! non-numeric argument to binary operator
 ```
 
 
@@ -2734,7 +2735,7 @@ Time
 ```
 
 ```
-## [1] "2025-12-11 07:15:35 UTC"
+## [1] "2026-01-11 07:13:37 UTC"
 ```
 
 ---
@@ -2789,7 +2790,7 @@ Time
 ```
 
 ```
-## [1] "2025-12-11 07:15:35 UTC"
+## [1] "2026-01-11 07:13:37 UTC"
 ```
 
 ``` r
@@ -2797,7 +2798,7 @@ Time - 120
 ```
 
 ```
-## [1] "2025-12-11 07:13:35 UTC"
+## [1] "2026-01-11 07:11:37 UTC"
 ```
 
 ``` r
@@ -2805,7 +2806,7 @@ TimeNow - Time
 ```
 
 ```
-## Time difference of 0.1024323 secs
+## Time difference of 0.1096487 secs
 ```
 
 ---
@@ -2823,7 +2824,7 @@ format(Time,format="%H O'Clock %p %A on %B %dth")
 ```
 
 ```
-## [1] "07 O'Clock AM Thursday on December 11th"
+## [1] "07 O'Clock AM Sunday on January 11th"
 ```
 
 ``` r
@@ -2831,7 +2832,7 @@ format(Time,format="%H O'Clock %p %A on %B %dth",tz = "GMT")
 ```
 
 ```
-## [1] "07 O'Clock AM Thursday on December 11th"
+## [1] "07 O'Clock AM Sunday on January 11th"
 ```
 
 ---
@@ -2845,7 +2846,7 @@ as.character(Time)
 ```
 
 ```
-## [1] "2025-12-11 07:15:35.371068"
+## [1] "2026-01-11 07:13:37.516933"
 ```
 
 ``` r
@@ -2853,7 +2854,7 @@ as.numeric(TimeNow-Time)
 ```
 
 ```
-## [1] 0.1024323
+## [1] 0.1096487
 ```
 
 ---
@@ -2970,51 +2971,51 @@ Now we have set our location we can start thinking about reading in data. A stan
 &lt;tbody&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_a &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 5.844460 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.048722 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.020542 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.838446 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.988557 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.642056 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_b &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 5.482355 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 5.067006 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.501660 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.825381 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.695678 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.356753 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_c &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.322180 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.346302 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.196866 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.327046 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5.453139 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.222292 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_d &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.500189 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 2.861987 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.000857 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.538248 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.862882 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.442005 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_e &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.788277 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.174513 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.409494 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.501610 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.845885 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.912580 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_f &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 8.188192 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 8.850104 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.032815 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 11.055855 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.141788 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.579583 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_g &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.895017 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.162151 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.471574 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8.714692 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.525112 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 11.892086 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_h &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 8.787798 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.215859 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 11.154529 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.124535 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.340563 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 12.200594 &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
