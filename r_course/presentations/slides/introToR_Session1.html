@@ -5,18 +5,24 @@
     <meta charset="utf-8" />
     <meta name="author" content="http://rockefelleruniversity.github.io/Intro_To_R_1Day/" />
     <meta name="author" content="brc@rockefeller.edu" />
-    <script src="introToR_Session1_files/header-attrs-2.30/header-attrs.js"></script>
-    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+    <script src="libs/header-attrs-2.30/header-attrs.js"></script>
+    <link rel="stylesheet" href="default.css" type="text/css" />
+    <link rel="stylesheet" href="metropolisCustom.css" type="text/css" />
+    <link rel="stylesheet" href="metropolis-fontsCustom.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
-class: center, middle, inverse, title-slide
+class: middle, inverse, title-slide
 
 .title[
 # Introduction to R - Session 1
 ]
 .subtitle[
-## Bioinformatics Resource Center - Rockefeller University
+## <html><br />
+<br />
+<hr color='#EB811B' size=1px width=796px><br />
+</html><br />
+Bioinformatics Resource Center - Rockefeller University
 ]
 .author[
 ### <a href="http://rockefelleruniversity.github.io/Intro_To_R_1Day/" class="uri">http://rockefelleruniversity.github.io/Intro_To_R_1Day/</a>
@@ -26,8 +32,6 @@ class: center, middle, inverse, title-slide
 ]
 
 ---
-
-
 
 
 
@@ -2735,7 +2739,7 @@ Time
 ```
 
 ```
-## [1] "2026-01-11 07:13:37 UTC"
+## [1] "2026-01-27 17:00:33 UTC"
 ```
 
 ---
@@ -2790,7 +2794,7 @@ Time
 ```
 
 ```
-## [1] "2026-01-11 07:13:37 UTC"
+## [1] "2026-01-27 17:00:33 UTC"
 ```
 
 ``` r
@@ -2798,7 +2802,7 @@ Time - 120
 ```
 
 ```
-## [1] "2026-01-11 07:11:37 UTC"
+## [1] "2026-01-27 16:58:33 UTC"
 ```
 
 ``` r
@@ -2806,7 +2810,7 @@ TimeNow - Time
 ```
 
 ```
-## Time difference of 0.1096487 secs
+## Time difference of 0.1182163 secs
 ```
 
 ---
@@ -2824,7 +2828,7 @@ format(Time,format="%H O'Clock %p %A on %B %dth")
 ```
 
 ```
-## [1] "07 O'Clock AM Sunday on January 11th"
+## [1] "17 O'Clock PM Tuesday on January 27th"
 ```
 
 ``` r
@@ -2832,7 +2836,7 @@ format(Time,format="%H O'Clock %p %A on %B %dth",tz = "GMT")
 ```
 
 ```
-## [1] "07 O'Clock AM Sunday on January 11th"
+## [1] "17 O'Clock PM Tuesday on January 27th"
 ```
 
 ---
@@ -2846,7 +2850,7 @@ as.character(Time)
 ```
 
 ```
-## [1] "2026-01-11 07:13:37.516933"
+## [1] "2026-01-27 17:00:33.856642"
 ```
 
 ``` r
@@ -2854,7 +2858,7 @@ as.numeric(TimeNow-Time)
 ```
 
 ```
-## [1] 0.1096487
+## [1] 0.1182163
 ```
 
 ---
@@ -2971,51 +2975,51 @@ Now we have set our location we can start thinking about reading in data. A stan
 &lt;tbody&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_a &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.838446 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.988557 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.642056 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.625055 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.673939 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.788612 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_b &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 2.825381 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.695678 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.356753 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.205191 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5.944901 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.263713 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_c &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.327046 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 5.453139 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.222292 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.211551 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.045093 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5.160583 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_d &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.538248 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.862882 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 2.442005 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.310896 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5.282469 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.474723 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_e &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.501610 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.845885 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.912580 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.954306 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 11.351769 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.592114 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_f &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 11.055855 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.141788 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.579583 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.838754 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8.923839 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.817410 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_g &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 8.714692 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.525112 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 11.892086 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.339985 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8.184329 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.114544 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_h &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.124535 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.340563 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 12.200594 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.059539 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.685665 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.772545 &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
