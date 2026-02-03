@@ -15,9 +15,22 @@ a, a > code {
   color: #d6d6d6;
   text-shadow: 0 0 20px #333;
 }
-.inverse h1, .inverse h2, .inverse h3 {
-  color: #f3f3f3;
+
+.inverse h1 {
+  color: #272822;
+  font-size: calc(65px - 2vw);
 }
+
+.inverse h2 {
+  color: #272822;
+  font-size: calc(50px - 2vw);
+}
+
+.inverse h3 {
+  color: #272822;
+  font-size: calc(30px - 2vw);
+}
+
 /* Two-column layout */
 .left-column {
   color: #777;

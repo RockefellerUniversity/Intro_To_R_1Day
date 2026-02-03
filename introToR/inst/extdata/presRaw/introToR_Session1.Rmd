@@ -381,7 +381,7 @@ x
 
 ---
 
-## Using variables                                                                                        
+## Using variables 
 
 Variables can be used just as the values they contain.
 ```{r variableAsValueTheyContain_introtoR}
@@ -1112,7 +1112,7 @@ Specifying data as categorical allows R to properly handle the data and make use
 To create a factor from a vector we use the **factor()** function. Note that the factor now has an additional component called **"levels"** which identifies all categories within the vector.
 
 ```{r factorsIntro_introtoR}
-vectorExample <- c("male","female","female","female")
+vectorExample <- c("mutant","mutant","wild-type","wild-type")
 factorExample <- factor(vectorExample)
 factorExample
 levels(factorExample)
@@ -1139,7 +1139,7 @@ summary(factorExample)
 In our factor example, the levels have been displayed in an alphabetical order. To adjust the display order of levels in a factor, we can supply the desired display order to **levels** argument in the **factor()** function call.
 
 ```{r factorsDisplayOrder_introtoR}
-factorExample <- factor(vectorExample, levels=c("male","female"))
+factorExample <- factor(vectorExample, levels=c("wild-type", "mutant"))
 factorExample
 summary(factorExample)
 ```
@@ -1150,7 +1150,7 @@ summary(factorExample)
 In some cases there is no natural order to the categories such that one category is greater than the other (nominal data).
 
 ```{r factorsNominal_introtoR}
-factorExample <- factor(vectorExample, levels=c("male","female"))
+factorExample <- factor(vectorExample, levels=c("wild-type", "mutant"))
 factorExample[1] < factorExample[2]
 ```
 
@@ -1233,10 +1233,10 @@ In practice, we would want to have a table which is a mixture of types (e.g a ta
 In R, we make use of the **data frame** object which allows us to store tables with columns of different data types. To create a data frame we can simply use the **data.frame()** function.
 
 ```{r dataframesIntro_introtoR}
-patientName <- c("patient1","patient2","patient3","patient4")
-patientType <- factor(rep(c("male","female"),2))
+MouseID <- c("mouse1","mouse2","mouse3","mouse4")
+GeneType <- factor(rep(c("mutant","wild-type"),2))
 survivalTime <- c(1,30,2,20)
-dfExample <- data.frame(Name=patientName, Type=patientType, Survival_Time=survivalTime)
+dfExample <- data.frame(Name=MouseID, Type=GeneType, Survival_Time=survivalTime)
 dfExample
 ```
 
@@ -1256,7 +1256,6 @@ dfExample[dfExample[,"Survival_Time"] > 10,]
 Unlike matrices, it is possible to index a column by using the **$** symbol.
 
 ```{r dataframesReplacementbyDollar_introtoR}
-dfExample <- data.frame(Name=patientName,Type=patientType,Survival_Time=survivalTime)
 dfExample$Survival_Time
 dfExample[dfExample$Survival_Time < 10,]
 ```
@@ -1302,7 +1301,7 @@ dfExample
 When we work with factors, for a replacement to be succesful it has to be a possible level.
 
 ```{r dataframesNoReplaceString_introtoR}
-dfExample[1,"Type"] <- "other"
+dfExample[1,"Type"] <- "mutant2"
 dfExample
 ```
 
@@ -1312,13 +1311,13 @@ dfExample
 It is possible to update factors in data frames just as with standard factors.
 
 ```{r dataframesAndFactors_introtoR}
-dfExample <- data.frame(Name=patientName,Type=patientType,
+dfExample <- data.frame(Name=MouseID,Type=GeneType,
                         Survival_Time=survivalTime)
 
 levels(dfExample[,"Type"]) <- c(levels(dfExample[,"Type"]) ,
-                                "other")
+                                "mutant2")
 
-dfExample[1,"Type"] <- "other"
+dfExample[1,"Type"] <- "mutant2"
 dfExample
 
 ```
@@ -1327,36 +1326,20 @@ dfExample
 ---
 ## Factors in data frames
 
-If you are running an older version of R (anything from before 4.0), then by default all columns with characters will be considered to be factors. 
-
-This is controlled when you make the data frame, by the **stringsAsFactors** argument. Up until recently the default parameter for this was **TRUE**. It now defaults to **FALSE**
+When you create a dataframe you can automatically make all strings be converted to factors with the **stringsAsFactors** argument. The current default though is **FALSE**
 
 ```{r dataframesAndNoFactors_introtoR}
-dfExample <- data.frame(Name=patientName,
-                        Type=patientType,
+dfExample <- data.frame(Name=MouseID,
+                        Type=GeneType,
                         Survival_Time=survivalTime,
                         stringsAsFactors = T)
 
 
-dfExample[dfExample[,"Survival_Time"] < 10,"Name"] <- "patientX"
+dfExample[dfExample[,"Survival_Time"] < 10,"Name"] <- "other"
 dfExample
 
 ```
 
----
-## Factors in data frames
-
-```{r dataframesAndNoFactors_introtoR2}
-dfExample <- data.frame(Name=patientName,
-                        Type=patientType,
-                        Survival_Time=survivalTime,
-                        stringsAsFactors = F)
-
-
-dfExample[dfExample[,"Survival_Time"] < 10,"Name"] <- "patientX"
-dfExample
-
-```
 
 
 ---
@@ -1869,7 +1852,7 @@ The command we used before was using an absolute path. Typically they start with
 
 ```{r, eval=F}
 
-setwd("/Users/mattpaul/Downloads/Intro_To_Python-master/r_course/")
+setwd("/Users/mattpaul/Downloads/Intro_To_R_1Day-master/r_course/")
 
 ```
 
@@ -1877,7 +1860,7 @@ Given that we started at: */Users/mattpaul*, we could have also used the path be
 
 ```{r, eval=F}
 
-setwd("Downloads/Intro_To_Python-master/r_course/")
+setwd("Downloads/Intro_To_R_1Day-master/r_course/")
 
 ```
 
