@@ -5,9 +5,10 @@ author:
   - "[http://rockefelleruniversity.github.io/Intro_To_R_1Day/](http://rockefelleruniversity.github.io/Intro_To_R_1Day/)"
   - "[brc@rockefeller.edu](mailto:brc@rockefeller.edu)"
 ---
+
 ```{r setup, include=FALSE, purl=FALSE}
 suppressPackageStartupMessages(require(knitr))
-knitr::opts_chunk$set(echo = TRUE, tidy = T)
+knitr::opts_chunk$set(echo = TRUE, tidy = TRUE)
 ```
 
 ::: {.content-hidden when-format="revealjs"}
@@ -16,18 +17,21 @@ knitr::opts_chunk$set(echo = TRUE, tidy = T)
 
 ## Overview
 
-- [Recap](https://rockefelleruniversity.github.io/Intro_To_R_1Day/presentations/singlepage/introToR_Session2.html#recap)
-- [Conditions and Loops](https://rockefelleruniversity.github.io/Intro_To_R_1Day/presentations/singlepage/introToR_Session2.html#conditions_and_loops)
-- [Libraries](https://rockefelleruniversity.github.io/Intro_To_R_1Day/presentations/singlepage/introToR_Session2.html#getting_additional_libraries)
-- [Writing scripts](https://rockefelleruniversity.github.io/Intro_To_R_1Day/presentations/singlepage/introToR_Session2.html#scripts)
+- [Recap](#recap)
+- [Conditions and Loops](#conditions-and-loops)
+- [Custom functions](#custom-functions)
+- [Libraries](#getting-additional-libraries)
+- [Writing scripts](#scripts)
 
-#  Recap
+# Recap {background-color="#23373B" .center .middle}
+
+## Session 1 recap
 
 Session 1 covered introduction to R data types and import/export of data.
 
-- [Background to R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/presentations/singlepage/introToR_Session1.html#background-to-r)
-- [Data types in R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/presentations/singlepage/introToR_Session1.html#data_types_in_r)
-- [Reading and writing in R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/presentations/singlepage/introToR_Session1.html#reading-and-writing-data-in-r)
+- [Background of R](../singlepage/introToR_Session1.html#background-of-r)
+- [Data types in R](../singlepage/introToR_Session1.html#data-types-in-r)
+- [Reading and writing data](../singlepage/introToR_Session1.html#reading-and-writing-data)
 
 ## Recap
 
@@ -39,7 +43,7 @@ R stores data in five main data types.
 - **Data frame** - Table (ordered 2D array) of multiple data types of same length.
 - **List** - Ordered collection of multiple data types of differing length.
 
-```{r,echo=T,eval=T}
+```{r,echo=TRUE,eval=TRUE}
 aVector <- c(1,2,3,4,5,6,7,8,9,10)
 aMatrix <- matrix(aVector,ncol=2,nrow=5,byrow = TRUE)
 aFactor <- factor(c("R","Python","R","R","Python"),levels = c("R","Python"))
@@ -50,7 +54,7 @@ aDataFrame <- data.frame(Number=c(1,2,3,4,5),Factor=aFactor)
 
 We can access and change information in our data.types using **indexing** with **[]**  (or **[[]]** for lists).
 
-```{r,echo=T,eval=T}
+```{r,echo=TRUE,eval=TRUE}
 aVector <- c(1,2,3,4,5,6,7,8,9,10)
 aVector[10]
 aVector[10] <- 0
@@ -64,7 +68,7 @@ For matrices and data frames we use two indexes, specifying columns and rows. **
 ::: {.columns}
 
 ::: {.column width="50%"}
-```{r,echo=T,eval=T,tidy=FALSE}
+```{r,echo=TRUE,eval=TRUE,tidy=FALSE}
 aMatrix <- matrix(aVector,ncol=2,
                   nrow=5,byrow = TRUE)
 aMatrix
@@ -74,7 +78,7 @@ aMatrix[,2]
 :::
 
 ::: {.column width="50%"}
-```{r,echo=T,eval=T,tidy=FALSE}
+```{r,echo=TRUE,eval=TRUE,tidy=FALSE}
 aMatrix[1,1] <- 0
 aMatrix[,2] <- 100
 aMatrix
@@ -90,7 +94,7 @@ Remember a matrix can only contain one data type (numeric, character etc). For m
 ::: {.columns}
 
 ::: {.column width="50%"}
-```{r,echo=T,eval=T,tidy=FALSE}
+```{r,echo=TRUE,eval=TRUE,tidy=FALSE}
 aMatrix <- matrix(aVector,ncol=2,
                   nrow=5,byrow = TRUE)
 aMatrix
@@ -99,7 +103,7 @@ aMatrix
 :::
 
 ::: {.column width="50%"}
-```{r,echo=T,eval=T,tidy=FALSE}
+```{r,echo=TRUE,eval=TRUE,tidy=FALSE}
 aMatrix[1,2] <- "Word"
 aMatrix
 ```
@@ -111,7 +115,7 @@ aMatrix
 
 We can use logical operations to evaluate information our data types.
 
-```{r,echo=T,eval=T}
+```{r,echo=TRUE,eval=TRUE}
 aVector <- c(1,2,3,4,5,6,7,8,9,10)
 aVector > 9
 aFactor <- factor(c("R","Python","R","R","Python"),levels = c("R","Python"))
@@ -124,7 +128,7 @@ aDataFrame$Factor == "R"
 
 We can use logical operations with indexing to subset or alter information held in our data types.
 
-```{r,echo=T,eval=T}
+```{r,echo=TRUE,eval=TRUE}
 aVector <- c(1,2,3,4,5,6,7,8,9,10)
 aVector > 5
 aVector[aVector > 5] <- 10
@@ -135,7 +139,7 @@ aVector
 
 When replacing factor columns in data frames we have to remember the **levels**.
 
-```{r,echo=T,eval=T,tidy=T}
+```{r,echo=TRUE,eval=TRUE,tidy=TRUE}
 
 aFactor <- factor(c("R","Python","R","R","Python"),
                   levels = c("R","Python"))
@@ -149,7 +153,7 @@ aDataFrame
 
 We can update levels in a data frame column as we would a factor. Now we can replace our elements in data frame.
 
-```{r,echo=T,eval=T,tidy=FALSE}
+```{r,echo=TRUE,eval=TRUE,tidy=FALSE}
 
 aDataFrame <- data.frame(Number=c(1,2,3,4,5),
                          Factor=aFactor)
@@ -163,11 +167,11 @@ aDataFrame
 
 Data can be read into R as a table with the **read.table()** function and written to file with the **write.table()** function.
 
-```{r,echo=T,eval=T}
+```{r,echo=TRUE,eval=TRUE}
 Table <- read.table("data/readThisTable.csv",sep=",",header=T,row.names=1)
 Table[1:3,]
 ```
-```{r,echo=T,eval=F}
+```{r,echo=TRUE,eval=FALSE}
 write.table(Table,file="data/writeThisTable.csv", sep=",", row.names =F,col.names=T)
 ```
 
@@ -177,7 +181,7 @@ If we want to know how a function works or get an example on its use we can use 
 
 **?_FunctionName_**
 
-```{r,echo=T,eval=F}
+```{r,echo=TRUE,eval=FALSE}
 ?merge
 ```
 
@@ -206,7 +210,7 @@ Conditional branching is the evaluation of a logical to determine whether a chun
 
 In R, we use the **if** statement with the logical to be evaluated in **()** and dependent code to be executed in **{}**.
 
-```{r,message=T}
+```{r,message=TRUE}
 x <- TRUE
 if(x){
   message("x is true")
@@ -222,7 +226,7 @@ if(x){
 
 More often, we construct the logical value within **()** itself. This can be termed the **condition**.
 
-```{r,message=T}
+```{r,message=TRUE}
 x <- 10
 y <- 4
 if(x > y){
@@ -232,7 +236,7 @@ if(x > y){
 
 The message is printed above because x is greater than y.
 
-```{r,message=T}
+```{r,message=TRUE}
 y <- 20
 if(x > y){
   message("The value of x is ",x," which is greater than ", y)
@@ -250,10 +254,10 @@ We really still want a message telling us what was the result of the condition.
 ::: {.column width="50%"}
 If we want to perform an operation when the condition is false we can follow the if() statement with an else statement.
 
-```{r,message=T}
+```{r,message=TRUE}
 x <- 3
 if(x < 5){
-  message(x, " is less than to 5")
+  message(x, " is less than 5")
    }else{
      message(x," is greater than or equal to 5")
 }
@@ -263,7 +267,7 @@ if(x < 5){
 ::: {.column width="50%"}
 With the addition of the else statement, when x is not less than 5 the code following the else statement is executed.
 
-```{r,message=T}
+```{r,message=TRUE}
 x <- 10
 if(x < 5){
   message(x, " is less than 5")
@@ -359,13 +363,13 @@ for(i in x){
 
 ## Looping through indices
 
-We may wish to keep track of the position in x we are evaluating to retrieve the same index in other variables. A common practice is to loop though all possible index positions of x using the expression **1:length(x)**.
+We may wish to keep track of the position in x we are evaluating to retrieve the same index in other variables. A common practice is to loop through all possible index positions of x using **seq_along(x)** (you will also often see **1:length(x)**, which does the same for non-empty vectors).
 
-```{r,message=T}
+```{r,message=TRUE}
 geneName <- c("Ikzf1","Myc","Igll1")
 expression <- c(10.4,4.3,6.5)
-1:length(geneName)
-for(i in 1:length(geneName)){
+seq_along(geneName)
+for(i in seq_along(geneName)){
   message(geneName[i]," has an RPKM of ",expression[i])
 }
 ```
@@ -376,13 +380,13 @@ Loops can be combined with conditional statements to allow for complex control o
 ::: {.columns}
 
 ::: {.column width="50%"}
-```{r,echo=T,eval=F}
+```{r,echo=TRUE,eval=FALSE}
 
 for(i in 1:8){
   if(i > 5){
     message("Number ",i," is greater than 5")
   }else if(i == 5){
-    message("Number ",i," is  5")
+    message("Number ",i," is 5")
   }else{
     message("Number ",i," is less than 5")
   }
@@ -392,14 +396,14 @@ for(i in 1:8){
 :::
 
 ::: {.column width="50%"}
-```{r,message=T,echo=F}
+```{r,message=TRUE,echo=FALSE}
 for(i in 1:8){
   if(i > 5){
     message("Number ",i," is greater than 5")
   }else if(i == 5){
-    message("Number ",i," is  5")
+    message("Number ",i," is 5")
   }else{
-    message("Number ",i," is less than  5")
+    message("Number ",i," is less than 5")
   }
 }
 ```
@@ -414,22 +418,22 @@ We can use conditionals to exit a loop if a condition is satisfied, just like a 
 ::: {.columns}
 
 ::: {.column width="50%"}
-```{r,message=T,eval=F}
+```{r,message=TRUE,eval=FALSE}
 for(i in 1:8){
   if(i < 5){
     message("Number ",i," is less than 5")
   }else if(i == 5){
-    message("Number ",i," is  5")
+    message("Number ",i," is 5")
     break
   }else{
-    message("Number ",i," is greater than  5")
+    message("Number ",i," is greater than 5")
   }
 }
 ```
 :::
 
 ::: {.column width="50%"}
-```{r,message=T,eval=T,echo=F}
+```{r,message=TRUE,eval=TRUE,echo=FALSE}
 x <- 1:8
 
 for(i in 1:8){
@@ -438,11 +442,11 @@ for(i in 1:8){
             " is less than 5")
   }else if(i == 5){
     message("Number ",i,
-            " is  5")
+            " is 5")
     break
   }else{
     message("Number ",i,
-            " is greater than  5")
+            " is greater than 5")
   }
 }
 ```
@@ -577,11 +581,11 @@ sapply(exampleList, summary)
 
 ## Time for an exercise!
 
-Exercise on loops and conditional branching can be found [here](../..//exercises/exercises/ConditionsAndLoops_exercise.html)
+Exercise on loops and conditional branching can be found [here](../../exercises/exercises/ConditionsAndLoops_exercise.html)
 
 ## Answers to exercise
 
-Answers can be found here  [here](../..//exercises/answers/ConditionsAndLoops_answers.html)
+Answers can be found [here](../../exercises/answers/ConditionsAndLoops_answers.html)
 
 # Custom functions {background-color="#23373B" .center .middle}
 
@@ -590,7 +594,6 @@ You can create your own functions easily in R using the **<-** assignment and **
 We put all our input arguments in **()** and all code to be executed in **{}**.
 Anything to be received back from the function is indicated by the **return** statement.
 
-In this case we can recapitulate the square function.
 ```{r makingfunctions,eval=FALSE}
 myFirstFunction  <- function(MYARGUMENT){
   ...................
@@ -642,7 +645,7 @@ myFirstFunction  <- function(num1,num2){
   sumNum <- num1+num2
   multipleNum <- num1*num2
   VectorOfResults <- c(sumNum,multipleNum)
-  names(VectorOfResults) <- c("multiple","sum")
+  names(VectorOfResults) <- c("sum","multiple")
   return(VectorOfResults)
 }
 
@@ -791,6 +794,7 @@ my_zscore  <- function(my_number, my_vector){
   return(my_z)
 }
 
+set.seed(42)
 A <- rnorm(20)
 
 my_zscore(my_number=A[1], my_vector=A)
@@ -810,7 +814,7 @@ undebug(myFirstFunction)
 
 These custom functions can also be utilized with apply.
 
-```{r, message=F}
+```{r, message=FALSE}
 sapply(A, my_zscore, my_vector=A)
 
 ```
@@ -821,13 +825,13 @@ sapply(A, my_zscore, my_vector=A)
 
 Libraries can be loaded using the library() function with an argument of the name of the library.
 
-```{r,eval=F}
+```{r,eval=FALSE}
 library(ggplot2)
 ```
 
 You can see what libraries are available in the Packages panel or by the library() function with no arguments supplied.
 
-```{r,eval=F}
+```{r,eval=FALSE}
 library()
 ```
 
@@ -839,7 +843,7 @@ Libraries can be installed through the R studio menu.
 
 Or by using the install.packages() command.
 
-```{r,eval=F}
+```{r,eval=FALSE}
 install.packages("Hmisc")
 ```
 
@@ -847,21 +851,21 @@ install.packages("Hmisc")
 
 By default when we run *install.packages()* we are installing from [CRAN](https://cran.r-project.org/). This is the central network of servers that are the repository for R and it's packages.
 
-We can also install from other sources. For Bioinformatics we have **[Bioconductor](http://bioconductor.org/)**. There is a huge collection of packages that are interoperable and specific to our interest i.e.
+We can also install from other sources. For Bioinformatics we have **[Bioconductor](https://bioconductor.org/)**. There is a huge collection of packages that are interoperable and specific to our interest i.e.
 
-Bioconductor packages undergo peer review, undergo rigorous testing and are required to have vignettes unlike CRAN packages so we tyically hold these packages in a higher regard.
+Bioconductor packages undergo peer review, undergo rigorous testing and are required to have vignettes unlike CRAN packages so we typically hold these packages in a higher regard.
 
 ## BiocManager::install()
 
 Bioconductor uses a different install function which is contained in the BiocManager package. We first have to install this from CRAN.
 
-```{r, eval=F}
+```{r, eval=FALSE}
 install.packages("BiocManager")
 ```
 
 Once installed, BiocManager will install Bioconductor packages or CRAN packages.
 
-```{r, eval=F}
+```{r, eval=FALSE}
 # Bioconductor package
 BiocManager::install("Rsamtools")
 # CRAN package
@@ -874,11 +878,11 @@ Another resource for packages is GitHub. There are a wide variety of packages. S
 
 Here we will demonstrate the installation of the [SeuratData package](https://github.com/satijalab/seurat-data) containing single cell data from the Satija lab.
 
-Again we must install a new installation package called *devtools* from CRAN. We can then use the *install_github()* function along with the name of the GitHub repository to install the package.
+Again we must install a helper package from CRAN, here *remotes* (the lightweight package that *devtools* uses for this). We can then use the *install_github()* function along with the name of the GitHub repository to install the package.
 
-```{r, eval=F}
-install.packages("devtools")
-devtools::install_github('satijalab/seurat-data')
+```{r, eval=FALSE}
+install.packages("remotes")
+remotes::install_github('satijalab/seurat-data')
 ```
 
 ## Which install?
@@ -911,7 +915,7 @@ To save all the objects (workspace) with extension **.RData**
 
 R scripts allow us to save and reuse custom functions we have written.  To run the code from an R script we can use the **source()** function with the name of the R script as the argument.
 
-The file **dayOfWeek.r** in the "scripts" directory contains a simple R script to tell you what day it is.
+The file **dayOfWeek.r** in the "data/scripts" directory contains a simple R script to tell you what day it is.
 
 ```
 #Contents of dayOfWeek.r
@@ -920,7 +924,7 @@ dayOfWeek <- function(){
 }
 ```
 ```{r}
-source("scripts/dayOfWeek.r")
+source("data/scripts/dayOfWeek.r")
 dayOfWeek()
 ```
 
@@ -942,7 +946,7 @@ R CMD BATCH myscript.r
 
 To provide arguments to an R script at the command line we must add **commandArgs()** function to parse command line arguments.
 
-```{r,eval=F}
+```{r,eval=FALSE}
 args <- commandArgs(TRUE)
 myFirstArgument <- args[1]
 myFirstArgument
@@ -951,7 +955,7 @@ myFirstArgument
 ```
 '10'
 ```
-```{r,eval=F}
+```{r,eval=FALSE}
 as.numeric(myFirstArgument)
 ```
 ```
@@ -961,16 +965,16 @@ Since vectors can only be one type, all command line arguments are strings and m
 
 ## Time for an exercise!
 
-Exercise on functions can be found [here](../..//exercises/exercises/Functions_exercise.html)
+Exercise on functions can be found [here](../../exercises/exercises/Functions_exercise.html)
 
 ## Answers to exercise
 
-Answers can be found here  [here](../..//exercises/answers/Functions_answers.html)
+Answers can be found [here](../../exercises/answers/Functions_answers.html)
 
 ## Getting help
 
 - From us: Raise an issue on our [GitHub](https://github.com/RockefellerUniversity/Intro_To_R_1Day/issues). This can be suggestions, comments, edits or questions (about content or the slides themselves).
 - Google
 - Local friendly bioinformaticians and computational biologists.
-- [Stackoverflow](http://stackoverflow.com/)
+- [Stack Overflow](https://stackoverflow.com/)
 - [R-help](https://stat.ethz.ch/mailman/listinfo/r-help)

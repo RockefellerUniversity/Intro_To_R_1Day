@@ -37,7 +37,7 @@ geneMatrix
 - Update the matrix to contain the expression over the gene length for all genes (Length normalised expression) as final column.
 <a name="lne"></a>
 
-HINT - We calculated LNE before in [vectors exercises' bonus question](../answers/vector_answers.html#bonus)
+HINT - We calculated LNE before in [vectors exercises' bonus question](../answers/Vectors_answers.html#bonus)
 
 ```{r,echo=toMessage}
 lne <- geneMatrix[,"expression"]/geneMatrix[,"geneLengths"]
@@ -57,7 +57,7 @@ smallGeneMatrix <- geneMatrix[geneMatrix[,"geneLengths"] > 200 & geneMatrix[,"ex
 smallGeneMatrix
 ```
 
-- Add an additional column to the orginal matrix which contains some GO terms associated with these genes: "Positively Regulates Transcription", "Negatively Regulates Transcription", "Positively Regulates Transcription", "Regulates Autophagy"
+- Add an additional column to the original matrix which contains some GO terms associated with these genes: "Positively Regulates Transcription", "Negatively Regulates Transcription", "Positively Regulates Transcription", "Regulates Autophagy"
 
 ```{r,echo=toMessage}
 GOterms <- c("Positively Regulates Transcription", "Negatively Regulates Transcription", "Positively Regulates Transcription", "Regulates Autophagy")
@@ -67,7 +67,7 @@ geneMatrix_GO
 
 - What is the data type? Use the class(),is.numeric() and is.character() functions to investigate. Compare this to the original matrix.
 
-```{r}
+```{r,echo=toMessage}
 class(geneMatrix_GO)
 is.numeric(geneMatrix_GO)
 is.character(geneMatrix_GO)
@@ -78,9 +78,9 @@ is.character(geneMatrix)
 
 - Subset the original matrix to only genes that are involved in Transcription. Make sure the result is a numeric matrix.
 
-```{r}
+```{r,echo=toMessage}
 
-geneMatrix_transcription <- geneMatrix[grepl("transcription",GOterms, ignore.case = T),]
+geneMatrix_transcription <- geneMatrix[grepl("transcription",GOterms, ignore.case = TRUE),]
 
 geneMatrix_transcription
 is.numeric(geneMatrix_transcription)

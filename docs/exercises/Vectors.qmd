@@ -48,7 +48,7 @@ x
 
 - Check the help page for the rep function
 
-```{r}
+```{r,eval=FALSE}
 ?rep
 ```
 
@@ -119,7 +119,7 @@ paste("A","B", sep="_")
 - Create a vector with these gene names: "PKM", "ADPRH", "TDG", "ATP4A", "SLC6A4", "CAPN3", "TDG", "ATP1A2","PKM"
 - Subset to just the unique genes
 
-```{r}
+```{r,echo=toMessage}
 my_genes <- c("PKM", "ADPRH", "TDG", "ATP4A", "SLC6A4", "CAPN3", "TDG", "ATP1A2","PKM")
 my_genes <- unique(my_genes)
 my_genes
@@ -129,14 +129,7 @@ my_genes
 - Check which genes from vector 1 are present in vector 2.
 - Subset vector 1 depending on whether the gene is present in vector 2.
 
-```{r}
-my_genes_of_interest <- c("SLC6A4", "CAPN3", "TDG", "ATP1A2", "IMPA1", "PDXK")
-idx <- my_genes %in% my_genes_of_interest
-idx
-my_genes[idx]
-```
-
-```{r}
+```{r,echo=toMessage}
 my_genes_of_interest <- c("SLC6A4", "CAPN3", "TDG", "ATP1A2", "IMPA1", "PDXK")
 idx <- my_genes %in% my_genes_of_interest
 idx
@@ -146,7 +139,7 @@ my_genes[idx]
 - Create a vector with these gene names: "SMC1", "SMC3", "SCC1", "SCC3", "RAD21", "NIPBL", "SMC2", "SMC4","CAPH","CAPD3"
 - Subset to just the genes containing SMC
 
-```{r}
+```{r,echo=toMessage}
 my_genes <- c("SMC1", "SMC3", "SCC1", "SCC3", "RAD21", "NIPBL", "SMC2", "SMC4","CAPH","CAPD3")
 my_genes[grepl("SMC",my_genes)]
 

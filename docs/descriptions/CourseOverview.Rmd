@@ -1,24 +1,28 @@
 ## Course Overview
 <br>
 
-### Course Integrity
-**This course is compiled automatically on _`r Sys.Date()`_ **
-<br>
-[<img src="https://github.com/RockefellerUniversity/Intro_To_R_1Day/workflows/compilation-check/badge.svg">](https://github.com/RockefellerUniversity/Intro_To_R_1Day/actions?query=workflow%3compilation-check)
-
-**The course is tested and available on MacOS, Windows and Ubuntu Linux for `r R.Version()$version.string`**
-<br>
-[<img src="https://github.com/RockefellerUniversity/Intro_To_R_1Day/workflows/OS-check/badge.svg">](https://github.com/RockefellerUniversity/Intro_To_R_1Day/actions?query=workflow%3AOS-check)
-
-<br>
-<br>
-
-### Overview
 This course introduces R and statistical programming.
 
-The course consists of 2 sections, 1 on basic R data types and data input/output and a second on conditionals and looping.
-Each section is presented as HTMl presentations or single page document. Exercises and answer sheets are included after all subsections to practice techniques and provide future reference examples.
+The course consists of 2 sessions: the first on basic R data types and data input/output, and the second on conditional branching, loops, functions and scripts.
+Each session is presented as HTML slides and as a single-page document. Exercises and answer sheets are included after each subsection to practice techniques and to provide future reference examples.
 
 Course material and exercises are available to view as rendered HTML at https://rockefelleruniversity.github.io/Intro_To_R_1Day/.
 All material is available to download under GPL v2 license.
 
+<br>
+<br>
+
+## Course Integrity
+**This course is compiled automatically on _`r Sys.Date()`_ **
+<br>
+[![compilation-check](https://github.com/RockefellerUniversity/Intro_To_R_1Day/actions/workflows/compilation-check.yml/badge.svg)](https://github.com/RockefellerUniversity/Intro_To_R_1Day/actions/workflows/compilation-check.yml)
+
+**The course is tested and available on MacOS, Windows and Ubuntu Linux for `r R.Version()$version.string`**
+<br>
+[![OS-check](https://github.com/RockefellerUniversity/Intro_To_R_1Day/actions/workflows/OS-check.yaml/badge.svg)](https://github.com/RockefellerUniversity/Intro_To_R_1Day/actions/workflows/OS-check.yaml)
+
+**The course is also tested against every major R release since 3.5 (3.5 &rarr; 4.5) on Linux**
+<br>
+[![legacy-R-check](https://github.com/RockefellerUniversity/Intro_To_R_1Day/actions/workflows/legacy-R-check.yaml/badge.svg)](https://github.com/RockefellerUniversity/Intro_To_R_1Day/actions/workflows/legacy-R-check.yaml)
+
+Previous versions of this course are listed on the [**releases page**](releases.html).

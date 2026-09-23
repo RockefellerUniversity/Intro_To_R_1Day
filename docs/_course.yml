@@ -2,7 +2,18 @@ Description:
   CourseName: Introduction to R
   OverviewRmd: CourseOverview.Rmd
 Presentations:
-    titles: Session1 Session2
-    PresRmd: introToR_Session1.Rmd introToR_Session2.Rmd
-    PresOverviewRmd: introToR_Session1Overview.Rmd introToR_Session2Overview.Rmd
-    Exercises: Vectors.Rmd,Matrices.Rmd,FactorsAndDataframes.Rmd,DataInputOutput.Rmd ConditionsAndLoops.Rmd,Functions.Rmd
+  - title: Session1
+    PresRmd: introToR_Session1.qmd
+    PresOverviewRmd: introToR_Session1Overview.Rmd
+    Exercises:
+      - Vectors.qmd
+      - Matrices.qmd
+      - FactorsAndDataframes.qmd
+      - Lists.qmd
+      - DataInputOutput.qmd
+  - title: Session2
+    PresRmd: introToR_Session2.qmd
+    PresOverviewRmd: introToR_Session2Overview.Rmd
+    Exercises:
+      - ConditionsAndLoops.qmd
+      - Functions.qmd

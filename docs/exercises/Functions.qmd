@@ -23,7 +23,7 @@ These exercises are about the functions sections of [Introduction to R](https://
 
 **Exercise 1** - **Functions**
 
--- Create a function which takes one number and returns the square of that number
+- Create a function which takes one number and returns the square of that number
 
 ```{r,echo=toMessage}
 squareOfNumber <- function(number){
@@ -34,7 +34,7 @@ squareOfNumber <- function(number){
 squareOfNumber(3)
 ```
 
--- Create a function which takes two numbers and returns the mean
+- Create a function which takes two numbers and returns the mean
 
 ```{r,echo=toMessage}
 meanOfNumbers <- function(number,number2){
@@ -58,7 +58,7 @@ meanOfVectors <- function(vector,vector2){
 meanOfVectors(c(1,3,4),c(3,6,1,7,9))
 ```
 
-- Create a function which takes two numbers and returns the two numbers as a vector and the mean, summary and multiple as a data.frame.
+- Create a function which takes two numbers and returns the two numbers as a vector and the mean, sum and multiple as a data.frame.
 
 ```{r,echo=toMessage}
 dfAndVecReturn <- function(number,number2){
@@ -73,7 +73,7 @@ dfAndVecReturn <- function(number,number2){
 dfAndVecReturn(1,3)
 ```
 
--- Create a function which takes one argument and finds the smallest number whose factorial is greater than that argument.
+- Create a function which takes one argument and finds the smallest number whose factorial is greater than that argument.
 
 ```{r,echo=toMessage}
 findSmallestFactorial <- function(x){
@@ -94,7 +94,7 @@ findSmallestFactorial(3000)
 findSmallestFactorial(10^100)
 ```
 
--- Add a if and else statement in your function to only calculate factorial code if argument is a numeric.
+- Add a if and else statement in your function to only calculate factorial code if argument is a numeric.
 
 ```{r,echo=toMessage}
 findSmallestFactorial <- function(x){
@@ -124,7 +124,7 @@ findSmallestFactorial("Hello")
 Lets try to put as much together that we have learnt thus far. This will be a multistep challenge. Break it down and use pseudocode to help. Start by working the code interactively, then turn it into a script.
 
 1. Read in the "data/GeneExpression.txt" dataset.
-2. Use a apply to calculate the Z score for each gene (per row). The zscore is (gene_expression - mean)/standard deviation. You should use a function to do this calculation.
+2. Use apply to calculate the Z score for each gene (per row). The zscore is (gene_expression - mean)/standard deviation. You should use a function to do this calculation.
 3. Find which gene has the highest absolute max Zscore. This is a very rough proxy for the variability of that gene.
 4. Print out the gene name with the highest value
 5. Turn this into a script and run the script
@@ -132,7 +132,7 @@ Lets try to put as much together that we have learnt thus far. This will be a mu
 
 ```{r,echo=toMessage}
 
-geneExpression <- read.table("data/GeneExpression.txt",h=T,sep="\t",row.names=1)
+geneExpression <- read.table("data/GeneExpression.txt",header=TRUE,sep="\t",row.names=1)
 geneExpression <-as.matrix(geneExpression)
 zscores <- function(x){
     my_mean <- mean(x)
@@ -140,8 +140,9 @@ zscores <- function(x){
     my_z <- (x-my_mean)/my_sd
     return(my_z)}
 
-my_zs <- apply(geneExpression,2, zscores)
+# apply() over rows (MARGIN = 1) returns one column per gene, so transpose back
+my_zs <- t(apply(geneExpression, 1, zscores))
 
-inds <- which(my_zs == max(my_zs), arr.ind = T)
-rownames(geneExpression)[inds[,1]]
+inds <- which(abs(my_zs) == max(abs(my_zs)), arr.ind = TRUE)
+rownames(my_zs)[inds[,1]]
 ```

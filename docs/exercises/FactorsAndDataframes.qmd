@@ -29,7 +29,7 @@ CellType <- factor(c("DC1","DC1","DC1","NK","NK","Mono","Mono","DC2","NK"))
 CellType
 ```
 
-- Modify the the third position of CellType to "Neu", by modifying the levels of the factor.
+- Modify the third position of CellType to "Neu", by modifying the levels of the factor.
 ```{r,echo=toMessage}
 levels(CellType) <- c(levels(CellType),"Neu")
 CellType[3] <- "Neu"
@@ -52,25 +52,27 @@ CellType2
 
 - Summarize the number of entries for each cell type.
 
-```{r}
+```{r,echo=toMessage}
 summary(CellType2)
 
 ```
 - Reorder the summary to alphabetical order
 
-```{r}
-levels(CellType2) <- c("Bcell","DC1", "DC2", "Mono", "Neu","NK","Tcell")
+```{r,echo=toMessage}
+# Assigning to levels() would rename the categories rather than reorder them,
+# so re-create the factor with the levels in the order we want.
+CellType2 <- factor(CellType2, levels = sort(levels(CellType2)))
 summary(CellType2)
 
 ```
 
 - Create a ordinal factor named "Height" containing -- high, low, mid, low, mid, low, mid, high, mid, high.
 ```{r,echo=toMessage}
-Height <- factor(c("high", "low", "mid", "low", "mid", "low", "mid", "high", "mid", "high"),ordered=T,levels=c("low", "mid", "high"))
+Height <- factor(c("high", "low", "mid", "low", "mid", "low", "mid", "high", "mid", "high"),ordered=TRUE,levels=c("low", "mid", "high"))
 Height
 ```
 
-- Using a logical index, create new factor of only those from "Height"" greater than low.
+- Using a logical index, create new factor of only those from "Height" greater than low.
 ```{r,echo=toMessage}
 filteredHeight <- Height[Height > "low"]
 filteredHeight
@@ -78,7 +80,7 @@ filteredHeight
 
 - Replace the last index in "Height" with veryHigh and create new factor with those greater than mid.
 ```{r,echo=toMessage}
-newFactor <- factor(Height,ordered=T,levels=c("low", "mid", "high","veryHigh"))
+newFactor <- factor(Height,ordered=TRUE,levels=c("low", "mid", "high","veryHigh"))
 newFactor[length(newFactor)] <- "veryHigh"
 newFactor[newFactor > "mid"]
 ```
@@ -133,7 +135,7 @@ AnnoSample1And2
 - Order our new dataframe by geneLengths - biggest to smallest.
 
 ```{r,echo=toMessage}
-AnnoSample1And2 <- AnnoSample1And2[order(AnnoSample1And2$geneLengths, decreasing = T),]
+AnnoSample1And2 <- AnnoSample1And2[order(AnnoSample1And2$geneLengths, decreasing = TRUE),]
 AnnoSample1And2
 ```
 

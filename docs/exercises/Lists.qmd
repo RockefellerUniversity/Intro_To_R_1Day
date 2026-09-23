@@ -25,7 +25,7 @@ These exercises are about the Lists sections of [Introduction to R](https://rock
 
 - Create a list containing a character vector, a numeric matrix and a data frame with 2 or more datatypes.
 
-```{r}
+```{r,echo=toMessage}
 firstElement <- c("A","B","C","D","E")
 secondElement <- matrix(1:5,nrow=5,ncol=5)
 thirdElement <- data.frame(Sample=c("Sample1","Sample2","Sample3","Sample4"), Age=c(25,21,24,25),factor=c("Smoker","Smoker","NonSmoker","Smoker"))
@@ -35,7 +35,7 @@ my_list
 ```
 - Rename each entry: "my_vector", "my_matrix", "my_df"
 
-```{r}
+```{r,echo=toMessage}
 
 names(my_list) <- c("my_vector", "my_matrix", "my_df")
 my_list
@@ -43,7 +43,7 @@ my_list
 
 - Access the second column of the dataframe. Try to access it in at least two different ways.
 
-```{r}
+```{r,echo=toMessage}
 my_list$my_df$Age
 
 my_list[[3]][,2]
@@ -51,7 +51,7 @@ my_list[[3]][,2]
 
 - Add a list into the fourth slot of our list. This list should contain 2 numeric vectors. The resulting list should be 4 long. Check.
 
-```{r}
+```{r,echo=toMessage}
 fourthElement <- list(1:5,
                       2:6)
 
@@ -61,20 +61,20 @@ length(my_list)
 
 - Access the second vector within the sublist in the 4th position.
 
-```{r}
+```{r,echo=toMessage}
 my_list[[4]][[2]]
 ```
 
 - Create a list with three numeric vectors: c(5,2,9), c(13,12,6), c(1,3,4)
 
-```{r}
+```{r,echo=toMessage}
 my_list <- list(First=c(5,2,9),Second=c(13,12,6),Third=c(1,3,4))
 
 ```
 
 - Flatten the list and turn it into a matrix.
 
-```{r}
+```{r,echo=toMessage}
 flat_list <- unlist(my_list)
 listAsMat <- matrix(flat_list,
                     nrow=length(my_list),
