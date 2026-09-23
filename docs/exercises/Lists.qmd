@@ -2,23 +2,24 @@
 title: "Lists"
 author: "Rockefeller University, Bioinformatics Resource Centre"
 date: "https://rockefelleruniversity.github.io/Intro_To_R_1Day/"
-output: 
-  html_document:
-    number_sections: false  ## if you want number sections at each table header
-    theme: united  # many options for theme, this one is my favorite.
-    highlight: tango  # specifies the syntax highlighting style
+format:
+  html:
+    theme:
+      - cosmo
+      - metropolis-page.scss    # same RU look as the single-page presentations
+    embed-resources: true
+    format-links: false
+    include-before-body: page-logo.html
 params:
-  toMessage: false    
+  toMessage: false
 ---
-
-```{r, setup,include=FALSE}
+```{r, setup,include=FALSE, purl=FALSE}
 toMessage <- ifelse(!is.null(params$toMessage),params$toMessage,FALSE)
 message(toMessage)
 ```
 
-
 <p>&nbsp;</p>
-These exercises are about the Lists sections of [Introduction to R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/). 
+These exercises are about the Lists sections of [Introduction to R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/).
 
 **Exercise 1**
 
@@ -48,7 +49,7 @@ my_list$my_df$Age
 my_list[[3]][,2]
 ```
 
-- Add a list into the fourth slot of our list. This list should contain 2 numeric vectors. The resulting list should be 4 long. Check.  
+- Add a list into the fourth slot of our list. This list should contain 2 numeric vectors. The resulting list should be 4 long. Check.
 
 ```{r}
 fourthElement <- list(1:5,
@@ -71,7 +72,7 @@ my_list <- list(First=c(5,2,9),Second=c(13,12,6),Third=c(1,3,4))
 
 ```
 
-- Flatten the list and turn it into a matrix. 
+- Flatten the list and turn it into a matrix.
 
 ```{r}
 flat_list <- unlist(my_list)

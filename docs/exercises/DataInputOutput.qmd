@@ -2,23 +2,24 @@
 title: "Reading and writing data in R"
 author: "Rockefeller University, Bioinformatics Resource Centre"
 date: "https://rockefelleruniversity.github.io/Intro_To_R_1Day/"
-output: 
-  html_document:
-    number_sections: false  ## if you want number sections at each table header
-    theme: united  # many options for theme, this one is my favorite.
-    highlight: tango  # specifies the syntax highlighting style
+format:
+  html:
+    theme:
+      - cosmo
+      - metropolis-page.scss    # same RU look as the single-page presentations
+    embed-resources: true
+    format-links: false
+    include-before-body: page-logo.html
 params:
-  toMessage: false    
+  toMessage: false
 ---
-
-```{r, setup,include=FALSE}
+```{r, setup,include=FALSE, purl=FALSE}
 toMessage <- ifelse(!is.null(params$toMessage),params$toMessage,FALSE)
 message(toMessage)
 ```
 
-
 <p>&nbsp;</p>
-These exercises are about reading and writing data sections of [Introduction to R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/). 
+These exercises are about reading and writing data sections of [Introduction to R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/).
 
 **Exercise 1**
 
@@ -38,7 +39,6 @@ getwd()
 setwd("~/Downloads/Intro_To_R_1Day-master/r_course")
 
 ```
-
 
 - Read in the tab delimited file "GeneExpression.txt". Check the data type.
 ```{r,echo=toMessage}
@@ -63,7 +63,7 @@ sampleMeans
 
 - Coerce the matrix back to a data frame. Add an additional column with extra gene info "Kidney","Adrenal","Liver","Adrenal","Kidney","Liver","Liver","Kidney". Also add the mean expression as a column.
 
-```{R}
+```{r}
 geneExpression <- as.data.frame(geneExpression)
 geneExpression$tissue_localisation <- factor(c("Kidney","Adrenal","Liver","Adrenal","Kidney","Liver","Liver","Kidney"))
 geneExpression$mean_expr <- sampleMeans
@@ -90,6 +90,3 @@ geneExpression
 geneExpression <- read.table("data/GeneExpressionWithNotes.txt",h=T,sep="\t",row.names=1,comment.char = ">")
 geneExpression
 ```
-
-
-

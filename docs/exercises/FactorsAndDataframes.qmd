@@ -2,23 +2,24 @@
 title: "Factors and Data frames"
 author: "Rockefeller University, Bioinformatics Resource Centre"
 date: "https://rockefelleruniversity.github.io/Intro_To_R_1Day/"
-output: 
-  html_document:
-    number_sections: false  ## if you want number sections at each table header
-    theme: united  # many options for theme, this one is my favorite.
-    highlight: tango  # specifies the syntax highlighting style
+format:
+  html:
+    theme:
+      - cosmo
+      - metropolis-page.scss    # same RU look as the single-page presentations
+    embed-resources: true
+    format-links: false
+    include-before-body: page-logo.html
 params:
-  toMessage: false    
+  toMessage: false
 ---
-
-```{r, setup,include=FALSE}
+```{r, setup,include=FALSE, purl=FALSE}
 toMessage <- ifelse(!is.null(params$toMessage),params$toMessage,FALSE)
 message(toMessage)
 ```
 
-
 <p>&nbsp;</p>
-These exercises are about the factors and data frames sections of [Introduction to R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/). 
+These exercises are about the factors and data frames sections of [Introduction to R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/).
 
 **Exercise 1** - **Factors**
 
@@ -28,7 +29,7 @@ CellType <- factor(c("DC1","DC1","DC1","NK","NK","Mono","Mono","DC2","NK"))
 CellType
 ```
 
-- Modify the the third position of CellType to "Neu", by modifying the levels of the factor. 
+- Modify the the third position of CellType to "Neu", by modifying the levels of the factor.
 ```{r,echo=toMessage}
 levels(CellType) <- c(levels(CellType),"Neu")
 CellType[3] <- "Neu"
@@ -36,7 +37,7 @@ CellType
 ```
 
 - Create CellType2 with the same entries, but directly specify the levels to include:
-"DC1", "DC2", "Mono", "NK", "Neu", "Bcell", "Tcell". 
+"DC1", "DC2", "Mono", "NK", "Neu", "Bcell", "Tcell".
 ```{r,echo=toMessage}
 CellType2 <- factor(c("DC1","DC1","DC1","NK","NK","Mono","Mono","DC2","NK"), levels = c("DC1", "DC2", "Mono", "NK", "Neu", "Bcell", "Tcell"))
 CellType2
@@ -49,20 +50,19 @@ CellType2 <- c(CellType2, factor(c("Neu","Neu","Bcell","DC1"), levels = c("DC1",
 CellType2
 ```
 
-- Summarize the number of entries for each cell type. 
+- Summarize the number of entries for each cell type.
 
 ```{r}
 summary(CellType2)
 
 ```
-- Reorder the summary to alphabetical order 
+- Reorder the summary to alphabetical order
 
 ```{r}
 levels(CellType2) <- c("Bcell","DC1", "DC2", "Mono", "Neu","NK","Tcell")
 summary(CellType2)
 
 ```
-
 
 - Create a ordinal factor named "Height" containing -- high, low, mid, low, mid, low, mid, high, mid, high.
 ```{r,echo=toMessage}
@@ -92,13 +92,13 @@ Annotation <- data.frame(geneNames=c("Gene_1", "Gene_2", "Gene_3","Gene_4","Gene
 Annotation
 ```
 
-- Filter Annotation to geneLengths that are greater than 500 and less than 2000. Use the dollar sign to extract column information. 
+- Filter Annotation to geneLengths that are greater than 500 and less than 2000. Use the dollar sign to extract column information.
 
 ```{r,echo=toMessage}
 Annotation[Annotation$geneLengths>500 & Annotation$geneLengths<2000,]
 ```
 
-- Check the data types of each column. Update the pathway column to be a factor. 
+- Check the data types of each column. Update the pathway column to be a factor.
 
 ```{r,echo=toMessage}
 class(Annotation[,1])
@@ -111,14 +111,12 @@ Annotation
 class(Annotation[,3])
 ```
 
-
 - Create data frame called Sample1 with ensembl gene names ("Ens001", "Ens003", "Ens006", "Ens010") and expression  (1000, 3000, 10000,5000)
 
 ```{r,echo=toMessage}
 Sample1 <- data.frame(ensembl=c("Ens001", "Ens003", "Ens006","Ens010"),expression=c(1000, 3000, 10000,5000))
 Sample1
 ```
-
 
 - Create data frame called Sample2 with ensembl gene names ("Ens001", "Ens003", "Ens006", "Ens007","Ens010") and expression  (1500, 1500, 17000,500,10000)
 ```{r,echo=toMessage}
@@ -128,8 +126,8 @@ Sample2
 
 - Create a data frame containing only those gene names common to all data frames with all information from Annotation and the expression from Sample 1 and Sample 2.
 ```{r,echo=toMessage}
-AnnoSample1 <- merge(Annotation,Sample1,by.x=2,by.y=1,all=F) 
-AnnoSample1And2 <- merge(AnnoSample1,Sample2,by=1,all=F) 
+AnnoSample1 <- merge(Annotation,Sample1,by.x=2,by.y=1,all=F)
+AnnoSample1And2 <- merge(AnnoSample1,Sample2,by=1,all=F)
 AnnoSample1And2
 ```
 - Order our new dataframe by geneLengths - biggest to smallest.

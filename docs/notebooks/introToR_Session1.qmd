@@ -1,45 +1,18 @@
 ---
 title: "Introduction to R - Session 1"
 subtitle: " <html><div style='float:left'></div><hr color='#EB811B' size=1px width=796px></html> Bioinformatics Resource Center - Rockefeller University"
-author: 
-  - "http://rockefelleruniversity.github.io/Intro_To_R_1Day/"
-  - "brc@rockefeller.edu"
-output: 
-  xaringan::moon_reader:
-    css: ["default.css", "metropolisCustom.css", "metropolis-fontsCustom.css"]
-    lib_dir: libs
-    nature:
-      highlightStyle: github
-      highlightLines: true
-      countIncrementalSlides: false
-      titleSlideClass: [middle, inverse]
-  html_document:
-    toc: true # table of content true
-    toc_float: yes
-    depth: 3  # upto three depths of headings (specified by #, ## and ###)
-    number_sections: false  ## if you want number sections at each table header
-    theme: united  # many options for theme, this one is my favorite.
-    highlight: tango  # specifies the syntax highlighting style
-params:
-  isSlides: "no"
+author:
+  - "[http://rockefelleruniversity.github.io/Intro_To_R_1Day/](http://rockefelleruniversity.github.io/Intro_To_R_1Day/)"
+  - "[brc@rockefeller.edu](mailto:brc@rockefeller.edu)"
 ---
-
-```{r,include=FALSE}
+```{r,include=FALSE,purl=FALSE}
 suppressPackageStartupMessages(require(knitr))
 knitr::opts_chunk$set(echo = TRUE, tidy = T)
 ```
 
-```{r, results='asis',include=TRUE,echo=FALSE}
-if(params$isSlides != "yes"){
-  cat("# Introduction to R (part 1)
-
----
-"    
-  )
-  
-}
-
-```
+::: {.content-hidden when-format="revealjs"}
+# Introduction to R (part 1)
+:::
 
 ## Overview
 
@@ -49,26 +22,7 @@ if(params$isSlides != "yes"){
 - [Data types in R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/presentations/singlepage/introToR_Session1.html#data_types_in_r)
 - [Reading and writing in R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/presentations/singlepage/introToR_Session1.html#reading-and-writing-data-in-r)
 
----
-```{r, results='asis',include=TRUE,echo=FALSE}
-if(params$isSlides == "yes"){
-  cat("class: inverse, center, middle
-
-# Set Up
-<html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
----
-"    
-  )
-}else{
-  cat("# Set Up
-
----
-"    
-  )
-  
-}
-
-```
+# Set Up {background-color="#23373B" .center .middle}
 
 ## Materials
 
@@ -80,57 +34,28 @@ Or can be downloaded as a zip archive from here.
 
 * [Download zip](https://github.com/rockefelleruniversity/Intro_To_R_1Day/zipball/master)
 
----
 ## Course materials
 
 Once the zip file in unarchived. All presentations as HTML slides and pages, their R code and HTML practical sheets will be available in the directories underneath.
 
 * **r_course/presentations/slides/**
 Presentations as an HTML slide show.
-* **r_course/presentations/singlepage/** 
+* **r_course/presentations/singlepage/**
 Presentations as an HTML single page.
 * **r_course/presentations/r_code/**
 R code in presentations.
 * **r_course/exercises/**
-Practicals as HTML pages. 
+Practicals as HTML pages.
 * **r_course/answers/**
-Practicals with answers as HTML pages and R code solutions. 
+Practicals with answers as HTML pages and R code solutions.
 
-
-
-
-
----
-```{r, results='asis',include=TRUE,echo=FALSE}
-if(params$isSlides == "yes"){
-  cat("class: inverse, center, middle
-
-# Background of R
-
-<html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
-
----
-"    
-  )
-}else{
-  cat("# Background of R
-
----
-"    
-  )
-  
-}
-
-```
+# Background of R {background-color="#23373B" .center .middle}
 
 ## What is R?
 
-
 **R** is a scripting language and environment for **statistical computing**.
 
-
-Developed by [Robert Gentleman](https://en.wikipedia.org/wiki/Robert_Gentleman_%28statistician%29) and [Ross Ihaka](https://en.wikipedia.org/wiki/Ross_Ihaka). 
-
+Developed by [Robert Gentleman](https://en.wikipedia.org/wiki/Robert_Gentleman_%28statistician%29) and [Ross Ihaka](https://en.wikipedia.org/wiki/Ross_Ihaka).
 
 Inheriting much from **S** (Bell labs).
 
@@ -141,93 +66,74 @@ Inheriting much from **S** (Bell labs).
 - Active community of developers
 - Thorough documentation
 
-
----
 ## What is R to you?
 
-.pull-left[
+::: {.columns}
+
+::: {.column width="50%"}
 
 **R** comes with excellent "out-of-the-box" statistical and plotting capabilities.
 
-
 **R** provides access to 1000s of packages ([CRAN](http://cran.r-project.org/)/[MRAN](http://mran.revolutionanalytics.com/)/[R-forge](https://r-forge.r-project.org/)) which extend the basic functionality of R while maintaining high quality documentation.
 
-
 In particular, [Robert Gentleman](https://en.wikipedia.org/wiki/Robert_Gentleman_%28statistician%29) developed the **[Bioconductor](http://bioconductor.org/)** project where 100's of packages are directly related to computational biology and analysis of associated high-throughput experiments.
-  ] 
-.pull-right[
+:::
+
+::: {.column width="50%"}
 
 R package downloads from Bioconductor
 
 ![R use over time](imgs/bioconductor_packages.png)
 
-  ]
+:::
 
----
+:::
+
 ## How to get R?
 
-.pull-left[
+::: {.columns}
+
+::: {.column width="50%"}
 
 Freely available from [R-project website](http://cran.ma.imperial.ac.uk/).
 
 RStudio provides an integrated development environment (IDE) which is freely available from [RStudio site](http://www.rstudio.com/)
 
-
 ***We will be using RStudio and R already installed on your machines.***
-  ]
-.pull-right[
+:::
+
+::: {.column width="50%"}
 ![R website](imgs/cran.jpeg)
 ![RStudio website](imgs/rstudio.jpeg)
-  ]
+:::
 
----
+:::
+
 ## A quick tour of RStudio
 
-.pull-left[
+::: {.columns}
+
+::: {.column width="50%"}
 Four main panels
 - Scripting panel
 - R interface
 - Environment and history
 - Files, directories and help
 
-
 **Let's load RStudio and take a look**
-  ]
+:::
 
-.pull-right[
+::: {.column width="50%"}
 
 ![RStudio appearance](imgs/rstudioBlank.jpeg)
 
+:::
 
-  ]
+:::
 
----
-
-```{r, results='asis',include=TRUE,echo=FALSE}
-if(params$isSlides == "yes"){
-  cat("class: inverse, center, middle
-
-# Data Types in R
-
-<html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
-
----
-"    
-  )
-}else{
-  cat("# Data Types in R
-
----
-"    
-  )
-  
-}
-
-```
-
+# Data Types in R {background-color="#23373B" .center .middle}
 
 ## Different Data types in R
-
 
 - Simple calculations
 - Variables
@@ -236,9 +142,7 @@ if(params$isSlides == "yes"){
 - Matrices
 - Data frames
 
-
----
-## Simple Calculations 
+## Simple Calculations
 
 At its most basic, **R** can be used as a simple calculator.
 ```{r simpleCalculations_introtoR,prompt=T}
@@ -249,15 +153,13 @@ At its most basic, **R** can be used as a simple calculator.
 sqrt(25)-1
 ```
 
-
----
 ## Using functions
 
 The **sqrt(25)** demonstrates the use of functions in R. A function performs a complex operation on it's arguments and returns the result.
 
 In R, arguments are provided to a function within the parenthesis -- **( )** -- that follows the function name. So **sqrt(*ARGUMENT*)** will provide the square root of the value of ***ARGUMENT***.
 
-Other examples of functions include **min()**, **sum()**, **max()**. 
+Other examples of functions include **min()**, **sum()**, **max()**.
 
 Note multiple arguments are separated by a comma.
 
@@ -267,14 +169,11 @@ sum(2,4,6)
 max(2,4,6)
 ```
 
-
----
 ## Using functions
-
 
 R has many useful functions "built in" and ready to use as soon as R is loaded.
 
-An incomplete, illustrative list can be seen [here](http://www.statmethods.net/management/functions.html) 
+An incomplete, illustrative list can be seen [here](http://www.statmethods.net/management/functions.html)
 
 In addition to R standard functions, additional functionality can be loaded into R using libraries. These include specialised tools for areas such as sequence alignment, read counting etc.
 
@@ -283,11 +182,8 @@ If you need to see how a function works try **?** in front of the function name.
 ?sqrt
 ```
 
-
 Lets run [**?sqrt**](https://stat.ethz.ch/R-manual/R-devel/library/base/html/MathFun.html) in RStudio and look at the help.
 
-
----
 ## Using functions
 **Arguments have names and order**
 
@@ -305,7 +201,6 @@ Try and look at the arguments for the dir() function using [?dir](https://stat.e
 ?dir
 ```
 
----
 ## Using functions
 **Setting names for arguments**
 
@@ -325,37 +220,15 @@ dir(full.names=T)
 dir(".",NULL,FALSE,T)
 ```
 
----
-```{r, results='asis',include=TRUE,echo=FALSE}
-if(params$isSlides == "yes"){
-  cat("class: inverse, center, middle
+# Variables {background-color="#23373B" .center .middle}
 
-# Variables
-
-<html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
-
----
-"    
-  )
-}else{
-  cat("# Variables
-
----
-"    
-  )
-  
-}
-
-```
-
-## Variables 
-
+## Variables
 
 As with other programming languages and even graphical calculators, **R** makes use of **variables**.
 
 A **variable** stores a value as a letter or word.
 
-In **R**, we make use of the assignment operator **<-** 
+In **R**, we make use of the assignment operator **<-**
 ```{r variablesDefine_introtoR}
 x <- 10
 ```
@@ -364,10 +237,7 @@ Now **x** holds the value of 10
 x
 ```
 
-
----
 ## Altering variables
-
 
 ```{r variableShowForAlterInPlace_introtoR}
 x
@@ -379,9 +249,7 @@ x <- 20
 x
 ```
 
----
-
-## Using variables 
+## Using variables
 
 Variables can be used just as the values they contain.
 ```{r variableAsValueTheyContain_introtoR}
@@ -397,28 +265,7 @@ y <- x + sqrt(25)
 y
 ```
 
----
-```{r, results='asis',include=TRUE,echo=FALSE}
-if(params$isSlides == "yes"){
-  cat("class: inverse, center, middle
-
-# Vectors
-
-<html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
-
----
-"    
-  )
-}else{
-  cat("# Vectors
-
----
-"    
-  )
-  
-}
-
-```
+# Vectors {background-color="#23373B" .center .middle}
 
 ## Vectors
 
@@ -429,7 +276,6 @@ x
 length(x)
 ```
 
----
 ## Vectors
 
 To create a multiple value vector we use the function **c()** to *combine* the supplied arguments into one vector.
@@ -440,8 +286,6 @@ x
 length(x)
 ```
 
-
----
 ## Vectors
 
 Vectors of continuous stretches of values can be created using a colon (**:**) as a shortcut.
@@ -454,30 +298,24 @@ y
 Other useful function to create stretchs of numeric vectors are **seq()** and **rep()**.
 The **seq()** function creates a sequence of numeric values from a specified start and end value, incrementing by a user defined amount. The **rep()** function repeats a variable a user-defined number of times.
 
-
 ```{r vectorSeqFromSeqAndRep_introtoR}
 seq(from=1,to=5,by=2)
 rep(c(1,5,10),3)
 ```
 
-
----
-## Indexing 
+## Indexing
 
 Square brackets **[]** identify the position within a vector (the **index**).
 These indices can be used to extract relevant values from vectors.
 
-
 ```{r vectorIndexing_introtoR}
-z <- seq(from=2,to=20,by=2) 
+z <- seq(from=2,to=20,by=2)
 z
 z[1]
 z[8]
 ```
 
----
-## Indexing 
-
+## Indexing
 
 Indices can be used to extract values from multiple positions within a vector.
 
@@ -490,11 +328,7 @@ Negative indices can be used to extract all positions except that specified.
 z[-5]
 ```
 
-
-
----
 ## Indexing and replacement
-
 
 We can use indices to modify a specific position in a vector.
 
@@ -504,8 +338,6 @@ z[5] <- 1000
 z
 ```
 
-
----
 ## Indexing and replacement
 
 Indices can be specified using other vectors.
@@ -516,10 +348,7 @@ z[y] <- 0
 z
 ```
 
-
----
 ## Remember!
-
 
 Square brackets **[]**  for indexing.
 ```{r RememberSquareForIndex_introtoR}
@@ -531,9 +360,7 @@ Parentheses **()**  for function argments.
 sqrt(4)
 ```
 
-
----
-## Arithmetic operations 
+## Arithmetic operations
 
 Vectors in R can be used in arithmetic operations as seen with [variables earlier](https://rockefelleruniversity.github.io/Intro_To_R_1Day/presentations/singlepage/introToR_Session1.html#Using_variables). When a standard arithmetic operation is applied to vector, the operation is applied to each position in a vector.
 
@@ -544,13 +371,12 @@ y <- x*2
 y
 ```
 
-Multiple vectors can be used within arithmetic operations. 
+Multiple vectors can be used within arithmetic operations.
 ```{r vectorArithmetricOperationsMultipleVectors_introtoR}
 x+y
 ```
 
----
-## Arithmetic operations  
+## Arithmetic operations
 
 When applying an arithmetic operation between two vectors of unequal length, the shorter will be recycled.
 
@@ -564,13 +390,11 @@ x+c(1,2)
 x+c(1,2,3)
 ```
 
-
----
 ## R and messages
 
 When R gives you an unexpected response DON'T PANIC.
 
-You will run into errors coding. 
+You will run into errors coding.
 
 Most of the time the messages are very clear. And if they are not, a quick google will often clear it up:
 
@@ -579,20 +403,16 @@ Warning in x + c(1, 2, 3) :
   longer object length is not a multiple of shorter object length
 ```
 
----
 ## Messages, Warnings, Errors
 
 There are several kinds of messages.
 
 * Message - Just a text message - This can denote progress or options used.
 
-* Warning - Just a text message starting with **"Warning"** - Often denotes if you have done something atypical. You should review the message unless you did it on purpose. 
+* Warning - Just a text message starting with **"Warning"** - Often denotes if you have done something atypical. You should review the message unless you did it on purpose.
 
 * Error - The code will stop and a text message starting with **"Error"** - Something broke the code. Review the message.
 
-
-
----
 ## Character vectors
 
 So far we have only looked at numeric vectors or variables.
@@ -612,22 +432,18 @@ names(x) <- y
 x
 ```
 
----
 ## Character vectors as names
-
 
 These named vectors maybe indexed by a position's "name".
 ```{r vectorCharacterNamesIndex_introtoR}
 x[c("ICTEM","Wolfson")]
 ```
-  
+
 Index names missing from vectors will return special value "NA".
 ```{r vectorCharacterNamesIndexMissing_introtoR}
 x[c("Strand")]
 ```
 
-
----
 ## A note on NA values
 
 In R, like many languages, when a value in a variable is missing, the value is assigned a **NA** value.
@@ -639,12 +455,7 @@ Similarly, when a calculation can not be perfomed, R will input a **NaN** value.
 
 **NA** values allow for R to handle missing data correctly as they require different handling than standard numeric or character values. We will illustrate an example handling **NA** values [later](https://rockefelleruniversity.github.io/Intro_To_R_1Day/presentations/singlepage/introToR_Session1.html#Ordering_with_NA_values).
 
-
-
-
----
 ## The unique() function
-
 
 The unique() function can be used to retrieve all unique  values from a vector.
 
@@ -653,17 +464,14 @@ geneList <- c("Gene1","Gene2","Gene3","Gene4","Gene5","Gene1","Gene3")
 unique(geneList)
 ```
 
-
----
 ## Logical vectors
-
 
 Logical vectors are a class of vector made up of TRUE or FALSE boolean values (single letter T/F can also be used).
 
 ```{r vectorLogical_introtoR}
-z <-  c(TRUE,FALSE,TRUE,FALSE,TRUE,FALSE,TRUE,FALSE,TRUE,FALSE) 
+z <-  c(TRUE,FALSE,TRUE,FALSE,TRUE,FALSE,TRUE,FALSE,TRUE,FALSE)
 # or
-z <- c(T,F,T,F,T,F,T,F,T,F) 
+z <- c(T,F,T,F,T,F,T,F,T,F)
 
 z
 ```
@@ -674,14 +482,13 @@ x <- 1:10
 x[z]
 ```
 
----
 ## The %in% operator
 
 A common task in R is to subset one vector by the values in another vector.
 
 The **%in%** operator in the context **A %in% B** creates a logical vector of whether values in **A** matches any values in of **B**.
 
-This can be then used to subset the values within one character vector by a those in a second. 
+This can be then used to subset the values within one character vector by a those in a second.
 
 ```{r vectorInFuncion_introtoR}
 geneList <- c("Gene1","Gene2","Gene3","Gene4","Gene5","Gene1","Gene3")
@@ -692,13 +499,11 @@ logical_index
 geneList[logical_index]
 ```
 
-
----
 ## The *grepl()* function
 
-Another more flexible way of making a logical vector for indexing is by using the grepl function. This uses *regular expressions* so you can do more advanced pattern matching. 
+Another more flexible way of making a logical vector for indexing is by using the grepl function. This uses *regular expressions* so you can do more advanced pattern matching.
 
-We simply provide the pattern we are looking for and the vector we are looking in. 
+We simply provide the pattern we are looking for and the vector we are looking in.
 
 ```{r}
 mixedList <- c("protein1","Gene1","Protein2","Gene3","Gene4","Protein4","Gene5","Gene1","Protein5")
@@ -708,7 +513,6 @@ logical_index
 mixedList[logical_index]
 ```
 
----
 ## The *grepl()* function
 
 We can also control case sensitivity with the *ignore.case=T*.
@@ -719,14 +523,13 @@ logical_index
 mixedList[logical_index]
 ```
 
-There is also a related *grep()* function which returns the numeric index in which a pattern was matched. 
+There is also a related *grep()* function which returns the numeric index in which a pattern was matched.
 
 ```{r}
 grep("Prot", mixedList)
 
 ```
 
----
 ## Logical vectors from operators
 
 Vectors may also be directly evaluated to produce logical vectors. This can be very useful when using a logical to index.
@@ -743,8 +546,6 @@ x > 5
 x[x > 5]
 ```
 
-
----
 ## Combining logical vectors
 
 Logical vectors can be used in combination in order to index vectors. To combine logical vectors we can use some common R operators.
@@ -760,8 +561,6 @@ x > 4 & x < 7
 x > 4 | x < 7
 ```
 
-
----
 ## Combining logical vectors
 
 Such combinations can allow for complex selection of a vector's values.
@@ -772,45 +571,17 @@ x[x > 4 & x < 7]
 x[x > 4 & !x < 7]
 ```
 
----
 ## Time for an exercise!
-
 
 Exercise on vectors can be found [here](../../exercises/exercises/Vectors_exercise.html)
 
-
----
 ## Answers to exercise
-
 
 Answers can be found here  [here](../../exercises/answers/Vectors_answers.html)
 
----
-
-```{r, results='asis',include=TRUE,echo=FALSE}
-if(params$isSlides == "yes"){
-  cat("class: inverse, center, middle
-
-# Matrices
-
-<html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
-
----
-"    
-  )
-}else{
-  cat("# Matrices
-
----
-"    
-  )
-  
-}
-
-```
+# Matrices {background-color="#23373B" .center .middle}
 
 ## Creating matrices
-
 
 In programs such as Excel we are used to tables.
 
@@ -818,7 +589,6 @@ In programs such as Excel we are used to tables.
 <img src="imgs/ExcelMat2.png" alt="igv" height="300" width="600">
 </div>
 
----
 ## Creating matrices
 
 All progamming languages have a concept of a table. In **R**, the most basic table type is a **matrix**.
@@ -832,10 +602,7 @@ wideMatrix <- matrix(1:10, nrow=2, ncol=5)
 wideMatrix
 ```
 
-
----
 ## Creating matrices
-
 
 By default when creating a matrix using the **matrix** function, the values fill the matrix by columns. To fill a matrix by rows the **byrow** argument must be set to TRUE.
 
@@ -847,8 +614,6 @@ wideMatrixByRow <- matrix(1:10, nrow=2, ncol=5, byrow=TRUE)
 wideMatrixByRow
 ```
 
-
----
 ## Finding dimensions
 
 To find dimensions of a matrix, the **dim()** function will provide dimensions as the row then column number while **nrow()** and **ncol()** will return just row number and column number respectively.
@@ -858,10 +623,7 @@ nrow(narrowMatrix)
 ncol(narrowMatrix)
 ```
 
-
----
 ## Joining vectors and matrices
-
 
 A matrix can be created from multiple vectors or other matrices.
 
@@ -874,7 +636,6 @@ newMatrix <- cbind(x,y)
 newMatrix
 ```
 
----
 ## Joining vectors and matrices
 
 **rbind()** functions to bind to a matrix as rows.
@@ -883,21 +644,17 @@ newerMatrix <- rbind(newMatrix,z)
 newerMatrix
 ```
 
-
----
 ## Joining vectors and matrices
 
 ### Incompatible vectors and matrices
 
-When creating a matrix using **cbind()** or **matrix()** from incompatible vectors then the shorter vector is recycled. 
-
+When creating a matrix using **cbind()** or **matrix()** from incompatible vectors then the shorter vector is recycled.
 
 ```{r matricesJoinIncompatable_introtoR}
 recycledMatrix2 <- matrix(1:5,ncol=2,nrow=3)
 recycledMatrix2
 ```
 
----
 ## Joining vectors and matrices
 
 ### Incompatible vectors and matrices
@@ -908,8 +665,6 @@ recycledMatrix3 <- rbind(recycledMatrix2,c(1:5))
 recycledMatrix3
 ```
 
-
----
 ## Column and row names
 
 [As we have seen with vectors](https://rockefelleruniversity.github.io/Intro_To_R_1Day/presentations/singlepage/introToR_Session1.html#Character_vectors), matrices can be named. For matrices the naming is done by columns and rows using **colnames()** and **rownames()** functions.
@@ -921,7 +676,6 @@ rownames(namedMatrix) <- paste("Row",1:2,sep="_")
 namedMatrix
 ```
 
----
 ## Column and row names
 
 Information on matrix names can also be retreived using the same functions.
@@ -930,8 +684,6 @@ colnames(namedMatrix)
 rownames(namedMatrix)
 ```
 
-
----
 ## Indexing
 
 Selecting and replacing portions of a matrix can be done by **indexing** using square brackets **[]** much [like for vectors](https://rockefelleruniversity.github.io/Intro_To_R_1Day/presentations/singlepage/introToR_Session1.html#Indexing).
@@ -942,7 +694,6 @@ The first value(s) corresponds to row(s) and the second to column(s).
 
 - ***myMatrix[rowOfInterest,columnOfInterest]***
 
----
 ## Indexing
 
 ```{r matricesIndexingShow_introtoR}
@@ -953,12 +704,9 @@ Value of first column, second row
 narrowMatrix[2,1]
 ```
 
+## Indexing
 
----
-## Indexing 
-
-
-Similarly, whole rows or columns can be extracted. Single rows and columns will return a vector.  
+Similarly, whole rows or columns can be extracted. Single rows and columns will return a vector.
 
 Values of second column (row index is empty!)
 ```{r matricesIndexingExampleByCol_introtoR}
@@ -970,8 +718,7 @@ Values of third row (column index is empty!)
 narrowMatrix[3,]
 ```
 
----
-## Indexing 
+## Indexing
 
 When multiple columns or row indices are specified, a matrix is returned.
 
@@ -980,7 +727,6 @@ Values of second and third row (column index is empty!)
 narrowMatrix[c(2,3),]
 ```
 
----
 ## Indexing by name
 
 As with vectors, names can be used for indexing when present
@@ -993,8 +739,6 @@ narrowMatrix["Row_1",]
 narrowMatrix["Row_1","Column_1"]
 ```
 
-
----
 ## Advanced indexing
 
 As with vectors, matrices can be subset by logical vectors
@@ -1004,15 +748,12 @@ narrowMatrix[,1]
 narrowMatrix[,1] < 5
 ```
 
----
 ## Advanced indexing
 
 ```{r matricesIndexingExampleByLogicRow_introtoR}
 narrowMatrix[narrowMatrix[,1] < 5,]
 ```
 
-
----
 ## Arithmetic operations
 
 As with vectors, matrices can have arithmetic operations applied to cells, rows, columns or the whole matrix
@@ -1022,14 +763,12 @@ narrowMatrix[1,1]+2
 narrowMatrix[1,]+2
 ```
 
----
 ## Arithmetic operations
 ```{r}
 mean(narrowMatrix)
 
 ```
 
----
 ## Replacement
 
 As with vectors, matrices can have their elements replaced
@@ -1040,8 +779,6 @@ narrowMatrix[,2] <- 1
 narrowMatrix
 ```
 
-
----
 ## Data types
 
 Matrices must be all one type (i.e. numeric or character).
@@ -1056,51 +793,21 @@ narrowMatrix[1,1] <- "Not_A_Number"
 narrowMatrix
 ```
 
----
 ## Data types
 
 ```{r matricesOneTypeOnlyWithError_introtoR,error=T}
 narrowMatrix[,2] *2
 ```
 
-
----
 ## Time for an exercise!
-
 
 Exercise on matrices can be found [here](../../exercises/exercises/Matrices_exercise.html)
 
-
----
 ## Answers to exercise
-
 
 Answers can be found here  [here](../../exercises/answers/Matrices_answers.html)
 
-
-
----
-```{r, results='asis',include=TRUE,echo=FALSE}
-if(params$isSlides == "yes"){
-  cat("class: inverse, center, middle
-
-# Factors
-
-<html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
-
----
-"    
-  )
-}else{
-  cat("# Factors
-
----
-"    
-  )
-  
-}
-
-```
+# Factors {background-color="#23373B" .center .middle}
 
 ## Creating factors
 
@@ -1118,22 +825,15 @@ factorExample
 levels(factorExample)
 ```
 
-
----
 ## Summary() function
 
-
 An example of the use of levels can be seen from applying the **summary()** function to the vector and factor examples
-
 
 ```{r factorsSummaryFunction_introtoR}
 summary(vectorExample)
 summary(factorExample)
 ```
 
-
-
----
 ## Display order of levels
 
 In our factor example, the levels have been displayed in an alphabetical order. To adjust the display order of levels in a factor, we can supply the desired display order to **levels** argument in the **factor()** function call.
@@ -1144,7 +844,6 @@ factorExample
 summary(factorExample)
 ```
 
----
 ## Nominal factors
 
 In some cases there is no natural order to the categories such that one category is greater than the other (nominal data).
@@ -1154,7 +853,6 @@ factorExample <- factor(vectorExample, levels=c("wild-type", "mutant"))
 factorExample[1] < factorExample[2]
 ```
 
----
 ## Ordinal factors
 
 In other cases there will be a natural ordering to the categories (ordinal data). A factor can be specified to be ordered using the **ordered** argument in combination with specified levels argument.
@@ -1166,7 +864,6 @@ factorExample
 factorExample[1] < factorExample[2]
 ```
 
----
 ## Replacement
 
 Unlike vectors, replacing elements within a factor isn't so easy. While replacing one element with an established level is possible, replacing with a novel element will result in a warning.
@@ -1181,7 +878,6 @@ factorExample
 
 ```
 
----
 ## Replacement
 
 To add a new level we can use the levels argument.
@@ -1192,32 +888,9 @@ factorExample[1] <- c("huge")
 factorExample
 ```
 
+# Data Frames {background-color="#23373B" .center .middle}
 
-
----
-```{r, results='asis',include=TRUE,echo=FALSE}
-if(params$isSlides == "yes"){
-  cat("class: inverse, center, middle
-
-# Data Frames
-
-<html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
-
----
-"    
-  )
-}else{
-  cat("# Data Frames
-
----
-"    
-  )
-  
-}
-
-```
-
-## Creating data frames 
+## Creating data frames
 
 [We saw that with matrices you can only have one type of data](https://rockefelleruniversity.github.io/Intro_To_R_1Day/presentations/singlepage/introToR_Session1.html#Data_types). We tried to create a matrix with a character element and the entire matrix became a character.
 
@@ -1227,8 +900,7 @@ In practice, we would want to have a table which is a mixture of types (e.g a ta
 <img src="imgs/ExcelMat.jpg" alt="igv" height="300" width="600">
 </div>
 
----
-## Creating data frames 
+## Creating data frames
 
 In R, we make use of the **data frame** object which allows us to store tables with columns of different data types. To create a data frame we can simply use the **data.frame()** function.
 
@@ -1240,7 +912,6 @@ dfExample <- data.frame(Name=MouseID, Type=GeneType, Survival_Time=survivalTime)
 dfExample
 ```
 
----
 ## Indexing and replacement
 
 Data frames may be indexed just [as matrices](https://rockefelleruniversity.github.io/Intro_To_R_1Day/presentations/singlepage/introToR_Session1.html#Indexing).
@@ -1250,7 +921,6 @@ dfExample
 dfExample[dfExample[,"Survival_Time"] > 10,]
 ```
 
----
 ## Specify columns with $
 
 Unlike matrices, it is possible to index a column by using the **$** symbol.
@@ -1260,7 +930,6 @@ dfExample$Survival_Time
 dfExample[dfExample$Survival_Time < 10,]
 ```
 
----
 ## Specify columns with $
 
 Using the **$** allows for R to autocomplete your selection and so can speed up coding.
@@ -1273,7 +942,6 @@ But this will not work..
 dfExample[,"Surv"]
 ```
 
----
 ## Create columns with $
 
 The **$** operator also allows for the creation of new columns for a data frame on the fly.
@@ -1284,8 +952,6 @@ dfExample$newColumn <- rep("newData",nrow(dfExample))
 dfExample
 ```
 
-
----
 ## Indexing and replacement
 
 Replacement can occur in the same way we have seen for less complex data types: use the assignment operator *<-*
@@ -1295,7 +961,6 @@ dfExample[dfExample[,"Survival_Time"] < 10,"Survival_Time"] <- 0
 dfExample
 ```
 
----
 ## Indexing and replacement
 
 When we work with factors, for a replacement to be succesful it has to be a possible level.
@@ -1305,7 +970,6 @@ dfExample[1,"Type"] <- "mutant2"
 dfExample
 ```
 
----
 ## Factors in data frames
 
 It is possible to update factors in data frames just as with standard factors.
@@ -1322,8 +986,6 @@ dfExample
 
 ```
 
-
----
 ## Factors in data frames
 
 When you create a dataframe you can automatically make all strings be converted to factors with the **stringsAsFactors** argument. The current default though is **FALSE**
@@ -1334,15 +996,11 @@ dfExample2 <- data.frame(Name=MouseID,
                         Survival_Time=survivalTime,
                         stringsAsFactors = T)
 
-
 dfExample2[dfExample2[,"Survival_Time"] < 10,"Name"] <- "other"
 dfExample2
 
 ```
 
-
-
----
 ## Ordering with order()
 
 A useful function in R is **order()**
@@ -1356,17 +1014,15 @@ order(testOrder)
 order(testOrder,decreasing=T)
 ```
 
----
 ## Ordering with order()
 
-Once you have a vector of ordered indices, you can then use this to index your object. 
+Once you have a vector of ordered indices, you can then use this to index your object.
 
 ```{r}
 testOrder[order(testOrder)]
 testOrder[order(testOrder,decreasing=T)]
 ```
 
----
 ##  Ordering with NA values
 
 When a vector contains NA values, these NA values will, by default, be placed last in ordering indices. This can be controlled by **na.last** argument.
@@ -1377,8 +1033,7 @@ testOrder[order(testOrder,decreasing=T,na.last=T)]
 testOrder[order(testOrder,decreasing=T,na.last=F)]
 ```
 
----
-## Ordering data frames 
+## Ordering data frames
 
 Since the order argument returns an index of intended order for a vector, we can use the order() function to order data frames by certain columns.
 
@@ -1387,9 +1042,7 @@ dfExample
 dfExample[order(dfExample$Surv, decreasing=T),]
 ```
 
----
-## Ordering data frames 
-
+## Ordering data frames
 
 We can also use order to arrange multiple columns in a data frame by providing multiple vectors to order() function. Ordering will be performed in order of arguments.
 
@@ -1399,21 +1052,17 @@ dfExample[order(dfExample$Type,
                 decreasing=T),]
 ```
 
-
----
 ## Merging data frames
 
 A common operation is to join two data frames by a column of common values.
-
 
 ```{r dataframesMergeData1_introtoR}
 dfExample <- data.frame(Name=MouseID,
                         Type=GeneType,
                         Survival_Time=survivalTime,
                         stringsAsFactors = T)
-dfExample 
+dfExample
 ```
-
 
 ```{r dataframesMergeData2_introtoR}
 dfExample2 <- data.frame(Name=MouseID[1:3],
@@ -1421,7 +1070,6 @@ dfExample2 <- data.frame(Name=MouseID[1:3],
 dfExample2
 ```
 
----
 ## Merging data frames
 
 To do this we can use the **merge()** function with the data frames as the first two arguments. We can then specify the columns to merge by with the **by** argument. To keep only data pertaining to values common to both data frames the **all** argument is set to FALSE.
@@ -1431,45 +1079,19 @@ mergedDF <- merge(dfExample,dfExample2,by=1,all=F)
 mergedDF
 ```
 
----
 ## Time for an exercise!
 
 Exercise on data frames can be found [here](../../exercises/exercises/FactorsAndDataframes_exercise.html)
 
-
----
 ## Answers to exercise
 
 Answers can be found here  [here](../../exercises/answers/FactorsAndDataframes_answers.html)
 
-
----
-```{r, results='asis',include=TRUE,echo=FALSE}
-if(params$isSlides == "yes"){
-  cat("class: inverse, center, middle
-
-# Lists
-
-<html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
-
----
-"    
-  )
-}else{
-  cat("# Lists
-
----
-"    
-  )
-  
-}
-
-```
-
+# Lists {background-color="#23373B" .center .middle}
 
 ## Creating lists
 
-Lists are the final data type we will look at. 
+Lists are the final data type we will look at.
 
 In R, lists provide a general container which may hold any data types of unequal lengths as part of its elements.
 
@@ -1479,7 +1101,6 @@ secondElement <- matrix(1:10,nrow=2,ncol=5)
 thirdElement <- data.frame(colOne=c(1,2,4,5),colTwo=c("One","Two","Three","Four"))
 ```
 
----
 ## lists
 To create a list we can simply use the **list()** function with arguments specifying the data we wish to include in the list.
 
@@ -1488,9 +1109,8 @@ myList <- list(firstElement,secondElement,thirdElement)
 myList
 ```
 
----
 ## Named lists
- 
+
 [Just as with vectors](https://rockefelleruniversity.github.io/Intro_To_R_1Day/presentations/singlepage/introToR_Session1.html#Character_vectors), list elements can be assigned names.
 
 ```{r listsCreateNnames_introtoR}
@@ -1499,10 +1119,9 @@ myNamedList <- list(First=firstElement,Second=secondElement,
 myNamedList
 ```
 
----
 ## Indexing
 
-List, as [with other data types in R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/presentations/singlepage/introToR_Session1.html#Indexing) can be indexed. In contrast to other types, using **[]** on a list will subset the list to another list of selected indices. To retrieve an element from a list in R , two square brackets **[[]]** must be used. 
+List, as [with other data types in R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/presentations/singlepage/introToR_Session1.html#Indexing) can be indexed. In contrast to other types, using **[]** on a list will subset the list to another list of selected indices. To retrieve an element from a list in R , two square brackets **[[]]** must be used.
 
 ```{r listsCreateElements_introtoR}
 myList <- list(firstElement,secondElement,thirdElement)
@@ -1516,12 +1135,9 @@ As with data.frames, the $ sign may be used to extract named elements from a lis
 myNamedList$First
 ```
 
-
----
 ## Joining lists
 
-
-Again, [similar to vectors](https://rockefelleruniversity.github.io/Intro_To_R_1Day/presentations/singlepage/introToR_Session1.html#Vectors25), lists can be joined together in R using the c() function 
+Again, [similar to vectors](https://rockefelleruniversity.github.io/Intro_To_R_1Day/presentations/singlepage/introToR_Session1.html#Vectors25), lists can be joined together in R using the c() function
 
 ```{r listsCombine_introtoR}
 myNamedList <- list(First=firstElement,Second=secondElement,
@@ -1531,8 +1147,6 @@ myNamedList[c(1,4)]
 
 ```
 
-
----
 ## Joining vectors to lists
 
 Note that on last slide we are joining two lists. If we joined a vector to a list, all elements of the vector would become list elements.
@@ -1542,7 +1156,6 @@ myList <- c(myList,c(4,4))
 myList[3:5]
 ```
 
----
 ## Flattening lists
 
 Sometimes you will wish to "flatten" out a list. When a list contains compatable objects, i.e. list of all one type, the **unlist()** function can be used. Note the maintenance of names with their additional sufficies.
@@ -1554,9 +1167,6 @@ flatList <- unlist(myNamedList)
 flatList[1:7]
 ```
 
-
-
----
 ## Flattening lists to matrices
 
 A common step is to turn a list of standard results into matrix. This can be done in a few steps in R, using functions you are now familair with.
@@ -1572,44 +1182,15 @@ listAsMat <- matrix(flatList,
 listAsMat
 ```
 
----
 ## Time for an exercise!
-
 
 Exercise on matrices can be found [here](../../exercises/exercises/Lists_exercise.html)
 
-
----
 ## Answers to exercise
-
 
 Answers can be found here  [here](../../exercises/answers/Lists_answers.html)
 
-
-
-
----
-```{r, results='asis',include=TRUE,echo=FALSE}
-if(params$isSlides == "yes"){
-  cat("class: inverse, center, middle
-
-# Coercing data classes
-
-<html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
-
----
-"    
-  )
-}else{
-  cat("# Coercing data formats
-
----
-"    
-  )
-  
-}
-
-```
+# Coercing data classes {background-color="#23373B" .center .middle}
 
 ## Identifying an objects class
 
@@ -1620,7 +1201,6 @@ class(namedMatrix)
 class(dfExample)
 ```
 
----
 ## Coercing data class
 Sometime you may want to cast an object into a new class There are a group of functions to coerce your data object to a new format, **as._desiredClass_()**.
 
@@ -1632,7 +1212,6 @@ as.character(namedMatrix)
 as.vector(namedMatrix)
 ```
 
----
 ## Coercing data class
 ```{r}
 as.data.frame(namedMatrix)
@@ -1641,7 +1220,6 @@ as.list(namedMatrix)
 
 ```
 
----
 ## Objects
 
 All these common data classes we have covered so far are examples of R objects.
@@ -1652,7 +1230,6 @@ As shown we can assess the type of object using the **class()** function.
 class(dfExample)
 ```
 
----
 ## Working with objects
 
 We have also seen that functions act differently with the different data types.
@@ -1662,7 +1239,6 @@ summary(namedMatrix)
 summary(dfExample)
 ```
 
----
 ## Working with objects
 
 In fact simple interactions, such as indexing, with the different data types can be very different.
@@ -1672,7 +1248,6 @@ namedMatrix[,1]
 dfExample$Type
 ```
 
----
 ## Working with objects
 
 To learn about how to work with the different data types we can use the help functions built into R
@@ -1681,7 +1256,6 @@ To learn about how to work with the different data types we can use the help fun
 ?data.frame
 ```
 
----
 ## More complex objects
 
 As we progress through using R in our day to day analysis we will want to take advantage of more complex objects available in either Base R or in one of the many extension packages.
@@ -1695,7 +1269,6 @@ Time <- Sys.time()
 Time
 ```
 
----
 ## More complex objects
 
 As you can see this object shows the local date and time in a human readable way.
@@ -1706,7 +1279,6 @@ The object however is not one of our standard data types but is a new data type 
 class(Time)
 ```
 
----
 ## More complex objects
 
 Lets use the the help function to learn more about this object.
@@ -1715,7 +1287,6 @@ Lets use the the help function to learn more about this object.
 ?POSIXct
 ```
 
----
 ## More complex objects
 
 We can see from the help that we can use logical operators with our POSIXct object.
@@ -1725,7 +1296,6 @@ TimeNow <- Sys.time()
 TimeNow > Time
 ```
 
----
 ## More complex objects
 
 We can also use the arithmetic operations with our time objects.
@@ -1736,7 +1306,6 @@ Time - 120
 TimeNow - Time
 ```
 
----
 ## More complex objects
 
 Most objects will have a default display defined by a print method
@@ -1750,7 +1319,6 @@ format(Time,format="%H O'Clock %p %A on %B %dth")
 format(Time,format="%H O'Clock %p %A on %B %dth",tz = "GMT")
 ```
 
----
 ## Complex to base objects
 
 Most of the time we can convert more complex object back to our basic object types we are more familar with.
@@ -1760,46 +1328,22 @@ as.character(Time)
 as.numeric(TimeNow-Time)
 ```
 
----
 ## Complex objects summary
 
-In future courses we will come across object which help us handle data such as from BAM files, FastQ files and single cell experiments. 
+In future courses we will come across object which help us handle data such as from BAM files, FastQ files and single cell experiments.
 
 How to interact with these objects will be defined in their help pages.
 
 By using these specialized objects we will be able to focus on understanding and analyzing the data contained within the object instead of how to format and interact with such complex data.
 
----
-```{r, results='asis',include=TRUE,echo=FALSE}
-if(params$isSlides == "yes"){
-  cat("class: inverse, center, middle
+# Reading and Writing Data {background-color="#23373B" .center .middle}
 
-# Reading and Writing Data
-
-<html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
-
----
-"    
-  )
-}else{
-  cat("# Reading and Writing Data
-
----
-"    
-  )
-  
-}
-
-```
-
----
 ## Working Directory
 
-Most of the time, you will not be generating data in R but will be importing data from external files. Before we can read in data, you need to know from which vantage point your R console is looking. This view point is the Working Directory. 
+Most of the time, you will not be generating data in R but will be importing data from external files. Before we can read in data, you need to know from which vantage point your R console is looking. This view point is the Working Directory.
 
 ![location](imgs/youarehere.png)
 
----
 ## Working Directory
 
 You can check your working directory using the *getwd()* function.
@@ -1812,42 +1356,36 @@ getwd()
 [1] "/Users/mattpaul"
 ```
 
----
 ## Setting the Working directory
 
-Your current working directory is typically your *HOME* directory. When we do work on a project we typically want to keep everything in on place i.e. input files, output files, scripts etc. It is also good to set our working directory there. 
+Your current working directory is typically your *HOME* directory. When we do work on a project we typically want to keep everything in on place i.e. input files, output files, scripts etc. It is also good to set our working directory there.
 
-We will do this in our downloaded course material, so everyone is in the same place. 
+We will do this in our downloaded course material, so everyone is in the same place.
 
 **Session -> Set Working Directory -> Choose Directory**
 
 or in the console.
 
-```{r setwd_introtoR,eval=F} 
+```{r setwd_introtoR,eval=F}
 setwd("/PathToMyDownload/Intro_To_R_1Day-master/r_course")
 # e.g. setwd("/Users/mattpaul/Downloads/Intro_To_R_1Day/r_course")
 ```
 
----
 ## Paths
 
-When you give a path to R it can either be relative or absolute. 
+When you give a path to R it can either be relative or absolute.
 
 ![location](imgs/youarehere2.png)
 
-
----
 ## Paths
 
 To use our map analogy:
 
 - Relative path are like directions i.e. take a left, go straight then take a right etc. The context of where you start is essential.
 
-- Absolute paths are like an address. They give the final location in absence of any other external information. 
+- Absolute paths are like an address. They give the final location in absence of any other external information.
 
-Both have their benefits. 
-
----
+Both have their benefits.
 
 ## Paths in use
 
@@ -1859,7 +1397,7 @@ setwd("/Users/mattpaul/Downloads/Intro_To_R_1Day-master/r_course/")
 
 ```
 
-Given that we started at: */Users/mattpaul*, we could have also used the path below. This uses the knowledge of our start position to specify where we are going. 
+Given that we started at: */Users/mattpaul*, we could have also used the path below. This uses the knowledge of our start position to specify where we are going.
 
 ```{r, eval=F}
 
@@ -1867,7 +1405,6 @@ setwd("Downloads/Intro_To_R_1Day-master/r_course/")
 
 ```
 
----
 ## Data from external sources
 
 Now we have set our location we can start thinking about reading in data. A standard format for data is a table:
@@ -1884,9 +1421,7 @@ kable(minRepdf[,1:4], format='html')
 
 ```
 
----
 ## Data from text file with read.table()
-
 
 Tables from text files can be read with **read.table()** function. We are providing a relative path to our file as the first argument.
 
@@ -1895,11 +1430,10 @@ Table <- read.table("data/readThisTable.csv",sep=",",header=T)
 Table[1:4,1:3]
 ```
 
-Here we have provided two additional arguments. 
+Here we have provided two additional arguments.
 - **sep** argument specifies how columns are separated in our text file. ("," for .csv, "\t" for .tsv)
 - **header** argument specifies whether columns have headers.
 
----
 ## Row names in read.table()
 
 read.table() allows for significant control over reading files through its many arguments. Have a look at options by using **?read.table**
@@ -1911,12 +1445,11 @@ Table <- read.table("data/readThisTable.csv",sep=",",header=T,row.names=1)
 Table[1:4,1:3]
 ```
 
----
 ## Setting factors from read.table()
 
 As mentioned, data which is read into R through read.table() will be of data frame class.
 
-Similar to when we create data frames, we can control whether the data is read in as a factor or not with the **stringsAsFactors** argument. The default of this has also changed in R 4.0, from **TRUE** to **FALSE**. 
+Similar to when we create data frames, we can control whether the data is read in as a factor or not with the **stringsAsFactors** argument. The default of this has also changed in R 4.0, from **TRUE** to **FALSE**.
 
 ```{r,echo=T}
 Table <- read.table("data/readThisTable.csv", sep=",", header=T, stringsAsFactors=F)
@@ -1926,7 +1459,6 @@ Other very useful functions for read table include:
 - **skip** - To set number of lines to skip when reading.
 - **comment.char** - To set the start identifier for lines not to be read.
 
----
 ## Data from other sources
 
 The read.table function can also read data from http.
@@ -1944,13 +1476,11 @@ And the clipboard (this is Windows version).
 Table <- read.table(file="clipboard",sep=",",header=T)
 ```
 
----
 ## Data from file columns
 
 read.table() function will by default read every row and column of a file.
 
-The **scan()** function allows for the selection of particular columns to be read into R and so can save memory when files are large. 
-
+The **scan()** function allows for the selection of particular columns to be read into R and so can save memory when files are large.
 
 ```{r,echo=T}
 x <- scan("data/readThisTable.csv",sep=",",
@@ -1958,10 +1488,9 @@ x <- scan("data/readThisTable.csv",sep=",",
 x[1:3]
 ```
 
----
 ## Writing data to file
 
-Once we have our data analysed in R, we will want to export it to a file. 
+Once we have our data analysed in R, we will want to export it to a file.
 
 The most common method is to use the write.table() function
 
@@ -1975,21 +1504,18 @@ Since our data has column names but no row names, I will provide the arguments c
 write.table(Table, file="data/writeThisTable.csv", sep=",", row.names =F, col.names=T)
 ```
 
----
 # Reviewing your data
-It is always important to know what your data is. Especially when you are reading it in for the first time. We have used indexing to get a taste of the data frames so far. But there are two functions to quickly check your data. **head()** and **tail()** return the first or last 6 lines by default. 
+It is always important to know what your data is. Especially when you are reading it in for the first time. We have used indexing to get a taste of the data frames so far. But there are two functions to quickly check your data. **head()** and **tail()** return the first or last 6 lines by default.
 
 ```{r}
 head(Table)
 ```
----
 # Reviewing your data
 ```{r}
 tail(Table)
 head(Table,3)
 ```
 
----
 ## The rio (R io) package
 
 We may want to import from formats other than plain text.
@@ -2002,8 +1528,6 @@ Formats include:
 * Matlab, SAS, SPSS and minitab output formats.
 * Excel and OpenOffice formats.
 
-
----
 ## The rio package
 
 To make use of the rio package functionality we will need to install this package to our version of R.
@@ -2016,7 +1540,6 @@ We can do this by using the **install.packages()** function with the package we 
 install.packages("rio")
 ```
 
----
 ## The rio package
 
 Once we have installed a package, we will need to load it to make the functions available to us.
@@ -2029,21 +1552,19 @@ We can load a library by using the **library()** function with package we wish t
 library("rio")
 ```
 
----
 ## The rio package
 
 The main two functions in the rio package are the **import** and **export** functions.
 
 We can use the **import()** function to read in our csv file. We simple specify our file as an argument to the **import()** function.
 
-**import(_Filename_)**          
+**import(_Filename_)**
 
 ```{r,echo=T,eval=TRUE}
 Table <- import("data/readThisTable.csv")
 Table[1:2,]
 ```
 
----
 ## The rio package
 
 By default we will only retrieve the first sheet.
@@ -2051,14 +1572,13 @@ By default we will only retrieve the first sheet.
 We can specify the sheet by name or number using the **which** argument.
 
 ```{r,echo=T,eval=TRUE}
-Table <- import("data/readThisXLS.xls", 
+Table <- import("data/readThisXLS.xls",
                 which=2)
-Table <- import("data/readThisXLS.xls", 
+Table <- import("data/readThisXLS.xls",
                 which="Metadata")
 Table[1:2,]
 ```
 
----
 ## The rio package
 
 If we want to import all sheets, we can use the **import_list**.
@@ -2070,7 +1590,6 @@ Table <- import_list("data/readThisXLS.xls")
 names(Table)
 ```
 
----
 ## The rio package
 
 Since this is a list of data.frames, we can access our sheets using standard list accessors, **$** and **[[]]**.
@@ -2081,7 +1600,6 @@ Table$ExpressionScores[1:2,]
 Table$Metadata[1:2,]
 ```
 
----
 ## The rio package
 
 We can export our data back to file using the **export()** function and specifying the name of the output file to the **file** argument. The **export()** function will guess the format required from the extension.
@@ -2092,7 +1610,6 @@ export(ExpressionScores,file = "data/writeThisXLSX.xlsx")
 
 ```
 
----
 ## The rio package
 
 We can export a list of data.frames to Excel's xlsx format using the **export()** function. The names of list elements will be used to name sheets in xlsx file.
@@ -2103,11 +1620,9 @@ export(Table, file = "data/writeThisMultipleXLSX.xlsx")
 
 ```
 
-
----
 ## Save and read data
 
-If you have an R object that is not rectangular, i.e. a list or a specialist R object, you can still save it. 
+If you have an R object that is not rectangular, i.e. a list or a specialist R object, you can still save it.
 
 Lets remake our list.
 
@@ -2120,10 +1635,9 @@ myList <- list(firstElement,secondElement,thirdElement)
 myList
 ```
 
----
 ## Save and read data
 
-We can use the *saveRDS()* and *readRDS()* functions to save and read in our R object. They are saved as a *.rds object. 
+We can use the *saveRDS()* and *readRDS()* functions to save and read in our R object. They are saved as a *.rds object.
 
 ```{r}
 saveRDS(myList, "my_list.rds")
@@ -2135,7 +1649,6 @@ my_newlist <- readRDS("my_list.rds")
 my_newlist
 ```
 
----
 ## Save and read data
 
 There is also a *save()* function. This can be used to save multiple data objects into a single *RData* file. We have to ensure that we name the argument for file output (*file=*).
@@ -2152,18 +1665,10 @@ load("my_list.RData")
 
 ```
 
-
-
-
----
 ## Time for an exercise!
 
 Exercise on reading and writing data can be found [here](../../exercises/exercises/DataInputOutput_exercises.html)
 
----
 ## Answers to exercise
 
 Answers can be found [here](../../exercises/answers/DataInputOutput_answers.html)
-
-
-

@@ -2,24 +2,24 @@
 title: "Vectors"
 author: "Rockefeller University, Bioinformatics Resource Centre"
 date: "https://rockefelleruniversity.github.io/Intro_To_R_1Day/"
-output: 
-  html_document:
-    number_sections: false  ## if you want number sections at each table header
-    theme: united  # many options for theme, this one is my favorite.
-    highlight: tango  # specifies the syntax highlighting style
+format:
+  html:
+    theme:
+      - cosmo
+      - metropolis-page.scss    # same RU look as the single-page presentations
+    embed-resources: true
+    format-links: false
+    include-before-body: page-logo.html
 params:
-  toMessage: false    
+  toMessage: false
 ---
-
-```{r, setup,include=FALSE}
+```{r, setup,include=FALSE, purl=FALSE}
 toMessage <- ifelse(!is.null(params$toMessage),params$toMessage,FALSE)
 message(toMessage)
 ```
 
 <p>&nbsp;</p>
-These exercises are about the vector sections of [Introduction to R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/). 
-
-
+These exercises are about the vector sections of [Introduction to R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/).
 
 **Exercise 1**
 
@@ -29,7 +29,7 @@ c(1,2,3,4,5)
 
 ```
 
-- Create a vector containing the values 1 to 100. Save it as the variable x. 
+- Create a vector containing the values 1 to 100. Save it as the variable x.
 ```{r,echo=toMessage}
 x <- 1:100
 x
@@ -51,7 +51,6 @@ x
 ```{r}
 ?rep
 ```
-
 
 - Create a vector containing the values 1,1,2,2,3,3 using rep
 ```{r,echo=toMessage}
@@ -97,8 +96,7 @@ y <- x[seq(1,10,2)]
 y
 ```
 
-
-**Exercise 3** 
+**Exercise 3**
 
 - Check the help page for the *paste()* function.
 ```{r,echo=toMessage}
@@ -124,12 +122,12 @@ paste("A","B", sep="_")
 ```{r}
 my_genes <- c("PKM", "ADPRH", "TDG", "ATP4A", "SLC6A4", "CAPN3", "TDG", "ATP1A2","PKM")
 my_genes <- unique(my_genes)
-my_genes 
+my_genes
 ```
 
 - Create a second vector with these gene names: "SLC6A4", "CAPN3", "TDG", "ATP1A2", "IMPA1", "PDXK".
 - Check which genes from vector 1 are present in vector 2.
-- Subset vector 1 depending on whether the gene is present in vector 2. 
+- Subset vector 1 depending on whether the gene is present in vector 2.
 
 ```{r}
 my_genes_of_interest <- c("SLC6A4", "CAPN3", "TDG", "ATP1A2", "IMPA1", "PDXK")
@@ -137,7 +135,6 @@ idx <- my_genes %in% my_genes_of_interest
 idx
 my_genes[idx]
 ```
-
 
 ```{r}
 my_genes_of_interest <- c("SLC6A4", "CAPN3", "TDG", "ATP1A2", "IMPA1", "PDXK")
@@ -193,11 +190,8 @@ lne <- expression/geneLengths
 lne
 ```
 
-
 - Identify genes with a length normalised expression greater than the average
 ```{r,echo=toMessage}
 geneNames[lne > mean(lne)]
 
 ```
-
- 

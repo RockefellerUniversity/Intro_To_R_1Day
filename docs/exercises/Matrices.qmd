@@ -2,23 +2,24 @@
 title: "Matrices"
 author: "Rockefeller University, Bioinformatics Resource Centre"
 date: "https://rockefelleruniversity.github.io/Intro_To_R_1Day/"
-output: 
-  html_document:
-    number_sections: false  ## if you want number sections at each table header
-    theme: united  # many options for theme, this one is my favorite.
-    highlight: tango  # specifies the syntax highlighting style
+format:
+  html:
+    theme:
+      - cosmo
+      - metropolis-page.scss    # same RU look as the single-page presentations
+    embed-resources: true
+    format-links: false
+    include-before-body: page-logo.html
 params:
-  toMessage: false    
+  toMessage: false
 ---
-
-```{r, setup,include=FALSE}
+```{r, setup,include=FALSE, purl=FALSE}
 toMessage <- ifelse(!is.null(params$toMessage),params$toMessage,FALSE)
 message(toMessage)
 ```
 
-
 <p>&nbsp;</p>
-These exercises are about the matrices sections of [Introduction to R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/). 
+These exercises are about the matrices sections of [Introduction to R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/).
 
 **Exercise 1**
 
@@ -75,7 +76,7 @@ is.numeric(geneMatrix)
 is.character(geneMatrix)
 ```
 
-- Subset the original matrix to only genes that are involved in Transcription. Make sure the result is a numeric matrix. 
+- Subset the original matrix to only genes that are involved in Transcription. Make sure the result is a numeric matrix.
 
 ```{r}
 
