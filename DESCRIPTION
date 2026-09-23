@@ -11,5 +11,6 @@ Description: Dependency + system-requirements manifest for the Introduction to R
     they can be installed and listed on the front page.
 License: GPL (>= 2)
 Depends: methods, rio
+Suggests: formatR
 SystemRequirements: R, RStudio
 biocViews: Training
