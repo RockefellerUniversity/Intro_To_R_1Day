@@ -1,0 +1,44 @@
+[
+  {
+    "objectID": "index.html#course-overview",
+    "href": "index.html#course-overview",
+    "title": "Introduction to R",
+    "section": "Course Overview",
+    "text": "Course Overview\n\nThis course introduces R and statistical programming.\nThe course consists of 2 sessions: the first on basic R data types and data input/output, and the second on conditional branching, loops, functions and scripts. Each session is presented as HTML slides and as a single-page document. Exercises and answer sheets are included after each subsection to practice techniques and to provide future reference examples.\nCourse material and exercises are available to view as rendered HTML at https://rockefelleruniversity.github.io/Intro_To_R_1Day/. All material is available to download under GPL v2 license."
+  },
+  {
+    "objectID": "index.html#course-integrity",
+    "href": "index.html#course-integrity",
+    "title": "Introduction to R",
+    "section": "Course Integrity",
+    "text": "Course Integrity\nThis course is compiled automatically on 2026-09-23   \nThe course is tested and available on MacOS, Windows and Ubuntu Linux for R version 4.3.3 (2024-02-29)  \nThe course is also tested against every major R release since 3.5 (3.5 → 4.5) on Linux  \nPrevious versions of this course are listed on the releases page."
+  },
+  {
+    "objectID": "index.html#setting-up",
+    "href": "index.html#setting-up",
+    "title": "Introduction to R",
+    "section": "Setting up",
+    "text": "Setting up\n\n\nManual InstallDocker\n\n\n\nSystem Requirements\n\n\nInstall R\nR can be installed from the R-project website.\nThe R website can be found here http://www.r-project.org/. This website has all the latest information about R updates, conferences and installation\nYou can use this direct links to the install for each major OS:\n\nMac\nWindows\nLinux platforms\n\n\n\n\nInstall RStudio\nRStudio can be installed from the RStudio website.\nhttp://www.rstudio.com/\nRStudio can be downloaded for all platforms at the link below\nhttps://rstudio.com/products/rstudio/download/\n\n\n\nInstall required R packages\nR Packages can be installed from the course package or from CRAN/Bioconductor. Once R and RStudio is installed, you can copy and paste these install commands into lower left pane of RStudio which should be labelled “Console”. If you run into any errors, do this one line at a time.\n\nFrom the course packageFrom CRAN and Bioconductor\n\n\ninstall.packages('BiocManager')\ninstall.packages('remotes')\nBiocManager::install('RockefellerUniversity/Intro_To_R_1Day')\n\n\ninstall.packages('BiocManager')\nBiocManager::install('methods')\nBiocManager::install('rio')\n\n\n\n\n\n\nFor an environment matching the one this course was built and tested against, use the Bioconductor Docker image, pinned to the Bioconductor release used at compile time. Docker must be installed; run this in a terminal:\ndocker run -e PASSWORD=changeme -p 8787:8787 bioconductor/bioconductor_docker:RELEASE_3_18\nThen open http://localhost:8787 (username rstudio, password changeme) and install the course in the RStudio console:\ninstall.packages('BiocManager')\nBiocManager::install('RockefellerUniversity/Intro_To_R_1Day')"
+  },
+  {
+    "objectID": "index.html#download-the-material",
+    "href": "index.html#download-the-material",
+    "title": "Introduction to R",
+    "section": "Download the material",
+    "text": "Download the material\nClicking this link allows you to download all the course material including the code and slides. It also contains additional files we may use in the training.\nDownload the material"
+  },
+  {
+    "objectID": "index.html#the-presentations",
+    "href": "index.html#the-presentations",
+    "title": "Introduction to R",
+    "section": "The Presentations",
+    "text": "The Presentations\n\n\nIntroduction to R, Session 1\nThis section focuses on R basics: simple data types, working with objects, and reading and writing data.\nSession sections:\n\nBackground of R and RStudio\nData types: vectors, matrices, factors, data frames and lists\nCoercing data classes and working with objects\nReading and writing data\n\n\n\n\nLinks to presentations:\nThe html slide presentation can be found at this link Slide\nThe single page html presentation can be found at this link Single Page\nThe code use in the presentations can be found at Code\nThe notebook used to make the presentations can be found at Notebook\n\n\n\n\nIntroduction to R, Session 2\nIn session 2, programmatic techniques such as conditional branching, looping and writing your own functions are introduced. The session includes longer exercises and shorter slide decks, so more time should be allocated to exercises in this session.\nSession sections:\n\nConditional branching and loops\nCustom functions\nInstalling and loading libraries\nWriting scripts\nGetting help\n\n\n\n\nLinks to presentations:\nThe html slide presentation can be found at this link Slide\nThe single page html presentation can be found at this link Single Page\nThe code use in the presentations can be found at Code\nThe notebook used to make the presentations can be found at Notebook"
+  },
+  {
+    "objectID": "index.html#getting-help",
+    "href": "index.html#getting-help",
+    "title": "Introduction to R",
+    "section": "Getting help",
+    "text": "Getting help\n\n\nCourse help\nFor advice, help and comments for the material covered in this course please contact us at the issues page associated to this course.\nThe link to the help pages can be found here\n\n\n\nGeneral Bioinformatics support\nIf you would like contact us about general bioinformatics advice, support or collaboration, please contact us the Bioinformatics Resource Center at brc@rockefeller.edu."
+  }
+]
