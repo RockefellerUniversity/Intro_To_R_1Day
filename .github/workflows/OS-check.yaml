@@ -7,6 +7,7 @@ on:
   push:
     branches:
       - master
+      - quarto-migration   # TEMPORARY: validate the migration branch; remove before the PR (publish step is master-only)
     ## Skip commits that only touch generated site output or prose docs — see
     ## compilation-check.yml for the rationale; course sources still rebuild.
     paths-ignore: &generated-paths
