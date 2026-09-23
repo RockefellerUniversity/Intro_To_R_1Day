@@ -1329,14 +1329,14 @@ dfExample
 When you create a dataframe you can automatically make all strings be converted to factors with the **stringsAsFactors** argument. The current default though is **FALSE**
 
 ```{r dataframesAndNoFactors_introtoR}
-dfExample <- data.frame(Name=MouseID,
+dfExample2 <- data.frame(Name=MouseID,
                         Type=GeneType,
                         Survival_Time=survivalTime,
                         stringsAsFactors = T)
 
 
-dfExample[dfExample[,"Survival_Time"] < 10,"Name"] <- "other"
-dfExample
+dfExample2[dfExample2[,"Survival_Time"] < 10,"Name"] <- "other"
+dfExample2
 
 ```
 
@@ -1381,6 +1381,7 @@ testOrder[order(testOrder,decreasing=T,na.last=F)]
 ## Ordering data frames 
 
 Since the order argument returns an index of intended order for a vector, we can use the order() function to order data frames by certain columns.
+
 ```{r dataframesOrderDecreasing_introtoR}
 dfExample
 dfExample[order(dfExample$Surv, decreasing=T),]
@@ -1394,7 +1395,7 @@ We can also use order to arrange multiple columns in a data frame by providing m
 
 ```{r dataframesOrderMultiple_introtoR}
 dfExample[order(dfExample$Type,
-                dfExample$Survival,
+                dfExample$Surv,
                 decreasing=T),]
 ```
 
@@ -1406,15 +1407,17 @@ A common operation is to join two data frames by a column of common values.
 
 
 ```{r dataframesMergeData1_introtoR}
-dfExample <- data.frame(Name=patientName,Type=patientType,
-                        Survival_Time=survivalTime)
+dfExample <- data.frame(Name=MouseID,
+                        Type=GeneType,
+                        Survival_Time=survivalTime,
+                        stringsAsFactors = T)
 dfExample 
 ```
 
 
 ```{r dataframesMergeData2_introtoR}
-dfExample2 <- data.frame(Name=patientName[1:3],
-                        height=c(6.1,5.1,5.5))
+dfExample2 <- data.frame(Name=MouseID[1:3],
+                        Length=c(6.1,5.1,5.5))
 dfExample2
 ```
 
