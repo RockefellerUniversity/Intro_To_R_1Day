@@ -1,0 +1,88 @@
+name: 'Compile RU course'
+description: >-
+  Install the RockefellerUniversity/compileCourses engine and render the course
+  material (slides, single page and R code) via compileSingleCourseMaterial().
+  Runs inside the caller's job, so it works in the Bioconductor docker container
+  and in the OS / legacy-R matrix jobs alike.
+
+inputs:
+  repo:
+    description: 'GitHub org/owner of the course repository'
+    required: false
+    default: 'RockefellerUniversity'
+  branch:
+    description: 'Branch to compile'
+    required: false
+    default: 'master'
+  compilecourses-version:
+    description: 'Bioc version for the engine install: "" (release) or "devel"'
+    required: false
+    default: ''
+  compilecourses-ref:
+    description: >-
+      Optional git ref/branch of RockefellerUniversity/compileCourses to install
+      instead of the default branch. Used to validate engine changes on a branch.
+    required: false
+    default: ''
+  full-rebuild:
+    description: >-
+      "true" ignores any committed _freeze/ and re-executes everything (the
+      scheduled canary); "false" reuses frozen results for a fast build.
+    required: false
+    default: 'false'
+
+runs:
+  using: 'composite'
+  steps:
+    ## Quarto CLI — the Bioconductor docker and the OS/legacy-R runners don't
+    ## ship it. The engine drives Quarto via the `quarto` R package, which needs
+    ## the CLI on PATH.
+    - name: Set up Quarto
+      uses: quarto-dev/quarto-actions/setup@v2
+      with:
+        ## Pin a specific version: 'release' resolves via `jq`, which the
+        ## Bioconductor docker container lacks (exit 127). A pinned version
+        ## builds the download URL directly, no jq needed. Bump as desired.
+        version: '1.4.554'
+
+    ## Install the rendering engine (pulls its CRAN deps: quarto, remotes,
+    ## knitr, yaml). `compilecourses-version` selects the Bioc release
+    ## ("" = release, "devel" matched to r-devel legs); `compilecourses-ref`
+    ## optionally installs a specific engine branch to validate before merge.
+    - name: Install compileCourses engine
+      shell: Rscript {0}
+      run: |
+        version <- "${{ inputs.compilecourses-version }}"
+        ref <- "${{ inputs.compilecourses-ref }}"
+        engine <- "RockefellerUniversity/compileCourses"
+        if (nzchar(ref)) engine <- paste0(engine, "@", ref)
+        if (nzchar(version)) {
+          BiocManager::install(engine, subdir = "compileCourses", version = version)
+        } else {
+          BiocManager::install(engine, subdir = "compileCourses")
+        }
+
+    ## Record the full package set for debugging failed builds.
+    - name: Session info
+      shell: Rscript {0}
+      run: |
+        if (!requireNamespace("sessioninfo", quietly = TRUE)) install.packages("sessioninfo")
+        options(width = 100)
+        pkgs <- installed.packages()[, "Package"]
+        sessioninfo::session_info(pkgs, include_base = TRUE)
+
+    ## Render the whole course (slides + single page + code + exercises + front
+    ## page) into r_course/. The flat course lives at the repo root (getwd()):
+    ## compileSingleCourseMaterial reads its content from the top-level folders
+    ## and installs the thin dependency package itself (installPkg defaults TRUE),
+    ## so no separate local-install step is needed. `name` defaults to the
+    ## checkout's basename (= the repo name), used in the generated links.
+    - name: Compile course
+      shell: Rscript {0}
+      run: |
+        require(compileCourses)
+        compileCourses::compileSingleCourseMaterial(
+          repo   = "${{ inputs.repo }}",
+          branch = "${{ inputs.branch }}",
+          freeze = !as.logical("${{ inputs.full-rebuild }}")
+        )

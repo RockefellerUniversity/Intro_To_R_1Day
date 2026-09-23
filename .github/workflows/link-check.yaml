@@ -1,0 +1,70 @@
+## Verifies the hyperlinks in the published course, as its own step — decoupled
+## from rendering so remote-URL latency/flakiness never touches the compile.
+##
+## Trigger: whenever compilation-check finishes. We act only on a SUCCESSFUL
+## run on master, at which point that workflow has just pushed the `Autobuild`
+## commit with the freshly rendered site into docs/ (the Pages source). We then
+## check out master (which now carries that commit), scan docs/ with
+## compileCourses::checkCourseLinks(), and upload a full pass/fail audit
+## (failures first) as an artifact.
+##
+## Gating: any broken link fails this workflow (red mark on the master commit /
+## Actions tab), in addition to the ::warning annotations and the report
+## artifact. Set LINK_CHECK_FAIL_ON_BROKEN=false to make it report-only instead.
+on:
+  workflow_run:
+    workflows: ["compilation-check"]
+    types:
+      - completed
+
+name: link-check
+
+jobs:
+  link-check:
+    ## Only after a green compilation-check on master (the branch that receives
+    ## the Autobuild publish); PR / non-master runs don't republish docs/.
+    if: >
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.head_branch == 'master'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      ## The build ran on master and pushed the Autobuild commit; check out
+      ## master's current tip so docs/ is the just-published site.
+      - name: Check out the published site
+        uses: actions/checkout@v4
+        with:
+          ref: master
+
+      ## Base R only — the vendored checker (.github/scripts/link-check.R) uses
+      ## no packages, so there is nothing to install beyond R itself.
+      - name: Setup R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: release
+
+      ## Full audit of docs/: local file + anchor targets and remote
+      ## reachability. Writes link-check-report.tsv (failures first), emits
+      ## ::warning annotations, and exits non-zero if any link is broken (so the
+      ## run goes red). Set LINK_CHECK_REMOTE=false to skip outbound requests, or
+      ## LINK_CHECK_FAIL_ON_BROKEN=false to make it report-only.
+      - name: Verify hyperlinks
+        env:
+          LINK_CHECK_REMOTE: "true"
+          LINK_CHECK_FAIL_ON_BROKEN: "true"
+          ## Token lets the script verify github.com links via the authenticated
+          ## API (this repo is private, so an unauthenticated web HEAD 404s). The
+          ## script only ever sends it to api.github.com.
+          GITHUB_PAT: ${{ secrets.GHTOKEN2 }}
+          GITHUB_TOKEN: ${{ secrets.GHTOKEN2 }}
+        run: Rscript .github/scripts/link-check.R docs
+
+      ## Always upload the audit, even when the verify step failed the run.
+      - name: Upload link-check report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: link-check-report
+          path: link-check-report.tsv
+          if-no-files-found: warn

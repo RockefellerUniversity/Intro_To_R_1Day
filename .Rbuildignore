@@ -1,0 +1,23 @@
+# Keep the built package THIN: it is only a dependency manifest (DESCRIPTION).
+# The flat course content and build outputs are excluded so `R CMD build` /
+# remotes::install_local() install just the dependencies, not the material.
+^presentations$
+^exercises$
+^descriptions$
+^data$
+^imgs$
+^_course\.yml$
+^_freeze$
+^docs$
+^r_course$
+^\.github$
+^\.git$
+^\.gitignore$
+^REDESIGN\.md$
+^.*\.Rproj$
+^\.Rproj\.user$
+^link-check-report\.tsv$
+^\.DS_Store$
+^GettingStarted\.md$
+^MIGRATION\.md$
+^ROADMAP\.md$

@@ -2,5 +2,10 @@
 .Rhistory
 .RData
 .Ruserdata
-compiling_R3.R
 .DS_Store
+r_course/
+link-check-report.tsv
+# Files the material writes when run from docs/ (saveRDS/save demos, exercise output)
+docs/my_list.rds
+docs/my_list.RData
+docs/orderedExpression.txt

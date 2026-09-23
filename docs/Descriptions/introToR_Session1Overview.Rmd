@@ -1,8 +1,0 @@
-### Introduction to R, Session 1
-
-This section focuses on R basics such as simple data types, data IO, plotting and statistics.
-Session sections:
-
-* Introduction to R
-* Data Types
-* Reading and Writing Data

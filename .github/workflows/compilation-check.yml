@@ -33,11 +33,30 @@ on:
   push:
     branches:
       - master
+    ## Skip commits that only touch generated site output or prose docs — e.g.
+    ## the Autobuild publish commit itself, which would otherwise trigger a full
+    ## rebuild that produces no changes and exits via the "nothing to publish"
+    ## guard. Course *sources* (docs/notebooks, docs/exercises, docs/data, …)
+    ## are NOT covered here, so real content edits still rebuild.
+    paths-ignore: &generated-paths
+      - "docs/presentations/**"
+      - "docs/exercises/answers/**"
+      - "docs/exercises/exercises/**"
+      - "docs/index.html"
+      - "docs/releases.html"
+      - "docs/site_libs/**"
+      - "docs/search.json"
+      - "docs/logo.svg"
+      - "docs/_site.yml"
+      - "docs/.quarto/**"
+      - "**.md"
   pull_request:
     branches:
       - master
+    paths-ignore: *generated-paths
   schedule:
-    - cron: "1 7 11 * *"
+    ## Quarterly (11th of Jan/Apr/Jul/Oct, 07:01) — canary against package drift.
+    - cron: "1 7 11 */3 *"
 
 name: compilation-check
 
@@ -68,13 +87,16 @@ jobs:
           imagename="bioconductor/bioconductor_docker"
           echo $imagename
           ## Save the information for the next job
-          echo "::set-output name=imagename::${imagename}"
+          echo "imagename=${imagename}" >> "$GITHUB_OUTPUT"
   compilation-check:
     ## This job then checks the R package using the Bioconductor docker that
     ## was defined by the previous job. This job will determine what version of
     ## R to use for the macOS and Windows builds on the next job.
     runs-on: ubuntu-latest
     needs: define-docker-info
+    ## Bound the job so a hung render (e.g. a stalled download or an
+    ## out-of-memory heavy chunk) cannot run to GitHub's 6-hour ceiling.
+    timeout-minutes: 120
 
     ## Name shown on the GHA log
     name: ubuntu-latest
@@ -101,29 +123,14 @@ jobs:
         - /home/runner/work/_temp/Library:/usr/local/lib/R/host-site-library
 
     steps:
-      - name: Install Git
-        run: |
-          sudo apt-get update -y
-          sudo apt install make libssl-dev libghc-zlib-dev libcurl4-gnutls-dev libexpat1-dev gettext unzip -y
-          wget https://github.com/git/git/archive/v2.26.2.zip -O git.zip
-          unzip git.zip
-          cd git-*
-          make prefix=/usr all
-          sudo make prefix=/usr install
-          cd -
-          git --version
-        shell: bash {0}
-      ## Related to https://github.com/actions/checkout/issues/238
-      ## https://www.digitalocean.com/community/tutorials/how-to-install-git-on-ubuntu-18-04
-
       ## Most of these steps are the same as the ones in
       ## https://github.com/r-lib/actions/blob/master/examples/check-standard.yaml
       ## If they update their steps, we will also need to update ours.
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Query dependencies
         run: |
           install.packages('remotes')
-          saveRDS(remotes::dev_package_deps("introToR/",dependencies = TRUE), ".github/depends.Rds", version = 2)
+          saveRDS(remotes::dev_package_deps(".",dependencies = TRUE), ".github/depends.Rds", version = 2)
           message(paste('****', Sys.time(), 'installing BiocManager ****'))
           remotes::install_cran("BiocManager")
         shell: Rscript {0}
@@ -140,8 +147,8 @@ jobs:
           echo $biocversionnum
           echo $rversion
           ## Save the info for the next job
-          echo "::set-output name=rversion::${rversion}"
-          echo "::set-output name=biocversionnum::${biocversionnum}"
+          echo "rversion=${rversion}" >> "$GITHUB_OUTPUT"
+          echo "biocversionnum=${biocversionnum}" >> "$GITHUB_OUTPUT"
         shell:
           bash {0}
 
@@ -163,57 +170,61 @@ jobs:
           ## Ideally, all dependencies should get installed in the first pass.
           ## Pass #1 at installing dependencies
           message(paste('****', Sys.time(), 'pass number 1 at installing dependencies: local dependencies ****'))
-          local_deps <- remotes::local_package_deps("introToR/",dependencies = TRUE)
-          deps <- remotes::dev_package_deps("introToR/",dependencies = TRUE, repos = BiocManager::repositories())
+          local_deps <- remotes::local_package_deps(".",dependencies = TRUE)
+          deps <- remotes::dev_package_deps(".",dependencies = TRUE, repos = BiocManager::repositories())
           BiocManager::install(local_deps[local_deps %in% deps$package[deps$diff != 0]])
           ## Pass #2 at installing dependencies
           message(paste('****', Sys.time(), 'pass number 2 at installing dependencies: any remaining dependencies ****'))
-          deps <- remotes::dev_package_deps("introToR/",dependencies = TRUE, repos = BiocManager::repositories())
+          deps <- remotes::dev_package_deps(".",dependencies = TRUE, repos = BiocManager::repositories())
           BiocManager::install(deps$package[deps$diff != 0])
           ## For running the checks
           message(paste('****', Sys.time(), 'installing rcmdcheck and BiocCheck ****'))
           remotes::install_cran("rcmdcheck")
           BiocManager::install("BiocCheck")
-          BiocManager::install("rmarkdown")
-          BiocManager::install("RockefellerUniversity/compileCourses",subdir="compileCourses")          
         shell: Rscript {0}
 
-      - name: Session info
-        run: |
-          options(width = 100)
-          pkgs <- installed.packages()[, "Package"]
-          sessioninfo::session_info(pkgs, include_base = TRUE)
-        shell: Rscript {0}
+      ## Install the compileCourses engine, install the local package and
+      ## render the course. Shared with OS-check and legacy-R-check.
+      - name: Compile course
+        uses: ./.github/actions/compile-course
+        with:
+          repo: RockefellerUniversity
+          branch: master
+          compilecourses-ref: quarto-migration   # Quarto engine branch — pinned during the phased migration; remove at the final cut-over
+          ## Publish pipeline: reuse freeze for fast push builds; full canary on cron.
+          full-rebuild: ${{ github.event_name == 'schedule' }}
 
-      - name: Install package
-        if: github.ref == 'refs/heads/master' 
-        run: R CMD INSTALL ./introToR/
+      ## No copy step: compileSingleCourseMaterial renders in place into docs/
+      ## (GitHub Pages source), next to the sources, cleaning only the generated
+      ## paths — so docs/ already holds the freshly rendered site.
 
-      - name: Session info
+      ## Publish the rebuilt site back to master. Guarded two ways:
+      ##  * only on master (never on pull requests) so PRs validate without
+      ##    pushing;
+      ##  * only when the render actually changed something - otherwise
+      ##    `git commit` exits non-zero on an empty commit and reds the build.
+      - name: Commit rendered site
+        if: github.ref == 'refs/heads/master'
         run: |
-          require(compileCourses)
-          compileCourses::compileSingleCourseMaterial(repo="RockefellerUniversity",subdir="introToR",branch="master")
-        shell: Rscript {0}
-
-      - name: Move to docs
-        run: |
-          mkdir -p docs
-          cp -r  r_course/* docs/
-          echo "Copied to docs"
-        shell:
-          bash {0}
-        
-      - name: commit
-        run: |
+          ## The checkout is owned by a different UID than the user running git
+          ## inside the Bioconductor container, so modern git (>= 2.35) refuses
+          ## to operate ("dubious ownership"). Mark the workspace safe. (The old
+          ## workflow sidestepped this by building git 2.26 from source, which
+          ## predates the check; this is the modern one-line equivalent.)
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
           git config --global user.email "tc.infomatics@gmail.com"
           git config --global http.postBuffer 263112000
-          git add docs/\* r_course/\*
-          git commit -m 'Autobuild' 
-          git push origin HEAD:refs/heads/master
+          git add docs README.md
+          if git diff --cached --quiet; then
+            echo "No changes to publish."
+          else
+            git commit -m 'Autobuild'
+            git push origin HEAD:refs/heads/master
+          fi
       
       - name: Upload check results
         if: failure()
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v4
         with:
           name: ${{ runner.os }}-biocdocker-biocbranch-release-r-${{ steps.findrversion.outputs.rversion }}-bioc-${{ steps.findrversion.outputs.biocversionnum }}-results
           path: check

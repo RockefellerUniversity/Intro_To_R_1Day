@@ -1,0 +1,179 @@
+## Attempts to compile the course on every major R release since 3.5.
+## Linux only. Each R version is paired with a Posit Public Package Manager
+## (PPM) dated snapshot so that R-version-appropriate CRAN package versions are
+## installed - current package versions will not install on old R.
+##
+## This is a best-effort compatibility probe: the oldest legs may fail to
+## resolve every dependency. fail-fast is disabled so each R version is reported
+## independently and the badge documents the compatibility floor.
+
+## No schedule: legacy R versions don't change month-to-month, so a recurring
+## canary here adds nothing. Runs only on push / PR to master.
+on:
+  push:
+    branches:
+      - master
+    ## Skip commits that only touch generated site output or prose docs — see
+    ## compilation-check.yml for the rationale; course sources still rebuild.
+    paths-ignore: &generated-paths
+      - "docs/presentations/**"
+      - "docs/exercises/answers/**"
+      - "docs/exercises/exercises/**"
+      - "docs/index.html"
+      - "docs/releases.html"
+      - "docs/site_libs/**"
+      - "docs/search.json"
+      - "docs/logo.svg"
+      - "docs/_site.yml"
+      - "docs/.quarto/**"
+      - "**.md"
+  pull_request:
+    branches:
+      - master
+    paths-ignore: *generated-paths
+
+name: legacy-R-check
+
+env:
+  cache-version: 'legacy-cache-v1'
+
+jobs:
+  legacy-R-check:
+    ## Pin the distro so the PPM binary path (jammy) matches the runner.
+    runs-on: ubuntu-22.04
+    ## Bound each R leg so a hung/OOM render cannot run to the 6-hour cap.
+    timeout-minutes: 120
+    ## Legs marked allow-failure in the matrix are attempted but do not fail the
+    ## workflow / redden the badge. Current compatibility floor is R 4.1: on
+    ## R <= 4.0 the toolchain won't install from the snapshots (devtools, which
+    ## the compileCourses engine imports, fails to build; R 3.5 can't even
+    ## download.file over TLS). These legs stay in the matrix to keep probing
+    ## the floor, but are non-blocking until the engine sheds its devtools dep.
+    continue-on-error: ${{ matrix.config.allow-failure || false }}
+
+    name: R ${{ matrix.config.r }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        config:
+          ## snapshot = PPM date roughly contemporary with each R release,
+          ## chosen so CRAN package versions are compatible with that R.
+          ## allow-failure: below the current R 4.1 compatibility floor.
+          - { r: '3.5', snapshot: '2019-01-02', allow-failure: true }
+          - { r: '3.6', snapshot: '2020-04-24', allow-failure: true }
+          - { r: '4.0', snapshot: '2021-03-31', allow-failure: true }
+          - { r: '4.1', snapshot: '2022-04-21' }
+          - { r: '4.2', snapshot: '2023-04-20' }
+          - { r: '4.3', snapshot: '2024-04-23' }
+          - { r: '4.4', snapshot: '2025-04-10' }
+          - { r: '4.5', snapshot: 'latest' }
+
+    env:
+      R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
+      GITHUB_TOKEN: ${{ secrets.GHTOKEN2 }}
+      GITHUB_PAT: ${{ secrets.GHTOKEN2 }}
+      ## R <= 3.5's bundled libcurl sometimes can't locate a CA store on its
+      ## own, turning a routine cert-chain check into a generic "cannot open
+      ## URL" failure against GitHub's API. Point it at the system's modern
+      ## bundle explicitly; harmless no-op on every other leg.
+      CURL_CA_BUNDLE: /etc/ssl/certs/ca-certificates.crt
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup R ${{ matrix.config.r }}
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: ${{ matrix.config.r }}
+
+      - name: Setup pandoc
+        uses: r-lib/actions/setup-pandoc@v2
+
+      - name: Point CRAN at the version-matched PPM snapshot
+        run: |
+          repo <- "https://packagemanager.posit.co/cran/__linux__/jammy/${{ matrix.config.snapshot }}"
+          cat(sprintf("options(repos = c(CRAN = '%s'))\n", repo),
+              file = "~/.Rprofile", append = TRUE)
+          ## R <= 3.5 doesn't default to the libcurl download backend, so its
+          ## HTTPS handshake against api.github.com (TLS 1.2+) fails with
+          ## "cannot open URL" even though the runner's libcurl is modern.
+          ## Force it explicitly; a no-op on newer R where it's already default.
+          cat('options(download.file.method = "libcurl")\n',
+              file = "~/.Rprofile", append = TRUE)
+          cat("Using CRAN snapshot:", repo, "\n")
+        shell: Rscript {0}
+
+      - name: Query dependencies
+        run: |
+          install.packages('remotes')
+          ## dependencies = NA (Depends/Imports/LinkingTo only, no Suggests):
+          ## rendering a course never needs a package's own test framework, and
+          ## pulling in Suggests transitively drags in testthat, which fails to
+          ## compile from source on this Ubuntu 22.04 + old-R combination
+          ## (SIGSTKSZ is no longer a compile-time constant in glibc >= 2.34,
+          ## breaking testthat's vendored Catch header) whenever a binary isn't
+          ## available for a given old-R/snapshot pairing.
+          saveRDS(remotes::dev_package_deps(".",dependencies = NA), ".github/depends.Rds", version = 2)
+          writeLines(sprintf("R-%i.%i", getRversion()$major, getRversion()$minor), ".github/R-version")
+        shell: Rscript {0}
+
+      - name: Cache R packages
+        if: "!contains(github.event.head_commit.message, '/nocache')"
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.R_LIBS_USER }}
+          key: ${{ env.cache-version }}-${{ runner.os }}-R${{ matrix.config.r }}-${{ hashFiles('.github/depends.Rds') }}
+          restore-keys: ${{ env.cache-version }}-${{ runner.os }}-R${{ matrix.config.r }}-
+
+      - name: Install Linux system dependencies
+        ## Static system-library list. The old-R snapshots ship a `remotes`
+        ## too old to have `system_requirements()` (or one that doesn't know
+        ## "ubuntu-22.04"), so deriving sys-deps dynamically fails on these
+        ## legs - install the known set directly instead.
+        run: |
+          sudo apt-get update -y
+          sudo apt-get install -y \
+            libcurl4-openssl-dev libssl-dev libxml2-dev \
+            libfontconfig1-dev libharfbuzz-dev libfribidi-dev \
+            libfreetype6-dev libpng-dev libtiff5-dev libjpeg-dev
+
+      ## Install the course dependencies from the version-matched snapshot set
+      ## above. On the oldest R legs some current packages may not resolve -
+      ## that is expected and is what this probe documents.
+      ## No devtools: the engine and the local-package install both use remotes,
+      ## which is what lets the older R legs get further (devtools was the main
+      ## blocker below R 4.1).
+      - name: Install dependencies
+        run: |
+          ## The dated PPM snapshot's testthat predates the fix for glibc
+          ## >= 2.34 making SIGSTKSZ a runtime call (breaks its vendored Catch
+          ## header when compiled from source, e.g. as isoband's dependency
+          ## below). Pull a current testthat from live CRAN first, bypassing
+          ## the snapshot for this one package; a no-op if R can't satisfy a
+          ## current testthat's own version floor.
+          tryCatch(
+            install.packages("testthat", repos = "https://cran.r-project.org"),
+            error = function(e) message("Current testthat unavailable for this R version: ", conditionMessage(e))
+          )
+          remotes::install_deps(".",dependencies = NA)
+          remotes::install_cran("BiocManager")
+        shell: Rscript {0}
+
+      ## Install the compileCourses engine, install the local package and
+      ## render the course. Shared with compilation-check and OS-check.
+      - name: Compile course
+        uses: ./.github/actions/compile-course
+        with:
+          repo: RockefellerUniversity
+          branch: master
+          compilecourses-ref: quarto-migration   # Quarto engine branch — pinned during the phased migration; remove at the final cut-over
+          ## Old-R execution canary: always full-execute (never reuse freeze).
+          full-rebuild: true
+
+      - name: Upload check results
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: legacy-R-${{ matrix.config.r }}-results
+          path: check

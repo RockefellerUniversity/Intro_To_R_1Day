@@ -1,18 +1,52 @@
+## OS-check: verifies the course compiles across operating systems and R
+## versions (macOS/Windows/Ubuntu x R release/devel). This is a CI gate only -
+## unlike compilation-check it does NOT publish anything. The shared
+## install-and-render logic lives in .github/actions/compile-course.
+
 on:
   push:
     branches:
       - master
+    ## Skip commits that only touch generated site output or prose docs — see
+    ## compilation-check.yml for the rationale; course sources still rebuild.
+    paths-ignore: &generated-paths
+      - "docs/presentations/**"
+      - "docs/exercises/answers/**"
+      - "docs/exercises/exercises/**"
+      - "docs/index.html"
+      - "docs/releases.html"
+      - "docs/site_libs/**"
+      - "docs/search.json"
+      - "docs/logo.svg"
+      - "docs/_site.yml"
+      - "docs/.quarto/**"
+      - "**.md"
   pull_request:
     branches:
       - master
+    paths-ignore: *generated-paths
   schedule:
-    - cron: "1 7 11 * *"
+    ## Quarterly (11th of Jan/Apr/Jul/Oct, 07:01) — cross-platform canary.
+    - cron: "1 7 11 */3 *"
 
 name: OS-check
+
+## Bump cache-version to force-invalidate all caches (e.g. after a toolchain
+## change). Referenced in the cache key below.
+env:
+  cache-version: 'cache-v4'
 
 jobs:
   OS-check:
     runs-on: ${{ matrix.config.os }}
+    ## Bound each matrix leg so a hung/OOM render cannot run to the 6-hour cap.
+    timeout-minutes: 120
+    ## The r-devel legs chronically fail on binary availability (Bioconductor
+    ## devel / r-devel package binaries are often not published yet, forcing
+    ## source builds that break, e.g. data.table on macOS). Keep them running
+    ## for information but don't let them fail the workflow / redden the badge -
+    ## the release legs are the gating signal.
+    continue-on-error: ${{ matrix.config.r == 'devel' }}
 
     name: ${{ matrix.config.os }} (${{ matrix.config.r }})
 
@@ -33,7 +67,7 @@ jobs:
       GITHUB_PAT: ${{ secrets.GHTOKEN2 }}
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       ## R is already included in the Bioconductor docker images
       - name: Setup R from r-lib
@@ -45,46 +79,38 @@ jobs:
       - name: Setup pandoc from r-lib
         uses: r-lib/actions/setup-pandoc@v2
 
+      ## Snapshot the resolved dependency set and the R version. Both feed the
+      ## cache key below so a dependency or R change busts the cache.
       - name: Query dependencies
         run: |
           install.packages('remotes')
-          saveRDS(remotes::dev_package_deps("introToR/",dependencies = TRUE), ".github/depends.Rds", version = 2)
+          saveRDS(remotes::dev_package_deps(".",dependencies = TRUE), ".github/depends.Rds", version = 2)
           writeLines(sprintf("R-%i.%i", getRversion()$major, getRversion()$minor), ".github/R-version")
         shell: Rscript {0}
 
       - name: Cache R packages
-        if: runner.os != 'Windows'
+        if: "!contains(github.event.head_commit.message, '/nocache')"
         uses: actions/cache@v4
         with:
           path: ${{ env.R_LIBS_USER }}
-          key: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-${{ hashFiles('.github/depends.Rds') }}
-          restore-keys: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-
-
-      - name: Cache R packages
-        if: "!contains(github.event.head_commit.message, '/nocache') && runner.os != 'Linux'"
-        uses: actions/cache@v4
-        with:
-          path: ${{ env.R_LIBS_USER }}
-          key: ${{ env.cache-version }}-${{ runner.os }}-biocversion-RELEASE_3_13-r-4.1-${{ hashFiles('.github/depends.Rds') }}
-          restore-keys: ${{ env.cache-version }}-${{ runner.os }}-biocversion-RELEASE_3_13-r-4.1-
-
-      - name: Cache R packages on Linux
-        if: "!contains(github.event.head_commit.message, '/nocache') && runner.os == 'Linux' "
-        uses: actions/cache@v4
-        with:
-          path: /home/runner/work/_temp/Library
-          key: ${{ env.cache-version }}-${{ runner.os }}-biocversion-RELEASE_3_13-r-4.1-${{ hashFiles('.github/depends.Rds') }}
-          restore-keys: ${{ env.cache-version }}-${{ runner.os }}-biocversion-RELEASE_3_13-r-4.1-
+          key: ${{ env.cache-version }}-${{ runner.os }}-${{ hashFiles('.github/R-version') }}-${{ hashFiles('.github/depends.Rds') }}
+          restore-keys: ${{ env.cache-version }}-${{ runner.os }}-${{ hashFiles('.github/R-version') }}-
 
       - name: Install Linux system dependencies
         if: runner.os == 'Linux'
+        ## Static list of the system libraries the course packages need. This
+        ## replaces a `remotes::system_requirements()` call that was fragile
+        ## (it choked on base packages like `methods` in Depends, and on newer
+        ## distro codenames) and had been failing this leg for months.
+        ## libuv1-dev provides uv.h, needed to build `fs` from source on the
+        ## r-devel leg (no binaries exist for devel, so fs/sass/bslib/rmarkdown
+        ## are compiled from source and fail without it).
         run: |
-          sysreqs=$(Rscript -e 'cat("apt-get update -y && apt-get install -y", paste(gsub("apt-get install -y ", "", remotes::system_requirements("ubuntu-22.04", package=unlist(strsplit(read.dcf("introToR/DESCRIPTION")[,"Depends"],", |\n")))), collapse = " "))')
-          echo $sysreqs
-          sudo -s eval "$sysreqs"
-          sudo apt -y install libfontconfig1-dev
-          sudo apt-get install libharfbuzz-dev libfribidi-dev
-          sudo apt-get install libfreetype6-dev libpng-dev libtiff5-dev libjpeg-dev
+          sudo apt-get update -y
+          sudo apt-get install -y \
+            libcurl4-openssl-dev libssl-dev libxml2-dev libuv1-dev \
+            libfontconfig1-dev libharfbuzz-dev libfribidi-dev \
+            libfreetype6-dev libpng-dev libtiff5-dev libjpeg-dev
 
       - name: Install macOS system dependencies
         if: matrix.config.os == 'macOS-latest'
@@ -103,54 +129,33 @@ jobs:
           ## For installing usethis's dependency gert
           brew install libgit2
 
-      - name: Install Windows system dependencies
-        if: runner.os == 'Windows'
+      ## Install the course package's declared dependencies (plus BiocManager).
+      - name: Install dependencies
         run: |
-          ## Edit below if you have any Windows system dependencies
-        shell: Rscript {0}
-
-      - name: Install dependencies 1
-        run: |
-          remotes::install_deps("introToR/",dependencies = TRUE)
+          remotes::install_deps(".",dependencies = TRUE)
           remotes::install_cran("rcmdcheck")
           remotes::install_cran("BiocManager", force = TRUE)
         shell: Rscript {0}
-        
-      - name: Install dependencies 2
+
+      ## On r-devel legs, move Bioconductor onto its devel branch so packages
+      ## resolve against the matching Bioc release. (No devtools install - the
+      ## engine and the local-package install both use remotes now.)
+      - name: Switch to Bioconductor devel
         if: matrix.config.r == 'devel'
-        run: |
-          BiocManager::install(version = "devel", ask=F)
-          BiocManager::install("rmarkdown", version = "devel")
-          BiocManager::install("devtools", version = "devel")
-          BiocManager::install("RockefellerUniversity/compileCourses",subdir="compileCourses", version = "devel")
-        shell: Rscript {0}
-        
-      - name: Install dependencies 3
-        if: matrix.config.r != 'devel'
-        run: |
-          BiocManager::install("rmarkdown")
-          BiocManager::install("devtools")
-          BiocManager::install("RockefellerUniversity/compileCourses",subdir="compileCourses")  
-        shell: Rscript {0}
-        
-      - name: Session info
-        run: |
-          options(width = 100)
-          pkgs <- installed.packages()[, "Package"]
-          sessioninfo::session_info(pkgs, include_base = TRUE)
+        run: BiocManager::install(version = "devel", ask = FALSE)
         shell: Rscript {0}
 
-      - name: Install package
-        if: github.ref == 'refs/heads/master' 
-        run: |
-          devtools::install("introToR/",dependencies = TRUE, quick = TRUE)
-        shell: Rscript {0}
-
-      - name: CompileCourse
-        run: |
-          require(compileCourses)
-          compileCourses::compileSingleCourseMaterial(repo="RockefellerUniversity",subdir="introToR",branch="master")
-        shell: Rscript {0}
+      ## Install the compileCourses engine, install the local package and
+      ## render the course. Shared with compilation-check and legacy-R-check.
+      - name: Compile course
+        uses: ./.github/actions/compile-course
+        with:
+          repo: RockefellerUniversity
+          branch: master
+          compilecourses-ref: quarto-migration   # Quarto engine branch — pinned during the phased migration; remove at the final cut-over
+          compilecourses-version: ${{ matrix.config.r == 'devel' && 'devel' || '' }}
+          ## Cross-platform execution canary: always full-execute (never reuse freeze).
+          full-rebuild: true
 
       - name: Upload check results
         if: failure()
